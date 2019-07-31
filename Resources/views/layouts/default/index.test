@@ -1,0 +1,54 @@
+@extends('pub_theme::layouts.app')
+@section('content')
+@php
+	
+@endphp
+	@include('extend::includes.components')
+	@include('extend::includes.flash')
+	@include('extend::modal_ajax')
+	{{--  
+	@includeFirst([$view_default.'.btns.gear',$view_extend.'.btns.gear'])
+	--}}
+	{!! Form::bsBtnGear(['row'=>1]) !!}
+		<div class="page-wrapper">
+			@if(isset($step))
+				@include('pub_theme::layouts.partials.top_links',['step'=>$step])
+			@endif
+			{{--  
+			@if(is_object($second_last))
+				@includeFirst(
+					[
+						'pub_theme::layouts.default.show.inner_page.'.$parent_type,
+						'pub_theme::layouts.default.show.inner_page',
+						'extend::layouts.default.show.inner_page',
+					]
+				)
+				
+			@else
+				{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
+			@endif
+			--}}
+			{!! Theme::include('inner_page',[],get_defined_vars() ) !!} {{-- semplifichiamo --}}
+			{!! Theme::include('breadcrumb',[],get_defined_vars() ) !!} {{-- sul tema come le tabs ? --}}
+			{{--
+			{!! Theme::include('parent_tabs',['tabs'=>$parent_tabs],get_defined_vars() ) !!}
+			{!! Theme::include('tabs',['tabs'=>$tabs],get_defined_vars() ) !!}
+			@include($view.'.result_show')
+			--}}
+			@include('pub_theme::layouts.partials.tabs',['tabs'=>$_panel->tabs()])
+			<section class="restaurants-page">
+				<div class="container">
+					<div class="row">
+						{{--
+						{!! Theme::include('header',['edit_type'=>$row_type],get_defined_vars() ) !!}
+						{!! Theme::include($view_body,[],get_defined_vars() ) !!}
+						--}}
+						@include('extend::layouts.default.common.'.$view_body)
+						{{--
+						{!! Theme::include('footer',['edit_type'=>$row_type],get_defined_vars() ) !!}
+						--}}
+					</div>
+				</div>
+			</section>
+		</div>
+@endsection		

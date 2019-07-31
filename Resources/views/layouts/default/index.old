@@ -1,0 +1,118 @@
+@extends('pub_theme::layouts.app')
+@section('content')
+@php
+	
+	$tabs=$row->tabs;
+	$parent_tabs=$row->parent_tabs;
+	//$row_type=snake_case($row->post_type);
+
+@endphp
+	@include('extend::includes.components')
+	@include('extend::includes.flash')
+	@include('extend::modal_ajax')
+	@includeFirst([$view_default.'.btns.gear',$view_extend.'.btns.gear'])
+		<div class="page-wrapper">
+			@if(isset($step))
+			@include('pub_theme::layouts.partials.top_links',['step'=>$step])
+			@endif
+			@if(is_array($parent_tabs) && is_object($second_last))
+				
+				@includeFirst(
+					[
+						'pub_theme::layouts.default.show.inner_page.'.$parent_type,
+						'pub_theme::layouts.default.show.inner_page',
+						'extend::layouts.default.show.inner_page',
+					]
+				)
+				
+			@else
+				{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
+				{{--
+				@includeFirst(
+					[
+						$view.'.inner_page',
+						$view_default.'.inner_page',
+						$view_extend.'.inner_page'
+					]
+				)
+				--}}
+			@endif
+			{{--
+			@include('pub_theme::layouts.partials.breadcrumb')
+			--}}
+			{!! Theme::include('breadcrumb',[],get_defined_vars() ) !!}
+			@php	
+				//$parent_tabs=null;
+				//$tabs=null;
+			@endphp
+
+			{!! Theme::include('parent_tabs',['tabs'=>$parent_tabs],get_defined_vars() ) !!}
+				{{--
+			@if(is_array($parent_tabs))
+				@includeFirst(
+					[
+						$view.'.parent_tabs',
+						$view_default.'.parent_tabs',
+						$view_extend.'.parent_tabs'
+					],
+					['tabs'=>$parent_tabs] 
+				)
+			@endif
+				--}}
+				{{-- tabs1 solo per non leggere file vecchi --}}
+			{!! Theme::include('tabs',['tabs'=>$tabs],get_defined_vars() ) !!}
+			{{--	
+			@if(is_array($tabs))
+
+				@includeFirst(
+					[
+						$view.'.tabs1',
+						$view_default.'.tabs',
+						$view_extend.'.tabs'
+					],
+					['tabs'=>$tabs] 
+				)
+			@endif
+			--}}
+			{{--
+			@include($view.'.result_show')
+			--}}
+			<section class="restaurants-page">
+				<div class="container">
+					<div class="row">
+						{!! Theme::include('header',['edit_type'=>$row_type],get_defined_vars() ) !!}
+						{{--
+						@includeFirst(
+							[
+								$view.'.header',
+								$view_default.'.header.'.$row_type,
+								$view_extend.'.header.'.$row_type,
+								$view_default.'.header',
+								$view_extend.'.header'
+							],
+							['edit_type'=>$row_type]
+						)
+						--}}
+						{{-- ddd($view_body) --}}
+						{!! Theme::include($view_body,[],get_defined_vars() ) !!}
+						{{--						  
+						@includeFirst([$view_default.'.'.$view_body,$view_extend.'.'.$view_body])
+						--}}
+						{!! Theme::include('footer',['edit_type'=>$row_type],get_defined_vars() ) !!}
+						{{--
+						@includeFirst(
+							[
+								$view.'.footer',
+								$view_default.'.footer.'.$row_type,
+								$view_extend.'.footer.'.$row_type,
+								$view_default.'.footer',
+								$view_extend.'.footer'
+							],
+							['edit_type'=>$row_type]
+						)
+						--}}
+					</div>
+				</div>
+			</section>
+		</div>
+@endsection		
