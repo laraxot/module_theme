@@ -13,7 +13,7 @@
         $rating_avg=$rates->avg('pivot.rating');
         $rating_count=$rates->count();
     @endphp
-    @include('extend::layouts.partials.rating.item',['label'=>$i_rating->title,'rating_avg'=>$rating_avg,'rating_count'=>$rating_count])
+    @include('theme::layouts.partials.rating.item',['label'=>$i_rating->title,'rating_avg'=>$rating_avg,'rating_count'=>$rating_count])
 @endforeach
 </div>
 <div class="col-sm-4 col-md-4">

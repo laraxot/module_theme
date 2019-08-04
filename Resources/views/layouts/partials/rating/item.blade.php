@@ -48,12 +48,21 @@
             @foreach(range(1,5) as $i)
                 @if($rating >0)
                     @if($rating >0.5)
+                        {{--
                         <i class="fa fa-star"></i>
+                        --}}
+                        <i class="fas fa-star"></i>
                     @else
+                        <i class="fas fa-star-half-alt"></i>
+                        {{--
                         <i class="fa fa-star-half-o"></i>
+                        --}}
                     @endif
                 @else
-        	       <i class="fa fa-star-o"></i>
+                    <i class="far fa-star"></i>
+                    {{--
+        	        <i class="fa fa-star-o"></i>
+                    --}}
                 @endif
                 @php $rating--; @endphp
             @endforeach

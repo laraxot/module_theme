@@ -15,7 +15,7 @@
 	<meta itemprop="ratingCount" content="{{ $rating_count }}">
 	<meta itemprop="bestRating" content="5">
 	<meta itemprop="worstRating" content="1">
-	@include('extend::layouts.partials.rating.item',['label'=>'','rating_avg'=>$rating_avg,'rating_count'=>$rating_count])
+	@include('theme::layouts.partials.rating.item',['label'=>'','rating_avg'=>$rating_avg,'rating_count'=>$rating_count])
 	{{-- item_type_schema_org  e microdate_schema_org son mutators non campi --}}
 	<div itemprop="itemReviewed" itemscope itemtype="{{ $row->item_type_schema_org }}" >
 		<meta itemprop="url" content="{{ $row->url }} " >
