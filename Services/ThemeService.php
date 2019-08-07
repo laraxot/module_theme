@@ -1552,6 +1552,7 @@ class ThemeService
 	public static function getXmlMenu(){
 		$route_params = \Route::current()->parameters();
 		extract($route_params);
+		if(!isset($module)) return [];
 		if(Str::startsWith($module,'trasferte')){
 			$module_original='trasferte';
 		}else{
@@ -1561,6 +1562,7 @@ class ThemeService
 		$mod_path=$mod->getPath();
 		$json_path=$mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
 		$json_path=str_replace(['\\','/'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$json_path);
+		if(!File::exists($json_path)) return [];
 		$menu=include($json_path);
 		return $menu;
 	}
