@@ -2,8 +2,16 @@
 @foreach($_panel->actions() as $act)
 	{!! $act->btn() !!}
 @endforeach
+{{--
+@include('adm_theme::layouts.partials.forms.search') 
+--}}
+<div class="row">
+    <div class="col">
+        <p><span class="primary-color"><strong>{{ number_format($rows->total(),0,',',' ') }}</strong></span> {{ Str::plural($row->post_type) }}</p>
+    </div>
+	@include('adm_theme::layouts.partials.forms.search')
+</div>
 
-@include('adm_theme::layouts.partials.forms.search') {{--  forse fare form macro --}}
 @foreach($rows as $k=>$v)
 	@include($_layout->item_view,['key'=>$k,'row'=>$v])
 @endforeach
