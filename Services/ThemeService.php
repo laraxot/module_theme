@@ -1256,6 +1256,9 @@ class ThemeService
 			$row_type=$row->post_type;
 			$panel=StubService::getByModel($row,'panel',true);
 		}
+		if($row_type==''){
+			$row_type=Str::camel(class_basename($row));
+		}
 
 		$routename = \Route::current()->getName();
 		$lang = \App::getLocale();
@@ -1296,11 +1299,17 @@ class ThemeService
 
 		
 		list($containers,$items)=params2ContainerItem($params);
+		$last_container=last($containers);
+		$types=camel_case(str_plural($last_container));
+		$last_item=last($items);
 		$theView = view($view_work)
 			->with('lang', $lang)
 			->with('params', $params)
 			->with('containers',$containers)
+			->with('last_container',$last_container )
 			->with('items',$items)
+			->with('types',$types)
+			->with('last_item',$last_item)
 			->with('_layout',$layout)
 			->with('routename', $routename);
 		/*		

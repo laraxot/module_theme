@@ -30,6 +30,10 @@ class ThemeServiceProvider extends XotBaseServiceProvider{
         //ddd($pub_theme_dir.'/translations');
         $this->loadTranslationsFrom($pub_theme_dir.'/translations', 'pub_theme');
         $this->loadTranslationsFrom($adm_theme_dir.'/translations', 'adm_theme');
+
+        $this->commands([
+            \Modules\Theme\Console\CreateThemeCommand::class,
+        ]);
     }
 
 }
