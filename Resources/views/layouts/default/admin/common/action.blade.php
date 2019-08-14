@@ -3,6 +3,13 @@
 @section('content')
 @include('extend::includes.flash')
 @include('extend::modal_ajax')
+{{--  
+<style>
+	fieldset{
+		border:1px solid darkgray;
+	}
+</style>
+--}}
 @php  
 	if(!is_object($row)) return ;
 @endphp
@@ -19,8 +26,8 @@
 	{{--
 	--}}
 	@include('adm_theme::layouts.partials.tabs',['tabs'=>$_panel->tabs()])
-	
-	@if($_layout->act=='index')
+	{{-- $_layout->act --}}
+	@if(Str::startsWith($_layout->act,'index'))
 		@include('adm_theme::layouts.partials.nav',['nav'=>$_panel->indexNav()])
 	@endif
 	<section class="create-page inner-page">

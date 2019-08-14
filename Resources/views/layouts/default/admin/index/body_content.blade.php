@@ -1,5 +1,5 @@
 {!! Form::bsBtnCreateAttach(['row'=>$row]) !!} 
-@foreach($_panel->actions() as $act)
+@foreach($_panel->containerActions() as $act)
 	{!! $act->btn() !!}
 @endforeach
 {{--
