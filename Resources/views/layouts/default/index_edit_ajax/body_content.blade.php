@@ -11,16 +11,10 @@ $last_item=$params['item0'];
  //ddd($_panel);
 @endphp
 
-
+{{--  
 {!! Form::bsOpen($last_item,'index_edit','index_edit') !!}
 {{ Form::bsMultiSelect2Sides($types) }}
 {{Form::bsSubmit('Salva') }}
-{{-- 
-{{ Theme::showScripts(false) }}
-{!! Theme::showStyles(false) !!}
-{!! Theme::showScripts(false) !!}
-@stack('scripts')
---}}
 <a class="btn btn-primary btntest">test</a>
 
 <script>
@@ -29,3 +23,10 @@ $last_item=$params['item0'];
   		alert('jquery loaded');
   	});
 </script>
+
+{!! Form::bsBtnCreate(['row'=>$row]) !!}
+--}}
+@foreach($rows as $key=>$row)
+	@include($_layout->item_view,['key'=>$key,'row'=>$row])
+@endforeach
+{{ $rows->links() }}
