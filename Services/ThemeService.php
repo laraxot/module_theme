@@ -34,8 +34,7 @@ use Modules\FormX\Services\FormXService;
 
 //---------CSS----------
 
-class ThemeService
-{
+class ThemeService{
 	use Getter;
 	public static $config_name = 'metatag';
 	public static $vars = [];
@@ -1544,8 +1543,9 @@ class ThemeService
 			$module_original=$module;
 		}
 		$mod=\Module::find($module_original);
-		$mod_path=$mod->getPath();
+		$mod_path=$mod->getPath(); 
 		$json_path=$mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
+		\Debugbar::addMessage($json_path, 'menu path:');		
 		$json_path=str_replace(['\\','/'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$json_path);
 		$menu=include($json_path);
 		ddd($menu);
@@ -1570,6 +1570,7 @@ class ThemeService
 		$mod=\Module::find($module_original);
 		$mod_path=$mod->getPath();
 		$json_path=$mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
+		\Debugbar::addMessage($json_path, 'menu path:');
 		$json_path=str_replace(['\\','/'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$json_path);
 		if(!File::exists($json_path)) return [];
 		$menu=include($json_path);

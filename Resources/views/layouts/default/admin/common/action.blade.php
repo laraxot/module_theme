@@ -28,7 +28,11 @@
 	@include('adm_theme::layouts.partials.tabs',['tabs'=>$_panel->tabs()])
 	{{-- $_layout->act --}}
 	@if(Str::startsWith($_layout->act,'index'))
+		@if(is_array($_panel->indexNav()))
 		@include('adm_theme::layouts.partials.nav',['nav'=>$_panel->indexNav()])
+		@else
+		{!! $_panel->indexNav() !!}
+		@endif
 	@endif
 	<section class="create-page inner-page">
 		<div class="container-fluid">
