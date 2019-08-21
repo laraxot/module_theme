@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 {{--
->>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 {!! Form::bsOpen($row,'store') !!}
 <div class="row">
 @foreach($_panel->fields() as $field)
@@ -18,8 +15,6 @@
 @endforeach
 </div>
 {{Form::bs3Submit('')}}
-<<<<<<< HEAD
-=======
 {!! Form::close() !!}
 --}}
 @php
@@ -46,5 +41,4 @@
 @endforeach
 </div>
 {{Form::bs3Submit('')}}
->>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 {!! Form::close() !!}

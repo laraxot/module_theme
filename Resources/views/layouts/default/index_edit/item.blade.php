@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-@include('theme::layouts.default.index.item')
- 
-=======
 @php
 	$fields=$_panel->indexFields();
 @endphp
@@ -31,4 +27,3 @@
 	</tbody>
 </table>
 @endif
->>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
