@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+{{--
+>>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 {!! Form::bsOpen($row,'update') !!}
 <div class="row">
 @foreach($_panel->fields() as $field)
@@ -14,4 +18,21 @@
 @endforeach
 </div>
 {{Form::bs3Submit('Modifica')}}
+<<<<<<< HEAD
+=======
+{!! Form::close() !!}
+--}}
+@php
+	if(!is_object($row)) return '';
+	$fields=$_panel->editFields();
+@endphp
+
+{!! Form::bsOpen($row,'update') !!}
+<div class="row">
+@foreach($fields as $field)
+	{!! Theme::inputHtml(['row'=>$row,'field'=>$field]) !!}
+@endforeach
+</div>
+{{Form::bs3Submit('')}}
+>>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 {!! Form::close() !!}

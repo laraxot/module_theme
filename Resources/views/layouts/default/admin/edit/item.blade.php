@@ -1,5 +1,6 @@
 @php
 	if(!is_object($row)) return '';
+<<<<<<< HEAD
 	//ddd($row->pivot); //dovrebbe venire fuori piu' di uno
 	/*
 	$pivot=$row->pivot;
@@ -20,11 +21,15 @@
 		--- funziona ma meglio spostarlo sul crud -----
 		*/
     $fields=$_panel->fields();
+=======
+    $fields=$_panel->editFields();
+>>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 @endphp
 {!! Form::bsOpen($row,'update') !!}
 <div class="row">
 @foreach($fields as $field)
     {!! Theme::inputHtml(['row'=>$row,'field'=>$field]) !!}
+<<<<<<< HEAD
 {{--  
 @php
 	$input='bs'.studly_case($field->type);
@@ -37,6 +42,8 @@
 	{!! Form::$input($input_name) !!}
 </div>
 --}}
+=======
+>>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 @endforeach
 </div>
 {{Form::bs3Submit('Modifica')}}

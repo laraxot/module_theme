@@ -23,6 +23,14 @@
 			@foreach($fields as $field)
 			<td>
 				{!! Theme::inputFreeze(['row'=>$row,'field'=>$field]) !!}
+<<<<<<< HEAD
+=======
+				@if($loop->first)
+					@foreach($_panel->itemActions() as $act)
+						{!! $act->btn(['row'=>$row]) !!}
+					@endforeach
+				@endif
+>>>>>>> 9fc4305a99742739f5c5d6b9f988e8b89580f3d0
 				{{--  
 				@php
 					$field_name=str_replace(['[',']'],['.',''],$field->name);
