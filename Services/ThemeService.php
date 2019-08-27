@@ -8,24 +8,18 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-//use Illuminate\Contracts\View\Factory as ViewContract;
-//https://github.com/eusonlito/laravel-Packer
-//genealabs/laravel-model-caching
+
 use Assetic\Asset\AssetCache;
 use Assetic\Asset\AssetCollection;
 use Assetic\Asset\FileAsset;
 use Assetic\Cache\FilesystemCache;
-//http://cgit.drupalcode.org/sandbox-linclark-2011168/tree/core/vendor/kriswallsmith/assetic/src/Assetic/Filter/JSMinPlusFilter.php?h=1869600-refactor-rdf&id=ef326513c577095b7d6ab75f49d5f3ef60d88710
 use Assetic\Filter\CssMinFilter;
-//use Assetic\Filter\JsMinPlusFilter;
 use Assetic\Filter\JsMinFilter;
 use Assetic\Filter\ScssphpFilter;
 //----- Models -----
 
 //---- xot extend -----
 use Illuminate\Support\Facades\View;
-//use Route;
-//use Modules\Extend\Library\XmlMenu_op;
 use Modules\Extend\Traits\Getter;
 //----- services --
 use Modules\Extend\Services\ArtisanService;
@@ -40,8 +34,7 @@ class ThemeService{
 	public static $vars = [];
 	private static $_instance = null;
 
-	public static function getInstance()
-	{
+	public static function getInstance(){
 		if (null === self::$_instance) {
 			self::$_instance = new self();
 		}
@@ -462,6 +455,10 @@ class ThemeService{
 
 		$str = 'http://';
 		if (Str::startsWith($path, $str)) {
+			return $path;
+		}
+
+		if (!Str::contains($path, '::')) {
 			return $path;
 		}
 
