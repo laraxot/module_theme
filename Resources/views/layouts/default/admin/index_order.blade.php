@@ -1,8 +1,8 @@
 @extends('pub_theme::layouts.app')
 @section('content')
-@include('extend::includes.components')
-@include('extend::includes.flash')
-@include('extend::modal_ajax')
+
+@include('theme::includes.flash')
+@include('theme::modal_ajax')
 <style>
   	#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
   	#sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }

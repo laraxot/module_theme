@@ -17,13 +17,13 @@
 		@lang($view_default.'.edit_page')<i class="fa fa-edit"></i>
 		</a>
 		@endif
-		@include('extend::layouts.partials.btns.translate_manager')
+		@include('theme::layouts.partials.btns.translate_manager')
 		<span>@lang($view_default.'.more_opt')</span>
 	</div>
 </div>
 {{ Theme::add('theme/pub/js/color-settings.js') }}
 {{ Theme::add('theme/pub/css/color-switcher-design.css') }}
-@include('extend::modal_ajax')
+@include('theme::modal_ajax')
 @else
 {{-- ddd('no diritto') --}}
 @endcan

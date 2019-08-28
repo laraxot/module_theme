@@ -1,8 +1,8 @@
 @extends('pub_theme::layouts.app')
 @section('page_heading',trans($view.'.page_heading'))
 @section('content')
-@include('extend::includes.flash')
-@include('extend::modal_ajax')
+@include('theme::includes.flash')
+@include('theme::modal_ajax')
 {!! Form::bsBtnGear(['row'=>$row]) !!}
 <div class="page-wrapper">
 	{!! Theme::include('inner_page',[],get_defined_vars() ) !!}

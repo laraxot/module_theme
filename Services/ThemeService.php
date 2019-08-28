@@ -20,10 +20,10 @@ use Assetic\Filter\ScssphpFilter;
 
 //---- xot extend -----
 use Illuminate\Support\Facades\View;
-use Modules\Extend\Traits\Getter;
+use Modules\Xot\Traits\Getter;
 //----- services --
-use Modules\Extend\Services\ArtisanService;
-use Modules\Extend\Services\StubService;
+use Modules\Xot\Services\ArtisanService;
+use Modules\Xot\Services\StubService;
 use Modules\FormX\Services\FormXService;
 
 //---------CSS----------
@@ -156,13 +156,13 @@ class ThemeService{
 		//self::add('theme/bc/select2-bootstrap4-theme/dist/select2-bootstrap4.css');
 		//self::add('theme/bc/popper.js/dist/popper.min.js');
 		//self::add('theme/bc/select2/dist/js/select2.full.min.js');
-		//self::add('extend::js/select2ajax.js');
+		//self::add('theme::js/select2ajax.js');
 		//* librerin in cdn
 		self::add('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css');
 		self::add('theme/bc/select2-bootstrap4-theme/dist/select2-bootstrap4.css');
 		self::add('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js');
 		self::add('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js');
-		self::add('extend::js/select2ajax.js');
+		self::add('theme::js/select2ajax.js');
 	}
 
 
@@ -231,7 +231,7 @@ class ThemeService{
 		if (null == $ns) {
 			return null;
 		}
-		//dirname(\View::getFinder()->find('extend::includes.components.form.text'));
+		//dirname(\View::getFinder()->find('theme::includes.components.form.text'));
 		$viewHints = View::getFinder()->getHints();
 		if (isset($viewHints[$ns])) {
 			return $viewHints[$ns][0];
@@ -477,12 +477,7 @@ class ThemeService{
 		$pos = \mb_strpos($other, '/');
 		$other0 = \mb_substr($other, 0, $pos);
 		$other1 = \mb_substr($other, $pos);
-		//ddd('iiii ['.$pos.']['.$path.']['.$ns.']['.$other0.']['.$other1.']');
-		//iiii [41]
-		//[extend::includes.components.form.html5_upload.img/js/html5imageupload.js]
-		//[extend]
-		//[includes.components.form.html5_upload.img]
-		//[/js/html5imageupload.js]
+		
 
 		try{
 			$other0=dirname(\View::getFinder()->find($ns.'::'.$other0));
@@ -503,7 +498,7 @@ class ThemeService{
 				'$path'=>$path,
 				'$other0'=>$other0,
 				'$other1'=>$other1,
-				'test'=>dirname(realpath(\View::getFinder()->find('extend::includes.components.form.weareoutman.clock'))),
+				'test'=>dirname(realpath(\View::getFinder()->find('theme::includes.components.form.weareoutman.clock'))),
 
 			];
 			//ddd($msg);
@@ -705,7 +700,7 @@ class ThemeService{
 		*/
 		$scripts = \array_unique($scripts);
 
-		return view('extend::services.script')->with('scripts', $scripts);
+		return view('theme::services.script')->with('scripts', $scripts);
 	}
 
 	//end function
@@ -832,7 +827,7 @@ class ThemeService{
 			*/
 		}
 		//ddd($not_compress);
-		return view('extend::services.style')->with('styles', $styles);
+		return view('theme::services.style')->with('styles', $styles);
 	}
 
 	public static function tag($html)
@@ -972,7 +967,7 @@ class ThemeService{
 
 	public static function metatags()
 	{
-		$view = 'extend::metatags';
+		$view = 'theme::metatags';
 
 		return (string) view($view);
 	}
@@ -1153,8 +1148,8 @@ class ThemeService{
 				];
 		*/
 
-		//return view('extend::services.tabs',$params)
-		$view = 'extend::services.tabs';
+		//return view('theme::services.tabs',$params)
+		$view = 'theme::services.tabs';
 		$view = 'pub_theme::includes.partials.tabs';
 		$view = 'adm_theme::includes.partials.tabs';
 
@@ -1204,7 +1199,7 @@ class ThemeService{
 			$view= 'pub_theme::'.$path;
 		}
 		//------------ CASI PARTICOLARI -----------
-		if($view=='pub_theme::translation.index') return 'extend::translation.index';
+		if($view=='pub_theme::translation.index') return 'theme::translation.index';
 		//-----------------------------------------
 
 		return $view;

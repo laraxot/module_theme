@@ -1,9 +1,9 @@
 @extends('theme::layouts.app_ajax')
 @section('content')
 {{--
-@include('extend::includes.components')
-@include('extend::includes.flash')
-@include('extend::modal_ajax')
+
+@include('theme::includes.flash')
+@include('theme::modal_ajax')
 {!! Theme::include('header',['edit_type'=>$row_type],get_defined_vars() ) !!}
 --}}
 <section class="restaurants-page">

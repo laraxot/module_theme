@@ -1,8 +1,8 @@
 @extends('adm_theme::layouts.app')
 @section('page_heading',$params['module'])
 @section('content')
-@include('extend::includes.flash')
-@include('extend::modal_ajax')
+@include('theme::includes.flash')
+@include('theme::modal_ajax')
 {{--  
 <style>
 	fieldset{

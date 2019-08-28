@@ -1,1 +1,1 @@
-@include('extend::layouts.partials.breadcrumb')
+@include('theme::layouts.partials.breadcrumb')
