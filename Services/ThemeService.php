@@ -1207,7 +1207,13 @@ class ThemeService{
 
 
 
-	public static function view($view=null){
+	public static function view($params=null){
+		$view=null;
+		if(is_array($params)){
+			extract($params);
+		}else{
+			$view=$params;
+		}
 		\Debugbar::startMeasure('render','Time for rendering');
 		$params = \Route::current()->parameters();
 		$route_action = \Route::currentRouteAction();
@@ -1235,17 +1241,20 @@ class ThemeService{
 		if($view_work==false){
 			ddd('not exists ['.implode(']'.chr(13).'[',$views).']');
 		}
-
-		$row = last($params);
-		if(!is_object($row) && config('xra.model.'.$row)!=''){
-			$model=config('xra.model.'.$row);
-			$row=new $model;
+		if(!isset($row)){
+			$row = last($params);
+			if(!is_object($row) && config('xra.model.'.$row)!=''){
+				$model=config('xra.model.'.$row);
+				$row=new $model;
+			}
 		}
 		$row_type='';
 		if(is_object($row)){
 			self::setMetatags($row);
 			$row_type=$row->post_type;
-			$panel=StubService::getByModel($row,'panel',true);
+			if(!isset($panel)){
+				$panel=StubService::getByModel($row,'panel',true);
+			}
 		}
 		if($row_type==''){
 			$row_type=Str::camel(class_basename($row));

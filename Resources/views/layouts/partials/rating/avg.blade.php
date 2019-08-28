@@ -20,7 +20,7 @@
 	<div itemprop="itemReviewed" itemscope itemtype="{{ $row->item_type_schema_org }}" >
 		<meta itemprop="url" content="{{ $row->url }} " >
 		<meta itemprop="name" content="{{ $row->title }} " >
-		{!! $row->microdataSchemaOrg() !!}
+		{!! Panel::get($row)->microdataSchemaOrg() !!}
 		
 	</div>
 
