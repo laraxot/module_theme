@@ -57,15 +57,15 @@ class ThemeService{
 	public static function get_scripts($params){
 		return [];
 	}
-
+	
 	public static function get_langs($params){
-		$uri=(\Request::has('uri'))?\Request::input('uri'):$_SERVER['REQUEST_URI'];
-		$cache_key=str_slug($uri.'_langs');
+		
+		$cache_key=str_slug(req_uri().'_langs');
 		$langs=Cache::get($cache_key);
 		if(!is_array($langs)) $langs=[];
 		return $langs;
 	}
-
+	
 
 	public static function get_scripts_pos($params){
 		return [];
@@ -149,19 +149,28 @@ class ThemeService{
 		self::add('theme/bc/ContentTools/sandbox/sandbox.css');
 	}
 
-	public static function addSelect2($params = [])
-	{
-		// librerie in locale
-		//self::add('theme/bc/select2/dist/css/select2.min.css');
-		//self::add('theme/bc/select2-bootstrap4-theme/dist/select2-bootstrap4.css');
-		//self::add('theme/bc/popper.js/dist/popper.min.js');
-		//self::add('theme/bc/select2/dist/js/select2.full.min.js');
-		//self::add('theme::js/select2ajax.js');
-		//* librerin in cdn
-		self::add('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css');
-		self::add('theme/bc/select2-bootstrap4-theme/dist/select2-bootstrap4.css');
-		self::add('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js');
-		self::add('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js');
+	public static function addSelect2($params = []){
+		$tipo = 2; //0 bc, 1 cdn ,2  mix
+		switch($tipo){
+			case 0:
+				// librerie in locale
+				self::add('theme/bc/select2/dist/css/select2.min.css');
+				self::add('theme/bc/select2-bootstrap4-theme/dist/select2-bootstrap4.css');
+				self::add('theme/bc/popper.js/dist/popper.min.js');
+				self::add('theme/bc/select2/dist/js/select2.full.min.js');
+				self::add('theme::js/select2ajax.js');
+			break;
+			case 1:
+				//* librerin in cdn
+				self::add('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css');
+				self::add('theme/bc/select2-bootstrap4-theme/dist/select2-bootstrap4.css');
+				self::add('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js');
+				self::add('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js');
+			break;
+			case 2:
+				//mix , non va aggiunto nulla 
+			break;
+		}
 		self::add('theme::js/select2ajax.js');
 	}
 
