@@ -60,7 +60,7 @@ class ThemeService{
 	
 	public static function get_langs($params){
 		
-		$cache_key=str_slug(req_uri().'_langs');
+		$cache_key=Str::slug(req_uri().'_langs');
 		$langs=Cache::get($cache_key);
 		if(!is_array($langs)) $langs=[];
 		return $langs;
@@ -1396,7 +1396,7 @@ class ThemeService{
 		//scopiazzato da spatie partialcache
 		$lang=\App::getLocale();
 		$data['lang']=$lang;
-		$cache_key=str_slug($view).'-'.md5(json_encode($data)).'-1';
+		$cache_key=Str::slug($view).'-'.md5(json_encode($data)).'-1';
 		$seconds=60*60*24;
 		try{
 			$html= Cache::/*store('apc')->*/remember($cache_key, $seconds, function () use($view, $data, $mergeData){
