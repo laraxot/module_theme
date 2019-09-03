@@ -1,5 +1,14 @@
+{{--
+@foreach($rows  as $key=>$row)
+	@include($_layout->item_view,['key'=>$key,'row'=>$row])
+@endforeach
+{{ $rows->links('pub_theme::layouts.partials.pagination') }} 
+--}}
 @php
-	Theme::add('/theme/pub/dist/js/app.js',1);
+$types=camel_case(str_plural($params['container1']));
+$last_item=$params['item0'];
+ Theme::add('/theme/pub/dist/js/app.js',1);
+ //ddd($_panel);
 @endphp
 
 {{--  

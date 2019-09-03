@@ -10,6 +10,8 @@
     </div>
 @endif
 @if (session('swal'))
+{{ Theme::add('theme/bc/sweetalert2/dist/sweetalert2.all.min.js') }}
+{{ Theme::add('theme/bc/sweetalert2/dist/sweetalert2.min.css') }}
 @push('scripts')
 <script>
 $(document).ready(function(){	
