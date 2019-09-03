@@ -397,7 +397,9 @@ class ThemeService{
 		$filename_from=$ns_dir.'/'.$filename;
 		$public_path=public_path();
 		if(Str::startsWith($filename_from,$public_path)){  //se e' in un percoro navigabile
-			return asset(Str::after($filename_from,$public_path));
+			$path=Str::after($filename_from,$public_path);
+			$path=str_replace(['\\'],['/'],$path);
+			return asset($path);
 		}
 		
 		$tmp='/assets/'.$ns_name.'/'.$filename;
@@ -472,50 +474,6 @@ class ThemeService{
 		}
 
 		return self::viewNamespaceToAsset($path);
-
-		$ns = self::getNameSpace($path);
-		if($ns===false){
-			return asset($path); // sperimentale..
-			if(\File::exists($path)){
-				//ddd('da implementare ['..']['.$path.']['.asset($path).']');
-			}else{
-				//ddd($path);
-			}
-		}
-		$other = str_after($path, $ns.'::');
-		$pos = \mb_strpos($other, '/');
-		$other0 = \mb_substr($other, 0, $pos);
-		$other1 = \mb_substr($other, $pos);
-		
-
-		try{
-			$other0=dirname(\View::getFinder()->find($ns.'::'.$other0));
-			$other0=realpath($other0);
-			$module_path=\Module::getModulePath($ns);
-			$view_dir=config('modules.paths.generator.views.path');
-			$ns_dir=realpath($module_path.$view_dir);
-			$ns1_dir=self::getViewNameSpacePath($ns);
-			//ddd($ns1_dir); //la view ha piu' namespaces .. perche' !!!!
-			$other0=substr($other0, strlen($ns_dir));
-			
-		}catch(\Exception  $e){
-			$other0 = \str_replace('.', '/', $other0);
-		}
-		//echo '<br/>['.$ns.']['.$other0.$other1.']';
-		if($other0.$other1=='sources/views/includes/components/form/weareoutman/bc/clockpicker/dist/jquery-clockpicker.min.css'){
-			$msg=[
-				'$path'=>$path,
-				'$other0'=>$other0,
-				'$other1'=>$other1,
-				'test'=>dirname(realpath(\View::getFinder()->find('theme::includes.components.form.weareoutman.clock'))),
-
-			];
-			//ddd($msg);
-			return $key;
-		}
-		$url = self::getViewNameSpaceUrl($ns, $other0.$other1);
-
-		return $url;//.'/'.$other0.$other1;
 	}
 	/*
 	public static function url($path)
@@ -637,8 +595,7 @@ class ThemeService{
 	}
 	*/
 
-	public static function showScripts($compress_js = true, $page = '')
-	{
+	public static function showScripts($compress_js = true, $page = ''){
 
 		//TODO FIX url da funzione e non replace !!!
 		//
