@@ -1,9 +1,9 @@
 <?php
-
 namespace Modules\Theme\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Foundation\AliasLoader;
 
 //---- bases ----
 use Modules\Xot\Providers\XotBaseServiceProvider;
@@ -35,5 +35,11 @@ class ThemeServiceProvider extends XotBaseServiceProvider{
             \Modules\Theme\Console\CreateThemeCommand::class,
         ]);
     }
+
+    public function registerCallback(){
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Theme','Modules\Theme\Services\ThemeService');
+    }
+
 
 }
