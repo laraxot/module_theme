@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('theme')->group(function() {
+Route::prefix('theme')->group(function () {
     Route::get('/', 'ThemeController@index');
 });

@@ -2,18 +2,14 @@
 
 namespace Modules\Theme\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
-class ThemeDatabaseSeeder extends Seeder
-{
+class ThemeDatabaseSeeder extends Seeder {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
-    {
+    public function run() {
         Model::unguard();
 
         // $this->call("OthersTableSeeder");
