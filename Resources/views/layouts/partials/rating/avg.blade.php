@@ -4,6 +4,7 @@
 	$parz['item0']=$row->guid;
 	$parz['container1']='rating';
 	$rating_url=route('container0.container1.index_edit',$parz);
+	$row_panel=Panel::get($row);
 @endphp
 <div class="row">
 <div class="col-sm-8 col-md-8" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
@@ -18,9 +19,9 @@
 	@include('theme::layouts.partials.rating.item',['label'=>'','rating_avg'=>$rating_avg,'rating_count'=>$rating_count])
 	{{-- item_type_schema_org  e microdate_schema_org son mutators non campi --}}
 	<div itemprop="itemReviewed" itemscope itemtype="{{ $row->item_type_schema_org }}" >
-		<meta itemprop="url" content="{{ $row->url }} " >
+		<meta itemprop="url" content="{{ $row_panel->url() }} " >
 		<meta itemprop="name" content="{{ $row->title }} " >
-		{!! $row->microdataSchemaOrg() !!}
+		{!! $row_panel->microdataSchemaOrg() !!}
 		
 	</div>
 
