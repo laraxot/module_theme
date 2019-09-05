@@ -6,10 +6,10 @@
 		$bg='pub_theme::images/bg/'.$show_type.'.jpg';
 	}
 
-@endphp 
+@endphp
+{{-- 
 <div class="inner-page-hero bg-image" data-image-src="{{ Theme::img_src($bg) }}">
     <div class="container"> </div>
-        <!-- end:Container -->
 </div>
-
+--}}
 

@@ -1,8 +1,10 @@
 @php
 	$parz=[];
+	$parz['lang']=$lang;
 	$parz['container0']=$row->post_type;
 	$parz['item0']=$row->guid;
 	$parz['container1']='rating';
+
 	$rating_url=route('container0.container1.index_edit',$parz);
 	$row_panel=Panel::get($row);
 @endphp
