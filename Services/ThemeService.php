@@ -609,7 +609,7 @@ class ThemeService {
         //
         $scripts_pos = self::__getStatic('scripts_pos');
         $scripts = self::__getStatic('scripts');
-        $scripts = \array_values(array_sort($scripts, function ($v, $k) use ($scripts_pos) {
+        $scripts = \array_values(Arr::sort($scripts, function ($v, $k) use ($scripts_pos) {
             return $scripts_pos[$k];
         }));
         $scripts = \array_unique($scripts);
@@ -733,7 +733,7 @@ class ThemeService {
     public static function showStyles($compress_css = true) {
         $styles_pos = self::__getStatic('styles_pos');
         $styles = self::__getStatic('styles');
-        $styles = \array_values(array_sort($styles, function ($v, $k) use ($styles_pos) {
+        $styles = \array_values(Arr::sort($styles, function ($v, $k) use ($styles_pos) {
             return $styles_pos[$k];
         }));
         $styles = \array_unique($styles);
@@ -1268,7 +1268,7 @@ class ThemeService {
 
         list($containers, $items) = params2ContainerItem($params);
         $last_container = last($containers);
-        $types = camel_case(str_plural($last_container));
+        $types = Str::camel(Str::plural($last_container));
         $last_item = last($items);
         $theView = view($view_work)
             ->with('lang', $lang)

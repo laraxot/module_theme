@@ -7,7 +7,7 @@
 @foreach($fields as $field)
 {{--  
 @php
-	$input='bs'.studly_case($field->type);
+	$input='bs'.Str::studly($field->type);
 	$input_name=collect(explode('.',$field->name))->map(function ($v, $k){
 		return $k==0?$v:'['.$v.']';
 	})->implode('');

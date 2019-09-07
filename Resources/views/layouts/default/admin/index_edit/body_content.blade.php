@@ -1,10 +1,10 @@
 @php
 $last_item=last($items);
 $last_container=last($containers);
-$types=camel_case(str_plural($last_container));
+$types=camel_case(Str::plural($last_container));
 //{!! Form::bsBtnCreate(['txt'=>__($item_view.'.btn.new')]) !!}
 //$user=$item0;
-//$types=camel_case(str_plural($container1));
+//$types=camel_case(Str::plural($container1));
 //ddd($_layout->item_view);
 $field=(object)[
 	'name'=>'areas',

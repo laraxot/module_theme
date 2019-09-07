@@ -5,7 +5,7 @@
 	//ddd($second_last->myRatings);
 //[{{ $second_last->index_update_url }}]
 	$last_container=last($containers);
-	$types=camel_case(str_plural($last_container));
+	$types=camel_case(Str::plural($last_container));
 	$last_item=last($items);
 	$second_last=$last_item;
 @endphp
