@@ -4,7 +4,7 @@
 //ddd($second_last);
 //$user=$item0;
 $last_container=last($containers);
-$types=camel_case(Str::plural($last_container));
+$types=Str::camel(Str::plural($last_container));
 $last_item=last($items);
 
 //ddd(get_class($_panel));

@@ -5,7 +5,7 @@
 {{ $rows->links('pub_theme::layouts.partials.pagination') }} 
 --}}
 @php
-$types=camel_case(Str::plural($params['container1']));
+$types=Str::camel(Str::plural($params['container1']));
 $last_item=$params['item0'];
  Theme::add('/theme/pub/dist/js/app.js',1);
  //ddd($_panel);

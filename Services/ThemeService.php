@@ -30,16 +30,15 @@ use Modules\Xot\Traits\Getter;
 
 class ThemeService {
     use Getter;
-    public static $config_name = 'metatag';
-    public static $vars = [];
-    private static $_instance = null;
+    protected static $config_name = 'metatag';
+    protected static $vars = [];
+    private static $instance = null;
 
     public static function getInstance() {
-        if (null === self::$_instance) {
-            self::$_instance = new self();
+        if (null === self::$instance) {
+            self::$instance = new self();
         }
-
-        return self::$_instance;
+        return self::$instance;
     }
 
     public static function get_url($params) {
@@ -1021,7 +1020,7 @@ class ThemeService {
         foreach ($files as $file) {
             $filename = $file->getRelativePathname();
             $ext = '.php';
-            if (ends_with($filename, $ext)) {
+            if (Str::endsWith($filename, $ext)) {
                 $tmp = new \stdClass();
                 $name = substr(($filename), 0, -strlen($ext));
                 $tmp->name = $name;
