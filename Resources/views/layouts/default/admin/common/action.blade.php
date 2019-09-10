@@ -3,29 +3,22 @@
 @section('content')
 @include('theme::includes.flash')
 @include('theme::modal_ajax')
+@php  
+	if(!is_object($row)) return ;
+	$row_panel=Panel::get($row);
+@endphp
 {{--  
 <style>
 	fieldset{
 		border:1px solid darkgray;
 	}
 </style>
---}}
-@php  
-	if(!is_object($row)) return ;
-@endphp
 {!! Form::bsBtnGear(['row'=>$row]) !!}
+--}}
 <div class="page-wrapper">
 	{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
 	@include('adm_theme::layouts.partials.breadcrumb')
-	
-	@php
-		/*
-		
-		*/
-	@endphp
-	{{--
-	--}}
-	@include('adm_theme::layouts.partials.tabs',['tabs'=>$_panel->tabs()])
+	@include('adm_theme::layouts.partials.tabs',['tabs'=>$row_panel->getTabs()])
 	{{-- $_layout->act --}}
 	@if(Str::startsWith($_layout->act,'index'))
 		@if(is_array($_panel->indexNav()))
