@@ -8,5 +8,5 @@
     {!! Theme::inputHtml(['row'=>$row,'field'=>$field]) !!}
 @endforeach
 </div>
-{{Form::bs3Submit('Modifica')}}
+{{Form::bsSubmit('Modifica')}}
 {!! Form::close() !!}
