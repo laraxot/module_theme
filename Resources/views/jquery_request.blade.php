@@ -36,7 +36,6 @@ https://www.scraperapi.com/blog/the-10-best-web-scraping-tools
 	});
 	*/
 $(document).ready(function () {
-	//var url="https://www.justeat.it";
 	var url="http://www.google.it";
 	/*
 	$.ajax({
