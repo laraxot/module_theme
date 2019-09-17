@@ -1217,6 +1217,7 @@ class ThemeService {
             }
         }
         $row_type = '';
+        
         if (is_object($row)) {
             self::setMetatags($row);
             $row_type = $row->post_type;
