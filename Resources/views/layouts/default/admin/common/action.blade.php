@@ -7,14 +7,6 @@
 	if(!is_object($row)) return ;
 	$row_panel=Panel::get($row);
 @endphp
-{{--  
-<style>
-	fieldset{
-		border:1px solid darkgray;
-	}
-</style>
-{!! Form::bsBtnGear(['row'=>$row]) !!}
---}}
 <div class="page-wrapper">
 	{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
 	@include('adm_theme::layouts.partials.breadcrumb')
