@@ -13,7 +13,12 @@
 	@include('adm_theme::layouts.partials.forms.search')
 </div>
 
+<div class="row">
+    <div class="col" style="overflow:auto">
 @foreach($rows as $k=>$v)
 	@include($_layout->item_view,['key'=>$k,'row'=>$v])
 @endforeach
 {{ $rows->links() }}
+</div>
+  
+</div>

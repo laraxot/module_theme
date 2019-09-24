@@ -6,6 +6,8 @@
 @php  
 	if(!is_object($row)) return ;
 	$row_panel=Panel::get($row);
+	//ddd(Theme::getDynViewsArray('inner_page', get_defined_vars()));
+	//F:\xampp\htdocs\lara\ptvms\laravel\Modules\Trasferte\Resources\views\admin\my_fuori_sede\giust\edit
 @endphp
 <div class="page-wrapper">
 	{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
