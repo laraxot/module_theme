@@ -6,5 +6,5 @@
 {{ Form::bsUnisharpImg('image_src') }}
 --}}
 {{ Form::bsNumber('pivot[price]') }}
-{{Form::bs3Submit('Aggiungi')}}
+{{Form::bsSubmit('Aggiungi')}}
 {!! Form::close() !!}

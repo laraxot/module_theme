@@ -4,5 +4,5 @@
 {{ Form::bsText('pivot[price]') }}
 {!! Form::bsTextarea('txt') !!}
 {{ Form::bsUnisharpImg('image_src') }}
-{{Form::bs3Submit('Modifica')}}
+{{Form::bsSubmit('Modifica')}}
 {!! Form::close() !!}

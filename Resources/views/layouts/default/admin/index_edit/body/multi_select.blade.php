@@ -7,5 +7,5 @@
 @endphp
 {!! Form::bsOpen($last_item,'index_edit','index_edit') !!}
 {{ Form::bsMultiCheckbox($types) }}
-{!! Form::bs3Submit('') !!}
+{!! Form::bsSubmit('save') !!}
 {!! Form::close() !!}

@@ -21,5 +21,5 @@
 	{!! Theme::inputHtml(['row'=>$row,'field'=>$field]) !!}
 @endforeach
 </div>
-{{Form::bs3Submit('')}}
+{{Form::bsSubmit('Save')}}
 {!! Form::close() !!}

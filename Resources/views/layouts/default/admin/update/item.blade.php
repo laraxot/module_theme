@@ -10,4 +10,4 @@
 </a>
 <a class="btn btn-primary" href="{!! $_panel->indexUrl() !!}">
 	Torna alla Lista
-</a>
+</a> 

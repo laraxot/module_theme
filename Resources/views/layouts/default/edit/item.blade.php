@@ -14,7 +14,7 @@
 </div>
 @endforeach
 </div>
-{{Form::bs3Submit('Modifica')}}
+{{Form::bsSubmit('Modifica')}}
 {!! Form::close() !!}
 --}}
 @php

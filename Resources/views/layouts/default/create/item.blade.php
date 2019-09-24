@@ -21,7 +21,7 @@
 @endforeach
 </div>
 {{--
-{{Form::bs3Submit('')}}
+{{Form::bsSubmit('save')}}
 --}}
 {{ $_panel->btnSubmit() }}
 {!! Form::close() !!}

@@ -19,7 +19,7 @@
 	@include('pub_theme::layouts.partials.rating',['label'=>$i_rating->title,'rating_avg'=>$rating_avg,'rating_count'=>$rating_count])
 	--}}
 @endforeach
-{{Form::bs3Submit('Aggiungi')}}
+{{Form::bsSubmit('Aggiungi')}}
 {!! Form::close() !!}
 
 {{--
@@ -28,6 +28,6 @@
 {{ Form::bsText('subtitle') }}
 {!! Form::bsTextarea('txt') !!}
 {{ Form::bsUnisharpImg('image_src') }}
-{{Form::bs3Submit('Aggiungi')}}
+{{Form::bsSubmit('Aggiungi')}}
 {!! Form::close() !!}
 --}}

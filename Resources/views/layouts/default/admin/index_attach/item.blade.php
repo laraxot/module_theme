@@ -37,5 +37,5 @@
 	</div>
 </div>
 --}}
-{{Form::bs3Submit('')}}
+{{Form::bsSubmit('save')}}
 {!! Form::close() !!}
