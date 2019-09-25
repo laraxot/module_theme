@@ -1,4 +1,10 @@
 {!! Form::bsBtnCreateAttach(['row'=>$row]) !!} 
+
+
+<a data-href="{{ Panel::get($row)->createUrl() }}" class="btn btn-primary" data-toggle="modal" data-target="#myModalAjax" data-title="plus">
+	<i class="fa fa-plus"></i> 
+</a>
+
 @foreach($_panel->containerActions() as $act)
 	{!! $act->btn() !!}
 @endforeach

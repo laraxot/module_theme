@@ -2,22 +2,26 @@
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" >Modal title</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="form-msg"></div>
 			<div class="modal-body" id="modalbody">
 				...
-			</div>
-			<div class="form-msg"></div>
+			</div> 
+			<div class="form-msg"></div> 
+
+				{{-- 
 			<div class="modal-footer">
-				{{-- per farlo funzionare o cambio javascript ed impongo 1 solo form.. che puo' essere, oppure chiudo il form dopo di questo input,ma non mi piace
+				per farlo funzionare o cambio javascript ed impongo 1 solo form.. che puo' essere, oppure chiudo il form dopo di questo input,ma non mi piace
 				perche' preferisco che le cose aperte siano chiuse nello stesso file.
 				<input type="submit" class="btn btn-primary" name="submit" value="Update" />&nbsp;
-				--}}
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				{{--  <button type="button" class="btn btn-primary">Save changes</button>--}}
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
+				--}}
 		</div>
 	</div>
 </div>
