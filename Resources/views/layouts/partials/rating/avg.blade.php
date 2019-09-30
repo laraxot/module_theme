@@ -3,7 +3,7 @@
 	$parz['lang']=$lang;
 	$parz['container0']=$row->post_type;
 	$parz['item0']=$row->guid;
-	$parz['container1']='rating';
+	$parz['container1']='my_rating';
 
 	$rating_url=route('container0.container1.index_edit',$parz);
 	$row_panel=Panel::get($row);
@@ -29,7 +29,7 @@
 
 </div>
 <div class="col-sm-4 col-md-4">
-	<button type="button" class="btn btn-red" data-toggle="modal" data-target="#myModalAjax" data-title="rate it" data-href="{{ $rating_url }}">
+	<button type="button" class="btn btn-danger btn-red" data-toggle="modal" data-target="#myModalAjax" data-title="vota {{ $row->title }}" data-href="{{ $rating_url }}">
 		<span class="font-white"><i class="fa fa-star"></i> Vota !</span>
 	</button>
 </div>
