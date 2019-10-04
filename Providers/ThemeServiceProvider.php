@@ -18,10 +18,10 @@ class ThemeServiceProvider extends XotBaseServiceProvider{
     	$xot=tenantConfig('xra');
     	//$adm_theme = tenantConfig('xra.adm_theme');
     	$adm_theme = $xot['adm_theme'];
-        $adm_theme_dir = public_path('themes'.\DIRECTORY_SEPARATOR.$adm_theme);
+        $adm_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$adm_theme);
         $pub_theme = $xot['pub_theme'];
         //$pub_theme = config('xra.pub_theme');
-        $pub_theme_dir = public_path('themes'.\DIRECTORY_SEPARATOR.$pub_theme);
+        $pub_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$pub_theme);
         //die($pub_theme_dir.'['.__LINE__.']['.__FILE__.']');
 
         $this->app['view']->addNamespace('adm_theme', $adm_theme_dir);
