@@ -24,7 +24,7 @@
 @foreach($rows as $k=>$v)
 	@include($_layout->item_view,['key'=>$k,'row'=>$v])
 @endforeach
-{{ $rows->links() }}
+{{ $rows->appends(request()->query())->links() }}
 </div>
   
 </div>
