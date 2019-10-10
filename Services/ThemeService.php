@@ -1,5 +1,4 @@
 <?php
-
 namespace Modules\Theme\Services;
 
 use Assetic\Asset\AssetCache;
@@ -391,6 +390,50 @@ class ThemeService {
         return asset($path_pub);
     }
 
+    public static function viewThemeNamespaceToAsset($key){
+        $ns_name = Str::before($key, '::');
+        $ns_dir = View::getFinder()->getHints()[$ns_name][0];
+        $ns_name=config('xra.'.$ns_name);
+        $tmp = Str::after($key, '::');
+        $tmp0 = Str::before($tmp, '/');
+        $tmp1 = Str::after($tmp, '/');
+        //--------------------------------------------------
+        $filename = str_replace('.', '/', $tmp0).'/'.$tmp1;
+        $filename_from = $ns_dir.'/'.$filename;
+        $asset='/themes/'.$ns_name.'/'.$filename;
+        $filename_to = public_path($asset);
+        //--------------------------------------------------
+        $msg=[
+            'filename'=>$filename,
+            'from'=>$filename_from,
+            'to'=>$filename_to,
+            'asset'=>$asset,
+            'pub_theme'=>config('xra.pub_theme'),
+        ];
+        
+        $dir_to = \dirname($filename_to);
+        if (! \File::exists($dir_to)) {
+            try {
+                File::makeDirectory($dir_to, 0755, true, true);
+            } catch (Exception $e) {
+                ddd('Caught exception: ', $e->getMessage(), '\n['.__LINE__.']['.__FILE__.']');
+            }
+        }
+
+        if (!File::exists($filename_from)) {
+            ddd('['.$filename_from.'] not exists');
+        }
+        if (!File::exists($filename_to)) {
+            try {
+                File::copy($filename_from, $filename_to);
+            } catch (Exception $e) {
+                ddd('Caught exception: '.$e->getMessage());
+            }
+        }
+        return $asset;
+    }
+
+
     public static function viewNamespaceToAsset($key) {
         $ns_name = Str::before($key, '::');
         $ns_dir = View::getFinder()->getHints()[$ns_name][0];
@@ -404,8 +447,11 @@ class ThemeService {
         if (Str::startsWith($filename_from, $public_path)) {  //se e' in un percoro navigabile
             $path = Str::after($filename_from, $public_path);
             $path = str_replace(['\\'], ['/'], $path);
-
             return asset($path);
+        }
+
+        if(in_array($ns_name,['pub_theme','adm_theme'])){
+            return self::viewThemeNamespaceToAsset($key);
         }
 
         $tmp = '/assets/'.$ns_name.'/'.$filename;
