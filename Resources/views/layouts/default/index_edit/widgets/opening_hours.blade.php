@@ -3,6 +3,15 @@
 		<h3 class="widget-title text-dark">
 			@lang($view.'.opening_hours')
 		</h3>
+		{{--
+		@php
+			ddd($openingHours);
+		@endphp
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalAjax" data-title="{{ $row->title }}" 
+                data-href="{{ $restaurant_panel->editUrl() }}">
+                <i class="fa fa-wrench"></i>
+        </button>
+        --}}
 		<div class="clearfix"></div>
 	</div>
 	@php

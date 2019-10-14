@@ -1,14 +1,9 @@
-{{--
-{!! Form::bsBtnCreate(['row'=>$row]) !!}
-{!! Form::bsBtnCreateAttach(['row'=>$row]) !!} 
-@foreach($_panel->actions() as $act)
-	{!! $act->btn() !!}
-@endforeach
---}}
-
+@php
+	//Str::plural($row->post_type)
+@endphp
 <div class="row">
     <div class="col">
-        <p><span class="primary-color"><strong>{{ number_format($rows->total(),0,',',' ') }}</strong></span> {{ Str::plural($row->post_type) }}</p>
+        <p><span class="primary-color"><strong>{{ number_format($rows->total(),0,',',' ') }}</strong></span> {{ Str::plural($_panel->postType()) }}</p>
     </div>
 	@include('pub_theme::layouts.partials.forms.search')
 </div>
