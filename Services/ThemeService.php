@@ -421,7 +421,9 @@ class ThemeService {
         }
 
         if (!File::exists($filename_from)) {
-            ddd('['.$filename_from.'] not exists');
+            //ddd('['.$filename_from.'] not exists');
+            //ddd($msg);
+            return '';
         }
         if (!File::exists($filename_to)) {
             try {
