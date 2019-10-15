@@ -17,15 +17,16 @@
         	{{ Str::plural($row->post_type ?? class_basename($row),$rows->total()) }}</p>
     </div>
 	@include('adm_theme::layouts.partials.forms.search')
+
 	<select>
 		<option>id</option>
 		<option>updated_at</option>
 	</select>
 	<select>
-		<option>Desc</option>
+		<option><i class="fas fa-sort-up"></i>Desc</option>
 		<option>Asc</option>
-
 	</select>
+	<button type="submit" class="btn btn-primary">aaa<i class="fas fa-sort"></i></a></button>
 
 </div>
 
