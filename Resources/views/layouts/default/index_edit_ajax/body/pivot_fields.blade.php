@@ -1,5 +1,10 @@
 @php
-	$url=Panel::get($row)->indexEditUrl();
+	/**
+	* da correggere 
+	* il row inviato e' errato .. da capire dove si perde
+	**/
+	$url0=Panel::get($row)->indexEditUrl();
+	$url=url()->current();
 @endphp
 {{ Form::model($last_item,['url'=>$url]) }}
 @csrf

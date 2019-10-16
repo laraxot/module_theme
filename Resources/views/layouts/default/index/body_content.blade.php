@@ -1,3 +1,4 @@
+{{--
 @php
 	//Str::plural($row->post_type)
 @endphp
@@ -7,6 +8,7 @@
     </div>
 	@include('pub_theme::layouts.partials.forms.search')
 </div>
+--}}
 
 @foreach($rows  as $key=>$row)
 	@include($_layout->item_view,['key'=>$key,'row'=>$row])
