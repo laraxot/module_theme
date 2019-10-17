@@ -528,7 +528,14 @@ class ThemeService {
             return $path;
         }
 
-        return self::viewNamespaceToAsset($path);
+        /*
+            to DOOOO
+            viewNamespaceToPath     => /images/prova.png
+            viewNamespaceToDir      => c:\var\wwww\test\images\prova.png
+            viewNamespaceToAsset    => http://example.com/images/prova.png
+        */
+
+        return asset(self::viewNamespaceToAsset($path));
     }
 
     /*
@@ -1425,6 +1432,8 @@ class ThemeService {
     public static function imageSrc($params) {
         extract($params);
         $path = self::asset($path);
+        /* TO DOOOOOOOO
+        */
 
         return $path; // ci mette troppo nel server
         //ddd($path);
@@ -1433,7 +1442,10 @@ class ThemeService {
         $ris = $img->fit()->save()->src();
         $ris = str_replace('\\', '/', $ris);
         $ris = str_replace('//', '/', $ris);
-
+        ddd([
+            'ris'=>$ris,
+            'asset ris'=>asset($ris),   
+        ]);
         return asset($ris);
     }
 
