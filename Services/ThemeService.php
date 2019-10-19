@@ -1488,7 +1488,12 @@ class ThemeService {
     }
 
     public static function xotModel($name) {
-        $name = Str::snake($name);
+        //try{
+            $name = Str::snake($name);
+        //}catch(\Eception $e){
+        //    ddd($name);
+        //}
+
         $class = config('xra.model.'.$name);
         if (null == $class) {
             return null;
