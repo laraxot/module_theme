@@ -1,4 +1,3 @@
-{{-- 
 <div class="row text-dark" style="background-color: #e9ecef; padding:5px; ">
 	{!! Form::bsBtnCreateAttach(['row'=>$row]) !!} 
 	@can('create',$row)
@@ -16,17 +15,7 @@
         	{{ Str::plural($row->post_type ?? class_basename($row),$rows->total()) }}
         </p>
     </div>
+    
 	@include('formx::includes.components.form_complete.search')
 	@include('formx::includes.components.form_complete.order_by')
-</div>
-
-<br/>
---}}
-<div class="row">
-    <div class="col" style="overflow:auto">
-		@foreach($rows as $k=>$v)
-			@include($_layout->item_view,['key'=>$k,'row'=>$v])
-		@endforeach
-		{{ $rows->appends(request()->query())->links() }}
-	</div>
 </div>

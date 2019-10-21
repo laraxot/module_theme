@@ -8,6 +8,7 @@
 --}}
 <section class="restaurants-page">
 	<div class="container">
+		{!! Theme::include('topbar',[],get_defined_vars() ) !!}
 		<div class="row">
 			{{--
 			{!! Theme::include($view_body,[],get_defined_vars() ) !!}
