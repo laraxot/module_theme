@@ -55,7 +55,8 @@ class ThemeService {
     public static function get_scripts($params) {
         return [];
     }
-
+    
+    /*
     public static function get_langs($params) {
         $cache_key = Str::slug(req_uri().'_langs');
         $langs = Cache::get($cache_key);
@@ -65,6 +66,7 @@ class ThemeService {
 
         return $langs;
     }
+    */
 
     public static function get_scripts_pos($params) {
         return [];
