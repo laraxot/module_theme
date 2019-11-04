@@ -5,10 +5,20 @@
 		<i class="fa fa-plus"></i> 
 	</a>
 	@endcan
+	  
 	@foreach($_panel->containerActions() as $act)
+		@php
+			try{
+				echo $act->btn();
+			}catch(\Exception $e){
+				ddd($act);
+			}
+		@endphp
+		{{--  
 		{!! $act->btn() !!}
+		--}}
 	@endforeach
-
+	
     <div class="col">
         <p>
         	<span class="primary-color"><strong>{{ number_format($rows->total(),0,',',' ') }}</strong></span> 
