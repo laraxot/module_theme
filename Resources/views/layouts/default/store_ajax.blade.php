@@ -1,3 +1,1 @@
-@php
-	echo json_encode(['msg'=>'ok']);
-@endphp
+@include('theme::layouts.default.common.action_ajax')

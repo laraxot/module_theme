@@ -1228,8 +1228,38 @@ class ThemeService {
             return 'theme::translation.index';
         }
         //-----------------------------------------
-
         return $view;
+    }
+
+    
+    public static function getViewWork(){
+        $params = \Route::current()->parameters();
+        $route_action = \Route::currentRouteAction();
+        $act = Str::snake(Str::after($route_action, '@'));
+        if (\in_admin()) {
+            $view_default = 'adm_theme::layouts.default.'.$act;
+            $view_extend = 'theme::layouts.default.admin.'.$act;
+        } else {
+            $view_default = 'pub_theme::layouts.default.'.$act; //pub_theme o extend ?
+            $view_extend = 'theme::layouts.default.'.$act;
+        }
+        //---------------------------------------------------------------------------
+        if (\Request::ajax()) {
+            $view_default .= '_ajax';
+            $view_extend .= '_ajax';
+        }
+        $use_default = false;
+        //if (null == $view) {
+        $view = self::getView($params);
+        //}
+        $views = [$view, $view_default, $view_extend];
+        $view_work = collect($views)->first(function ($view_check) {
+            return View::exists($view_check);
+        });
+        if (false == $view_work) {
+            ddd('not exists ['.implode(']'.chr(13).'[', $views).']');
+        }
+        return $view_work;
     }
 
     public static function view($params = null) {
