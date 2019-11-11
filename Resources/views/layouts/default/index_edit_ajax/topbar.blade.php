@@ -1,6 +1,7 @@
 <div class="row text-dark" style="background-color: #e9ecef; padding:5px; ">
 	{!!Form::bsBtnCreateAttach(['row'=>$row]) !!} 
 	{{--
+	[{{ get_class($_panel->row) }}]
 	@can('create',$row)
 	<a data-href="{{ Panel::get($row)->createUrl() }}" class="btn btn-primary" data-toggle="modal" data-target="#myModalAjax" data-title="plus">
 		<i class="fa fa-plus"></i> 
