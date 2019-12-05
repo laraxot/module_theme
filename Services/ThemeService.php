@@ -1,4 +1,5 @@
 <?php
+
 namespace Modules\Theme\Services;
 
 use Assetic\Asset\AssetCache;
@@ -37,6 +38,7 @@ class ThemeService {
         if (null === self::$instance) {
             self::$instance = new self();
         }
+
         return self::$instance;
     }
 
@@ -55,7 +57,7 @@ class ThemeService {
     public static function get_scripts($params) {
         return [];
     }
-    
+
     /*
     public static function get_langs($params) {
         $cache_key = Str::slug(req_uri().'_langs');
@@ -392,27 +394,27 @@ class ThemeService {
         return asset($path_pub);
     }
 
-    public static function viewThemeNamespaceToAsset($key){
+    public static function viewThemeNamespaceToAsset($key) {
         $ns_name = Str::before($key, '::');
         $ns_dir = View::getFinder()->getHints()[$ns_name][0];
-        $ns_name=config('xra.'.$ns_name);
+        $ns_name = config('xra.'.$ns_name);
         $tmp = Str::after($key, '::');
         $tmp0 = Str::before($tmp, '/');
         $tmp1 = Str::after($tmp, '/');
         //--------------------------------------------------
         $filename = str_replace('.', '/', $tmp0).'/'.$tmp1;
         $filename_from = $ns_dir.'/'.$filename;
-        $asset='/themes/'.$ns_name.'/'.$filename;
+        $asset = '/themes/'.$ns_name.'/'.$filename;
         $filename_to = public_path($asset);
         //--------------------------------------------------
-        $msg=[
-            'filename'=>$filename,
-            'from'=>$filename_from,
-            'to'=>$filename_to,
-            'asset'=>$asset,
-            'pub_theme'=>config('xra.pub_theme'),
+        $msg = [
+            'filename' => $filename,
+            'from' => $filename_from,
+            'to' => $filename_to,
+            'asset' => $asset,
+            'pub_theme' => config('xra.pub_theme'),
         ];
-        
+
         $dir_to = \dirname($filename_to);
         if (! \File::exists($dir_to)) {
             try {
@@ -422,21 +424,21 @@ class ThemeService {
             }
         }
 
-        if (!File::exists($filename_from)) {
+        if (! File::exists($filename_from)) {
             //ddd('['.$filename_from.'] not exists');
             //ddd($msg);
             return '';
         }
-        if (!File::exists($filename_to)) {
+        if (! File::exists($filename_to)) {
             try {
                 File::copy($filename_from, $filename_to);
             } catch (Exception $e) {
                 ddd('Caught exception: '.$e->getMessage());
             }
         }
+
         return $asset;
     }
-
 
     public static function viewNamespaceToAsset($key) {
         $ns_name = Str::before($key, '::');
@@ -451,10 +453,11 @@ class ThemeService {
         if (Str::startsWith($filename_from, $public_path)) {  //se e' in un percoro navigabile
             $path = Str::after($filename_from, $public_path);
             $path = str_replace(['\\'], ['/'], $path);
+
             return asset($path);
         }
 
-        if(in_array($ns_name,['pub_theme','adm_theme'])){
+        if (in_array($ns_name, ['pub_theme', 'adm_theme'])) {
             return self::viewThemeNamespaceToAsset($key);
         }
 
@@ -1231,8 +1234,7 @@ class ThemeService {
         return $view;
     }
 
-    
-    public static function getViewWork(){
+    public static function getViewWork() {
         $params = \Route::current()->parameters();
         $route_action = \Route::currentRouteAction();
         $act = Str::snake(Str::after($route_action, '@'));
@@ -1259,6 +1261,7 @@ class ThemeService {
         if (false == $view_work) {
             ddd('not exists ['.implode(']'.chr(13).'[', $views).']');
         }
+
         return $view_work;
     }
 
@@ -1304,7 +1307,7 @@ class ThemeService {
             }
         }
         $row_type = '';
-        
+
         if (is_object($row)) {
             self::setMetatags($row);
             $row_type = $row->post_type;
@@ -1475,9 +1478,10 @@ class ThemeService {
         $ris = str_replace('\\', '/', $ris);
         $ris = str_replace('//', '/', $ris);
         ddd([
-            'ris'=>$ris,
-            'asset ris'=>asset($ris),   
+            'ris' => $ris,
+            'asset ris' => asset($ris),
         ]);
+
         return asset($ris);
     }
 
@@ -1521,7 +1525,7 @@ class ThemeService {
 
     public static function xotModel($name) {
         //try{
-            $name = Str::snake($name);
+        $name = Str::snake($name);
         //}catch(\Eception $e){
         //    ddd($name);
         //}
