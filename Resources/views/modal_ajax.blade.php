@@ -1,3 +1,6 @@
+@php
+	Theme::add('theme::js/modal_ajax.js');
+@endphp
 <div class="modal fade bs-example-modal-lg" id="myModalAjax" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">

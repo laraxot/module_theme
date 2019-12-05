@@ -28,11 +28,14 @@ $(function() {
 		//modal.find('#myModalAjaxLabel').text(title);
 		modal.find('.modal-title').text(title);
 		modal.find('.modal-body').html(loading);
-		modal.find('.form-msg').html('');
+		//modal.find('.form-msg').html('');
 		$.ajax({
 			url:url
 		}).done(function( data ) {
-			ajaxLink(data,modal);
+			console.log('35');
+			console.log(data);
+			console.log(data.html);
+			ajaxLink(data.html,modal,'');
 		}).fail(function(response){
 			var err=response.responseJSON.message;
 			modal.find('.form-msg').html(err);
@@ -56,10 +59,10 @@ $(function() {
 		}
 	});
 
-	function ajaxLink(data,modal){
+	function ajaxLink(data,modal,msg){
 		var loading='<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>';
 		modal.find('.modal-body').html(data);
-		modal.find('.form-msg').html('');
+		modal.find('.form-msg').html(msg);
 		//modal.modal('handleUpdate');
 		modal.find('a').click(function( e ) {
 			modal.find('.modal-body').html(loading);
@@ -72,7 +75,7 @@ $(function() {
 				//dataType: 'json',
 				//data: querystring
 			}).done(function( data ) {
-				ajaxLink(data,modal);
+				ajaxLink(data.html,modal,'');
 			}).fail(function(response){
 				var err=response.responseJSON.message;
 				modal.find('.form-msg').html(err);
@@ -93,9 +96,11 @@ $(function() {
 				dataType: 'json',
 				data: querystring
 			}).done(function( data ) {
-				modal.find('.form-msg').html('<div class="alert alert-success"><strong>Success </strong>'+data.msg+'</div>');
-				modal.find('.modal-body').html(old_data);
-				modal.data('reload',1);
+				var msg='<div class="alert alert-success"><strong>Success </strong>'+data.msg+'</div>';
+				//modal.find('.form-msg').html(msg);
+				//modal.find('.modal-body').html(data.html); // prima c'era old_data
+				ajaxLink(data.html,modal,msg);
+				modal.data('reload',1); 
 			}).fail(function(response){
 				console.log(response);
 				var err='';
