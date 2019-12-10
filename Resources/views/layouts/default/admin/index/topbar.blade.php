@@ -1,11 +1,12 @@
 <div class="row text-dark" style="background-color: #e9ecef; padding:5px; ">
 	{!! Form::bsBtnCreateAttach(['row'=>$row]) !!} 
+	{{--  
 	@can('create',$row)
 	<a data-href="{{ Panel::get($row)->createUrl() }}" class="btn btn-primary" data-toggle="modal" data-target="#myModalAjax" data-title="plus">
 		<i class="fa fa-plus"></i> 
 	</a>
 	@endcan
-	  
+	--}}  
 	@foreach($_panel->containerActions() as $act)
 		@php
 			try{
@@ -14,11 +15,12 @@
 				ddd($act);
 			}
 		@endphp
-		{{--  
-		{!! $act->btn() !!}
-		--}}
 	@endforeach
-	
+	{{--  
+	<a href="{{ request()->fullUrlWithQuery(["_act"=>"xls"]) }}" class="btn btn-primary" data-toggle="tooltip" title="XLS">
+		<i class="far fa-file-excel fa-1x"></i>
+	</a>	
+    --}}
     <div class="col">
         <p>
         	<span class="primary-color"><strong>{{ number_format($rows->total(),0,',',' ') }}</strong></span> 
