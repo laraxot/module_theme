@@ -27,6 +27,7 @@
 			<div class="row">
 				@include('theme::layouts.default.admin.common.'.$_layout->view_body)
 			</div>
+			{!! Theme::include('bottombar',[],get_defined_vars() ) !!}
 		</div>
 	</section>
 </div>
