@@ -6,9 +6,9 @@
 @php
 	$panel=Panel::get($row);
 @endphp
-{{--
+
 {!! Form::bsBtnGear(['row'=>$row]) !!}
---}}
+
 <div class="page-wrapper">
 	{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
 	@include('pub_theme::layouts.partials.breadcrumb')
