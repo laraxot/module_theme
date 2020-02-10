@@ -1259,7 +1259,7 @@ class ThemeService {
             return View::exists($view_check);
         });
         if (false == $view_work) {
-            $ddd_msg=array_merge(['err'=>'Not Exists ..','line'=>__LINE__,'file'=>__FILE__],$views);
+            $ddd_msg = array_merge(['err' => 'Not Exists ..', 'line' => __LINE__, 'file' => __FILE__], $views);
             ddd($ddd_msg);
         }
 
@@ -1298,13 +1298,13 @@ class ThemeService {
             return View::exists($view_check);
         });
         if (false == $view_work) {
-            $ddd_msg=array_merge(
+            $ddd_msg = array_merge(
                 [
-                'err'=>'Not Exists ..',
-                'line'=>__LINE__,
-                'file'=>__FILE__,
-                'pub_theme'=>config('xra.pub_theme'),
-                //'pub_theme_dir'=>self::viewNamespaceToDir($views[0]),
+                    'err' => 'Not Exists ..',
+                    'line' => __LINE__,
+                    'file' => __FILE__,
+                    'pub_theme' => config('xra.pub_theme'),
+                    //'pub_theme_dir'=>self::viewNamespaceToDir($views[0]),
                 ],
                 $views
             );
