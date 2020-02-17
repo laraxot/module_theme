@@ -1273,7 +1273,7 @@ class ThemeService {
         } else {
             $view = $params;
         }
-        \Debugbar::startMeasure('render', 'Time for rendering');
+
         $params = \Route::current()->parameters();
         $route_action = \Route::currentRouteAction();
         $act = Str::snake(Str::after($route_action, '@'));
@@ -1387,6 +1387,7 @@ class ThemeService {
             $theView->with($key, $value);
         }
         */
+        /*
         \Debugbar::addMessage($view, 'primary view:');
         if (is_object($row)) {
             \Debugbar::addMessage(get_class($row), 'row_class');
@@ -1396,6 +1397,7 @@ class ThemeService {
         }
 
         \Debugbar::stopMeasure('render');
+        */
         // \xdebug_print_function_stack( '['.__LINE__.']['.__FILE__.']' );
         return $theView;
     }
@@ -1635,7 +1637,7 @@ class ThemeService {
         $mod = \Module::find($module_original);
         $mod_path = $mod->getPath();
         $json_path = $mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
-        \Debugbar::addMessage($json_path, 'menu path:');
+        //\Debugbar::addMessage($json_path, 'menu path:');
         $json_path = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $json_path);
         $menu = include $json_path;
         ddd($menu);
@@ -1660,7 +1662,7 @@ class ThemeService {
         $mod = \Module::find($module_original);
         $mod_path = $mod->getPath();
         $json_path = $mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
-        \Debugbar::addMessage($json_path, 'menu path:');
+        //\Debugbar::addMessage($json_path, 'menu path:');
         $json_path = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $json_path);
         if (! File::exists($json_path)) {
             return [];
