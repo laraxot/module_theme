@@ -1304,7 +1304,8 @@ class ThemeService {
                     'line' => __LINE__,
                     'file' => __FILE__,
                     'pub_theme' => config('xra.pub_theme'),
-                    //'pub_theme_dir'=>self::viewNamespaceToDir($views[0]),
+                    'adm_theme' => config('xra.adm_theme'),
+                    'view0_dir'=>self::viewNamespaceToDir($views[0]),
                 ],
                 $views
             );
