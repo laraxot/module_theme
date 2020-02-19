@@ -9,7 +9,7 @@ $(function() {
 		modal.find('.modal-title').text(title);
 	});
 
- 
+
 	$('#myModalAjax').on('show.bs.modal', function (event)  {
 		 /*$(this).find('.modal-dialog').css({width:'auto',
 								   height:'auto',
@@ -100,9 +100,10 @@ $(function() {
 				//modal.find('.form-msg').html(msg);
 				//modal.find('.modal-body').html(data.html); // prima c'era old_data
 				ajaxLink(data.html,modal,msg);
-				modal.data('reload',1); 
+				modal.data('reload',1);
 			}).fail(function(response){
-				console.log(response);
+                console.log(response);
+                document.write(response.responseText);
 				var err='';
 				var errors=response.responseJSON.errors;
 				for(i in errors){

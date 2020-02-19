@@ -43,7 +43,7 @@
 			try{
 				echo $act->btn();
 			}catch(\Exception $e){
-				ddd($act);
+				ddd(['act'=>$act,'e'=>$e]);
 			}
 		@endphp
 	@endforeach
