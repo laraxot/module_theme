@@ -7,6 +7,12 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Vuetify = require('vuetify');
+Vue.use(Vuetify);
+
+const opts = {}
+
+export default new Vuetify(opts);
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,6 +28,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('bs-modal', require('./components/BsModal.vue').default);
+Vue.component('rating-one', require('./components/RatingOne.vue').default);
+
 
 
 /**
@@ -32,4 +40,5 @@ Vue.component('bs-modal', require('./components/BsModal.vue').default);
 
 const app = new Vue({
     el: '#app',
+    vuetify: new Vuetify(),
 });
