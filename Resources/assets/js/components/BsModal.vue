@@ -25,147 +25,164 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<span v-html="body"></span>
-					</div>
-					<div class="modal-footer">
+                        <div class="alert alert-danger" role="alert" v-if="hasError">
+                            {{ error }}
+                        </div>
+						<span v-html="body" v-on:click.capture="handleClick"></span>
+                        <!--
+                        <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="button" class="btn btn-primary">Send message</button>
-					</div>
+
+					    </div>
+                        -->
+                    </div>
+
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
-	export default {
-	       name: 'bs-modal',
-	    props: ['message'],
-	    data() {
-	        return {
-	            body: this.message,
-	               loading:true,
-	               title:'Loading..',
-	        }
-	    },
-	    created() {
+var formSerialize = require('form-serialize');
+export default {
+	name: 'bs-modal',
+	props: ['message'],
+	data() {
+		return {
+			body: this.message,
+			loading: true,
+			title: 'Loading..',
+			hasError: false,
+			error: null,
 
-	    },
-	    methods: {
-	           /*
-	        onShowModal(event){
-	               console.log(event);
-	               var button = $(event.relatedTarget) // Button that triggered the modal
-	               var title = button.data('title') // Extract info from data-* attributes
-	               console.log(title);
-	               // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-	               // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	               var modal = $(this)
-	               modal.find('.modal-title').text(title);
-	               //modal.find('.modal-body input').val(recipient)
-	           },
-	           */
-	            ajaxLink:function(data,modal){
-                    this.body=data;
-                    var myform=this.modal.find('form');
-                    console.log('my form:');
-                    console.log(myform);
+		}
+	},
+	created() {
 
+	},
+	methods: {
+		close: function () {
+			this.$emit('close');
+		},
+		submit(e) {
+			e.preventDefault();
+			this.$root.$emit('form-sending');
+			let myform = e.target.form;
+			let data = formSerialize(myform, {
+				hash: false,
+				empty: true
+			});
+			/*
+			data += '&' + e.target.name + '='
+			        + encodeURIComponent(e.target.value);
 
+			console.log('method: '+ myform.method);
+			console.log('action: ' + myform.action);
+			console.log(data);
+			*/
+            this.loading = true;
+            //headers: 'X-Requested-With': 'XMLHttpRequest'
+			axios({
+				method: myform.method,
+				url: myform.action,
+				data: data
+			}).then(
+				response => {
+					this.loading = false;
+					if (response.data.redirect) {
+                        //handleFormRedirect(response.data.redirect);
+                        //this.$router.push('Home')
+                        //https://stackoverflow.com/questions/51281157/vue2-how-to-redirect-to-another-page-using-routes
+                        window.location.href = response.data.redirect;
+					} else {
+                        console.log(response);
+                        /*
+                        this.title = response.data.title;
+                        this.content = response.data.content;
+                        */
+					}
+				}
+			).catch(
+				err => {
+					//console.log(err.response);
+					this.loading = false;
+					this.hasError = true;
+					this.error = err.response.error;
+					//this.body=error;
+				}
+			);
+		},
 
+		handleClick(e) {
+			if (e.target.tagName == 'INPUT' && e.target.type == 'submit') {
+				this.submit(e);
+			}
+			if (e.target.tagName == 'BUTTON' && e.target.type == 'submit') {
+				this.submit(e);
+			}
+			e.preventDefault();
+		}
 
-                    modal.find('form').submit(function(e){
-                        console.log('submit');
-                        this.loading=true;
-                        e.preventDefault();
-                        modal.find('.form-msg').html(loading);
-                        var old_data=modal.find('.modal-body').html();
-                        modal.find('.modal-body').html(loading);
-                        var myform = $(this);
-                        var querystring = myform.serialize();
-                        var actionurl = e.currentTarget.action;
-                        $.ajax({
-                            url: actionurl,
-                            type: 'post',
-                            dataType: 'json',
-                            data: querystring
-                        }).done(function( data ) {
-                            modal.find('.form-msg').html('<div class="alert alert-success"><strong>Success </strong>'+data.msg+'</div>');
-                            modal.find('.modal-body').html(old_data);
-                            modal.data('reload',1);
-                        }).fail(function(response){
-                            console.log(response);
-                            var err='';
-                            var errors=response.responseJSON.errors;
-                            for(i in errors){
-                                err=err+'<div class="alert alert-danger"><strong>Error! </strong>'+i+' '+errors[i]+'</div>';
-                            }
-                            modal.find('.form-msg').html(err);
-                        });
+    },
+	mounted() {
+        //var $emit=this.$emit;
+        //this.$router.go('http://www.google.com');
+		var obj = this;
+		this.modal = $(this.$refs.vuemodal);
+		this.modal.on("show.bs.modal", function (event) {
+			var button = $(event.relatedTarget); // Button that triggered the modal
+			obj.title = button.data('title'); // Extract info from data-* attributes
+			obj.href = button.data('href');
+			obj.body = '';
+			var modal = $(this);
 
-                        //alert('preso !');
-                    });
-                },
-	           close: function () {
-	               this.$emit('close');
-	           }
+			if (obj.href == undefined) {
+				obj.body = 'attributes data-href missing in button';
+			}
+			axios.get(obj.href)
+				.then(
+					res => {
+						console.log(res);
+						obj.loading = false;
+						obj.body = res.data;
+					}
+				).catch(
+					err => {
+						console.log(err);
+						this.hasError = true;
+						obj.body = err;
+					}
+				);
 
-	       },
-	       mounted(){
-	           //var $emit=this.$emit;
-               var obj=this;
-               this.modal=$(this.$refs.vuemodal);
-	           this.modal.on("show.bs.modal",  function (event) {
-	               var button = $(event.relatedTarget); // Button that triggered the modal
-	               obj.title = button.data('title'); // Extract info from data-* attributes
-	               obj.href= button.data('href');
-                   obj.body='';
-                   var modal = $(this);
-
-	               if(obj.href==undefined){
-	                   obj.body='attributes data-href missing in button';
-	               }
-	               axios.get(obj.href)
-	                   .then(function(res){
-	                       console.log(res);
-	                       obj.loading=false;
-                           //obj.body=res.data;
-                           obj.ajaxLink(res.data,modal);
-	                   }).catch(function (error) {
-	                       console.log(error);
-	               });
-	               //var modal = $(this)
-	               //console.log(title);
-	               //$emit('title', title);
-	               //modal.find('.modal-title').text(title);
-	               //obj.title=title;
-	               //this.title=title;
-	           });
-	           document.addEventListener("keydown", (e) => {
-	               if (this.show && e.keyCode == 27) {
-	                   this.close();
-	               }
-	           });
-	       }
-	};
-	/*
-	http://junerockwell.com/how-to-make-simple-basic-modal-using-bootstrap-css-vuejs-2/
-	https://github.com/hultberg/vue-bootstrap-modal/blob/master/src/modal.vue
-
-	https://forum.vuejs.org/t/the-right-way-to-do-2-way-props/16487/4
-	<textarea v-model="interface"></textarea>
-	computed:{
-	 interface:{
-	   get(){
-	     return this.value
-	   },
-	   set(val){
-	     this.$emit('input', val)
-	   }
-	 }
+		});
+		document.addEventListener("keydown", (e) => {
+			if (this.show && e.keyCode == 27) {
+				this.close();
+			}
+		});
 	}
+};
+/*
+http://junerockwell.com/how-to-make-simple-basic-modal-using-bootstrap-css-vuejs-2/
+https://github.com/hultberg/vue-bootstrap-modal/blob/master/src/modal.vue
+
+https://forum.vuejs.org/t/the-right-way-to-do-2-way-props/16487/4
+<textarea v-model="interface"></textarea>
+computed:{
+ interface:{
+   get(){
+     return this.value
+   },
+   set(val){
+     this.$emit('input', val)
+   }
+ }
+}
 
 
 
-	*/
+*/
 </script>
-<style></style>
+<style>
+</style>

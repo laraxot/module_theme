@@ -2360,6 +2360,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+var formSerialize = __webpack_require__(/*! form-serialize */ "./node_modules/form-serialize/index.js");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'bs-modal',
   props: ['message'],
@@ -2367,72 +2376,84 @@ __webpack_require__.r(__webpack_exports__);
     return {
       body: this.message,
       loading: true,
-      title: 'Loading..'
+      title: 'Loading..',
+      hasError: false,
+      error: null
     };
   },
   created: function created() {},
   methods: {
-    /*
-    onShowModal(event){
-        console.log(event);
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var title = button.data('title') // Extract info from data-* attributes
-        console.log(title);
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        modal.find('.modal-title').text(title);
-        //modal.find('.modal-body input').val(recipient)
-    },
-    */
-    ajaxLink: function ajaxLink(data, modal) {
-      this.body = data;
-      var myform = this.body.find('form');
-      console.log('my form:');
-      console.log(myform);
-      modal.find('form').submit(function (e) {
-        console.log('submit');
-        this.loading = true;
-        e.preventDefault();
-        modal.find('.form-msg').html(loading);
-        var old_data = modal.find('.modal-body').html();
-        modal.find('.modal-body').html(loading);
-        var myform = $(this);
-        var querystring = myform.serialize();
-        var actionurl = e.currentTarget.action;
-        $.ajax({
-          url: actionurl,
-          type: 'post',
-          dataType: 'json',
-          data: querystring
-        }).done(function (data) {
-          modal.find('.form-msg').html('<div class="alert alert-success"><strong>Success </strong>' + data.msg + '</div>');
-          modal.find('.modal-body').html(old_data);
-          modal.data('reload', 1);
-        }).fail(function (response) {
-          console.log(response);
-          var err = '';
-          var errors = response.responseJSON.errors;
-
-          for (i in errors) {
-            err = err + '<div class="alert alert-danger"><strong>Error! </strong>' + i + ' ' + errors[i] + '</div>';
-          }
-
-          modal.find('.form-msg').html(err);
-        }); //alert('preso !');
-      });
-    },
     close: function close() {
       this.$emit('close');
+    },
+    submit: function submit(e) {
+      var _this = this;
+
+      e.preventDefault();
+      this.$root.$emit('form-sending');
+      var myform = e.target.form;
+      var data = formSerialize(myform, {
+        hash: false,
+        empty: true
+      });
+      /*
+      data += '&' + e.target.name + '='
+              + encodeURIComponent(e.target.value);
+      	console.log('method: '+ myform.method);
+      console.log('action: ' + myform.action);
+      console.log(data);
+      */
+
+      this.loading = true; //headers: 'X-Requested-With': 'XMLHttpRequest'
+
+      axios({
+        method: myform.method,
+        url: myform.action,
+        data: data
+      }).then(function (response) {
+        _this.loading = false;
+
+        if (response.data.redirect) {
+          //handleFormRedirect(response.data.redirect);
+          //this.$router.push('Home')
+          //https://stackoverflow.com/questions/51281157/vue2-how-to-redirect-to-another-page-using-routes
+          window.location.href = response.data.redirect;
+        } else {
+          console.log(response);
+          /*
+          this.title = response.data.title;
+          this.content = response.data.content;
+          */
+        }
+      })["catch"](function (err) {
+        //console.log(err.response);
+        _this.loading = false;
+        _this.hasError = true;
+        _this.error = err.response.error; //this.body=error;
+      });
+    },
+    handleClick: function handleClick(e) {
+      if (e.target.tagName == 'INPUT' && e.target.type == 'submit') {
+        this.submit(e);
+      }
+
+      if (e.target.tagName == 'BUTTON' && e.target.type == 'submit') {
+        this.submit(e);
+      }
+
+      e.preventDefault();
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this3 = this;
 
     //var $emit=this.$emit;
+    //this.$router.go('http://www.google.com');
     var obj = this;
     this.modal = $(this.$refs.vuemodal);
     this.modal.on("show.bs.modal", function (event) {
+      var _this2 = this;
+
       var button = $(event.relatedTarget); // Button that triggered the modal
 
       obj.title = button.data('title'); // Extract info from data-* attributes
@@ -2447,21 +2468,17 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get(obj.href).then(function (res) {
         console.log(res);
-        obj.loading = false; //obj.body=res.data;
-
-        obj.ajaxLink(res.data, modal);
-      })["catch"](function (error) {
-        console.log(error);
-      }); //var modal = $(this)
-      //console.log(title);
-      //$emit('title', title);
-      //modal.find('.modal-title').text(title);
-      //obj.title=title;
-      //this.title=title;
+        obj.loading = false;
+        obj.body = res.data;
+      })["catch"](function (err) {
+        console.log(err);
+        _this2.hasError = true;
+        obj.body = err;
+      });
     });
     document.addEventListener("keydown", function (e) {
-      if (_this.show && e.keyCode == 27) {
-        _this.close();
+      if (_this3.show && e.keyCode == 27) {
+        _this3.close();
       }
     });
   }
@@ -2469,7 +2486,8 @@ __webpack_require__.r(__webpack_exports__);
 /*
 http://junerockwell.com/how-to-make-simple-basic-modal-using-bootstrap-css-vuejs-2/
 https://github.com/hultberg/vue-bootstrap-modal/blob/master/src/modal.vue
-	https://forum.vuejs.org/t/the-right-way-to-do-2-way-props/16487/4
+
+https://forum.vuejs.org/t/the-right-way-to-do-2-way-props/16487/4
 <textarea v-model="interface"></textarea>
 computed:{
  interface:{
@@ -2482,7 +2500,9 @@ computed:{
  }
 }
 
-	*/
+
+
+*/
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
@@ -7268,6 +7288,277 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/form-serialize/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/form-serialize/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// get successful control from form and assemble into object
+// http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2
+
+// types which indicate a submit action and are not successful controls
+// these will be ignored
+var k_r_submitter = /^(?:submit|button|image|reset|file)$/i;
+
+// node names which could be successful controls
+var k_r_success_contrls = /^(?:input|select|textarea|keygen)/i;
+
+// Matches bracket notation.
+var brackets = /(\[[^\[\]]*\])/g;
+
+// serializes form fields
+// @param form MUST be an HTMLForm element
+// @param options is an optional argument to configure the serialization. Default output
+// with no options specified is a url encoded string
+//    - hash: [true | false] Configure the output type. If true, the output will
+//    be a js object.
+//    - serializer: [function] Optional serializer function to override the default one.
+//    The function takes 3 arguments (result, key, value) and should return new result
+//    hash and url encoded str serializers are provided with this module
+//    - disabled: [true | false]. If true serialize disabled fields.
+//    - empty: [true | false]. If true serialize empty fields
+function serialize(form, options) {
+    if (typeof options != 'object') {
+        options = { hash: !!options };
+    }
+    else if (options.hash === undefined) {
+        options.hash = true;
+    }
+
+    var result = (options.hash) ? {} : '';
+    var serializer = options.serializer || ((options.hash) ? hash_serializer : str_serialize);
+
+    var elements = form && form.elements ? form.elements : [];
+
+    //Object store each radio and set if it's empty or not
+    var radio_store = Object.create(null);
+
+    for (var i=0 ; i<elements.length ; ++i) {
+        var element = elements[i];
+
+        // ingore disabled fields
+        if ((!options.disabled && element.disabled) || !element.name) {
+            continue;
+        }
+        // ignore anyhting that is not considered a success field
+        if (!k_r_success_contrls.test(element.nodeName) ||
+            k_r_submitter.test(element.type)) {
+            continue;
+        }
+
+        var key = element.name;
+        var val = element.value;
+
+        // we can't just use element.value for checkboxes cause some browsers lie to us
+        // they say "on" for value when the box isn't checked
+        if ((element.type === 'checkbox' || element.type === 'radio') && !element.checked) {
+            val = undefined;
+        }
+
+        // If we want empty elements
+        if (options.empty) {
+            // for checkbox
+            if (element.type === 'checkbox' && !element.checked) {
+                val = '';
+            }
+
+            // for radio
+            if (element.type === 'radio') {
+                if (!radio_store[element.name] && !element.checked) {
+                    radio_store[element.name] = false;
+                }
+                else if (element.checked) {
+                    radio_store[element.name] = true;
+                }
+            }
+
+            // if options empty is true, continue only if its radio
+            if (val == undefined && element.type == 'radio') {
+                continue;
+            }
+        }
+        else {
+            // value-less fields are ignored unless options.empty is true
+            if (!val) {
+                continue;
+            }
+        }
+
+        // multi select boxes
+        if (element.type === 'select-multiple') {
+            val = [];
+
+            var selectOptions = element.options;
+            var isSelectedOptions = false;
+            for (var j=0 ; j<selectOptions.length ; ++j) {
+                var option = selectOptions[j];
+                var allowedEmpty = options.empty && !option.value;
+                var hasValue = (option.value || allowedEmpty);
+                if (option.selected && hasValue) {
+                    isSelectedOptions = true;
+
+                    // If using a hash serializer be sure to add the
+                    // correct notation for an array in the multi-select
+                    // context. Here the name attribute on the select element
+                    // might be missing the trailing bracket pair. Both names
+                    // "foo" and "foo[]" should be arrays.
+                    if (options.hash && key.slice(key.length - 2) !== '[]') {
+                        result = serializer(result, key + '[]', option.value);
+                    }
+                    else {
+                        result = serializer(result, key, option.value);
+                    }
+                }
+            }
+
+            // Serialize if no selected options and options.empty is true
+            if (!isSelectedOptions && options.empty) {
+                result = serializer(result, key, '');
+            }
+
+            continue;
+        }
+
+        result = serializer(result, key, val);
+    }
+
+    // Check for all empty radio buttons and serialize them with key=""
+    if (options.empty) {
+        for (var key in radio_store) {
+            if (!radio_store[key]) {
+                result = serializer(result, key, '');
+            }
+        }
+    }
+
+    return result;
+}
+
+function parse_keys(string) {
+    var keys = [];
+    var prefix = /^([^\[\]]*)/;
+    var children = new RegExp(brackets);
+    var match = prefix.exec(string);
+
+    if (match[1]) {
+        keys.push(match[1]);
+    }
+
+    while ((match = children.exec(string)) !== null) {
+        keys.push(match[1]);
+    }
+
+    return keys;
+}
+
+function hash_assign(result, keys, value) {
+    if (keys.length === 0) {
+        result = value;
+        return result;
+    }
+
+    var key = keys.shift();
+    var between = key.match(/^\[(.+?)\]$/);
+
+    if (key === '[]') {
+        result = result || [];
+
+        if (Array.isArray(result)) {
+            result.push(hash_assign(null, keys, value));
+        }
+        else {
+            // This might be the result of bad name attributes like "[][foo]",
+            // in this case the original `result` object will already be
+            // assigned to an object literal. Rather than coerce the object to
+            // an array, or cause an exception the attribute "_values" is
+            // assigned as an array.
+            result._values = result._values || [];
+            result._values.push(hash_assign(null, keys, value));
+        }
+
+        return result;
+    }
+
+    // Key is an attribute name and can be assigned directly.
+    if (!between) {
+        result[key] = hash_assign(result[key], keys, value);
+    }
+    else {
+        var string = between[1];
+        // +var converts the variable into a number
+        // better than parseInt because it doesn't truncate away trailing
+        // letters and actually fails if whole thing is not a number
+        var index = +string;
+
+        // If the characters between the brackets is not a number it is an
+        // attribute name and can be assigned directly.
+        if (isNaN(index)) {
+            result = result || {};
+            result[string] = hash_assign(result[string], keys, value);
+        }
+        else {
+            result = result || [];
+            result[index] = hash_assign(result[index], keys, value);
+        }
+    }
+
+    return result;
+}
+
+// Object/hash encoding serializer.
+function hash_serializer(result, key, value) {
+    var matches = key.match(brackets);
+
+    // Has brackets? Use the recursive assignment function to walk the keys,
+    // construct any missing objects in the result tree and make the assignment
+    // at the end of the chain.
+    if (matches) {
+        var keys = parse_keys(key);
+        hash_assign(result, keys, value);
+    }
+    else {
+        // Non bracket notation can make assignments directly.
+        var existing = result[key];
+
+        // If the value has been assigned already (for instance when a radio and
+        // a checkbox have the same name attribute) convert the previous value
+        // into an array before pushing into it.
+        //
+        // NOTE: If this requirement were removed all hash creation and
+        // assignment could go through `hash_assign`.
+        if (existing) {
+            if (!Array.isArray(existing)) {
+                result[key] = [ existing ];
+            }
+
+            result[key].push(value);
+        }
+        else {
+            result[key] = value;
+        }
+    }
+
+    return result;
+}
+
+// urlform encoding serializer
+function str_serialize(result, key, value) {
+    // encode newlines as \r\n cause the html spec says so
+    value = value.replace(/(\r)?\n/g, '\r\n');
+    value = encodeURIComponent(value);
+
+    // spaces should be '+' rather than '%20'.
+    value = value.replace(/%20/g, '+');
+    return result + (result ? '&' : '') + encodeURIComponent(key) + '=' + value;
+}
+
+module.exports = serialize;
 
 
 /***/ }),
@@ -38693,10 +38984,32 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _c("span", { domProps: { innerHTML: _vm._s(_vm.body) } })
-                ]),
-                _vm._v(" "),
-                _vm._m(3)
+                  _vm.hasError
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "alert alert-danger",
+                          attrs: { role: "alert" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.error) +
+                              "\n                        "
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("span", {
+                    domProps: { innerHTML: _vm._s(_vm.body) },
+                    on: {
+                      "!click": function($event) {
+                        return _vm.handleClick($event)
+                      }
+                    }
+                  })
+                ])
               ])
         ])
       ])
@@ -38751,27 +39064,6 @@ var staticRenderFns = [
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Close")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Send message")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -92347,8 +92639,8 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/f/xampp/htdocs/lara/multi/laravel/Modules/Theme/Resources/assets/js/app.js */"./Resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/f/xampp/htdocs/lara/multi/laravel/Modules/Theme/Resources/assets/sass/app.scss */"./Resources/assets/sass/app.scss");
+__webpack_require__(/*! /mnt/c/var/www/multi/laravel/Modules/Theme/Resources/assets/js/app.js */"./Resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/c/var/www/multi/laravel/Modules/Theme/Resources/assets/sass/app.scss */"./Resources/assets/sass/app.scss");
 
 
 /***/ })
