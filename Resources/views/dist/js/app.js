@@ -2360,7 +2360,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'bs-modal',
   props: ['message'],
@@ -2386,6 +2385,43 @@ __webpack_require__.r(__webpack_exports__);
         //modal.find('.modal-body input').val(recipient)
     },
     */
+    ajaxLink: function ajaxLink(data, modal) {
+      this.body = data;
+      var myform = this.body.find('form');
+      console.log('my form:');
+      console.log(myform);
+      modal.find('form').submit(function (e) {
+        console.log('submit');
+        this.loading = true;
+        e.preventDefault();
+        modal.find('.form-msg').html(loading);
+        var old_data = modal.find('.modal-body').html();
+        modal.find('.modal-body').html(loading);
+        var myform = $(this);
+        var querystring = myform.serialize();
+        var actionurl = e.currentTarget.action;
+        $.ajax({
+          url: actionurl,
+          type: 'post',
+          dataType: 'json',
+          data: querystring
+        }).done(function (data) {
+          modal.find('.form-msg').html('<div class="alert alert-success"><strong>Success </strong>' + data.msg + '</div>');
+          modal.find('.modal-body').html(old_data);
+          modal.data('reload', 1);
+        }).fail(function (response) {
+          console.log(response);
+          var err = '';
+          var errors = response.responseJSON.errors;
+
+          for (i in errors) {
+            err = err + '<div class="alert alert-danger"><strong>Error! </strong>' + i + ' ' + errors[i] + '</div>';
+          }
+
+          modal.find('.form-msg').html(err);
+        }); //alert('preso !');
+      });
+    },
     close: function close() {
       this.$emit('close');
     }
@@ -2395,14 +2431,25 @@ __webpack_require__.r(__webpack_exports__);
 
     //var $emit=this.$emit;
     var obj = this;
-    $(this.$refs.vuemodal).on("show.bs.modal", function (event) {
+    this.modal = $(this.$refs.vuemodal);
+    this.modal.on("show.bs.modal", function (event) {
       var button = $(event.relatedTarget); // Button that triggered the modal
 
       obj.title = button.data('title'); // Extract info from data-* attributes
 
-      axios.get('http://geek.local/img/automat.png').then(function (res) {
+      obj.href = button.data('href');
+      obj.body = '';
+      var modal = $(this);
+
+      if (obj.href == undefined) {
+        obj.body = 'attributes data-href missing in button';
+      }
+
+      axios.get(obj.href).then(function (res) {
         console.log(res);
-        obj.loading = false;
+        obj.loading = false; //obj.body=res.data;
+
+        obj.ajaxLink(res.data, modal);
       })["catch"](function (error) {
         console.log(error);
       }); //var modal = $(this)
@@ -2422,23 +2469,20 @@ __webpack_require__.r(__webpack_exports__);
 /*
 http://junerockwell.com/how-to-make-simple-basic-modal-using-bootstrap-css-vuejs-2/
 https://github.com/hultberg/vue-bootstrap-modal/blob/master/src/modal.vue
-
-https://forum.vuejs.org/t/the-right-way-to-do-2-way-props/16487/4
+	https://forum.vuejs.org/t/the-right-way-to-do-2-way-props/16487/4
 <textarea v-model="interface"></textarea>
 computed:{
-  interface:{
-    get(){
-      return this.value
-    },
-    set(val){
-      this.$emit('input', val)
-    }
-  }
+ interface:{
+   get(){
+     return this.value
+   },
+   set(val){
+     this.$emit('input', val)
+   }
+ }
 }
 
-
-
-*/
+	*/
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
@@ -38648,7 +38692,9 @@ var render = function() {
                   _vm._m(2)
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("span", { domProps: { innerHTML: _vm._s(_vm.body) } })
+                ]),
                 _vm._v(" "),
                 _vm._m(3)
               ])
@@ -52149,7 +52195,7 @@ var defaultMenuProps = __assign({}, _VSelect_VSelect__WEBPACK_IMPORTED_MODULE_1_
 
       this.$nextTick(function () {
         if (!_this.multiple || !_this.internalSearch || !_this.isMenuActive) {
-          _this.internalSearch = !_this.selectedItems.length || _this.multiple || _this.hasSlot ? null : _this.getText(_this.selectedItem);
+          _this.internalSearch = !_this.selectedItems.length || _this.multiple || _this.hasSlot ? _this.internalSearch || null : _this.getText(_this.selectedItem);
         }
       });
     },
@@ -59803,7 +59849,6 @@ var __assign = undefined && undefined.__assign || function () {
       handler: function handler(options, old) {
         if (Object(_util_helpers__WEBPACK_IMPORTED_MODULE_0__["deepEqual"])(options, old)) return;
         this.$emit('update:options', options);
-        this.$emit('pagination', this.pagination);
       },
       deep: true,
       immediate: true
@@ -59881,6 +59926,12 @@ var __assign = undefined && undefined.__assign || function () {
     computedItems: {
       handler: function handler(computedItems) {
         this.$emit('current-items', computedItems);
+      },
+      immediate: true
+    },
+    pagination: {
+      handler: function handler() {
+        this.$emit('pagination', this.pagination);
       },
       immediate: true
     }
@@ -60630,6 +60681,9 @@ var __read = undefined && undefined.__read || function (o, n) {
           _this.internalCurrentItems = v;
 
           _this.$emit('current-items', v);
+        },
+        'page-count': function pageCount(v) {
+          return _this.$emit('page-count', v);
         }
       },
       scopedSlots: {
@@ -71878,6 +71932,7 @@ var __spread = undefined && undefined.__spread || function () {
         input.data = input.data || {};
         input.data.attrs = input.data.attrs || {};
         input.data.attrs.value = _this.internalValue[i];
+        input.data.attrs.id = "input-" + (i ? 'max' : 'min') + "-" + _this._uid;
         return input;
       });
     },
@@ -82849,7 +82904,7 @@ function () {
 
   Vuetify.install = _install__WEBPACK_IMPORTED_MODULE_0__["install"];
   Vuetify.installed = false;
-  Vuetify.version = "2.2.14";
+  Vuetify.version = "2.2.15";
   return Vuetify;
 }();
 
@@ -92292,8 +92347,8 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/c/var/www/multi/laravel/Modules/Theme/Resources/assets/js/app.js */"./Resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/c/var/www/multi/laravel/Modules/Theme/Resources/assets/sass/app.scss */"./Resources/assets/sass/app.scss");
+__webpack_require__(/*! /mnt/f/xampp/htdocs/lara/multi/laravel/Modules/Theme/Resources/assets/js/app.js */"./Resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/f/xampp/htdocs/lara/multi/laravel/Modules/Theme/Resources/assets/sass/app.scss */"./Resources/assets/sass/app.scss");
 
 
 /***/ })
