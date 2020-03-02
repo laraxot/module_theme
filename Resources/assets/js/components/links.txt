@@ -6,3 +6,7 @@ https://forum.vuejs.org/t/how-to-update-dom-after-pasting-html-trying-to-integra
 
 
 https://codeburst.io/embedding-php-forms-in-vue-js-b388f2d3c47
+
+https://itsolutionstuff.com/post/laravel-vue-js-image-upload-example-with-demoexample.html
+
+
