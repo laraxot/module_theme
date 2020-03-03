@@ -10,9 +10,13 @@
 {!! Form::bsBtnGear(['row'=>$row]) !!}
 
 <div class="page-wrapper">
-	{!! Theme::include('inner_page',[],get_defined_vars() ) !!}
-	@include('pub_theme::layouts.partials.breadcrumb')
-	@include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
+    {!! Theme::include('inner_page',[],get_defined_vars() ) !!}
+    {{--
+    {!! Theme::include('breadcrumb',[],get_defined_vars() ) !!}
+    {!! Theme::include('tabs',['tabs'=>$panel->getTabs()],get_defined_vars() ) !!}
+    --}}
+    @include('pub_theme::layouts.partials.breadcrumb')
+    @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
 	<section class="create-page inner-page">
 		<div class="container">
 		{!! Theme::include('topbar',[],get_defined_vars() ) !!}
