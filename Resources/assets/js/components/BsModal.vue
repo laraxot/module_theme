@@ -145,7 +145,7 @@ export default {
 					res => {
 						console.log(res);
 						obj.loading = false;
-						obj.body = res.data;
+						obj.body = res.data.html;
 					}
 				).catch(
 					err => {

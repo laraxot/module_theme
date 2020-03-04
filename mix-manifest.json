@@ -1,4 +1,6 @@
 {
     "/Resources/views/dist/js/app.js": "/Resources/views/dist/js/app.js",
-    "/Resources/views/dist/css/app.css": "/Resources/views/dist/css/app.css"
+    "/Resources/views/dist/css/app.css": "/Resources/views/dist/css/app.css",
+    "/Resources/views/dist/js/manifest.js": "/Resources/views/dist/js/manifest.js",
+    "/Resources/views/dist/js/vendor.js": "/Resources/views/dist/js/vendor.js"
 }

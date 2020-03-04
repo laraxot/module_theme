@@ -18,3 +18,5 @@ mix.js(src+'/js/app.js', dest+'/js')
 if (mix.inProduction()) {
     mix.version();
 }
+
+mix.extract(['vue','jquery']);
