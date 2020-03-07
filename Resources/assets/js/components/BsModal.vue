@@ -28,6 +28,16 @@
                         <div class="alert alert-danger" role="alert" v-if="hasError">
                             {{ error }}
                         </div>
+                        <div class="alert alert-danger" role="alert" v-if="hasError" v-for="item in errors">
+                            {{ item }}
+                        </div>
+                        <div class="alert alert-success" role="alert" v-if="hasSuccess" role="alert">
+                            {{ success_msg }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
 						<span v-html="body" v-on:click.capture="handleClick"></span>
                         <!--
                         <div class="modal-footer">
@@ -54,7 +64,9 @@ export default {
 			loading: true,
 			title: 'Loading..',
 			hasError: false,
-			error: null,
+            error: null,
+            errors:null,
+            hasSuccess:false;
 
 		}
 	},
@@ -89,7 +101,10 @@ export default {
 				data: data
 			}).then(
 				response => {
-					this.loading = false;
+                    this.hasSuccess=true;
+                    this.loading = false;
+                    //console.log('success');
+                    //console.log('response');
 					if (response.data.redirect) {
                         //handleFormRedirect(response.data.redirect);
                         //this.$router.push('Home')
@@ -97,6 +112,7 @@ export default {
                         window.location.href = response.data.redirect;
 					} else {
                         console.log(response);
+                        this.body = response.data.html;
                         /*
                         this.title = response.data.title;
                         this.content = response.data.content;
@@ -105,10 +121,27 @@ export default {
 				}
 			).catch(
 				err => {
-					//console.log(err.response);
+                    console.log('------- ERROR ------');
+                    console.log(err);
+                    let response=err.response;
+                    console.log(response);
 					this.loading = false;
-					this.hasError = true;
-					this.error = err.response.error;
+                    this.hasError = true;
+                    this.error = 'Err: ';
+                    console.log('118');
+                    console.log(response.data.message);
+                    this.error += response.data.error;
+                    var $obj=this;
+                    if(response.data.error==undefined){ //status: 429
+                            this.error = response.data.message;
+                            this.error += ' '+response.statusText;
+                            this.errors=response.data.errors.handle;
+                            /*
+                            response.data.errors.handle.forEach(function(item) {
+                                $obj.error += '<br/>'+item;
+                            });
+                            */
+                    }
 					//this.body=error;
 				}
 			);
@@ -134,7 +167,8 @@ export default {
 			var button = $(event.relatedTarget); // Button that triggered the modal
 			obj.title = button.data('title'); // Extract info from data-* attributes
 			obj.href = button.data('href');
-			obj.body = '';
+            obj.body = '';
+            obj.loading = true;
 			var modal = $(this);
 
 			if (obj.href == undefined) {
