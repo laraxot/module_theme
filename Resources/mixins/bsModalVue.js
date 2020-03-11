@@ -11,6 +11,7 @@ export const bsModalVue = {
             errors:null,
             hasSuccess:false,
             success_msg:null,
+            script_src:null,
 
 		}
 	},
@@ -122,6 +123,9 @@ export const bsModalVue = {
                         console.log(res);
                         this.loading = false;
                         this.body = res.data.html;
+                        //$.getScript(base_url+'/bc/jquery/dist/jquery.min.js');
+                        //$.getScript(base_url+'/bc/jquery.rateit/scripts/jquery.rateit.min.js');
+                        //$.getScript(base_url+'/bc/jquery.rateit/scripts/rateit.css');
                     }
                 ).catch(
                     err => {
