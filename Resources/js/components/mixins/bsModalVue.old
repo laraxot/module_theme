@@ -1,6 +1,6 @@
 var formSerialize = require('form-serialize');
 
-export const bsModalVue = {
+export default {
     data() {
 		return {
 			body: this.message,
@@ -9,9 +9,6 @@ export const bsModalVue = {
 			hasError: false,
             error: null,
             errors:null,
-            hasSuccess:false,
-            success_msg:null,
-            script_src:null,
 
 		}
 	},
@@ -39,8 +36,6 @@ export const bsModalVue = {
             console.log(data);
             */
             this.loading = true;
-            this.hasError = false;
-            this.hasSuccess = false;
             //headers: 'X-Requested-With': 'XMLHttpRequest'
             axios({
                 method: myform.method,
@@ -49,18 +44,15 @@ export const bsModalVue = {
             }).then(
                 response => {
                     this.loading = false;
-                    this.hasSuccess= true;
                     //console.log('success');
                     //console.log('response');
                     if (response.data.redirect) {
                         //handleFormRedirect(response.data.redirect);
                         //this.$router.push('Home')
                         //https://stackoverflow.com/questions/51281157/vue2-how-to-redirect-to-another-page-using-routes
-                        this.title="Attendere ..";
                         window.location.href = response.data.redirect;
                     } else {
                         console.log(response);
-                        this.title= response.data.message;
                         this.body = response.data.html;
                         /*
                         this.title = response.data.title;
@@ -72,11 +64,10 @@ export const bsModalVue = {
                 err => {
                     console.log('------- ERROR ------');
                     console.log(err);
-                    this.loading = false;
-                    this.hasError = true;
                     let response=err.response;
                     console.log(response);
-
+                    this.loading = false;
+                    this.hasError = true;
                     this.error = 'Err: ';
                     console.log('118');
                     console.log(response.data.message);
@@ -105,64 +96,46 @@ export const bsModalVue = {
                 this.submit(e);
             }
             e.preventDefault();
-        },
-        onShow(event){
-            var button = $(event.relatedTarget); // Button that triggered the modal //relatedTarget: button.btn.btn-primary
+        }
 
-            this.title = button.data('title'); // Extract info from data-* attributes
-            this.href = button.data('href');
-            this.body = '';
+    },
+    mounted() {
+        //var $emit=this.$emit;
+        //this.$router.go('http://www.google.com');
+        var obj = this;
+        this.modal = $(this.$refs.vuemodal);
+        this.modal.on("show.bs.modal", function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            obj.title = button.data('title'); // Extract info from data-* attributes
+            obj.href = button.data('href');
+            obj.body = '';
+            var modal = $(this);
 
-
-            if (this.href == undefined) {
-                this.body = 'attributes data-href missing in button';
+            if (obj.href == undefined) {
+                obj.body = 'attributes data-href missing in button';
             }
-            axios.get(this.href)
+            axios.get(obj.href)
                 .then(
                     res => {
                         console.log(res);
-                        this.loading = false;
-                        this.body = res.data.html;
-                        //$.getScript(base_url+'/bc/jquery/dist/jquery.min.js');
-                        //$.getScript(base_url+'/bc/jquery.rateit/scripts/jquery.rateit.min.js');
-                        //$.getScript(base_url+'/bc/jquery.rateit/scripts/rateit.css');
+                        obj.loading = false;
+                        obj.body = res.data.html;
                     }
                 ).catch(
                     err => {
                         console.log(err);
-                        this.loading = false;
                         this.hasError = true;
-                        let response=err.response;
-                        console.log(response);
-                        this.error=response.data.error;
-                        this.body = err;
+                        obj.body = err;
                     }
                 );
 
-        },
-         onHidden(){
-            this.loading = true;
-            this.hasError = false;
-            this.hasSuccess = false;
-            this.body = '';
-
-        },
-
-    },
-    mounted() {
-        this.modal = $(this.$refs.vuemodal);
-        this.modal.on("hidden.bs.modal", this.onHidden);
-        this.modal.on("show.bs.modal", this.onShow);
-
+        });
         document.addEventListener("keydown", (e) => {
             if (this.show && e.keyCode == 27) {
                 this.close();
             }
         });
     }
-
-
-
 };
 
 //export default bsModalVue;
