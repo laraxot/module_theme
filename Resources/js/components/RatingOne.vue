@@ -15,14 +15,14 @@
             ></v-rating>
 
     <span class="font-weight-bold">
-        <input type="text" :value="rating">
+        <input type="hidden" :value="rating" :name="name">
       </span>
     </div>
 </template>
 <script>
 	export default {
 	    name: 'rating-one',
-	    props: ['value','title'],
+	    props: ['name','value','title'],
 	    data: () => ({
             rating:null,
         }),
@@ -36,7 +36,7 @@
         },
         methods: {
             ratingSave: function () {
-               alert('preso'+ this.rating);
+               //alert('preso'+ this.rating);
             },
         }
 
