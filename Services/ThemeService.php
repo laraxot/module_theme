@@ -1547,8 +1547,8 @@ class ThemeService {
         $class = config('xra.model.'.$name);
         if (null == $class) {
 
-            ddd('['.$name.'] non presente in config/xra.model');
             return null;
+            ddd('['.$name.'] non presente in config/xra.model');
         }
         $model = new $class();
 
