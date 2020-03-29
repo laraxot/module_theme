@@ -1546,15 +1546,16 @@ class ThemeService {
 
         $class = config('xra.model.'.$name);
         if (null == $class) {
-            return null;
+
             ddd('['.$name.'] non presente in config/xra.model');
+            return null;
         }
         $model = new $class();
 
         $panel = self::panelModel($model);
         $with = $panel->with();
-        $model = $model->load($with);
-
+        //$model = $model->load($with);
+        $model = $model->with($with);
         return $model;
     }
 
