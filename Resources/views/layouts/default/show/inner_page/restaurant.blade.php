@@ -1,6 +1,6 @@
 @php
     $restaurant_curr=collect($params)->where('type','restaurant')->last();
-    
+
     $cuisineCats = $restaurant_curr->cuisineCats;
 
 @endphp
@@ -11,7 +11,7 @@
                 <div class="col-xs-12 col-sm-12  col-md-4 col-lg-4 profile-img">
                     <div class="image-wrap">
                         <figure>
-                            {!! $restaurant_curr->image_html(['width'=>240,'height'=>140]) !!}
+                            {!! Panel::get($restaurant_curr)->imageHtml(['width'=>240,'height'=>140]) !!}
                         </figure>
                     </div>
                 </div>

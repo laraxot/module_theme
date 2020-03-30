@@ -189,12 +189,13 @@ class ThemeService {
             if (isset($viewHints[$hints][0])) {
                 $viewNamespace = $viewHints[$hints][0];
 
-                return $viewNamespace.\DIRECTORY_SEPARATOR.$filename;
+                $out= $viewNamespace.\DIRECTORY_SEPARATOR.$filename;
+                $out=str_replace(['\\','/'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$out);
+                return $out;
             } else {
                 $viewNamespace = '---';
             }
         }
-
         return $viewNamespace;
     }
 
