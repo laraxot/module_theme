@@ -1294,7 +1294,13 @@ class ThemeService {
         if (null == $view) {
             $view = self::getView($params);
         }
-        $views = [$view, $view_default, $view_extend];
+        //ddd($view);
+        $view_short=explode('::', $view);
+        $view_short=$view_short[0].'::'.implode('.', array_slice(explode('.', $view_short[1]), -3));
+        //ddd($view_short);
+
+
+        $views = [$view, $view_short, $view_default, $view_extend];
         $view_work = collect($views)->first(function ($view_check) {
             return View::exists($view_check);
         });
