@@ -38,17 +38,17 @@
     --}}
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e9ecef; padding:5px; ">
     {!! Form::bsBtnCreateAttach(['row'=>$row]) !!}
-    {{--
+
         @foreach($_panel->containerActions() as $act)
 		@php
         try{
             echo $act->btn([]);
         }catch(\Exception $e){
-            ddd(['act'=>$act,'e'=>$e]);
+            //ddd(['act'=>$act,'e'=>$e]);
         }
 		@endphp
         @endforeach
-        --}}
+
 	<p>
         	<span class="primary-color"><strong>{{ number_format($rows->total(),0,',',' ') }}</strong></span>
         	{{ Str::plural($row->post_type ?? class_basename($row),$rows->total()) }}
