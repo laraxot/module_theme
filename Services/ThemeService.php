@@ -1286,13 +1286,15 @@ class ThemeService {
             $view_extend = 'theme::layouts.default.'.$act;
         }
         //---------------------------------------------------------------------------
-        if (\Request::ajax()) {
-            $view_default .= '_ajax';
-            $view_extend .= '_ajax';
-        }
+
         $use_default = false;
         if (null == $view) {
             $view = self::getView($params);
+        }
+        if (\Request::ajax()) {
+            $view_default .= '_ajax';
+            $view_extend .= '_ajax';
+            $view .= '_ajax';
         }
         //ddd($view);
         $view_short=explode('::', $view);
