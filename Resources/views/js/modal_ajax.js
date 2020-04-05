@@ -65,10 +65,14 @@ $(function() {
 		modal.find('.form-msg').html(msg);
 		//modal.modal('handleUpdate');
 		modal.find('a').click(function( e ) {
+            var mylink=$(this);
+            var actionurl=mylink.attr('href');
+            if(str.charAt(0)=='#'){
+                return ;
+            }
 			modal.find('.modal-body').html(loading);
 		   	e.preventDefault();
-		   	var mylink=$(this);
-		   	var actionurl=mylink.attr('href');
+
 		   	$.ajax({
 				url: actionurl,
 				type: 'get'
