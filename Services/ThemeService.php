@@ -189,13 +189,15 @@ class ThemeService {
             if (isset($viewHints[$hints][0])) {
                 $viewNamespace = $viewHints[$hints][0];
 
-                $out= $viewNamespace.\DIRECTORY_SEPARATOR.$filename;
-                $out=str_replace(['\\','/'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$out);
+                $out = $viewNamespace.\DIRECTORY_SEPARATOR.$filename;
+                $out = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $out);
+
                 return $out;
             } else {
                 $viewNamespace = '---';
             }
         }
+
         return $viewNamespace;
     }
 
@@ -1297,10 +1299,9 @@ class ThemeService {
             $view .= '_ajax';
         }
         //ddd($view);
-        $view_short=explode('::', $view);
-        $view_short=$view_short[0].'::'.implode('.', array_slice(explode('.', $view_short[1]), -3));
+        $view_short = explode('::', $view);
+        $view_short = $view_short[0].'::'.implode('.', array_slice(explode('.', $view_short[1]), -3));
         //ddd($view_short);
-
 
         $views = [$view, $view_short, $view_default, $view_extend];
         $view_work = collect($views)->first(function ($view_check) {
@@ -1314,7 +1315,7 @@ class ThemeService {
                     'file' => __FILE__,
                     'pub_theme' => config('xra.pub_theme'),
                     'adm_theme' => config('xra.adm_theme'),
-                    'view0_dir'=>self::viewNamespaceToDir($views[0]),
+                    'view0_dir' => self::viewNamespaceToDir($views[0]),
                 ],
                 $views
             );
@@ -1555,7 +1556,6 @@ class ThemeService {
 
         $class = config('xra.model.'.$name);
         if (null == $class) {
-
             return null;
             ddd('['.$name.'] non presente in config/xra.model');
         }
@@ -1565,6 +1565,7 @@ class ThemeService {
         $with = $panel->with();
         //$model = $model->load($with);
         $model = $model->with($with);
+
         return $model;
     }
 

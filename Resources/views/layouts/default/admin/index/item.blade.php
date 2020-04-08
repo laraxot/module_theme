@@ -4,8 +4,9 @@
 	$fields=collect($_panel->fields())->filter(function($item){
 		return !in_array($item->type,['Password']);
 	})->all();
-	*/
+    */
 	$fields=$_panel->indexFields();
+
 @endphp
 @if($loop->first)
 <table>
@@ -22,19 +23,13 @@
 		<tr>
 			@foreach($fields as $field)
 			<td>
-				{!! Theme::inputFreeze(['row'=>$row,'field'=>$field]) !!}
-				@if($loop->first)
-					@foreach($_panel->itemActions() as $act)
-						{!! $act->btn(['row'=>$row]) !!}
-					@endforeach
-				@endif
-				{{--  
-				@php
-					$field_name=str_replace(['[',']'],['.',''],$field->name);
-				@endphp
-				{{ \Arr::get($row,$field_name) }} 
-				--}}
-				{{-- $field->type --}}
+                {!! Theme::inputFreeze(['row'=>$row,'field'=>$field]) !!}
+
+                @if($loop->first)
+                @foreach($_panel->itemActions() as $act)
+                {!! $act->btn(['row'=>$row]) !!}
+                @endforeach
+                @endif
 			</td>
 			@endforeach
 			<td>
