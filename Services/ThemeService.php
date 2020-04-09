@@ -1297,6 +1297,10 @@ class ThemeService {
             $view_default .= '_ajax';
             $view_extend .= '_ajax';
             $view .= '_ajax';
+        }elseif(\Request::input('format')=='iframe'){
+            $view_default .= '_iframe';
+            $view_extend .= '_iframe';
+            $view .= '_iframe';
         }
         //ddd($view);
         $view_short = explode('::', $view);
