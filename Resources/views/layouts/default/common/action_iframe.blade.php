@@ -1,4 +1,4 @@
-@extends('theme::layouts.app_iframe')
+@extends('pub_theme::layouts.app_iframe')
 @section('content')
 {{--
 
