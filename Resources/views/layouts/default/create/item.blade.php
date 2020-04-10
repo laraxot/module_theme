@@ -3,7 +3,9 @@
 	$fields=$_panel->createFields();
 @endphp
 {!! Form::bsOpen($row,'store') !!}
-<div class="row">
+{{--  
+	<div class="row">
+--}}
 @foreach($fields as $field)
 {{--  
 @php
@@ -19,8 +21,8 @@
 --}}
 	{!! Theme::inputHtml(['row'=>$row,'field'=>$field]) !!}
 @endforeach
-</div>
 {{--
+</div>
 {{Form::bsSubmit('save')}}
 --}}
 {{ $_panel->btnSubmit() }}
