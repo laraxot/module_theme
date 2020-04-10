@@ -25,8 +25,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         $this->app['view']->addNamespace('pub_theme', $pub_theme_dir);
 
         //ddd($pub_theme_dir.'/translations');
-        $this->loadTranslationsFrom($pub_theme_dir.'/translations', 'pub_theme');
-        $this->loadTranslationsFrom($adm_theme_dir.'/translations', 'adm_theme');
+        $this->loadTranslationsFrom($pub_theme_dir.'/resources/lang', 'pub_theme');
+        $this->loadTranslationsFrom($adm_theme_dir.'/resources/lang', 'adm_theme');
 
         $this->commands([
             \Modules\Theme\Console\CreateThemeCommand::class,
