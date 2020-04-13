@@ -67,7 +67,10 @@ $(function() {
 		modal.find('a').click(function( e ) {
             var mylink=$(this);
             var actionurl=mylink.attr('href');
-            if(str.charAt(0)=='#'){
+            if(actionurl==undefined){
+                return ;
+            }
+            if(actionurl.charAt(0)=='#'){
                 return ;
             }
 			modal.find('.modal-body').html(loading);
