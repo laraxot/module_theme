@@ -1,3 +1,4 @@
+<h3>{{ $rows->count() }} Rows</h3>
 @foreach($rows as $key=>$row)
 	@include($_layout->item_view,['key'=>$key,'row'=>$row])
 @endforeach
