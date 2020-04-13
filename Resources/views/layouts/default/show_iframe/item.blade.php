@@ -1,4 +1,7 @@
 @php
+	if(!isset($_panel)){
+		$_panel=Panel::get($row);
+	}
 	$fields=$_panel->fields();
 	//ddd(get_class($row));
 @endphp
