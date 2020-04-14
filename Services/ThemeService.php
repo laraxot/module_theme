@@ -1237,77 +1237,67 @@ class ThemeService {
         return $view;
     }
 
-    public static function getViewWork() {
-        $params = \Route::current()->parameters();
-        $route_action = \Route::currentRouteAction();
-        $act = Str::snake(Str::after($route_action, '@'));
+    public static function getViewDefault($params=[]){
+        extract($params);
+        if(!isset($act)){
+            $route_action = \Route::currentRouteAction();
+            $act = Str::snake(Str::after($route_action, '@'));
+        }
+        $view_default = 'pub_theme::layouts.default.'.$act; //pub_theme o extend ?
         if (\in_admin()) {
             $view_default = 'adm_theme::layouts.default.'.$act;
-            $view_extend = 'theme::layouts.default.admin.'.$act;
-        } else {
-            $view_default = 'pub_theme::layouts.default.'.$act; //pub_theme o extend ?
-            $view_extend = 'theme::layouts.default.'.$act;
         }
-        //---------------------------------------------------------------------------
-        if (\Request::ajax()) {
-            $view_default .= '_ajax';
-            $view_extend .= '_ajax';
-        }
-        $use_default = false;
-        //if (null == $view) {
-        $view = self::getView($params);
-        //}
-        $views = [$view, $view_default, $view_extend];
-        $view_work = collect($views)->first(function ($view_check) {
-            return View::exists($view_check);
-        });
-        if (false == $view_work) {
-            $ddd_msg = array_merge(['err' => 'Not Exists ..', 'line' => __LINE__, 'file' => __FILE__], $views);
-            ddd($ddd_msg);
-        }
-
-        return $view_work;
+        return self::getViewWithFormat($view_default);
     }
 
-    public static function view($params = null) {
+    public static function getViewExtend($params=[]){
+        extract($params);
+        if(!isset($act)){
+            $route_action = \Route::currentRouteAction();
+            $act = Str::snake(Str::after($route_action, '@'));
+        }
+        $view_extend = 'theme::layouts.default.'.$act;
+        if (\in_admin()) {
+            $view_extend = 'theme::layouts.default.admin.'.$act;
+        }
+        return self::getViewWithFormat($view_extend);
+    }
+
+    public static function getViewWithFormat($view){
+        if (\Request::ajax()) {
+            $view .= '_ajax';
+        }elseif(\Request::input('format')=='iframe'){
+            $view .= '_iframe';
+        }
+        return $view;
+    }
+
+
+    public static function getViewWork($params = null) {
         $view = null;
         if (is_array($params)) {
             extract($params);
         } else {
             $view = $params;
         }
-
         $params = \Route::current()->parameters();
         $route_action = \Route::currentRouteAction();
         $act = Str::snake(Str::after($route_action, '@'));
-        if (\in_admin()) {
-            $view_default = 'adm_theme::layouts.default.'.$act;
-            $view_extend = 'theme::layouts.default.admin.'.$act;
-        } else {
-            $view_default = 'pub_theme::layouts.default.'.$act; //pub_theme o extend ?
-            $view_extend = 'theme::layouts.default.'.$act;
-        }
+        $view_default = self::getViewDefault();
+        $view_extend = self::getViewExtend();
         //---------------------------------------------------------------------------
-
-        $use_default = false;
-        if (null == $view) {
+        if($view==null){
             $view = self::getView($params);
         }
-        if (\Request::ajax()) {
-            $view_default .= '_ajax';
-            $view_extend .= '_ajax';
-            $view .= '_ajax';
-        }elseif(\Request::input('format')=='iframe'){
-            $view_default .= '_iframe';
-            $view_extend .= '_iframe';
-            $view .= '_iframe';
-        }
-        //ddd($view);
-        $view_short = explode('::', $view);
-        $view_short = $view_short[0].'::'.implode('.', array_slice(explode('.', $view_short[1]), -3));
-        //ddd($view_short);
+        $view=self::getViewWithFormat($view);
 
-        $views = [$view, $view_short, $view_default, $view_extend];
+        $view_arr = explode('::', $view);
+        $view_short = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -3));
+        $view_short1 = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -2));
+        /*
+        Incerto su questa ulteriore riduzione
+        */
+        $views = [$view, $view_short, $view_short1,$view_default, $view_extend];
         $view_work = collect($views)->first(function ($view_check) {
             return View::exists($view_check);
         });
@@ -1323,10 +1313,28 @@ class ThemeService {
                 ],
                 $views
             );
-            ddd($ddd_msg);
+            dddx($ddd_msg);
         }
+        return $view_work;
+    }
+
+    public static function view($params = null) {
+        $view = null;
+        if (is_array($params)) {
+            extract($params);
+        } else {
+            $view = $params;
+        }
+        $view_work=self::getViewWork($params);
+        if ($view==null) {
+            $view = self::getView($params);
+        }
+        $view=self::getViewWithFormat($view);
+
+
+        $route_params = \Route::current()->parameters();
         if (! isset($row)) {
-            $row = last($params);
+            $row = last($route_params);
             if (! is_object($row) && '' != config('xra.model.'.$row)) {
                 $model = config('xra.model.'.$row);
                 $row = new $model();
@@ -1354,18 +1362,21 @@ class ThemeService {
             \View::share('trad', $trad);
         });
 
+        $route_action = \Route::currentRouteAction();
+        $act = Str::snake(Str::after($route_action, '@'));
+
         $layout = new \stdClass();
         $layout->view = $view;
         $layout->trad = implode('.', array_slice(explode('.', $view), 0, -1));
-        $layout->view_default = $view_default;
-        $layout->view_extend = $view_extend;
+        $layout->view_default = self::getViewDefault();
+        $layout->view_extend = self::getViewExtend();
         $layout->row_type = $row_type;
         $layout->act = $act;
 
         if (isset($panel) && method_exists($panel, 'bodyContentView')) {
             $layout->body_content = $panel->bodyContentView(['_layout' => $layout]);
         } else {
-            $layout->body_content = $view_extend.'.body_content';
+            $layout->body_content = self::getViewExtend().'.body_content';
         }
 
         $layout->left_side = self::getDynView('left', ['_layout' => $layout]);
@@ -1382,13 +1393,13 @@ class ThemeService {
             ddd($item_view_arr);
         }
 
-        list($containers, $items) = params2ContainerItem($params);
+        list($containers, $items) = params2ContainerItem($route_params);
         $last_container = last($containers);
         $types = Str::camel(Str::plural($last_container));
         $last_item = last($items);
         $theView = view($view_work)
             ->with('lang', $lang)
-            ->with('params', $params)
+            ->with('params', $route_params)
             ->with('containers', $containers)
             ->with('last_container', $last_container)
             ->with('items', $items)
