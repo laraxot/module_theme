@@ -1298,6 +1298,7 @@ class ThemeService {
         Incerto su questa ulteriore riduzione
         */
         $views = [$view, $view_short, $view_short1,$view_default, $view_extend];
+
         $view_work = collect($views)->first(function ($view_check) {
             return View::exists($view_check);
         });
@@ -1330,6 +1331,7 @@ class ThemeService {
             $view = self::getView($params);
         }
         $view=self::getViewWithFormat($view);
+
 
 
         $route_params = \Route::current()->parameters();
