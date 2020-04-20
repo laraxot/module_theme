@@ -32,4 +32,6 @@ return [
 
     'rating' => 'Valutazione',
     'See all restaurants' => 'Tutti i ristoranti',
+    'show' => 'Visualizza',
+    'edit' => 'Edita',
 ];
