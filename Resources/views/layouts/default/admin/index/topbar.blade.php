@@ -68,7 +68,8 @@
 	    <div class="col">
 
 
-	    </div>
+		</div>
+		@include('formx::includes.components.form_complete.lang',['form_class'=>'form-inline my-2 my-lg-0'])
 	    @include('formx::includes.components.form_complete.search',['form_class'=>'form-inline my-2 my-lg-0'])
 	    @include('formx::includes.components.form_complete.order_by',['form_class'=>'form-inline my-2 my-lg-0'])
 	    {{--
