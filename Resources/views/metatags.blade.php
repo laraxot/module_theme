@@ -24,7 +24,7 @@
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/android-chrome-192x192.png') }}" sizes="192x192">
 --}}
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/favicon-16x16.png') }}" sizes="16x16">
-{{--    DA RIABILITARE QUANDO AVRA' SENSO 
+{{--    DA RIABILITARE QUANDO AVRA' SENSO
 <link rel="manifest" href="{{ asset('/manifest.json') }}">
 --}}
 <meta name="application-name" content="{{ Theme::metatag('sitename') }}">
@@ -35,7 +35,9 @@
 <title>{{ Theme::metatag('title') }}</title>
 <meta property="og:title" 	content="{{ Theme::metatag('title') }}" />
 <meta name="twitter:title" 	content="{{ Theme::metatag('title') }}" />
-<meta itemprop="og:headline" content="{{ Theme::metatag('subtitle') }}" />
+{{--
+    <meta itemprop="og:headline" content="{{ Theme::metatag('subtitle') }}" />
+--}}
 <meta property="fb:pages" content="foodfriendfindercom"/>
 {{-- canonical si usa se ci sono 2 pagine con indirizzo diverso che vanno allo stesso contenuto.
 <link rel="canonical" 		href="{{ Theme::url(['locale'=>\App::getLocale()]) }}" />
@@ -62,7 +64,7 @@
 
 <meta name="twitter:card" content="summary" />
 
-{{-- 
+{{--
 
 <meta name="twitter:site" content="@nytimesbits" />
 <meta name="twitter:creator" content="@nickbilton" />
