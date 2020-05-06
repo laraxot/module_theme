@@ -42,7 +42,8 @@
         @foreach($_panel->containerActions() as $act)
 		@php
         try{
-            echo $act->btn([]);
+            //$act->setPanel($_panel);
+            echo $act->btnHtml();
         }catch(\Exception $e){
             //ddd(['act'=>$act,'e'=>$e]);
         }
