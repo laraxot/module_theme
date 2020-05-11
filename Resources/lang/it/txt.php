@@ -35,4 +35,5 @@ return [
     'show' => 'Visualizza',
     'edit' => 'Edita',
     'search' => 'Cerca',
+    'index_edit' => 'Gestisci',
 ];

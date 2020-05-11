@@ -2,7 +2,7 @@
 	if(!is_object($row)) return '';
 	$fields=$_panel->editFields();
 @endphp
-@include('theme::includes.flash')
+
 {!! Form::bsOpenPanel($_panel,'update') !!}
 {{--  
 	<div class="row">

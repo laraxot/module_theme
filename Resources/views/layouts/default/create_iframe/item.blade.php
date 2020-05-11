@@ -2,7 +2,6 @@
 	if(!is_object($row)) return '';
 	$fields=$_panel->createFields();
 @endphp
-@include('theme::includes.flash')
 
 {!! Form::bsOpen($row,'store') !!}
 {{--  
