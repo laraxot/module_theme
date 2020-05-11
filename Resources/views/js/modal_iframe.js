@@ -5,7 +5,7 @@ $(function() {
 		    var title = button.data('title'); // Extract info from data-* attributes
             var url = button.data('href');
             var modal = $(this);
-            modal.data('reload',0);
+            modal.data('reload',1);
             modal.find('.modal-title').text(title);
             var url1=setUrlParameter(url,'format','iframe');
             //console.log(decodeURIComponent(url));
