@@ -5,6 +5,8 @@ namespace Modules\Theme\Providers;
 use Illuminate\Foundation\AliasLoader;
 //---- bases ----
 use Modules\Xot\Providers\XotBaseServiceProvider;
+//--- services ---
+use Modules\Xot\Services\TenantService as Tenant;
 
 class ThemeServiceProvider extends XotBaseServiceProvider {
     protected $module_dir = __DIR__;
@@ -12,8 +14,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     public $module_name = 'theme';
 
     public function bootCallback() {
-        $xot = tenantConfig('xra');
-        //$adm_theme = tenantConfig('xra.adm_theme');
+        $xot = Tenant::config('xra');
+
         $adm_theme = $xot['adm_theme'];
         $adm_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$adm_theme);
         $pub_theme = $xot['pub_theme'];
