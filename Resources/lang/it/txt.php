@@ -36,4 +36,5 @@ return [
     'edit' => 'Edita',
     'search' => 'Cerca',
     'index_edit' => 'Gestisci',
+    'index' => 'Visualizza',
 ];
