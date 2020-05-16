@@ -31,10 +31,11 @@ return [
     ],
 
     'rating' => 'Valutazione',
-    'See all restaurants' => 'Tutti i ristoranti',
     'show' => 'Visualizza',
     'edit' => 'Edita',
     'search' => 'Cerca',
     'index_edit' => 'Gestisci',
     'index' => 'Visualizza',
+    'close' => 'Chiudi',
+    'add_new' => 'Aggiungi',
 ];

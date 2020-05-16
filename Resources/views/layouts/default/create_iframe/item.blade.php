@@ -28,7 +28,7 @@
 
 
 <div class="modal-footer">
-	<button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('adm_theme::txt.close')</button>
-	<button type="submit" class="btn btn-primary">@lang('adm_theme::txt.add_new')</button>
+	<button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('theme::txt.close')</button>
+	<button type="submit" class="btn btn-primary">@lang('theme::txt.add_new')</button>
 </div>
 {!! Form::close() !!}
