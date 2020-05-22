@@ -24,6 +24,7 @@ use Modules\FormX\Services\FormXService;
 //----- services --
 use Modules\Xot\Services\ArtisanService;
 use Modules\Xot\Services\StubService;
+use Modules\Xot\Services\TenantService as Tenant;
 use Modules\Xot\Traits\Getter;
 
 //---------CSS----------
@@ -1565,28 +1566,12 @@ class ThemeService {
                 // return (string)\View::make($view_check, $params_tpl, $vars)->render();
     }
 
+    public static function xotModelEager($name) {
+        return Tenant::modelEager($name);
+    }
+
     public static function xotModel($name) {
-        return xotModel($name);
-        //try{
-        //$name = Str::snake($name);
-        //}catch(\Eception $e){
-        //    ddd($name);
-        //}
-        /*
-        $class = config('xra.model.'.$name);
-        if (null == $class) {
-            return null;
-            ddd('['.$name.'] non presente in config/xra.model');
-        }
-        $model = new $class();
-
-        $panel = self::panelModel($model);
-        $with = $panel->with();
-        //$model = $model->load($with);
-        $model = $model->with($with);
-
-        return $model;
-        */
+        return Tenant::model($name);
     }
 
     public static function panelModel($model) {

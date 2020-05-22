@@ -24,6 +24,10 @@ $(function() {
 			location.reload();
 		}
     });
+
+    window.closeIframeModal=function(){
+        $('#myModalIframe').modal('hide');
+    };
 });
 /**
  * https://github.com/saribe/eModal
