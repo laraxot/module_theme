@@ -1237,9 +1237,9 @@ class ThemeService {
         return $view;
     }
 
-    public static function getViewDefault($params=[]){
+    public static function getViewDefault($params = []) {
         extract($params);
-        if(!isset($act)){
+        if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
             $act = Str::snake(Str::after($route_action, '@'));
         }
@@ -1247,12 +1247,13 @@ class ThemeService {
         if (\in_admin()) {
             $view_default = 'adm_theme::layouts.default.'.$act;
         }
+
         return self::getViewWithFormat($view_default);
     }
 
-    public static function getViewExtend($params=[]){
+    public static function getViewExtend($params = []) {
         extract($params);
-        if(!isset($act)){
+        if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
             $act = Str::snake(Str::after($route_action, '@'));
         }
@@ -1260,18 +1261,19 @@ class ThemeService {
         if (\in_admin()) {
             $view_extend = 'theme::layouts.default.admin.'.$act;
         }
+
         return self::getViewWithFormat($view_extend);
     }
 
-    public static function getViewWithFormat($view){
+    public static function getViewWithFormat($view) {
         if (\Request::ajax()) {
             $view .= '_ajax';
-        }elseif(\Request::input('format')=='iframe'){
+        } elseif ('iframe' == \Request::input('format')) {
             $view .= '_iframe';
         }
+
         return $view;
     }
-
 
     public static function getViewWork($params = null) {
         $view = null;
@@ -1286,10 +1288,10 @@ class ThemeService {
         $view_default = self::getViewDefault();
         $view_extend = self::getViewExtend();
         //---------------------------------------------------------------------------
-        if($view==null){
+        if (null == $view) {
             $view = self::getView($params);
         }
-        $view=self::getViewWithFormat($view);
+        $view = self::getViewWithFormat($view);
 
         $view_arr = explode('::', $view);
         $view_short = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -3));
@@ -1297,7 +1299,7 @@ class ThemeService {
         /*
         Incerto su questa ulteriore riduzione
         */
-        $views = [$view, $view_short, $view_short1,$view_default, $view_extend];
+        $views = [$view, $view_short, $view_short1, $view_default, $view_extend];
 
         $view_work = collect($views)->first(function ($view_check) {
             return View::exists($view_check);
@@ -1316,6 +1318,7 @@ class ThemeService {
             );
             dddx($ddd_msg);
         }
+
         return $view_work;
     }
 
@@ -1326,13 +1329,11 @@ class ThemeService {
         } else {
             $view = $params;
         }
-        $view_work=self::getViewWork($params);
-        if ($view==null) {
+        $view_work = self::getViewWork($params);
+        if (null == $view) {
             $view = self::getView($params);
         }
-        $view=self::getViewWithFormat($view);
-
-
+        $view = self::getViewWithFormat($view);
 
         $route_params = \Route::current()->parameters();
         if (! isset($row)) {
@@ -1565,12 +1566,13 @@ class ThemeService {
     }
 
     public static function xotModel($name) {
+        return xotModel($name);
         //try{
-        $name = Str::snake($name);
+        //$name = Str::snake($name);
         //}catch(\Eception $e){
         //    ddd($name);
         //}
-
+        /*
         $class = config('xra.model.'.$name);
         if (null == $class) {
             return null;
@@ -1584,6 +1586,7 @@ class ThemeService {
         $model = $model->with($with);
 
         return $model;
+        */
     }
 
     public static function panelModel($model) {
