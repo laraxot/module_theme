@@ -1394,7 +1394,7 @@ class ThemeService {
             //$data=with(new \Illuminate\Support\NamespacedItemResolver)->parseKey('pub_theme::layouts.default.index.item');
             //$view_file=View::getFinder()->getHints()[$data[0]][0].'/'.$data[1].'/'.str_replace('.','/',$data[2]).'.blade.php';
             //ddd(\File::exists($view_file));
-            ddd($item_view_arr);
+            dddx($item_view_arr);
         }
 
         list($containers, $items) = params2ContainerItem($route_params);
