@@ -27,7 +27,11 @@
 
                 @if($loop->first)
                 @foreach($_panel->itemActions() as $act)
-                {!! $act->btn(['row'=>$row,'panel'=>Panel::get($row)]) !!}
+                {{--
+                    {!! $act->btn(['row'=>$row,'panel'=>Panel::get($row)]) !!}
+                --}}
+
+                {!! $act->btnHtml() !!}
                 @endforeach
                 @endif
 			</td>
