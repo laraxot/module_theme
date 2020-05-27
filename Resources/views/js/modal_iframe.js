@@ -7,10 +7,8 @@ $(function() {
             var modal = $(this);
             modal.data('reload',1);
             modal.find('.modal-title').text(title);
-            var url1=setUrlParameter(url,'format','iframe');
-            //console.log(decodeURIComponent(url));
-            //console.loca($.param(url));
-            modal.find('iframe').attr('src',url1);
+            //var url1=setUrlParameter(url,'format','iframe');
+            modal.find('iframe').attr('src',url);
         }
     );
     $('#myModalIframe').on('hidden.bs.modal', function (event)  {
@@ -34,7 +32,7 @@ $(function() {
  * https://blog.bitscry.com/2018/08/17/getting-and-setting-url-parameters-with-javascript/
  */
 
-
+/*
 function getUrlParameter(url, parameter){
     parameter = parameter.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?|&]' + parameter.toLowerCase() + '=([^&#]*)');
@@ -80,3 +78,4 @@ function setUrlParameter(url, key, value) {
 
     return baseUrl + params;
 }
+*/
