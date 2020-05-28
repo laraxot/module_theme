@@ -410,6 +410,7 @@ class ThemeService {
         $filename_from = $ns_dir.'/'.$filename;
         $asset = '/themes/'.$ns_name.'/'.$filename;
         $filename_to = public_path($asset);
+        $filename_from = str_replace(['/', '\\'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $filename_from);
         //--------------------------------------------------
         $msg = [
             'filename' => $filename,
@@ -429,7 +430,7 @@ class ThemeService {
         }
 
         if (! File::exists($filename_from)) {
-            //ddd('['.$filename_from.'] not exists');
+            //dddx('['.$filename_from.'] not exists');
             //ddd($msg);
             return '';
         }
@@ -454,6 +455,7 @@ class ThemeService {
         $filename = str_replace('.', '/', $tmp0).'/'.$tmp1;
         $filename_from = $ns_dir.'/'.$filename;
         $public_path = public_path();
+
         if (Str::startsWith($filename_from, $public_path)) {  //se e' in un percoro navigabile
             $path = Str::after($filename_from, $public_path);
             $path = str_replace(['\\'], ['/'], $path);
@@ -462,7 +464,9 @@ class ThemeService {
         }
 
         if (in_array($ns_name, ['pub_theme', 'adm_theme'])) {
-            return self::viewThemeNamespaceToAsset($key);
+            $asset = self::viewThemeNamespaceToAsset($key);
+
+            return $asset;
         }
 
         $tmp = '/assets/'.$ns_name.'/'.$filename;
@@ -1687,5 +1691,9 @@ class ThemeService {
         $menu = include $json_path;
 
         return $menu;
+    }
+
+    public static function getPath() { //da jigsaw
+        return 'to do';
     }
 }//end class
