@@ -6,7 +6,7 @@
 	})->all();
     */
 	$fields=$_panel->indexFields();
-
+	$row_panel=Panel::get($row);
 @endphp
 @if($loop->first)
 <table>
@@ -26,7 +26,7 @@
                 {!! Theme::inputFreeze(['row'=>$row,'field'=>$field]) !!}
 
                 @if($loop->first)
-                @foreach($_panel->itemActions() as $act)
+                @foreach($row_panel->itemActions() as $act)
                 {{--
                     {!! $act->btn(['row'=>$row,'panel'=>Panel::get($row)]) !!}
                 --}}
