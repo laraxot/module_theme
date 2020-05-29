@@ -40,9 +40,9 @@
 --}}
 <meta property="fb:pages" content="foodfriendfindercom"/>
 {{-- canonical si usa se ci sono 2 pagine con indirizzo diverso che vanno allo stesso contenuto.
-<link rel="canonical" 		href="{{ Theme::url(['locale'=>\App::getLocale()]) }}" />
-<meta property="og:url"  content="{{ Theme::url(['locale'=>\App::getLocale()]) }}" />
-<meta name="twitter:site"  content="{{ Theme::url(['locale'=>\App::getLocale()]) }}" />
+<link rel="canonical" 		href="{{ Theme::url(['locale'=>app()->getLocale()]) }}" />
+<meta property="og:url"  content="{{ Theme::url(['locale'=>app()->getLocale()]) }}" />
+<meta name="twitter:site"  content="{{ Theme::url(['locale'=>app()->getLocale()]) }}" />
 --}}
 <link rel="canonical" 		href="{{ Theme::metatag('url') }}" />
 <meta name="twitter:site" content="{{ Theme::metatag('url') }}">

@@ -84,7 +84,7 @@ class ThemeService {
     }
 
     public static function get_language($params) {
-        $lang = \App::getLocale();
+        $lang = app()->getLocale();
         $locale = config('laravellocalization.supportedLocales.'.$lang);
 
         return $locale['regional'];
@@ -1044,7 +1044,7 @@ class ThemeService {
         //self::__setStatic('updated_at', $row->updated_at);
         $supportedLocales = config('laravellocalization.supportedLocales');
         if ('' == $row->lang) {
-            $row->lang = \App::getLocale();
+            $row->lang = app()->getLocale();
         }
         self::__setStatic('locale', $supportedLocales[$row->lang]['regional']);
         //self::__setStatic('description', $row->meta_description);
@@ -1097,7 +1097,7 @@ class ThemeService {
                 //$tmp->name.='['.$tmp->class.']['.$tmp->type.']'; //4debug
                 if ('' != $tmp->type) {
                     if (! isset($params['lang'])) {
-                        $params['lang'] = \App::getLocale();
+                        $params['lang'] = app()->getLocale();
                     }
                     $params['container0'] = $tmp->type;
                     $tmp->url = route('admin.container0.index', $params);
@@ -1362,7 +1362,7 @@ class ThemeService {
         }
 
         $routename = \Route::current()->getName();
-        $lang = \App::getLocale();
+        $lang = app()->getLocale();
         //--- per passare la view all'interno dei componenti
         \View::composer('*', function ($view_params) use ($view) {
             \View::share('view', $view);
@@ -1494,7 +1494,7 @@ class ThemeService {
 
     public static function cache(/*ViewContract $vc,*/$view, $data = [], $mergeData = []) {
         //scopiazzato da spatie partialcache
-        $lang = \App::getLocale();
+        $lang = app()->getLocale();
         $data['lang'] = $lang;
         $cache_key = Str::slug($view).'-'.md5(json_encode($data)).'-1';
         $seconds = 60 * 60 * 24;
