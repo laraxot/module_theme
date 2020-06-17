@@ -454,6 +454,7 @@ class ThemeService {
 
         $filename = str_replace('.', '/', $tmp0).'/'.$tmp1;
         $filename_from = $ns_dir.'/'.$filename;
+        $filename_from=str_replace(['/','\\'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$filename_from);
         $public_path = public_path();
 
         if (Str::startsWith($filename_from, $public_path)) {  //se e' in un percoro navigabile
@@ -469,9 +470,9 @@ class ThemeService {
             return $asset;
         }
 
-        $tmp = '/assets/'.$ns_name.'/'.$filename;
+        $tmp = 'assets/'.$ns_name.'/'.$filename;
         $filename_to = public_path($tmp);
-
+        $filename_to=str_replace(['/','\\'],[DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR],$filename_to);
         $asset = asset($tmp);
         $msg = [
             'key' => $key,
@@ -492,12 +493,13 @@ class ThemeService {
                 dd('Caught exception: ', $e->getMessage(), '\n['.__LINE__.']['.__FILE__.']');
             }
         }
+        /*
         if (File::exists($filename_to)) {
             File::delete($filename_to); //
             //return $asset;
         }
-
-        if (File::exists($filename_from)) {
+        //*/
+        if (File::exists($filename_from) && !File::exists($filename_to)) {
             try {
                 File::copy($filename_from, $filename_to);
             } catch (Exception $e) {
