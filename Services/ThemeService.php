@@ -506,9 +506,9 @@ class ThemeService {
                 ddd('Caught exception: '.$e->getMessage());
             }
         } else {
-            if (! File::exists($filename_from)) {
-                dddx('['.$filename_from.'] not exists');
-            }
+            //if (! File::exists($filename_from)) {
+            //    dddx('['.$filename_from.'] not exists');
+            //}
         }
 
         return $asset;
