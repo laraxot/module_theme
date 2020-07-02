@@ -1418,7 +1418,8 @@ class ThemeService {
             ->with('types', $types)
             ->with('last_item', $last_item)
             ->with('_layout', $layout)
-            ->with('routename', $routename);
+            ->with('routename', $routename)
+            ->with('page', new Objects\PageObject() );
         /*
         $view_params = self::__getStatic('view_params');
         foreach ($view_params as $key => $value) {
