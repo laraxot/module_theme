@@ -1745,8 +1745,8 @@ class ThemeService {
      * Prints Google Fonts.
      */
     public static function getGoogleFontsInclude() {
-        if (config('layout.resources.fonts.google.families')) {
-            $fonts = config('layout.resources.fonts.google.families');
+        if (Tenant::config('layout.resources.fonts.google.families')) {
+            $fonts = Tenant::config('layout.resources.fonts.google.families');
             echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family='.implode('|', $fonts).'">';
         }
         echo '';
