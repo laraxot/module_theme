@@ -1810,6 +1810,8 @@ class ThemeService {
      * @return string|string[]|null
      */
     public static function getSVG($filepath, $class = '') {
+        //  echo $filepath;
+
         if (! is_string($filepath) || ! file_exists($filepath)) {
             return '';
         }
