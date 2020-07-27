@@ -1350,8 +1350,11 @@ class ThemeService {
         if (! isset($row)) {
             $row = last($route_params);
             if (! is_object($row) && '' != config('xra.model.'.$row)) {
+                /*
                 $model = config('xra.model.'.$row);
                 $row = new $model();
+                */
+                $row = Tenant::model($row);
             }
         }
         $row_type = '';
