@@ -22,19 +22,19 @@
 		@endif
 		<tr>
 			@foreach($fields as $field)
-			<td>
-                {!! Theme::inputFreeze(['row'=>$row,'field'=>$field]) !!}
+				<td>
+					{!! Theme::inputFreeze(['row'=>$row,'field'=>$field]) !!}
 
-                @if($loop->first)
-                @foreach($row_panel->itemActions() as $act)
-                {{--
-                    {!! $act->btn(['row'=>$row,'panel'=>Panel::get($row)]) !!}
-                --}}
+					@if($loop->first)
+						@foreach($row_panel->itemActions() as $act)
+							{{--
+								{!! $act->btn(['row'=>$row,'panel'=>Panel::get($row)]) !!}
+							--}}
 
-                {!! $act->btnHtml() !!}
-                @endforeach
-                @endif
-			</td>
+							{!! $act->btnHtml() !!}
+						@endforeach
+					@endif
+				</td>
 			@endforeach
 			<td>
 				{!! Form::bsBtnCrud(['row'=>$row]) !!}

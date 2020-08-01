@@ -24,14 +24,11 @@
     <section class="create-page inner-page">
         <div class="container-fluid">
             {!! Theme::include('topbar',[],get_defined_vars() ) !!}
-
-
-                <div class="row">
-                    @include('theme::layouts.default.admin.common.'.$_layout->view_body)
-                </div>
-
-                {!! Theme::include('bottombar',[],get_defined_vars() ) !!}
+            <div class="row">
+                @include('theme::layouts.default.admin.common.'.$_layout->view_body)
             </div>
-        </section>
+            {!! Theme::include('bottombar',[],get_defined_vars() ) !!}
+        </div>
+    </section>
 </div>
 @endsection
