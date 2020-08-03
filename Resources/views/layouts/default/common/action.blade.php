@@ -19,10 +19,8 @@
     @endif
     {{-- @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()]) --}}
     @if(View::exists('pub_theme::layouts.partials.tabs'))
-        @include('theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
-    @else
         @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
-    @endif
+    @else
     {{--  
         {!! Theme::include('tabs',['tabs'=>$panel->getTabs()],get_defined_vars() ) !!}
         --}}
