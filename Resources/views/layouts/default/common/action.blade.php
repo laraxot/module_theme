@@ -11,7 +11,12 @@
 
 <div class="page-wrapper">
     {!! Theme::include('inner_page',[],get_defined_vars() ) !!}
-    @include('pub_theme::layouts.partials.breadcrumb')
+    {{-- @include('pub_theme::layouts.partials.breadcrumb') --}}
+    @if(View::exists('pub_theme::layouts.partials.breadcrumb'))
+        @include('pub_theme::layouts.partials.breadcrumb')
+    @else
+        @include('theme::layouts.partials.breadcrumb')
+    @endif
     @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
     {{--  
         {!! Theme::include('tabs',['tabs'=>$panel->getTabs()],get_defined_vars() ) !!}
