@@ -20,7 +20,7 @@
     {{-- @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()]) --}}
     @if(View::exists('pub_theme::layouts.partials.tabs'))
         @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
-    @else
+    @endif
     {{--  
         {!! Theme::include('tabs',['tabs'=>$panel->getTabs()],get_defined_vars() ) !!}
         --}}
