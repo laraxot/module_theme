@@ -1420,10 +1420,11 @@ class ThemeService {
         $trad_short1 = $ns.'::'.implode('.', array_slice($group, -3));
         $trad_short2 = $ns.'::'.implode('.', array_slice($group, -2));
 
-        $trad_mod = '';
-        if(isset($group[0]) && $group[0]!='auth'){
-            $trad_mod = strtolower(getModuleNameFromModelName($group[0])).'::'.$group[0];
-        }
+        //$trad_mod = '';
+        
+        //if(isset($group[0]) && $group[0]!='auth'){
+        $trad_mod = strtolower(getModuleNameFromModelName($group[0])).'::'.$group[0];
+        //}
         
 
         $theView = view($view_work)
