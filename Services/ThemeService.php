@@ -1414,7 +1414,18 @@ class ThemeService {
         $last_container = last($containers);
         $types = Str::camel(Str::plural($last_container));
         $last_item = last($items);
+
+        [$ns,$group] = explode('::', $view);
+        $group = explode('.', $group);
+        $trad_short1 = $ns.'::'.implode('.', array_slice($group, -3));
+        $trad_short2 = $ns.'::'.implode('.', array_slice($group, -2));
+
+        $trad_mod = strtolower(getModuleNameFromModelName($group[0])).'::'.$group[0];
+
         $theView = view($view_work)
+            ->with('trad_short1', $trad_short1)
+            ->with('trad_short2', $trad_short2)
+            ->with('trad_mod', $trad_mod)
             ->with('lang', $lang)
             ->with('params', $route_params)
             ->with('containers', $containers)
