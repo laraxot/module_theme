@@ -1,6 +1,8 @@
 @php
 	if(!is_object($row)) return '';
     $fields=$_panel->editFields();
+    //dddx(get_defined_vars());
+    //dddx($_panel);
 @endphp
 {!! Form::bsOpenPanel($_panel,'update') !!}
 <div class="row">
