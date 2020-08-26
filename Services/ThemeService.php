@@ -1277,6 +1277,8 @@ class ThemeService {
     }
 
     public static function getViewWithFormat($view) {
+        return $view; //bypasso tutto
+
         if (\Request::ajax()) {
             $view .= '_ajax';
         } elseif ('iframe' == \Request::input('format')) {
@@ -1421,11 +1423,17 @@ class ThemeService {
         $trad_short2 = $ns.'::'.implode('.', array_slice($group, -2));
 
         //$trad_mod = '';
-        
+
         //if(isset($group[0]) && $group[0]!='auth'){
         $trad_mod = strtolower(getModuleNameFromModelName($group[0])).'::'.$group[0];
         //}
-        
+
+        $modal = null;
+        if (\Request::ajax()) {
+            $modal = 'ajax';
+        } elseif ('iframe' == \Request::input('format')) {
+            $modal = 'iframe';
+        }
 
         $theView = view($view_work)
             ->with('trad_short1', $trad_short1)
@@ -1440,7 +1448,9 @@ class ThemeService {
             ->with('last_item', $last_item)
             ->with('_layout', $layout)
             ->with('routename', $routename)
-            ->with('page', new Objects\PageObject());
+            ->with('page', new Objects\PageObject())
+            ->with('modal', $modal)
+            ;
         /*
         $view_params = self::__getStatic('view_params');
         foreach ($view_params as $key => $value) {
