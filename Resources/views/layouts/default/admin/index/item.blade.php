@@ -5,8 +5,11 @@
 		return !in_array($item->type,['Password']);
 	})->all();
     */
-	$fields=$_panel->indexFields();
+
+    $fields=$_panel->indexFields();
+    //$row_panel=$_panel;
 	$row_panel=Panel::get($row);
+    //dddx([$_panel,$row_panel]);
 @endphp
 @if($loop->first)
 <table>
@@ -27,10 +30,6 @@
 
 					@if($loop->first)
 						@foreach($row_panel->itemActions() as $act)
-							{{--
-								{!! $act->btn(['row'=>$row,'panel'=>Panel::get($row)]) !!}
-							--}}
-
 							{!! $act->btnHtml() !!}
 						@endforeach
 					@endif
