@@ -1244,7 +1244,12 @@ class ThemeService {
         if ('pub_theme::translation.index' == $view) {
             return 'theme::translation.index';
         }
-        //-----------------------------------------
+        //---------------Panel Actions --------------------------
+        $act = \Request::input('_act');
+        if (null != $act) {
+            $view .= '.acts.'.$act;
+        }
+
         return $view;
     }
 
