@@ -2,8 +2,7 @@
 	if(!is_object($row)) return '';
 	$fields=$_panel->createFields();
 @endphp
-
-{!! Form::bsOpen($row,'store') !!}
+{!! Form::bsOpenPanel($_panel,'store') !!}
 <div class="row">
 @foreach($fields as $field)
 	{!! Theme::inputHtml(['row'=>$row,'field'=>$field]) !!}

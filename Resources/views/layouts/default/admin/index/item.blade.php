@@ -8,8 +8,10 @@
 
     $fields=$_panel->indexFields();
     //$row_panel=$_panel;
-	$row_panel=Panel::get($row);
+    $row_panel=Panel::get($row);
+    $row_panel->setParent($_panel->getParent());
     //dddx([$_panel,$row_panel]);
+
 @endphp
 @if($loop->first)
 <table>
@@ -36,7 +38,8 @@
 				</td>
 			@endforeach
 			<td>
-				{!! Form::bsBtnCrud(['row'=>$row]) !!}
+                {!! Form::bsBtnCrud(['row'=>$row]) !!}
+                {!! $row_panel->btnCrud() !!}
 			</td>
 		</tr>
 		@if($loop->last)
