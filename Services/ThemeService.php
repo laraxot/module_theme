@@ -1245,12 +1245,14 @@ class ThemeService {
             return 'theme::translation.index';
         }
         //---------------Panel Actions --------------------------
+        /*
         $act = \Request::input('_act');
         if (null != $act) {
             $view .= '.acts.'.$act;
         }
+        */
 
-        return $view;
+        return self::getViewWithFormat($view);
     }
 
     public static function getViewDefault($params = []) {
@@ -1281,44 +1283,81 @@ class ThemeService {
         return self::getViewWithFormat($view_extend);
     }
 
-    public static function getViewWithFormat($view) {
-        return $view; //bypasso tutto
+    public static function getViewModule($params = []) {
+        extract($params);
+        if (! isset($act)) {
+            $route_action = \Route::currentRouteAction();
+            $act = Str::snake(Str::after($route_action, '@'));
+        }
 
+        [$containers,$items] = \params2ContainerItem();
+        if (0 == count($containers)) {
+            return null;
+        }
+
+        $model = Tenant::model(last($containers));
+        $mod_name = getModuleNameFromModel($model);
+        $mod_name_low = strtolower($mod_name);
+        $view = $mod_name_low.'::'.last($containers).'.'.$act;
+
+        return self::getViewWithFormat($view);
+    }
+
+    public static function getViewWithFormat($view) {
+        //return $view; //bypasso tutto
+        /*
         if (\Request::ajax()) {
             $view .= '_ajax';
         } elseif ('iframe' == \Request::input('format')) {
             $view .= '_iframe';
         }
+        */
+
+        $act = \Request::input('_act');
+        if (null != $act) {
+            $view .= '.acts.'.$act;
+        }
 
         return $view;
     }
 
-    public static function getViewWork($params = null) {
+    public static function getDefaultViewArray($params = null) {
         $view = null;
         if (is_array($params)) {
             extract($params);
         } else {
             $view = $params;
         }
+
+        /*
         $params = \Route::current()->parameters();
         $route_action = \Route::currentRouteAction();
         $act = Str::snake(Str::after($route_action, '@'));
+        */
         $view_default = self::getViewDefault();
         $view_extend = self::getViewExtend();
+        $view_module = self::getViewModule();
         //---------------------------------------------------------------------------
         if (null == $view) {
+            $params = \Route::current()->parameters();
             $view = self::getView($params);
         }
-        $view = self::getViewWithFormat($view);
 
         $view_arr = explode('::', $view);
-        $view_short = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -3));
-        $view_short1 = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -2));
-        /*
-        Incerto su questa ulteriore riduzione
-        */
-        $views = [$view, $view_short, $view_short1, $view_default, $view_extend];
+        $view_short = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -4));
+        $view_short1 = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -3));
+        $view_short2 = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -2));
 
+        $views = [$view, $view_short, $view_short1, $view_short2, $view_module, $view_default, $view_extend];
+        /*
+         * forse mettere filtro per togliere se c'e' una view a null, e le view che contengono ::show
+         */
+
+        return $views;
+    }
+
+    public static function getViewWork($params = null) {
+        $views = self::getDefaultViewArray($params);
         $view_work = collect($views)->first(function ($view_check) {
             return View::exists($view_check);
         });
@@ -1351,7 +1390,7 @@ class ThemeService {
         if (null == $view) {
             $view = self::getView($params);
         }
-        $view = self::getViewWithFormat($view);
+        //$view = self::getViewWithFormat($view);
 
         $route_params = \Route::current()->parameters();
         if (! isset($row)) {
