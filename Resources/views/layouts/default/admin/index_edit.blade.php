@@ -56,7 +56,10 @@
                 </td>
             @endforeach
             <td>
+                {{--
                 {!! Form::bsBtnCrud(['row' => $row]) !!}
+                --}}
+
                 {!! $row_panel->btnCrud() !!}
             </td>
         </tr>
