@@ -5,7 +5,11 @@
 @include('theme::modal_ajax')
 @php
 	if(!is_object($row)) return ;
+<<<<<<< HEAD
     $row_panel=Panel::get($row);
+=======
+    $row_panel=Panel::get($row)->setParent($_panel->getParent());
+>>>>>>> b5b3db24c41d93315b0c66431c0d1b9bda40e2b3
 	//ddd(Theme::getDynViewsArray('inner_page', get_defined_vars()));
 	//F:\xampp\htdocs\lara\ptvms\laravel\Modules\Trasferte\Resources\views\admin\my_fuori_sede\giust\edit
 @endphp

@@ -1,6 +1,11 @@
 {{ Theme::add("theme/bc/bootstrap-language/languages.css") }} {{-- css con bandierine --}}
 @php
+<<<<<<< HEAD
 	$row=last($params); //da qualche parte lo perdo
+=======
+
+	//$row=last($params); //da qualche parte lo perdo
+>>>>>>> b5b3db24c41d93315b0c66431c0d1b9bda40e2b3
 @endphp
 <li class="nav-item dropdown">
 	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="lang {{ App::getLocale() }}">
