@@ -34,7 +34,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             \Modules\Theme\Console\CreateThemeCommand::class,
         ]);
 
-        //liwire
+        //livewire registration
     }
 
     public function registerCallback() {
