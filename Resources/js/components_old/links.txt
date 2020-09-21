@@ -1,0 +1,12 @@
+swal rating
+https://codepen.io/rahulhaque/pen/vpeZGe
+
+//-- come intercettare i submit dei form caricati..
+https://forum.vuejs.org/t/how-to-update-dom-after-pasting-html-trying-to-integrate-a-backend-generated-form/48692
+
+
+https://codeburst.io/embedding-php-forms-in-vue-js-b388f2d3c47
+
+https://itsolutionstuff.com/post/laravel-vue-js-image-upload-example-with-demoexample.html
+
+
