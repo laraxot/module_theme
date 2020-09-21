@@ -449,7 +449,15 @@ class ThemeService {
 
     public static function viewNamespaceToAsset($key) {
         $ns_name = Str::before($key, '::');
-        $ns_dir = View::getFinder()->getHints()[$ns_name][0];
+
+        //$ns_dir = View::getFinder()->getHints()[$ns_name][0];
+        $ns_dir = collect(View::getFinder()->getHints())->filter(function ($item, $key) use ($ns_name) {
+            return $key == $ns_name;
+        })->collapse()->first();
+        if (null == $ns_dir) {
+            return '#['.$key.']['.__LINE__.']['.__FILE__.']';
+        }
+        //dddx([$key, $ns_name, $ns_dir, $ns_dir1]);
         $tmp = Str::after($key, '::');
         $tmp0 = Str::before($tmp, '/');
         $tmp1 = Str::after($tmp, '/');
