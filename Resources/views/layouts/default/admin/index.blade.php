@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-@include('theme::layouts.default.admin.common.action')
-=======
 @extends('adm_theme::layouts.app')
 @section('content')
 <div class="row">
@@ -64,5 +61,4 @@
 {{--
     @include('theme::layouts.default.admin.common.action')
 --}}
->>>>>>> b5b3db24c41d93315b0c66431c0d1b9bda40e2b3
 

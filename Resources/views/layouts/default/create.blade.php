@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-@include('theme::layouts.default.common.action')
-=======
 {{-- @include('theme::layouts.default.common.action') --}}
 @extends('pub_theme::layouts.app')
 @section('content')
@@ -9,7 +6,7 @@
 	if(!\View::exists($view.'.form') && !\View::exists($view_default.'.form.'.$edit_type) ) {
 		ddd('non esiste ne ['.$view.'.form'.'] ne ['.$view_default.'.form.'.$edit_type.']');
 	}
-	*/	
+	*/
 @endphp
 <div class="widget">
 	<div class="widget-body">
@@ -35,4 +32,3 @@
 	</div>
 </div>
 @endsection
->>>>>>> b5b3db24c41d93315b0c66431c0d1b9bda40e2b3
