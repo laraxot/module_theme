@@ -1635,8 +1635,28 @@ class ThemeService {
         return $view_first;
     }
 
-    //--- lo chiamo da blade, in prod si puo' ipotizzare di usare la cache
     public static function include($view_tpl, $params_tpl, $vars) {
+        $views = ThemeService::getDefaultViewArray();
+        $views = collect($views)->map(
+            function ($item) use ($view_tpl) {
+                return $item.'.'.$view_tpl;
+            }
+        );
+        $view_work = $views->first(
+            function ($view_check) use ($view_tpl) {
+                return View::exists($view_check);
+            }
+        );
+        if (null == $view_work) {
+            dddx(['err' => 'view not Exists', 'views' => $views]);
+        }
+
+        return view($view_work)->with($vars)->with($params_tpl); // quale delle 2 ?
+        // return (string)\View::make($view_work, $params_tpl, $vars)->render();
+    }
+
+    //--- lo chiamo da blade, in prod si puo' ipotizzare di usare la cache
+    public static function include_old($view_tpl, $params_tpl, $vars) {
         extract($vars);
         $view_first = self::getDynView($view_tpl, $vars);
         if ('' == $view_first) {
