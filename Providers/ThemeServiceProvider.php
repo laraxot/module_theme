@@ -33,6 +33,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         $this->commands([
             \Modules\Theme\Console\CreateThemeCommand::class,
         ]);
+
+        //liwire
     }
 
     public function registerCallback() {
