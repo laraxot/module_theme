@@ -1655,7 +1655,12 @@ class ThemeService {
                 return View::exists($view_check);
             }
         );
+
         if (null == $view_work) {
+            if(in_array($view_tpl,['topbar','bottombar'])){
+
+                return null;
+            }
             dddx(['err' => 'view not Exists', 'views' => $views]);
         }
 
