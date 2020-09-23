@@ -1657,8 +1657,7 @@ class ThemeService {
         );
 
         if (null == $view_work) {
-            if(in_array($view_tpl,['topbar','bottombar'])){
-
+            if (in_array($view_tpl, ['topbar', 'bottombar', 'inner_page'])) {
                 return null;
             }
             dddx(['err' => 'view not Exists', 'views' => $views]);
