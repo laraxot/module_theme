@@ -27,7 +27,7 @@ use Modules\Xot\Services\StubService;
 use Modules\Xot\Services\TenantService as Tenant;
 use Modules\Xot\Traits\Getter;
 
-//---------CSS----------
+//---------CSS------------
 
 class ThemeService {
     use Getter;
