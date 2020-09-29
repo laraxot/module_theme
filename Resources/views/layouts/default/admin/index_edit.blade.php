@@ -4,10 +4,6 @@
     $last_item=last($items);
     $last_container=last($containers);
     $types=Str::camel(Str::plural($last_container));
-    //{!! Form::bsBtnCreate(['txt' => __($item_view . '.btn.new')]) !!}
-    //$user=$item0;
-    //$types=Str::camel(Str::plural($container1));
-    //ddd($_layout->item_view);
     $field=(object)[
     'name'=>'areas',
     'type'=>'PivotFields',
@@ -17,13 +13,6 @@
     {!! Form::bsBtnCreate(['row' => $row]) !!}
     @foreach ($rows as $key => $row)
         @php
-        // nella lista la password e conferma password posso ometterle
-        /*
-        $fields=collect($_panel->fields())->filter(function($item){
-        return !in_array($item->type,['Password']);
-        })->all();
-        */
-
         $fields=$_panel->indexFields();
         //$row_panel=$_panel;
         $row_panel=Panel::get($row);
@@ -56,10 +45,6 @@
                 </td>
             @endforeach
             <td>
-                {{--
-                {!! Form::bsBtnCrud(['row' => $row]) !!}
-                --}}
-
                 {!! $row_panel->btnCrud() !!}
             </td>
         </tr>
