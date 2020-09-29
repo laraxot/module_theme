@@ -10,7 +10,7 @@
     ];
     @endphp
 
-    {!! Form::bsBtnCreate(['row' => $row]) !!}
+
     @foreach ($rows as $key => $row)
         @php
         $fields=$_panel->indexFields();
