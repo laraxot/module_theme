@@ -18,6 +18,7 @@
             @php
                 //$parent_rows=$_panel->getParent()->rows->get();
                 $name=Str::plural($_panel->postType());
+                //dddx($_panel->rows);
                 $val=$rows=$_panel->rows->get();
                 $all=$_panel->rows->getRelated()->all();
             @endphp

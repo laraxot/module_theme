@@ -21,8 +21,8 @@
 
         @endphp
         @if ($loop->first)
-            <table>
-                <thead>
+            <table class="table table-striped table-hover table-sm">
+                        <thead class="thead-light">
                     <tr>
                         @foreach ($fields as $field)
                             <td>{{ str_replace('_', ' ', $field->name) }}</td>
