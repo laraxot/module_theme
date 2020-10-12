@@ -25,7 +25,9 @@
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/favicon-194x194.png') }}" sizes="194x194">
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/android-chrome-192x192.png') }}" sizes="192x192">
 --}}
+{{--
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/favicon-16x16.png') }}" sizes="16x16">
+--}}
 {{--    DA RIABILITARE QUANDO AVRA' SENSO
 <link rel="manifest" href="{{ asset('/manifest.json') }}">
 --}}
