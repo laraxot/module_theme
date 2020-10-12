@@ -8,6 +8,7 @@
 <meta name="author" content="{{ Theme::metatag('author') }}">
 <link rel="author" href="https://plus.google.com/b/104035968244380319088/?hl=it" />
 <link rel="icon" href="{{ Theme::asset('pub_theme::icons/favicon.ico') }}" />
+{{--
 <link rel="apple-touch-icon" sizes="57x57" href="{{ Theme::asset('pub_theme::icons/apple-touch-icon-57x57.png') }}">
 <link rel="apple-touch-icon" sizes="60x60" href="{{ Theme::asset('pub_theme::icons/apple-touch-icon-60x60.png') }}">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ Theme::asset('pub_theme::icons/apple-touch-icon-72x72.png') }}">
@@ -18,6 +19,7 @@
 <link rel="apple-touch-icon" sizes="152x152" href="{{ Theme::asset('pub_theme::icons/apple-touch-icon-152x152.png') }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ Theme::asset('pub_theme::icons/apple-touch-icon-180x180.png') }}">
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/favicon-32x32.png') }}" sizes="32x32">
+--}}
 {{--
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/favicon-96x96.png') }}" sizes="96x96">
 <link rel="icon" type="image/png" href="{{ Theme::asset('pub_theme::icons/favicon-194x194.png') }}" sizes="194x194">
