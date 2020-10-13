@@ -26,6 +26,7 @@ class HorMenu extends Component {
     }
 
     public static function renderHorMenu($item, $parent = null, $rec = 0) {
+        $html = '';
         self::checkRecursion($rec);
         if (! $item) {
             return 'menu misconfiguration';
@@ -33,7 +34,7 @@ class HorMenu extends Component {
 
         // render separator
         if (isset($item['separator'])) {
-            echo '<li class="menu-separator"><span></span></li>';
+            $html .= '<li class="menu-separator"><span></span></li>';
         } elseif (isset($item['title']) || isset($item['code'])) {
             $item_class = '';
             $item_attr = '';
@@ -100,12 +101,12 @@ class HorMenu extends Component {
             }
 
             if (false == isset($item['heading'])) {
-                echo '<li class="menu-item '.$item_class.'" '.$item_attr.' aria-haspopup="true">';
+                $html .= '<li class="menu-item '.$item_class.'" '.$item_attr.' aria-haspopup="true">';
             }
 
             // check if code is provided instead of link
             if (isset($item['code'])) {
-                echo $item['code'];
+                $html .= $item['code'];
             } else {
                 // insert title or heading
                 if (false == isset($item['heading'])) {
@@ -120,14 +121,14 @@ class HorMenu extends Component {
                         $target = 'target="_blank"';
                     }
 
-                    echo '<a '.$target.' href="'.$url.'" class="menu-link '.(isset($item['submenu']) ? 'menu-toggle' : '').'">';
+                    $html .= '<a '.$target.' href="'.$url.'" class="menu-link '.(isset($item['submenu']) ? 'menu-toggle' : '').'">';
                 } else {
-                    echo '<h3 class="menu-heading menu-toggle">';
+                    $html .= '<h3 class="menu-heading menu-toggle">';
                 }
 
                 // put root level arrow
                 if (true === @$item['here']) {
-                    echo '<span class="menu-item-here"></span>';
+                    $html .= '<span class="menu-item-here"></span>';
                 }
 
                 // bullet
@@ -141,17 +142,17 @@ class HorMenu extends Component {
 
                 // Menu icon OR bullet
                 if ('dot' == $bullet) {
-                    echo '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
+                    $html .= '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
                 } elseif ('line' == $bullet) {
-                    echo '<i class="menu-bullet menu-bullet-line"><span></span></i>';
+                    $html .= '<i class="menu-bullet menu-bullet-line"><span></span></i>';
                 } elseif (isset($item['icon']) && ! empty($item['icon'])) {
                     self::renderIcon($item['icon']);
                 }
 
                 // Badge
-                echo '<span class="menu-text">'.$item['title'].'</span>';
+                $html .= '<span class="menu-text">'.$item['title'].'</span>';
                 if (isset($item['label'])) {
-                    echo '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
+                    $html .= '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
                 }
                 // Arrow
                 if (isset($item['submenu']) && (! isset($item['arrow']) || false != $item['arrow'])) {
@@ -159,20 +160,20 @@ class HorMenu extends Component {
                     if (isset($item['root'])) {
                         // enable/disable root arrow
                         if (false !== config('layout.header.menu.self.root-arrow')) {
-                            echo '<i class="menu-hor-arrow"></i>';
+                            $html .= '<i class="menu-hor-arrow"></i>';
                         }
                     } else {
                         // inner menu arrow
-                        echo '<i class="menu-hor-arrow"></i>';
+                        $html .= '<i class="menu-hor-arrow"></i>';
                     }
-                    echo '<i class="menu-arrow"></i>';
+                    $html .= '<i class="menu-arrow"></i>';
                 }
 
                 // closing title or heading
                 if (false == isset($item['heading'])) {
-                    echo '</a>';
+                    $html .= '</a>';
                 } else {
-                    echo '<i class="menu-arrow"></i></h3>';
+                    $html .= '<i class="menu-arrow"></i></h3>';
                 }
 
                 if (isset($item['submenu'])) {
@@ -189,9 +190,9 @@ class HorMenu extends Component {
                             $submenu_class .= ' menu-submenu-tabs';
                         }
 
-                        echo '<div class="menu-submenu menu-submenu-classic'.$submenu_class.'">';
+                        $html .= '<div class="menu-submenu menu-submenu-classic'.$submenu_class.'">';
 
-                        echo '<ul class="menu-subnav">';
+                        $html .= '<ul class="menu-subnav">';
                         $items = [];
                         if (isset($item['submenu']['items'])) {
                             $items = $item['submenu']['items'];
@@ -201,8 +202,8 @@ class HorMenu extends Component {
                         foreach ($items as $submenu_item) {
                             self::renderHorMenu($submenu_item, $item, $rec++);
                         }
-                        echo '</ul>';
-                        echo '</div>';
+                        $html .= '</ul>';
+                        $html .= '</div>';
                     } elseif ('mega' == $item['submenu']['type']) {
                         $submenu_fixed_width = '';
 
@@ -221,10 +222,10 @@ class HorMenu extends Component {
                             }
                         }
 
-                        echo '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
+                        $html .= '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
 
-                        echo '<div class="menu-subnav">';
-                        echo '<ul class="menu-content">';
+                        $html .= '<div class="menu-subnav">';
+                        $html .= '<ul class="menu-content">';
                         foreach ($item['submenu']['columns'] as $column) {
                             $item_class = '';
                             // mega menu column header active
@@ -232,32 +233,34 @@ class HorMenu extends Component {
                                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
                             }
 
-                            echo '<li class="menu-item '.$item_class.'">';
+                            $html .= '<li class="menu-item '.$item_class.'">';
                             if (isset($column['heading'])) {
                                 self::renderHorMenu($column['heading'], null, $rec++);
                             }
-                            echo '<ul class="menu-inner">';
+                            $html .= '<ul class="menu-inner">';
                             foreach ($column['items'] as $column_submenu_item) {
                                 self::renderHorMenu($column_submenu_item, $column, $rec++);
                             }
-                            echo '</ul>';
-                            echo '</li>';
+                            $html .= '</ul>';
+                            $html .= '</li>';
                         }
-                        echo '</ul>';
-                        echo '</div>';
-                        echo '</div>';
+                        $html .= '</ul>';
+                        $html .= '</div>';
+                        $html .= '</div>';
                     }
                 }
             }
 
             if (false == isset($item['heading'])) {
-                echo '</li>';
+                $html .= '</li>';
             }
         } elseif (is_array($item)) {
             foreach ($item as $each) {
                 self::renderHorMenu($each, $parent, $rec++);
             }
         }
+
+        return $html;
     }
 
     public static function checkRecursion($rec, $max = 10000) {
@@ -291,9 +294,9 @@ class HorMenu extends Component {
 
     public static function renderIcon($icon) {
         if (self::isSVG($icon)) {
-            echo self::getSVG($icon, 'menu-icon');
+            return self::getSVG($icon, 'menu-icon');
         } else {
-            echo '<i class="menu-icon '.$icon.'"></i>';
+            return '<i class="menu-icon '.$icon.'"></i>';
         }
     }
 
@@ -373,7 +376,7 @@ class HorMenu extends Component {
             $cls = array_merge($cls, explode(' ', $class));
         }
 
-        echo '<span class="'.implode(' ', $cls).'"><!--begin::Svg Icon | path:'.$filepath.'-->'.$string.'<!--end::Svg Icon--></span>';
+        return '<span class="'.implode(' ', $cls).'"><!--begin::Svg Icon | path:'.$filepath.'-->'.$string.'<!--end::Svg Icon--></span>';
     }
 
     public static function isSVG($path) {
