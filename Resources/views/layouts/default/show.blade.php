@@ -1,3 +1,12 @@
+@php
+    if(!view()->exists('pub_theme::layouts.app')){
+        dddx([
+            'err'=>'not exists',
+            'blade'=>'pub_theme::layouts.app',
+            'pub_theme'=>config('xra.pub_theme'),
+        ]);
+    }
+@endphp
 @extends('pub_theme::layouts.app')
 @section('content')
     @php
