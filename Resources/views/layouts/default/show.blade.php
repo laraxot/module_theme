@@ -4,6 +4,7 @@
             'err'=>'not exists',
             'blade'=>'pub_theme::layouts.app',
             'pub_theme'=>config('xra.pub_theme'),
+            'hints'=>View::getFinder()->getHints(),
         ]);
     }
 @endphp
