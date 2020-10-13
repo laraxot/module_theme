@@ -17,18 +17,18 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         $xot = Tenant::config('xra');
 
         $adm_theme = $xot['adm_theme'];
-        $adm_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$adm_theme);
+        $adm_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$adm_theme.\DIRECTORY_SEPARATOR.'Resources'.\DIRECTORY_SEPARATOR.'views');
         $pub_theme = $xot['pub_theme'];
         //$pub_theme = config('xra.pub_theme');
-        $pub_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$pub_theme);
+        $pub_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$pub_theme.\DIRECTORY_SEPARATOR.'Resources'.\DIRECTORY_SEPARATOR.'views');
         //die($pub_theme_dir.'['.__LINE__.']['.__FILE__.']');
 
         $this->app['view']->addNamespace('adm_theme', $adm_theme_dir);
         $this->app['view']->addNamespace('pub_theme', $pub_theme_dir);
 
         //ddd($pub_theme_dir.'/translations');
-        $this->loadTranslationsFrom($pub_theme_dir.'/resources/lang', 'pub_theme');
-        $this->loadTranslationsFrom($adm_theme_dir.'/resources/lang', 'adm_theme');
+        $this->loadTranslationsFrom($pub_theme_dir.'/Resources/lang', 'pub_theme');
+        $this->loadTranslationsFrom($adm_theme_dir.'/Resources/lang', 'adm_theme');
 
         $this->commands([
             \Modules\Theme\Console\CreateThemeCommand::class,
