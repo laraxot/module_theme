@@ -402,7 +402,8 @@ class ThemeService {
 
     public static function viewThemeNamespaceToAsset($key) {
         $ns_name = Str::before($key, '::');
-        $ns_dir = View::getFinder()->getHints()[$ns_name][0];
+        //$ns_dir = View::getFinder()->getHints()[$ns_name][0];
+        $ns_dir = self::getViewNameSpacePath($ns_name);
         $ns_name = config('xra.'.$ns_name);
         $tmp = Str::after($key, '::');
         $tmp0 = Str::before($tmp, '/');
@@ -451,9 +452,12 @@ class ThemeService {
         $ns_name = Str::before($key, '::');
 
         //$ns_dir = View::getFinder()->getHints()[$ns_name][0];
+        /*
         $ns_dir = collect(View::getFinder()->getHints())->filter(function ($item, $key) use ($ns_name) {
             return $key == $ns_name;
         })->collapse()->first();
+        */
+        $ns_dir = self::getViewNameSpacePath($ns_name);
         if (null == $ns_dir) {
             return '#['.$key.']['.__LINE__.']['.__FILE__.']';
         }
@@ -1130,8 +1134,11 @@ class ThemeService {
         $pack = \mb_substr($view, 0, $pos);
         //relative from pack
         $relative_path = \str_replace('.', '/', \mb_substr($view, $pos + 2));
+        /*
         $viewHints = View::getFinder()->getHints();
         $pack_dir = $viewHints[$pack][0];
+        */
+        $pack_dir = self::getViewNameSpacePath($pack);
         $view_dir = $pack_dir.'/'.$relative_path;
         $view_dir = \str_replace('/', \DIRECTORY_SEPARATOR, $view_dir);
 
