@@ -5,8 +5,6 @@ namespace Modules\Theme\Http\Livewire;
 use Livewire\Component;
 use Modules\Xot\Services\TenantService;
 
-//use Modules\Cart\Models\BookingItem;
-
 class VerMenu extends Component {
     public function render() {
         /*
