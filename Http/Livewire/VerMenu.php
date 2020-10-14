@@ -2,23 +2,37 @@
 
 namespace Modules\Theme\Http\Livewire;
 
+use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 use Modules\Xot\Services\TenantService;
 
 class VerMenu extends Component {
     public function render() {
-        /*
-        $view = 'theme::livewire.ver_menu';
-        $view_params = [
-            'view' => $view,
-            //'areas' => TenantService::model('area')->get(),
-            'areas' => TenantService::model('area')->pluck('area_define_name')->all(),
-        ];
-        //dddx(TenantService::model('area')->pluck('nome')->all());
-
-        return view($view, $view_params);
-        */
         $menu = TenantService::config('menu_aside.items');
+        $route_params = Route::current()->parameters();
+        $menu = [];
+        if (isset($route_params['module'])) {
+            $models = getModuleModels($route_params['module']);
+            $submenu = collect($models)->map(function ($item, $key) use ($route_params) {
+                $parz = $route_params;
+                if (! isset($parz['lang'])) {
+                    $parz['lang'] = \App::getLocale();
+                }
+                $parz['container0'] = $key;
+                $route = route('admin.container0.index', $parz);
+
+                return ['title' => $key, 'page' => $route];
+            })->all();
+
+            $menu[] = [
+                'title' => 'Models',
+                'desc' => '',
+                'icon' => 'media/svg/icons/Design/Bucket.svg',
+                'bullet' => 'dot',
+                'root' => true,
+                'submenu' => $submenu,
+            ];
+        }
 
         $html = self::renderVerMenu($menu);
 
@@ -29,7 +43,9 @@ class VerMenu extends Component {
         $html = '';
         self::checkRecursion($rec);
         if (! $item) {
-            return 'menu misconfiguration';
+            //return '<div>menu misconfiguration</div>';
+
+            return '<div></div>';
         }
 
         if (isset($item['separator'])) {

@@ -7,17 +7,6 @@ use Modules\Xot\Services\TenantService;
 
 class HorMenu extends Component {
     public function render() {
-        /*
-        $view = 'theme::livewire.ver_menu';
-        $view_params = [
-            'view' => $view,
-            //'areas' => TenantService::model('area')->get(),
-            'areas' => TenantService::model('area')->pluck('area_define_name')->all(),
-        ];
-        //dddx(TenantService::model('area')->pluck('nome')->all());
-
-        return view($view, $view_params);
-        */
         $menu = TenantService::config('menu_header.items');
 
         $html = self::renderHorMenu($menu);
@@ -25,6 +14,13 @@ class HorMenu extends Component {
         return $html;
     }
 
+    /**
+     * Header menu.
+     *
+     * @param $item
+     * @param null $parent
+     * @param int  $rec
+     */
     public static function renderHorMenu($item, $parent = null, $rec = 0) {
         $html = '';
         self::checkRecursion($rec);
@@ -146,7 +142,7 @@ class HorMenu extends Component {
                 } elseif ('line' == $bullet) {
                     $html .= '<i class="menu-bullet menu-bullet-line"><span></span></i>';
                 } elseif (isset($item['icon']) && ! empty($item['icon'])) {
-                    self::renderIcon($item['icon']);
+                    $html .= self::renderIcon($item['icon']);
                 }
 
                 // Badge
@@ -200,7 +196,7 @@ class HorMenu extends Component {
                             $items = $item['submenu'];
                         }
                         foreach ($items as $submenu_item) {
-                            self::renderHorMenu($submenu_item, $item, $rec++);
+                            $html .= self::renderHorMenu($submenu_item, $item, $rec++);
                         }
                         $html .= '</ul>';
                         $html .= '</div>';
@@ -235,11 +231,11 @@ class HorMenu extends Component {
 
                             $html .= '<li class="menu-item '.$item_class.'">';
                             if (isset($column['heading'])) {
-                                self::renderHorMenu($column['heading'], null, $rec++);
+                                $html .= self::renderHorMenu($column['heading'], null, $rec++);
                             }
                             $html .= '<ul class="menu-inner">';
                             foreach ($column['items'] as $column_submenu_item) {
-                                self::renderHorMenu($column_submenu_item, $column, $rec++);
+                                $html .= self::renderHorMenu($column_submenu_item, $column, $rec++);
                             }
                             $html .= '</ul>';
                             $html .= '</li>';
@@ -256,7 +252,7 @@ class HorMenu extends Component {
             }
         } elseif (is_array($item)) {
             foreach ($item as $each) {
-                self::renderHorMenu($each, $parent, $rec++);
+                $html .= self::renderHorMenu($each, $parent, $rec++);
             }
         }
 
