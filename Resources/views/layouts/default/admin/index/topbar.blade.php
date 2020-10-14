@@ -1,8 +1,6 @@
-
-
-	@php
-		//dddx($_panel->containerActions());
-	@endphp
+@php
+	//dddx($_panel->containerActions());
+@endphp
 
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e9ecef; padding:5px; ">
 
