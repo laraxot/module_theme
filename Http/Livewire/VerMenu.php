@@ -5,16 +5,45 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 use Modules\Theme\Services\SvgService;
+use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Services\PanelService as Panel;
 use Modules\Xot\Services\TenantService;
 
 class VerMenu extends Component {
+    public static function parse($all, $id_padre = 0) {
+        $data = [];
+        if (! isset($all[$id_padre])) {
+            return $data;
+        }
+        $arr = $all[$id_padre];
+        foreach ($arr as $k => $v) {
+            $tmp = [
+                'title' => $v->nome,
+                'page' => $v->url,
+            ];
+            $submenu = self::parse($all, $v->id);
+            if (! empty($submenu)) {
+                $tmp['submenu'] = $submenu;
+            }
+            $data[] = $tmp;
+        }
+
+        return $data;
+    }
+
     public function render() {
         $menu = TenantService::config('menu_aside.items');
         $route_params = Route::current()->parameters();
+        //dddx($route_params);
         $menu = [];
+
+        $module_menu = self::parse(ThemeService::getXmlMenu());
+        $menu[] = $module_menu;
+        //dddx($module_menu);
+
         if (isset($route_params['module'])) {
             $models = getModuleModels($route_params['module']);
+            //dddx([$models, $route_params]);
             $submenu = collect($models)->map(function ($item, $key) use ($route_params) {
                 $parz = $route_params;
                 if (! isset($parz['lang'])) {
