@@ -5,6 +5,7 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 use Modules\Theme\Services\SvgService;
+use Modules\Xot\Services\PanelService as Panel;
 use Modules\Xot\Services\TenantService;
 
 class VerMenu extends Component {
@@ -33,6 +34,20 @@ class VerMenu extends Component {
                 'root' => true,
                 'submenu' => $submenu,
             ];
+        } else {
+            $panel = Panel::get(\Auth::user());
+            $areas = $panel->areas();
+            foreach ($areas as $area) {
+                $menu[] = [
+                    'title' => $area->area_define_name,
+                    'desc' => '',
+                    'icon' => 'media/svg/icons/Design/Bucket.svg',
+                    //'icon' => $area->icon_src,
+                    'bullet' => 'dot',
+                    'root' => true,
+                    'page' => '/admin/'.\mb_strtolower($area->area_define_name),
+                ];
+            }
         }
 
         $html = self::renderVerMenu($menu);
