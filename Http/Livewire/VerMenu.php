@@ -32,7 +32,7 @@ class VerMenu extends Component {
     }
 
     public function render() {
-        $menu = TenantService::config('menu_aside.items');
+        //$menu = TenantService::config('menu_aside.items');//menu iniziale di test
         $route_params = Route::current()->parameters();
         //dddx($route_params);
         $menu = [];
@@ -80,7 +80,12 @@ class VerMenu extends Component {
         }
 
         $html = self::renderVerMenu($menu);
-
+        /*
+        $view = $route_params['module'].'::ver_menu';
+        if (view()->exists($view)) {
+            return view($view)->with(['html' => $html]);
+        }
+        */
         return $html;
     }
 
