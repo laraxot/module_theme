@@ -5,13 +5,17 @@
 
 <button 
     type="button" 
-    class="btn btn-sm btn-danger" 
+    class="btn" 
     data-toggle="popover" 
     {{-- data-trigger="click" --}}
     data-html="true"
     title="{{ $title }}"
     data-content="
+        
         @foreach($actions as $action)
+            @php
+                //dddx($action);
+            @endphp
             {!! $action->btnHtml(
             [
                 'guest_notice'=>false,
@@ -19,7 +23,18 @@
                 'error_label' => false,
             ]) !!}
         @endforeach
+        
+        {{-- Call to a member function getParents() on null
+        @foreach($panel->actions() as $action)
+            {!! $action->btnHtml(
+            [
+                'guest_notice'=>false,
+                'title' => true,
+                'error_label' => false,
+            ]) !!}
+        @endforeach
+        --}}
         "
     >
-    {{ $content_btn }}
+    {{ $title_btn }}
 </button>
