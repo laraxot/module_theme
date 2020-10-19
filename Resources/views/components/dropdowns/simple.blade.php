@@ -1,11 +1,11 @@
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+<div class="dropdown menu-label">
+    <button class="{{ $btn_class ?? ''}}" type="button"  data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-cog"></i>
+        {{ $title }}
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-        {{ $btns }}
-
+    <div class="dropdown-menu" >
+        {!! $btns !!}
     </div>
 </div>
+
+
