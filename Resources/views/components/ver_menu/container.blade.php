@@ -1,3 +1,3 @@
-<ul class="menu-nav ">
+<ul class="{{ $lu_class ?? ''}}">
 	{{ $content }}
 </ul>

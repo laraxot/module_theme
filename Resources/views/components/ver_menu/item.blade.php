@@ -1,4 +1,4 @@
-<li class="menu-item menu-item-submenu {{-- menu-item-open --}}" aria-haspopup="true" data-menu-toggle="hover">
+<li class="menu-item menu-item-submenu {{-- $menu_item_open?'menu-item-open':'' --}}{{-- menu-item-open --}}" aria-haspopup="true" data-menu-toggle="hover">
     {{--  
         --}}
     <div class="menu-link menu-toggle">
@@ -16,9 +16,9 @@
     </div>
     
         
-    <div class="menu-submenu ">
-        <span class="menu-arrow"></span>
-
+    <div class="menu-submenu">
+        {{-- <spanclass="menu-arrow"></span> --}}
+        <i class="menu-arrow"></i>
         <ul class="menu-subnav">
             @foreach($sons as $son)
                 @component('theme::components.ver_menu.item',['sons'=>[],'model_name'=>'', 'btns' => '' ])
