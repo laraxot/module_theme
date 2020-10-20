@@ -1,3 +1,3 @@
-<ul class="{{ $lu_class ?? ''}}">
+<ul class="{{ $ul_class ?? ''}}">
 	{{ $content }}
 </ul>
