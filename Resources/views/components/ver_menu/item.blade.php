@@ -1,18 +1,21 @@
-<li class="menu-item menu-item-submenu {{-- $menu_item_open?'menu-item-open':'' --}}{{-- menu-item-open --}}" aria-haspopup="true" data-menu-toggle="hover">
-    {{--  
-        --}}
+<li class="menu-item menu-item-submenu menu-item-open
+                {{-- $menu_item_open?'menu-item-open':'' --}}
+                {{-- $menu_item_open --}}
+                {{-- menu-item-open --}}
+                " aria-haspopup="true" data-menu-toggle="hover">
     <div class="menu-link menu-toggle">
         <span class="{{-- menu-linkmenu-toggle --}} svg-icon menu-icon">
             {{ $icon ?? '' }}
         </span>
-        <span class="menu-text">{{ $title }}</span>
+        <span class="menu-text" wire:click="showSubs({{ $id }},'{{ $model_name }}')">{{ $title }}</span>
         {{ $btns }}
+        <i class="menu-arrow"></i>
         
         {{--  
             <span wire:click="showSubs({{ $id }},'{{ $model_name }}')"><i class="menu-arrow" ></i></span>
-        --}}
-        
-        <button class="btn btn-dark" wire:click="showSubs({{ $id }},'{{ $model_name }}')"><i class="menu-arrow" ></i></button>
+            
+            <button class="btn btn-dark" wire:click="showSubs({{ $id }},'{{ $model_name }}')"><i class="menu-arrow" ></i></button>
+            --}}
     </div>
     
         
