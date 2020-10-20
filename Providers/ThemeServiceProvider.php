@@ -18,13 +18,11 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
         $adm_theme = $xot['adm_theme'];
         $adm_resource_path = 'views/themes/'.$adm_theme.'/Resources';
-        $adm_resources_dir = resource_path($adm_resource_path);
         $adm_lang_dir = resource_path($adm_resource_path.'/lang');
         $adm_theme_dir = resource_path($adm_resource_path.'/views');
 
         $pub_theme = $xot['pub_theme'];
         $pub_resource_path = 'views/themes/'.$pub_theme.'/Resources';
-        $pub_resources_dir = resource_path($pub_resource_path);
         $pub_lang_dir = resource_path($pub_resource_path.'/lang');
         $pub_theme_dir = resource_path($pub_resource_path.'/views');
 
