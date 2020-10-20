@@ -1363,7 +1363,10 @@ class ThemeService {
         $view_short1 = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -3));
         $view_short2 = $view_arr[0].'::'.implode('.', array_slice(explode('.', $view_arr[1]), -2));
 
-        $views = [$view, $view_short, $view_short1, $view_short2, $view_module, $view_default, $view_extend];
+        $view_update = str_replace('.update.acts.', '.show.acts.', $view);
+        //$view_store = str_replace('.store.', '.show.', $view); ??
+
+        $views = [$view, $view_update, $view_short, $view_short1, $view_short2, $view_module, $view_default, $view_extend];
         /*
          * forse mettere filtro per togliere se c'e' una view a null, e le view che contengono ::show
          */
