@@ -12,7 +12,9 @@
     <div class="menu-submenu">
         <i class="menu-arrow"></i>
         <ul class="menu-subnav">
-            ---
+            @php
+                //dddx(['item',get_defined_vars()]);
+            @endphp
             @foreach($sons as $son)
                 @php
                     if(!isset($son['model_name'])){
