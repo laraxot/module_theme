@@ -12,35 +12,31 @@
     <div class="menu-submenu">
         <i class="menu-arrow"></i>
         <ul class="menu-subnav">
-            @php
-                //dddx(['item',get_defined_vars()]);
-            @endphp
-
             @foreach($sons as $son_type)
-            @foreach($son_type as $son)
-                @php
-                    if(!isset($son['model_name'])){
-                        dddx(['item','son'=>$son, 'sons'=>$sons,'son_type'=>$son_type]);
-                    }
-                @endphp
-                @component('theme::components.ver_menu.item',[
-                            'sons'=>$son['sons'] ?? [],
-                            'model_name'=>$son['model_name'],
-                            'menu_item_open' => '',
-                            'parent'=>$parent.'-'.$id,
-                            'id'=>$son['model_name'].'-'.$son['tree_id'],
-                            'title'=>$son['nome'],
+                @foreach($son_type as $son)
+                    @php
+                        if(!isset($son['model_name'])){
+                            dddx(['item','son'=>$son, 'sons'=>$sons,'son_type'=>$son_type]);
+                        }
+                    @endphp
+                    @component('theme::components.ver_menu.item',[
+                                'sons'=>$son['sons'] ?? [],
+                                'model_name'=>$son['model_name'],
+                                'menu_item_open' => '',
+                                'parent'=>$parent.'-'.$id,
+                                'id'=>$son['model_name'].'-'.$son['tree_id'],
+                                'title'=>$son['nome'],
+                                ])
+                        @slot('btns')
+                        @component('theme::components.dropdowns.simple',[
+                            'btn_class'=>'btn btn-dark',
+                            'btns'=> $son['treeItemActions'] ?? '',
                             ])
-                    @slot('btns')
-                    @component('theme::components.dropdowns.simple',[
-                        'btn_class'=>'btn btn-dark',
-                        'btns'=> $son['treeItemActions'] ?? '',
-                        ])
-                    @slot('title')<i class="fas fa-cog"></i>@endslot
+                        @slot('title')<i class="fas fa-cog"></i>@endslot
+                        @endcomponent
+                    @endslot
                     @endcomponent
-                @endslot
-                @endcomponent
-            @endforeach
+                @endforeach
             @endforeach
         </ul>
     </div>
