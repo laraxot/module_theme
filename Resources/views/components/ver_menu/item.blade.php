@@ -1,8 +1,13 @@
 <li class="menu-item menu-item-submenu menu-item-open{{-- $menu_item_open?'menu-item-open':'' --}}" aria-haspopup="true" data-menu-toggle="hover">
     <div class="menu-link menu-toggle">
-        <span class="{{-- menu-linkmenu-toggle --}} svg-icon menu-icon">
-            {{ $icon ?? '['.substr($model_name,0,1).']' }}
-        </span>
+        @php
+            /*
+            <span class="{{-- menu-linkmenu-toggle --}} svg-icon menu-icon">
+                {{ $icon ?? '['.substr($model_name,0,1).']' }}
+                </span>
+                */
+        @endphp
+        {!! $icon !!}
         <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
         {!! $btns !!}
         <i class="menu-arrow" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')"></i>
@@ -26,6 +31,7 @@
                                 'parent'=>$parent.'-'.$id,
                                 'id'=>$son['model_name'].'-'.$son['tree_id'],
                                 'title'=>$son['nome'],
+                                'icon' => $son['icon'],
                                 ])
                         @slot('btns')
                         @component('theme::components.dropdowns.simple',[
