@@ -2395,10 +2395,14 @@ class ThemeService {
 
     // Render icon or bullet
     public static function renderIcon($icon) {
-        if (self::isSVG($icon)) {
-            return self::getSVG($icon, 'menu-icon');
+        if (SvgService::isSVG($icon)) {
+            return SvgService::getSVG($icon, 'menu-icon');
         } else {
             return '<i class="menu-icon '.$icon.'"></i>';
         }
+    }
+
+    public static function getSVG($filepath, $class = '') {
+        echo SvgService::getSVG($filepath, $class);
     }
 }//end class
