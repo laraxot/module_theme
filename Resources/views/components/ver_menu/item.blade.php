@@ -7,10 +7,19 @@
                 </span>
                 */
         @endphp
-        {!! $icon !!}
-        <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
-        {!! $btns !!}
-        <i class="menu-arrow" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')"></i>
+
+        @if($have_sons)
+            {!! $icon !!}
+            <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
+            {!! $btns !!}
+            <i class="menu-arrow" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')"></i>
+        @else
+            {!! $icon !!}
+            <span class="menu-text">{!! $title !!}</span>
+            {!! $btns !!}
+        @endif
+
+
     </div>
 
 
@@ -32,6 +41,7 @@
                                 'id'=>$son['model_name'].'-'.$son['tree_id'],
                                 'title'=>$son['nome'],
                                 'icon' => $son['icon'],
+                                'have_sons' => $son['have_sons'],
                                 ])
                         @slot('btns')
                         @component('theme::components.dropdowns.simple',[
