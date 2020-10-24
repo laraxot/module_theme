@@ -1,4 +1,4 @@
-<li class="menu-item menu-item-submenu menu-item-open{{-- $menu_item_open?'menu-item-open':'' --}}" aria-haspopup="true" data-menu-toggle="hover">
+<li class="menu-item menu-item-submenu {{-- menu-item-open --}}{{ $menu_item_open ? 'menu-item-open':'' }}" aria-haspopup="true" data-menu-toggle="hover">
     <div class="menu-link menu-toggle">
         @php
             /*
@@ -7,7 +7,7 @@
                 </span>
                 */
         @endphp
-
+        {{ $menu_item_open == true ? 'menu-item-open':'' }}
         @if($have_sons)
             {!! $icon !!}
             <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
