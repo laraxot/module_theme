@@ -7,7 +7,7 @@
                 </span>
                 */
         @endphp
-        {{ $menu_item_open == true ? 'menu-item-open':'false' }}
+        {{-- $menu_item_open==true?'menu-item-open':'false' --}}
         @if($have_sons)
             {!! $icon !!}
             <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
