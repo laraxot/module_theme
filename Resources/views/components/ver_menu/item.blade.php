@@ -1,4 +1,4 @@
-<li class="menu-item menu-item-submenu menu-item-open{{-- $menu_item_open?'menu-item-open':'' --}}" aria-haspopup="true" data-menu-toggle="hover">
+<li class="menu-item menu-item-submenu {{ $menu_item_open ? 'menu-item-open':'' }}" aria-haspopup="true" data-menu-toggle="hover">
     <div class="menu-link menu-toggle">
         @php
             /*
@@ -36,7 +36,7 @@
                     @component('theme::components.ver_menu.item',[
                                 'sons'=>$son['sons'] ?? [],
                                 'model_name'=>$son['model_name'],
-                                'menu_item_open' => '',
+                                'menu_item_open' => $son['dropdown_submenu'],
                                 'parent'=>$parent.'-'.$id,
                                 'id'=>$son['model_name'].'-'.$son['tree_id'],
                                 'title'=>$son['nome'],
