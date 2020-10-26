@@ -7,14 +7,15 @@
                 </span>
                 */
         @endphp
-        {{-- $menu_item_open==true?'menu-item-open':'false' --}}
+        {{-- $menu_item_open==true?'menu-item-open':'false'
+
+        --}}
+        {!! $icon !!}
         @if($have_sons)
-            {!! $icon !!}
             <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
             {!! $btns !!}
             <i class="menu-arrow" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')"></i>
         @else
-            {!! $icon !!}
             <span class="menu-text">{!! $title !!}</span>
             {!! $btns !!}
         @endif

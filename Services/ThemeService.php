@@ -2403,6 +2403,6 @@ class ThemeService {
     }
 
     public static function getSVG($filepath, $class = '') {
-        echo SvgService::getSVG($filepath, $class);
+        return SvgService::getSVG($filepath, $class);
     }
 }//end class
