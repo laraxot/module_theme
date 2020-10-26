@@ -1,15 +1,5 @@
 <li class="menu-item menu-item-submenu {{ $menu_item_open ? 'menu-item-open':'' }}" aria-haspopup="true" data-menu-toggle="hover">
-    <div class="menu-link menu-toggle">
-        @php
-            /*
-            <span class="{{-- menu-linkmenu-toggle --}} svg-icon menu-icon">
-                {{ $icon ?? '['.substr($model_name,0,1).']' }}
-                </span>
-                */
-        @endphp
-        {{-- $menu_item_open==true?'menu-item-open':'false'
-
-        --}}
+    <div class="menu-link">
         {!! $icon !!}
         @if($have_sons)
             <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
@@ -19,13 +9,8 @@
             <span class="menu-text">{!! $title !!}</span>
             {!! $btns !!}
         @endif
-
-
     </div>
-
-
     <div class="menu-submenu">
-        <i class="menu-arrow"></i>
         <ul class="menu-subnav">
             @foreach($sons as $son_type)
                 @foreach($son_type as $son)
