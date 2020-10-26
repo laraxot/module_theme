@@ -24,6 +24,7 @@ use Modules\FormX\Services\FormXService;
 //----- services --
 use Modules\Xot\Services\ArtisanService;
 use Modules\Xot\Services\StubService;
+use Modules\Xot\Services\TenantService;
 use Modules\Xot\Services\TenantService as Tenant;
 use Modules\Xot\Traits\Getter;
 
@@ -2400,6 +2401,14 @@ class ThemeService {
         } else {
             return '<i class="menu-icon '.$icon.'"></i>';
         }
+    }
+
+    public static function renderIconName($icon_name) {
+        $icon_key = 'icons.'.$icon_name;
+        $icon = TenantService::config($icon_key);
+        //dddx(['icon' => $icon, 'name' => 'icon_key'.$icon_key]);
+
+        return self::renderIcon($icon);
     }
 
     public static function getSVG($filepath, $class = '') {

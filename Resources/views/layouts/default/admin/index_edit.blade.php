@@ -9,7 +9,8 @@
     'type'=>'PivotFields',
     ];
     @endphp
-
+     @component('theme::components.crud',get_defined_vars())
+     @slot('content')
 
     @foreach ($rows as $key => $row)
         @php
@@ -55,7 +56,8 @@
 
     @endforeach
     {{ $rows->links() }}
-
+    @endslot
+    @endcomponent
     {{--
     {{ Form::submit('Salva ed esci', ['class' => 'submit btn btn-success green-meadow']) }}
     {!! Theme::inputHtml(['row' => $last_item, 'field' => $field]) !!}
