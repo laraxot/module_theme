@@ -8,9 +8,31 @@ use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Services\TenantService;
 
 class HorMenu extends Component {
+    public static function parse($all, $id_padre = 0) {
+        $data = [];
+        if (! isset($all[$id_padre])) {
+            return $data;
+        }
+        $arr = $all[$id_padre];
+        foreach ($arr as $k => $v) {
+            $tmp = [
+                'title' => $v->nome,
+                'page' => $v->url,
+            ];
+            $submenu = self::parse($all, $v->id);
+            if (! empty($submenu)) {
+                $tmp['submenu'] = $submenu;
+            }
+            $data[] = $tmp;
+        }
+
+        return $data;
+    }
+
     public function render() {
         $menu = TenantService::config('menu_header.items');
 
+        //dddx($menu);
         $html = self::renderHorMenu($menu);
 
         return $html;
