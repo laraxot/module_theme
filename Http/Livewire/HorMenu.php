@@ -4,6 +4,7 @@ namespace Modules\Theme\Http\Livewire;
 
 use Livewire\Component;
 use Modules\Theme\Services\SvgService;
+use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Services\TenantService;
 
 class HorMenu extends Component {
@@ -24,7 +25,7 @@ class HorMenu extends Component {
      */
     public static function renderHorMenu($item, $parent = null, $rec = 0) {
         $html = '';
-        self::checkRecursion($rec);
+        ThemeService::checkRecursion($rec);
         if (! $item) {
             return 'menu misconfiguration';
         }
@@ -36,13 +37,13 @@ class HorMenu extends Component {
             $item_class = '';
             $item_attr = '';
 
-            if (isset($item['submenu']) && self::isActiveHorMenuItem($item, request()->path())) {
+            if (isset($item['submenu']) && ThemeService::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
 
                 if ('tabs' == @$item['submenu']['type']) {
                     $item_class .= ' menu-item-active-tab ';
                 }
-            } elseif (self::isActiveHorMenuItem($item, request()->path())) {
+            } elseif (ThemeService::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-active ';
 
                 if ('tabs' == @$item['submenu']['type']) {
@@ -85,7 +86,7 @@ class HorMenu extends Component {
                 }
             }
 
-            if (isset($item['submenu']['items']) && self::isActiveHorMenuItem($item['submenu'], request()->path())) {
+            if (isset($item['submenu']['items']) && ThemeService::isActiveHorMenuItem($item['submenu'], request()->path())) {
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
             }
 
@@ -143,7 +144,7 @@ class HorMenu extends Component {
                 } elseif ('line' == $bullet) {
                     $html .= '<i class="menu-bullet menu-bullet-line"><span></span></i>';
                 } elseif (isset($item['icon']) && ! empty($item['icon'])) {
-                    $html .= self::renderIcon($item['icon']);
+                    $html .= ThemeService::renderIcon($item['icon']);
                 }
 
                 // Badge
@@ -226,7 +227,7 @@ class HorMenu extends Component {
                         foreach ($item['submenu']['columns'] as $column) {
                             $item_class = '';
                             // mega menu column header active
-                            if (isset($column['items']) && self::isActiveVerMenuItem($column, request()->path())) {
+                            if (isset($column['items']) && ThemeService::isActiveVerMenuItem($column, request()->path())) {
                                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
                             }
 
@@ -260,12 +261,15 @@ class HorMenu extends Component {
         return $html;
     }
 
+    /*
     public static function checkRecursion($rec, $max = 10000) {
         if ($rec > $max) {
             echo 'Too many recursions!!!';
             exit;
         }
     }
+
+
 
     public static function renderIcon($icon) {
         if (SvgService::isSVG($icon)) {
@@ -274,6 +278,7 @@ class HorMenu extends Component {
             return '<i class="menu-icon '.$icon.'"></i>';
         }
     }
+
 
     public static function isActiveHorMenuItem($item, $page, $rec = 0) {
         if (true === @$item['redirect']) {
@@ -297,6 +302,7 @@ class HorMenu extends Component {
         return false;
     }
 
+
     public static function isActiveVerMenuItem($item, $page, $rec = 0) {
         if (true === @$item['redirect']) {
             return false;
@@ -318,4 +324,5 @@ class HorMenu extends Component {
 
         return false;
     }
+     */
 }

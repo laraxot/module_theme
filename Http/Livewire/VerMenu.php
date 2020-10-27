@@ -185,7 +185,7 @@ class VerMenu extends Component {
             } elseif ('line' == $bullet) {
                 $html .= '<i class="menu-bullet menu-bullet-line"><span></span></i>';
             } elseif (true !== config('layout.aside.menu.hide-root-icons') && isset($item['icon']) && ! empty($item['icon'])) {
-                $html .= self::renderIcon($item['icon']);
+                $html .= ThemeService::renderIcon($item['icon']);
             }
 
             // Badge
@@ -302,6 +302,7 @@ class VerMenu extends Component {
         return false;
     }
 
+    /*
     // Render icon or bullet
     public static function renderIcon($icon) {
         if (SvgService::isSVG($icon)) {
@@ -310,4 +311,5 @@ class VerMenu extends Component {
             return '<i class="menu-icon '.$icon.'"></i>';
         }
     }
+    */
 }
