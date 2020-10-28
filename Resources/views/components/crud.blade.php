@@ -8,7 +8,7 @@
 				<li class="nav-item">
 					<a class="nav-link active" href="{{ $_panel->url(['act'=>'index']) }}">
 					<i class="fa fa-list mr-2">
-					</i>{{ trans('adm_theme::lang.'.$last_container.'_table') }}
+					</i>{{ trans('adm_theme::lang.'.last($containers).'_table') }}
 					</a>
                 </li>
                 @endcan
@@ -16,7 +16,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{ $_panel->url(['act'=>'create']) }}">
 					<i class="fa fa-plus mr-2"></i>
-					{{ trans('adm_theme::lang.'.$last_container.'_create') }}
+					{{ trans('adm_theme::lang.'.last($containers).'_create') }}
 					</a>
 				</li>
                 @endcan
@@ -24,7 +24,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{ $_panel->url(['act'=>'edit']) }}">
 					<i class="fa fa-edit mr-2"></i>
-					{{ trans('adm_theme::lang.'.$last_container.'_edit') }}
+					{{ trans('adm_theme::lang.'.last($containers).'_edit') }}
 					</a>
 				</li>
 				@endcan

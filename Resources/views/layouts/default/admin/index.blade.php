@@ -5,10 +5,14 @@
     @else
         {!! $_panel->indexNav() !!}
     @endif
+    {!! Theme::include('inner_page',[],get_defined_vars() ) !!}
+    {{--
 
-
-    <div class="row">
-        <div class="col" style="overflow:auto">
+    {!! Theme::include('tabs',['tabs'=>$_panel->getTabs()],get_defined_vars()) !!}
+    --}}
+    @component('theme::components.crud',get_defined_vars())
+        @slot('content')
+            {!! Theme::include('topbar',[],get_defined_vars()) !!}
             @foreach ($rows as $row)
                 @php
 
@@ -70,9 +74,8 @@
 
             @endforeach
             {{ $rows->appends(request()->query())->links() }}
-        </div>
-    </div>
-
+    @endslot
+    @endcomponent
 @endsection
 {{--
 @include('theme::layouts.default.admin.common.action')
