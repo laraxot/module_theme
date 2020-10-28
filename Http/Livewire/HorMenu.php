@@ -30,12 +30,27 @@ class HorMenu extends Component {
     }
 
     public function render() {
-        $menu = TenantService::config('menu_header.items');
+        //$menu = TenantService::config('menu_header.items');
+        $view = 'theme::livewire.hor_menu';
+
+        $menu['items'][] = [
+            'title' => 'Dashboard',
+            'root' => true,
+            'page' => '/',
+            'new-tab' => false,
+        ];
 
         //dddx($menu);
         $html = self::renderHorMenu($menu);
 
-        return $html;
+        //return $html;
+
+        $view_params = [
+            //'view' => $view,
+            'html' => $html,
+        ];
+
+        return view($view, $view_params);
     }
 
     /**
