@@ -2,7 +2,7 @@
     <div class="menu-link">
         {!! $icon !!}
         @if($have_sons)
-            <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!} {{ $parent }}-{{ $id }}</span>
+            <span class="menu-text" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')">{!! $title !!}</span>
             {!! $btns !!}
             <i class="menu-arrow" wire:click="showSubs('{{ $parent }}-{{ $id }}','{{ $model_name }}')"></i>
         @else
