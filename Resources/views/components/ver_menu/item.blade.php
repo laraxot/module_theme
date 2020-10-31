@@ -1,3 +1,9 @@
+{{-- 
+	forse sostituirlo con 
+	theme.components.lists.item 
+	che dovrebbe essere più generico?
+	--}}
+
 <li class="menu-item menu-item-submenu {{ $menu_item_open ? 'menu-item-open':'' }}" aria-haspopup="true" data-menu-toggle="hover">
     <div class="menu-link">
         {!! $icon !!}
