@@ -1,6 +1,6 @@
-{{-- 
-	forse sostituirlo con 
-	theme.components.lists.item 
+{{--
+	forse sostituirlo con
+	theme.components.lists.item
 	che dovrebbe essere più generico?
 	--}}
 
@@ -18,7 +18,7 @@
     </div>
     <div class="menu-submenu">
         <ul class="menu-subnav">
-            @foreach($sons as $son_type)
+            @foreach($sons as $k_son=>$son_type)
                 @foreach($son_type as $son)
                     @php
                         if(!isset($son['model_name'])){
@@ -27,7 +27,8 @@
                     @endphp
                     @component('theme::components.ver_menu.item',[
                                 'sons'=>$son['sons'] ?? [],
-                                'model_name'=>$son['model_name'],
+                                //'model_name'=>$son['model_name'],
+                                'model_name'=>$k_son,
                                 'menu_item_open' => $son['dropdown_submenu'],
                                 'parent'=>$parent.'-'.$id,
                                 'id'=>$son['model_name'].'-'.$son['tree_id'],
