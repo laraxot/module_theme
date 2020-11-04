@@ -7,7 +7,7 @@
 	<div class="card">
 		<div class="card-header">
 			<ul class="nav nav-tabs align-items-end card-header-tabs w-100">
-                @foreach(['index','create','edit'] as $v_act)
+                @foreach(['index','indexEdit','create','edit'] as $v_act)
                 @can($v_act,$_panel)
                 @php
                         $href=$_panel->url(['act'=>$v_act]);
@@ -25,8 +25,20 @@
                     @endif
                     {{ trans($trad_mod.'.tab.'.$v_act) }}
                     </a>
+					{{--  
+					<br/>{{ $href1 }}
+					<br/>{{ $req_path }}
+					--}}
                 </li>
+				@else
+				{{--  
+				[url malformed {{ $v_act }}]
+				--}}
                 @endif
+				@elsecan
+				{{--  
+				[not can {{ $v_act }}]
+				--}}
                 @endcan
                 @endforeach
                 {{--

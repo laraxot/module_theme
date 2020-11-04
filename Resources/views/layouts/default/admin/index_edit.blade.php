@@ -11,7 +11,7 @@
     @endphp
      @component('theme::components.crud',get_defined_vars())
      @slot('content')
-
+    {!! Theme::include('topbar',[],get_defined_vars()) !!}
     @foreach ($rows as $key => $row)
         @php
         $fields=$_panel->indexFields();
