@@ -1,64 +1,18 @@
+@php
+	//dd(get_class(Panel::get($row)));
+	//dddx(get_defined_vars());
+@endphp
+
 <div class="menu-rest">
-	@php
-		if(!is_array($tabs)) return ;
-		//$tabs=['restaurant','cuisineCat'];
-		$current_tab=$row->post_type;
-		//ddd($view);
-		$trad=str_replace($row->post_type.'.edit',$row->post_type,$view);
-	@endphp
+	@foreach($tabs as $tabs_level)
 	<ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+		@foreach($tabs_level as $k=>$v)
 		<li class="nav-item">
-			<a class="nav-link btn btn-secondary active">
-				{{--
-				@lang($trad.'.tab.content')
-				--}}
-				Content
-				<span class="badge pull-right">
-					<i class="fa fa-pencil"></i>
-				</span>
+			<a class="nav-link {{ $v->active?'active':'' }}" href="{{ url($v->url) }}">
+				{{ $v->title }}
 			</a>
 		</li>
-		@foreach($tabs as $k=>$tab)
-		@php
-			switch($routename){
-				case 'container0.edit':
-					$route=route('container0.container1.index_edit',array_merge($params,['container1'=>$tab]));
-				break;
-				case 'container0.container1.edit':
-					//$route=route('container0.container1.container2.index_edit',array_merge($params,['container2'=>$tab]));
-					$route='#';
-				break;
-				default:
-					//ddd($routename);
-					$route='#';
-				break; 
-			}
-			
-		@endphp 
-		<li class="nav-item">
-			<a class="nav-link btn btn-secondary {{ $tab==$current_tab?'active':'' }}" href="{{ $route }}" role="tab" aria-controls="pills-menu" aria-selected="{{ $tab==$current_tab?'true':'false' }}">
-				{{--
-				@lang($trad.'.tab.'.$tab)
-				--}}
-				{{ $tab }}
-				<span class="badge pull-right">
-					<i class="fa fa-pencil"></i>
-				</span>
-			</a> 
-				{{-- [{{ $current_tab }}] --}}
-		</li>
-		@endforeach 
+		@endforeach
 	</ul>
-	<div class="tab-content" id="pills-tabContent">
-		<div class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-menu-tab">
-      		<div class="container m-t-30">
-				<div class="row">
-					{{--
-					@include('pub_theme::restaurant.show.tabs.'.$current_tab)
-					@include('pub_theme::restaurant.'.$current_tab.'.tabs.show')
-					--}}
-				</div>
-			</div>
-		</div>
-	</div>
+	@endforeach
 </div>

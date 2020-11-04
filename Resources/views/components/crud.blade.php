@@ -1,5 +1,9 @@
 @php
     //dddx(get_defined_vars());
+    $acts=['index','create','edit'];
+    if(Str::endsWith(request()->route()->getName(),'index_edit')){
+        $acts=['indexEdit','create','edit'];
+    }
 @endphp
 <div class="content">
 	<div class="clearfix"></div>
@@ -7,7 +11,11 @@
 	<div class="card">
 		<div class="card-header">
 			<ul class="nav nav-tabs align-items-end card-header-tabs w-100">
-                @foreach(['index','indexEdit','create','edit'] as $v_act)
+                {{-- request()->route()->getName()
+                    admin.container0.edit
+                    --}}
+
+                @foreach($acts as $v_act)
                 @can($v_act,$_panel)
                 @php
                         $href=$_panel->url(['act'=>$v_act]);
@@ -25,18 +33,18 @@
                     @endif
                     {{ trans($trad_mod.'.tab.'.$v_act) }}
                     </a>
-					{{--  
+					{{--
 					<br/>{{ $href1 }}
 					<br/>{{ $req_path }}
 					--}}
                 </li>
 				@else
-				{{--  
+				{{--
 				[url malformed {{ $v_act }}]
 				--}}
                 @endif
 				@elsecan
-				{{--  
+				{{--
 				[not can {{ $v_act }}]
 				--}}
                 @endcan

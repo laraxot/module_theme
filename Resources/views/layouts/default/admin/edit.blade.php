@@ -6,6 +6,8 @@
 @section('content')
     @component('theme::components.crud',get_defined_vars())
         @slot('content')
+            {!! Theme::include('topbar',[],get_defined_vars()) !!}
+            {!! Theme::include('tabs',['tabs'=>$_panel->getTabs()],get_defined_vars()) !!}
             {{--
             @livewire('formx::edit',['model'=>$_panel->row])
             --}}
