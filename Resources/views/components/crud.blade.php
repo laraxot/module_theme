@@ -18,7 +18,11 @@
                 @if(!Str::startsWith($href,'#'))
 				<li class="nav-item">
 					<a class="nav-link {{ $active?'active':'' }}" href="{{ $href }}">
-                    <i class="fa fa-list mr-2"></i>
+                    @if(inAdmin())
+                        {!! trans('adm_theme::icons.'.$v_act) !!}
+                    @else
+                        {!! trans('pub_theme::icons.'.$v_act) !!}
+                    @endif
                     {{ trans($trad_mod.'.tab.'.$v_act) }}
                     </a>
                 </li>
