@@ -1,9 +1,31 @@
+@php
+    //dddx(get_defined_vars());
+@endphp
 <div class="content">
 	<div class="clearfix"></div>
 	@include('formx::includes.flash')
 	<div class="card">
 		<div class="card-header">
 			<ul class="nav nav-tabs align-items-end card-header-tabs w-100">
+                @foreach(['index','create','edit'] as $v_act)
+                @can($v_act,$_panel)
+                @php
+                        $href=$_panel->url(['act'=>$v_act]);
+                        $href1=Str::before($href,'?');
+                        $req_path='/'.request()->path();
+                        $active=$href1 == $req_path;
+                @endphp
+                @if(!Str::startsWith($href,'#'))
+				<li class="nav-item">
+					<a class="nav-link {{ $active?'active':'' }}" href="{{ $href }}">
+                    <i class="fa fa-list mr-2"></i>
+                    {{ trans($trad_mod.'.tab.'.$v_act) }}
+                    </a>
+                </li>
+                @endif
+                @endcan
+                @endforeach
+                {{--
                 @can('index',$_panel)
 				<li class="nav-item">
 					<a class="nav-link active" href="{{ $_panel->url(['act'=>'index']) }}">
@@ -27,7 +49,8 @@
 					{{ trans('adm_theme::lang.'.last($containers).'_edit') }}
 					</a>
 				</li>
-				@endcan
+                @endcan
+                --}}
 				{{--
 				@include('layouts.right_toolbar', compact('dataTable'))
 				--}}
