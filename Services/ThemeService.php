@@ -1381,7 +1381,7 @@ class ThemeService {
             return View::exists($view_check);
         });
         if (false == $view_work) {
-            $ddd_msg = array_merge(
+            $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
                     'line' => __LINE__,
@@ -1389,9 +1389,9 @@ class ThemeService {
                     'pub_theme' => config('xra.pub_theme'),
                     'adm_theme' => config('xra.adm_theme'),
                     'view0_dir' => self::viewNamespaceToDir($views[0]),
-                ],
-                $views
-            );
+                    'views' => $views,
+                ];
+
             dddx($ddd_msg);
         }
 
