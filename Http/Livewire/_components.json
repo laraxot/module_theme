@@ -1,1 +1,1 @@
-[{"class_name":"HorMenu","comp_name":"theme::hor_menu","comp_ns":"Modules\\Theme\\Http\\Livewire\\HorMenu"},{"class_name":"VerMenu","comp_name":"theme::ver_menu","comp_ns":"Modules\\Theme\\Http\\Livewire\\VerMenu"}]
+[{"class_name":"HorMenu","comp_name":"theme::hor_menu","comp_ns":"Modules\\Theme\\Http\\Livewire\\HorMenu"},{"class_name":"Test","comp_name":"theme::test","comp_ns":"Modules\\Theme\\Http\\Livewire\\Test"},{"class_name":"VerMenu","comp_name":"theme::ver_menu","comp_ns":"Modules\\Theme\\Http\\Livewire\\VerMenu"}]
