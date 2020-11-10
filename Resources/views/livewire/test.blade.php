@@ -5,7 +5,7 @@ $opts=[
 'jstree',
 ];
 
-$view1=$view.'_'.$opts[1];
+$view1=$view.'.'.$opts[2];
 @endphp
 @include($view1)
 
