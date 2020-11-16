@@ -5,7 +5,20 @@
 @extends('adm_theme::layouts.app')
 @section('content')
 
-@livewire('formx::crud.index_order', ['rows' => $rows])
+
+
+@if(isset($params['module']))
+    @php
+        $view_index_order = $params['module'].'::livewire.index_order';
+    @endphp
+    @if(view()->exists($view_index_order))
+        @livewire($params['module'].'::crud.index_order', ['rows' => $rows])
+    @endif
+@else
+    @livewire('formx::crud.index_order', ['rows' => $rows])
+@endif
+
+
 {{-- 
     <ul>
         @foreach($rows as $row)
