@@ -1,4 +1,4 @@
-<li class="{{ $li_class }}" {{ $li_attribute }}>
+<li class="{{ $li_class }}" aria-haspopup="true" data-menu-toggle="hover">
     <a href="#" class="menu-link menu-toggle">
         <span class="menu-text">{{ $node->row->treeLabel() }}   [{{ $node->id() }} ]</span>
         <i class="menu-arrow"></i>
