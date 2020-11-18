@@ -3,7 +3,7 @@
         <span class="svg-icon menu-icon">
             {!! $icon !!}
         </span>
-        <span class="menu-text menu-toggle">{{ $node->row->treeLabel() }} [{{ $node->id() }} ]</span>
+        <span class="menu-text menu-toggle">{{ $node->row->treeLabel() }}</span>
     
         @component('theme::components.dropdowns.simple',[
             'btn_class'=>'btn btn-dark',
