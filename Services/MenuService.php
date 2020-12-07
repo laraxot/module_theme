@@ -487,6 +487,7 @@ class MenuService {
 
     // Check for active Horizontal Menu item
     public static function isActiveHorMenuItem($item, $page, $rec = 0) {
+        //dddx([$item, $page, $rec]);
         if (true === @$item['redirect']) {
             return false;
         }
