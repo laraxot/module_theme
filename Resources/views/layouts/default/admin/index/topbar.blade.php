@@ -1,4 +1,5 @@
 @php
+//dddx(get_defined_vars());
 //dddx($_panel->containerActions());
 //dddx($_panel->rows()->paginate(20));
 @endphp
