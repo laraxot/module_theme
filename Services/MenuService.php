@@ -484,4 +484,28 @@ class MenuService {
 
         return false;
     }
+
+    // Check for active Horizontal Menu item
+    public static function isActiveHorMenuItem($item, $page, $rec = 0) {
+        //dddx([$item, $page, $rec]);
+        if (true === @$item['redirect']) {
+            return false;
+        }
+
+        self::checkRecursion($rec);
+
+        if (isset($item['page']) && $item['page'] == $page) {
+            return true;
+        }
+
+        if (is_array($item)) {
+            foreach ($item as $each) {
+                if (self::isActiveHorMenuItem($each, $page, $rec++)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }

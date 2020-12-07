@@ -1932,56 +1932,61 @@ class ThemeService {
      * @param null $parent
      * @param int  $rec
      */
-    public static function renderHorMenu($item, $parent = null, $rec = 0) {
+    public static function renderHorMenu($item, $parent = null, $rec = 0, $singleItem = false) {
         return MenuService::renderHorMenu($item, $parent, $rec, $singleItem);
     }
 
-    // Check for active Vertical Menu item
-    public static function isActiveVerMenuItem($item, $page, $rec = 0) {
-        if (true === @$item['redirect']) {
-            return false;
-        }
+    /* Spostato in MenuService
+        // Check for active Vertical Menu item
+        public static function isActiveVerMenuItem($item, $page, $rec = 0) {
+            if (true === @$item['redirect']) {
+                return false;
+            }
 
-        self::checkRecursion($rec);
+            self::checkRecursion($rec);
 
-        if (isset($item['page']) && $item['page'] == $page) {
-            return true;
-        }
+            if (isset($item['page']) && $item['page'] == $page) {
+                return true;
+            }
 
-        if (is_array($item)) {
-            foreach ($item as $each) {
-                if (self::isActiveVerMenuItem($each, $page, $rec++)) {
-                    return true;
+            if (is_array($item)) {
+                foreach ($item as $each) {
+                    if (self::isActiveVerMenuItem($each, $page, $rec++)) {
+                        return true;
+                    }
                 }
             }
-        }
 
-        return false;
-    }
+            return false;
+        }
+     */
+
+    /* Spostato in MenuService
 
     // Check for active Horizontal Menu item
     public static function isActiveHorMenuItem($item, $page, $rec = 0) {
-        if (true === @$item['redirect']) {
-            return false;
-        }
+       if (true === @$item['redirect']) {
+           return false;
+       }
 
-        self::checkRecursion($rec);
+       self::checkRecursion($rec);
 
-        if (isset($item['page']) && $item['page'] == $page) {
-            return true;
-        }
+       if (isset($item['page']) && $item['page'] == $page) {
+           return true;
+       }
 
-        if (is_array($item)) {
-            foreach ($item as $each) {
-                if (self::isActiveHorMenuItem($each, $page, $rec++)) {
-                    return true;
-                }
-            }
-        }
+       if (is_array($item)) {
+           foreach ($item as $each) {
+               if (self::isActiveHorMenuItem($each, $page, $rec++)) {
+                   return true;
+               }
+           }
+       }
 
-        return false;
+       return false;
     }
-
+    */
+    /* Spostato in MenuService
     // Checks recursion depth
     public static function checkRecursion($rec, $max = 10000) {
         if ($rec > $max) {
@@ -1989,7 +1994,7 @@ class ThemeService {
             exit;
         }
     }
-
+ */
     // Render icon or bullet
     public static function renderIcon($icon) {
         if (SvgService::isSVG($icon)) {
