@@ -3,20 +3,23 @@
         <span class="svg-icon menu-icon">
             {!! $icon !!}
         </span>
+        @php
+            //dddx($node->row);
+        @endphp
         <span class="menu-text menu-toggle">{{ $node->row->treeLabel() }}</span>
     
         @component('theme::components.dropdowns.simple',[
             'btn_class'=>'btn btn-dark',
             'title'=>'<i class="fas fa-cog"></i>',
             ])
-        @slot('btns')
-         {!! $node->btnCrud(
-            ['title' => true, 'class' => 'dropdown-item', 'group' => false,'in_admin'=>$in_admin]
-        ) !!}
-        @foreach ($node->itemActions() as $action) 
-            {!! $action->btnHtml(['title' => true, 'class' => 'dropdown-item','in_admin'=>$in_admin]) !!}
-        @endforeach
-        @endslot
+            @slot('btns')
+            {!! $node->btnCrud(
+                ['title' => true, 'class' => 'dropdown-item', 'group' => false,'in_admin'=>$in_admin]
+            ) !!}
+            @foreach ($node->itemActions() as $action) 
+                {!! $action->btnHtml(['title' => true, 'class' => 'dropdown-item','in_admin'=>$in_admin]) !!}
+            @endforeach
+            @endslot
         @endcomponent
 
         @if($node->row->treeSonsCount())
