@@ -4,8 +4,9 @@ namespace Modules\Theme\Providers;
 
 use Illuminate\Foundation\AliasLoader;
 //---- bases ----
-use Modules\Xot\Providers\XotBaseServiceProvider;
+use Illuminate\Support\Facades\Blade;
 //--- services ---
+use Modules\Xot\Providers\XotBaseServiceProvider;
 use Modules\Xot\Services\TenantService as Tenant;
 
 class ThemeServiceProvider extends XotBaseServiceProvider {
@@ -43,8 +44,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         $this->commands([
             \Modules\Theme\Console\CreateThemeCommand::class,
         ]);
-
-        //livewire registration
+        //dddx(dirname($this->module_ns));
+        Blade::componentNamespace(dirname($this->module_ns).'\Views\Components', 'theme');
     }
 
     public function registerCallback() {
