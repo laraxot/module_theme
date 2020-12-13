@@ -16,39 +16,39 @@ $acts=['indexEdit','create','edit'];
                     --}}
 
                 @foreach($acts as $v_act)
-                @can($v_act,$_panel)
-                @php
-                $href=$_panel->url(['act'=>$v_act]);
-                $href1=Str::before($href,'?');
-                $req_path='/'.request()->path();
-                $active=$href1 == $req_path;
-                @endphp
-                @if(!Str::startsWith($href,'#'))
-                <li class="nav-item">
-                    <a class="nav-link {{ $active?'active':'' }}" href="{{ $href }}">
-                        @if(inAdmin())
-                        {!! trans('adm_theme::icons.'.$v_act) !!}
+                    @can($v_act,$_panel)
+                        @php
+                            $href=$_panel->url(['act'=>$v_act]);
+                            $href1=Str::before($href,'?');
+                            $req_path='/'.request()->path();
+                            $active=$href1 == $req_path;
+                        @endphp
+                        @if(!Str::startsWith($href,'#'))
+                            <li class="nav-item">
+                                <a class="nav-link {{ $active?'active':'' }}" href="{{ $href }}">
+                                    @if(inAdmin())
+                                    {!! trans('adm_theme::icons.'.$v_act) !!}
+                                    @else
+                                    {!! trans('pub_theme::icons.'.$v_act) !!}
+                                    @endif
+                                    {{ trans($trad_mod.'.tab.'.$v_act) }}
+                                </a>
+                                {{--
+                                <br/>{{ $href1 }}
+                                <br />{{ $req_path }}
+                                --}}
+                            </li>
                         @else
-                        {!! trans('pub_theme::icons.'.$v_act) !!}
+                        {{--
+                        [url malformed {{ $v_act }}]
+                        --}}
                         @endif
-                        {{ trans($trad_mod.'.tab.'.$v_act) }}
-                    </a>
-                    {{--
-					<br/>{{ $href1 }}
-                    <br />{{ $req_path }}
-                    --}}
-                </li>
-                @else
-                {{--
-				[url malformed {{ $v_act }}]
-                --}}
-                @endif
-                {{--
-				@elsecan
-				
-				[not can {{ $v_act }}]
-                --}}
-                @endcan
+                        {{--
+                        @elsecan
+                        
+                        [not can {{ $v_act }}]
+                        --}}
+                    @endcan
                 @endforeach
                 {{--
                 @can('index',$_panel)
