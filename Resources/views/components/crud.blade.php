@@ -37,6 +37,9 @@ $acts=['indexEdit','create','edit'];
                                 <br/>{{ $href1 }}
                                 <br />{{ $req_path }}
                                 --}}
+
+
+
                             </li>
                         @else
                         {{--
@@ -45,41 +48,32 @@ $acts=['indexEdit','create','edit'];
                         @endif
                         {{--
                         @elsecan
-                        
+
                         [not can {{ $v_act }}]
                         --}}
                     @endcan
                 @endforeach
-                {{--
-                @can('index',$_panel)
-				<li class="nav-item">
-					<a class="nav-link active" href="{{ $_panel->url(['act'=>'index']) }}">
-                <i class="fa fa-list mr-2">
-                </i>{{ trans('adm_theme::lang.'.last($containers).'_table') }}
-                </a>
-                </li>
-                @endcan
-                @can('create',$_panel)
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ $_panel->url(['act'=>'create']) }}">
-                        <i class="fa fa-plus mr-2"></i>
-                        {{ trans('adm_theme::lang.'.last($containers).'_create') }}
-                    </a>
-                </li>
-                @endcan
-                @can('edit',$_panel)
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ $_panel->url(['act'=>'edit']) }}">
-                        <i class="fa fa-edit mr-2"></i>
-                        {{ trans('adm_theme::lang.'.last($containers).'_edit') }}
-                    </a>
-                </li>
-                @endcan
-                --}}
-                {{--
-				@include('layouts.right_toolbar', compact('dataTable'))
-				--}}
+
+
+
+
+
             </ul>
+
+            @foreach($_panel->getTabs() as $level)
+            <br/>
+            <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
+                @foreach($level as $tab)
+                <li class="nav-item ">
+                    <a class="nav-link {{ $tab->active?'active':'' }}" href="{{ $tab->url }}">{{ $tab->title }}</a>
+                </li>
+                @endforeach
+            </ul>
+            @endforeach
+
+
+
+
         </div>
         <div class="card-body">
             {{ $content }}
