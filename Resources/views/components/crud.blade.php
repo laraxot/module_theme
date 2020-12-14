@@ -60,16 +60,16 @@ $acts=['indexEdit','create','edit'];
 
             </ul>
 
-            @foreach($_panel->getTabs() as $level)
             <br/>
             <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
-                @foreach($level as $tab)
-                <li class="nav-item ">
-                    <a class="nav-link {{ $tab->active?'active':'' }}" href="{{ $tab->url }}">{{ $tab->title }}</a>
-                </li>
+                @foreach($_panel->getTabs() as $level)
+                    @foreach($level as $tab)
+                    <li class="nav-item ">
+                        <a class="nav-link {{ $tab->active?'active':'' }}" href="{{ $tab->url }}">{{ $tab->title }}</a>
+                    </li>
+                    @endforeach
                 @endforeach
             </ul>
-            @endforeach
 
 
 
