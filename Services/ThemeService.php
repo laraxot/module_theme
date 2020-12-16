@@ -508,7 +508,7 @@ class ThemeService {
                 dd('Caught exception: ', $e->getMessage(), '\n['.__LINE__.']['.__FILE__.']');
             }
         }
-        /*
+        //*
         if (File::exists($filename_to)) {
             File::delete($filename_to); //
             //return $asset;
@@ -566,6 +566,7 @@ class ThemeService {
             viewNamespaceToDir      => c:\var\wwww\test\images\prova.png
             viewNamespaceToAsset    => http://example.com/images/prova.png
         */
+        //dddx(\Module::asset('blog:img/logo.img')); //localhost/modules/blog/img/logo.img
 
         return asset(self::viewNamespaceToAsset($path));
     }
@@ -695,15 +696,22 @@ class ThemeService {
         //
         $scripts_pos = self::__getStatic('scripts_pos');
         $scripts = self::__getStatic('scripts');
-        $scripts = \array_values(Arr::sort($scripts, function ($v, $k) use ($scripts_pos) {
-            return $scripts_pos[$k];
-        }));
+        $scripts = \array_values(
+            Arr::sort(
+                $scripts,
+                function ($v, $k) use ($scripts_pos) {
+                    return $scripts_pos[$k];
+                }
+            )
+        );
         $scripts = \array_unique($scripts);
 
         //$scripts = self::viewNamespaceToUrl($scripts);
-        $scripts = collect($scripts)->map(function ($item) {
-            return self::asset($item);
-        })->all();
+        $scripts = collect($scripts)->map(
+            function ($item) {
+                return self::asset($item);
+            }
+        )->all();
         //ddd($scripts);
 
         /*
