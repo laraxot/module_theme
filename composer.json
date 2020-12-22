@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/theme",
+    "name": "laraxot/module_theme",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Marco Sottana",
+            "email": "marco.sottana@gmail.com"
         }
     ],
     "extra": {
@@ -13,7 +13,7 @@
                 "Modules\\Theme\\Providers\\ThemeServiceProvider"
             ],
             "aliases": {
-                
+
             }
         }
     },
