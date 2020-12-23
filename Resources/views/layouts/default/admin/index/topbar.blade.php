@@ -2,6 +2,9 @@
 //dddx(get_defined_vars());
 //dddx($_panel->containerActions());
 //dddx($_panel->rows()->paginate(20));
+if($rows==null){
+    dddx($rows_err);
+}
 @endphp
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e9ecef; padding:5px; ">
 	{!! $_panel->btnHtml(['act'=>'create']) !!}
