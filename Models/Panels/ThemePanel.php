@@ -25,7 +25,7 @@ class ThemePanel extends XotBasePanel {
 	 *
 	 * @var string
 	 */
-	public static $title = "title"; 
+	public static $title = "title";
 
 	/**
 	 * The columns that should be searched.
@@ -40,7 +40,7 @@ class ThemePanel extends XotBasePanel {
 	*
 	* @var array
 	*/
-	public static function with(){
+	public function with(){
 	  return [];
 	}
 
@@ -58,7 +58,7 @@ class ThemePanel extends XotBasePanel {
 	}
 
 	/**
-	 * on select the option label 
+	 * on select the option label
 	 *
 	 */
 
@@ -93,7 +93,7 @@ class ThemePanel extends XotBasePanel {
 
 	public static function indexQuery($data, $query){
 		//return $query->where('auth_user_id', $request->user()->auth_user_id);
-		return $query; 
+		return $query;
 	}
 
 	/**
@@ -114,61 +114,61 @@ class ThemePanel extends XotBasePanel {
 
 	public function fields(){
 		return array (
-  0 => 
+  0 =>
   (object)(array(
      'type' => 'Id',
      'name' => 'id',
      'comment' => NULL,
   )),
-  1 => 
+  1 =>
   (object)(array(
      'type' => 'String',
      'name' => 'title',
      'comment' => NULL,
   )),
-  2 => 
+  2 =>
   (object)(array(
      'type' => 'String',
      'name' => 'version',
      'comment' => NULL,
   )),
-  3 => 
+  3 =>
   (object)(array(
      'type' => 'Text',
      'name' => 'txt',
      'comment' => NULL,
   )),
-  4 => 
+  4 =>
   (object)(array(
      'type' => 'String',
      'name' => 'link',
      'comment' => NULL,
   )),
-  5 => 
+  5 =>
   (object)(array(
      'type' => 'Integer',
      'name' => 'status',
      'comment' => NULL,
   )),
-  6 => 
+  6 =>
   (object)(array(
      'type' => 'DateTime',
      'name' => 'created_at',
      'comment' => NULL,
   )),
-  7 => 
+  7 =>
   (object)(array(
      'type' => 'String',
      'name' => 'created_by',
      'comment' => NULL,
   )),
-  8 => 
+  8 =>
   (object)(array(
      'type' => 'DateTime',
      'name' => 'updated_at',
      'comment' => NULL,
   )),
-  9 => 
+  9 =>
   (object)(array(
      'type' => 'String',
      'name' => 'updated_by',
@@ -176,11 +176,11 @@ class ThemePanel extends XotBasePanel {
   )),
 );
 	}
-	 
+
 	/**
-	 * Get the tabs available 
+	 * Get the tabs available
 	 *
-	 * @return array  
+	 * @return array
 	 */
 	public function tabs(){
 		$tabs_name = [];
