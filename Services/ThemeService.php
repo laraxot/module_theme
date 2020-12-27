@@ -2,32 +2,32 @@
 
 namespace Modules\Theme\Services;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Assetic\Asset\FileAsset;
-use Illuminate\Http\Request;
 use Assetic\Asset\AssetCache;
-use Modules\Xot\Traits\Getter;
-use Assetic\Filter\JsMinFilter;
-use Assetic\Filter\CssMinFilter;
-use Assetic\Filter\ScssphpFilter;
 use Assetic\Asset\AssetCollection;
+use Assetic\Asset\FileAsset;
 use Assetic\Cache\FilesystemCache;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\View;
+use Assetic\Filter\CssMinFilter;
+use Assetic\Filter\JsMinFilter;
+use Assetic\Filter\ScssphpFilter;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View;
 //----- Models -----
 
 //---- xot extend -----
-use Illuminate\Support\Facades\Route;
-use Modules\Xot\Services\FileService;
-//----- services --
-use Modules\Xot\Services\StubService;
-use Illuminate\Support\Facades\Storage;
-use Modules\Xot\Services\TenantService;
+use Illuminate\Support\Str;
 use Modules\FormX\Services\FormXService;
+//----- services --
 use Modules\Xot\Services\ArtisanService;
+use Modules\Xot\Services\FileService;
+use Modules\Xot\Services\StubService;
+use Modules\Xot\Services\TenantService;
 use Modules\Xot\Services\TenantService as Tenant;
+use Modules\Xot\Traits\Getter;
 
 //---------CSS------------
 
@@ -250,13 +250,9 @@ class ThemeService {
         return \mb_substr($path, 0, $pos);
     }
 
-
-
     public static function asset($path) {
         return FileService::asset($path);
     }
-
-
 
     public static function showScripts($compress_js = true, $page = '') {
         //TODO FIX url da funzione e non replace !!!
@@ -704,8 +700,6 @@ class ThemeService {
     }
 
     //end getXmlMenu
-
-
 
     public static function tabs($params) {
         //o glielo passo come parametro o me lo calcolo, ma da errore su tabs annidati
@@ -1497,65 +1491,6 @@ class ThemeService {
         return MenuService::renderHorMenu($item, $parent, $rec, $singleItem);
     }
 
-    /* Spostato in MenuService
-        // Check for active Vertical Menu item
-        public static function isActiveVerMenuItem($item, $page, $rec = 0) {
-            if (true === @$item['redirect']) {
-                return false;
-            }
-
-            self::checkRecursion($rec);
-
-            if (isset($item['page']) && $item['page'] == $page) {
-                return true;
-            }
-
-            if (is_array($item)) {
-                foreach ($item as $each) {
-                    if (self::isActiveVerMenuItem($each, $page, $rec++)) {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-     */
-
-    /* Spostato in MenuService
-
-    // Check for active Horizontal Menu item
-    public static function isActiveHorMenuItem($item, $page, $rec = 0) {
-       if (true === @$item['redirect']) {
-           return false;
-       }
-
-       self::checkRecursion($rec);
-
-       if (isset($item['page']) && $item['page'] == $page) {
-           return true;
-       }
-
-       if (is_array($item)) {
-           foreach ($item as $each) {
-               if (self::isActiveHorMenuItem($each, $page, $rec++)) {
-                   return true;
-               }
-           }
-       }
-
-       return false;
-    }
-    */
-    /* Spostato in MenuService
-    // Checks recursion depth
-    public static function checkRecursion($rec, $max = 10000) {
-        if ($rec > $max) {
-            echo 'Too many recursions!!!';
-            exit;
-        }
-    }
- */
     // Render icon or bullet
     public static function renderIcon($icon) {
         if (SvgService::isSVG($icon)) {

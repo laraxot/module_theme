@@ -5,6 +5,8 @@ namespace Modules\Theme\Providers;
 use Illuminate\Foundation\AliasLoader;
 //---- bases ----
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
+use Modules\Theme\Http\View\Composers\ThemeComposer;
 //--- services ---
 use Modules\Xot\Providers\XotBaseServiceProvider;
 use Modules\Xot\Services\TenantService as Tenant;
@@ -51,5 +53,14 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     public function registerCallback() {
         $loader = AliasLoader::getInstance();
         $loader->alias('Theme', 'Modules\Theme\Services\ThemeService');
+
+        $this->registerViewComposers();
+    }
+
+    private function registerViewComposers() {
+        //Factory $view
+        //$view->composer('bootstrap-italia::page', BootstrapItaliaComposer::class);
+        View::composer('*', ThemeComposer::class);
+        //dddx($res);
     }
 }
