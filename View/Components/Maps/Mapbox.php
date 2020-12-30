@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\Maps;
+namespace Modules\Theme\View\Components\Maps;
 
-use Modules\Xot\Views\Components\XotBaseComponent;
+use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 
 class Mapbox extends XotBaseComponent

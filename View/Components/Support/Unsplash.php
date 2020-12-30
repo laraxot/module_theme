@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\Support;
+namespace Modules\Theme\View\Components\Support;
 
-use Modules\Xot\Views\Components\XotBaseComponent;
+use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;

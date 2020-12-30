@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\Forms;
+namespace Modules\Theme\View\Components\Forms;
 
-use Modules\Xot\Views\Components\XotBaseComponent;
+use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 
 class Form extends XotBaseComponent

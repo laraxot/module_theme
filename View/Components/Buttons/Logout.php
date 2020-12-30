@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\Buttons;
+namespace Modules\Theme\View\Components\Buttons;
 
 use Illuminate\Contracts\View\View;
-use Modules\Xot\Views\Components\XotBaseComponent;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 class Logout extends XotBaseComponent {
     /** @var string */

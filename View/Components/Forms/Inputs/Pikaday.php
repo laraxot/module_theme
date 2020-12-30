@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\Forms\Inputs;
+namespace Modules\Theme\View\Components\Forms\Inputs;
 
 use Illuminate\Contracts\View\View;
 

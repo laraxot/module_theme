@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\DateTime;
+namespace Modules\Theme\View\Components\DateTime;
 
-use Modules\Xot\Views\Components\XotBaseComponent;
+use Modules\Xot\View\Components\XotBaseComponent;
 use DateInterval;
 use DateTimeInterface;
 use Illuminate\Contracts\View\View;

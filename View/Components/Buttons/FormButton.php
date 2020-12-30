@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Views\Components\Buttons;
+namespace Modules\Theme\View\Components\Buttons;
 
-use Modules\Xot\Views\Components\XotBaseComponent;
+use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 
 class FormButton extends XotBaseComponent
