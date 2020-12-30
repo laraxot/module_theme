@@ -7,7 +7,9 @@
 	</div>
 	<div class="mt-5">
 		<div class="row align-items-center text-center mb-5">
-			<div class="col-auto"><img class="avatar mb-3 avatar-xxl p-2" alt="Image" src="../img/avatar/avatar-0.jpg"><code class="d-block">.avatar-xxl p-2</code>
+			<div class="col-auto">
+                <img class="avatar mb-3 avatar-xxl p-2" alt="Image" src="../img/avatar/avatar-0.jpg">
+                <code class="d-block">.avatar-xxl p-2</code>
 			</div>
 			<div class="col-auto">
 				<img class="avatar mb-3 avatar-xxl" alt="Image" src="../img/avatar/avatar-1.jpg">
