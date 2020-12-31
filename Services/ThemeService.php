@@ -100,6 +100,8 @@ class ThemeService {
         switch ($ext) {
             case 'css':
                 return self::addStyle($file, $position);
+            case 'scss':
+                return self::addStyle($file, $position);
             case 'js':
                 return self::addScript($file, $position);
             default:
