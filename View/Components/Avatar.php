@@ -16,6 +16,8 @@ class Avatar extends XotBaseComponent {
 
     public function __construct(string $type = 'circle', string $img_src = null, string $size = null) {
         $this->type = $type;
+        $this->img_src = $img_src;
+        $this->size = $size;
     }
 
     public function render(): View {

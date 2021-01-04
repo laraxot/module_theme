@@ -106,9 +106,11 @@ class ThemeService {
                 return self::addScript($file, $position);
             default:
                 echo '<h3>'.$file.'['.$ext.']</h3>';
-                die('['.__LINE__.']['.__FILE__.']');
+                dddx('['.__LINE__.']['.__FILE__.']');
             break;
         }
+
+        return;
     }
 
     public static function addStyle($style, $position = null) {
@@ -185,6 +187,7 @@ class ThemeService {
         self::add('theme::js/select2ajax.js');
     }
 
+    /* deprecated
     public static function view_path($view) {
         $viewNamespace = '---';
         $pos = \mb_strpos($view, '::');
@@ -207,6 +210,7 @@ class ThemeService {
 
         return $viewNamespace;
     }
+    */
 
     public static function img_src($src) {
         ///$srcz = self::viewNamespaceToUrl([$src]);
@@ -216,7 +220,7 @@ class ThemeService {
 
     public static function logo_html() {
         $logo_src = self::metatag('logo_img');
-        $newsrc = self::getFileUrl($logo_src);
+        $newsrc = FileService::getFileUrl($logo_src);
         $logo_alt = self::metatag('logo_alt');
         $attrs = [];
         $attrs['alt'] = $logo_alt;
@@ -229,9 +233,9 @@ class ThemeService {
     }
 
     public static function showImg($src, $attrs = [], $only_url = false) {
-        $srcz = self::viewNamespaceToUrl([$src]);
+        $srcz = FileService::viewNamespaceToUrl([$src]);
         $src = $srcz[0];
-        $newsrc = self::getFileUrl($src);
+        $newsrc = FileService::getFileUrl($src);
         if ($only_url) {
             return $newsrc;
         }
@@ -285,14 +289,14 @@ class ThemeService {
         })->all();
         */
         //ddd($scripts);
-
+        /*  -- forse creare AsseticService o MinifyService
         if ($compress_js) {
             $scripts_list = \implode(',', $scripts);
             $scripts_md5 = \md5($scripts_list);
 
             $name = '/js/script_'.$scripts_md5.'.js';
             $path = public_path($name);
-            $force = 1;
+            $force = config('xra.force_rewrite_js');
             if (! \file_exists($path) || $force) {
                 //$cache = new FilesystemCache($_SERVER['DOCUMENT_ROOT'] . '/tmp'); //cartella tmp non esiste piu'
                 $cache = new FilesystemCache(base_path('../cache'));
@@ -324,12 +328,8 @@ class ThemeService {
             //	$scripts[$k] = self::getFileUrl($filePath);
             //}//end foreach
         }//end if
-
-        /*
-        foreach ($scripts as $k => $v) {
-            $scripts[$k] = self::getFileUrl($v);
-        }//end foreach
         */
+
         $scripts = \array_unique($scripts);
 
         return view('theme::services.script')->with('scripts', $scripts);
