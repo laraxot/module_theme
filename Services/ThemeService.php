@@ -6,15 +6,12 @@ use Assetic\Asset\AssetCache;
 use Assetic\Asset\AssetCollection;
 use Assetic\Asset\FileAsset;
 use Assetic\Cache\FilesystemCache;
-use Assetic\Filter\CssMinFilter;
 use Assetic\Filter\JsMinFilter;
-use Assetic\Filter\ScssphpFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 //----- Models -----
 
@@ -337,58 +334,6 @@ class ThemeService {
 
     //end function
 
-    public static function getRealFile($path) {
-        if (Str::startsWith($path, asset(''))) {
-            return public_path(substr($path, strlen(asset(''))));
-        }
-        if ('/' == $path[0]) {
-            $path = \mb_substr($path, 1);
-        }
-        $str = 'theme/bc/';
-        //if (\mb_substr($path, 0, \mb_strlen($str)) == $str) {
-        if (Str::startsWith($path, $str)) {
-            $filename = public_path('bc/'.\mb_substr($path, \mb_strlen($str)));
-            //$filename=str_replace('\\/','/',$filename);
-            //$filename=realpath($filename);
-            return $filename;
-        }
-        $str = 'theme/pub/';
-        $theme = config('xra.pub_theme');
-        //if (\mb_substr($path, 0, \mb_strlen($str)) == $str) {
-        if (Str::startsWith($path, $str)) {
-            $filename = public_path('themes/'.$theme.'/'.\mb_substr($path, \mb_strlen($str)));
-            //$filename=str_replace('\\/','/',$filename);
-            //$filename=realpath($filename);
-            return $filename;
-        }
-        $str = 'theme/';
-        $theme = config('xra.adm_theme');
-        //if (\mb_substr($path, 0, \mb_strlen($str)) == $str) {
-        if (Str::startsWith($path, $str)) {
-            $filename = public_path('themes/'.$theme.'/'.\mb_substr($path, \mb_strlen($str)));
-
-            return $filename;
-        }
-        $str = 'https://';
-        if (Str::startsWith($path, $str)) {
-            $info = pathinfo($path);
-            switch ($info['extension']) {
-                case 'css': $filename = public_path('/css/'.$info['basename']); break;
-                case 'js':  $filename = public_path('/js/'.$info['basename']); break;
-                default:
-                    echo '<h3>Unknown Extension</h3>';
-                    echo '<h3>['.$path.']</h3>';
-                    ddd($info);
-                break;
-            }
-            ImportService::download(['url' => $path, 'filename' => $filename]);
-
-            return $filename;
-        }
-
-        return ''.$path;
-    }
-
     public static function showStyles($compress_css = true) {
         $styles_pos = self::__getStatic('styles_pos');
         $styles = self::__getStatic('styles');
@@ -401,197 +346,8 @@ class ThemeService {
         $styles = collect($styles)->map(function ($item) {
             return self::asset($item);
         })->all();
-        //ddd($styles);
-        //ddd(asset('/'));
-        $not_compress = [];
 
-        if ($compress_css) {
-            $styles_list = \implode(',', $styles);
-            $styles_md5 = \md5($styles_list);
-            $name = '/css/style_'.$styles_md5.'.css';
-            $path = public_path($name);
-            $force = 1;
-            //dd( storage_path('cache')); //pb\laravel\storage\cache
-            //dd(\Storage::disk('cache')->url('file.jpg'));//getPath());
-            if (! \file_exists($path) || $force) {
-                //$cache = new FilesystemCache($_SERVER['DOCUMENT_ROOT'] . '/tmp');
-                //$cache = new FilesystemCache(dirname($path));
-                require __DIR__.'/vendor/autoload.php'; //carico la mia libreria che uso solo qui..
-                $cache = new FilesystemCache(base_path('../cache'));
-                $collection = new AssetCollection();
-
-                foreach ($styles as $filePath) {
-                    //echo '<br/>['.$filePath.']';
-                    $filePath = self::getRealFile($filePath);
-                    if (! \File::exists($filePath)) {
-                        //echo '<h3> non esiste il file ['.$filePath.']</h3>';
-                        //die('['.__LINE__.']['.__FILE__.']');
-
-                        $not_compress[] = $filePath;
-                    } else {
-                        $asset = new FileAsset($filePath);
-                        $info = \pathinfo($filePath);
-                        if (isset($info['extension'])) {
-                            switch ($info['extension']) {
-                                case 'scss':
-                                    $asset->ensureFilter(new ScssphpFilter());
-                                break;
-                            default:
-                                $asset->ensureFilter(new CssMinFilter());
-                            break;
-                            }
-                        }
-                        $cachedAsset = new AssetCache($asset, $cache);
-                        $collection->add($cachedAsset);
-                    }
-                }
-
-                $path = public_path().$name;
-
-                \File::put($path, $collection->dump());
-            }
-            $styles = [$name];
-        } else {
-            /*
-            foreach ($styles as $k => $filePath) {
-                $styles[$k] = self::getFileUrl($filePath);
-            }
-            */
-        }
-        //ddd($not_compress);
         return view('theme::services.style')->with('styles', $styles);
-    }
-
-    public static function tag($html) {
-        $count = 0;
-        \preg_match_all('/##([a-z]*)_([a-z]*)_([0-9]{1,30})##/i', $html, $matches);
-
-        $count += \count($matches);
-        $tmp = [];
-        foreach ($matches[0] as $km => $vm) {
-            $obj = new \stdclass();
-            $obj->obj = $obj->act = $matches[1][$km];
-            $obj->act = $matches[2][$km];
-
-            $obj->id = $matches[3][$km];
-            $obj->str = $matches[0][$km];
-            $tmp[] = $obj;
-        }
-
-        $params = \Route::current()->parameters();
-
-        $params['html'] = $html;
-        $params['azioniTags'] = $tmp;
-        $html = self::do_mySpecialTags($params);
-
-        \preg_match_all('/##([a-z]*)_([0-9]*)_([a-z]{1,30})##/i', $html, $matches);
-
-        $count += \count($matches);
-        $tmp = [];
-        foreach ($matches[0] as $km => $vm) {
-            $obj = new \stdclass();
-            $obj->obj = $obj->act = $matches[1][$km];
-            $obj->act = $matches[3][$km];
-            $obj->id = $matches[2][$km];
-            $obj->str = $matches[0][$km];
-            $tmp[] = $obj;
-        }
-
-        $params = \Route::current()->parameters();
-
-        $params['html'] = $html;
-        $params['azioniTags'] = $tmp;
-        $html = self::do_mySpecialTags($params);
-
-        \preg_match_all('/##([a-z]*)_([0-9]{1,30})##/i', $html, $matches);
-
-        $count += \count($matches);
-        $tmp = [];
-        foreach ($matches[0] as $km => $vm) {
-            $obj = new \stdclass();
-            $obj->obj = $obj->act = $matches[1][$km];
-            if ('albumran' == $obj->obj) {
-                $obj->obj = 'album';
-            }
-            $obj->act = 'get';
-            if ('albumran' == $obj->obj) {
-                $obj->obj = 'album';
-            }
-            $obj->id = $matches[2][$km];
-            $obj->str = $matches[0][$km];
-            $tmp[] = $obj;
-        }
-
-        $html = self::do_mySpecialTags(['html' => $html, 'azioniTags' => $tmp]);
-
-        \preg_match_all('/##([a-z]*)_([a-z]*)##/i', $html, $matches);
-
-        $count += \count($matches);
-        $tmp = [];
-        foreach ($matches[0] as $km => $vm) {
-            $obj = new \stdclass();
-            $obj->obj = $obj->act = $matches[1][$km];
-            $obj->act = $matches[2][$km];
-
-            $obj->str = $matches[0][$km];
-            $tmp[] = $obj;
-        }
-
-        $html = self::do_mySpecialTags(['html' => $html, 'azioniTags' => $tmp]);
-
-        \preg_match_all('/##([a-z]*)##/i', $html, $matches);
-
-        $count += \count($matches);
-        $tmp = [];
-        foreach ($matches[0] as $km => $vm) {
-            $obj = new \stdclass();
-            $obj->obj = $obj->act = $matches[1][$km];
-            $obj->act = $matches[1][$km];
-
-            $obj->str = $matches[0][$km];
-            $tmp[] = $obj;
-        }
-
-        $html = self::do_mySpecialTags(['html' => $html, 'azioniTags' => $tmp]);
-
-        return $html;
-    }
-
-    public static function do_mySpecialTags($params) {
-        \extract($params);
-        \reset($azioniTags);
-
-        $params = \Route::current()->parameters();
-
-        foreach ($azioniTags as $kt => $vt) {
-            $obj = $vt->obj;
-            if ('form' == $obj) {
-                $obj .= 'tpl';
-            }
-            $act = $vt->act.'HTML';
-
-            $params['html'] = '';
-
-            $params = \array_merge($params, \get_object_vars($vt));
-
-            $controller_name = '\App\Http\Controllers\\'.\ucwords($obj).'Controller';
-
-            $out = app($controller_name)->$act($params);
-            if (! \is_string($out)) {
-                $out = $out->__toString();
-            }
-
-            $html = \str_replace($vt->str, $out, $html);
-        }
-
-        return $html;
-    }
-
-    public static function getBladeInclude($obj, $act, $id) {
-        $controller_name = '\App\Http\Controllers\\'.\ucwords($obj).'Controller';
-        $act = $act.'BladeInclude';
-
-        return app($controller_name)->$act($id);
     }
 
     public static function metatags() {
@@ -668,11 +424,16 @@ class ThemeService {
 
     public static function getModels($params) {
         extract($params);
+        if (! isset($module)) {
+            dddx(['err' => 'module is missing']);
+
+            return;
+        }
         $mod = \Module::find($module);
         $mod_path = $mod->getPath().'\Models';
         $files = File::files($mod_path);
         $data = [];
-        $ns = 'Modules\\'.$mod->name.'\\Models';  // con la barra davanti non va il search ?
+        $ns = 'Modules\\'.$mod->getName().'\\Models';  // con la barra davanti non va il search ?
         $models = config('xra.model');
 
         //ddd($model_coll);
