@@ -9,8 +9,6 @@ use Modules\Theme\Services\ThemeViewService;
 class ThemeComposer {
     /**
      * The user repository implementation.
-     *
-     * @var \App\Repositories\UserRepository
      */
     protected $users;
 

@@ -21,7 +21,7 @@ class CreateThemeTable extends XotBaseMigration {
                 $table->increments('id');
                 $table->string('title')->nullable();
                 $table->string('version')->nullable();
-                $table->textarea('txt')->nullable();
+                $table->text('txt')->nullable();
                 $table->string('link')->nullable();
                 $table->integer('status')->nullable();
             });

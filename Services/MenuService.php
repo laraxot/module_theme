@@ -4,6 +4,7 @@ namespace Modules\Theme\Services;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Modules\Xot\Services\TenantService;
 
 //----- Models -----
 
@@ -370,6 +371,7 @@ class MenuService {
                 }
 
                 if (isset($item['submenu'])) {
+                    $submenu_class = '';
                     if (in_array($item['submenu']['type'], ['classic', 'tabs'])) {
                         if (isset($item['submenu']['alignment'])) {
                             $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
@@ -507,5 +509,22 @@ class MenuService {
         }
 
         return false;
+    }
+
+    // Render icon or bullet
+    public static function renderIcon($icon) {
+        if (SvgService::isSVG($icon)) {
+            return SvgService::getSVG($icon, 'menu-icon');
+        } else {
+            return '<i class="menu-icon '.$icon.'"></i>';
+        }
+    }
+
+    public static function renderIconName($icon_name) {
+        $icon_key = 'icons.'.$icon_name;
+        $icon = TenantService::config($icon_key);
+        //dddx(['icon' => $icon, 'name' => 'icon_key'.$icon_key]);
+
+        return self::renderIcon($icon);
     }
 }

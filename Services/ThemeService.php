@@ -647,12 +647,16 @@ class ThemeService {
     }
 
     public static function view($params = null) {
-        $view = null;
+        /*
+
         if (is_array($params)) {
             extract($params);
         } else {
             $view = $params;
         }
+        */
+        $view = null;
+        extract($params);
         $view_work = self::getViewWork($params);
         if (null == $view) {
             $view = self::getView($params);
@@ -694,7 +698,7 @@ class ThemeService {
 
         $route_action = \Route::currentRouteAction();
         $act = Str::snake(Str::after($route_action, '@'));
-
+        /*
         $layout = new \stdClass();
         $layout->view = $view;
         $layout->trad = implode('.', array_slice(explode('.', $view), 0, -1));
@@ -722,7 +726,7 @@ class ThemeService {
             //ddd(\File::exists($view_file));
             dddx($item_view_arr);
         }
-
+        */
         list($containers, $items) = params2ContainerItem($route_params);
         $last_container = last($containers);
         $types = Str::camel(Str::plural($last_container));
@@ -757,7 +761,7 @@ class ThemeService {
             ->with('items', $items)
             ->with('types', $types)
             ->with('last_item', $last_item)
-            ->with('_layout', $layout)
+            //->with('_layout', $layout) ??deprecated
             ->with('routename', $routename)
             ->with('page', new Objects\PageObject())
             ->with('modal', $modal)
@@ -815,7 +819,7 @@ class ThemeService {
                 }
 
                 return redirect()->route($routename, $parz);
-                break;
+                //break;
             case 'save_close':
                 $routename = $routename_base.'.index';
                 if (\Route::has($routename.'_edit')) {
@@ -823,16 +827,16 @@ class ThemeService {
                 }
 
                 return redirect()->route($routename, $params);
-                break;
+                //break;
             case 'come_back':
                 return redirect()->back();
-                break;
+                //break;
             case 'row':
                 return $row;
-                break;
+                //break;
             default:
                 echo '<h3>['.__LINE__.']['.__FILE__.']</h3>';
-                ddd($data['_action']);
+                dddx($data['_action']);
                 break;
         }//end switch
     }
@@ -858,14 +862,20 @@ class ThemeService {
         return $html;
     }
 
-    public static function imageSrc($params) {
+    public static function imageSrc($params) {// DA RIFARE
         extract($params);
+        if (! isset($path)) {
+            dddx(['err' => 'path is missing']);
+
+            return;
+        }
         $path = self::asset($path);
         /* TO DOOOOOOOO
         */
 
         return $path; // ci mette troppo nel server
         //ddd($path);
+        /*
         $parz = ['src' => $path, 'height' => $height, 'width' => $width];
         $img = new ImageService($parz);
         $ris = $img->fit()->save()->src();
@@ -877,8 +887,10 @@ class ThemeService {
         ]);
 
         return asset($ris);
+        */
     }
 
+    /* deprecated ??
     public static function getDynViewsArray($view_tpl, $params) {
         extract($params);
         $views = [
@@ -901,7 +913,7 @@ class ThemeService {
 
         return $view_first;
     }
-
+    */
     public static function include($view_tpl, $params_tpl, $vars) {
         $views = ThemeService::getDefaultViewArray();
         $views = collect($views)->map(
@@ -910,7 +922,7 @@ class ThemeService {
             }
         );
         $view_work = $views->first(
-            function ($view_check) use ($view_tpl) {
+            function ($view_check) {
                 return View::exists($view_check);
             }
         );
@@ -926,6 +938,7 @@ class ThemeService {
         // return (string)\View::make($view_work, $params_tpl, $vars)->render();
     }
 
+    /*
     //--- lo chiamo da blade, in prod si puo' ipotizzare di usare la cache
     public static function include_old($view_tpl, $params_tpl, $vars) {
         extract($vars);
@@ -940,7 +953,7 @@ class ThemeService {
         return view($view_first)->with($vars)->with($params_tpl); // quale delle 2 ?
                 // return (string)\View::make($view_check, $params_tpl, $vars)->render();
     }
-
+    */
     public static function xotModelEager($name) {
         return Tenant::modelEager($name);
     }
@@ -964,6 +977,11 @@ class ThemeService {
     public static function getAdminJsonMenu() {
         $route_params = \Route::current()->parameters();
         extract($route_params);
+        if (! isset($module)) {
+            dddx(['err' => 'module is missing']);
+
+            return;
+        }
         if (Str::startsWith($module, 'trasferte')) {
             $module_original = 'trasferte';
         } else {
@@ -975,7 +993,7 @@ class ThemeService {
         //\Debugbar::addMessage($json_path, 'menu path:');
         $json_path = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $json_path);
         $menu = include $json_path;
-        ddd($menu);
+        dddx($menu);
         /*
         $json_content=File::get($json_path);
         $json=json_decode($json_content);
@@ -1116,15 +1134,8 @@ class ThemeService {
         return MenuService::renderVerMenu($item, $parent, $rec, $singleItem);
     }
 
-    /**
-     * Header menu.
-     *
-     * @param $item
-     * @param null $parent
-     * @param int  $rec
-     */
     public static function renderHorMenu($item, $parent = null, $rec = 0, $singleItem = false) {
-        return MenuService::renderHorMenu($item, $parent, $rec, $singleItem);
+        return MenuService::renderHorMenu($item, $parent, $rec); //??, $singleItem
     }
 
     // Render icon or bullet

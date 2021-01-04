@@ -3,6 +3,7 @@
 namespace Modules\Theme\Http\Livewire;
 
 use Livewire\Component;
+use Modules\Theme\Services\MenuService;
 use Modules\Theme\Services\SvgService;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Services\TenantService;
@@ -53,16 +54,9 @@ class HorMenu extends Component {
         return view($view, $view_params);
     }
 
-    /**
-     * Header menu.
-     *
-     * @param $item
-     * @param null $parent
-     * @param int  $rec
-     */
     public static function renderHorMenu($item, $parent = null, $rec = 0) {
         $html = '';
-        ThemeService::checkRecursion($rec);
+        MenuService::checkRecursion($rec);
         if (! $item) {
             return 'menu misconfiguration';
         }
@@ -74,13 +68,13 @@ class HorMenu extends Component {
             $item_class = '';
             $item_attr = '';
 
-            if (isset($item['submenu']) && ThemeService::isActiveHorMenuItem($item, request()->path())) {
+            if (isset($item['submenu']) && MenuService::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
 
                 if ('tabs' == @$item['submenu']['type']) {
                     $item_class .= ' menu-item-active-tab ';
                 }
-            } elseif (ThemeService::isActiveHorMenuItem($item, request()->path())) {
+            } elseif (MenuService::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-active ';
 
                 if ('tabs' == @$item['submenu']['type']) {
@@ -123,7 +117,7 @@ class HorMenu extends Component {
                 }
             }
 
-            if (isset($item['submenu']['items']) && ThemeService::isActiveHorMenuItem($item['submenu'], request()->path())) {
+            if (isset($item['submenu']['items']) && MenuService::isActiveHorMenuItem($item['submenu'], request()->path())) {
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
             }
 
@@ -212,6 +206,7 @@ class HorMenu extends Component {
                 }
 
                 if (isset($item['submenu'])) {
+                    $submenu_class = '';
                     if (in_array($item['submenu']['type'], ['classic', 'tabs'])) {
                         if (isset($item['submenu']['alignment'])) {
                             $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
@@ -264,7 +259,7 @@ class HorMenu extends Component {
                         foreach ($item['submenu']['columns'] as $column) {
                             $item_class = '';
                             // mega menu column header active
-                            if (isset($column['items']) && ThemeService::isActiveVerMenuItem($column, request()->path())) {
+                            if (isset($column['items']) && MenuService::isActiveVerMenuItem($column, request()->path())) {
                                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
                             }
 
