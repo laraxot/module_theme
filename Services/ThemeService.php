@@ -647,16 +647,15 @@ class ThemeService {
     }
 
     public static function view($params = null) {
-        /*
-
         if (is_array($params)) {
             extract($params);
         } else {
             $view = $params;
         }
-        */
+        /*
         $view = null;
         extract($params);
+        */
         $view_work = self::getViewWork($params);
         if (null == $view) {
             $view = self::getView($params);
