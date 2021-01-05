@@ -7,7 +7,9 @@ if($rows==null){
 }
 @endphp
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e9ecef; padding:5px; ">
-	{!! $_panel->btnHtml(['act'=>'create']) !!}
+    {{--
+    {!! $_panel->btnHtml(['act'=>'create']) !!}
+    --}}
 	@foreach($_panel->containerActions() as $act)
 	@php
 	try{

@@ -5,14 +5,14 @@
     @else
         {!! $_panel->indexNav() !!}
     @endif
-    {!! Theme::include('inner_page',[],get_defined_vars() ) !!}
+    {!! Theme::include('inner_page', [], get_defined_vars()) !!}
     {{--
 
-        {!! Theme::include('tabs',['tabs'=>$_panel->getTabs()],get_defined_vars()) !!}
-        --}}
-    @component('theme::components.crud',get_defined_vars())
+    {!! Theme::include('tabs', ['tabs' => $_panel->getTabs()], get_defined_vars()) !!}
+    --}}
+    @component('theme::components.crud', get_defined_vars())
         @slot('content')
-            {!! Theme::include('topbar',[],get_defined_vars()) !!}
+            {!! Theme::include('topbar', [], get_defined_vars()) !!}
             @foreach ($rows as $row)
                 @php
 
@@ -41,17 +41,18 @@
                             {!! Theme::inputFreeze(['row' => $row, 'field' => $field]) !!}
 
                             @if ($loop->first)
-                                @if($row_panel->itemActions()->count()>5)
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-tools"></i>
-                                    </button>
-                                    <div class="dropdown-menu" >
-                                        @foreach ($row_panel->itemActions() as $act)
-                                            {!! $act->btnHtml() !!}
-                                        @endforeach
+                                @if ($row_panel->itemActions()->count() > 5)
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-tools"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            @foreach ($row_panel->itemActions() as $act)
+                                                {!! $act->btnHtml() !!}
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
                                 @else
                                     @foreach ($row_panel->itemActions() as $act)
                                         {!! $act->btnHtml() !!}
@@ -61,10 +62,11 @@
                         </td>
                     @endforeach
                     <td>
-                        {{--
-                        {!! Form::bsBtnCrud(['row' => $row]) !!}
-                        --}}
+
+
+
                         {!! $row_panel->btnCrud() !!}
+
                     </td>
                 </tr>
                 @if ($loop->last)
@@ -74,7 +76,7 @@
 
             @endforeach
             {{ $rows->appends(request()->query())->links() }}
-    @endslot
+        @endslot
     @endcomponent
 @endsection
 {{--
