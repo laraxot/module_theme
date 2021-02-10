@@ -1,0 +1,56 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Python27/:/mnt/c/Python27/Scripts:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/IBM/Client Access/Emulator:/mnt/c/Program Files (x86)/IBM/Client Access/Shared:/mnt/c/Program Files (x86)/IBM/Client Access/:/mnt/c/Program Files/Git LFS:/mnt/c/xampp/php:/mnt/c/composer:/mnt/d/HashiCorp/Vagrant/bin:/mnt/d/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/c/Program Files/TortoiseGit/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/sottanamarco/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/sottanamarco/AppData/Roaming/Composer/vendor/bin:/mnt/c/Users/sottanamarco/AppData/Roaming/npm:/mnt/c/Users/sottanamarco/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/sottanamarco/AppData/Local/Yarn/bin:/snap/bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  12.16.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, unlink '/public_html/bc/.yarn-integrity'
+
+npm manifest: 
+  {
+      "private": true,
+      "scripts": {
+          "dev": "npm run development",
+          "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+          "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+          "watch-poll": "npm run watch -- --watch-poll",
+          "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+          "prod": "npm run production",
+          "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+      },
+      "devDependencies": {
+          "@fortawesome/fontawesome": "^1.1.8",
+          "@fortawesome/fontawesome-free-solid": "^5.0.13",
+          "axios": "^0.19.2",
+          "bootstrap": "^4.4.1",
+          "cross-env": "^5.2.1",
+          "jquery": "^3.4.1",
+          "laravel-mix": "^4.0.7",
+          "laravel-mix-merge-manifest": "^0.1.2",
+          "lodash": "^4.17.15",
+          "popper.js": "^1.16.1",
+          "resolve-url-loader": "^3.1.0",
+          "sass": "^1.26.0",
+          "sass-loader": "^7.3.1",
+          "vue": "^2.6.11",
+          "vue-izitoast": "^1.2.1",
+          "vue-template-compiler": "^2.6.11"
+      },
+      "dependencies": {}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
