@@ -172,22 +172,14 @@ class ThemeService {
         return $favicon.'/>';
     }*/
     /*
-<<<<<<< HEAD
-    public static function addContentTools($params = []) {
-=======
     public static function addContentTools(array $params = []) {
->>>>>>> a83164a (first)
         self::add('theme/bc/ContentTools/build/content-tools.min.css');
         self::add('theme/bc/ContentTools/build/content-tools.min.js');
         self::add('blog::js/contenttools.js');
         self::add('theme/bc/ContentTools/sandbox/sandbox.css');
     }
 
-<<<<<<< HEAD
-    public static function addSelect2($params = []) {
-=======
     public static function addSelect2(array $params = []) {
->>>>>>> a83164a (first)
         $tipo = 2; //0 bc, 1 cdn ,2  mix
         switch ($tipo) {
             case 0:
@@ -240,11 +232,7 @@ class ThemeService {
     /**
      * @param string $src
      *
-<<<<<<< HEAD
-     * @return false|mixed|string
-=======
      * @return bool|mixed|string
->>>>>>> a83164a (first)
      */
     public static function img_src($src) {
         ///$srcz = self::viewNamespaceToUrl([$src]);
@@ -294,11 +282,7 @@ class ThemeService {
     /**
      * @param string $path
      *
-<<<<<<< HEAD
-     * @return false|string
-=======
      * @return bool|string
->>>>>>> a83164a (first)
      */
     public static function getNameSpace($path) {
         $pos = \mb_strpos($path, '::');
@@ -312,11 +296,7 @@ class ThemeService {
     /**
      * @param string $path
      *
-<<<<<<< HEAD
-     * @return false|mixed|string
-=======
      * @return bool|mixed|string
->>>>>>> a83164a (first)
      */
     public static function asset($path) {
         return FileService::asset($path);
@@ -496,11 +476,7 @@ class ThemeService {
     }
 
     /**
-<<<<<<< HEAD
-     * @return false|mixed|string
-=======
      * @return bool|mixed|string
->>>>>>> a83164a (first)
      */
     public static function getArea() {
         $params = \Route::current()->parameters();
@@ -566,17 +542,9 @@ class ThemeService {
     /**
      * { item_description }.
      *
-<<<<<<< HEAD
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public static function route($params = []) {
-=======
      * @return mixed
      */
     public static function route(array $params = []) {
->>>>>>> a83164a (first)
         $params = \array_merge(\Route::current()->parameters(), $params);
         $routename = Route::currentRouteName();
 
@@ -633,17 +601,9 @@ class ThemeService {
     }
 
     /**
-<<<<<<< HEAD
-     * @param array $params
-     *
-     * @return mixed|string
-     */
-    public static function getViewDefault($params = []) {
-=======
      * @return mixed|string
      */
     public static function getViewDefault(array $params = []) {
->>>>>>> a83164a (first)
         extract($params);
         if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
@@ -658,17 +618,9 @@ class ThemeService {
     }
 
     /**
-<<<<<<< HEAD
-     * @param array $params
-     *
-     * @return mixed|string
-     */
-    public static function getViewExtend($params = []) {
-=======
      * @return mixed|string
      */
     public static function getViewExtend(array $params = []) {
->>>>>>> a83164a (first)
         extract($params);
         if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
@@ -683,17 +635,9 @@ class ThemeService {
     }
 
     /**
-<<<<<<< HEAD
-     * @param array $params
-     *
-     * @return mixed|string|null
-     */
-    public static function getViewModule($params = []) {
-=======
      * @return mixed|string|null
      */
     public static function getViewModule(array $params = []) {
->>>>>>> a83164a (first)
         extract($params);
         if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
@@ -729,10 +673,7 @@ class ThemeService {
         */
 
         $act = \Request::input('_act');
-<<<<<<< HEAD
-=======
         $act = Str::snake($act);
->>>>>>> a83164a (first)
         if (null != $act) {
             $view .= '.acts.'.$act;
         }
@@ -1033,11 +974,7 @@ class ThemeService {
     /**
      * @param array $params
      *
-<<<<<<< HEAD
-     * @return false|mixed|string|void
-=======
      * @return bool|mixed|string|void
->>>>>>> a83164a (first)
      */
     public static function imageSrc($params) {// DA RIFARE
         extract($params);
@@ -1171,16 +1108,12 @@ class ThemeService {
         return FormXService::inputFreeze($params);
     }
 
-<<<<<<< HEAD
-    public static function inputHtml(array $params): Renderable {
-=======
     /**
      * Undocumented function.
      *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Support\HtmlString
      */
     public static function inputHtml(array $params) {
->>>>>>> a83164a (first)
         return FormXService::inputHtml($params);
     }
 

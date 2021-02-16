@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -8,11 +7,9 @@ namespace Modules\Theme\View\Components\Forms\Inputs;
 use Illuminate\Contracts\View\View;
 
 /**
- * Class Pikaday
- * @package Modules\Theme\View\Components\Forms\Inputs
+ * Class Pikaday.
  */
-class Pikaday extends Input
-{
+class Pikaday extends Input {
     /** @var string */
     public string $format;
 
@@ -42,15 +39,13 @@ class Pikaday extends Input
         $this->options = $options;
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge([
             'format' => $this->format,
         ], $this->options);
     }
 
-    public function jsonOptions(): string
-    {
+    public function jsonOptions(): string {
         if (empty($this->options())) {
             return '';
         }
@@ -58,74 +53,7 @@ class Pikaday extends Input
         return ', ...'.json_encode((object) $this->options());
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.forms.inputs.pikaday');
     }
 }
-=======
-<?php
-
-declare(strict_types=1);
-
-namespace Modules\Theme\View\Components\Forms\Inputs;
-
-use Illuminate\Contracts\View\View;
-
-/**
- * Class Pikaday
- * @package Modules\Theme\View\Components\Forms\Inputs
- */
-class Pikaday extends Input
-{
-    /** @var string */
-    public string $format;
-
-    /** @var string */
-    public string $placeholder;
-
-    /** @var array */
-    public array $options;
-
-    /**
-     * @var string[]
-     */
-    protected static array $assets = ['alpine', 'moment', 'pikaday'];
-
-    public function __construct(
-        string $name,
-        string $id = null,
-        ?string $value = '',
-        string $format = 'DD/MM/YYYY',
-        string $placeholder = null,
-        array $options = []
-    ) {
-        parent::__construct($name, $id, 'text', $value);
-
-        $this->format = $format;
-        $this->placeholder = $placeholder ?? $format;
-        $this->options = $options;
-    }
-
-    public function options(): array
-    {
-        return array_merge([
-            'format' => $this->format,
-        ], $this->options);
-    }
-
-    public function jsonOptions(): string
-    {
-        if (empty($this->options())) {
-            return '';
-        }
-
-        return ', ...'.json_encode((object) $this->options());
-    }
-
-    public function render(): View
-    {
-        return view('theme::components.forms.inputs.pikaday');
-    }
-}
->>>>>>> a83164a (first)
