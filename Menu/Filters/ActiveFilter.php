@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
@@ -30,3 +31,37 @@ class ActiveFilter implements FilterInterface {
         return $item;
     }
 }
+=======
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Theme\Menu\Filters;
+
+use Modules\Theme\Menu\ActiveChecker;
+use Modules\Theme\Menu\Builder;
+
+/**
+ * Class ActiveFilter.
+ */
+class ActiveFilter implements FilterInterface {
+    private ActiveChecker $activeChecker;
+
+    public function __construct(ActiveChecker $activeChecker) {
+        $this->activeChecker = $activeChecker;
+    }
+
+    /**
+     * @param array $item
+     *
+     * @return mixed
+     */
+    public function transform($item, Builder $builder) {
+        if (! isset($item['header'])) {
+            $item['active'] = $this->activeChecker->isActive($item);
+        }
+
+        return $item;
+    }
+}
+>>>>>>> a83164a (first)
