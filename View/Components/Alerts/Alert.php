@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-<?php
-
-declare(strict_types=1);
-
-namespace Modules\Theme\View\Components\Alerts;
-
-use Modules\Xot\View\Components\XotBaseComponent;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Arr;
-
-/**
- * Class Alert
- * @package Modules\Theme\View\Components\Alerts
- */
-class Alert extends XotBaseComponent
-{
-    /** @var string */
-    public string $type;
-
-    public function __construct(string $type = 'alert')
-    {
-        $this->type = $type;
-    }
-
-    public function render(): View
-    {
-        return view('theme::components.alerts.alert');
-    }
-
-    public function message(): string
-    {
-        return (string) Arr::first($this->messages());
-    }
-
-    public function messages(): array
-    {
-        return (array) session()->get($this->type);
-    }
-
-    public function exists(): bool
-    {
-        return session()->has($this->type) && ! empty($this->messages());
-    }
-}
-=======
 <?php
 
 declare(strict_types=1);
@@ -81,4 +35,3 @@ class Alert extends XotBaseComponent {
         return session()->has($this->type) && ! empty($this->messages());
     }
 }
->>>>>>> 9f0111a33322bf5ce36bbb7187f5866a7193d90f
