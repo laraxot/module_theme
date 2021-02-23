@@ -1347,4 +1347,8 @@ class ThemeService {
     public static function getSVG(string $filepath, ?string $class = ''): string {
         return SvgService::getSVG($filepath, $class);
     }
+<<<<<<< HEAD
 }//end class
+=======
+}//end class
+>>>>>>> 9f0111a33322bf5ce36bbb7187f5866a7193d90f
