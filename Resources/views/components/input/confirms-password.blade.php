@@ -15,7 +15,7 @@
 </span>
 
 @once
-<x-jet-dialog-modal wire:model="confirmingPassword">
+<x-theme::dialog-modal wire:model="confirmingPassword">
     <x-slot name="title">
         {{ $title }}
     </x-slot>
@@ -24,23 +24,23 @@
         {{ $content }}
 
         <div class="mt-4" x-data="{}" x-on:confirming-password.window="setTimeout(() => $refs.confirmable_password.focus(), 250)">
-            <x-jet-input type="password" class="{{ $errors->has('confirmable_password') ? 'is-invalid' : '' }}" placeholder="{{ __('Password') }}"
+            <x-theme::input type="password" class="{{ $errors->has('confirmable_password') ? 'is-invalid' : '' }}" placeholder="{{ __('Password') }}"
                          x-ref="confirmable_password"
                          wire:model.defer="confirmablePassword"
                          wire:keydown.enter="confirmPassword" />
 
-            <x-jet-input-error for="confirmable_password" />
+            <x-theme::input.error for="confirmable_password" />
         </div>
     </x-slot>
 
     <x-slot name="footer">
-        <x-jet-secondary-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
+        <x-theme::secondary-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
             {{ __('Cancel') }}
-        </x-jet-secondary-button>
+        </x-theme::secondary-button>
 
-        <x-jet-button class="ml-2" wire:click="confirmPassword" wire:loading.attr="disabled">
+        <x-theme::button class="ml-2" wire:click="confirmPassword" wire:loading.attr="disabled">
             {{ $button }}
-        </x-jet-button>
+        </x-theme::button>
     </x-slot>
-</x-jet-dialog-modal>
+</x-theme::dialog-modal>
 @endonce
