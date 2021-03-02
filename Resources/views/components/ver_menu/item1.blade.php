@@ -8,7 +8,7 @@
         @endphp
         <span class="menu-text menu-toggle">{{ $node->row->treeLabel() }}</span>
         
-        @component('theme::components.dropdowns.simple',[
+        @component('theme::components.dropdown.simple',[
             'btn_class'=>'btn btn-dark',
             'title'=>'<i class="fas fa-cog"></i>',
             ])
