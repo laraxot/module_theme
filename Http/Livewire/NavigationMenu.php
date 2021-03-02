@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Http\Livewire;
 
 use Livewire\Component;
 
-class NavigationMenu extends Component
-{
+class NavigationMenu extends Component {
     /**
      * The component's listeners.
      *
@@ -20,8 +21,7 @@ class NavigationMenu extends Component
      *
      * @return \Illuminate\View\View
      */
-    public function render()
-    {
-        return view('navigation-menu');
+    public function render() {
+        return view('theme::navigation-menu');
     }
 }
