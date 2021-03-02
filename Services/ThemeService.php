@@ -1320,7 +1320,7 @@ class ThemeService {
      * @param array|null $parent
      * @param int        $rec
      */
-    public static function renderHorMenu($item, $parent = null, $rec = 0, bool $singleItem = false): string {
+    public static function renderHorMenu($item, $parent = null, $rec = 0, bool $singleItem = false): ?string {
         return MenuService::renderHorMenu($item, $parent, $rec); //??, $singleItem
     }
 
