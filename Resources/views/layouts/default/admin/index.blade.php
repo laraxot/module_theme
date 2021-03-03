@@ -74,7 +74,7 @@
                 @endif
 
             @endforeach
-            {{ $rows->appends(request()->query())->links() }}
+            {{ $rows->appends(request()->query())->links('adm_theme::layouts.partials.pagination') }}
         @endslot
     @endcomponent
 @endsection
