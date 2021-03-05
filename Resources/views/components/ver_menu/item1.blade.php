@@ -4,7 +4,7 @@
             {!! $icon !!}
         </span>
         @php
-            //dddx($node->row);
+            //dddx($node->row->treeSons())
         @endphp
         <span class="menu-text menu-toggle">{{ $node->row->treeLabel() }}</span>
         
@@ -44,6 +44,11 @@
                     @endslot
                 @endcomponent
                 @foreach($node->row->treeSons() as $k_type=>$sons)
+                {{-- 
+                    @php
+                        dddx($k_type)
+                    @endphp
+                    --}}
                     @foreach($sons as $son)
                         @component('theme::components.ver_menu.item1', [
                             'li_class' => 'menu-item  menu-item-submenu', 
@@ -54,6 +59,7 @@
                             ])
                         @endcomponent
                     @endforeach
+                     
                 @endforeach
             @endslot
         @endcomponent
