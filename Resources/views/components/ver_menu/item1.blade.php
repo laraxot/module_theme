@@ -3,9 +3,7 @@
         <span class="svg-icon menu-icon">
             {!! $icon !!}
         </span>
-        @php
-            //dddx($node->row->treeSons())
-        @endphp
+
         <span class="menu-text menu-toggle">{{ $node->row->treeLabel() }}</span>
         
         @component('theme::components.dropdown.simple',[
@@ -21,7 +19,7 @@
             @endforeach
             @endslot
         @endcomponent
-{{-- dddx($node->row->samples) --}}
+
         @if($node->row->treeSonsCount())
             <i class="menu-arrow  menu-toggle"></i>
         @endif
