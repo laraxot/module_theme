@@ -5,7 +5,7 @@
     @else
         {!! $_panel->indexNav() !!}
     @endif
-    {!! Theme::include('inner_page', [], get_defined_vars()) !!}
+    {{-- {!! Theme::include('inner_page', [], get_defined_vars()) !!} --}}
     {{-- {!!  Theme::include('tabs', ['tabs' => $_panel->getTabs()], get_defined_vars()) !!} --}}
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
@@ -16,9 +16,9 @@
                     $fields = $_panel->indexFields();
 
                     /*
-                                    $row_panel=Panel::get($row);
-                                    $row_panel->setParent($_panel->getParent());
-                                    */
+                                                        $row_panel=Panel::get($row);
+                                                        $row_panel->setParent($_panel->getParent());
+                                                        */
                     $row_panel = $_panel->getHydrate($row);
                     //dddx([$_panel,$row_panel]);
                 @endphp
