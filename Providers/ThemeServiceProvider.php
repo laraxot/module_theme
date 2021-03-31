@@ -25,6 +25,9 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
     public function bootCallback(): void {
         $xot = Tenant::config('xra');
+        if (! isset($xot['adm_theme'])) {
+            dddx(['xot' => $xot, 'tennant_name' => Tenant::getName()]);
+        }
 
         $adm_theme = $xot['adm_theme'];
         $adm_resource_path = 'views/themes/'.$adm_theme.'/Resources';
