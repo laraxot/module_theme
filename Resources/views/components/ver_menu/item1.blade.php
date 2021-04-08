@@ -26,21 +26,6 @@
     </span>
 
     <div class="menu-submenu ">
-
-        @php
-            if($node->row->title == '84 - LASTRE E TAPPETI DI GOMMA'){
-                /*
-                dddx([
-                    $node->row->treeSons(),
-                    $node->row->sons,
-                    $node->row->products,
-                    $node->row->treeSonsCount(),
-                ]);
-                */
-            }
-        @endphp
-
-
         @if($node->row->treeSonsCount())
             <i class="menu-arrow"></i>
         @endif
