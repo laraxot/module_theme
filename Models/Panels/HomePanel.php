@@ -45,8 +45,10 @@ class HomePanel extends XotBasePanel {
      * @return array
      */
     public function actions(Request $request = null) {
+        $cmd = (string) request()->input('cmd');
+
         return [
-            new \Modules\Xot\Models\Panels\Actions\ArtisanAction(request()->input('cmd')),
+            new \Modules\Xot\Models\Panels\Actions\ArtisanAction($cmd),
             new Actions\TestAction(),
         ];
     }
