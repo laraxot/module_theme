@@ -21,6 +21,6 @@ class TestAction extends XotBasePanelAction {
     public function handle() {
         //return $this->panel->view();
         $smarty = new SmartyService();
-        $smarty->convert(storage_path('test3.tpl'));
+        $smarty->convert(storage_path('test2.tpl'));
     }
 }
