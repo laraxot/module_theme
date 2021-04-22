@@ -50,6 +50,7 @@ class HomePanel extends XotBasePanel {
         return [
             new \Modules\Xot\Models\Panels\Actions\ArtisanAction($cmd),
             new Actions\TestAction(),
+            new Actions\ConvertSmartyToBladeAction(),
         ];
     }
 }

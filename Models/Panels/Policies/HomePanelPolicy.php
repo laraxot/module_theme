@@ -15,4 +15,8 @@ class HomePanelPolicy extends XotBasePanelPolicy {
     public function test(UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function ConvertSmartyToBlade(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }
