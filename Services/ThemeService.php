@@ -4,16 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
-use Assetic\Asset\AssetCollection;
-use Assetic\Cache\FilesystemCache;
+//use Assetic\Asset\FileAsset;
+//use Assetic\Cache\FilesystemCache;
+//use Assetic\Filter\JsMinFilter;
 use Illuminate\Contracts\Support\Renderable;
-/* move to JsCssService
-use Assetic\Asset\FileAsset;
-use Illuminate\Http\Request;
-use Assetic\Asset\AssetCache;
-use Assetic\Filter\JsMinFilter; // attualmente non è utilizzato
-
-*/
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 //---facades -----
@@ -29,10 +23,10 @@ use Modules\FormX\Services\FormXService;
 use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Services\ArtisanService;
 use Modules\Xot\Services\FileService;
+use Modules\Xot\Services\PanelService;
 use Modules\Xot\Services\StubService;
-use Modules\Xot\Services\TenantService;
 //----- contracts  --
-use Modules\Xot\Services\TenantService as Tenant;
+use Modules\Xot\Services\TenantService;
 use Modules\Xot\Traits\Getter;
 
 //---------CSS------------
@@ -481,7 +475,7 @@ class ThemeService {
     public static function getArea() {
         $params = \Route::current()->parameters();
         if (isset($params['module'])) {
-            return  $params['module'];
+            return $params['module'];
         }
         $tmp = \explode('/', \Route::current()->getCompiled()->getStaticPrefix());
         $tmp = \array_slice($tmp, 2, 1);
@@ -648,11 +642,17 @@ class ThemeService {
         if (0 == count($containers)) {
             return null;
         }
+        $panel = PanelService::getRequestPanel();
+        $mod_name_low = $panel->getModuleNameLow();
 
-        $model = Tenant::model(last($containers));
+        /*
+        $model = TenantService::model(last($containers));
         $mod_name = getModuleNameFromModel($model);
         $mod_name_low = strtolower($mod_name);
-        $view = $mod_name_low.'::'.last($containers).'.'.$act;
+        */
+        $last_container = last($containers);
+
+        $view = $mod_name_low.'::'.$last_container.'.'.$act;
 
         return self::getViewWithFormat($view);
     }
@@ -762,7 +762,7 @@ class ThemeService {
             $model = config('xra.model.'.$row);
             $row = new $model();
             */
-            $row = Tenant::model($row);
+            $row = TenantService::model($row);
         }
         //}
         $row_type = '';
@@ -959,7 +959,7 @@ class ThemeService {
         $cache_key = Str::slug($view).'-'.md5(json_encode($data)).'-1';
         $seconds = 60 * 60 * 24;
         try {
-            $html = Cache::/*store('apc')->*/remember($cache_key, $seconds, function () use ($view, $data, $mergeData) {
+            $html = Cache::/*store('apc')->*/ remember($cache_key, $seconds, function () use ($view, $data, $mergeData) {
                 return (string) \View::make($view, $data, $mergeData)->render();
                 //return (string)self::view($view);
             });
@@ -1083,7 +1083,7 @@ class ThemeService {
      * @return mixed
      */
     public static function xotModelEager($name) {
-        return Tenant::modelEager($name);
+        return TenantService::modelEager($name);
     }
 
     /**
@@ -1092,7 +1092,7 @@ class ThemeService {
      * @return array|false|mixed
      */
     public static function xotModel($name) {
-        return Tenant::model($name);
+        return TenantService::model($name);
     }
 
     /**
@@ -1235,8 +1235,8 @@ class ThemeService {
      * Prints Google Fonts.
      */
     public static function getGoogleFontsInclude() {
-        if (Tenant::config('layout.resources.fonts.google.families')) {
-            $fonts = Tenant::config('layout.resources.fonts.google.families');
+        if (TenantService::config('layout.resources.fonts.google.families')) {
+            $fonts = TenantService::config('layout.resources.fonts.google.families');
             echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family='.implode('|', $fonts).'">';
         }
         echo '';
@@ -1280,18 +1280,18 @@ class ThemeService {
         $themes = [];
 
         /*
-        $themes[] = 'css/themes/layout/header/base/'.Tenant::config('layout.header.self.theme').'.css';
-        $themes[] = 'css/themes/layout/header/menu/'.Tenant::config('layout.header.menu.desktop.submenu.theme').'.css';
-        $themes[] = 'css/themes/layout/aside/'.Tenant::config('layout.aside.self.theme').'.css';
+        $themes[] = 'css/themes/layout/header/base/'.TenantService::config('layout.header.self.theme').'.css';
+        $themes[] = 'css/themes/layout/header/menu/'.TenantService::config('layout.header.menu.desktop.submenu.theme').'.css';
+        $themes[] = 'css/themes/layout/aside/'.TenantService::config('layout.aside.self.theme').'.css';
         */
-        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/base/'.Tenant::config('layout.header.self.theme').'.css');
-        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/menu/'.Tenant::config('layout.header.menu.desktop.submenu.theme').'.css');
-        $themes[] = self::asset('adm_theme::dist/css/themes/layout/aside/'.Tenant::config('layout.aside.self.theme').'.css');
+        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/base/'.TenantService::config('layout.header.self.theme').'.css');
+        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/menu/'.TenantService::config('layout.header.menu.desktop.submenu.theme').'.css');
+        $themes[] = self::asset('adm_theme::dist/css/themes/layout/aside/'.TenantService::config('layout.aside.self.theme').'.css');
 
-        if (Tenant::config('layout.aside.self.display')) {
-            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.Tenant::config('layout.brand.self.theme').'.css');
+        if (TenantService::config('layout.aside.self.display')) {
+            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.TenantService::config('layout.brand.self.theme').'.css');
         } else {
-            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.Tenant::config('layout.header.self.theme').'.css');
+            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.TenantService::config('layout.header.self.theme').'.css');
         }
 
         return $themes;
@@ -1301,7 +1301,7 @@ class ThemeService {
      * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
      */
     public static function tenantConfig(string $config) {
-        return Tenant::config($config);
+        return TenantService::config($config);
     }
 
     /**
