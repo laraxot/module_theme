@@ -1,2 +1,0 @@
-//--- blog molto pulito
-https://devdojo.com/tnylea/animations-with-alpine
