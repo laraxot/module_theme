@@ -1,0 +1,235 @@
+<?php
+
+namespace Modules\Theme\Services;
+
+use Assetic\Asset\AssetCache;
+use Assetic\Asset\AssetCollection;
+use Assetic\Asset\FileAsset;
+use Assetic\Cache\FilesystemCache;
+use Assetic\Filter\CssMinFilter;
+use Assetic\Filter\ScssphpFilter;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Modules\FormX\Services\FormXService;
+use Modules\Xot\Services\StubService;
+use Modules\Xot\Services\TenantService;
+use Modules\Xot\Traits\Getter;
+
+//----- Models -----
+
+//---- xot extend -----
+//----- services --
+
+//---------CSS------------
+
+class ThemeService {
+    use Getter;
+    protected static $vars = [];
+    private static $instance = null;
+
+    public static function getInstance() {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+
+        return self::$instance;
+    }
+
+    public static function get_tags($params) {
+        return [];
+    }
+
+    public static function get_styles($params) {
+        return [];
+    }
+
+    public static function get_scripts($params) {
+        return [];
+    }
+
+    /**
+     * { item_description }.
+     */
+    public static function getView($parz = []) {
+        $params = Route::current()->parameters();
+        $route_action = Route::currentRouteAction();
+
+        $tmp = Str::after($route_action, '\Http\Controllers\\');
+        $tmp = \str_replace('\\', '.', $tmp);
+        $tmp = \str_replace('Controller@', '.', $tmp);
+        $path = collect(explode('.', $tmp))->map(function ($item) use ($params) {
+            $item = Str::snake($item);
+            if (isset($params[$item])) {
+                return $params[$item];
+            }
+
+            return $item;
+        })->implode('.');
+        if (isset($params['module'])) {
+            $mod = $params['module'];
+        } else {
+            $mod = Str::before(Str::after($route_action, 'Modules\\'), '\\Http\Controllers\\');
+            $mod = strtolower($mod);
+        }
+        if (in_admin()) {
+            $path = str_replace('admin.'.$mod.'.', 'admin.', $path);
+            $view = $mod.'::'.$path;
+        } else {
+            $view = 'pub_theme::'.$path;
+        }
+        //------------ CASI PARTICOLARI -----------
+        if ('pub_theme::translation.index' == $view) {
+            return 'theme::translation.index';
+        }
+        //---------------Panel Actions --------------------------
+        return self::getViewWithFormat($view);
+    }
+
+    public static function getViewWithFormat($view) {
+        /*
+        if (\Request::ajax()) {
+            $view .= '_ajax';
+        } elseif ('iframe' == \Request::input('format')) {
+            $view .= '_iframe';
+        }
+        */
+
+        $act = \Request::input('_act');
+        if (null != $act) {
+            $view .= '.acts.'.$act;
+        }
+
+        return $view;
+    }
+
+    public static function xotModelEager($name) {
+        return TenantService::modelEager($name);
+    }
+
+    public static function xotModel($name) {
+        return TenantService::model($name);
+    }
+
+    public static function panelModel($model) {
+        return StubService::getByModel($model, 'panel', true);
+    }
+
+    public static function inputFreeze($params) {
+        return FormXService::inputFreeze($params);
+    }
+
+    public static function inputHtml($params) {
+        return FormXService::inputHtml($params);
+    }
+
+    public static function getXmlMenu() {
+        return MenuService::get();
+    }
+
+    public static function getArea() {
+        $params = \Route::current()->parameters();
+        if (isset($params['module'])) {
+            return  $params['module'];
+        }
+        $tmp = \explode('/', \Route::current()->getCompiled()->getStaticPrefix());
+        $tmp = \array_slice($tmp, 2, 1);
+        if (\count($tmp) < 1) {
+            return false;
+        }
+
+        return $tmp[0];
+    }
+
+    public static function metatags() {
+        $view = 'theme::metatags';
+
+        return (string) view($view);
+    }
+
+    public static function metatag($index) {
+        $ris = self::__getStatic($index);
+        //echo '<br/>['.$index.']['.$ris.']';
+        if ('' == $ris) {
+            $ris = config('metatag.'.$index);
+            self::__setStatic($index, $ris);
+        }
+
+        return $ris;
+    }
+
+    public static function showStyles($compress_css = true) {
+        $styles_pos = self::__getStatic('styles_pos');
+        $styles = self::__getStatic('styles');
+        $styles = \array_values(Arr::sort($styles, function ($v, $k) use ($styles_pos) {
+            return $styles_pos[$k];
+        }));
+        $styles = \array_unique($styles);
+
+        //$styles = self::viewNamespaceToUrl($styles);
+        $styles = collect($styles)->map(function ($item) {
+            return self::asset($item);
+        })->all();
+        //ddd($styles);
+        //ddd(asset('/'));
+        $not_compress = [];
+
+        if ($compress_css) {
+            $styles_list = \implode(',', $styles);
+            $styles_md5 = \md5($styles_list);
+            $name = '/css/style_'.$styles_md5.'.css';
+            $path = public_path($name);
+            $force = 1;
+            //dd( storage_path('cache')); //pb\laravel\storage\cache
+            //dd(\Storage::disk('cache')->url('file.jpg'));//getPath());
+            if (! \file_exists($path) || $force) {
+                //$cache = new FilesystemCache($_SERVER['DOCUMENT_ROOT'] . '/tmp');
+                //$cache = new FilesystemCache(dirname($path));
+                require __DIR__.'/vendor/autoload.php'; //carico la mia libreria che uso solo qui..
+                $cache = new FilesystemCache(base_path('../cache'));
+                $collection = new AssetCollection();
+
+                foreach ($styles as $filePath) {
+                    //echo '<br/>['.$filePath.']';
+                    $filePath = self::getRealFile($filePath);
+                    if (! \File::exists($filePath)) {
+                        //echo '<h3> non esiste il file ['.$filePath.']</h3>';
+                        //die('['.__LINE__.']['.__FILE__.']');
+
+                        $not_compress[] = $filePath;
+                    } else {
+                        $asset = new FileAsset($filePath);
+                        $info = \pathinfo($filePath);
+                        if (isset($info['extension'])) {
+                            switch ($info['extension']) {
+                                case 'scss':
+                                    $asset->ensureFilter(new ScssphpFilter());
+                                break;
+                            default:
+                                $asset->ensureFilter(new CssMinFilter());
+                            break;
+                            }
+                        }
+                        $cachedAsset = new AssetCache($asset, $cache);
+                        $collection->add($cachedAsset);
+                    }
+                }
+
+                $path = public_path().$name;
+
+                \File::put($path, $collection->dump());
+            }
+            $styles = [$name];
+        } else {
+            /*
+            foreach ($styles as $k => $filePath) {
+                $styles[$k] = self::getFileUrl($filePath);
+            }
+            */
+        }
+        //ddd($not_compress);
+        return view('theme::services.style')->with('styles', $styles);
+    }
+}
