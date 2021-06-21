@@ -12,13 +12,13 @@
             {!! Theme::include('topbar', [], get_defined_vars()) !!}
             @foreach ($rows as $row)
                 @php
-
+                    
                     $fields = $_panel->indexFields();
-
+                    
                     /*
-                                                        $row_panel=Panel::get($row);
-                                                        $row_panel->setParent($_panel->getParent());
-                                                        */
+                                                                            $row_panel=Panel::get($row);
+                                                                            $row_panel->setParent($_panel->getParent());
+                                                                            */
                     $row_panel = $_panel->getHydrate($row);
                     //dddx([$_panel,$row_panel]);
                 @endphp
