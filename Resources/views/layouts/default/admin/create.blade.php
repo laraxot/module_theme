@@ -6,23 +6,18 @@ if (!is_object($row)) {
 }
 $fields = $_panel->editFields();
 @endphp
-
 @section('content')
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
-            {!! Theme::include('topbar', [], get_defined_vars()) !!}
             <x-theme::alerts.error :errors="$errors" />
-
-            {!! Form::bsOpenPanel($_panel, 'create') !!}
-
+            {!! Form::bsOpenPanel($_panel, 'store') !!}
             <div class="row">
                 @foreach ($fields as $field)
                     {!! Theme::inputHtml(['row' => $row, 'field' => $field]) !!}
                 @endforeach
             </div>
-            {{ Form::bsSubmit('Crea') }}
+            {{ Form::bsSubmit('Salva') }}
             {!! Form::close() !!}
-            {{-- </x-theme::forms.panel> --}}
         @endslot
     @endcomponent
 @endsection
