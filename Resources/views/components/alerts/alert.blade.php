@@ -1,9 +1,8 @@
-@if ($exists())
-    <div role="alert" {{ $attributes }}>
+<div role="alert" class="alert alert-{{ $type }}">
         @if ($slot->isEmpty())
-            {{ $message() }}
+         {{ $message() }}
         @else
-            {{ $slot }}
+         {{ $slot }}
         @endif
-    </div>
-@endif
+</div>
+

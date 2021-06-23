@@ -12,8 +12,9 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Alert.
  */
 class Alert extends XotBaseComponent {
-    /** @var string */
     public string $type;
+
+    public array $attrs = [];
 
     public function __construct(string $type = 'alert') {
         $this->type = $type;
