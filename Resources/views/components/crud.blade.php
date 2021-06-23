@@ -37,6 +37,9 @@ if (
                                     @else
                                         {!! trans('pub_theme::icons.' . $v_act) !!}
                                     @endif
+                                    @php
+                                        //dddx($trad_mod . '.tab.' . $v_act);
+                                    @endphp
                                     {{ trans($trad_mod . '.tab.' . $v_act) }}
                                 </a>
                                 {{-- <br/>{{ $href1 }}
@@ -65,8 +68,13 @@ if (
                 @foreach ($_panel->getTabs() as $level)
                     @foreach ($level as $tab)
                         <li class="nav-item ">
-                            <a class="nav-link {{ $tab->active ? 'active' : '' }}"
-                                href="{{ $tab->url }}">{{ $tab->title }}</a>
+                            <a class="nav-link {{ $tab->active ? 'active' : '' }}" href="{{ $tab->url }}">
+                                @php
+                                    //dddx([$_panel, $_panel->getTabs(), 'theme::txt.' . $tab->title]);
+                                @endphp
+                                {{ trans('theme::txt.' . $tab->title) }}
+                                {{-- $tab->title --}}
+                            </a>
                         </li>
                     @endforeach
                 @endforeach
