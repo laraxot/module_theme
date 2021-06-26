@@ -1,3 +1,6 @@
+@php
+//dddx($_panel);
+@endphp
 @extends('adm_theme::layouts.app')
 @section('content')
     @if (is_array($_panel->indexNav()))
@@ -16,9 +19,9 @@
                     $fields = $_panel->indexFields();
                     
                     /*
-                                                                            $row_panel=Panel::get($row);
-                                                                            $row_panel->setParent($_panel->getParent());
-                                                                            */
+                                                                                                                                        $row_panel=Panel::get($row);
+                                                                                                                                        $row_panel->setParent($_panel->getParent());
+                                                                                                                                        */
                     $row_panel = $_panel->getHydrate($row);
                     //dddx([$_panel,$row_panel]);
                 @endphp
