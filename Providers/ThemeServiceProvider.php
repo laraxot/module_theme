@@ -57,7 +57,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             \Modules\Theme\Console\CreateThemeCommand::class,
         ]);
         //dddx(dirname($this->module_ns));
-        Blade::componentNamespace(dirname($this->module_ns).'\View\Components', 'theme');
+        Blade::componentNamespace('Modules\Theme\View\Components', 'theme');
     }
 
     public function registerCallback(): void {
