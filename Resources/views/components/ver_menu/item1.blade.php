@@ -48,7 +48,7 @@
                             'li_class' => 'menu-item menu-item-submenu',
                             'li_attribute' => 'aria-haspopup="true" data-menu-toggle="hover"',
                             'node' => Panel::get($son)->setParent($node),
-                            'icon' => Theme::renderIcon(Theme::tenantConfig('icons.theme_icons.tree.' . $k_type)),
+                            'icon' => Theme::renderIcon(Theme::tenantConfig('icons.'.Theme::tenantConfig('xra.adm_theme').'.tree.' . $k_type)),
                             'in_admin' => $in_admin,
                             ])
                         @endcomponent
