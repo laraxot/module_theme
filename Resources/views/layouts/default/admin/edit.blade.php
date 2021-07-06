@@ -12,12 +12,11 @@ $fields = $_panel->editFields();
         @slot('content')
             {!! Theme::include('topbar', [], get_defined_vars()) !!}
             <x-theme::alerts.error :errors="$errors" />
-            {{-- {!! Theme::include('tabs',['tabs'=>$_panel->getTabs()],get_defined_vars()) !!} 
+            {{-- {!! Theme::include('tabs',['tabs'=>$_panel->getTabs()],get_defined_vars()) !!}
             <x-theme::forms.panel :panel="$_panel" action="update">
             --}}
-              
             {!! Form::bsOpenPanel($_panel, 'update') !!}
-            
+
             <div class="row">
             @foreach ($fields as $field)
                 {!! Theme::inputHtml(['row' => $row, 'field' => $field]) !!}
@@ -25,7 +24,7 @@ $fields = $_panel->editFields();
             </div>
             {{ Form::bsSubmit('Modifica') }}
             {!! Form::close() !!}
-            {{--  
+            {{--
             </x-theme::forms.panel>
             --}}
         @endslot
