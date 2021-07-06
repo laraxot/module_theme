@@ -657,7 +657,11 @@ class ThemeService {
             return null;
         }
 
-        $model = Tenant::model(last($containers));
+        $container_0 = collect($containers)->first();
+        //dddx($container_0);
+
+        //$model = Tenant::model(last($containers));
+        $model = Tenant::model($container_0);
         $mod_name = getModuleNameFromModel($model);
         $mod_name_low = strtolower($mod_name);
         $view = $mod_name_low.'::'.last($containers).'.'.$act;
