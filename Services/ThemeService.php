@@ -645,16 +645,11 @@ class ThemeService {
         $panel = PanelService::getRequestPanel();
         $mod_name_low = $panel->getModuleNameLow();
 
-<<<<<<< HEAD
         $container_0 = collect($containers)->first();
         //dddx($container_0);
 
         //$model = Tenant::model(last($containers));
         $model = Tenant::model($container_0);
-=======
-        /*
-        $model = TenantService::model(last($containers));
->>>>>>> b2c6e1594ff4f46f0d90b0ca5bbf2f609ec8f94b
         $mod_name = getModuleNameFromModel($model);
         $mod_name_low = strtolower($mod_name);
         */
