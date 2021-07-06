@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Layouts;
 
-use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class SocialMeta
- * @package Modules\Theme\View\Components\Layouts
+ * Class SocialMeta.
  */
-class SocialMeta extends XotBaseComponent
-{
+class SocialMeta extends XotBaseComponent {
     /** @var string */
     public string $title;
 
@@ -47,8 +45,7 @@ class SocialMeta extends XotBaseComponent
         $this->url = $url ?: url()->current();
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.layouts.social-meta');
     }
 }

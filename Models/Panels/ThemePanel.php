@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Models\Panels;
 
 //--- Services --
@@ -7,21 +9,16 @@ namespace Modules\Theme\Models\Panels;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 /**
- * Class ThemePanel
- * @package Modules\Theme\Models\Panels
+ * Class ThemePanel.
  */
 class ThemePanel extends XotBasePanel {
     /**
      * The model the resource corresponds to.
-     *
-     * @var string
      */
     public static string $model = 'Modules\Theme\Models\Theme';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
      */
     public static string $title = 'title';
 

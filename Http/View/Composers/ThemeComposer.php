@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Http\View\Composers;
 
 //use App\Repositories\UserRepository;
@@ -7,8 +9,7 @@ use Illuminate\View\View;
 use Modules\Theme\Services\ThemeViewService;
 
 /**
- * Class ThemeComposer
- * @package Modules\Theme\Http\View\Composers
+ * Class ThemeComposer.
  */
 class ThemeComposer {
     /**
@@ -34,7 +35,6 @@ class ThemeComposer {
     /**
      * Bind data to the view.
      *
-     * @param View $view
      * @return void
      */
     public function compose(View $view) {

@@ -10,8 +10,7 @@ use Illuminate\Support\Str;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class ToC
- * @package Modules\Theme\View\Components\Markdown
+ * Class ToC.
  */
 class ToC extends XotBaseComponent {
     /** @var string */

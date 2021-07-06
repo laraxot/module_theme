@@ -8,8 +8,7 @@ use Illuminate\Contracts\View\View;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Textarea
- * @package Modules\Theme\View\Components\Forms\Inputs
+ * Class Textarea.
  */
 class Textarea extends XotBaseComponent {
     /** @var string */

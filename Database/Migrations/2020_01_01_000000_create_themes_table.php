@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
 //----- models -----
 
@@ -7,7 +9,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
- * Class CreateThemesTable
+ * Class CreateThemesTable.
  */
 class CreateThemesTable extends XotBaseMigration {
     //use XotBaseMigrationTrait;

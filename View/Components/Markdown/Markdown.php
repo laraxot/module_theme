@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Markdown;
 
-use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 use League\CommonMark\MarkdownConverterInterface;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Markdown
- * @package Modules\Theme\View\Components\Markdown
+ * Class Markdown.
  */
-class Markdown extends XotBaseComponent
-{
+class Markdown extends XotBaseComponent {
     /** @var string */
     protected string $flavor;
 
@@ -49,13 +47,11 @@ class Markdown extends XotBaseComponent
         $this->anchors = $anchors;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.markdown.markdown');
     }
 
-    public function toHtml(string $markdown): string
-    {
+    public function toHtml(string $markdown): string {
         if ($this->anchors) {
             $markdown = $this->generateAnchors($markdown);
         }
@@ -63,22 +59,20 @@ class Markdown extends XotBaseComponent
         return $this->converter()->convertToHtml($markdown);
     }
 
-    protected function converter(): MarkdownConverterInterface
-    {
+    protected function converter(): MarkdownConverterInterface {
         $options = array_merge($this->options, [
             'html_input' => $this->htmlInput,
             'allow_unsafe_links' => $this->allowUnsafeLinks,
         ]);
 
-        if ($this->flavor === 'github') {
+        if ('github' === $this->flavor) {
             return new GithubFlavoredMarkdownConverter($options);
         }
 
         return new CommonMarkConverter($options);
     }
 
-    protected function generateAnchors(string $markdown): string
-    {
+    protected function generateAnchors(string $markdown): string {
         preg_match_all('(```[a-z]*\n[\s\S]*?\n```)', $markdown, $matches);
 
         collect($matches[0] ?? [])->each(function (string $match, int $index) use (&$markdown) {

@@ -1,4 +1,4 @@
-{{--  
+{{--
 https://getbootstrap.com/docs/4.5/components/buttons/
 
 <button type="button" class="btn btn-primary">Primary</button>
@@ -11,4 +11,7 @@ https://getbootstrap.com/docs/4.5/components/buttons/
 <button type="button" class="btn btn-dark">Dark</button>
 <button type="button" class="btn btn-link">Link</button>
 --}}
+<button {{ $attributes->merge(['type' => 'submit', 'class' => 'btn btn-dark text-uppercase']) }}>
+    {{ $slot }}
+</button>
 

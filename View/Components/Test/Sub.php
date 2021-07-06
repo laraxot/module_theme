@@ -7,8 +7,7 @@ use Illuminate\View\Component;
 use Illuminate\View\View;
 
 /**
- * Class Sub
- * @package Modules\Theme\View\Components\Test
+ * Class Sub.
  */
 class Sub extends Component {
     /**
@@ -21,8 +20,6 @@ class Sub extends Component {
 
     /**
      * Get the view / contents that represent the component.
-     * @return ViewContract
-     * @return ViewContract
      */
     public function render(): ViewContract {
         return view()->make('components.forms.input');

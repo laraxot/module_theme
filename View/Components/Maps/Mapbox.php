@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Maps;
 
-use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Mapbox
- * @package Modules\Theme\View\Components\Maps
+ * Class Mapbox.
  */
-class Mapbox extends XotBaseComponent
-{
+class Mapbox extends XotBaseComponent {
     /** @var string */
     public string $id;
 
@@ -42,13 +40,11 @@ class Mapbox extends XotBaseComponent
         $this->markers = $markers;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.maps.mapbox');
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge([
             'container' => $this->id,
             'style' => "mapbox://styles/mapbox/{$this->theme}",

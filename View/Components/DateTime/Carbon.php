@@ -11,8 +11,7 @@ use Illuminate\Contracts\View\View;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Carbon
- * @package Modules\Theme\View\Components\DateTime
+ * Class Carbon.
  */
 class Carbon extends XotBaseComponent {
     /** @var CarbonInterface */

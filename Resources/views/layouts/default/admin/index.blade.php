@@ -1,3 +1,6 @@
+@php
+//dddx($_panel);
+@endphp
 @extends('adm_theme::layouts.app')
 @section('content')
     @if (is_array($_panel->indexNav()))
@@ -5,26 +8,21 @@
     @else
         {!! $_panel->indexNav() !!}
     @endif
-    {!! Theme::include('inner_page', [], get_defined_vars()) !!}
-    {{--
-
-    {!! Theme::include('tabs', ['tabs' => $_panel->getTabs()], get_defined_vars()) !!}
-    --}}
+    {{-- {!! Theme::include('inner_page', [], get_defined_vars()) !!} --}}
+    {{-- {!!  Theme::include('tabs', ['tabs' => $_panel->getTabs()], get_defined_vars()) !!} --}}
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
             {!! Theme::include('topbar', [], get_defined_vars()) !!}
             @foreach ($rows as $row)
                 @php
-
-                $fields=$_panel->indexFields();
-
-                /*
-                $row_panel=Panel::get($row);
-                $row_panel->setParent($_panel->getParent());
-                */
-                $row_panel=$_panel->getHydrate($row);
-                //dddx([$_panel,$row_panel]);
-
+                    $fields = $_panel->indexFields();
+                    /*
+                        $row_panel=Panel::get($row);
+                        $row_panel->setParent($_panel->getParent());
+                    */
+                    $row_panel = $_panel->getHydrate($row);
+                    $row_panel->setName($_panel_name);
+                    //dddx([$_panel,$row_panel]);
                 @endphp
                 @if ($loop->first)
                     <table class="table table-striped table-hover table-sm">
@@ -78,10 +76,8 @@
                 @endif
 
             @endforeach
-            {{ $rows->appends(request()->query())->links() }}
+            {{ $rows->appends(request()->query())->links('adm_theme::layouts.partials.pagination') }}
         @endslot
     @endcomponent
 @endsection
-{{--
-@include('theme::layouts.default.admin.common.action')
---}}
+{{-- @include('theme::layouts.default.admin.common.action') --}}

@@ -4,31 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Forms;
 
-use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Label
- * @package Modules\Theme\View\Components\Forms
+ * Class Label.
  */
-class Label extends XotBaseComponent
-{
+class Label extends XotBaseComponent {
     /** @var string */
     public string $for;
 
-    public function __construct(string $for)
-    {
+    public function __construct(string $for) {
         $this->for = $for;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.forms.label');
     }
 
-    public function fallback(): string
-    {
+    public function fallback(): string {
         return Str::ucfirst(str_replace('_', ' ', $this->for));
     }
 }

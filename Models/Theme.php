@@ -1,22 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Modules\Theme\Models\Theme
+ * Modules\Theme\Models\Theme.
  *
- * @property int $id
- * @property string|null $title
- * @property string|null $version
- * @property string|null $txt
- * @property string|null $link
- * @property int|null $status
+ * @property int                             $id
+ * @property string|null                     $title
+ * @property string|null                     $version
+ * @property string|null                     $txt
+ * @property string|null                     $link
+ * @property int|null                        $status
  * @property \Illuminate\Support\Carbon|null $created_at
- * @property string|null $created_by
+ * @property string|null                     $created_by
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $updated_by
+ * @property string|null                     $updated_by
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme query()
@@ -32,17 +35,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereVersion($value)
  * @mixin \Eloquent
  */
-class Theme extends Model
- {
+class Theme extends Model {
     /**
      * @var string[]
      */
-    protected $fillable=['id','title','version','txt','link','status','created_at','created_by','updated_at','updated_by'];
-
+    protected $fillable = ['id', 'title', 'version', 'txt', 'link', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'];
 
     /**
      * @var string[]
      */
     protected $dates = ['created_at', 'updated_at'];
-
 }

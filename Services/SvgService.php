@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
+use Throwable;
+
 //----- Models -----
 
 //---- xot extend -----
@@ -17,8 +19,6 @@ namespace Modules\Theme\Services;
 class SvgService {
     /**
      * Check if $path provided is SVG.
-     *
-     * @return bool
      */
     public static function isSVG(?string $path): bool {
         if (null == $path) {
@@ -67,7 +67,15 @@ class SvgService {
         }
         $defs = $dom->getElementsByTagName('defs');
         if ($defs['length']) {
-            $dom->documentElement->removeChild($defs[0]);
+            // inserisco questo try catch perchè creando l'action ShowAllIconsAction
+            //aveva problemi quando arrivava a metronic_one\Resources\views\media\svg\illustrations\features.svg
+            try {
+                $dom->documentElement->removeChild($defs[0]);
+            } catch (Throwable $e) {
+                //dddx([$filepath, $defs['length']]);
+            }
+
+            //$dom->documentElement->removeChild($defs[0]);
         }
 
         // remove unwanted id attribute in g tag

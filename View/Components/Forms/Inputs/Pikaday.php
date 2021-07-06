@@ -7,11 +7,9 @@ namespace Modules\Theme\View\Components\Forms\Inputs;
 use Illuminate\Contracts\View\View;
 
 /**
- * Class Pikaday
- * @package Modules\Theme\View\Components\Forms\Inputs
+ * Class Pikaday.
  */
-class Pikaday extends Input
-{
+class Pikaday extends Input {
     /** @var string */
     public string $format;
 
@@ -41,15 +39,13 @@ class Pikaday extends Input
         $this->options = $options;
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge([
             'format' => $this->format,
         ], $this->options);
     }
 
-    public function jsonOptions(): string
-    {
+    public function jsonOptions(): string {
         if (empty($this->options())) {
             return '';
         }
@@ -57,8 +53,7 @@ class Pikaday extends Input
         return ', ...'.json_encode((object) $this->options());
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.forms.inputs.pikaday');
     }
 }

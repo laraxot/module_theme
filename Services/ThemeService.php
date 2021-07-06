@@ -4,16 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
-use Assetic\Asset\AssetCollection;
-use Assetic\Cache\FilesystemCache;
+//use Assetic\Asset\FileAsset;
+//use Assetic\Cache\FilesystemCache;
+//use Assetic\Filter\JsMinFilter;
 use Illuminate\Contracts\Support\Renderable;
-/* move to JsCssService
-use Assetic\Asset\FileAsset;
-use Illuminate\Http\Request;
-use Assetic\Asset\AssetCache;
-use Assetic\Filter\JsMinFilter; // attualmente non è utilizzato
-
-*/
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 //---facades -----
@@ -29,10 +23,10 @@ use Modules\FormX\Services\FormXService;
 use Modules\Xot\Contracts\ModelContract;
 use Modules\Xot\Services\ArtisanService;
 use Modules\Xot\Services\FileService;
+use Modules\Xot\Services\PanelService;
 use Modules\Xot\Services\StubService;
-use Modules\Xot\Services\TenantService;
 //----- contracts  --
-use Modules\Xot\Services\TenantService as Tenant;
+use Modules\Xot\Services\TenantService;
 use Modules\Xot\Traits\Getter;
 
 //---------CSS------------
@@ -172,14 +166,14 @@ class ThemeService {
         return $favicon.'/>';
     }*/
     /*
-    public static function addContentTools($params = []) {
+    public static function addContentTools(array $params = []) {
         self::add('theme/bc/ContentTools/build/content-tools.min.css');
         self::add('theme/bc/ContentTools/build/content-tools.min.js');
         self::add('blog::js/contenttools.js');
         self::add('theme/bc/ContentTools/sandbox/sandbox.css');
     }
 
-    public static function addSelect2($params = []) {
+    public static function addSelect2(array $params = []) {
         $tipo = 2; //0 bc, 1 cdn ,2  mix
         switch ($tipo) {
             case 0:
@@ -232,7 +226,7 @@ class ThemeService {
     /**
      * @param string $src
      *
-     * @return false|mixed|string
+     * @return bool|mixed|string
      */
     public static function img_src($src) {
         ///$srcz = self::viewNamespaceToUrl([$src]);
@@ -282,7 +276,7 @@ class ThemeService {
     /**
      * @param string $path
      *
-     * @return false|string
+     * @return bool|string
      */
     public static function getNameSpace($path) {
         $pos = \mb_strpos($path, '::');
@@ -296,7 +290,7 @@ class ThemeService {
     /**
      * @param string $path
      *
-     * @return false|mixed|string
+     * @return bool|mixed|string
      */
     public static function asset($path) {
         return FileService::asset($path);
@@ -476,12 +470,12 @@ class ThemeService {
     }
 
     /**
-     * @return false|mixed|string
+     * @return bool|mixed|string
      */
     public static function getArea() {
         $params = \Route::current()->parameters();
         if (isset($params['module'])) {
-            return  $params['module'];
+            return $params['module'];
         }
         $tmp = \explode('/', \Route::current()->getCompiled()->getStaticPrefix());
         $tmp = \array_slice($tmp, 2, 1);
@@ -542,11 +536,9 @@ class ThemeService {
     /**
      * { item_description }.
      *
-     * @param array $params
-     *
      * @return mixed
      */
-    public static function route($params = []) {
+    public static function route(array $params = []) {
         $params = \array_merge(\Route::current()->parameters(), $params);
         $routename = Route::currentRouteName();
 
@@ -603,11 +595,9 @@ class ThemeService {
     }
 
     /**
-     * @param array $params
-     *
      * @return mixed|string
      */
-    public static function getViewDefault($params = []) {
+    public static function getViewDefault(array $params = []) {
         extract($params);
         if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
@@ -622,11 +612,9 @@ class ThemeService {
     }
 
     /**
-     * @param array $params
-     *
      * @return mixed|string
      */
-    public static function getViewExtend($params = []) {
+    public static function getViewExtend(array $params = []) {
         extract($params);
         if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
@@ -641,11 +629,9 @@ class ThemeService {
     }
 
     /**
-     * @param array $params
-     *
      * @return mixed|string|null
      */
-    public static function getViewModule($params = []) {
+    public static function getViewModule(array $params = []) {
         extract($params);
         if (! isset($act)) {
             $route_action = \Route::currentRouteAction();
@@ -656,15 +642,25 @@ class ThemeService {
         if (0 == count($containers)) {
             return null;
         }
+        $panel = PanelService::getRequestPanel();
+        $mod_name_low = $panel->getModuleNameLow();
 
+<<<<<<< HEAD
         $container_0 = collect($containers)->first();
         //dddx($container_0);
 
         //$model = Tenant::model(last($containers));
         $model = Tenant::model($container_0);
+=======
+        /*
+        $model = TenantService::model(last($containers));
+>>>>>>> b2c6e1594ff4f46f0d90b0ca5bbf2f609ec8f94b
         $mod_name = getModuleNameFromModel($model);
         $mod_name_low = strtolower($mod_name);
-        $view = $mod_name_low.'::'.last($containers).'.'.$act;
+        */
+        $last_container = last($containers);
+
+        $view = $mod_name_low.'::'.$last_container.'.'.$act;
 
         return self::getViewWithFormat($view);
     }
@@ -685,6 +681,7 @@ class ThemeService {
         */
 
         $act = \Request::input('_act');
+        $act = Str::snake($act);
         if (null != $act) {
             $view .= '.acts.'.$act;
         }
@@ -773,7 +770,7 @@ class ThemeService {
             $model = config('xra.model.'.$row);
             $row = new $model();
             */
-            $row = Tenant::model($row);
+            $row = TenantService::model($row);
         }
         //}
         $row_type = '';
@@ -970,7 +967,7 @@ class ThemeService {
         $cache_key = Str::slug($view).'-'.md5(json_encode($data)).'-1';
         $seconds = 60 * 60 * 24;
         try {
-            $html = Cache::/*store('apc')->*/remember($cache_key, $seconds, function () use ($view, $data, $mergeData) {
+            $html = Cache::/*store('apc')->*/ remember($cache_key, $seconds, function () use ($view, $data, $mergeData) {
                 return (string) \View::make($view, $data, $mergeData)->render();
                 //return (string)self::view($view);
             });
@@ -985,7 +982,7 @@ class ThemeService {
     /**
      * @param array $params
      *
-     * @return false|mixed|string|void
+     * @return bool|mixed|string|void
      */
     public static function imageSrc($params) {// DA RIFARE
         extract($params);
@@ -1094,7 +1091,7 @@ class ThemeService {
      * @return mixed
      */
     public static function xotModelEager($name) {
-        return Tenant::modelEager($name);
+        return TenantService::modelEager($name);
     }
 
     /**
@@ -1103,7 +1100,7 @@ class ThemeService {
      * @return array|false|mixed
      */
     public static function xotModel($name) {
-        return Tenant::model($name);
+        return TenantService::model($name);
     }
 
     /**
@@ -1119,7 +1116,12 @@ class ThemeService {
         return FormXService::inputFreeze($params);
     }
 
-    public static function inputHtml(array $params): Renderable {
+    /**
+     * Undocumented function.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Support\HtmlString
+     */
+    public static function inputHtml(array $params) {
         return FormXService::inputHtml($params);
     }
 
@@ -1241,8 +1243,8 @@ class ThemeService {
      * Prints Google Fonts.
      */
     public static function getGoogleFontsInclude() {
-        if (Tenant::config('layout.resources.fonts.google.families')) {
-            $fonts = Tenant::config('layout.resources.fonts.google.families');
+        if (TenantService::config('layout.resources.fonts.google.families')) {
+            $fonts = TenantService::config('layout.resources.fonts.google.families');
             echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family='.implode('|', $fonts).'">';
         }
         echo '';
@@ -1286,18 +1288,18 @@ class ThemeService {
         $themes = [];
 
         /*
-        $themes[] = 'css/themes/layout/header/base/'.Tenant::config('layout.header.self.theme').'.css';
-        $themes[] = 'css/themes/layout/header/menu/'.Tenant::config('layout.header.menu.desktop.submenu.theme').'.css';
-        $themes[] = 'css/themes/layout/aside/'.Tenant::config('layout.aside.self.theme').'.css';
+        $themes[] = 'css/themes/layout/header/base/'.TenantService::config('layout.header.self.theme').'.css';
+        $themes[] = 'css/themes/layout/header/menu/'.TenantService::config('layout.header.menu.desktop.submenu.theme').'.css';
+        $themes[] = 'css/themes/layout/aside/'.TenantService::config('layout.aside.self.theme').'.css';
         */
-        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/base/'.Tenant::config('layout.header.self.theme').'.css');
-        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/menu/'.Tenant::config('layout.header.menu.desktop.submenu.theme').'.css');
-        $themes[] = self::asset('adm_theme::dist/css/themes/layout/aside/'.Tenant::config('layout.aside.self.theme').'.css');
+        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/base/'.TenantService::config('layout.header.self.theme').'.css');
+        $themes[] = self::asset('adm_theme::dist/css/themes/layout/header/menu/'.TenantService::config('layout.header.menu.desktop.submenu.theme').'.css');
+        $themes[] = self::asset('adm_theme::dist/css/themes/layout/aside/'.TenantService::config('layout.aside.self.theme').'.css');
 
-        if (Tenant::config('layout.aside.self.display')) {
-            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.Tenant::config('layout.brand.self.theme').'.css');
+        if (TenantService::config('layout.aside.self.display')) {
+            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.TenantService::config('layout.brand.self.theme').'.css');
         } else {
-            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.Tenant::config('layout.header.self.theme').'.css');
+            $themes[] = self::asset('adm_theme::dist/css/themes/layout/brand/'.TenantService::config('layout.header.self.theme').'.css');
         }
 
         return $themes;
@@ -1307,7 +1309,7 @@ class ThemeService {
      * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
      */
     public static function tenantConfig(string $config) {
-        return Tenant::config($config);
+        return TenantService::config($config);
     }
 
     /**
@@ -1326,7 +1328,7 @@ class ThemeService {
      * @param array|null $parent
      * @param int        $rec
      */
-    public static function renderHorMenu($item, $parent = null, $rec = 0, bool $singleItem = false): string {
+    public static function renderHorMenu($item, $parent = null, $rec = 0, bool $singleItem = false): ?string {
         return MenuService::renderHorMenu($item, $parent, $rec); //??, $singleItem
     }
 

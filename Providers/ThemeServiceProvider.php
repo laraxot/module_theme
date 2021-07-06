@@ -23,8 +23,11 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
     public string $module_name = 'theme';
 
-    public function bootCallback():void {
+    public function bootCallback(): void {
         $xot = Tenant::config('xra');
+        if (! isset($xot['adm_theme'])) {
+            dddx(['xot' => $xot, 'tennant_name' => Tenant::getName()]);
+        }
 
         $adm_theme = $xot['adm_theme'];
         $adm_resource_path = 'views/themes/'.$adm_theme.'/Resources';
@@ -54,17 +57,18 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             \Modules\Theme\Console\CreateThemeCommand::class,
         ]);
         //dddx(dirname($this->module_ns));
-        Blade::componentNamespace(dirname($this->module_ns).'\View\Components', 'theme');
+        //messo in xotbaseservceprovider
+        //Blade::componentNamespace('Modules\Theme\View\Components', 'theme');
     }
 
-    public function registerCallback():void {
+    public function registerCallback(): void {
         $loader = AliasLoader::getInstance();
         $loader->alias('Theme', 'Modules\Theme\Services\ThemeService');
 
         $this->registerViewComposers();
     }
 
-    private function registerViewComposers():void {
+    private function registerViewComposers(): void {
         //Factory $view
         //$view->composer('bootstrap-italia::page', BootstrapItaliaComposer::class);
         View::composer('*', ThemeComposer::class);

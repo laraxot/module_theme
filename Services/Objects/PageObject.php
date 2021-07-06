@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Services\Objects;
 
 /**
@@ -54,14 +56,14 @@ class PageObject {
     }
 
     /**
-     * @return false
+     * @return bool
      */
     public function isActiveParent() {
         return false;
     }
 
     /**
-     * @return false
+     * @return bool
      */
     public function isActive() {
         return false;

@@ -7,11 +7,9 @@ namespace Modules\Theme\View\Components\Forms\Inputs;
 use Illuminate\Contracts\View\View;
 
 /**
- * Class ColorPicker
- * @package Modules\Theme\View\Components\Forms\Inputs
+ * Class ColorPicker.
  */
-class ColorPicker extends Input
-{
+class ColorPicker extends Input {
     /** @var array */
     public array $options;
 
@@ -20,20 +18,17 @@ class ColorPicker extends Input
      */
     protected static array $assets = ['alpine', 'pickr'];
 
-    public function __construct(string $name, string $id = null, ?string $value = '', array $options = [])
-    {
+    public function __construct(string $name, string $id = null, ?string $value = '', array $options = []) {
         parent::__construct($name, $id, 'hidden', $value);
 
         $this->options = $options;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.forms.inputs.color-picker');
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge([
             'el' => '#'.$this->id,
             'default' => $this->value,
@@ -51,8 +46,7 @@ class ColorPicker extends Input
         ], $this->options);
     }
 
-    protected function swatches(): array
-    {
+    protected function swatches(): array {
         return [
             '000000',
             'A0AEC0',

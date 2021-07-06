@@ -9,8 +9,7 @@ use Illuminate\Support\Arr;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Avatar
- * @package Modules\Theme\View\Components
+ * Class Avatar.
  */
 class Avatar extends XotBaseComponent {
     /** @var string */

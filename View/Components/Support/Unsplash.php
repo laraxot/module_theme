@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Support;
 
-use Modules\Xot\View\Components\XotBaseComponent;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Unsplash
- * @package Modules\Theme\View\Components\Support
+ * Class Unsplash.
  */
-class Unsplash extends XotBaseComponent
-{
+class Unsplash extends XotBaseComponent {
     /** @var string */
     protected string $photo;
 
@@ -54,15 +52,13 @@ class Unsplash extends XotBaseComponent
         $this->ttl = $ttl;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.support.unsplash', [
             'url' => $this->fetchPhoto(),
         ]);
     }
 
-    protected function fetchPhoto(): string
-    {
+    protected function fetchPhoto(): string {
         if (! $accessKey = config('services.unsplash.access_key')) {
             return '';
         }

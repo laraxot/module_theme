@@ -1,15 +1,13 @@
 <?php
-namespace Modules\Theme\Models\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\LU\Models\User as User;
-use Modules\Theme\Models\Theme as Post;
+declare(strict_types=1);
+
+namespace Modules\Theme\Models\Policies;
 
 use Modules\Xot\Models\Policies\XotBasePolicy;
 
 /**
- * Class ThemePolicy
- * @package Modules\Theme\Models\Policies
+ * Class ThemePolicy.
  */
 class ThemePolicy extends XotBasePolicy {
 }
