@@ -649,10 +649,10 @@ class ThemeService {
         //dddx($container_0);
 
         //$model = Tenant::model(last($containers));
-        $model = Tenant::model($container_0);
+        $model = TenantService::model($container_0);
         $mod_name = getModuleNameFromModel($model);
         $mod_name_low = strtolower($mod_name);
-        */
+
         $last_container = last($containers);
 
         $view = $mod_name_low.'::'.$last_container.'.'.$act;
@@ -784,7 +784,7 @@ class ThemeService {
         $routename = \Route::current()->getName();
         $lang = app()->getLocale();
         //--- per passare la view all'interno dei componenti
-        \View::composer('*', function ($view_params) use ($view) {
+        \View::composer('*', function ($view_params) use ($view): void {
             \View::share('view', $view);
             $trad = implode('.', array_slice(explode('.', $view), 0, -1));
             \View::share('trad', $trad);
@@ -1120,7 +1120,7 @@ class ThemeService {
         return FormXService::inputHtml($params);
     }
 
-    public static function getAdminJsonMenu() {
+    public static function getAdminJsonMenu(): void {
         $route_params = \Route::current()->parameters();
         extract($route_params);
         if (! isset($module)) {
@@ -1186,7 +1186,7 @@ class ThemeService {
      * @param string $name
      * @param mixed  $value
      */
-    public static function addAttr($scope, $name, $value) {
+    public static function addAttr($scope, $name, $value): void {
         self::$attrs[$scope][$name] = $value;
     }
 
@@ -1194,14 +1194,14 @@ class ThemeService {
      * @param string $scope
      * @param string $class
      */
-    public static function addClass($scope, $class) {
+    public static function addClass($scope, $class): void {
         self::$classes[$scope][] = $class;
     }
 
     /**
      * @param string $scope
      */
-    public static function printAttrs($scope) {
+    public static function printAttrs($scope): void {
         $attrs = [];
 
         if (isset(self::$attrs[$scope]) && ! empty(self::$attrs[$scope])) {
@@ -1217,7 +1217,7 @@ class ThemeService {
      * @param string $scope
      * @param bool   $full
      */
-    public static function printClasses($scope, $full = true) {
+    public static function printClasses($scope, $full = true): void {
         if ('body' == $scope) {
             self::$classes[$scope][] = 'page-loading';
         }
@@ -1237,7 +1237,7 @@ class ThemeService {
     /**
      * Prints Google Fonts.
      */
-    public static function getGoogleFontsInclude() {
+    public static function getGoogleFontsInclude(): void {
         if (TenantService::config('layout.resources.fonts.google.families')) {
             $fonts = TenantService::config('layout.resources.fonts.google.families');
             echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family='.implode('|', $fonts).'">';
