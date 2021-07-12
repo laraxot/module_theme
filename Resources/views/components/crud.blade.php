@@ -17,6 +17,7 @@ if (
     @include('formx::includes.flash')
     <div class="card">
         <div class="card-header">
+
             <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
                 {{-- request()->route()->getName()
                     admin.container0.edit --}}
@@ -56,28 +57,24 @@ if (
                         [not can {{ $v_act }}] --}}
                     @endcan
                 @endforeach
-
-
-
-
-
             </ul>
 
             <br />
             <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
+
                 @foreach ($_panel->getTabs() as $level)
+                    <ul class="nav align-items-end card-header-tabs w-100">
                     @foreach ($level as $tab)
                         <li class="nav-item ">
                             <a class="nav-link {{ $tab->active ? 'active' : '' }}" href="{{ $tab->url }}">
-                                @php
-                                    //dddx([$_panel, $_panel->getTabs(), 'theme::txt.' . $tab->title]);
-                                @endphp
-                                {{ trans('theme::txt.' . $tab->title) }}
-                                {{-- $tab->title --}}
+                                {{-- trans('theme::txt.' . $tab->title) --}}
+                                {{ $tab->title }}
                             </a>
                         </li>
                     @endforeach
+                    </ul>
                 @endforeach
+
             </ul>
 
 

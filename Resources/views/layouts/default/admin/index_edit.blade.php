@@ -12,13 +12,15 @@
      @component('theme::components.crud',get_defined_vars())
      @slot('content')
     {!! Theme::include('topbar',[],get_defined_vars()) !!}
-   
+
     @foreach ($rows as $key => $row)
         @php
         $fields=$_panel->indexFields();
         //$row_panel=$_panel;
         $row_panel=Panel::get($row);
+        //dddx([$_panel->getName(),$_panel_name]);
         $row_panel->setParent($_panel->getParent());
+        $row_panel->setName($_panel->getName());
         //dddx([$_panel,$row_panel]);
 
         @endphp
@@ -59,14 +61,6 @@
     {{ $rows->links() }}
     @endslot
     @endcomponent
-    {{--
-    {{ Form::submit('Salva ed esci', ['class' => 'submit btn btn-success green-meadow']) }}
-    {!! Theme::inputHtml(['row' => $last_item, 'field' => $field]) !!}
-    /*escaped*/{!!
-    ?>Form::bsOpen($last_item, 'index_edit', 'index_edit') !!}
-    {{ Form::bsMultiCheckbox($types) }}
-    /*escaped*/{!!
-    ?>Form::close() !!}
-    --}}
+
 
 @endsection

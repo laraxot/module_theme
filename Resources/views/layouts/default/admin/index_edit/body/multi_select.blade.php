@@ -1,15 +1,8 @@
 @php
-	//ddd($_layout);
-	//ddd($_panel);
-	//$last_item=last($items);
-	//$last_container=last($containers);
-    //$types=Str::camel(Str::plural($last_container));
-    //dddx($items);
-    //dddx(get_defined_vars());
+
     $last_item_panel=Panel::get($last_item);
     $_panel->setParent($last_item_panel);
-    //dddx($_panel->url(['act'=>'index_edit']));
-    //dddx($_panel->url(['act'=>'index_edit']));
+
     $url=$_panel->url(['act'=>'index_edit']);
 @endphp
 

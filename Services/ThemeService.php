@@ -823,7 +823,7 @@ class ThemeService {
         */
         list($containers, $items) = params2ContainerItem($route_params);
         $last_container = last($containers);
-        $types = \Str::camel(\Str::plural($last_container));
+        //$types = \Str::camel(\Str::plural($last_container));
         $last_item = last($items);
 
         [$ns,$group] = explode('::', $view);
@@ -858,7 +858,7 @@ class ThemeService {
             ->with('containers', $containers)
             ->with('last_container', $last_container)
             ->with('items', $items)
-            ->with('types', $types)
+            //->with('types', $types)
             ->with('last_item', $last_item)
             //->with('_layout', $layout) ??deprecated
             ->with('routename', $routename)
