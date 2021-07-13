@@ -3,14 +3,14 @@
 
     @foreach ($rows as $key => $row)
         @php
-        // nella lista la password e conferma password posso ometterle
-        /*
-        $fields=collect($_panel->fields())->filter(function($item){
-        return !in_array($item->type,['Password']);
-        })->all();
-        */
-        $fields=$_panel->indexFields();
-
+            // nella lista la password e conferma password posso ometterle
+            /*
+                    $fields=collect($_panel->fields())->filter(function($item){
+                    return !in_array($item->type,['Password']);
+                    })->all();
+                    */
+            $fields = $_panel->indexFields();
+            
         @endphp
         @if ($loop->first)
             <table>
@@ -45,5 +45,7 @@
             </table>
         @endif
     @endforeach
-    {{ $rows->links('pub_theme::layouts.partials.pagination') }}
+    @if (view()->exists('pub_theme::layouts.partials.pagination'))
+        {{ $rows->links('pub_theme::layouts.partials.pagination') }}
+    @endif
 @endsection
