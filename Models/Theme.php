@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null                     $created_by
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $updated_by
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme query()
