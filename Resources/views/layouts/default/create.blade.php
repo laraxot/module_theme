@@ -26,9 +26,11 @@
                 $fields = $_panel->createFields();
             @endphp
             {!! Form::bsOpenPanel($_panel, 'store') !!}
+            <div class="row">
             @foreach ($fields as $field)
                 {!! Theme::inputHtml(['row' => $row, 'field' => $field]) !!}
             @endforeach
+            </div>
             {{-- $_panel->btnSubmit() --}}
             {{ Form::bsSubmit() }}
             {!! Form::close() !!}
