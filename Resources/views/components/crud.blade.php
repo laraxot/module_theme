@@ -1,5 +1,4 @@
 @php
-//dddx(get_defined_vars());
 $acts = ['index', 'create', 'edit'];
 if (
     Str::endsWith(
@@ -38,16 +37,8 @@ if (
                                     @else
                                         {!! trans('pub_theme::icons.' . $v_act) !!}
                                     @endif
-                                    @php
-                                        //dddx($trad_mod . '.tab.' . $v_act);
-                                    @endphp
                                     {{ trans($trad_mod . '.tab.' . $v_act) }}
                                 </a>
-                                {{-- <br/>{{ $href1 }}
-                                <br />{{ $req_path }} --}}
-
-
-
                             </li>
                         @else
                             {{-- [url malformed {{ $v_act }}] --}}
@@ -64,21 +55,18 @@ if (
 
                 @foreach ($_panel->getTabs() as $level)
                     <ul class="nav align-items-end card-header-tabs w-100">
-                    @foreach ($level as $tab)
-                        <li class="nav-item ">
-                            <a class="nav-link {{ $tab->active ? 'active' : '' }}" href="{{ $tab->url }}">
-                                {{-- trans('theme::txt.' . $tab->title) --}}
-                                {{ $tab->title }}
-                            </a>
-                        </li>
-                    @endforeach
+                        @foreach ($level as $tab)
+                            <li class="nav-item ">
+                                <a class="nav-link {{ $tab->active ? 'active' : '' }}" href="{{ $tab->url }}">
+                                    {{-- trans('theme::txt.' . $tab->title) --}}
+                                    {{ $tab->title }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 @endforeach
 
             </ul>
-
-
-
 
         </div>
         <div class="card-body">
