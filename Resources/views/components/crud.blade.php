@@ -43,9 +43,7 @@ if (
                         @else
                             {{-- [url malformed {{ $v_act }}] --}}
                         @endif
-                        {{-- @elsecan
-
-                        [not can {{ $v_act }}] --}}
+                        {{-- [not can {{ $v_act }}] --}}
                     @endcan
                 @endforeach
             </ul>
