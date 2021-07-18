@@ -17,9 +17,9 @@
                 @php
                     $fields = $_panel->indexFields();
                     /*
-                        $row_panel=Panel::get($row);
-                        $row_panel->setParent($_panel->getParent());
-                    */
+                                                                $row_panel=Panel::get($row);
+                                                                $row_panel->setParent($_panel->getParent());
+                                                            */
                     $row_panel = $_panel->getHydrate($row);
                     $row_panel->setName($_panel_name);
                     //dddx([$_panel,$row_panel]);
@@ -63,20 +63,19 @@
                         </td>
                     @endforeach
                     <td>
-
-
-
                         {!! $row_panel->btnCrud() !!}
-
                     </td>
                 </tr>
                 @if ($loop->last)
                     </tbody>
                     </table>
                 @endif
-
             @endforeach
-            {{ $rows->appends(request()->query())->links('adm_theme::layouts.partials.pagination') }}
+            @if (view()->exists('adm_theme::layouts.partials.pagination'))
+                {{ $rows->appends(request()->query())->links('adm_theme::layouts.partials.pagination') }}
+            @else
+                {{ $rows->appends(request()->query())->links() }}
+            @endif
         @endslot
     @endcomponent
 @endsection
