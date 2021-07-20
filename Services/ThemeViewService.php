@@ -10,8 +10,8 @@ use Modules\Theme\Menu\Builder;
  * Class ThemeViewService.
  */
 class ThemeViewService {
-    protected array $menu;
-    protected array $filters;
+    protected array $menu = [];
+    protected array $filters = [];
     protected array $events;
     protected string $container;
     /*

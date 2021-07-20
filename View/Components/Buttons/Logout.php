@@ -8,11 +8,9 @@ use Illuminate\Contracts\View\View;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Logout
- * @package Modules\Theme\View\Components\Buttons
+ * Class Logout.
  */
 class Logout extends XotBaseComponent {
-    /** @var string */
     public string $action;
     public array $attrs = ['aa' => 'bb'];
 
@@ -21,7 +19,8 @@ class Logout extends XotBaseComponent {
     }
 
     public function render(): View {
-        $view = $this->getView();
+        //$view = $this->getView();
+        $view = 'theme::components.buttons.logout';
         $view_params = [
             'view' => $view,
         ];
