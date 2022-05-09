@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Modules\Xot\Database\Migrations\XotBaseMigration;
+
+class CreateMenusTable extends XotBaseMigration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        //-- CREATE --
+        $this->tableCreate(
+            function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->string('name');
+                $table->timestamps();
+            }
+        );
+    }
+
+
+}

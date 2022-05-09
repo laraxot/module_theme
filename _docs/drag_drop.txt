@@ -1,0 +1,32 @@
+https://laravel-livewire.com/screencasts/s8-dragging-list
+
+
+
+https://github.com/asantibanez/laravel-blade-sortable
+
+
+
+
+https://thecodelearners.com/laravel-categories-subcategories-drag-drop-and-sort-using-jquery/
+
+
+
+https://morioh.com/p/48ed8d01641a
+
+
+
+https://codepen.io/dev12345/pen/vZQwGW
+
+
+
+https://www.jqueryscript.net/other/sortable-list-tree.html  !!!!
+
+https://www.jqueryscript.net/other/Sortable-Collapsible-Tree-View-Plugin-For-jQuery-Sortable-Lists.html !
+
+
+
+
+https://github.com/ahamed/treeSortable !!
+
+
+https://github.com/bevacqua/dragula  quello usato da spatie

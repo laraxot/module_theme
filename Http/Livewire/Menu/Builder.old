@@ -1,0 +1,67 @@
+<?php
+/**
+ * ---
+ */
+
+declare(strict_types=1);
+
+namespace Modules\Theme\Http\Livewire\Menu;
+
+use Modules\Theme\Models\MenuItem;
+use Modules\Theme\Models\Menu;
+use Illuminate\View\View;
+use Livewire\Component;
+
+/**
+ * Undocumented class
+ */
+class Builder extends Component {
+    public array $form_data = [];
+    public array $item = [];
+    public ?string $menu_name = null;
+    public ?int $menu_id = null;
+
+    /**
+     * Undocumented function
+     */
+    public function render(): View {
+        $menu = new Menu();
+        $menuitems = new MenuItem();
+        $menulist = $menu->select(['id', 'name'])->get();
+        $menulist = $menulist->pluck('name', 'id')->prepend('Select menu', 0)->all();
+
+        $view = 'theme::livewire.menu.builder';
+        $view_params = [
+            'view' => $view,
+            'menulist' => $menulist,
+            'currentUrl' => url()->current(),
+        ];
+
+        if (isset($this->form_data['menu'])) {
+            $menu_id = $this->form_data['menu'];
+            $this->menu_name = $menu_id;
+            $view_params['menus'] = $menuitems->getall($menu_id);
+        }
+
+        return view()->make($view, $view_params);
+    }
+
+    public function createNewMenu() {
+        $menu = new Menus();
+        $menu->name = $this->menu_name;
+        $menu->save();
+    }
+
+    public function addMenuItem() {
+        $menuitem = new MenuItems();
+
+        $menuitem->link = $this->item['link'];
+        $menuitem->label = $this->item['label'];
+        if (config('menu.use_roles')) {
+            $menuitem->role_id = request()->input('rolemenu') ? request()->input('rolemenu') : 0;
+        }
+        $menuitem->menu = $this->form_data['menu'];
+        $menuitem->sort = MenuItems::getNextSortRoot($this->form_data['menu']);
+        $menuitem->save();
+    }
+}

@@ -1,0 +1,74 @@
+/*
+tabs dalla "view" va a prendere le blade dentro la cartella "tabs"
+
+
+
+public static function tabs(array $params){
+        //o glielo passo come parametro o me lo calcolo, ma da errore su tabs annidati
+        if (isset($params['view'])) {
+            $tabs_view = $params['view'].'.tabs';
+            $tabs_dir = FileService::viewNamespaceToDir($tabs_view);
+        } else {
+            $routename = Route::currentRouteName();
+            $action = Route::currentRouteAction();
+            $action = \explode('\\', $action);
+            $pack = \mb_strtolower($action[1]);
+            $tabs_view = $pack.'::'.$routename.'.tabs';
+            //manca "admin"
+            $tabs_dir = FileService::viewNamespaceToDir($tabs_view);
+        }
+        //dd($tabs_dir);
+        $files = \File::files($tabs_dir);
+        $tabs = [];
+        $blade_ext = '.blade.php';
+        foreach ($files as $file) {
+            /* sostituire pathinfo in queste funzioni per la laravel way
+            $file->getSize();
+        $file->getFilename();
+        $file->getType();
+            */
+            $path_parts = \pathinfo($file);
+
+            if (\mb_substr($path_parts['basename'], -\mb_strlen($blade_ext)) == $blade_ext) {
+                $tmp = [];
+                //$tmp['path']=(string)$file; //usefull for debug
+                $name = \mb_substr($path_parts['basename'], 0, -\mb_strlen($blade_ext));
+                $re = '/([^_]*)_([0-9]*)/';
+                $ris = \preg_match($re, $name, $matches);
+                //echo '<pre>';print_r($ris);echo '</pre>';die();
+                if ($ris) {
+                    $tmp['name'] = $matches[1];
+                    $tmp['position'] = $matches[2] * 1;
+                } else {
+                    $tmp['name'] = $name;
+                    $tmp['position'] = 10;
+                }
+                $tmp['view'] = $name;
+
+                $tabs[] = $tmp;
+            }
+        }
+
+        $tabs = collect($tabs)->sortBy('position')->all();
+        $tabs = \array_values($tabs);
+        //echo '<pre>';print_r($tabs);echo '</pre>';die();
+        /*
+        $tabs=[
+                ['name'=>'menu',        'icon'=>'fa fa-cutlery orange-text'],
+                ['name'=>'bookatable',  'icon'=>'fa fa-calendar-check-o orange-text'],
+                ['name'=>'reviews',     'icon'=>'fa fa-comments orange-text'],
+                ['name'=>'info',        'icon'=>'fa fa-info-circle orange-text'],
+                ];
+        */
+
+        //return view('theme::services.tabs',$params)
+        $view = 'theme::services.tabs';
+        $view = 'pub_theme::includes.partials.tabs';
+        $view = 'adm_theme::includes.partials.tabs';
+
+        return view($view, $params)
+        ->with('tabs', $tabs)
+        ->with('tabs_view', $tabs_view)
+        //->with('row',$params['row'])
+        ;
+    }

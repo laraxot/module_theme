@@ -1,0 +1,51 @@
+@extends('pub_theme::layouts.app')
+@section('content')
+    @php
+    if ($rows_err != null) {
+        exit('<h3><pre>' . $rows_err->getMessage() . '</pre></h3>');
+        return;
+    }
+    @endphp
+
+    @foreach ($rows as $key => $row)
+        @php
+            $fields = $_panel->getFields(['act' => 'index']);
+            $row_panel = $_panel->newPanel($row);
+        @endphp
+        @if ($loop->first)
+            <table>
+                <thead>
+                    <tr>
+                        @foreach ($fields as $field)
+                            <td>{{ str_replace('_', ' ', $field->name) }}</td>
+                        @endforeach
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+        @endif
+        <tr>
+            @foreach ($fields as $field)
+                <td>
+                    {!! Theme::inputFreeze(['row' => $row, 'field' => $field]) !!}
+                    @if ($loop->first)
+                        @foreach ($_panel->itemActions() as $act)
+                            {!! $act->btn(['row' => $row]) !!}
+                        @endforeach
+                    @endif
+                </td>
+            @endforeach
+            <td>
+                {{-- {!! Form::bsBtnCrud(['row' => $row]) !!} --}}
+                {!! $row_panel->btnCrud() !!}
+            </td>
+        </tr>
+        @if ($loop->last)
+            </tbody>
+            </table>
+        @endif
+    @endforeach
+    @if (view()->exists('pub_theme::layouts.partials.pagination'))
+        {{ $rows->links('pub_theme::layouts.partials.pagination') }}
+    @endif
+@endsection

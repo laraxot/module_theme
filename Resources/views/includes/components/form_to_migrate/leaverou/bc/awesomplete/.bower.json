@@ -1,0 +1,13 @@
+{
+  "name": "awesomplete",
+  "_cacheHeaders": {
+    "ETag": "W/\"047d34c587f948dd94c82c5897a239f5\"",
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"047d34c",
+  "main": "index",
+  "_source": "https://github.com/LeaVerou/awesomplete",
+  "_target": "*",
+  "_originalSource": "https://github.com/LeaVerou/awesomplete",
+  "_direct": true
+}

@@ -1,0 +1,109 @@
+https://codepen.io/vineethtr/pen/LkrmJv
+
+https://codepen.io/yusufbkr/pen/QbxzVq
+
+https://codepen.io/pouretrebelle/pen/idEwu
+
+https://codepen.io/depy/pen/vEWWdw   da testare jquery
+
+https://codepen.io/joshbader/pen/zxvgNG
+
+https://codepen.io/khone-vongsouthi/pen/gfzoK   pure css
+
+https://codepen.io/naulacambra/pen/gbzvPa
+
+https://codepen.io/facundocorradini/pen/MQmoLR
+
+https://codepen.io/wwwebneko/pen/yJpNQW
+
+https://codepen.io/damianmuti/pen/KmEMdR  svg
+
+https://codepen.io/jexordexan/pen/yyYEJa  movimento
+
+https://codepen.io/fusco/pen/MwawEL
+
+https://codepen.io/eltonkamami/pen/qDrkC
+
+https://codepen.io/bphillips201/pen/vBhcb
+
+https://codepen.io/scottb/pen/KdYgRK  angular
+
+https://codepen.io/jamesbarnett/pen/vlpkh
+
+https://codepen.io/bewley/pen/pyBgaq
+
+https://www.cssscript.com/demo/select-star-rating/
+
+https://www.cssscript.com/demo/star-rating-component-javascript-rater/
+
+https://www.cssscript.com/demo/accessible-star-rating-system-pure-css/
+
+https://www.cssscript.com/demo/radio-button-based-star-rating-system/
+
+https://www.cssscript.com/demo/five-star-rating-system-with-pure-css-and-radio-button-hack/
+
+https://codepen.io/lsirivong/pen/ekBxI
+
+https://codepen.io/andreacrawford/pen/NvqJXW
+
+https://codepen.io/brigi_cs/pen/bYjGEK
+
+https://codepen.io/ryanparag/pen/prKVGZ
+
+https://codepen.io/roxy225/pen/zvKByN ..
+
+https://codepen.io/khone-vongsouthi/pen/gfzoK  con aggiornamento lesshat
+
+https://codepen.io/jexordexan/pen/yyYEJa
+
+https://codepen.io/damianmuti/pen/KmEMdR  svg
+
+http://auxiliary.github.io/rater/   gia' componente
+
+https://github.com/gjunge/rateit.js   //--- 3 mesi
+https://www.itsolutionstuff.com/post/bootstrap-star-rating-example-using-bootstrap-star-rating-pluginexample.html //--- pigrizia
+https://mdbootstrap.com/plugins/jquery/rating/ da estrapolare
+https://amp.dev/documentation/examples/interactivity-dynamic-content/star_rating/    //google amp ..
+
+https://github.com/kartik-v/bootstrap-star-rating  // :( bootstrap 3
+
+
+https://github.com/LunarLogic/starability // radio
+
+https://github.com/dobtco/starrr
+
+http://nashio.github.io/star-rating-svg/demo/
+
+https://codepen.io/jamesbarnett/pen/vlpkh
+
+https://www.jqueryscript.net/other/Simple-jQuery-Star-Rating-System-For-Bootstrap-3.html //9 mesi
+
+https://github.com/dreyescat/bootstrap-rating
+
+https://dylanfm.github.io/jquery.ratemate/
+
+https://github.com/DrRoach/rating
+
+https://plugins.krajee.com/star-rating
+
+https://www.jqueryscript.net/demo/Simple-jQuery-Star-Rating-System-For-Bootstrap-3/
+
+https://codepen.io/bsudevchick/pen/yjLLzR
+
+https://previews.customer.envatousercontent.com/files/262991882/index.html
+
+https://mdbootstrap.com/plugins/jquery/rating/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

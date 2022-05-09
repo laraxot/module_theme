@@ -1,0 +1,37 @@
+<?php
+
+namespace Modules\FormX\Http\Livewire\Test;
+
+use Livewire\Component;
+
+/**
+ * Class Row
+ * @package Modules\FormX\Http\Livewire\Test
+ */
+class Row extends Component {
+
+    public $row;
+
+    public $index;
+
+    /**
+     * @param object $row
+     * @param string $index
+     */
+    public function mount($row, $index) {
+        $this->row = $row;
+        $this->index = $index;
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    /**
+     * Render the component.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function render():\Illuminate\Contracts\Support\Renderable {
+        return view('formx::livewire.test.row');
+    }
+}

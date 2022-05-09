@@ -1,0 +1,13 @@
+<div wire:root-id="{{ $id }}">
+
+wire:sync
+
+livewire websocket
+
+wire:hook="add-button"
+
+wire:transition="fade"
+
+
+
+https://chrislloyd.co/using-laravel-livewire-to-render-dynamic-gutenberg-blocks/

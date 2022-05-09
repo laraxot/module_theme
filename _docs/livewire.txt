@@ -1,0 +1,29 @@
+datagrid
+https://itsolutionstuff.com/post/laravel-livewire-datatables-example-tutorialexample.html
+
+
+-- va bene per le variabili di settings
+https://itsolutionstuff.com/post/laravel-livewire-add-or-remove-dynamically-input-fields-exampleexample.html
+
+https://www.codechief.org/article/laravel-livewire-dynamically-add-more-input-fields-example?ref=laravelnews
+
+
+https://www.hdtuto.com/index.php/article/laravel-8-livewire-file-upload-tutorial
+
+https://www.hdtuto.com/index.php/article/laravel-8-livewire-load-more-data-example
+
+https://www.hdtuto.com/index.php/article/laravel-8-livewire-image-upload-example
+
+
+https://chasingcode.dev/blog/edit-in-place-component-livewire-alpinejs/
+
+
+//--- creare un blog con livewire e tailwind
+https://devdojo.com/tnylea/create-a-blog-in-laravel-and-livewire
+
+//--- How to create a Contact Us form with Livewire
+https://devdojo.com/thinkverse/how-to-create-a-contact-us-form-with-livewire
+
+
+//---- setup WIZARD
+https://mettle.io/blog/using-laravel-livewire-create-setup-wizard

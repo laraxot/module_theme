@@ -1,0 +1,227 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Theme\View\Components;
+
+/* fa un po schifo ma per testare proviamo così */
+use Modules\Theme\Http\Controllers\VideoEditor\BaseControllerClass as BaseController;
+use Illuminate\View\Component;
+use Modules\Xot\Services\FileService;
+
+/**
+ * Class VideoPlayer.
+ */
+class VideoEditor extends Component {
+    public string $driver;
+    public string $mp4Src;
+
+    /**
+     * The bootstrap-slider plugin configuration parameters. Array with
+     * key => value pairs, where the key should be an existing configuration
+     * property of the plugin.
+     *
+     * @var array
+     */
+    public $config;
+
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct(string $driver, string $mp4Src) {
+        $this->driver = $driver;
+        //$this->config = is_array($config) ? $config : [];
+        $this->config = [];
+        $this->mp4Src = $mp4Src;
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+         */
+    public function render():\Illuminate\Contracts\Support\Renderable {
+
+        $lang_arr = [
+            'signup_with_google' => 'Signup with Google',
+            'signup_with_facebook' => 'Signup with Facebook',
+            'email_address' => 'Email address',
+            'password' => 'Password',
+            'confirm_password' => 'Confirm password',
+            'forgot_your_password' => 'Forgot your password?',
+            'login' => 'Login',
+            'log_out' => 'Log out',
+            'sign_up' => 'Sign up',
+            'need_an_account' => 'Need an account?',
+            'reset_password' => 'Reset password',
+            'submit' => 'Submit',
+            'user_not_found' => 'User is not found.',
+            'user_blocked' => 'User is blocked.',
+            'profile' => 'Profile',
+            'users' => 'Users',
+            'log' => 'Log',
+            'close' => 'Close',
+            'import_media' => 'Import Media',
+            'import' => 'import',
+            'play' => 'Play',
+            'play_small' => 'Play',
+            'pause' => 'Pause',
+            'play_episode' => 'Play episode',
+            'step_back' => 'Step back',
+            'step_forward' => 'Step forward',
+            'take_episode' => 'Take episode',
+            'cut_fast' => 'Cut fast',
+            'create_video' => 'Create Video',
+            'used' => 'Used',
+            'youtube_url' => 'YouTube video URL or direct URL',
+            'browse_files' => 'Choose file',
+            'convert_video' => 'Convert Video',
+            'convert' => 'Convert',
+            'quality' => 'Quality',
+            'low' => 'Low',
+            'medium' => 'Medium',
+            'high' => 'High',
+            'size' => 'Size',
+            'format' => 'Format',
+            'name' => 'Name',
+            'text_on_video' => 'Text on video',
+            'text_on_full_video' => 'Text the whole video',
+            'enter_text_here' => 'Enter text here',
+            'static_top' => 'Static at the top',
+            'static_bottom' => 'Static bottom',
+            'movement_from_bottom' => 'Move from the bottom',
+            'movement_from_left' => 'Move from the left',
+            'aspect_ratio' => 'Aspect ratio',
+            'choose_background_audio' => 'Choose a background audio file',
+            'choose_audio' => 'Choose audio',
+            'audio' => 'Audio',
+            'create' => 'Create',
+            'add_image_to_timeline' => 'Add a picture to the project',
+            'preview' => 'Preview',
+            'rename' => 'Rename',
+            'delete' => 'Delete',
+            'remove' => 'Remove',
+            'edit' => 'Edit',
+            'download' => 'Download',
+            'empty' => 'Empty.',
+            'yes' => 'Yes',
+            'cancel' => 'Cancel',
+            'confirm' => 'Confirm',
+            'duration' => 'Duration',
+            'text_on_image' => 'Text in the picture',
+            'auto_split_text' => 'Split text into strings automatically',
+            'video_preview' => 'Preview video',
+            'image_preview' => 'Preview image',
+            'email' => 'Email',
+            'user_name' => 'Name',
+            'role' => 'Role',
+            'type' => 'Type',
+            'social_url' => 'Social URL',
+            'confirmed' => 'Confirmed',
+            'blocked' => 'Blocked',
+            'actions' => 'Actions',
+            'admin' => 'Admin',
+            'user' => 'User',
+            'back' => 'Back',
+            'input_files' => 'Uploaded files',
+            'output_files' => 'Created video',
+            'error' => 'Error',
+            'please_enter_url' => 'Please enter the address of the file or select the media file.',
+            'video_format_not_supported' => 'The video format is not supported in your browser.',
+            'playback_not_possible' => 'Playback is not possible.',
+            'image_parameters' => 'Image Options',
+            'save' => 'Save',
+            'add' => 'Add',
+            'play_audio' => 'Play Audio',
+            'project_is_empty' => 'Your project is empty.',
+            'warning' => 'Warning',
+            'processing' => 'Processing',
+            'queue' => 'Queue',
+            'please_wait' => 'Please wait...',
+            'text_color' => 'Text color',
+            'text_background_color' => 'Text background color',
+            'white' => 'White',
+            'black' => 'Black',
+            'yellow' => 'Yellow',
+            'red' => 'Red',
+            'green' => 'Green',
+            'blue' => 'Blue',
+            'export_url' => 'Get this video',
+            'import_from' => 'Import from ',
+            'value_is_empty' => 'Value is empty',
+            'import_from_pixabay' => 'Import from Pixabay',
+            'import_from_google_search' => 'Import from Google search',
+            'you_sure_you_want_remove_user' => 'Are you sure you want to remove user?',
+            'you_sure_you_want_delete_your_account' => 'Are you sure you want to delete your account?',
+            'your_account_activated' => 'Your account is activated',
+            'data_successfully_saved' => 'The data was successfully saved.',
+            'file_type_is_not_allowed' => 'File type is not allowed.',
+            'file_size_exceeds_allowed_limit' => 'The file size exceeds the allowed limit.',
+            'error_while_downloading_video' => 'Error while downloading video.',
+            'error_try_later' => 'Error. Please try again later',
+            'auth_error_try_using_different_email' => 'An error has occurred. Try using a different email address.',
+            'you_successfully_registered' => 'You are successfully registered. Now you can enter.',
+            'password_change_successfully_confirmed' => 'Password change has been successfully confirmed.',
+            'wait_for_confirmation_from_administration' => 'Please wait for confirmation from the administration.',
+            'your_new_password' => 'Your new password',
+            'new_password_has_been_sent' => 'The new password has been sent to your email.',
+            'passwords_do_not_match' => 'Passwords do not match.',
+            'password_must_contain_more_than_characters' => 'The password must contain more than 6 characters.',
+            'user_already_exists_with_email' => 'A user already exists with the specified email address. You can enter using your password.',
+            'downloading_a_file' => 'Downloading a file',
+            'download_file_forbidden' => 'You can not download this file. Has not received approval from the administration.',
+            'your_account_activated_use_service' => 'Your account has been activated. Now you can use our service.',
+            'to_confirm_click_here' => 'To confirm, click here',
+            'audio_library' => 'Audio library'
+        ];
+
+        
+        $config_component = FileService::config('theme::videoeditor');
+
+        /* per ora disabilito la lingua perchè laravel ha i suoi componenti
+        per gestire le traduzioni */
+        $controller = new BaseController($config_component, $lang_arr);
+        $page_content = $controller->handleRequest();
+
+        /* user usa l'autenticazione di laravel */
+        $user = $controller->getUser(true);
+
+       
+
+        $action = BaseController::getRequestAction('main');
+
+        /* non serve fare l'autenticazione per vedere un  video player in un componente */
+        /*if ($config_component['authentication']) {*/
+            
+            /*if (empty($user['id']) && ! in_array($action, ['auth', 'signup', 'password_reset'])) {
+                $action = 'auth';
+            }*/
+            /* togliamo tanto è vuoto l'if quindi non serve a un cazzo */
+            /*if ('auth' == $action && empty($user)) {*/
+                // BaseController::redirectTo($config_component['base_url']);
+            /*}*/
+        /*}*/
+
+        $view = 'theme::components.video-editor.'.$this->driver;
+
+        
+
+        $included_view = 'theme::components.video-editor.custom.templates.' . $action;
+        $included_template = 'theme::components.video-editor.custom.templates.' . $action. '_templates';
+
+        $view_params = [
+            'lang_arr'=>$lang_arr,
+            'user'=>$user,
+            'included_view'=>$included_view,
+            'included_template'=>$included_template,
+            'action'=>$action,
+            'controller'=>$controller,
+            'page_content'=>$page_content,
+            'config_component' => $config_component,
+            'view' => $view,
+        ];
+
+        return view()->make($view, $view_params);
+    }
+}

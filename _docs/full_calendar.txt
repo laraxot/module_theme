@@ -1,0 +1,13 @@
+
+
+//-- esempio base ma funziona
+https://laravelplayground.com/#/snippets/8e785494-5a75-4c25-a92d-97ae16e71554
+
+
+//
+https://github.com/asantibanez/livewire-calendar
+
+
+//-- non e' livewire ma mostra come aprire il modal
+https://blog.quickadminpanel.com/laravel-fullcalendar-edit-events-with-bootstrap-modal/
+

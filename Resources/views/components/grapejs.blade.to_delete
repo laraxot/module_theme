@@ -1,0 +1,422 @@
+{{ Theme::add('https://unpkg.com/grapesjs@0.18.4/dist/css/grapes.min.css') }}
+{{ Theme::add('https://unpkg.com/grapesjs@0.18.4/dist/grapes.min.js') }}
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            const editor = grapesjs.init({
+                // Indicate where to init the editor. You can also pass an HTMLElement
+                container: '#grapejs',
+                canvas: {
+                    //qua si possono mettere scripts e stili esterni o interni
+                    //passare scripts e styles con $attrs['scripts'] ecc...
+                    scripts: ['/themes/DirectoryBs5/dist/js/app.js'],
+                    styles: ['/themes/DirectoryBs5/dist/css/app.css']
+                },
+
+                // Get the content for the canvas directly from the element
+                // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
+                fromElement: false,
+                // Size of the editor
+                height: '50vh',
+                width: '100%',
+                //Qui è dove si scrive dove salvare l'html renderizzato.
+                //Per ora è a false ma bisognerà decidere come fare
+                storageManager: false,
+                deviceManager: {
+                    devices: [{
+                        name: 'Desktop',
+                        width: '', // default size
+                    }, {
+                        name: 'Mobile',
+                        width: '320px', // this value will be used on canvas width
+                        widthMedia: '480px', // this value will be used in CSS @media
+                    }]
+                },
+                //manager dei livelli
+                layerManager: {
+                    appendTo: '.layers-container'
+                },
+                //imposto il pannello di default
+                panels: {
+                    defaults: [
+                        // ...
+                        {
+                            id: 'panel-switcher',
+                            el: '.panel__switcher',
+                            buttons: [{
+                                id: 'show-layers',
+                                active: true,
+                                label: 'Layers',
+                                command: 'show-layers',
+                                // Once activated disable the possibility to turn it off
+                                togglable: false,
+                            }, {
+                                id: 'show-style',
+                                active: true,
+                                label: 'Styles',
+                                command: 'show-styles',
+                                togglable: false,
+                            }, {
+                                id: 'show-traits',
+                                active: true,
+                                label: 'Traits',
+                                command: 'show-traits',
+                                togglable: false,
+                            }, {
+                                id: 'device-desktop',
+                                label: 'Desktop',
+                                command: 'set-device-desktop',
+                                active: true,
+                                togglable: false,
+                            }, {
+                                id: 'device-mobile',
+                                label: 'Mobile',
+                                command: 'set-device-mobile',
+                                togglable: false,
+                            }],
+                        }
+                    ]
+                },
+                blockManager: {
+                    appendTo: '#blocks',
+                    //dentro block vanno messi i componenti
+                    blocks: [{
+                            id: 'h1', // id is mandatory
+                            label: '<b>H1</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<h1>INTESTAZIONE 1</h1>`,
+                        }, {
+                            id: 'h2', // id is mandatory
+                            label: '<b>H2</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<h1>INTESTAZIONE 2</h1>`,
+                        }, {
+                            id: 'h3', // id is mandatory
+                            label: '<b>H3</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<h1>INTESTAZIONE 3</h1>`,
+                        },
+                        {
+                            id: 'h4', // id is mandatory
+                            label: '<b>H4</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<h4>INTESTAZIONE 4</h4>`,
+                        }, {
+                            id: 'p', // id is mandatory
+                            label: '<b>P</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<h4>Paragrafo con tanto testo</h4>`,
+                        }, {
+                            id: 'section', // id is mandatory
+                            label: '<b>Hero</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<x-hero title="title" subtitle="subtitle"></x-hero>`,
+                        }, {
+                            id: 'swiper', // id is mandatory
+                            label: '<b>Swiper</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<x-swiper.container><x-swiper.item>slide 1</x-swiper.item><x-swiper.item>slide 2</x-swiper.item><x-swiper.item>slide 3</x-swiper.item></x-swiper.container>`,
+                        }, {
+                            id: 'ribbon', // id is mandatory
+                            label: '<b>Ribbon</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<x-ribbon.container id="ribbon-test"><x-ribbon.item>text 1</x-ribbon.item><x-ribbon.item>text 2</x-ribbon.item><x-ribbon.item>text 3</x-ribbon.item></x-ribbon.container>`,
+                        }, {
+                            id: 'input', // id is mandatory
+                            label: '<b>Input</b>', // You can use HTML/SVG inside labels
+                            attributes: {
+                                class: 'gjs-block-section'
+                            },
+                            content: `<input>`,
+                        }
+                    ]
+                },
+                selectorManager: {
+                    appendTo: '.styles-container'
+                },
+                styleManager: {
+                    appendTo: '.styles-container',
+                    sectors: [{
+                        name: 'Dimension',
+                        open: false,
+                        // Use built-in properties
+                        buildProps: ['width', 'min-height', 'padding'],
+                        // Use `properties` to define/override single property
+                        properties: [{
+                            // Type of the input,
+                            // options: integer | radio | select | color | slider | file | composite | stack
+                            type: 'integer',
+                            name: 'The width', // Label for the property
+                            property: 'width', // CSS property (if buildProps contains it will be extended)
+                            units: ['px', '%'], // Units, available only for 'integer' types
+                            defaults: 'auto', // Default value
+                            min: 0, // Min value, available only for 'integer' types
+                        }]
+                    }, {
+                        name: 'Extra',
+                        open: false,
+                        buildProps: ['background-color', 'box-shadow', 'custom-prop'],
+                        properties: [{
+                            id: 'custom-prop',
+                            name: 'Custom Label',
+                            property: 'font-size',
+                            type: 'select',
+                            defaults: '32px',
+                            // List of options, available only for 'select' and 'radio'  types
+                            options: [{
+                                    value: '12px',
+                                    name: 'Tiny'
+                                },
+                                {
+                                    value: '18px',
+                                    name: 'Medium'
+                                },
+                                {
+                                    value: '32px',
+                                    name: 'Big'
+                                },
+                            ],
+                        }]
+                    }]
+                },
+            });
+
+
+
+            //Show Top Panel
+            editor.Panels.addPanel({
+                id: 'panel-top',
+                el: '.panel__top',
+            });
+            editor.Panels.addPanel({
+                id: 'basic-actions',
+                el: '.panel__basic-actions',
+                buttons: [
+
+                    {
+                        id: 'export',
+                        className: 'btn-open-export',
+                        label: 'HTML Source',
+                        command: 'export-template',
+                        context: 'export-template', // For grouping context of buttons from the same panel
+                    },
+
+                ],
+            });
+
+
+            //Show layers
+            editor.Commands.add('show-layers', {
+                getRowEl(editor) {
+                    return editor.getContainer().closest('.editor-row');
+                },
+                getLayersEl(row) {
+                    return row.querySelector('.layers-container')
+                },
+
+                run(editor, sender) {
+                    const lmEl = this.getLayersEl(this.getRowEl(editor));
+                    lmEl.style.display = '';
+                },
+                stop(editor, sender) {
+                    const lmEl = this.getLayersEl(this.getRowEl(editor));
+                    lmEl.style.display = 'none';
+                },
+            });
+
+            //Show styles
+            editor.Commands.add('show-styles', {
+                getRowEl(editor) {
+                    return editor.getContainer().closest('.editor-row');
+                },
+                getStyleEl(row) {
+                    return row.querySelector('.styles-container')
+                },
+
+                run(editor, sender) {
+                    const smEl = this.getStyleEl(this.getRowEl(editor));
+                    smEl.style.display = '';
+                },
+                stop(editor, sender) {
+                    const smEl = this.getStyleEl(this.getRowEl(editor));
+                    smEl.style.display = 'none';
+                },
+            });
+
+
+            //Show traits
+            editor.Commands.add('show-traits', {
+                getTraitsEl(editor) {
+                    const row = editor.getContainer().closest('.editor-row');
+                    return row.querySelector('.traits-container');
+                },
+                run(editor, sender) {
+                    this.getTraitsEl(editor).style.display = '';
+                },
+                stop(editor, sender) {
+                    this.getTraitsEl(editor).style.display = 'none';
+                },
+            });
+
+
+            // Show like other devices
+            editor.Commands.add('set-device-desktop', {
+                run: editor => editor.setDevice('Desktop')
+            });
+            editor.Commands.add('set-device-mobile', {
+                run: editor => editor.setDevice('Mobile')
+            });
+
+
+            editor.DomComponents.addType('input', {
+                isComponent: el => el.tagName == 'INPUT',
+                model: {
+                    defaults: {
+                        traits: [
+                            // Strings are automatically converted to text types
+                            'name', // Same as: { type: 'text', name: 'name' }
+                            'placeholder',
+                            {
+                                type: 'select', // Type of the trait
+                                label: 'Type', // The label you will see in Settings
+                                name: 'type', // The name of the attribute/property to use on component
+                                options: [{
+                                        id: 'text',
+                                        name: 'Text'
+                                    },
+                                    {
+                                        id: 'email',
+                                        name: 'Email'
+                                    },
+                                    {
+                                        id: 'password',
+                                        name: 'Password'
+                                    },
+                                    {
+                                        id: 'number',
+                                        name: 'Number'
+                                    },
+                                ]
+                            }, {
+                                type: 'checkbox',
+                                name: 'required',
+                            }
+                        ],
+                        // As by default, traits are binded to attributes, so to define
+                        // their initial value we can use attributes
+                        attributes: {
+                            type: 'text',
+                            required: true
+                        },
+                    },
+                },
+            });
+
+        });
+    </script>
+@endpush
+
+
+@push('styles')
+    <style>
+        .editor-row {
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: stretch !important;
+            flex-wrap: nowrap !important;
+            /*height: 300px !important;*/
+        }
+
+        .editor-canvas {
+            flex-grow: 1 !important;
+        }
+
+        .panel__right {
+            flex-basis: 10vw !important;
+            position: relative !important;
+            overflow-y: auto !important;
+            background: rgb(68, 68, 68) !important;
+        }
+
+        #grapejs {
+            border: 3px solid #444 !important;
+        }
+
+        .gjs-cv-canvas {
+            left: 7.25% !important;
+        }
+
+        .gjs-block {
+            width: auto !important;
+            height: auto !important;
+            min-height: auto !important;
+        }
+
+        .panel__top {
+            padding: 0 !important;
+            width: 100% !important;
+            display: flex !important;
+            position: initial !important;
+            justify-content: center !important;
+            justify-content: space-between !important;
+
+        }
+
+        .panel__basic-actions {
+            position: initial !important;
+        }
+
+        .panel__switcher {
+            position: initial !important;
+        }
+
+        .panel__devices {
+            position: initial !important;
+        }
+
+    </style>
+@endpush
+
+<div class="panel__top">
+    <div class="panel__basic-actions"></div>
+    <div class="panel__devices"></div>
+    <div class="panel__switcher"></div>
+</div>
+
+<div class="editor-row">
+    <div class="editor-canvas">
+        <div id="grapejs">
+            {{-- <h1>Header 1</h1> --}}
+        </div>
+    </div>
+    <div class="panel__right">
+        <div class="layers-container"></div>
+        <div class="styles-container"></div>
+        <div class="traits-container"></div>
+    </div>
+</div>
+
+<div id="blocks"></div>
+
+<x-ribbon.container id="ribbon-test">
+    <x-ribbon.item>text 1</x-ribbon.item>
+    <x-ribbon.item>text 2</x-ribbon.item>
+    <x-ribbon.item>text 3</x-ribbon.item>
+</x-ribbon.container>

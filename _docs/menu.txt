@@ -1,0 +1,61 @@
+
+-- menu usato anche da galea durante il workshop di laravel
+https://github.com/jeroennoten/laravel-menu/blob/master/src/ServiceProvider.php
+
+public function boot(Dispatcher $events)
+    {
+        $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
+            $event->menu->add('MAIN NAVIGATION');
+            $event->menu->add([
+                'text'        => 'Объявления',
+                'url'         => 'admin/offers',
+                'icon'        => 'far fa-fw fa-file',
+                'label'       => DB::table('offers')->where('new',true)->count(),
+                'label_color' => 'success',
+            ]);
+        });
+    }
+
+
+
+
+--- questo non usa eventi ..
+https://github.com/nWidart/laravel-menus/blob/master/src/MenusServiceProvider.php
+
+
+--- usa  Blade::extend( 
+https://github.com/lavary/laravel-menu/blob/master/src/Lavary/Menu/ServiceProvider.php
+
+
+--- uno standard
+https://spatie.be/docs/menu/v3/introduction
+
+
+
+--- nulla de ke
+https://jetstream.laravel.com/2.x/building-your-app.html
+
+
+--- simpatico
+https://laravel-zero.com/docs/build-interactive-menus
+
+
+
+---- buono per frontend !!
+https://www.thinktanker.io/blog/generate-a-dynamic-menu-using-laravel.html
+
+https://github.com/harimayco/wmenu-builder    on 17 Oct 2020 (quello utilizzato!!!)
+
+
+//----------- da guardare ---
+https://secrethash.github.io/dropmenu/basics/
+
+
+//-------- competitors
+https://laravel-admin-panel.readme.io/docs/menus-and-menu-builder
+
+
+
+
+
+

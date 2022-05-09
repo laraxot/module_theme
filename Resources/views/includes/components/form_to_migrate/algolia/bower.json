@@ -1,0 +1,21 @@
+{
+  "name": "algolia",
+  "homepage": "https://github.com/laraxot/package_extend",
+  "authors": [
+    "marco xot <marco.sottana@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./bc",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "algolia-autocomplete.js": "^0.36.0"
+  }
+}

@@ -1,0 +1,2 @@
+//-- Switchery, per il boolean, questo molto bello se tradotto in livewire
+https://www.larashout.com/update-model-status-using-toggles-in-laravel

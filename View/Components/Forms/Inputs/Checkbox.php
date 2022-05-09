@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Theme\View\Components\Forms\Inputs;
+
+use Illuminate\Contracts\Support\Renderable;
+
+/**
+ * Class Checkbox.
+ */
+class Checkbox extends Input
+{
+    public bool $checked;
+
+    public function __construct(string $name, string $id = null, bool $checked = false)
+    {
+        parent::__construct($name, $id, 'checkbox');
+
+        $this->checked = (bool) old($name, $checked);
+    }
+
+    public function render(): Renderable
+    {
+        $view = 'theme::components.forms.inputs.checkbox';
+
+        return view()->make($view);
+    }
+}

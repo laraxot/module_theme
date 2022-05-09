@@ -1,0 +1,430 @@
+<?php
+
+namespace Modules\Theme\Http\Controllers\VideoEditor;
+
+/**
+ * AuthControllerClass
+ *
+ * @author Andchir <andycoderw@gmail.com>
+ */
+class AuthControllerClass extends BaseControllerClass
+{
+
+    /**
+     * AuthControllerClass constructor.
+     * @param array $config
+     * @param array $lang
+     */
+    public function __construct($config = array(), $lang = array())
+    {
+
+        parent::__construct($config, $lang);
+
+    }
+
+    /**
+     * Facebook auth
+     * @return bool
+     */
+    public function auth()
+    {
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            if ($this->authAction(trim($_POST['email']), trim($_POST['password']))) {
+                self::redirectTo($this->config['base_url'] . $this->config['home_url']);
+            }
+        }
+        if (empty($_GET['code'])) {
+            return false;
+        }
+
+        $type = isset($_GET['type']) ? trim($_GET['type']) : 'facebook';
+
+        switch ($type) {
+            case 'google':
+
+                $this->authGoogle();
+
+                break;
+            case 'facebook':
+
+                $this->authFacebook();
+
+                break;
+        }
+
+        return false;
+    }
+
+    /**
+     * Create user
+     * @param $data
+     * @param string $prefix
+     * @return array|bool
+     */
+    public function createUser($data, $prefix = '')
+    {
+        if (!isset($data['email'])) {
+            return false;
+        }
+        if (!isset($data['id'])) {
+            if ($prefix == 'gl' && isset($data['sub'])) {
+                $data['id'] = $data['sub'];
+            } else {
+                $data['id'] = time() . '_' . uniqid();
+            }
+        }
+        $userId = $prefix . $data['id'];
+
+        $user = $this->dbGetBy('users', 'email', $data['email'], true);
+
+        if ($prefix == 'fb') {
+            if (!empty($user) && $user['facebook_id'] !== $data['id']) {
+                return false;
+            }
+        } else if ($prefix == 'gl') {
+            if (!empty($user) && $user['google_id'] !== $data['id']) {
+                return false;
+            }
+        }
+        if (empty($user)) {
+            $user = array(
+                'facebook_id' => $prefix == 'fb' ? $data['id'] : '',
+                'google_id' => $prefix == 'gl' ? $data['id'] : '',
+                'name' => isset($data['name']) ? $data['name'] : 'Anonymous' . time(),
+                'email' => $data['email'],
+                'blocked' => $this->config['user_blocked_default'],
+                'confirmed' => !$this->config['user_blocked_default'],
+                'password' => isset($data['password']) ? $data['password'] : '',
+                'type' => 'basic',
+                'role' => !empty($this->config['admin_auth_email'])
+                && $this->config['admin_auth_email'] == $data['email']
+                    ? 'admin'
+                    : 'user'
+            );
+            if ($user['role'] === 'admin') {
+                $user['confirmed'] = true;
+                $user['blocked'] = false;
+            }
+            $this->dbInsert('users', $userId, $user);
+        } else {
+
+            $this->cleanTempUserDir($userId);
+
+        }
+        $user['id'] = $userId;
+
+        return $user;
+    }
+
+    /**
+     * Authorization by Facebook
+     */
+    public function authFacebook()
+    {
+        if (!isset($_GET['code'])) {
+            self::redirectTo($this->config['base_url'] . $this->config['home_url']);
+        }
+        $code = trim($_GET['code']);
+        $returnUrl = self::getReturnUrl();
+
+        $tokenUrl = 'https://graph.facebook.com/oauth/access_token';
+        $tokenUrl .= '?client_id=' . $this->config['facebook_app_id'];
+        $tokenUrl .= '&redirect_uri=' . urlencode($returnUrl);
+        $tokenUrl .= '&client_secret=' . $this->config['facebook_secret_key'];
+        $tokenUrl .= '&code=' . $code;
+        $tokenUrl .= '&scope=public_profile,email';
+
+        $response = @file_get_contents($tokenUrl);
+        $params = !empty($response) ? json_decode($response, true) : array();
+
+        if (!empty($params['access_token'])) {
+
+            $graphUrl = 'https://graph.facebook.com/me?fields=id,name,email&access_token=' . $params['access_token'];
+            $response = @file_get_contents($graphUrl);
+            $data = !empty($response) ? json_decode($response, true) : array();
+
+            if (!empty($data)) {
+                $user = $this->createUser($data, 'fb');
+
+                if ($user === false) {
+                    self::setFlash('errors', $this->lang['auth_error_try_using_different_email']);
+                } else if (empty($user['blocked'])) {
+                    self::sessionSet('user', array(
+                        'id' => $user['id'],
+                        'role' => $user['role']
+                    ));
+                } else {
+                    self::setFlash('errors', $this->lang['user_blocked']);
+                    if (empty($user['confirmed'])) {
+                        self::setFlash('errors', $this->lang['wait_for_confirmation_from_administration']);
+                    }
+                }
+            }
+        }
+        self::redirectTo($this->config['base_url'] . $this->config['home_url']);
+    }
+
+    /**
+     * Authorization by Google
+     */
+    public function authGoogle()
+    {
+        $client = self::getGoogleClient();
+
+        if (isset($_GET['code'])) {
+            $code = trim($_GET['code']);
+            $token = $client->fetchAccessTokenWithAuthCode($code);
+            try {
+                $client->setAccessToken($token);
+            } catch (\Exception $e) {
+
+            }
+        }
+
+        if ($client->getAccessToken()) {
+            $data = $client->verifyIdToken();
+
+            if (!empty($data)) {
+                $user = $this->createUser($data, 'gl');
+
+                if ($user === false) {
+                    self::setFlash('errors', $this->lang['auth_error_try_using_different_email']);
+                }
+                else if (empty($user['blocked'])) {
+                    self::sessionSet('user', array(
+                        'id' => $user['id'],
+                        'role' => $user['role']
+                    ));
+                } else {
+                    self::setFlash('errors', $this->lang['user_blocked']);
+                    if (empty($user['confirmed'])) {
+                        self::setFlash('errors', $this->lang['wait_for_confirmation_from_administration']);
+                    }
+                }
+            }
+        }
+        self::redirectTo($this->config['base_url'] . $this->config['home_url']);
+    }
+
+    /**
+     * Register new user
+     * @return bool
+     */
+    public function register()
+    {
+        if (!empty($_POST['email'])
+            && !empty($_POST['password'])
+            && !empty($_POST['password_confirm'])) {
+
+            if (trim($_POST['password']) != trim($_POST['password_confirm'])) {
+                self::setFlash('errors', $this->lang['passwords_do_not_match']);
+            } else {
+                if (strlen(trim($_POST['password'])) < 6) {
+                    self::setFlash('errors', $this->lang['password_must_contain_more_than_characters']);
+                } else {
+
+                    $userEmail = trim($_POST['email']);
+                    $user = $this->dbGetBy('users', 'email', $userEmail, true);
+                    if (!empty($user)) {
+                        self::setFlash('errors',
+                            $this->lang['user_already_exists_with_email']);
+                    } else {
+
+                        $user = $this->createUser(array(
+                            'email' => $userEmail,
+                            'password' => trim($_POST['password'])
+                        ));
+
+                        if ($user === false) {
+                            self::setFlash('errors', $this->lang['auth_error_try_using_different_email']);
+                        } else if (empty($user['blocked'])) {
+                            self::setFlash('messages', $this->lang['you_successfully_registered']);
+                        } else {
+                            self::setFlash('errors', $this->lang['user_blocked']);
+                            if (empty($user['confirmed'])) {
+                                self::setFlash('errors', $this->lang['wait_for_confirmation_from_administration']);
+                            }
+                        }
+
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param string $email
+     * @param string $password
+     * @return bool
+     */
+    public function authAction($email, $password)
+    {
+        $user = $this->dbGetBy('users', 'email', $email, true);
+        if (empty($user) || empty($user['password']) || $user['password'] != $password) {
+            self::setFlash('errors', $this->lang['user_not_found']);
+            return false;
+        }
+        if (!empty($user['blocked'])) {
+            self::setFlash('errors', $this->lang['user_blocked']);
+            if (empty($user['confirmed'])) {
+                self::setFlash('errors', $this->lang['wait_for_confirmation_from_administration']);
+            }
+            return false;
+        }
+
+        self::sessionSet('user', array(
+            'id' => $user['id'],
+            'role' => $user['role']
+        ));
+
+        return true;
+    }
+
+    /**
+     * @param string $email
+     * @return bool
+     */
+    public function resetPassword($email)
+    {
+        $user = $this->dbGetBy('users', 'email', $email, true);
+        if (empty($user)) {
+            self::setFlash('errors', $this->lang['user_not_found']);
+            return false;
+        }
+
+        $newPassword = self::randomPassword();
+        $userId = $user['id'];
+        $user['password_new'] = $newPassword;
+        $user['confirm_code'] = self::randomPassword(12);
+        unset($user['id']);
+        $userStore = $this->dbGetStore('users');
+        $userStore->set($userId, $user);
+
+        $siteURL = (isset($_SERVER['HTTPS']) ? 'https' : 'http')
+            . "://{$_SERVER['HTTP_HOST']}/";
+
+        $emailBody = $this->getTemplate('email_password_reset', array(
+            'password_new' => $newPassword,
+            'site_url' => $siteURL,
+            'confirm_code' => $user['confirm_code']
+        ));
+
+        if ($this->sendEmail($user['email'], $this->lang['your_new_password'], $emailBody)) {
+            self::setFlash('messages', $this->lang['new_password_has_been_sent']);
+        }
+
+        return true;
+    }
+
+    /**
+     * @param string $code
+     * @return bool
+     */
+    public function confirmResetPassword($code)
+    {
+        $user = $this->dbGetBy('users', 'confirm_code', $code, true);
+        if (!empty($user) && !empty($user['password_new'])) {
+
+            $userId = $user['id'];
+            $user['password'] = $user['password_new'];
+            unset($user['password_new'], $user['confirm_code']);
+
+            unset($user['id']);
+            $userStore = $this->dbGetStore('users');
+            $userStore->set($userId, $user);
+
+            self::setFlash('messages', $this->lang['password_change_successfully_confirmed']);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param int $length
+     * @return string
+     */
+    static function randomPassword($length = 8)
+    {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array();
+        $alphaLength = strlen($alphabet) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass);
+    }
+
+    /**
+     * @param $facebookAppId
+     * @return string
+     */
+    static function getFacebookAuthUrl($facebookAppId = '')
+    {
+        $returnUrl = self::getReturnUrl();
+
+        $authUrl = 'https://www.facebook.com/dialog/oauth';
+        $authUrl .= '?client_id=' . $facebookAppId;
+        $authUrl .= '&redirect_uri=' . urlencode($returnUrl);
+        $authUrl .= '&scope=public_profile,email';
+
+        return $authUrl;
+    }
+
+    /**
+     * @return \Google_Client
+     */
+    static function getGoogleClient()
+    {
+        $client = new \Google_Client();
+        require dirname(dirname(__DIR__)) . '/config/config.php';
+        /** @var array $config */
+
+        $client->setClientId($config['google_client_id']);
+        $client->setClientSecret($config['google_secret_key']);
+        $client->setRedirectUri(self::getReturnUrl() . '&type=google');
+
+        $client->setScopes(array('email', 'profile', 'https://www.googleapis.com/auth/youtube'));
+        //$client->addScope('https://www.googleapis.com/auth/youtube');
+        $client->setAccessType('offline');
+
+        return $client;
+    }
+
+    /**
+     * @return string
+     */
+    static function getGoogleAuthUrl()
+    {
+        $client = self::getGoogleClient();
+        $tokenSessionKey = 'token-' . $client->prepareScopes();
+        $_SESSION['state'] = '';
+
+        if (isset($_SESSION[$tokenSessionKey])) {
+            //$client->setAccessToken($_SESSION[$tokenSessionKey]);
+        }
+
+        $isUserAuthorized = $client->getAccessToken();
+        if (!$isUserAuthorized) {
+            $state = mt_rand();
+            $client->setState($state);
+            $_SESSION['state'] = $state;
+        }
+
+        return $client->createAuthUrl();
+    }
+
+    /**
+     * @return string
+     */
+    static function getReturnUrl()
+    {
+        $baseUrl = self::getCurrentBaseUrl();
+        return $baseUrl . 'index.php?action=auth';
+    }
+
+}

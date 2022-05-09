@@ -1,0 +1,188 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Theme\Http\Livewire;
+
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
+
+/**
+ * Class VideoPlayer.
+ */
+class DemoImageGallery extends Component {
+    public string $tab;
+    public array $tabs;
+    public array $showed_image;
+    public array $images;
+
+    /**
+     * Listener di eventi di Livewire
+     *
+     * @var array
+     */
+    protected $listeners = ['addBookmark'];
+
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function mount() {
+        $this->tab = 'all';
+
+        $this->tabs = [];
+
+        $this->showed_image = [];
+    }
+
+    public function getImages(): array {
+        $client = new Client(['base_uri' => 'https://tourscanner.com/interview/images']);
+
+        $response = $client->request('GET');
+
+        $data = (string) $response->getBody();
+
+        $this->images = json_decode($data, true);
+
+        $this->images = collect($this->images)->map(function ($el) {
+            $el['bookmarked'] = '';
+            $el['class'] = '';
+            $el['tab'] = [];
+
+            return $el;
+        })->toArray();
+
+        return $this->images;
+    }
+
+    public function getTabs(): void {
+        $files = Storage::disk('local')->allFiles('demo_image_gallery');
+
+        foreach ($files as $name) {
+            $name = '';
+
+            $name = str_replace('demo_image_gallery/', '', $name);
+
+            $file = basename($name);
+            $dir = dirname($name);
+
+            //cut folder name and .jpg
+            $id = substr(str_replace($dir.'/', '', $name), 0, -4);
+
+            // dddx([$file,$dir,$name,$id]);
+
+            $key = $this->searchImageId((int) $id);
+
+            $this->images[$key]['class'] = 'highlight';
+
+            $this->images[$key]['tab'][] = $dir;
+
+            $this->tabs[] = $dir;
+            $this->tabs = array_unique($this->tabs);
+        }
+    }
+
+    /**
+     * @return array|void
+     */
+    public function showTab() {
+        $this->showed_image = [];
+
+        if ('all' === $this->tab) {
+            $this->showed_image = $this->images;
+
+            return;
+        }
+
+        foreach ($this->images as $key => $value) {
+            if (false !== array_search($this->tab, $value['tab'])) {
+                $value['base64'] = base64_encode(Storage::disk('local')->get('./demo_image_gallery/'.$this->tab.'/'.$value['image_id'].'.jpg'));
+
+                $this->showed_image[] = $value;
+            }
+        }
+
+        return $this->showed_image;
+    }
+
+    public function changeTab(string $tab = 'all'): void {
+        $this->tab = $tab;
+    }
+
+    /**
+     * @param int|string $image_id
+     *
+     * @return int|string|null
+     */
+    private function searchImageId($image_id) {
+        $result = key(collect($this->images)->filter(function ($value, $key) use ($image_id) {
+            return $value['image_id'] === $image_id;
+        })->toArray());
+
+        return $result;
+    }
+
+    /**
+     * @param int|string $image_id
+     * @param string     $folder
+     */
+    public function addBookmark($image_id, $folder): void {
+        //dddx([$image_id, $folder]);
+
+        $client = new Client(['base_uri' => 'https://tourscanner.com/interview/save_image/']);
+
+        $response = $client->request('POST', (string) $image_id);
+
+        $response_body = json_decode((string) $response->getBody());
+
+        if (1 === $response_body->success) {
+            $key = $this->searchImageId($image_id);
+
+            $client = new Client(['base_uri' => $this->images[$key]['url']]);
+
+            $response = $client->request('GET');
+
+            $image_file = $response->getBody();
+
+            Storage::disk('local')->put('/demo_image_gallery/'.$folder.'/'.(string) $image_id.'.jpg', $image_file);
+
+            return;
+        }
+
+        throw new \Exception('POST request failed');
+    }
+
+    public function getBookmarked(int $key): void {
+        $image_id = $this->images[$key]['image_id'];
+
+        $client = new Client(['base_uri' => 'https://tourscanner.com/interview/save_image/']);
+
+        $response = $client->request('GET', (string) $image_id);
+
+        $showed_number = (string) $response->getBody();
+
+        $this->dispatchBrowserEvent('got_bookmark', ['showed_number' => $showed_number, 'image_id' => $image_id]);
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+         */
+    public function render():\Illuminate\Contracts\Support\Renderable {
+        $this->getImages();
+        $this->getTabs();
+
+        $view = 'theme::livewire.demo_image_gallery';
+        //dddx($this->images);
+        //dddx([$this->showTab()]);
+        $view_params = [
+            'tabs' => $this->tabs,
+            'images' => $this->showTab(),
+            'view' => $view,
+        ];
+
+        return view()->make($view, $view_params);
+    }
+}

@@ -1,0 +1,72 @@
+<?php
+/**
+ * --.
+ */
+declare(strict_types=1);
+
+namespace Modules\Theme\Models\Panels\Actions;
+
+//-------- services --------
+
+use FFMpeg\Coordinate\Dimension;
+use FFMpeg\Coordinate\TimeCode;
+use Modules\Theme\Services\ThemeService;
+use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+//che cazzo è?
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
+
+//-------- bases -----------
+
+/**
+ * Class TestAction.
+ */
+class TestVideoEditorAction extends XotBasePanelAction {
+    public bool $onItem = true;
+    public string $icon = '<i class="fas fa-vial"></i>';
+
+    /**
+     * @return mixed
+     */
+    public function handle() {
+        $drivers = [
+            'custom.v1',
+            'custom.v2',
+        ];
+        $i = request('i', 0);
+
+        $view = ThemeService::getView();
+
+        $view_params = [
+            'view' => $view,
+            'mp4_src' => '/videos/test.mp4',  //public_html/videos/
+            'drivers' => $drivers,
+            'driver' => $drivers[$i],
+        ];
+
+        return view()->make($view, $view_params);
+    }
+
+    public function postHandle() {
+        $data = request()->all();
+
+        $start = 5;
+        $to = 15;
+
+        FFMpeg::fromDisk('public_html')
+        ->open('videos/test.mp4')
+
+    // add the 'resize' filter...
+        //->addFilter(function ($filters) {
+        //    $filters->resize(new Dimension(60, 40));
+        //})
+        ->addFilter('-ss', TimeCode::fromSeconds($start))
+        ->addFilter('-to', TimeCode::fromSeconds($to))
+
+    // call the 'export' method...
+        ->export()
+
+    // tell the MediaExporter to which disk and in which format we want to export...
+        //->toDisk('downloadable_videos')
+        ->save('videos/zibibbo.mp4');
+    }
+}

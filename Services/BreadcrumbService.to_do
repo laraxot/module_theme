@@ -1,0 +1,56 @@
+public static function getBreadContainer(array $params){
+        extract($params);
+        $route_params = optional(\Route::current())->parameters();
+        $tmp = new \stdClass();
+        $tmp->title = $v;
+        /*
+        list($containers,$items)=params2ContainerItem();
+        $container_i=collect($containers)->search($k);
+        dddx($containers);
+        dddx($container_i.' '.$k);
+        */
+        $container_i = str_replace('container', '', $k) * 1;
+        $route_piece = [];
+        if (inAdmin()) {
+            $route_piece[] = 'admin';
+        }
+        for ($i = 0; $i <= $container_i; ++$i) {
+            $route_piece[] = 'container'.$i;
+        }
+        $route_piece[] = 'index';
+        $route_name = implode('.', $route_piece);
+        //dddx($route_name);
+        $currentQueries = request()->query();
+        //dddx($currentQueries);
+        $tmp->url = route($route_name, array_merge($route_params, $currentQueries));
+
+        return $tmp;
+    }
+
+    public static function getBreadLang(array $params){
+        extract($params);
+        $tmp = new \stdClass();
+        $tmp->title = $v;
+        $tmp->url = '#######';
+
+        return $tmp;
+    }
+
+    public static function getBreadModule(array $params){
+        extract($params);
+        $tmp = new \stdClass();
+        $tmp->title = $v;
+        $tmp->url = route('admin.index', [$v]);
+
+        return $tmp;
+    }
+
+    public static function getBread(array $params){
+        extract($params);
+        $pattern = '/[0-9]+/';
+
+        $k1 = (preg_replace($pattern, '', $k));
+        $func = 'getBread'.Str::studly($k1);
+
+        return self::$func($params);
+    }

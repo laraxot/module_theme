@@ -1,0 +1,161 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\Theme\Providers;
+
+use Illuminate\Foundation\AliasLoader;
+//---- bases ----
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\File;
+//--- services ---
+use Illuminate\Support\Facades\View;
+use Modules\Tenant\Services\TenantService;
+use Modules\Theme\Http\View\Composers\ThemeComposer;
+use Modules\Xot\Providers\XotBaseServiceProvider;
+use Modules\Xot\Services\FileService;
+
+/**
+ * Class ThemeServiceProvider.
+ */
+class ThemeServiceProvider extends XotBaseServiceProvider {
+    protected string $module_dir = __DIR__;
+
+    protected string $module_ns = __NAMESPACE__;
+
+    public string $module_name = 'theme';
+
+    public function bootCallback(): void {
+        $this->registerNamespaces('adm_theme');
+        $this->registerNamespaces('pub_theme');
+        /*
+        $xot = TenantService::config('xra');
+
+        if (! isset($xot['adm_theme'])) {
+            dddx(
+                [
+                    'xot' => $xot,
+                    'tennant_name' => TenantService::getName(),
+                    'tenant_config_path' => TenantService::getConfigPath('xra'),
+                ]
+            );
+        }
+
+        $adm_theme = $xot['adm_theme'];
+
+        $adm_resource_path = 'Themes/'.$adm_theme.'/Resources';
+        $adm_lang_dir = base_path($adm_resource_path.'/lang');
+        $adm_theme_dir = base_path($adm_resource_path.'/views');
+
+        $pub_theme = $xot['pub_theme'];
+
+        $pub_resource_path = 'Themes/'.$pub_theme.'/Resources';
+        $pub_lang_dir = base_path($pub_resource_path.'/lang');
+        $pub_theme_dir = base_path($pub_resource_path.'/views');
+
+        //$pub_theme_dir = resource_path('views'.\DIRECTORY_SEPARATOR.'themes'.\DIRECTORY_SEPARATOR.$pub_theme.\DIRECTORY_SEPARATOR.'Resources'.\DIRECTORY_SEPARATOR.'views');
+        //die($pub_theme_dir.'['.__LINE__.']['.__FILE__.']');
+        $adm_theme_dir = str_replace(['/', '\\'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $adm_theme_dir);
+        $pub_theme_dir = str_replace(['/', '\\'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $pub_theme_dir);
+
+        $adm_lang_dir = str_replace(['/', '\\'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $adm_lang_dir);
+        $pub_lang_dir = str_replace(['/', '\\'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $pub_lang_dir);
+
+        $this->app['view']->addNamespace('adm_theme', $adm_theme_dir);
+        $this->app['view']->addNamespace('pub_theme', $pub_theme_dir);
+
+        $this->loadTranslationsFrom($pub_lang_dir, 'pub_theme');
+        $this->loadTranslationsFrom($adm_lang_dir, 'adm_theme');
+        */
+
+        $this->commands(
+            [
+                \Modules\Theme\Console\CreateThemeCommand::class,
+            ]
+        );
+        //dddx(dirname($this->module_ns));
+        //messo in xotbaseservceprovider
+        //Blade::componentNamespace('Modules\Theme\View\Components', 'theme');
+        //Blade::component('theme::components.buttons', 'buttons');
+        Blade::component('theme::components.button.primary-cta', 'buttons.primary-cta');
+        /*
+        Blade::componentNamespace('Modules\Theme\View\Components', null);
+
+        dddx(
+            [
+                'getClassComponentAliases' => Blade::getClassComponentAliases(),
+                'getClassComponentNamespaces' => Blade::getClassComponentNamespaces(),
+                'getCustomDirectives' => Blade::getCustomDirectives(),
+            ]
+        );
+        */
+        $this->registerThemeConfig('adm_theme');
+        $this->registerThemeConfig('pub_theme');
+        //Config::set('adm_theme::test', ['a'=>'b']);
+        //dddx(Config::get('adm_theme::test'));
+        $this->registerViewComposers(); //era in registercallback
+    }
+
+    public function registerNamespaces(string $theme_type) {
+        $xot = TenantService::config('xra');
+        if (! isset($xot[$theme_type])) {
+            dddx(
+                [
+                    'xot' => $xot,
+                    'theme_type' => $theme_type,
+                    'tennant_name' => TenantService::getName(),
+                    'tenant_config_path' => TenantService::getConfigPath('xra'),
+                ]
+            );
+        }
+
+        $theme = $xot[$theme_type];
+
+        $resource_path = 'Themes/'.$theme.'/Resources';
+        $lang_dir = base_path($resource_path.'/lang');
+        $lang_dir = FileService::fixPath($lang_dir);
+        $theme_dir = base_path($resource_path.'/views');
+        $theme_dir = FileService::fixPath($theme_dir);
+
+        $this->app['view']->addNamespace($theme_type, $theme_dir);
+        $this->loadTranslationsFrom($lang_dir, $theme_type);
+    }
+
+    public function registerThemeConfig(string $theme_type) {
+        $xot = TenantService::config('xra');
+        $theme = $xot[$theme_type];
+        $config_path = base_path('Themes/'.$theme.'/Config');
+        if (! File::exists($config_path)) {
+            return;
+        }
+        $files = File::files($config_path);
+        foreach ($files as $file) {
+            $name = $file->getFilenameWithoutExtension();
+            $data = File::getRequire($file->getRealPath());
+            Config::set($theme_type.'::'.$name, $data);
+        }
+    }
+
+    public function registerCallback(): void {
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Theme', 'Modules\Theme\Services\ThemeService');
+
+        //$this->registerViewComposers();
+    }
+
+    private function registerViewComposers(): void {
+        $xot = TenantService::config('xra');
+        $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
+        //$theme = 'AdminLTE';
+        $custom_composer = '\Themes\\'.$theme.'\View\Composers\ThemeComposer';
+        if (class_exists($custom_composer)) {
+            View::composer('*', $custom_composer);
+
+            return;
+        }
+
+        View::composer('*', ThemeComposer::class);
+        //dddx($res);
+    }
+}

@@ -1,0 +1,12 @@
+-------------------------------------------------------
+            MOVED TO MODULE_MEDIA !!!
+-------------------------------------------------------
+
+
+'plyr_io',
+'videojs',
+'jplayer',
+'mediaelement', //https://github.com/mediaelement/mediaelement
+'afterglowplayer', //afterglowplayer.com Time to say goodbye.
+https://github.com/moneytoo/Player Android video player based on ExoPlayer, compatible with Android 5+ and Android TV.
+https://github.com/cloudinary/cloudinary-video-player

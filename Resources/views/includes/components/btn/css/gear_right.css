@@ -1,0 +1,146 @@
+.config-trigger {
+    position: absolute;
+    top: 30px;
+    left: -36px;
+    width: 36px;
+    height: 36px;
+    background: #223142;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    text-decoration: none
+}
+
+.config-trigger:hover {
+    background: #111820;
+    text-decoration: none
+}
+
+.config-trigger:hover .fa-cog {
+    color: #fff
+}
+
+.config-trigger .fa-cog {
+    font-size: 1.25rem;
+    display: block;
+    color: #fff
+}
+
+.dark-mode .config-trigger {
+    background: #000
+}
+
+.config-panel {
+    position: absolute;
+    top: 50px;
+    right: -190px;
+    z-index: 30;
+    width: 190px
+}
+
+.config-panel .panel-inner {
+    position: relative;
+    background: #223142;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.dark-mode .config-panel .panel-inner {
+    background: #000
+}
+
+.config-panel .panel-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #fff
+}
+
+.config-panel label {
+    color: #fff
+}
+
+.config-panel #color-options {
+    margin-bottom: 0px
+}
+
+.config-panel #color-options li a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    margin-top: 5px
+}
+
+.config-panel #color-options li a:hover {
+    -webkit-opacity: .9;
+    -moz-opacity: .9;
+    opacity: .9;
+    border: 2px solid rgba(255, 255, 255, 0.9)
+}
+
+.config-panel #color-options li.list-inline-item {
+    margin-right: 5px
+}
+
+.config-panel #color-options li.active a {
+    border: 2px solid #fff
+}
+
+.config-panel #color-options li.theme-1 a {
+    background: #54B689
+}
+
+.config-panel #color-options li.theme-2 a {
+    background-color: #5BC3D5
+}
+
+.config-panel #color-options li.theme-3 a {
+    background-color: #3B7EEB
+}
+
+.config-panel #color-options li.theme-4 a {
+    background-color: #5ECCA9
+}
+
+.config-panel #color-options li.theme-5 a {
+    background-color: #EEA73B
+}
+
+.config-panel #color-options li.theme-6 a {
+    background-color: #5469C9
+}
+
+.config-panel #color-options li.theme-7 a {
+    background-color: #5D6BA7
+}
+
+.config-panel #color-options li.theme-8 a {
+    background-color: #6C51A4
+}
+
+.config-panel #color-options li.theme-9 a {
+    background-color: #D67553
+}
+
+.config-panel #color-options li.theme-10 a {
+    background-color: #5FCB71
+}
+
+.config-panel .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: #fff
+}
+
+.config-panel .close .fa {
+    color: #fff
+}

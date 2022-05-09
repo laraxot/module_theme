@@ -1,0 +1,61 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * https://github.com/cagilo/cagilo
+ * https://cagilo.github.io/docs/device/.
+ */
+
+namespace Modules\Theme\View\Components;
+
+use Illuminate\Support\Collection;
+use Illuminate\View\Component;
+use Jenssegers\Agent\Agent;
+
+class Device extends Component {
+    protected Agent $agent;
+
+    protected Collection $rules;
+
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct(
+        Agent $agent,
+        ?string $desktop = false,
+        ?string $phone = false,
+        ?string $tablet = false,
+        ?string $robot = false,
+        ?string $other = false
+    ) {
+        $this->agent = $agent;
+
+        $this->rules = collect([
+            'desktop' => $desktop,
+            'phone' => $phone,
+            'tablet' => $tablet,
+            'robot' => $robot,
+            'other' => $other,
+        ])->map(fn ($value) => filter_var($value, FILTER_VALIDATE_BOOLEAN));
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Closure|string
+     */
+    public function render():\Illuminate\Contracts\Support\Renderable {
+        return <<<'blade'
+            {{ $slot }}
+        blade;
+    }
+
+    /**
+     * Determine if the component should be rendered.
+     */
+    public function shouldRender(): bool {
+        return $this->rules->get($this->agent->deviceType(), false);
+    }
+}
