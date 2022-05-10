@@ -24,6 +24,7 @@ class Search extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function __construct(?string $type = null, ?string $action = '#', ?string $icon = 'fa fa-search') {
         $this->type = $type;
         $this->attrs['action'] = $action;
@@ -59,6 +60,11 @@ class Search extends Component {
         $this->type = $type;
         $this->attrs['action'] = $action;
 >>>>>>> b6141c95 (first)
+=======
+    public function __construct(?string $type = null, ?string $action = '#') {
+        $this->type = $type;
+        $this->attrs['action'] = $action;
+>>>>>>> 6aa89a58 (first)
     }
 
     /**
@@ -81,6 +87,7 @@ class Search extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -100,3 +107,6 @@ class Search extends Component {
 =======
 }
 >>>>>>> b6141c95 (first)
+=======
+}
+>>>>>>> 6aa89a58 (first)

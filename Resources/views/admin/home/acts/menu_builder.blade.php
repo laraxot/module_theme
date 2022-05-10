@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- {!! Menu::render() !!} --}}
     <livewire:menu.builder />
 =======
@@ -33,15 +34,21 @@
     <livewire:menu.builder />
 >>>>>>> 7f97b271 (up)
 =======
+=======
+>>>>>>> 6aa89a58 (first)
     {{--  
     {!! Menu::render() !!}
     --}}
     <livewire:theme::menu.builder />
+<<<<<<< HEAD
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
 @endsection
 
 
 @push('scripts')
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -71,4 +78,9 @@
     {!! Menu::scripts() !!}
     --}}
 >>>>>>> b6141c95 (first)
+=======
+    {{--  
+    {!! Menu::scripts() !!}
+    --}}
+>>>>>>> 6aa89a58 (first)
 @endpush

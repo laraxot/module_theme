@@ -15,6 +15,7 @@ use Livewire\Component;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Undocumented class
  */
@@ -36,10 +37,13 @@ use Livewire\Component;
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
 class BodyView extends Component {
     public bool $show = false;
     public string $body_view;
     public string $modal_id;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -75,6 +79,11 @@ class BodyView extends Component {
     public string $popup_title;
     public string $popup_button;
 >>>>>>> b6141c95 (first)
+=======
+    public string $title;
+    public string $popup_title;
+    public string $popup_button;
+>>>>>>> 6aa89a58 (first)
 
     /**
      * Listener di eventi di Livewire.
@@ -87,6 +96,7 @@ class BodyView extends Component {
         'sendMessage' => 'sendMessage',
     ];
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -123,6 +133,8 @@ class BodyView extends Component {
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
     public array $form_data = [];
 
     public function mount(string $id, string $popup_title, string $popup_subtitle, string $popup_button, string $bodyView): void {
@@ -138,6 +150,7 @@ class BodyView extends Component {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
@@ -147,10 +160,13 @@ class BodyView extends Component {
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
         $this->modal_id = $id;
     }
 
     public function sendMessage(string $msg) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -183,6 +199,8 @@ class BodyView extends Component {
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
         //per pulire il form
         $this->form_data = [];
         session()->flash('message', $msg);
@@ -194,6 +212,7 @@ class BodyView extends Component {
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> b6141c95 (first)
@@ -211,6 +230,8 @@ class BodyView extends Component {
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
     public function doShow(): void {
         $this->show = true;
     }
@@ -232,15 +253,19 @@ class BodyView extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
             'title' => $this->title,
             'popup_title' => $this->popup_title,
             'popup_subtitle' => $this->popup_subtitle,
             'popup_button' => $this->popup_button,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> b6141c95 (first)
@@ -252,6 +277,8 @@ class BodyView extends Component {
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
             'view' => $view,
         ];
 
@@ -260,6 +287,7 @@ class BodyView extends Component {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 }
 >>>>>>> ede0df75 (first)
@@ -267,3 +295,5 @@ class BodyView extends Component {
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)

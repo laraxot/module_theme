@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:buttons.delete /> --}}
 =======
 {{-- <livewire:theme::buttons.delete /> --}}
@@ -27,3 +28,6 @@
 =======
 {{-- <livewire:theme::buttons.delete /> --}}
 >>>>>>> b6141c95 (first)
+=======
+{{-- <livewire:theme::buttons.delete /> --}}
+>>>>>>> 6aa89a58 (first)
