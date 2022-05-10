@@ -12,6 +12,7 @@ use Livewire\Component;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Undocumented class
  */
@@ -21,6 +22,11 @@ use Livewire\Component;
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> ede0df75 (first)
+=======
+/**
+ * Undocumented class
+ */
+>>>>>>> fbdf27c6 (.)
 class BodyView extends Component {
     public bool $show = false;
     public string $body_view;
