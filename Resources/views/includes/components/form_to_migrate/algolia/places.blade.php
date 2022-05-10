@@ -48,7 +48,7 @@
 	document.querySelector('#form-zip').value = e.suggestion.postcode || '';
 	document.querySelector('#form-lat').value = e.suggestion.latlng.lat || '';
 	document.querySelector('#form-lng').value = e.suggestion.latlng.lng || '';
-	
+
   });
 })();
 </script>

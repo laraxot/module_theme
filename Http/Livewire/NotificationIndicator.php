@@ -21,7 +21,7 @@ final class NotificationIndicator extends Component {
     ];
 
     public function render(): View {
-        if (! is_null(Auth::user())) {
+        if (null !== Auth::user()) {
             $this->hasNotification = (bool) $this->setHasNotification(
                 Auth::user()->unreadNotifications()->count()
         );

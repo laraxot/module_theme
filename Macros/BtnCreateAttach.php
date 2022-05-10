@@ -4,31 +4,29 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Macros;
 
-//use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 use Collective\Html\FormFacade as Form;
 
-//----- services -----
+// ----- services -----
 
-//--- azioni container
+// --- azioni container
 
 /**
  * Class BtnCreateAttach.
  */
-class BtnCreateAttach
-{
+class BtnCreateAttach {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra) {
             $btns = '';
             $btns .= Form::bsBtnCreate($extra);
-            //$btns.=Form::bsBtnIndexAttach($extra); //per adesso crea solo confusione
+            // $btns.=Form::bsBtnIndexAttach($extra); //per adesso crea solo confusione
             return $btns;
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

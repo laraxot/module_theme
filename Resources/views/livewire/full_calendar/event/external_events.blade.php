@@ -23,7 +23,7 @@
     </p>
 
     <ul>{{-- non sono gli eventi del calendario ma lo stack delle azioni
-        
+
         @foreach (array_reverse($events) as $event)
             <li>{{ $event }}</li>
         @endforeach --}}

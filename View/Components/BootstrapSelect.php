@@ -23,7 +23,7 @@ class BootstrapSelect extends XotBaseComponent {
         $this->datastyle = $datastyle;
         $this->options = $options;
 
-        //$this->attrs['class'] = 'col-lg-4 col-6 px-1 mb-2';
+        // $this->attrs['class'] = 'col-lg-4 col-6 px-1 mb-2';
     }
 
     public function render(): Renderable {

@@ -47,7 +47,7 @@
 		  // Create the autocomplete object, restricting the search to geographical
 		  // location types.
 		var input = document.getElementsByClassName('geocomplete');
-		for (i = 0; i < input.length; i++) { 
+		for (i = 0; i < input.length; i++) {
 			autocomplete = new google.maps.places.Autocomplete(
 		      	//$('.address'),
 		      	//(document.getElementById('autocomplete')),
@@ -60,13 +60,13 @@
 		  // fields in the form.
 		  autocomplete.addListener('place_changed', fillInAddress);
 	}
-	
+
 	function fillInAddress() {
 		// Get the place details from the autocomplete object.
 		//hidePopoverMessage( '#autocomplete' );
 		var place = autocomplete.getPlace();
-		fillFields(place);		
-		
+		fillFields(place);
+
 	}
 
 	function fillFields(place){

@@ -26,7 +26,7 @@ class Component extends ViewComponent {
     public function __construct(string $type) {
         $this->type = $type;
         $table_class = FileService::config('adm_theme::styles.table.class');
-        if (! is_string($table_class)) {
+        if (! \is_string($table_class)) {
             $table_class = 'table';
         }
         if (null !== $table_class) {
@@ -48,7 +48,7 @@ class Component extends ViewComponent {
                 return view()->exists($item);
             }
         );
-        if (null == $view) {
+        if (null === $view) {
             throw new \Exception('not exists '.$views[0].' or '.$views[1]);
         }
 

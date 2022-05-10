@@ -9,7 +9,7 @@
 			</div>
 			<!-- end:Logo -->
 			<div class="rest-descr">
-				<h6><a href="#">Sandwich de Alegranza Grande Menü (28 - 30 cm.)</a></h6> 
+				<h6><a href="#">Sandwich de Alegranza Grande Menü (28 - 30 cm.)</a></h6>
 			</div>
 			<!-- end:Description -->
 			--}}
@@ -30,8 +30,8 @@
 				</div>
 				--}}
 				<div class="col-xs-5 ingredient-item"> {{-- ingredient-item mi serve per jquery --}}
-					<input class="form-control ingredient-qty" type="number" value="0" name="ingredient[{{$ingredient->post_id}}][qty]"> 
-					<input class="form-control ingredient-price" type="hidden" value="{{ $ingredient->pivot->price }}" name="ingredient[{{$ingredient->post_id}}][price]"> 
+					<input class="form-control ingredient-qty" type="number" value="0" name="ingredient[{{$ingredient->post_id}}][qty]">
+					<input class="form-control ingredient-price" type="hidden" value="{{ $ingredient->pivot->price }}" name="ingredient[{{$ingredient->post_id}}][price]">
 				</div>
 			</div>
 		</div>

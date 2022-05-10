@@ -30,7 +30,7 @@ class Menu extends Model {
 
     public function getRows(): array {
         $rows = config($this->config_name);
-        if (! is_array($rows)) {
+        if (! \is_array($rows)) {
             return
             [
                 [

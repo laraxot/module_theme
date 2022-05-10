@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
-//-- in module/theme
-namespace Modules\Theme\View\Components\Promo;
+// -- in module/theme
 
+namespace Modules\Theme\View\Components\Promo;
 
 use Illuminate\View\Component;
 
@@ -12,12 +12,14 @@ use Illuminate\View\Component;
  */
 class CounterItem extends Component {
     public $counter;
+
     /**
      * Create a new component instance.
      *
+     * @param mixed $counter
+     *
      * @return void
      */
- 
     public function __construct($counter) {
         $this->counter = $counter;
     }
@@ -30,5 +32,4 @@ class CounterItem extends Component {
     public function render() {
         return view()->make('theme::components.promo.counter-item');
     }
-    
 }

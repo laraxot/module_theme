@@ -39,8 +39,8 @@ class Stringlist extends Component {
     public string $input_name;
 
     public function mount(SessionManager $session, string $minDate = null, string $maxDate = null, string $date_list = null, string $input_name): void {
-        //dddx($date_list);
-        if (null != $date_list) {
+        // dddx($date_list);
+        if (null !== $date_list) {
             $first_date = collect(explode(',', $date_list))->filter(
                 function ($value) {
                     return ! empty($value);
@@ -49,14 +49,14 @@ class Stringlist extends Component {
         } else {
             $first_date = null;
         }
-        if (null == $first_date) {
+        if (null === $first_date) {
             $first_date = Carbon::now();
         } else {
             $first_date = Carbon::createFromFormat('d/m/Y', $first_date);
         }
 
         // aggiusto le date, gli 0 avanti ai giorni e mesi non vengono renderizzati, ergo...
-        if (! is_null($date_list)) {
+        if (null !== $date_list) {
             $date_list = str_replace(',0', ',', $date_list);
             $date_list = str_replace('/0', '/', $date_list);
 
@@ -67,7 +67,7 @@ class Stringlist extends Component {
             $date_list = '';
         }
 
-        //dddx($date_list);
+        // dddx($date_list);
 
         $session->put('calendar.now', $first_date);
         $this->date_list = $date_list;
@@ -90,7 +90,7 @@ class Stringlist extends Component {
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)
             ->startOfMonth()
             ->isoWeekday();
-        if (! is_int($startOfMonthDay)) {
+        if (! \is_int($startOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         for ($i = 1; $i < (int) $startOfMonthDay; ++$i) {
@@ -103,7 +103,7 @@ class Stringlist extends Component {
         }
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
-        if (! is_int($endOfMonthDay)) {
+        if (! \is_int($endOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -146,7 +146,7 @@ class Stringlist extends Component {
     private function isDaySelected(int $day = null): bool {
         $date_selected = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
 
-        return in_array($date_selected, explode(',', $this->date_list));
+        return \in_array($date_selected, explode(',', $this->date_list), true);
         /*
         if ($day !== $this->selectedDay) {
             return false;
@@ -207,7 +207,7 @@ class Stringlist extends Component {
     }
 
     public function setByDay(int $day = null): void {
-        if (is_null($day)) {
+        if (null === $day) {
             return;
         }
         /*
@@ -262,7 +262,7 @@ class Stringlist extends Component {
 
     public function render(): Renderable {
         $view = 'theme::livewire.calendar.string_list';
-        //dddx($this->date_list);
+        // dddx($this->date_list);
         $view_params = [
             'view' => $view,
             'calendar' => $this->calendar(),

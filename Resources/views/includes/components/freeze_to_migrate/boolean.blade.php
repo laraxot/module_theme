@@ -1,7 +1,7 @@
 @php
 
 @endphp
-{{ $label ?? '' }} 
+{{ $label ?? '' }}
 &nbsp;
 @if($field->value)
 	<i class="far fa-check-square fa-2x"></i>

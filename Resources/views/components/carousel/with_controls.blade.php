@@ -1,4 +1,4 @@
-{{--  
+{{--
 https://getbootstrap.com/docs/4.5/components/carousel/#with-controls
 --}}
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

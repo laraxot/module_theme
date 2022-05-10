@@ -11,8 +11,7 @@ use Modules\Theme\Contracts\HasLikeContract;
 use Modules\Theme\Jobs\LikeJob;
 use Modules\Theme\Jobs\UnlikeJob;
 
-final class LikeArticle extends Component
-{
+final class LikeArticle extends Component {
     use DispatchesJobs;
 
     public HasLikeContract $article;
@@ -26,15 +25,11 @@ final class LikeArticle extends Component
      */
     protected $listeners = ['likeToggled'];
 
-    public function mount(HasLikeContract $article): void
-    {
+    public function mount(HasLikeContract $article): void {
         $this->article = $article;
     }
 
-    /**
-     */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::livewire.like-article';
 
         $view_params = [
@@ -44,8 +39,7 @@ final class LikeArticle extends Component
         return view($view, $view_params);
     }
 
-    public function toggleLike(): void
-    {
+    public function toggleLike(): void {
         if (Auth::guest()) {
             return;
         }
@@ -62,8 +56,7 @@ final class LikeArticle extends Component
     /**
      * @return \Modules\Theme\Contracts\HasLikeContract
      */
-    public function likeToggled()
-    {
+    public function likeToggled() {
         return $this->article;
     }
 }

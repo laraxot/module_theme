@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Input\List;
 
-use Illuminate\View\Component;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\View\Component;
 
-class Color extends Component
-{
+class Color extends Component {
     public string $name;
     public string $value;
 
     /**
      * Undocumented function.
      */
-    public function __construct(string $name, string $value)
-    {
+    public function __construct(string $name, string $value) {
         $this->name = $name;
         $this->value = $value;
     }
@@ -24,11 +22,10 @@ class Color extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render():Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.input.list.color';
         $view_params = [
-            'view' => $view
+            'view' => $view,
         ];
 
         return view()->make($view, $view_params);

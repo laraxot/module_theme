@@ -27,7 +27,7 @@ class Txt extends Component {
             $pos = 0;
         }
         $this->pos = $pos;
-        if ('' != $q) {
+        if ('' !== $q) {
             $this->n = Str::substrCount(strtolower($this->txt), strtolower($q));
         }
 
@@ -47,7 +47,7 @@ class Txt extends Component {
     }
 
     public function goPrev(): void {
-        $offset = -strlen($this->txt) + $this->pos - 1;
+        $offset = -\strlen($this->txt) + $this->pos - 1;
         $this->pos = strripos($this->txt, $this->q, $offset);
         --$this->i;
         $this->checkToggleButton();
@@ -61,7 +61,7 @@ class Txt extends Component {
 
     public function checkToggleButton(): void {
         switch ($this->i) {
-            case 1 == $this->i:
+            case 1 === $this->i:
                 $this->isDisabled['prev'] = true;
                 $this->isDisabled['next'] = false;
                 break;
@@ -69,7 +69,7 @@ class Txt extends Component {
                 $this->isDisabled['prev'] = false;
                 $this->isDisabled['next'] = false;
                 break;
-            case $this->n == $this->i:
+            case $this->n === $this->i:
                 $this->isDisabled['prev'] = false;
                 $this->isDisabled['next'] = true;
                 break;
@@ -88,7 +88,7 @@ class Txt extends Component {
 
         $tmp = '<a href="'.$this->url.'"><b>'.$this->q.'</b></a>';
 
-        //$txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);
+        // $txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);
         $txt = str_ireplace($this->q, $tmp, $txt);
 
         $html = '';

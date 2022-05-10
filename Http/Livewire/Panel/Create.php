@@ -14,21 +14,18 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class Create.
  */
-class Create extends Component
-{
+class Create extends Component {
     public Collection $fields;
     public array $rules;
     public array $form_data;
     public string $model_name;
 
-    public function mount(PanelContract $panel): void
-    {
+    public function mount(PanelContract $panel): void {
         $this->rules = $panel->rules();
         $this->fields = $panel->getFields();
     }
 
-    protected function rules(): array
-    {
+    protected function rules(): array {
         return $this->rules;
     }
 
@@ -37,11 +34,8 @@ class Create extends Component
      */
     /**
      * Render the component.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::livewire.panel.create';
 
         $view_params = [
@@ -54,21 +48,20 @@ class Create extends Component
     /**
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function create()
-    {
+    public function create() {
         dddx('create!!!');
 
-        //$this->validate();
-        //dddx(PanelService::make()->get(xotModel($this->model_name)));
-        //PanelService::make()->get(xotModel($this->model_name))->createJob();
+        // $this->validate();
+        // dddx(PanelService::make()->get(xotModel($this->model_name)));
+        // PanelService::make()->get(xotModel($this->model_name))->createJob();
 
         $this->form_data['author_id'] = Auth::id();
 
-        //dddx($this->form_data);
+        // dddx($this->form_data);
 
         $r = dispatch(new StoreJob($this->form_data, PanelService::make()->get(xotModel($this->model_name))));
 
-        //dddx($r);
+        // dddx($r);
 
         return redirect()->route('containers.index', ['container0' => 'threads']);
     }

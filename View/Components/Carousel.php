@@ -25,7 +25,7 @@ class Carousel extends Component {
      * @return void
      */
     public function __construct(
-        /*?string $title = null, ?string $subtitle = null, ?string $bg = null, */
+        /* ?string $title = null, ?string $subtitle = null, ?string $bg = null, */
         string $type = 'crossfade') {
         $this->type = $type;
         /*

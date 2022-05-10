@@ -23,7 +23,7 @@
             {{-- $field->setPrefix('rows.'.$index)->html() --}}
                 {{ $field->html() }}
             {{--
-            
+
             --}}
         </td>
     @endforeach

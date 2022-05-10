@@ -1,4 +1,4 @@
-{{--  
+{{--
 https://getbootstrap.com/docs/4.5/components/carousel/#with-indicators
 --}}
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

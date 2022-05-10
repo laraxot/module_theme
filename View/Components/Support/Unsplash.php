@@ -72,13 +72,13 @@ class Unsplash extends XotBaseComponent {
                         ]
                     )
                 )->json();
-                if (is_array($tmp)) {
+                if (\is_array($tmp)) {
                     return $tmp['urls']['raw'];
                 }
             }
         );
 
-        if (! is_string($tmp1)) {
+        if (! \is_string($tmp1)) {
             throw new \Exception('fetchPhoto must return string');
         }
 

@@ -15,15 +15,15 @@ use stdClass;
  */
 class Input extends Component {
     public ?stdClass $field = null;
-    //public ?string $label = null;
-    //public string $for;
-    //public ?string $name = null;
-    //public ?string $type = null;
+    // public ?string $label = null;
+    // public string $for;
+    // public ?string $name = null;
+    // public ?string $type = null;
 
     public string $tradKey;
     public array $attrs = [];
 
-    //public array $options = [];
+    // public array $options = [];
 
     /**
      * Undocumented function.
@@ -42,16 +42,16 @@ class Input extends Component {
             $this->tradKey = 'pub_theme::txt';
 
             $request_panel = PanelService::make()->getRequestPanel();
-            if (! is_null($request_panel)) {
+            if (null !== $request_panel) {
                 $this->tradKey = $request_panel->getTradMod();
             }
         } catch (\Error $e) {
             $this->tradKey = 'pub_theme::txt';
         }
-        //--- Setting
+        // --- Setting
         $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
-        $args = func_get_args();
+        $args = \func_get_args();
         $data = collect([]);
         foreach ($parameters as $k => $v) {
             $tmp = [
@@ -78,14 +78,14 @@ class Input extends Component {
     }
 
     public function setClass(?string $class = null): self {
-        if (null != $class) {
+        if (null !== $class) {
             $this->attrs['class'] = $class;
 
             return $this;
         }
 
         $this->attrs['class'] = 'form-control';
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             switch ($this->field->type) {
                 case 'checkbox':
                     $this->attrs['class'] = 'form-check-input';
@@ -105,11 +105,11 @@ class Input extends Component {
     }
 
     public function setIcon(?string $icon = null): self {
-        if (null == $icon) {
+        if (null === $icon) {
             return $this;
         }
 
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->icon = $icon;
         }
 
@@ -117,10 +117,10 @@ class Input extends Component {
     }
 
     public function setName(?string $name = null): self {
-        if (null == $name) {
+        if (null === $name) {
             return $this;
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->name = $name;
         }
         $this->attrs['name'] = $name;
@@ -130,11 +130,11 @@ class Input extends Component {
     }
 
     public function setType(?string $type = null): self {
-        if (null == $type) {
+        if (null === $type) {
             return $this;
         }
-        //dddx($type);//select.multiple
-        if (! is_null($this->field)) {
+        // dddx($type);//select.multiple
+        if (null !== $this->field) {
             $this->field->type = $type;
         }
 
@@ -142,12 +142,12 @@ class Input extends Component {
     }
 
     public function setLabel(?string $label = null): self {
-        if (null == $label) {
-            if (! is_null($this->field)) {
+        if (null === $label) {
+            if (null !== $this->field) {
                 $label = trans($this->tradKey.'.'.$this->field->name.'.label');
             }
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->label = $label;
         }
 
@@ -155,8 +155,8 @@ class Input extends Component {
     }
 
     public function setPlaceholder(?string $placeholder = null): self {
-        if (null == $placeholder) {
-            if (! is_null($this->field)) {
+        if (null === $placeholder) {
+            if (null !== $this->field) {
                 $placeholder = trans($this->tradKey.'.'.$this->field->name.'.placeholder');
             }
         }
@@ -171,10 +171,10 @@ class Input extends Component {
     }
 
     public function setOptions(?array $options = null): self {
-        if (null == $options) {
+        if (null === $options) {
             return $this;
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->options = $options;
         }
 
@@ -185,7 +185,7 @@ class Input extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        if (is_null($this->field)) {
+        if (null === $this->field) {
             throw new \Exception('this->field is null');
         }
         $type = $this->field->type;
@@ -197,7 +197,7 @@ class Input extends Component {
 
         $view_params['view'] = $view;
 
-        $view_params['value'] = null; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        $view_params['value'] = null; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         return view()->make($view, $view_params);
     }

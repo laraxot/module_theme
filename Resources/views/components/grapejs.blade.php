@@ -449,8 +449,8 @@ Theme::add('https://grapesjs.com/js/grapesjs-style-bg.min.js');
                 },
                 },
                 });
-            
-            
+
+
             @endverbatim
 
 

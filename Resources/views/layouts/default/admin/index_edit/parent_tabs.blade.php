@@ -5,7 +5,7 @@
             return;
         }
         $current_tab = $row->post_type;
-        
+
         $trad = str_replace('.' . $row->post_type . '.index_edit', '', $view);
         //echo '<br/>view :['.$view.']';
         //echo '<br/>[.'.$row->post_type.'.index_edit]';
@@ -47,7 +47,7 @@
                         dddx($routename);
                         break;
                 }
-                
+
             @endphp
             <li class="nav-item">
                 <a class="btn btn-secondary nav-link {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"

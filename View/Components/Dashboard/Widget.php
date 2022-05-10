@@ -24,7 +24,7 @@ class Widget extends Component {
     public function render(): \Illuminate\Contracts\Support\Renderable {
         $componentClass = '\Modules\\'.$this->area->getAttributeValue('area_define_name').'\View\Components\Dashboard\Item';
 
-        //return $componentClass;
+        // return $componentClass;
         if (! class_exists($componentClass)) {
             throw new Exception('not exists ['.$componentClass.']');
         }

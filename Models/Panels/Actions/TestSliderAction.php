@@ -6,12 +6,12 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class TestAction.

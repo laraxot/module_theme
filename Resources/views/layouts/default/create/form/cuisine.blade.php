@@ -1,5 +1,5 @@
 {!! Form::bsOpen($row,'store') !!}
- 
+
 {{ Form::bsTwitterTypeahead('title',null,['data-href'=>$row->url.'?q=%QUERY%']) }}
 {{--
 {{ Form::bsJqueryuiAutocomplete('title',null,['data-href'=>$row->url.'?q=%QUERY%']) }}

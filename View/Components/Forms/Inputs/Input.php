@@ -10,12 +10,9 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Input.
  */
-class Input extends XotBaseComponent
-{
+class Input extends XotBaseComponent {
     /**
-     * 
-     *
-     * @var string 
+     * @var string
      */
     public ?string $name;
 
@@ -24,22 +21,18 @@ class Input extends XotBaseComponent
     public string $type;
 
     /**
-     * 
-     *
-     * @var string 
+     * @var string
      */
     public $value;
 
-    public function __construct(string $name, string $id = null, string $type = 'text', ?string $value = '')
-    {
+    public function __construct(string $name, string $id = null, string $type = 'text', ?string $value = '') {
         $this->name = $name;
         $this->id = $id ?? $name;
         $this->type = $type;
         $this->value = old($name, $value ?? '');
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.forms.inputs.input';
 
         return view()->make($view);

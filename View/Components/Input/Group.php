@@ -17,13 +17,13 @@ use stdClass;
  */
 class Group extends Component {
     public ?stdClass $field = null;
-    //public ?string $label = null;
-    //public string $for;
-    //public ?string $name = null;
-    //public ?string $type = null;
-    //public ?string $bs_col_size = null;
+    // public ?string $label = null;
+    // public string $for;
+    // public ?string $name = null;
+    // public ?string $type = null;
+    // public ?string $bs_col_size = null;
     public array $attrs = [];
-    //public ?array $options = null; //serve per il select
+    // public ?array $options = null; //serve per il select
     public int $colSize = 12;
     public string $tradKey;
 
@@ -82,14 +82,14 @@ class Group extends Component {
     ) {
         $panel = PanelService::make()->getRequestPanel();
         $this->tradKey = 'pub_theme::txt';
-        if (null != $panel) {
+        if (null !== $panel) {
             $this->tradKey = $panel->getTradMod();
         }
 
-        //--- Setting
+        // --- Setting
         $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
-        $args = func_get_args();
+        $args = \func_get_args();
         $data = collect([]);
         foreach ($parameters as $k => $v) {
             $tmp = [
@@ -115,7 +115,7 @@ class Group extends Component {
     }
 
     public function setClass(?string $class = null): self {
-        if (null != $class) {
+        if (null !== $class) {
             $this->attrs['class'] = $class;
 
             return $this;
@@ -123,7 +123,7 @@ class Group extends Component {
 
         $this->attrs['class'] = 'form-control';
 
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             switch ($this->field->type) {
                 case 'checkbox':
                     $this->attrs['class'] = 'form-check-input';
@@ -143,10 +143,10 @@ class Group extends Component {
     }
 
     public function setIcon(?string $icon = null): self {
-        if (null == $icon) {
+        if (null === $icon) {
             return $this;
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->icon = $icon;
         }
 
@@ -154,10 +154,10 @@ class Group extends Component {
     }
 
     public function setName(?string $name = null): self {
-        if (null == $name) {
+        if (null === $name) {
             return $this;
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->name = $name;
         }
         $this->attrs['name'] = $name;
@@ -167,11 +167,11 @@ class Group extends Component {
     }
 
     public function setType(?string $type = null): self {
-        if (null == $type) {
+        if (null === $type) {
             return $this;
         }
-        //dddx($type);//select.multiple
-        if (! is_null($this->field)) {
+        // dddx($type);//select.multiple
+        if (null !== $this->field) {
             $this->field->type = $type;
         }
 
@@ -179,12 +179,12 @@ class Group extends Component {
     }
 
     public function setLabel(?string $label = null): self {
-        if (null == $label) {
-            if (! is_null($this->field)) {
+        if (null === $label) {
+            if (null !== $this->field) {
                 $label = trans($this->tradKey.'.'.$this->field->name.'.label');
             }
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->label = $label;
         }
 
@@ -192,12 +192,12 @@ class Group extends Component {
     }
 
     public function setPlaceholder(?string $placeholder = null): self {
-        if (null == $placeholder) {
-            if (! is_null($this->field)) {
+        if (null === $placeholder) {
+            if (null !== $this->field) {
                 $placeholder = trans($this->tradKey.'.'.$this->field->name.'.placeholder');
             }
         }
-        if (! is_null($this->field)) {
+        if (null !== $this->field) {
             $this->field->placeholder = $placeholder;
         }
 
@@ -205,8 +205,8 @@ class Group extends Component {
     }
 
     public function setOptions(?array $options = null): self {
-        $options = is_array($options) ? $options : [];
-        if (! is_null($this->field)) {
+        $options = \is_array($options) ? $options : [];
+        if (null !== $this->field) {
             $this->field->options = $options;
         }
 
@@ -214,7 +214,7 @@ class Group extends Component {
     }
 
     public function setColSize(?int $colSize = null): self {
-        if (null == $colSize) {
+        if (null === $colSize) {
             return $this;
         }
         $this->colSize = $colSize;

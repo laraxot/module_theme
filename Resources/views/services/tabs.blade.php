@@ -16,7 +16,7 @@
 	        <div role="tabpanel" class="tab-pane fade @if($k==0) in active @endif " id="{{ $v['name'] }}">
 	        @include($tabs_view.'.'.$v['view'])
 	        </div>
-	    @endforeach 
+	    @endforeach
 	    </div>
 	</div>
 </section>

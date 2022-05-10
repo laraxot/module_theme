@@ -237,7 +237,7 @@
                     @endforeach
                     <!-- venue item-->
                 </div>
-                {{-- 
+                {{--
                 <!-- Pagination -->
                 <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-template d-flex justify-content-center">

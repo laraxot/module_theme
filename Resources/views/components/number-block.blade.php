@@ -9,8 +9,8 @@
         {{ $title }}
         <span class="text-4xl text-gray-900 block leading-tight">{{ $total }}</span>
     </h3>
-    <div 
-        class="number-block w-full h-44 bg-contain" 
+    <div
+        class="number-block w-full h-44 bg-contain"
         style="background-image: url('{{ $background }}');"
     >
     </div>

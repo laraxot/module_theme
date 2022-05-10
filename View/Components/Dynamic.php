@@ -40,28 +40,28 @@ class Dynamic extends DynamicComponent {
 </x-{{ component }}>
 EOF;
 
-return function ($data) use ($template) {
-$bindings = $this->bindings($class = $this->classForComponent());
+        return function ($data) use ($template) {
+            $bindings = $this->bindings($class = $this->classForComponent());
 
-return str_replace(
+            return str_replace(
 [
-'{{ component }}',
-'{{ props }}',
-'{{ bindings }}',
-'{{ attributes }}',
-'{{ slots }}',
-'{{ defaultSlot }}',
+    '{{ component }}',
+    '{{ props }}',
+    '{{ bindings }}',
+    '{{ attributes }}',
+    '{{ slots }}',
+    '{{ defaultSlot }}',
 ],
 [
-$this->component,
-$this->compileProps($bindings),
-$this->compileBindings($bindings),
-'{{ $attributes->merge($attrs) }}',
-$this->compileSlots($data['__laravel_slots']),
-'{{ $slot ?? "" }}',
+    $this->component,
+    $this->compileProps($bindings),
+    $this->compileBindings($bindings),
+    '{{ $attributes->merge($attrs) }}',
+    $this->compileSlots($data['__laravel_slots']),
+    '{{ $slot ?? "" }}',
 ],
 $template
 );
-};
-}
+        };
+    }
 }

@@ -1,7 +1,7 @@
 <div id="menu-settings-column" class="metabox-holder">
 
     <div class="clear"></div>
-    {{--  
+    {{--
     <form id="nav-menu-meta" action="" class="nav-menu-meta" method="post" enctype="multipart/form-data">
     --}}
         <div id="side-sortables" class="accordion-container">
@@ -48,7 +48,7 @@
 
             </ul>
         </div>
-    {{--  
+    {{--
     </form>
     --}}
 

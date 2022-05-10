@@ -1,7 +1,7 @@
 {!! Form::bsOpen($row,'store',"",null,"createRestaurantForm") !!}
 {{--
 @if (count($errors) > 0)
- 
+
     <div class="alert alert-danger">
         <ul>
         @foreach ($errors->all() as $k=>$error)
@@ -22,13 +22,13 @@
 	{!! Form::bsText('website') !!}
 	</div>
 	<div class="form-group col-sm-12">
-	{{-- Form::bsUploadSingleImg('thumbnail') --}} 
-	{{-- 
-	Form::bsDropZone('image_src') 
+	{{-- Form::bsUploadSingleImg('thumbnail') --}}
+	{{--
+	Form::bsDropZone('image_src')
 	{!! Form::bsUploadImg('image_src') !!}
 	--}}
 	{!! Form::bsHtml5UploadImg('image_src') !!}
-	
+
 	</div>
 	<div class="form-group col-sm-6">
 	{!! Form::bsText('email') !!}

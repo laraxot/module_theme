@@ -15,7 +15,7 @@
 			--}}
 			@include('theme::layouts.default.common.'.$_layout->view_body)
 		</div>
-	</div> 
+	</div>
 </section>
 {{--
 {!! Theme::include('footer',['edit_type'=>$row_type],get_defined_vars() ) !!}

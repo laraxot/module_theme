@@ -6,6 +6,6 @@
 	</div>
 	@if(isset($footer) && $footer=='off')
 	@else
-	@include('pub_theme::layouts.partials.footer') 
+	@include('pub_theme::layouts.partials.footer')
 	@endif
 @endsection

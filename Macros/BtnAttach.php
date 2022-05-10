@@ -9,19 +9,17 @@ use Exception;
 /**
  * Class BtnAttach.
  */
-class BtnAttach extends BaseFormBtnMacro
-{
+class BtnAttach extends BaseFormBtnMacro {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra) {
             $class = __CLASS__;
             $vars = $class::before($extra);
 
-            if(!is_array($vars)) {
-                throw new Exception("vars is not an array");
+            if (! \is_array($vars)) {
+                throw new Exception('vars is not an array');
             }
 
             if ($vars['error']) {
@@ -29,8 +27,8 @@ class BtnAttach extends BaseFormBtnMacro
             }
 
             return $vars['btn'];
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

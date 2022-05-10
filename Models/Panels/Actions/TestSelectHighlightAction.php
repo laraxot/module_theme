@@ -4,32 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels\Actions;
 
-//-------- services --------
+// -------- services --------
 
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//-------- bases -----------
+// -------- bases -----------
 
 /**
  * Class TestSelectHighlightAction.
  */
-class TestSelectHighlightAction extends XotBasePanelAction
-{
+class TestSelectHighlightAction extends XotBasePanelAction {
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $drivers = [
-            //https://css-tricks.com/how-to-create-actions-for-selected-text-with-the-selection-api/
+            // https://css-tricks.com/how-to-create-actions-for-selected-text-with-the-selection-api/
             'web_api',
-            //https://www.jqueryscript.net/menu/Medium-style-Floating-Text-highlight-Menu-With-jQuery-CSS3.html
+            // https://www.jqueryscript.net/menu/Medium-style-Floating-Text-highlight-Menu-With-jQuery-CSS3.html
             'jquery_css3',
-            //https://github.com/aruminant/tinyq
+            // https://github.com/aruminant/tinyq
             'tinyq',
             'custom.v1',
         ];

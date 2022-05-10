@@ -1,6 +1,6 @@
 @php
     $restaurant_curr=collect($params)->where('type','restaurant')->last();
-    
+
     $cuisineCats = $restaurant_curr->cuisineCats;
 
 @endphp

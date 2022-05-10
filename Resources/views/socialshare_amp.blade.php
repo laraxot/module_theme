@@ -8,7 +8,7 @@
 <amp-social-share type="tumblr" aria-label="Share this on Tumblr" class="share" width="50" height="50"></amp-social-share>
 <amp-social-share type="twitter" aria-label="Share this on Twitter" class="share" width="50" height="50"></amp-social-share>
 <amp-social-share type="whatsapp" aria-label="Share this on Whatsapp" class="share" width="50" height="50"></amp-social-share>
-<amp-social-share type="sms" aria-label="Share this on Sms" class="share" width="50" height="50"></amp-social-share> 
+<amp-social-share type="sms" aria-label="Share this on Sms" class="share" width="50" height="50"></amp-social-share>
 </div>
 <amp-facebook-like width="90"
   height="30"

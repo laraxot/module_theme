@@ -75,7 +75,7 @@ class Phonecall extends Component {
         \Mail::to($to_email)->send(new MyTestMail($details));
 
         $this->emitTo('theme::modal.body-view', 'sendMessage', 'Messaggio Inviato');
-        //$this->emitTo('theme::modal.body-view', 'doClose');
+        // $this->emitTo('theme::modal.body-view', 'doClose');
     }
 
     public function render() {

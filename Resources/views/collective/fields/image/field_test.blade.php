@@ -13,7 +13,7 @@
     @slot('input')
     <div class="card mb-3" >
 
-		
+
 		<div class="input-group">
 			<span class="input-group-btn">
 				<a id="lfm_{{ $name }}" data-input="thumbnail" data-preview="holder" class="btn btn-primary">

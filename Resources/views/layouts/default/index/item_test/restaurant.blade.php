@@ -26,9 +26,9 @@
       				<span itemprop="postalCode">{{ $row->postal_code }}</span>
       				<span itemprop="addressLocality">{{ $row->locality }}</span>,
       				(<span itemprop="addressRegion">{{ $row->administrative_area_level_2_short }}</span>)
-      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" /> 
+      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" />
     			</div>
-				
+
 				{{--
 				@include('pub_theme::layouts.partials.item.address',['linked'=>$row])
 				<ul class="list-inline">
@@ -48,7 +48,7 @@
 					--}}
 					@if(is_array($row->tabs))
 					@foreach($row->tabs as $tab)
-					{{--											
+					{{--
 					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.tab.'.$tab)</a>
 					--}}
 					@php
@@ -60,7 +60,7 @@
 					<a href="{{ route('containers.index',$parz,true) }}" class="btn theme-btn-dash">
 						@lang('pub_theme::restaurant.tab.'.$tab)
 					</a>
-					@endforeach 
+					@endforeach
 					@endif
 				</div>
 			</div>

@@ -36,26 +36,26 @@ class Svg extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        //$content=File::get()
+        // $content=File::get()
         $svg_path = FileService::fixPath(module_path('theme', 'Resources/svg/'.$this->icon.'.svg'));
         $svg_content = File::get($svg_path);
-        //$xml = simplexml_load_string($svg_content);
+        // $xml = simplexml_load_string($svg_content);
 
-        //$this->attrs = get_class_methods($xml);
-        //$this->attrs = $xml->children()->path;
+        // $this->attrs = get_class_methods($xml);
+        // $this->attrs = $xml->children()->path;
 
-        //$crawler = new Crawler($svg_content);
+        // $crawler = new Crawler($svg_content);
 
-        //$this->attrs = get_class_methods($crawler);
-        //$this->attrs = get_class_methods($crawler->filter('svg')->first());
+        // $this->attrs = get_class_methods($crawler);
+        // $this->attrs = get_class_methods($crawler->filter('svg')->first());
 
-        //$this->attrs = $crawler->filter('svg')->extract(['_text', 'fill', 'viewBox', 'text']);
-        //$this->attrs = $crawler->filter('svg')->children();
-        //$this->attrs = $crawler->filterXPath('//svg');
+        // $this->attrs = $crawler->filter('svg')->extract(['_text', 'fill', 'viewBox', 'text']);
+        // $this->attrs = $crawler->filter('svg')->children();
+        // $this->attrs = $crawler->filterXPath('//svg');
         // $this->attrs = $crawler->filter('svg')->first()->children();
 
-        //<(.+?)[\s]*\/?[\s]*>
-        //$pattern = '/<svg([^>]*)>(\s.*)/im';
+        // <(.+?)[\s]*\/?[\s]*>
+        // $pattern = '/<svg([^>]*)>(\s.*)/im';
         $pattern = '/<(.+?)[\s]*\/?[\s]*>\s*(<.+?[\s]*\/?[\s]*>)/im';
         preg_match($pattern, $svg_content, $m);
         /*
@@ -63,18 +63,18 @@ class Svg extends Component {
         $m2='<path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555...'
         */
         $xml = simplexml_load_string($svg_content);
-        if (false == $xml || false == $xml->attributes()) {
+        if (false === $xml || false === $xml->attributes()) {
             throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
         $str = @json_encode($xml->attributes());
-        if (false == $str) {
+        if (false === $str) {
             throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
         $tmp = @json_decode($str, true);
-        if (is_array($tmp)) {
+        if (\is_array($tmp)) {
             $this->attrs = $tmp['@attributes'];
         }
-        if (count($m) < 2) {
+        if (\count($m) < 2) {
             throw new \Exception('svg ['.$svg_path.'] is strange ['.__LINE__.']['.__FILE__.']');
         }
 
@@ -100,4 +100,4 @@ class Svg extends Component {
         $tmp = $tmp['@attributes'];
         $this->attrs = $xml->text();
         */
-        //$this->attrs = $m;
+        // $this->attrs = $m;

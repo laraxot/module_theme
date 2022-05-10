@@ -12,7 +12,7 @@
 
     $row=Form::getModel();
     //$rows=$row->$name; //risultati per l'edit ..
-    $related=$row->$name()->getRelated(); 
+    $related=$row->$name()->getRelated();
     $related_panel=Panel::make()->get($related);
     /*
     $rows=$related->get()->load('post');
@@ -24,13 +24,13 @@
     $field=transFields(get_defined_vars());
     //dddx(get_defined_vars());
     $field->attributes['multiple']='multiple';
-    
+
     //$field->attributes['class'].=' select2';
     $field->attributes['class'].=' js-example-basic-multiple';
-    
+
     $name1=$name.'[]'; //da rendere dinamico
     $field->attributes['name']=$name1;
-    
+
 
     //dddx($field);
 @endphp

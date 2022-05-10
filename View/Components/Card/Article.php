@@ -33,7 +33,7 @@ class Article extends Component {
      */
     public function render(): Renderable {
         $view = 'theme::components.card.article';
-        //dddx($this->row);
+        // dddx($this->row);
         $view_params = [
             'view' => $view,
             'panel' => PanelService::make()->get($this->row),

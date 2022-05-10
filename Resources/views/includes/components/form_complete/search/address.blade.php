@@ -27,7 +27,7 @@
 .ap-suggestion { color:darkblue; text-align:left; border-bottom: 1px solid #efefef; }
 .ap-address { color:darkgreen; }
 </style>
-@endpush  
+@endpush
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.11.0"></script>
@@ -62,10 +62,10 @@
 				$('input[name=lat]').val(result.latlng.lat);
 				$('input[name=lng]').val(result.latlng.lng);
 				$('input[name=city]').val(result.city);
-				
+
 				delete(result.highlight); delete(result.hit); delete(result.hitIndex);
 				delete(result.rawAnswer); delete(result.query);
-				
+
 				$field.val( JSON.stringify(result) );
 
 			});

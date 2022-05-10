@@ -40,12 +40,12 @@
                         $parz['container3'] = $tab;
                         $route = route('containers.index', $parz);
                         break;
-                
+
                     default:
                         dddx($routename);
                         break;
                 }
-                
+
             @endphp
             <li class="nav-item">
                 <a class="btn btn-secondary nav-link {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"
@@ -55,7 +55,7 @@
 					@php
 						$plural=str_plural($tab);
 						$q=$second_last->linked->$plural->count();
-						
+
 					@endphp
 					{{ $q }}
 				</span> --}}

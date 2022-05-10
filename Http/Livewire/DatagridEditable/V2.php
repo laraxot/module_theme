@@ -12,8 +12,8 @@ use Livewire\WithFileUploads;
 use Modules\Theme\Services\FieldService;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\RowsContract;
-//use Modules\Theme\Traits\HandlesArrays;
-//use Modules\Theme\Traits\UploadsFiles;
+// use Modules\Theme\Traits\HandlesArrays;
+// use Modules\Theme\Traits\UploadsFiles;
 use Modules\Xot\Models\Panels\XotBasePanel;
 use Modules\Xot\Services\PanelService;
 
@@ -22,13 +22,12 @@ use Modules\Xot\Services\PanelService;
  *
  * @property XotBasePanel $panel
  */
-class V2 extends Component
-{
+class V2 extends Component {
     use WithFileUploads;
 
-    //use UploadsFiles;
-    //use HandlesArrays;
-    //protected $paginationTheme = 'bootstrap';
+    // use UploadsFiles;
+    // use HandlesArrays;
+    // protected $paginationTheme = 'bootstrap';
     public array $route_params = [];
 
     public array $data = [];
@@ -43,8 +42,7 @@ class V2 extends Component
 
     public Collection $rows;
 
-    public function mount(): void
-    {
+    public function mount(): void {
         $this->route_params = optional(request()->route())->parameters();
         $this->data = request()->all();
         $this->in_admin = inAdmin();
@@ -53,14 +51,13 @@ class V2 extends Component
         $this->page = request()->input('page', 1);
         $offset = ($this->page - 1) * $this->per_page;
         $rows = $this->query()->offset((int) $offset)->limit($this->per_page)->get();
-        //$rows = collect($rows->toArray());
-        //dddx($rows);
+        // $rows = collect($rows->toArray());
+        // dddx($rows);
         $this->rows = $rows;
-        //dddx($this->rows);
+        // dddx($this->rows);
     }
 
-    public function rules(): array
-    {
+    public function rules(): array {
         $tmp = $this->panel->rules(['act' => 'update']);
         $rules = [];
         foreach ($tmp as $k => $v) {
@@ -71,25 +68,22 @@ class V2 extends Component
         return $rules;
     }
 
-    public function getPanelProperty(): PanelContract
-    {
+    public function getPanelProperty(): PanelContract {
         return PanelService::make()->getByParams($this->route_params);
     }
 
-    public function query(): RowsContract
-    {
+    public function query(): RowsContract {
         return $this->panel->rows($this->data)->with('post');
     }
 
-    public function render(): ViewContract
-    {
+    public function render(): ViewContract {
         $view = 'theme::livewire.datagrid_editable.v2';
         $view_params = [
             'view' => $view,
         ];
 
-        //dddx($this->rows);
-        //Parameter #1 $view of function view expects view-string|null, string given.
+        // dddx($this->rows);
+        // Parameter #1 $view of function view expects view-string|null, string given.
         return view()->make($view, $view_params);
     }
 
@@ -99,8 +93,7 @@ class V2 extends Component
      *
      * @return FieldService
      */
-    public static function makeField($field_name, $field_type)
-    {
+    public static function makeField($field_name, $field_type) {
         return FieldService::make()
             ->setName($field_name)
             ->setType($field_type)
@@ -110,15 +103,13 @@ class V2 extends Component
     /**
      * @param string $err
      */
-    public static function errorMessage($err): string
-    {
+    public static function errorMessage($err): string {
         session()->flash('error_message', $err);
 
         return $err;
     }
 
-    public function rowsUpdate(): void
-    {
+    public function rowsUpdate(): void {
         $data = $this->validate();
         $data = $data['rows'];
         dddx($data);
@@ -129,9 +120,8 @@ class V2 extends Component
         session()->flash('message', 'Post successfully updated.');
     }
 
-    public function carica(): void
-    {
+    public function carica(): void {
         dddx(['funzione carica di datatable']);
-        //dddx($this->rows);
+        // dddx($this->rows);
     }
 }

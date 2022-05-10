@@ -5,7 +5,7 @@
 <div class="sidebar clearfix m-b-20">
 	<div class="main-block">
 		<div class="sidebar-title white-txt">
-			<h6>@lang($view_default.'.choose_cat')</h6> 
+			<h6>@lang($view_default.'.choose_cat')</h6>
 			<i class="fa fa-cutlery pull-right"></i>
 		</div>
 		<ul>

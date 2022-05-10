@@ -90,8 +90,8 @@ $("#myModal").on("show.bs.modal", function(e) {
       $k=$(this).attr('name');//.slice(0,-2); // per togliere []
       $v=$(this).val();
       //alert($k+'   '+$v);
-      $data[$k]=$v; 
-    }); 
+      $data[$k]=$v;
+    });
 
 
     //alert($data['_token']);
@@ -106,12 +106,12 @@ $("#myModal").on("show.bs.modal", function(e) {
       //contentType: "application/json; charset=utf-8",
         //dataType: "json",
       data:$data,
-      //data:{_token:$token,content:$data['content'],content_type:$data['content_type'],}, 
-      
+      //data:{_token:$token,content:$data['content'],content_type:$data['content_type'],},
+
       success: function(data, status) {
-                $myModal.find(".modal-body").html(data);  
+                $myModal.find(".modal-body").html(data);
             },
-            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
               /*
               html='';
               for(i in XMLHttpRequest){
@@ -119,11 +119,11 @@ $("#myModal").on("show.bs.modal", function(e) {
               }
               alert(html);
               //alert('XMLHttpRequest' + XMLHttpRequest);
-                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                alert("Status: " + textStatus); alert("Error: " + errorThrown);
               */
-            }       
+            }
     });
-      
+
 
 
 
@@ -136,9 +136,9 @@ $('#btnSave').click(function() {
         alert($k+'  '+$v);
         //$data[$k]=$v;
         //alert($invoker.parent().parent().find('[name='+$k+']').val());
-        $invoker.parent().parent().find('[name='+$k+']').val($v);     
+        $invoker.parent().parent().find('[name='+$k+']').val($v);
     });
-    
+
 
 
    $('#myModal').modal('hide');

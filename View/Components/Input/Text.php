@@ -17,7 +17,7 @@ class Text extends Component {
     /**
      * Undocumented function.
      */
-    public function __construct(?string $class = '', string $placeholder, string $name, ?string $style = '') {
+    public function __construct(?string $class, string $placeholder, string $name, ?string $style = '') {
         $this->attrs['class'] = $class;
         $this->attrs['style'] = $style;
         $this->attrs['placeholder'] = $placeholder;

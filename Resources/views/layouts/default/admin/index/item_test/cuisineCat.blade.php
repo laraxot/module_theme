@@ -25,7 +25,7 @@
       				<span itemprop="postalCode">{{ $row->postal_code }}</span>
       				<span itemprop="addressLocality">{{ $row->locality }}</span>,
       				(<span itemprop="addressRegion">{{ $row->administrative_area_level_2_short }}</span>)
-      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" /> 
+      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" />
     			</div>
 				--}}
 				{{--
@@ -42,18 +42,18 @@
 				<div class="right-review">
 					{{--
 					<div class="rating-block">
-						@for($i=0;$i<$row->rating_avg;$i++) 
-						<i class="fa fa-star"></i> 
+						@for($i=0;$i<$row->rating_avg;$i++)
+						<i class="fa fa-star"></i>
 						@endfor
-						@for($i=$row->rating_avg;$i<5;$i++) 
-						<i class="fa fa-star-o"></i> 
+						@for($i=$row->rating_avg;$i<5;$i++)
+						<i class="fa fa-star-o"></i>
 						@endfor
 					</div>
 					--}}
 					<p>{{-- non c'e' la relazione location_x_restaurant  $row->relatedCount('restaurant') --}}
 						{{-- $row->restaurants_count --}}
 					</p>
-					<a href="{{ $row->url }}" class="btn theme-btn-dash">View Restaurants</a> 
+					<a href="{{ $row->url }}" class="btn theme-btn-dash">View Restaurants</a>
 				</div>
 			</div>
 			{{-- end:right info --}}

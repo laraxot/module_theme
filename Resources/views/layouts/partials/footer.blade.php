@@ -27,16 +27,16 @@
 			@include('pub_theme::layouts.partials.footer.pages')
 			@include('pub_theme::layouts.partials.footer.pop_cuisineCats')
 			--}}
-			{{--  
+			{{--
 			@include('pub_theme::layouts.partials.footer.pop_restaurants')
 			@include('pub_theme::layouts.partials.footer.pages')
 			@include('pub_theme::layouts.partials.footer.pop_locations')
 			--}}
-			
+
 			{!! Theme::cache('pub_theme::layouts.partials.footer.pop_restaurants',['restaurant'=>$restaurant]) !!}
 			{!! Theme::cache('pub_theme::layouts.partials.footer.pages',['page'=>$page]) !!}
 			{!! Theme::cache('pub_theme::layouts.partials.footer.pop_locations',['location'=>$location]) !!}
-			
+
 		</div>
 		<!-- top footer ends -->
 		<!-- bottom footer statrs -->

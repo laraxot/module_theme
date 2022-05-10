@@ -22,8 +22,8 @@ class ToggleDate extends Component {
      * @return void
      */
     public function mount() {
-        //$this->model = $model;
-        //$this->field = $field;
+        // $this->model = $model;
+        // $this->field = $field;
         $this->isActive = null !== $this->model->getAttribute($this->field);
     }
 

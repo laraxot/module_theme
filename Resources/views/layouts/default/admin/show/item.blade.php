@@ -5,10 +5,10 @@
 @foreach($fields as $k=>$v)
 	<tr>
 	  <td>{{ $v->name}}</td>
-	    
-	  <td> 
-	  	{{--  
-	  	{{ $row->{$v->name} }} 
+
+	  <td>
+	  	{{--
+	  	{{ $row->{$v->name} }}
 		--}}
 		{!! Theme::inputFreeze(['row'=>$row,'field'=>$v]) !!}
 	  </td>

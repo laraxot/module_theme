@@ -13,4 +13,4 @@
         </span>
         </div>
 	@endslot
-@endcomponent		
+@endcomponent

@@ -1,5 +1,5 @@
-<?php
-//<!-- bootstrap datepicker input -->
+<?php declare(strict_types=1);
+// <!-- bootstrap datepicker input -->
 // if the column has been cast to Carbon or Date (using attribute casting)
 // get the value as a date string
 if (isset($field['value']) && $field['value'] instanceof \Carbon\CarbonInterface) {
@@ -8,10 +8,10 @@ if (isset($field['value']) && $field['value'] instanceof \Carbon\CarbonInterface
 
 $field_language = isset($field['date_picker_options']['language']) ? $field['date_picker_options']['language'] : app()->getLocale();
 
-if (!isset($field['attributes']['style'])) {
+if (! isset($field['attributes']['style'])) {
     $field['attributes']['style'] = 'background-color: white!important;';
 }
-if (!isset($field['attributes']['readonly'])) {
+if (! isset($field['attributes']['readonly'])) {
     $field['attributes']['readonly'] = 'readonly';
 }
 ?>

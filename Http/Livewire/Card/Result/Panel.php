@@ -21,10 +21,10 @@ class Panel extends Component {
 
     public string $txt;
 
-    //public string $txt_field='txt';
+    // public string $txt_field='txt';
 
     public function mount(PanelContract $panel, string $q): void {
-        //$this->panel = $panel;
+        // $this->panel = $panel;
         $this->q = $q;
         $this->txt = $panel->row->txt;
         $this->pos = stripos($this->txt, $this->q);
@@ -42,16 +42,14 @@ class Panel extends Component {
     }
 
     public function goPrev() {
-        //$offset=-$this->pos;
-        $offset = -strlen($this->txt) + $this->pos - 1;
+        // $offset=-$this->pos;
+        $offset = -\strlen($this->txt) + $this->pos - 1;
         $this->pos = strripos($this->txt, $this->q, $offset);
         --$this->i;
     }
 
     /**
      * Render the component.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function render(): Renderable {
         $view = 'theme::livewire.card.result.panel';

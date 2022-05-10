@@ -13,18 +13,16 @@ namespace Modules\Theme\Traits;
 /**
  * Trait UploadsFiles.
  */
-trait UploadsFiles
-{
+trait UploadsFiles {
     /**
      * @return array
      */
-    public static function fileUpload()
-    {
+    public static function fileUpload() {
         $storage_disk = self::$storage_disk ?? config('laravel-livewire-forms.storage_disk');
         $storage_path = self::$storage_path ?? config('laravel-livewire-forms.storage_path');
         $files = [];
 
-        if(is_iterable(request()->file('files'))) {
+        if (is_iterable(request()->file('files'))) {
             foreach (request()->file('files') as $file) {
                 $files[] = [
                     'file' => $file->store($storage_path, $storage_disk),
@@ -36,13 +34,12 @@ trait UploadsFiles
             }
         }
 
-        return ['field_name' => request()->input('field_name'), 'uploaded_files' => $files];    
+        return ['field_name' => request()->input('field_name'), 'uploaded_files' => $files];
     }
 
-    public function fileUpdate(string $field_name, array $uploaded_files): void
-    {
+    public function fileUpdate(string $field_name, array $uploaded_files): void {
         foreach ($this->fields() as $field) {
-            if ($field->name == $field_name) {
+            if ($field->name === $field_name) {
                 $value = $field->file_multiple ? array_merge($this->form_data[$field_name], $uploaded_files) : $uploaded_files;
                 break;
             }
@@ -52,8 +49,7 @@ trait UploadsFiles
         $this->updated('form_data.'.$field_name);
     }
 
-    public function fileIcon(string $mime_type): string
-    {
+    public function fileIcon(string $mime_type): string {
         $icons = [
             'image' => 'fa-file-image',
             'audio' => 'fa-file-audio',

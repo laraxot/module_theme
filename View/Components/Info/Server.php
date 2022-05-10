@@ -12,24 +12,21 @@ namespace Modules\Theme\View\Components\Info;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
 
-class Server extends Component
-{
+class Server extends Component {
     public array $attrs = [];
-    //public $type;
-    //public $title;
+    // public $type;
+    // public $title;
 
     /**
      * Undocumented function.
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /*
         $free = shell_exec('free'); //return null ..
         $free = (string) trim((string) $free);
@@ -65,9 +62,12 @@ class Server extends Component
         memory_get_peak_usage() - Returns the peak of memory allocated by PHP
 
         */
-        //$cmd = 'wmic ComputerSystem get TotalPhysicalMemory';
-        //@exec($cmd, $outputTotalPhysicalMemory);
-        //dddx($outputTotalPhysicalMemory);
+        /**
+         * $cmd = 'wmic ComputerSystem get TotalPhysicalMemory';
+         *
+         * @exec($cmd, $outputTotalPhysicalMemory);
+         * dddx($outputTotalPhysicalMemory);
+         */
         /*
         "_" => array:3 [▼
             0 => "TotalPhysicalMemory"
@@ -90,10 +90,10 @@ class Server extends Component
         $view_params = [
             'view' => $view,
             'mem' => $mem,
-            //'memory' => $memory,
-            //'totalram' => $totalram,
-            //'usedmemInGB' => $usedmemInGB,
-            //'load' => $load,
+            // 'memory' => $memory,
+            // 'totalram' => $totalram,
+            // 'usedmemInGB' => $usedmemInGB,
+            // 'load' => $load,
         ];
 
         return view()->make($view, $view_params);
@@ -103,8 +103,7 @@ class Server extends Component
     /**
      * @return array|null
      */
-    public function getServerMemoryUsage()
-    {
+    public function getServerMemoryUsage() {
         $memoryTotal = null;
         $memoryFree = null;
 
@@ -153,7 +152,7 @@ class Server extends Component
                         //
 
                         // Total memory
-                        if (2 == count($statLineData) && 'MemTotal' == trim($statLineData[0])) {
+                        if (2 === \count($statLineData) && 'MemTotal' === trim($statLineData[0])) {
                             $memoryTotal = trim($statLineData[1]);
                             $memoryTotal = explode(' ', $memoryTotal);
                             $memoryTotal = (int) $memoryTotal[0];
@@ -161,7 +160,7 @@ class Server extends Component
                         }
 
                         // Free memory
-                        if (2 == count($statLineData) && 'MemFree' == trim($statLineData[0])) {
+                        if (2 === \count($statLineData) && 'MemFree' === trim($statLineData[0])) {
                             $memoryFree = trim($statLineData[1]);
                             $memoryFree = explode(' ', $memoryFree);
                             $memoryFree = (int) $memoryFree[0];
@@ -172,7 +171,7 @@ class Server extends Component
             }
         }
 
-        if (is_null($memoryTotal) || is_null($memoryFree)) {
+        if (null === $memoryTotal || null === $memoryFree) {
             return null;
         }
 

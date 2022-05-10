@@ -10,19 +10,16 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Logout.
  */
-class Logout extends XotBaseComponent
-{
+class Logout extends XotBaseComponent {
     public string $action;
     public array $attrs = ['aa' => 'bb'];
 
-    public function __construct(string $action = null)
-    {
+    public function __construct(string $action = null) {
         $this->action = $action ?? route('logout');
     }
 
-    public function render(): View
-    {
-        //$view = $this->getView();
+    public function render(): View {
+        // $view = $this->getView();
         $view = 'theme::components.button.logout';
         $view_params = [
             'view' => $view,

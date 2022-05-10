@@ -8,12 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class Logout extends Component
-{
+class Logout extends Component {
     public ?string $class;
 
-    public function mount(?string $class = null): void
-    {
+    public function mount(?string $class = null): void {
         if (null !== $class) {
             $this->class = $class;
         }
@@ -22,8 +20,7 @@ class Logout extends Component
     /**
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    public function logout(Request $request)
-    {
+    public function logout(Request $request) {
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
@@ -33,10 +30,7 @@ class Logout extends Component
         return redirect('/');
     }
 
-    /**
-     */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::livewire.auth.logout';
         $view_params = [
             'view' => $view,

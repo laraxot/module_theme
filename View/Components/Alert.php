@@ -15,8 +15,7 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Alert extends Component
-{
+class Alert extends Component {
     public string $type;
 
     public ?string $title;
@@ -27,42 +26,37 @@ class Alert extends Component
      */
     protected $session;
 
-    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, ?string $title = null)
-    {
+    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, ?string $title = null) {
         $this->session = $session;
         $this->type = $type;
         $this->title = $title;
         $this->dismissable = $dismissable;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view('theme::components.alert');
     }
 
-    public function icon():string
-    {
+    public function icon(): string {
         switch ($this->type) {
-        case 'info': 
+        case 'info':
             return 'info';
-        case 'warning': 
+        case 'warning':
             return 'exclamation-triangle';
-        case 'success': 
+        case 'success':
             return 'check';
-        case 'danger': 
+        case 'danger':
             return 'ban';
-        default: 
+        default:
             return 'exclamation';
         }
     }
 
-    public function message(): string
-    {
+    public function message(): string {
         return (string) Arr::first($this->messages());
     }
 
-    public function messages(): array
-    {
+    public function messages(): array {
         return (array) session()->get($this->type);
     }
 

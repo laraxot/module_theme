@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Http\Livewire\Menu;
 
 use Illuminate\Support\Facades\DB;
-use Modules\Theme\Models\MenuItem;
-use Modules\Theme\Models\Menu;
 use Livewire\Component;
+use Modules\Theme\Models\Menu;
+use Modules\Theme\Models\MenuItem;
 
-class Builder extends Component{
+class Builder extends Component {
     public $menulist = [];
     public $menuItems = [];
     public $selectedMenu = '';
@@ -27,7 +29,7 @@ class Builder extends Component{
     public $menuItemSelected = null;
     protected $listeners = ['change-tree' => 'changeTree'];
 
-    public function render(){
+    public function render() {
         $this->getMenus();
         if (config('menu.use_roles')) {
             $this->roles = DB::table(config('menu.roles_table'))->select([config('menu.roles_pk'), config('menu.roles_title_field')])->get();
@@ -35,59 +37,53 @@ class Builder extends Component{
             $this->role_title_field = config('menu.roles_title_field');
         }
         $view = 'theme::livewire.menu.builder';
+
         return view($view);
     }
 
-
-    public function getMenus()
-    {
+    public function getMenus() {
         $menu = new Menu();
         $this->menulist = $menu->select(['id', 'name'])->get()->pluck('name', 'id')->prepend('Select menu', 0)->all();
     }
 
-    public function deleteMenu($id)
-    {
+    public function deleteMenu($id) {
         $menus = new MenuItem();
         $getall = $menus->getall($id);
-        if (count($getall) == 0) {
+        if (0 === \count($getall)) {
             $menudelete = Menu::find($id);
             $menudelete->delete();
-            $this->success = "you delete this item";
+            $this->success = 'you delete this item';
 
             $this->selectedMenu = '';
             $this->getMenus();
         } else {
-            $this->error = "You have to delete all items first";
+            $this->error = 'You have to delete all items first';
         }
     }
 
-    public function deleteMenuItem($id)
-    {
+    public function deleteMenuItem($id) {
         $menuitem = MenuItem::find($id);
         $menuitem->delete();
         $this->menuItemSelected = null;
         $this->chooseMenu();
-
     }
 
-    public function updateMenuItem()
-    {
+    public function updateMenuItem() {
         $menuitem = MenuItem::find($this->menuItemSelected['id']);
         $menuitem->label = $this->menuItemLabel;
         $menuitem->link = $this->menuItemLink;
         $menuitem->class = $this->menuItemClass;
         if (config('menu.use_roles')) {
-            $menuitem->role_id = $this->menuItemRole ? $this->menuItemRole : 0;
+            $menuitem->role_id = $this->menuItemRole ?: 0;
         }
         $menuitem->save();
         $this->menuItemSelected = null;
         $this->chooseMenu();
     }
 
-    public function selectMenuItem($id)
-    {
+    public function selectMenuItem($id) {
         $item = MenuItem::find($id);
-        if ($this->menuItemSelected == null || $this->menuItemSelected['id'] != $item['id']) {
+        if (null === $this->menuItemSelected || $this->menuItemSelected['id'] !== $item['id']) {
             $this->menuItemSelected = $item;
             $this->menuItemLabel = $item->label;
             $this->menuItemClass = $item->class;
@@ -96,18 +92,15 @@ class Builder extends Component{
         } else {
             $this->menuItemSelected = null;
         }
-
     }
 
-    public function changeTree($data)
-    {
-        if (is_array($data)) {
+    public function changeTree($data) {
+        if (\is_array($data)) {
             foreach ($data as $value) {
-
-                $menuitem = MenuItem::find($value["id"]);
-                $menuitem->parent = $value["parent"];
-                $menuitem->sort = $value["sort"];
-                $menuitem->depth = $value["depth"];
+                $menuitem = MenuItem::find($value['id']);
+                $menuitem->parent = $value['parent'];
+                $menuitem->sort = $value['sort'];
+                $menuitem->depth = $value['depth'];
 
                 $menuitem->save();
             }
@@ -115,20 +108,17 @@ class Builder extends Component{
         }
     }
 
-    public function createNewMenu()
-    {
+    public function createNewMenu() {
         $this->selectedMenu = '';
         $this->menuItems = [];
         $this->menuName = '';
     }
 
-    public function chooseMenu()
-    {
+    public function chooseMenu() {
         if ($this->selectedMenu) {
-
-            $menuItem = new MenuItem;
+            $menuItem = new MenuItem();
             $menu_list = $menuItem->getall($this->selectedMenu);
-            $roots = $menu_list->where('menu', (integer)$this->selectedMenu);
+            $roots = $menu_list->where('menu', (int) $this->selectedMenu);
             $this->menuItems = self::tree($roots, $menu_list);
             $menu = Menu::find($this->selectedMenu);
             $this->menuName = $menu->name;
@@ -138,13 +128,12 @@ class Builder extends Component{
 //        dd($this->menuItems);
     }
 
-    public function addMenuItem()
-    {
+    public function addMenuItem() {
         $menuitem = new MenuItem();
         $menuitem->label = $this->label;
         $menuitem->link = $this->url;
         if (config('menu.use_roles')) {
-            $menuitem->role_id = $this->role ? $this->role : 0;
+            $menuitem->role_id = $this->role ?: 0;
         }
         $menuitem->menu = $this->selectedMenu;
         $menuitem->sort = MenuItem::getNextSortRoot($this->selectedMenu);
@@ -154,12 +143,10 @@ class Builder extends Component{
         $this->url = '';
     }
 
-    public function updateMenu()
-    {
-        if ($this->menuName == '') {
+    public function updateMenu() {
+        if ('' === $this->menuName) {
             $this->error = 'Enter menu name!';
         } else {
-
             $menu = Menu::find($this->selectedMenu);
             $menu->name = $this->menuName;
             $menu->save();
@@ -168,13 +155,11 @@ class Builder extends Component{
         }
     }
 
-    public function changeOrder($id, $dir)
-    {
+    public function changeOrder($id, $dir) {
         $item = MenuItem::find($id);
 
         switch ($dir) {
             case 'up':
-
                 $prevElem = MenuItem::where('sort', '<', $item->sort)->where('menu', $item->menu)->orderBy('sort', 'desc')->first();
                 $prevElem->sort = $prevElem->sort + 1;
                 $prevElem->save();
@@ -183,7 +168,6 @@ class Builder extends Component{
                 $item->save();
                 break;
             case 'down':
-
                 $nextElem = MenuItem::where('sort', '>', $item->sort)->where('menu', $item->menu)->orderBy('sort')->first();
                 $nextElem->sort = $nextElem->sort - 1;
                 $nextElem->save();
@@ -192,7 +176,6 @@ class Builder extends Component{
                 $item->save();
                 break;
             case 'top':
-
                 MenuItem::where('id', '<>', $item->id)->where('menu', $item->menu)
                     ->update([
                         'sort' => DB::raw('sort+1'),
@@ -201,18 +184,14 @@ class Builder extends Component{
                 $item->sort = 1;
                 $item->save();
                 break;
-
         }
 
         $this->chooseMenu();
         $this->menuItemSelected = null;
-
     }
 
-    public function createMenu()
-    {
-
-        if ($this->menuName == '') {
+    public function createMenu() {
+        if ('' === $this->menuName) {
             $this->error = 'Enter menu name!';
         } else {
             $menu = new Menu();
@@ -226,19 +205,19 @@ class Builder extends Component{
         }
     }
 
-    private static function tree($items, $all_items)
-    {
-        $data_arr = array();
+    private static function tree($items, $all_items) {
+        $data_arr = [];
         $i = 0;
         foreach ($items as $item) {
             $data_arr[$i] = $item;
             $find = $all_items->where('parent', $item->id);
-            $data_arr[$i]['child'] = array();
+            $data_arr[$i]['child'] = [];
             if ($find->count()) {
                 $data_arr[$i]['child'] = self::tree($find, $all_items);
             }
-            $i++;
+            ++$i;
         }
+
         return $data_arr;
     }
 }

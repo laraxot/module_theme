@@ -70,10 +70,10 @@ class Slider extends Component {
         $this->emit('updateSliderValues', $values);
     }
 
-    //* 4 debug
+    // * 4 debug
     public function test() {
         dddx($this->values);
     }
 
-    //*/
+    // */
 }

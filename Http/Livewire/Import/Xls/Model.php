@@ -40,15 +40,15 @@ class Model extends Component {
     public function mount(string $modelClass, ?array $fields, ?array $trans) {
         $this->modelClass = $modelClass;
         $this->fillable = app($modelClass)->getFillable();
-        $this->fillable=array_combine($this->fillable,$this->fillable);
+        $this->fillable = array_combine($this->fillable, $this->fillable);
 
-        if (is_array($fields)) {
+        if (\is_array($fields)) {
             $this->fields = $fields;
         }
-        if (is_array($trans)) {
+        if (\is_array($trans)) {
             $this->trans = $trans;
-            $this->fillable=array_merge($this->fillable,$this->trans);
-            //dddx($this->fillable);
+            $this->fillable = array_merge($this->fillable, $this->trans);
+            // dddx($this->fillable);
         }
     }
 
@@ -87,10 +87,10 @@ class Model extends Component {
         $model = app($this->modelClass);
         $rows = $this->data;
 
-        //controllo che non vengano erroneamente importati contatti con tutti campi null
+        // controllo che non vengano erroneamente importati contatti con tutti campi null
         $rows = $rows->filter(function ($item) {
             foreach ($item->toArray() as $key => $value) {
-                if (! is_null($value)) {
+                if (null !== $value) {
                     return $item;
                 }
             }
@@ -108,7 +108,7 @@ class Model extends Component {
             if (false !== $data && false !== $this->fields) {
                 $data = array_merge($data, $this->fields);
             }
-            //dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data]);
+            // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data]);
             $model->create($data);
         }
         session()->flash('message', 'Import successfully ');

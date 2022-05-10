@@ -13,10 +13,10 @@
 			<div class="form-msg"></div>
 			<div class="modal-body" id="modalbody">
 				...
-			</div> 
-			<div class="form-msg"></div> 
+			</div>
+			<div class="form-msg"></div>
 
-				{{-- 
+				{{--
 			<div class="modal-footer">
 				per farlo funzionare o cambio javascript ed impongo 1 solo form.. che puo' essere, oppure chiudo il form dopo di questo input,ma non mi piace
 				perche' preferisco che le cose aperte siano chiuse nello stesso file.
@@ -29,8 +29,8 @@
 	</div>
 </div>
 {{-- ESEMPIO DI FUNZIONAMENTO
-messo nel webpack 
- Theme::add('theme::js/modal_ajax.js') 
+messo nel webpack
+ Theme::add('theme::js/modal_ajax.js')
 <a data-href="{{ route('trasferte.fuorisede.show',$item->id) }}" class="btn" data-toggle="modal" data-target="#myModalAjax" data-title="trasferta n.{{ $item->id }}">
 						<i class="fa fa-eye"></i>
 					</a>

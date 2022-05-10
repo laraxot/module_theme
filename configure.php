@@ -1,28 +1,25 @@
 <?php
 
-if (!function_exists('str_starts_with')) {
-    function str_starts_with($haystack, $needle)
-    {
-        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+declare(strict_types=1);
+
+if (! function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return '' !== (string) $needle && 0 === strncmp($haystack, $needle, strlen($needle));
     }
 }
-if (!function_exists('str_ends_with')) {
-    function str_ends_with($haystack, $needle)
-    {
-        return $needle !== '' && substr($haystack, -strlen($needle)) === (string)$needle;
+if (! function_exists('str_ends_with')) {
+    function str_ends_with($haystack, $needle) {
+        return '' !== $needle && substr($haystack, -strlen($needle)) === (string) $needle;
     }
 }
-if (!function_exists('str_contains')) {
-    function str_contains($haystack, $needle)
-    {
-        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+if (! function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return '' !== $needle && false !== mb_strpos($haystack, $needle);
     }
 }
 
-
-function ask(string $question, string $default = ''): string
-{
-    $answer = readline($question . ($default ? " ({$default})" : null) . ': ');
+function ask(string $question, string $default = ''): string {
+    $answer = readline($question.($default ? " ({$default})" : null).': ');
 
     if (! $answer) {
         return $default;
@@ -31,55 +28,47 @@ function ask(string $question, string $default = ''): string
     return $answer;
 }
 
-function confirm(string $question, bool $default = false): bool
-{
-    $answer = ask($question . ' (' . ($default ? 'Y/n' : 'y/N') . ')');
+function confirm(string $question, bool $default = false): bool {
+    $answer = ask($question.' ('.($default ? 'Y/n' : 'y/N').')');
 
     if (! $answer) {
         return $default;
     }
 
-    return strtolower($answer) === 'y';
+    return 'y' === strtolower($answer);
 }
 
-function writeln(string $line): void
-{
-    echo $line . PHP_EOL;
+function writeln(string $line): void {
+    echo $line.PHP_EOL;
 }
 
-function run(string $command): string
-{
+function run(string $command): string {
     return trim(shell_exec($command));
 }
 
-function str_after(string $subject, string $search): string
-{
+function str_after(string $subject, string $search): string {
     $pos = strrpos($subject, $search);
 
-    if ($pos === false) {
+    if (false === $pos) {
         return $subject;
     }
 
     return substr($subject, $pos + strlen($search));
 }
 
-function slugify(string $subject): string
-{
+function slugify(string $subject): string {
     return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $subject), '-'));
 }
 
-function title_case(string $subject): string
-{
+function title_case(string $subject): string {
     return str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $subject)));
 }
 
-function title_snake(string $subject, string $replace = '_'): string
-{
+function title_snake(string $subject, string $replace = '_'): string {
     return str_replace(['-', '_'], $replace, $subject);
 }
 
-function replace_in_file(string $file, array $replacements): void
-{
+function replace_in_file(string $file, array $replacements): void {
     $contents = file_get_contents($file);
 
     file_put_contents(
@@ -92,8 +81,7 @@ function replace_in_file(string $file, array $replacements): void
     );
 }
 
-function remove_prefix(string $prefix, string $content): string
-{
+function remove_prefix(string $prefix, string $content): string {
     if (str_starts_with($content, $prefix)) {
         return substr($content, strlen($prefix));
     }
@@ -101,8 +89,7 @@ function remove_prefix(string $prefix, string $content): string
     return $content;
 }
 
-function remove_composer_deps(array $names)
-{
+function remove_composer_deps(array $names) {
     $data = json_decode(file_get_contents(__DIR__.'/composer.json'), true);
 
     foreach ($data['require-dev'] as $name => $version) {
@@ -114,8 +101,7 @@ function remove_composer_deps(array $names)
     file_put_contents(__DIR__.'/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
-function remove_composer_script($scriptName)
-{
+function remove_composer_script($scriptName) {
     $data = json_decode(file_get_contents(__DIR__.'/composer.json'), true);
 
     foreach ($data['scripts'] as $name => $script) {
@@ -128,8 +114,7 @@ function remove_composer_script($scriptName)
     file_put_contents(__DIR__.'/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
-function remove_readme_paragraphs(string $file): void
-{
+function remove_readme_paragraphs(string $file): void {
     $contents = file_get_contents($file);
 
     file_put_contents(
@@ -138,26 +123,22 @@ function remove_readme_paragraphs(string $file): void
     );
 }
 
-function safeUnlink(string $filename)
-{
+function safeUnlink(string $filename) {
     if (file_exists($filename) && is_file($filename)) {
         unlink($filename);
     }
 }
 
-function determineSeparator(string $path): string
-{
+function determineSeparator(string $path): string {
     return str_replace('/', DIRECTORY_SEPARATOR, $path);
 }
 
-function replaceForWindows(): array
-{
+function replaceForWindows(): array {
     return preg_split('/\\r\\n|\\r|\\n/', run('dir /S /B * | findstr /v /i .git\ | findstr /v /i vendor | findstr /v /i '.basename(__FILE__).' | findstr /r /i /M /F:/ ":author :vendor :package VendorName skeleton migration_table_name vendor_name vendor_slug author@domain.com"'));
 }
 
-function replaceForAllOtherOSes(): array
-{
-    return explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com" --exclude-dir=vendor ./* ./.github/* | grep -v ' . basename(__FILE__)));
+function replaceForAllOtherOSes(): array {
+    return explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com" --exclude-dir=vendor ./* ./.github/* | grep -v '.basename(__FILE__)));
 }
 
 $gitName = run('git config user.name');
@@ -198,11 +179,11 @@ writeln("Vendor     : {$vendorName} ({$vendorSlug})");
 writeln("Package    : {$packageSlug} <{$description}>");
 writeln("Namespace  : {$vendorNamespace}\\{$className}");
 writeln("Class name : {$className}");
-writeln("---");
-writeln("Packages & Utilities");
-writeln("Use PhpCsFixer       : " . ($usePhpCsFixer ? 'yes' : 'no'));
-writeln("Use Larastan/PhpStan : " . ($usePhpStan ? 'yes' : 'no'));
-writeln("Use Auto-Changelog   : " . ($useUpdateChangelogWorkflow ? 'yes' : 'no'));
+writeln('---');
+writeln('Packages & Utilities');
+writeln('Use PhpCsFixer       : '.($usePhpCsFixer ? 'yes' : 'no'));
+writeln('Use Larastan/PhpStan : '.($usePhpStan ? 'yes' : 'no'));
+writeln('Use Auto-Changelog   : '.($useUpdateChangelogWorkflow ? 'yes' : 'no'));
 writeln('------');
 
 writeln('This script will replace the above values in all relevant files in the project directory.');
@@ -216,20 +197,20 @@ $files = (str_starts_with(strtoupper(PHP_OS), 'WIN') ? replaceForWindows() : rep
 foreach ($files as $file) {
     replace_in_file(
         $file, [
-        ':author_name' => $authorName,
-        ':author_username' => $authorUsername,
-        'author@domain.com' => $authorEmail,
-        ':vendor_name' => $vendorName,
-        ':vendor_slug' => $vendorSlug,
-        ':VendorName' => $vendorNamespace,
-        ':package_name' => $packageName,
-        ':package_slug' => $packageSlug,
-        ':package_slug_without_prefix' => $packageSlugWithoutPrefix,
-        ':Skeleton' => $className,
-        ':skeleton' => $packageSlug,
-        ':migration_table_name' => title_snake($packageSlug),
-        ':variable' => $variableName,
-        ':package_description' => $description,
+            ':author_name' => $authorName,
+            ':author_username' => $authorUsername,
+            'author@domain.com' => $authorEmail,
+            ':vendor_name' => $vendorName,
+            ':vendor_slug' => $vendorSlug,
+            ':VendorName' => $vendorNamespace,
+            ':package_name' => $packageName,
+            ':package_slug' => $packageSlug,
+            ':package_slug_without_prefix' => $packageSlugWithoutPrefix,
+            ':Skeleton' => $className,
+            ':skeleton' => $packageSlug,
+            ':migration_table_name' => title_snake($packageSlug),
+            ':variable' => $variableName,
+            ':package_description' => $description,
         ]
     );
     /*
@@ -245,22 +226,22 @@ foreach ($files as $file) {
     };
     */
     if (str_contains($file, determineSeparator('src/Skeleton.php'))) {
-        rename($file, determineSeparator('./src/' . $className . '.php'));
+        rename($file, determineSeparator('./src/'.$className.'.php'));
     }
     if (str_contains($file, determineSeparator('src/SkeletonServiceProvider.php'))) {
-        rename($file, determineSeparator('./src/' . $className . 'ServiceProvider.php'));
+        rename($file, determineSeparator('./src/'.$className.'ServiceProvider.php'));
     }
     if (str_contains($file, determineSeparator('src/Facades/Skeleton.php'))) {
-        rename($file, determineSeparator('./src/Facades/' . $className . '.php'));
+        rename($file, determineSeparator('./src/Facades/'.$className.'.php'));
     }
     if (str_contains($file, determineSeparator('src/Commands/SkeletonCommand.php'))) {
-        rename($file, determineSeparator('./src/Commands/' . $className . 'Command.php'));
+        rename($file, determineSeparator('./src/Commands/'.$className.'Command.php'));
     }
     if (str_contains($file, determineSeparator('database/migrations/create_skeleton_table.php.stub'))) {
-        rename($file, determineSeparator('./database/migrations/create_' . title_snake($packageSlugWithoutPrefix) . '_table.php.stub'));
+        rename($file, determineSeparator('./database/migrations/create_'.title_snake($packageSlugWithoutPrefix).'_table.php.stub'));
     }
     if (str_contains($file, determineSeparator('config/skeleton.php'))) {
-        rename($file, determineSeparator('./config/' . $packageSlugWithoutPrefix . '.php'));
+        rename($file, determineSeparator('./config/'.$packageSlugWithoutPrefix.'.php'));
     }
     if (str_contains($file, 'README.md')) {
         remove_readme_paragraphs($file);
@@ -268,21 +249,21 @@ foreach ($files as $file) {
 }
 
 if (! $usePhpCsFixer) {
-    safeUnlink(__DIR__ . '/.php_cs.dist.php');
-    safeUnlink(__DIR__ . '/.github/workflows/php-cs-fixer.yml');
+    safeUnlink(__DIR__.'/.php_cs.dist.php');
+    safeUnlink(__DIR__.'/.github/workflows/php-cs-fixer.yml');
 }
 
 if (! $usePhpStan) {
-    safeUnlink(__DIR__ . '/phpstan.neon.dist');
-    safeUnlink(__DIR__ . '/phpstan-baseline.neon');
-    safeUnlink(__DIR__ . '/.github/workflows/phpstan.yml');
+    safeUnlink(__DIR__.'/phpstan.neon.dist');
+    safeUnlink(__DIR__.'/phpstan-baseline.neon');
+    safeUnlink(__DIR__.'/.github/workflows/phpstan.yml');
 
     remove_composer_deps(
         [
-        'phpstan/extension-installer',
-        'phpstan/phpstan-deprecation-rules',
-        'phpstan/phpstan-phpunit',
-        'nunomaduro/larastan',
+            'phpstan/extension-installer',
+            'phpstan/phpstan-deprecation-rules',
+            'phpstan/phpstan-phpunit',
+            'nunomaduro/larastan',
         ]
     );
 
@@ -290,7 +271,7 @@ if (! $usePhpStan) {
 }
 
 if (! $useUpdateChangelogWorkflow) {
-    safeUnlink(__DIR__ . '/.github/workflows/update-changelog.yml');
+    safeUnlink(__DIR__.'/.github/workflows/update-changelog.yml');
 }
 
 confirm('Execute `composer install` and run tests?') && run('composer install && composer test');

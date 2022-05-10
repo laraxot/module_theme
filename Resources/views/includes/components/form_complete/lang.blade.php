@@ -11,6 +11,6 @@
             @endphp
                 <a class="dropdown-item" href="{{ $url_lang }}"  rel="alternate" hreflang="{{ $localeCode }}">{{ $properties['native'] }}</a>
             @endif
-        @endforeach 
+        @endforeach
   </div>
 </div>

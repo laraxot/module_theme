@@ -1,5 +1,5 @@
 @php
-	$action=route('containers.store',array_merge($params,['container1'=>'opening_hour']));    
+	$action=route('containers.store',array_merge($params,['container1'=>'opening_hour']));
 @endphp
 
 <form method="POST" action="{{ $action }}" {{--  class="form-inline" --}} role="form">

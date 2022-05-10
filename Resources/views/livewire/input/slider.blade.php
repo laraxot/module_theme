@@ -1,3 +1,3 @@
 <div >
-SLIDER 
+SLIDER
 </div>

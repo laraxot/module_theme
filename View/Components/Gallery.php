@@ -17,21 +17,21 @@ class Gallery extends XotBaseComponent {
     public string $desc;
     public string $type = 'lightbox';
     public array $attrs = [];
-    //public array $gallery = []; //ora che avrò qualcosa con cui provarlo lo aggiusto
+    // public array $gallery = []; //ora che avrò qualcosa con cui provarlo lo aggiusto
 
     /**
      * Undocumented function.
      */
-    public function __construct(string $id, ?string $title = '', ?string $desc = ''/*, array $gallery */) {
+    public function __construct(string $id, ?string $title = '', ?string $desc = ''/* , array $gallery */) {
         $this->id = $id;
-        if (! is_null($title)) {
+        if (null !== $title) {
             $this->title = $title;
         }
-        if (! is_null($desc)) {
+        if (null !== $desc) {
             $this->desc = $desc;
         }
         $this->attrs['class'] = 'col-lg-4 col-6 px-1 mb-2';
-        //$this->gallery = $gallery;
+        // $this->gallery = $gallery;
     }
 
     /**

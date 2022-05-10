@@ -7,13 +7,11 @@ namespace Modules\Theme\Macros;
 /**
  * Class YearNav.
  */
-class YearNav
-{
+class YearNav {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($paramz) {
             $routename = optional(\Route::currentRouteName());
             extract($paramz);
@@ -23,7 +21,7 @@ class YearNav
             } else {
                 $anno = date('Y');
             }
-            //$time = mktime(0, 0, 0, 1, 1, $anno);
+            // $time = mktime(0, 0, 0, 1, 1, $anno);
             $time_prev = mktime(0, 0, 0, 1, 1, (int) $anno - 1);
             $time_next = mktime(0, 0, 0, 1, 1, (int) $anno + 1);
             if (! $time_next || ! $time_prev) {
@@ -47,8 +45,8 @@ class YearNav
 			</nav>';
 
             return $html;
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

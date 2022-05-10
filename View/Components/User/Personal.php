@@ -14,7 +14,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Personal extends XotBaseComponent {
     public array $attrs;
 
-    public function __construct(string $id = 'user-personal-0', string $fullname, string $birthdate, string $email,
+    public function __construct(string $id, string $fullname, string $birthdate, string $email,
     string $phone, string $address, string $city, string $state, string $zip, string $apt) {
         $this->attrs['id'] = $id;
         $this->attrs['fullname'] = $fullname;

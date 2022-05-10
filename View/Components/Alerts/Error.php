@@ -10,18 +10,15 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Error.
  */
-class Error extends XotBaseComponent
-{
+class Error extends XotBaseComponent {
     public array $attrs = [];
-    public string $errors; //spero sia string
+    public string $errors; // spero sia string
 
-    public function __construct(string $errors)
-    {
+    public function __construct(string $errors) {
         $this->errors = $errors;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make('theme::components.alerts.error');
     }
 }

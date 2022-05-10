@@ -33,11 +33,11 @@
             @endforeach
             ({{ $val }}) {{ $field->txt ?? '' }} votes
             {{--
-	       ({{ $rating_avg }}) {{ $rating_count }} votes 
+	       ({{ $rating_avg }}) {{ $rating_count }} votes
 	       @if(isset($row->pivot))
 	      ( {{ Arr::get($row->pivot,$field->name_dot) }} )({{ $field->name_dot }})
 	      @endif
 	       --}}
         </span></a>
     </li>
-</ul >	
+</ul >

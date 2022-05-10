@@ -10,8 +10,7 @@ use Livewire\Component;
 /**
  * Class Numberer.
  */
-class Numberer extends Component
-{
+class Numberer extends Component {
     public string $excrement = 'poop';
 
     public int $count;
@@ -19,26 +18,22 @@ class Numberer extends Component
     /**
      * Undocumented function.
      */
-    public function mount(): void
-    {
+    public function mount(): void {
         $this->count = 0;
     }
 
     /**
      * Render the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         return view()->make('theme::livewire.numberer');
     }
 
-    public function increment(): void
-    {
+    public function increment(): void {
         ++$this->count;
     }
 
-    public function decrement(): void
-    {
+    public function decrement(): void {
         --$this->count;
     }
 }

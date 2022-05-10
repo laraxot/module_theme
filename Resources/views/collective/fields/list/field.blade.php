@@ -27,7 +27,7 @@ $value = Form::getValueAttribute($name);
                             <input type="checkbox" name="{{ $son['key'] }}" value="{{ $son['key'] }}" />{{ $son['label'] }}
                         </li>
                         @endforeach
-                        
+
                     </ul>
                 </div>
             @endforeach

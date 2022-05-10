@@ -17,23 +17,23 @@
 				<br/>
 				<i class="fa fa-cutlery" aria-hidden="true"></i>
 				@php
-					
+
 					$cuisineCats=$row->cuisineCats;//110
-					
+
 				@endphp
 				@foreach($cuisineCats as $cuisineCat)
 				<span itemprop="servesCuisine">{{ $cuisineCat->title }}</span>,
 				@endforeach
 				<br/>
-				
+
 				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
       				<span itemprop="postalCode">{{ $row->postal_code }}</span>
       				<span itemprop="addressLocality">{{ $row->locality }}</span>,
       				(<span itemprop="addressRegion">{{ $row->administrative_area_level_2_short }}</span>)
-      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" /> 
+      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" />
     			</div>
-				
+
 				{{--
 				@include('pub_theme::layouts.partials.item.address',['linked'=>$row->])
 				<ul class="list-inline">
@@ -53,7 +53,7 @@
 					--}}
 					@if(is_array($row->tabs))
 					@foreach($row->tabs as $tab)
-					{{--											
+					{{--
 					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.tab.'.$tab)</a>
 					--}}
 					@php
@@ -65,7 +65,7 @@
 					<a href="{{ route('containers.index',$parz,false) }}" class="btn theme-btn-dash">
 						@lang('pub_theme::restaurant.tab.'.$tab)
 					</a>
-					@endforeach 
+					@endforeach
 					@endif
 				</div>
 			</div>

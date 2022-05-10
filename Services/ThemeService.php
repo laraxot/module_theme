@@ -23,7 +23,7 @@ use Modules\Xot\Services\RouteService;
 use Modules\Xot\Services\StubService;
 use Modules\Xot\Traits\Getter;
 
-//---------CSS------------
+// ---------CSS------------
 
 /**
  * Class ThemeService.
@@ -104,22 +104,22 @@ class ThemeService {
     }
 
     public static function add(string $file, ?int $position = null): void {
-        $path_parts = \pathinfo($file);
+        $path_parts = pathinfo($file);
 
         if (! isset($path_parts['extension'])) {
             throw new \Exception('$path_parts with index extension is null');
         }
 
-        $ext = \mb_strtolower($path_parts['extension']);
+        $ext = mb_strtolower($path_parts['extension']);
         switch ($ext) {
         case 'css':
-            /*return*/ self::addStyle($file, $position);
+            /* return */ self::addStyle($file, $position);
             break;
         case 'scss':
-            /*return*/ self::addStyle($file, $position);
+            /* return */ self::addStyle($file, $position);
             break;
         case 'js':
-            /*return*/ self::addScript($file, $position);
+            /* return */ self::addScript($file, $position);
             break;
         default:
             echo '<h3>'.$file.'['.$ext.']</h3>';
@@ -127,11 +127,11 @@ class ThemeService {
             break;
         }
 
-        //return;
+        // return;
     }
 
     public static function addStyle(string $style, ?int $position = null): void {
-        if (null == $position) {
+        if (null === $position) {
             $styles = self::__getStatic('styles');
             $position = \count($styles) + 10;
         }
@@ -140,7 +140,7 @@ class ThemeService {
     }
 
     public static function addScript(string $script, ?int $position = null): void {
-        if (null == $position) {
+        if (null === $position) {
             $scripts = self::__getStatic('scripts');
             $position = \count($scripts) + 10;
         }
@@ -236,8 +236,8 @@ class ThemeService {
      * @return bool|mixed|string
      */
     public static function img_src($src) {
-        ///$srcz = self::viewNamespaceToUrl([$src]);
-        //$src = $srcz[0];
+        // /$srcz = self::viewNamespaceToUrl([$src]);
+        // $src = $srcz[0];
         return self::asset($src);
     }
 
@@ -286,12 +286,12 @@ class ThemeService {
      * @return bool|string
      */
     public static function getNameSpace($path) {
-        $pos = \mb_strpos($path, '::');
+        $pos = mb_strpos($path, '::');
         if (false === $pos) {
             return false;
         }
 
-        return \mb_substr($path, 0, $pos);
+        return mb_substr($path, 0, $pos);
     }
 
     public static function asset(string $path): string {
@@ -305,11 +305,11 @@ class ThemeService {
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public static function showScripts($compress_js = true, $page = '') {
-        //TODO FIX url da funzione e non replace !!!
+        // TODO FIX url da funzione e non replace !!!
         //
         $scripts_pos = self::__getStatic('scripts_pos');
         $scripts = self::__getStatic('scripts');
-        $scripts = \array_values(
+        $scripts = array_values(
             \Arr::sort(
                 $scripts,
                 function ($v, $k) use ($scripts_pos) {
@@ -317,22 +317,22 @@ class ThemeService {
                 }
             )
         );
-        $scripts = \array_unique($scripts);
+        $scripts = array_unique($scripts);
 
-        //$scripts = self::viewNamespaceToUrl($scripts);
+        // $scripts = self::viewNamespaceToUrl($scripts);
         $scripts = collect($scripts)->map(
             function ($item) {
                 return self::asset($item);
             }
         )->all();
-        //dddx($scripts);
+        // dddx($scripts);
 
         /*
         $scripts=collect($scripts)->map(function($item){
             return self::asset($item);
         })->all();
         */
-        //dddx($scripts);
+        // dddx($scripts);
         /*  -- forse creare AsseticService o MinifyService
         if ($compress_js) {
             $scripts_list = \implode(',', $scripts);
@@ -374,12 +374,12 @@ class ThemeService {
         }//end if
         */
 
-        $scripts = \array_unique($scripts);
+        $scripts = array_unique($scripts);
 
         return view()->make('theme::services.script')->with('scripts', $scripts);
     }
 
-    //end function
+    // end function
 
     /**
      * @param bool $compress_css
@@ -389,7 +389,7 @@ class ThemeService {
     public static function showStyles($compress_css = true) {
         $styles_pos = self::__getStatic('styles_pos');
         $styles = self::__getStatic('styles');
-        $styles = \array_values(
+        $styles = array_values(
             \Arr::sort(
                 $styles,
                 function ($v, $k) use ($styles_pos) {
@@ -397,9 +397,9 @@ class ThemeService {
                 }
             )
         );
-        $styles = \array_unique($styles);
+        $styles = array_unique($styles);
 
-        //$styles = self::viewNamespaceToUrl($styles);
+        // $styles = self::viewNamespaceToUrl($styles);
         $styles = collect($styles)->map(
             function ($item) {
                 return self::asset($item);
@@ -425,8 +425,8 @@ class ThemeService {
      */
     public static function metatag($index) {
         $ris = self::__getStatic($index);
-        //echo '<br/>['.$index.']['.$ris.']';
-        if ('' == $ris) {
+        // echo '<br/>['.$index.']['.$ris.']';
+        if ('' === $ris) {
             $ris = config('metatag.'.$index);
             self::__setStatic($index, $ris);
         }
@@ -438,7 +438,7 @@ class ThemeService {
      * SetMetatags function.
      */
     public static function setMetatags(Model $row): void {
-        //dddx($row);
+        // dddx($row);
         $params = optional(\Route::current())->parameters();
         foreach ($params as $v) {
             if (\is_object($v) && isset($v->title)) {
@@ -448,32 +448,32 @@ class ThemeService {
         if (! \is_object($row)) {
             return; // forse buttare in 404 ..
         }
-        //-- solo i campi che interessano
+        // -- solo i campi che interessano
         $fields = ['subtitle', 'meta_description', 'meta_keywords', 'url', 'type', 'updated_at', 'published_at'];
         foreach ($fields as $field) {
             self::__setStatic($field, $row->getAttributeValue($field));
         }
-        //self::__concatBeforeStatic('title', $row->title.' | ');
-        //dddx(self::__getStatic('title'));
-        //self::__concatBeforeStatic('subtitle', $row->subtitle.' | ');
-        //self::__setStatic('url', $row->url);
-        //self::__setStatic('category', $row->post_type);
-        //self::__setStatic('published_at', $row->published_at);
-        //self::__setStatic('updated_at', $row->updated_at);
+        // self::__concatBeforeStatic('title', $row->title.' | ');
+        // dddx(self::__getStatic('title'));
+        // self::__concatBeforeStatic('subtitle', $row->subtitle.' | ');
+        // self::__setStatic('url', $row->url);
+        // self::__setStatic('category', $row->post_type);
+        // self::__setStatic('published_at', $row->published_at);
+        // self::__setStatic('updated_at', $row->updated_at);
         $supportedLocales = config('laravellocalization.supportedLocales');
         $lang = app()->getLocale();
-        if ('' == $row->getAttributeValue('lang')) {
+        if ('' === $row->getAttributeValue('lang')) {
             $row->update(['lang' => $lang]);
         }
 
         self::__setStatic('locale', $supportedLocales[$lang]['regional']);
-        //self::__setStatic('description', $row->meta_description);
-        //self::__setStatic('keywords', $row->meta_keywords);
-        //self::__setStatic('type', $row->post_type);
-        if (\method_exists($row, 'imageResizeSrc')) {
+        // self::__setStatic('description', $row->meta_description);
+        // self::__setStatic('keywords', $row->meta_keywords);
+        // self::__setStatic('type', $row->post_type);
+        if (method_exists($row, 'imageResizeSrc')) {
             $image_width = 200;
             $image_height = 200;
-            if (! is_object($row)) {
+            if (! \is_object($row)) {
                 throw new \Exception('['.$row.'] was not found');
             }
             $image = $row->imageResizeSrc(['width' => $image_width, 'height' => $image_height]);
@@ -491,7 +491,7 @@ class ThemeService {
         if (isset($params['module'])) {
             return $params['module'];
         }
-        $tmp = \explode('/', optional(\Route::current())->getCompiled()->getStaticPrefix());
+        $tmp = explode('/', optional(\Route::current())->getCompiled()->getStaticPrefix());
         $tmp = \array_slice($tmp, 2, 1);
         if (\count($tmp) < 1) {
             return false;
@@ -511,7 +511,7 @@ class ThemeService {
             return;
         }
         $mod = \Module::find($module);
-        if (null == $mod) {
+        if (null === $mod) {
             throw new \Exception('module ['.$module.'] was not found');
         }
         $mod_path = $mod->getPath().'\Models';
@@ -520,19 +520,19 @@ class ThemeService {
         $ns = 'Modules\\'.$mod->getName().'\\Models';  // con la barra davanti non va il search ?
         $models = config('morph_map');
 
-        //dddx($model_coll);
+        // dddx($model_coll);
 
         foreach ($files as $file) {
             $filename = $file->getRelativePathname();
             $ext = '.php';
             if (Str::endsWith($filename, $ext)) {
                 $tmp = new \stdClass();
-                $name = substr(($filename), 0, -strlen($ext));
+                $name = substr(($filename), 0, -\strlen($ext));
                 $tmp->name = $name;
                 $tmp->class = $ns.'\\'.$name;
                 $tmp->type = collect($models)->search($tmp->class);
-                //$tmp->name.='['.$tmp->class.']['.$tmp->type.']'; //4debug
-                if ('' != $tmp->type) {
+                // $tmp->name.='['.$tmp->class.']['.$tmp->type.']'; //4debug
+                if ('' !== $tmp->type) {
                     if (! isset($params['lang'])) {
                         $params['lang'] = app()->getLocale();
                     }
@@ -546,7 +546,7 @@ class ThemeService {
         return $data;
     }
 
-    //end getXmlMenu
+    // end getXmlMenu
 
     /**
      * { item_description }.
@@ -554,9 +554,9 @@ class ThemeService {
      * @return mixed
      */
     public static function route(array $params = []) {
-        $params = \array_merge(optional(\Route::current())->parameters(), $params);
+        $params = array_merge(optional(\Route::current())->parameters(), $params);
         $routename = Route::currentRouteName();
-        if (null == $routename) {
+        if (null === $routename) {
             throw new \Exception('$routename is null');
         }
 
@@ -611,16 +611,16 @@ class ThemeService {
         } else {
             $view1 = 'pub_theme::'.$view1;
         }
-        //dddx(['view0' => $view, 'view1' => $view1, 'route_action' => $route_action]);
+        // dddx(['view0' => $view, 'view1' => $view1, 'route_action' => $route_action]);
         $view1 = Str::replace('::.', '::', $view1);
 
         return self::getViewWithFormat($view1);
 
-        //------------ CASI PARTICOLARI -----------
-        //if ('pub_theme::translation.index' == $view) {
+        // ------------ CASI PARTICOLARI -----------
+        // if ('pub_theme::translation.index' == $view) {
         //    return 'theme::translation.index';
-        //}
-        //---------------Panel Actions --------------------------
+        // }
+        // ---------------Panel Actions --------------------------
         /*
         $act = \Request::input('_act');
         if (null != $act) {
@@ -628,9 +628,9 @@ class ThemeService {
         }
         */
 
-        //dddx(['view' => $view, 'view1' => $view1, 'route_action' => $route_action]);
+        // dddx(['view' => $view, 'view1' => $view1, 'route_action' => $route_action]);
 
-        //return self::getViewWithFormat($view);
+        // return self::getViewWithFormat($view);
     }
 
     /**
@@ -648,8 +648,8 @@ class ThemeService {
             */
             $act = RouteService::getAct();
         }
-        $view_default = 'pub_theme::layouts.default.'.$act; //pub_theme o extend ?
-        if (\inAdmin()) {
+        $view_default = 'pub_theme::layouts.default.'.$act; // pub_theme o extend ?
+        if (inAdmin()) {
             $view_default = 'adm_theme::layouts.default.'.$act;
         }
 
@@ -672,7 +672,7 @@ class ThemeService {
             $act = RouteService::getAct();
         }
         $view_extend = 'theme::layouts.default.'.$act;
-        if (\inAdmin()) {
+        if (inAdmin()) {
             $view_extend = 'theme::layouts.default.admin.'.$act;
         }
 
@@ -689,14 +689,14 @@ class ThemeService {
             $act = RouteService::getAct();
         }
 
-        //[$containers,$items] = \params2ContainerItem();
+        // [$containers,$items] = \params2ContainerItem();
         /*
         if (0 == count($containers)) {
             return null;
         }
         */
         $panel = PanelService::make()->getRequestPanel();
-        if (null != $panel) {
+        if (null !== $panel) {
             $mod_name_low = $panel->getModuleNameLow();
             $panel_name_low = strtolower($panel->getName());
             $view = $mod_name_low.'::'.(inAdmin() ? 'admin.' : '').$panel_name_low.'.'.$act;
@@ -721,7 +721,7 @@ class ThemeService {
      * @return mixed|string
      */
     public static function getViewWithFormat($view) {
-        //return $view; //bypasso tutto
+        // return $view; //bypasso tutto
         /*
         if (\Request::ajax()) {
             $view .= '_ajax';
@@ -732,7 +732,7 @@ class ThemeService {
 
         $act = \Request::input('_act');
         $act = Str::snake($act);
-        if (null != $act) {
+        if (null !== $act) {
             $view .= '.acts.'.$act;
         }
 
@@ -754,8 +754,8 @@ class ThemeService {
         $view_default = self::getViewDefault();
         $view_extend = self::getViewExtend();
         $view_module = self::getViewModule();
-        //---------------------------------------------------------------------------
-        if (null == $view) {
+        // ---------------------------------------------------------------------------
+        if (null === $view) {
             $params = optional(\Route::current())->parameters();
             $view = self::getView($params);
         }
@@ -765,12 +765,12 @@ class ThemeService {
             $view_arr[1] = Str::after($view_arr[1], 'admin.');
         }
         $ns = $view_arr[0].'::'.(inAdmin() ? 'admin.' : '');
-        $view_short = $ns.implode('.', array_slice(explode('.', $view_arr[1]), -4));
-        $view_short1 = $ns.implode('.', array_slice(explode('.', $view_arr[1]), -3));
-        $view_short2 = $ns.implode('.', array_slice(explode('.', $view_arr[1]), -2));
+        $view_short = $ns.implode('.', \array_slice(explode('.', $view_arr[1]), -4));
+        $view_short1 = $ns.implode('.', \array_slice(explode('.', $view_arr[1]), -3));
+        $view_short2 = $ns.implode('.', \array_slice(explode('.', $view_arr[1]), -2));
 
         $view_update = str_replace('.update.acts.', '.show.acts.', $view);
-        //$view_store = str_replace('.store.', '.show.', $view); ??
+        // $view_store = str_replace('.store.', '.show.', $view); ??
 
         $views = [$view, $view_update, $view_short, $view_short1, $view_short2, $view_module, $view_default, $view_extend];
 
@@ -817,7 +817,7 @@ class ThemeService {
                 return View::exists($view_check);
             }
         );
-        if (false == $view_work) {
+        if (false === $view_work) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -825,7 +825,7 @@ class ThemeService {
                     'adm_theme' => config('xra.adm_theme'),
                     'view0_dir' => FileService::viewNamespaceToDir($views[0]),
                     'views' => $views,
-                    //'debug_backtrace' => debug_backtrace(),
+                    // 'debug_backtrace' => debug_backtrace(),
                 ];
 
             dddx($ddd_msg);
@@ -840,51 +840,51 @@ class ThemeService {
      */
     public static function view(string $view = null): \Illuminate\Contracts\View\View {
         $view_work = self::getViewWork(['view' => $view]);
-        if (null == $view) {
+        if (null === $view) {
             $view = self::getView();
         }
         $route_params = getRouteParameters();
         $lang = app()->getLocale();
         $panel = PanelService::make()->getRequestPanel();
-        if (is_null($panel)) {
+        if (null === $panel) {
             throw new \Exception('Panel does not exists');
         }
         $row = $panel->row;
-        //$route_params = optional(\Route::current())->parameters();
-        //$row_name = last($route_params);
-        //if (! is_object($row) && '' != config('morph_map.'.$row)) {
+        // $route_params = optional(\Route::current())->parameters();
+        // $row_name = last($route_params);
+        // if (! is_object($row) && '' != config('morph_map.'.$row)) {
         /*
         $model = config('morph_map.'.$row);
         $row = new $model();
         */
-        //$row = TenantService::model($row_name);
-        //}
-        //}
-        //$row_type = '';
+        // $row = TenantService::model($row_name);
+        // }
+        // }
+        // $row_type = '';
 
-        if (is_object($row)) {
+        if (\is_object($row)) {
             self::setMetatags($row);
-            //if (isset($row->post_type)) {
+            // if (isset($row->post_type)) {
             //    $row_type = $row->post_type;
-            //}
-            //if (! isset($panel)) {
-            //$panel = StubService::make()->setModelAndName($row, 'panel')->get();
-            //}
+            // }
+            // if (! isset($panel)) {
+            // $panel = StubService::make()->setModelAndName($row, 'panel')->get();
+            // }
         }
-        //if ('' == $row_type) {
+        // if ('' == $row_type) {
         //    $row_type = \Str::camel(class_basename($row));
-        //}
+        // }
 
         $routename = optional(\Route::current())->getName();
         $route_action = \Route::currentRouteAction();
 
-        //--- per passare la view all'interno dei componenti
+        // --- per passare la view all'interno dei componenti
         \View::composer(
             '*',
             function ($view_params) use ($view, $panel): void {
                 \View::share('view', $view);
-                //$trad = implode('.', array_slice(explode('.', $view), 0, -1));
-                //\View::share('trad', $trad);
+                // $trad = implode('.', array_slice(explode('.', $view), 0, -1));
+                // \View::share('trad', $trad);
                 \View::share('_panel', $panel);
             }
         );
@@ -916,7 +916,7 @@ class ThemeService {
         $modal = null;
         if (\Request::ajax()) {
             $modal = 'ajax';
-        } elseif ('iframe' == \Request::input('format')) {
+        } elseif ('iframe' === \Request::input('format')) {
             $modal = 'iframe';
         }
 
@@ -937,6 +937,10 @@ class ThemeService {
     }
 
     /**
+     * @param mixed $view
+     * @param mixed $data
+     * @param mixed $mergeData
+     *
      * @return \Illuminate\Http\RedirectResponse|void
      */
     /* deprecated
@@ -994,7 +998,7 @@ class ThemeService {
         }//end switch
     }
     */
-    //end function
+    // end function
 
     /**
      * @param string $view
@@ -1003,8 +1007,8 @@ class ThemeService {
      *
      * @return mixed|string
      */
-    public static function cache(/*ViewContract $vc,*/ $view, $data = [], $mergeData = []) {
-        //scopiazzato da spatie partialcache
+    public static function cache(/* ViewContract $vc, */ $view, $data = [], $mergeData = []) {
+        // scopiazzato da spatie partialcache
         $lang = app()->getLocale();
         $data['lang'] = $lang;
 
@@ -1017,12 +1021,12 @@ class ThemeService {
 
         $seconds = 60 * 60 * 24;
         try {
-            $html = Cache::/*store('apc')->*/ remember(
+            $html = Cache::/* store('apc')-> */ remember(
                 $cache_key,
                 $seconds,
                 function () use ($view, $data, $mergeData) {
                     return (string) \View::make($view, $data, $mergeData)->render();
-                    //return (string)self::view($view);
+                    // return (string)self::view($view);
                 }
             );
         } catch (\Exception $e) {
@@ -1049,7 +1053,7 @@ class ThemeService {
         */
 
         return $path; // ci mette troppo nel server
-        //dddx($path);
+        // dddx($path);
         /*
         $parz = ['src' => $path, 'height' => $height, 'width' => $width];
         $img = new ImageService($parz);
@@ -1091,7 +1095,7 @@ class ThemeService {
     */
 
     public static function include(string $view_tpl, array $params_tpl, array $vars): ?Renderable {
-        $views = ThemeService::getDefaultViewArray();
+        $views = self::getDefaultViewArray();
         $views = collect($views)->map(
             function ($item) use ($view_tpl) {
                 return $item.'.'.$view_tpl;
@@ -1103,10 +1107,10 @@ class ThemeService {
             }
         );
 
-        if (null == $view_work) {
-            if (in_array($view_tpl, ['topbar', 'bottombar', 'inner_page'])) {
+        if (null === $view_work) {
+            if (\in_array($view_tpl, ['topbar', 'bottombar', 'inner_page'], true)) {
                 return null;
-                //throw new \Exception('$view_work is null');
+                // throw new \Exception('$view_work is null');
             }
 
             dddx(['err' => 'view not Exists', 'views' => $views]);
@@ -1114,12 +1118,12 @@ class ThemeService {
 
         $view_params = array_merge($vars, $params_tpl);
 
-        if (null == $view_work) {
+        if (null === $view_work) {
             throw new \Exception('$view_work is null');
         }
 
         return view()->make($view_work, $view_params);
-        //return view($view_work)->with($vars)->with($params_tpl); // quale delle 2 ?
+        // return view($view_work)->with($vars)->with($params_tpl); // quale delle 2 ?
         // return (string)\View::make($view_work, $params_tpl, $vars)->render();
     }
 
@@ -1195,13 +1199,13 @@ class ThemeService {
             $module_original = $module;
         }
         $mod = \Module::find($module_original);
-        if (null == $mod) {
+        if (null === $mod) {
             throw new \Exception('module ['.$module_original.'] was not found');
         }
         $mod_path = $mod->getPath();
         $json_path = $mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
-        //\Debugbar::addMessage($json_path, 'menu path:');
-        $json_path = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $json_path);
+        // \Debugbar::addMessage($json_path, 'menu path:');
+        $json_path = str_replace(['\\', '/'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $json_path);
         $menu = include $json_path;
         dddx($menu);
         /*
@@ -1226,13 +1230,13 @@ class ThemeService {
             $module_original = $module;
         }
         $mod = \Module::find($module_original);
-        if (null == $mod) {
+        if (null === $mod) {
             throw new \Exception('module ['.$module_original.'] was not found');
         }
         $mod_path = $mod->getPath();
         $json_path = $mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
-        //\Debugbar::addMessage($json_path, 'menu path:');
-        $json_path = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $json_path);
+        // \Debugbar::addMessage($json_path, 'menu path:');
+        $json_path = str_replace(['\\', '/'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $json_path);
         if (! File::exists($json_path)) {
             return [];
         }
@@ -1245,7 +1249,7 @@ class ThemeService {
      * @return string
      */
     public static function getPath() {
-        //da jigsaw
+        // da jigsaw
         return 'to do';
     }
 
@@ -1286,7 +1290,7 @@ class ThemeService {
      * @param bool   $full
      */
     public static function printClasses($scope, $full = true): void {
-        if ('body' == $scope) {
+        if ('body' === $scope) {
             self::$classes[$scope][] = 'page-loading';
         }
 
@@ -1308,7 +1312,7 @@ class ThemeService {
     public static function getGoogleFontsInclude(): void {
         if (TenantService::config('layout.resources.fonts.google.families')) {
             $fonts = TenantService::config('layout.resources.fonts.google.families');
-            if (! is_array($fonts)) {
+            if (! \is_array($fonts)) {
                 $fonts = [];
             }
             echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family='.implode('|', $fonts).'">';
@@ -1323,7 +1327,7 @@ class ThemeService {
      */
     public static function arrayWalkCallback(array &$array, callable $callback) {
         foreach ($array as $k => &$v) {
-            if (is_array($v)) {
+            if (\is_array($v)) {
                 $callback($k, $v, $array);
                 self::arrayWalkCallback($v, $callback);
             }
@@ -1399,17 +1403,17 @@ class ThemeService {
      * @return string|void
      */
     public static function renderHorMenu($item, $parent = null, $rec = 0, bool $singleItem = false) {
-        return MenuService::renderHorMenu($item, $parent, $rec); //??, $singleItem
+        return MenuService::renderHorMenu($item, $parent, $rec); // ??, $singleItem
     }
 
     // Render icon or bullet
     public static function renderIcon(?string $icon = ''): string {
-        if (null == $icon) {
-            //throw new \Exception('icon not exists in config icons file ['.__LINE__.']['.__FILE__.']');
+        if (null === $icon) {
+            // throw new \Exception('icon not exists in config icons file ['.__LINE__.']['.__FILE__.']');
             return '<i class="menu-icon"></i>';
         }
         if (SvgService::isSVG($icon)) {
-            return strval(SvgService::getSVG($icon, 'menu-icon')).'';
+            return (string) (SvgService::getSVG($icon, 'menu-icon')).'';
         }
 
         return '<i class="menu-icon '.$icon.'"></i>';
@@ -1421,14 +1425,14 @@ class ThemeService {
     public static function renderIconName(string $icon_name): string {
         $icon_key = 'icons.'.$icon_name;
         $icon = TenantService::config($icon_key);
-        if (! is_string($icon)) {
-            //dddx($icon_name);
+        if (! \is_string($icon)) {
+            // dddx($icon_name);
             throw new \Exception('icon not exists in config icons file ['.__LINE__.']['.__FILE__.']');
         }
-        //forse conviene inserire un controllo per verificare che si trovi la corrispondente chiave della lingua
+        // forse conviene inserire un controllo per verificare che si trovi la corrispondente chiave della lingua
         // esempio es per spagnolo, nell'array di laravel\config\4venti-local\icons.php
         // ho dovuto aggiungere la riga 'es' => 'media/svg/flags/128-spain.svg', per visualizzare il pannello admin
-        //dddx(['icon_name' => $icon_name, 'icon' => $icon, 'icon_key' => $icon_key, 'result' => self::renderIcon($icon)]);
+        // dddx(['icon_name' => $icon_name, 'icon' => $icon, 'icon_key' => $icon_key, 'result' => self::renderIcon($icon)]);
 
         return self::renderIcon($icon);
     }
@@ -1437,16 +1441,16 @@ class ThemeService {
      * Undocumented function.
      */
     public static function getSVG(string $filepath = '', string $class = ''): string {
-        return strval(SvgService::getSVG($filepath, $class));
+        return (string) (SvgService::getSVG($filepath, $class));
     }
 
     public static function getThemeType($theme_type) {
         $xot = config('xra');
-        if (! is_array($xot)) {
+        if (! \is_array($xot)) {
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         if (! isset($xot[$theme_type])) {
-            $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
+            $xot[$theme_type] = self::firstThemeName($theme_type);
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
         }
@@ -1475,7 +1479,7 @@ class ThemeService {
 
         $themes = collect($themes)->map(
             function ($item) use ($default_data) {
-                $file_json = $item.DIRECTORY_SEPARATOR.'theme.json';
+                $file_json = $item.\DIRECTORY_SEPARATOR.'theme.json';
                 if (! File::exists($file_json)) {
                     $default_data['name'] = basename($item);
                     $data = json_encode($default_data);
@@ -1487,11 +1491,11 @@ class ThemeService {
                 $json['name'] = basename($item);
                 $json['path'] = $item;
                 $json = array_merge($default_data, $json);
-                //$info = pathinfo($item);
+                // $info = pathinfo($item);
 
                 return collect($json)->map(
                     function ($item) {
-                        if (! is_string($item)) {
+                        if (! \is_string($item)) {
                             return json_encode($item);
                         }
 
@@ -1515,7 +1519,7 @@ class ThemeService {
             $asset = Str::after($asset, url(''));
         }
         if (! File::exists($to)) {
-            File::makeDirectory(dirname($to), 0755, true, true);
+            File::makeDirectory(\dirname($to), 0755, true, true);
             File::copy($from, $to);
         }
 
@@ -1528,7 +1532,7 @@ class ThemeService {
         $type = Str::before($theme_type, '_theme');
         $theme = $themes->firstWhere('type', $type);
 
-        if (null == $theme /* || $theme->isEmpty() */) {
+        if (null === $theme /* || $theme->isEmpty() */) {
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -1542,4 +1546,4 @@ class ThemeService {
         return $themes->firstWhere('type', 'pub')['name'];
         */
     }
-}//end class
+}// end class

@@ -11,34 +11,28 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Alert.
  */
-class Alert extends XotBaseComponent
-{
+class Alert extends XotBaseComponent {
     public string $type;
 
     public array $attrs = [];
 
-    public function __construct(string $type = 'alert')
-    {
+    public function __construct(string $type = 'alert') {
         $this->type = $type;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make('theme::components.alerts.alert');
     }
 
-    public function message(): string
-    {
+    public function message(): string {
         return (string) Arr::first($this->messages());
     }
 
-    public function messages(): array
-    {
+    public function messages(): array {
         return (array) session()->get($this->type);
     }
 
-    public function exists(): bool
-    {
+    public function exists(): bool {
         return session()->has($this->type) && ! empty($this->messages());
     }
 }

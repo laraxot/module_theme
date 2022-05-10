@@ -6,4 +6,4 @@
   <input type="text" class="form-control uxdate "><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
 </div>
 
-{{  Theme::add('backend::includes/components/form/uxsolutions/js/bsDate.js') }}	
+{{  Theme::add('backend::includes/components/form/uxsolutions/js/bsDate.js') }}

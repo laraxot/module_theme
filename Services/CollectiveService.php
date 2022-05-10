@@ -14,12 +14,11 @@ use Modules\Xot\Services\FileService;
  * CollectiveService. was on Xot module.
  */
 class CollectiveService {
-
     private static ?self $instance = null;
 
     public function __construct() {
-        //---
-        //include_once __DIR__.'/vendor/autoload.php';
+        // ---
+        // include_once __DIR__.'/vendor/autoload.php';
     }
 
     public static function getInstance(): self {
@@ -34,24 +33,21 @@ class CollectiveService {
         return static::getInstance();
     }
 
-
-
     /**
      * Undocumented function.
      */
     public static function getComponents(string $view_path, string $namespace, string $prefix, bool $force_recreate = false): array {
-        //$view_path = realpath(__DIR__.'/../Resources/views/collective/fields');
+        // $view_path = realpath(__DIR__.'/../Resources/views/collective/fields');
 
         $components_json = $view_path.'/_components.json';
-        $components_json = str_replace(['/', '\\'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $components_json);
+        $components_json = str_replace(['/', '\\'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $components_json);
 
         $exists = File::exists($components_json);
-        
-        if ($exists  && ! $force_recreate ) {
-            
+
+        if ($exists && ! $force_recreate) {
             $content = File::get($components_json);
             $json = json_decode($content);
-            
+
             if (empty($json)) {
                 return [];
             }
@@ -68,9 +64,9 @@ class CollectiveService {
         $dirs = FileService::allDirectories($view_path, ['css', 'js']);
         $comps = collect($dirs)->map(
             function ($item) use ($prefix) {
-                $ris = new \StdClass();
-                $tmp = str_replace(DIRECTORY_SEPARATOR, ' ', $item);
-                $tmp_dot = str_replace(DIRECTORY_SEPARATOR, '.', $item);
+                $ris = new \stdClass();
+                $tmp = str_replace(\DIRECTORY_SEPARATOR, ' ', $item);
+                $tmp_dot = str_replace(\DIRECTORY_SEPARATOR, '.', $item);
                 $ris->name = 'bs'.Str::studly($tmp);
                 $ris->view = $prefix.'collective.fields.'.$tmp_dot.'.field';
 
@@ -104,17 +100,17 @@ class CollectiveService {
                 ['name', 'value' => null, 'attributes' => [],
                     'options' => [],
                     'comp_view' => $comp->view,
-                    //'comp_dir' => realpath($comp->dir),
-                    'comp_ns' => implode('.', array_slice(explode('.', $comp->view), 0, -1)),
+                    // 'comp_dir' => realpath($comp->dir),
+                    'comp_ns' => implode('.', \array_slice(explode('.', $comp->view), 0, -1)),
                     'blade_component' => $blade_component, ]
             );
-        }//end foreach
+        }// end foreach
     }
 
-    //end function
+    // end function
 
     public static function registerMacros(string $macros_dir): void {
-        //$macros_dir = __DIR__.'/../Macros';
+        // $macros_dir = __DIR__.'/../Macros';
         Collection::make(glob($macros_dir.'/*.php'))
             ->mapWithKeys(
                 function ($path) {
@@ -131,12 +127,12 @@ class CollectiveService {
             ->each(
                 function ($macro, $path): void {
                     $class = '\\Modules\\Theme\\Macros\\'.$macro;
-                    if ('BaseFormBtnMacro' != $macro && is_string($macro)) {
+                    if ('BaseFormBtnMacro' !== $macro && \is_string($macro)) {
                         Form::macro('bs'.Str::studly($macro), app($class)());
                     }
                 }
             );
     }
 
-    //end function
+    // end function
 }

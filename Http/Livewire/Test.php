@@ -9,18 +9,14 @@ use Livewire\Component;
 /**
  * Class Test.
  */
-class Test extends Component
-{
+class Test extends Component {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     /**
      * Render the component.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::livewire.test';
         $i = 1;
         $shops = [

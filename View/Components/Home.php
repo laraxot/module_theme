@@ -25,7 +25,7 @@ class Home extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        //if (View::exists(config('xra.main_module').'::home')) {
+        // if (View::exists(config('xra.main_module').'::home')) {
         /*
         if (View::exists('mediamonitor::DirectoryBs5.home')) {
             dddx('aaa');

@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\WithFileUploads;
 use Modules\Theme\Services\FieldService;
-//use Modules\Theme\Traits\UploadsFiles;
+// use Modules\Theme\Traits\UploadsFiles;
 
 use Modules\Theme\Traits\HandlesArrays;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
@@ -23,11 +23,10 @@ use Modules\Xot\Services\PanelService;
  *
  * @property XotBasePanel $panel
  */
-class Row extends XotBaseComponent
-{
-    use WithFileUploads;
-    //use UploadsFiles;
+class Row extends XotBaseComponent {
     use HandlesArrays;
+    // use UploadsFiles;
+    use WithFileUploads;
 
     public array $index_fields = [];
 
@@ -49,8 +48,7 @@ class Row extends XotBaseComponent
      * @param \Illuminate\Database\Eloquent\Model|null $row
      * @param string                                   $index
      */
-    public function mount($row, $index): void
-    {
+    public function mount($row, $index): void {
         $this->route_params = optional(request()->route())->parameters();
         $this->data = request()->all();
         $this->in_admin = inAdmin();
@@ -58,12 +56,11 @@ class Row extends XotBaseComponent
 
         $this->row = $row;
         $this->index = $index;
-        //$this->fields = $fields;
+        // $this->fields = $fields;
         $this->setFormProperties($row);
     }
 
-    public function rules(): array
-    {
+    public function rules(): array {
         $tmp = $this->panel->rules(['act' => 'update']);
         $rules = [];
         foreach ($tmp as $k => $v) {
@@ -77,15 +74,13 @@ class Row extends XotBaseComponent
     /**
      * @param string $err
      */
-    public static function errorMessage($err): string
-    {
+    public static function errorMessage($err): string {
         session()->flash('error_message', $err);
 
         return $err;
     }
 
-    public function fields(): array
-    {
+    public function fields(): array {
         $panel_fields = $this->panel->getFields(['act' => 'index']);
 
         $fields = [];
@@ -94,7 +89,7 @@ class Row extends XotBaseComponent
                 ->setName($field->name)
                 ->setType($field->type)
                 ->setInputComponent('nolabel')
-                //->set('form_data',$this->)
+                // ->set('form_data',$this->)
                 ;
         }
 
@@ -104,29 +99,27 @@ class Row extends XotBaseComponent
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Response|mixed|null
      */
-    public function getPanelProperty()
-    {
+    public function getPanelProperty() {
         return PanelService::make()->getByParams($this->route_params);
     }
 
-    //*
+    // *
 
-    public function setFormProperties(?Model $model = null): void
-    {
-        //$this->model = $model;
+    public function setFormProperties(?Model $model = null): void {
+        // $this->model = $model;
         if ($model) {
             $this->form_data = $model->toArray();
         }
 
         foreach ($this->fields() as $field) {
             if (! isset($this->form_data[$field->name])) {
-                $array = in_array($field->type, ['checkbox', 'file']);
+                $array = \in_array($field->type, ['checkbox', 'file'], true);
                 $this->form_data[$field->name] = $field->default ?? ($array ? [] : null);
                 if (Str::contains($field->name, '.')) {
                     [$rel,$rel_field] = explode('.', $field->name);
 
                     $rel_val = '';
-                    /*try {*/
+                    /* try { */
                     $rel_val = $model->$rel->$rel_field;
                     /* } catch (\Exception $e) {
                      }*/
@@ -134,30 +127,28 @@ class Row extends XotBaseComponent
                 }
             }
         }
-        $this->rows[$this->index] = $this->form_data; //???
+        $this->rows[$this->index] = $this->form_data; // ???
     }
 
-    //*/
+    // */
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = $this->getView();
         $view_params = [
             'view' => $view,
             'form_data' => $this->form_data,
             'fields' => $this->fields(),
         ];
-        //dddx(['view' => $view, 'view_params' => $view_params]);
+        // dddx(['view' => $view, 'view_params' => $view_params]);
 
         return view()->make($view, $view_params);
     }
 
-    public function rowUpdate(): void
-    {
+    public function rowUpdate(): void {
         $data = $this->validate();
         $data = $data['form_data'];
         $func = '\Modules\Xot\Jobs\PanelCrud\UpdateJob';
-        //$func::dispatchNow($data, $this->panel);
+        // $func::dispatchNow($data, $this->panel);
 
         session()->flash('message', 'Post successfully updated.');
     }
@@ -168,23 +159,21 @@ class Row extends XotBaseComponent
      * @param string $file_type
      * @param array  $data
      */
-    public function carica($index, $file_name, $file_type, $data): void
-    {
-        //dddx('funzione carica di row');
+    public function carica($index, $file_name, $file_type, $data): void {
+        // dddx('funzione carica di row');
 
-        //dddx($this->form_data['tmp']);
+        // dddx($this->form_data['tmp']);
         $img = Image::make($data);
 
         $path = Storage::disk('public_html')->path('/uploads/gallery/'.$file_name);
 
-        $img->save($path, 75); //75 quality
+        $img->save($path, 75); // 75 quality
     }
 
     /**
      * @param mixed $a
      */
-    public function updated($a): void
-    {
+    public function updated($a): void {
         dddx($a);
     }
 }

@@ -2,10 +2,10 @@
 <div class="{{ $attributes->get('class') }}">
 	<div class="col-auto">
 		<img class="avatar mb-3 avatar-{{ $size }}" alt="Image" src="{{ $img_src }}">
-		
+
 	</div>
 </div>
-{{--  
+{{--
 	 0 => "__construct"
     1 => "first"
     2 => "get"
@@ -37,4 +37,4 @@
     28 => "__callStatic"
     29 => "__call"
 	--}}
-	
+

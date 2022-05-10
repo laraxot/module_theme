@@ -13,7 +13,7 @@ if (isset($options['field'])) {
 extract($attributes);
 $field = transFields(get_defined_vars());
 @endphp
-{{--  
+{{--
 @component($blade_component, get_defined_vars())
     @slot('label')
         {{ Form::label($name, $field->label, ['class' => 'control-label']) }}
@@ -23,6 +23,6 @@ $field = transFields(get_defined_vars());
     @endslot
 @endcomponent
 --}}
- 
+
         {{ Form::submit($name, array_merge(['class' => 'btn btn-success'], $attributes)) }}
- 
+

@@ -32,7 +32,7 @@ class ColumnService {
 
     protected bool $sortable = false;
     // se lo metto davanti alla variabile
-    //\Services\ColumnService::$sortCallback cannot have type callable
+    // \Services\ColumnService::$sortCallback cannot have type callable
     /**
      * Undocumented variable.
      *
@@ -42,7 +42,7 @@ class ColumnService {
 
     protected string $view;
 
-    //private static $instance = null;
+    // private static $instance = null;
 
     /**
      * ColumnService constructor.
@@ -52,7 +52,7 @@ class ColumnService {
      */
     public function __construct($heading, $attribute) {
         $this->heading = $heading;
-        //54     Variable $attribute on left side of ?? always exists and is not nullable.
+        // 54     Variable $attribute on left side of ?? always exists and is not nullable.
         $this->attribute = $attribute; // ?? Str::snake(Str::lower($heading));
     }
 
@@ -128,10 +128,10 @@ class ColumnService {
 
         $views = [];
         $pieces = explode('_', $type);
-        $pieces_count = count($pieces);
+        $pieces_count = \count($pieces);
         for ($i = $pieces_count; $i > 0; --$i) {
-            $a = array_slice($pieces, 0, $i);
-            $b = array_slice($pieces, $i);
+            $a = \array_slice($pieces, 0, $i);
+            $b = \array_slice($pieces, $i);
             $views[] = $start.implode('_', $a).'.'.implode('_', array_merge(['freeze'], $b));
         }
         $view = collect($views)->first(
@@ -139,7 +139,7 @@ class ColumnService {
                 return \View::exists($view_check);
             }
         );
-        if (false == $view) {
+        if (false === $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -147,26 +147,26 @@ class ColumnService {
                     'file' => __FILE__,
                     'pub_theme' => config('xra.pub_theme'),
                     'adm_theme' => config('xra.adm_theme'),
-                    //'view0_dir' => self::viewNamespaceToDir($views[0]),
+                    // 'view0_dir' => self::viewNamespaceToDir($views[0]),
                     'views' => $views,
                 ];
             dddx($ddd_msg);
         }
 
-        //dddx(\View::first($views));
+        // dddx(\View::first($views));
         $view_params = [
             'view' => $view,
             'row' => $model,
             'value' => $value,
-            //'field' => $this,
+            // 'field' => $this,
         ];
 
-        if (is_null($view)) {
+        if (null === $view) {
             throw new \Exception('view is null');
         }
 
         return view()->make($view, $view_params);
 
-        //return $value;
+        // return $value;
     }
 }

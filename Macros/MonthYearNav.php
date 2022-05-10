@@ -7,13 +7,11 @@ namespace Modules\Theme\Macros;
 /**
  * Class MonthYearNav.
  */
-class MonthYearNav
-{
+class MonthYearNav {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($paramz) {
             $routename = optional(\Route::currentRouteName());
             extract($paramz);
@@ -39,7 +37,7 @@ class MonthYearNav
                 throw new \Exception('$time_next is false');
             }
 
-            //echo '<pre>';print_r($parz);echo '</pre>';die();
+            // echo '<pre>';print_r($parz);echo '</pre>';die();
             $route_mese_curr = route($routename, $parz);
             $parz['mese'] = date('m', $time_prev);
             $parz['anno'] = date('Y', $time_prev);
@@ -61,8 +59,8 @@ class MonthYearNav
 			</ul>';
 
             return $html;
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

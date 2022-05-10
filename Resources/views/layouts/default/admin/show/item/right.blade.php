@@ -42,6 +42,6 @@
 	{{--
 	@include('pub_theme::widgets.contact_us')
 	--}}
-{{-- 
+{{--
 </div>
 --}}

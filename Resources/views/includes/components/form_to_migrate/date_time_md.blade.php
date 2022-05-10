@@ -1,4 +1,4 @@
-{{-- 
+{{--
 https://mdbootstrap.com/javascript/time-picker/
 http://t00rk.github.io/bootstrap-material-datetimepicker/
 http://www.jqueryscript.net/time-clock/Pretty-Date-Time-Picker-Plugin-For-Bootstrap-Material.html
@@ -22,9 +22,9 @@ https://getmdl.io/components/index.html#cards-section
 
 {{ Theme::add('theme/bc/tether/dist/css/tether.min.css') }}
 {{ Theme::add('theme/bc/tether/dist/js/tether.min.js') }}
-{{--  
+{{--
 --}}
-{{--  
+{{--
 {{ Theme::add('theme/bc/pickadate/lib/picker.js') }}
 {{ Theme::add('theme/bc/pickadate/lib/picker.date.js') }}
 {{ Theme::add('theme/bc/pickadate/lib/picker.time.js') }}

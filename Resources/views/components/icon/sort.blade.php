@@ -1,5 +1,5 @@
 @props(['sortBy', 'sortAsc', 'sortField'])
-{{--  
+{{--
     https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/sort-icon.blade.php
     --}}
 

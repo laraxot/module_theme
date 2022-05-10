@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Login extends Component
-{
+class Login extends Component {
     public string $username = '';
     public string $password = '';
     public string $currentPath = '';
@@ -25,14 +24,12 @@ class Login extends Component
         'password' => 'required|string',
     ];
 
-    public function mount(): void
-    {
-        //$this->currentPath = request()->path();
+    public function mount(): void {
+        // $this->currentPath = request()->path();
         $this->currentPath = request()->getRequestUri();
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         $view = 'theme::livewire.modal.login';
         $view_params = [
             'view' => $view,
@@ -44,25 +41,23 @@ class Login extends Component
     /**
      * @return \Illuminate\Http\RedirectResponse|void
      */
-    public function login(Request $request)
-    {
+    public function login(Request $request) {
         $this->validate();
 
         if ($this->attemptLogin()) {
-            //Login Success
+            // Login Success
             $request->session()->regenerate();
 
             return redirect()->intended($this->currentPath);
         }
 
-        //Login Failure
+        // Login Failure
         session()->flash('error', 'These credentials do not match our records.');
 
         return;
     }
 
-    protected function attemptLogin(): bool
-    {
+    protected function attemptLogin(): bool {
         return $this->guard()->attempt(
             ['email' => $this->username, 'password' => $this->password]
         );
@@ -73,8 +68,7 @@ class Login extends Component
      *
      * @return \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
      */
-    protected function guard()
-    {
+    protected function guard() {
         return Auth::guard();
     }
 }

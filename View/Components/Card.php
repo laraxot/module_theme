@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\Component;
 
 class Card extends Component {
-    //public string $bg;
+    // public string $bg;
     public ?string $title;
     public ?string $type;
 
@@ -41,7 +41,7 @@ class Card extends Component {
         bool $outline = false,
         bool $full = false
     ) {
-        //$this->bg = $bg;
+        // $this->bg = $bg;
         $this->model = $model;
 
         $this->title = $title;

@@ -6,5 +6,5 @@
 		$row->type=Str::after($row->type,'bs');
 	@endphp
 	[{{ $value }}]
-	{!! Theme::inputFreeze(['field'=>$row,'row'=>$data,'value'=>$value]) !!}	
+	{!! Theme::inputFreeze(['field'=>$row,'row'=>$data,'value'=>$value]) !!}
 @endsection

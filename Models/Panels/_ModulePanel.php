@@ -17,21 +17,21 @@ class _ModulePanel extends XotBasePanel {
         $actions = [
             new Actions\ChoosePubThemeAction(),
             new Actions\ChooseAdmThemeAction(),
-            //new Actions\TestVideoAction(),
+            // new Actions\TestVideoAction(),
             new Actions\TestSliderAction(),
-            //new Actions\TestVideoEditorAction(),
+            // new Actions\TestVideoEditorAction(),
             new Actions\TestSelectHighlightAction(),
-            //new Actions\ChooseIconsAction(),
+            // new Actions\ChooseIconsAction(),
             new Actions\MenuBuilderAction(),
             new Actions\GrapeJsAction(),
-            //new Actions\ShowAllIconsAction(), //visualizza tutte le icone disponibili per il tema //da rifare
+            // new Actions\ShowAllIconsAction(), //visualizza tutte le icone disponibili per il tema //da rifare
             new Actions\TestComponentsAction(),
             new ManageLangModuleAction('theme'),
         ];
-        if (in_array($act, ['choose_pub_theme', 'activate_pub_theme'])) {
+        if (\in_array($act, ['choose_pub_theme', 'activate_pub_theme'], true)) {
             $actions[] = new Actions\ActivatePubThemeAction($theme);
         }
-        if (in_array($act, ['choose_adm_theme', 'activate_adm_theme'])) {
+        if (\in_array($act, ['choose_adm_theme', 'activate_adm_theme'], true)) {
             $actions[] = new Actions\ActivateAdmThemeAction($theme);
         }
 

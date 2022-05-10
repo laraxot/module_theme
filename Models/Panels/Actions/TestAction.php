@@ -7,13 +7,12 @@ namespace Modules\Theme\Models\Panels\Actions;
 use Intervention\Image\Facades\Image;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
-//use Modules\Xot\Services\SmartyService;
+// use Modules\Xot\Services\SmartyService;
 
 /**
  * Class TestAction.
  */
-class TestAction extends XotBasePanelAction
-{
+class TestAction extends XotBasePanelAction {
     public bool $onContainer = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
@@ -21,9 +20,8 @@ class TestAction extends XotBasePanelAction
     /**
      * @return mixed
      */
-    public function handle()
-    {
-        //return $this->panel->view();
+    public function handle() {
+        // return $this->panel->view();
         /*
         $smarty = new SmartyService();
         $smarty->convert(storage_path('test3.tpl'));
@@ -32,7 +30,7 @@ class TestAction extends XotBasePanelAction
         $img = Image::cache(
             function ($image) {
                 $img_src = asset('img/test00.jpg');
-                //dddx($img_src);//http://ptvx.local/img/test00.jpg
+                // dddx($img_src);//http://ptvx.local/img/test00.jpg
 
                 return $image->make($img_src)->resize(300, 200)->greyscale();
             }, 60 * 60 * 24, true
@@ -40,9 +38,9 @@ class TestAction extends XotBasePanelAction
 
         dddx(
             [
-            'getEncoded' => $img->getEncoded(),
-            'basePath' => $img->basePath(),
-            'methods' => get_class_methods($img),
+                'getEncoded' => $img->getEncoded(),
+                'basePath' => $img->basePath(),
+                'methods' => get_class_methods($img),
             ]
         );
 

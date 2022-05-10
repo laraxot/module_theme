@@ -9,7 +9,7 @@ $name=$start_name.'__'.$end_name;
 		//$val1=\Carbon\Carbon::parse($val)->formatLocalized('%d/%m/%Y %H:%M'); // da errore perche' son 2 date
 		$format='d/m/Y';
 		$start_val=Form::getValueAttribute($start_name);
-		
+
 		if(is_string($start_val)){
 			$start_val_carbon=\Carbon\Carbon::parse($start_val)->formatLocalized('%d/%m/%Y');
 		}else{
@@ -26,7 +26,7 @@ $name=$start_name.'__'.$end_name;
 		}
 
 		$val1=$start_val_carbon.' - '.$end_val_carbon;
-		
+
 		//echo '<br/> start_name :'.$start_name;
 		//echo '<br/> start_val :'.$start_val;
 		//echo '<br/> val1 :'.$val1;
@@ -60,6 +60,6 @@ $name=$start_name.'__'.$end_name;
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{  Theme::addScript('/theme/js/bsDateRange.js') }}
 
-{{-- 
+{{--
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}

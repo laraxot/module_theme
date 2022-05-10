@@ -12,21 +12,19 @@ namespace Modules\Theme\Traits;
 /**
  * Trait HandlesArrays.
  */
-trait HandlesArrays
-{
+trait HandlesArrays {
     /**
      * @param string $field_name
      *
      * @return void
      */
-    public function arrayAdd($field_name)
-    {
+    public function arrayAdd($field_name) {
         $array_fields = [];
 
         foreach ($this->fields() as $field) {
-            if ($field->name == $field_name) {
+            if ($field->name === $field_name) {
                 foreach ($field->array_fields as $array_field) {
-                    $array_fields[$array_field->name] = $array_field->default ?? ('checkboxes' == $array_field->type ? [] : null);
+                    $array_fields[$array_field->name] = $array_field->default ?? ('checkboxes' === $array_field->type ? [] : null);
                 }
 
                 break;
@@ -43,8 +41,7 @@ trait HandlesArrays
      *
      * @return void
      */
-    public function arrayMoveUp($field_name, $key)
-    {
+    public function arrayMoveUp($field_name, $key) {
         if ($key > 0) {
             $prev = $this->form_data[$field_name][$key - 1];
             $this->form_data[$field_name][$key - 1] = $this->form_data[$field_name][$key];
@@ -58,9 +55,8 @@ trait HandlesArrays
      *
      * @return void
      */
-    public function arrayMoveDown($field_name, $key)
-    {
-        if (($key + 1) < count($this->form_data[$field_name])) {
+    public function arrayMoveDown($field_name, $key) {
+        if (($key + 1) < \count($this->form_data[$field_name])) {
             $next = $this->form_data[$field_name][$key + 1];
             $this->form_data[$field_name][$key + 1] = $this->form_data[$field_name][$key];
             $this->form_data[$field_name][$key] = $next;
@@ -73,14 +69,12 @@ trait HandlesArrays
      *
      * @return void
      */
-    public function arrayRemove($field_name, $key)
-    {
+    public function arrayRemove($field_name, $key) {
         unset($this->form_data[$field_name][$key]);
         $this->form_data[$field_name] = array_values($this->form_data[$field_name]);
     }
 
-    public function updated(string $boh):void
-    {
+    public function updated(string $boh): void {
         dddx($boh);
     }
 }

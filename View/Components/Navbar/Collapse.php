@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Navbar;
 
-//use Harimayco\Menu\Facades\Menu;
+// use Harimayco\Menu\Facades\Menu;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
@@ -21,7 +21,7 @@ class Collapse extends Component {
      * @return void
      */
     public function __construct(string $menuName) {
-        //$this->menus = Menu::getByName($menuName);
+        // $this->menus = Menu::getByName($menuName);
         $this->menus = [];
     }
 

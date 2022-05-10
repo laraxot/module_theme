@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels;
 
-//--- Services --
+// --- Services --
 
-use Modules\Xot\Models\Panels\XotBasePanel;
 use Illuminate\Http\Request;
+use Modules\Xot\Models\Panels\XotBasePanel;
 
 /**
  * Class ThemePanel.
  */
-class ThemePanel extends XotBasePanel
-{
+class ThemePanel extends XotBasePanel {
     /**
      * The model the resource corresponds to.
      */
@@ -27,8 +26,7 @@ class ThemePanel extends XotBasePanel
     /**
      * @return object[]
      */
-    public function fields(): array
-    {
+    public function fields(): array {
         return [
             (object) ([
                 'type' => 'Id',
@@ -37,7 +35,7 @@ class ThemePanel extends XotBasePanel
             ]),
             (object) ([
                 'type' => 'String',
-                //'name' => 'title',
+                // 'name' => 'title',
                 'name' => 'name',
                 'comment' => null,
             ]),
@@ -108,8 +106,7 @@ class ThemePanel extends XotBasePanel
         ];
     }
 
-    public function actions(Request $request = null): array
-    {
+    public function actions(Request $request = null): array {
         return [
             new Actions\DemoImageGalleryAction(),
         ];

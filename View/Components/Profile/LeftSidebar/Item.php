@@ -11,16 +11,13 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Item.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class Item extends XotBaseComponent
-{
-    public function __construct(?string $active = '', ?string $icon = 'fa-user')
-    {
+class Item extends XotBaseComponent {
+    public function __construct(?string $active = '', ?string $icon = 'fa-user') {
         $this->active = $active;
         $this->icon = $icon;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.profile.left-sidebar.item';
         $view_params = [
             'active' => $this->active,

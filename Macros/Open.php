@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Macros;
 
-//use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Str;
 use Modules\Xot\Services\PanelService;
@@ -12,24 +12,22 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class Open.
  */
-class Open
-{
+class Open {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($model, $from, $to = '', $params = null, $formName = 'theForm') {
-            if (null == $params) {
+            if (null === $params) {
                 $params = optional(\Route::current())->parameters();
             }
             $req_params = \Request::all();
 
-            //if(is_array($req_params)) $params=array_merge($req_params,$params);
+            // if(is_array($req_params)) $params=array_merge($req_params,$params);
 
-            //dd($params);
+            // dd($params);
 
-            if ('' == $to) {
+            if ('' === $to) {
                 $to = $from;
                 switch ($to) {
                 case 'update': $from = 'edit';
@@ -53,9 +51,9 @@ class Open
             */
             $panel = PanelService::make()->get($model);
             $act = $to;
-            //$func = Str::camel($to).'Url';
+            // $func = Str::camel($to).'Url';
 
-            //$url = $panel->$func();
+            // $url = $panel->$func();
             $url = $panel->url($act);
 
             switch ($to) {
@@ -63,7 +61,7 @@ class Open
                 $method = 'POST';
                 break;
             case 'update':
-                $method = 'PUT'; //PUT/PATCH
+                $method = 'PUT'; // PUT/PATCH
                 break;
             case 'destroy':
                 $method = 'DELETE';
@@ -76,20 +74,20 @@ class Open
                 $method = $params['method'];
             }
 
-            //$parz=array_merge([$routename], array_values($params));
+            // $parz=array_merge([$routename], array_values($params));
             return Form::model(
                 $model,
                 [
-                    //'route' => $parz,
+                    // 'route' => $parz,
                     'url' => $url,
                     'name' => $formName,
                     'id' => $formName,
-                    //'action' => $route
+                    // 'action' => $route
                 ]
             )
             .method_field($method);
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

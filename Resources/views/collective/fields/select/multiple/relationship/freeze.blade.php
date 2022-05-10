@@ -1,6 +1,6 @@
 @php
 //dddx(get_defined_vars());
-@endphp 
+@endphp
 @foreach($field->value as $row)
     @php
         $row_panel=Panel::make()->get($row);

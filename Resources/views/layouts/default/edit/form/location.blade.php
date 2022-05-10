@@ -3,7 +3,7 @@
 @else
 {!! Form::bsOpen($second_last,'update') !!}
 @endif
-<div class="row"> 
+<div class="row">
 	<div class="col-md-8">
 		{{ Form::bsText('route') }}
 	</div>
@@ -11,11 +11,11 @@
 		{{ Form::bsText('street_number') }}
 	</div>
 </div>
-<div class="row"> 
+<div class="row">
 	<div class="col-md-4">
 		{{ Form::bsText('postal_code') }}
 	</div>
-	<div class="col-md-8"> 
+	<div class="col-md-8">
 		{{ Form::bsText('locality') }}
 	</div>
 </div>

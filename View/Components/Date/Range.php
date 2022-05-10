@@ -18,8 +18,8 @@ class Range extends Component {
     public Closure $callback;
 
     public function __construct(
-        string $id, string $topclass = '', string $title = 'Filter Range', string $icon = 'far fa-calendar-alt',
-        int $init = 2, Closure $callback, string $inputclass = ''
+        string $id, string $topclass, string $title, string $icon,
+        int $init, Closure $callback, string $inputclass = ''
     ) {
         $this->id = $id;
         $this->topclass = $topclass;

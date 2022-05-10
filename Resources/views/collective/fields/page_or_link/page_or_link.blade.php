@@ -1,6 +1,6 @@
-<?php
-//<!-- PAGE OR LINK field -->
-//<!-- Used in Backpack\MenuCRUD -->
+<?php declare(strict_types=1);
+// <!-- PAGE OR LINK field -->
+// <!-- Used in Backpack\MenuCRUD -->
 
 $field['options'] = ['page_link' => trans('backpack::crud.page_link'), 'internal_link' => trans('backpack::crud.internal_link'), 'external_link' => trans('backpack::crud.external_link')];
 $field['allows_null'] = false;
@@ -30,7 +30,7 @@ $active_pages = $page_model::all();
     </div>
     <div class="col-sm-9">
         <!-- external link input -->
-        <div class="page_or_link_value <?php if (!isset($entry) || 'external_link' != $entry->type) {
+        <div class="page_or_link_value <?php if (! isset($entry) || 'external_link' !== $entry->type) {
     echo 'hidden';
 } ?>" id="page_or_link_external_link">
             <input type="url" class="form-control" name="link"
@@ -39,7 +39,7 @@ $active_pages = $page_model::all();
                 @if (isset($entry) && $entry->type == 'external_link' && isset($entry->link) && $entry->link != '') value="{{ $entry->link }}" @endif>
         </div>
         <!-- internal link input -->
-        <div class="page_or_link_value <?php if (!isset($entry) || 'internal_link' != $entry->type) {
+        <div class="page_or_link_value <?php if (! isset($entry) || 'internal_link' !== $entry->type) {
     echo 'hidden';
 } ?>" id="page_or_link_internal_link">
             <input type="text" class="form-control" name="link"
@@ -48,7 +48,7 @@ $active_pages = $page_model::all();
                 @if (isset($entry) && $entry->type == 'internal_link' && isset($entry->link) && $entry->link != '') value="{{ $entry->link }}" @endif>
         </div>
         <!-- page slug input -->
-        <div class="page_or_link_value <?php if (isset($entry) && 'page_link' != $entry->type) {
+        <div class="page_or_link_value <?php if (isset($entry) && 'page_link' !== $entry->type) {
     echo 'hidden';
 } ?>" id="page_or_link_page">
             <select class="form-control" name="page_id">

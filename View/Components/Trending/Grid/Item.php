@@ -17,7 +17,7 @@ class Item extends Component {
     public ?string $name = null;
     public string $image = '';
     public ?string $class = null;
-    //public Object $row;
+    // public Object $row;
 
     /**
      * Create a new component instance.
@@ -48,8 +48,6 @@ class Item extends Component {
 
     /**
      * Undocumented function.
-     *
-     * @return Renderable
      */
     public function render(): Renderable {
         $view = 'theme::components.trending.grid.item';

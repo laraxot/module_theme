@@ -6,12 +6,12 @@ namespace Modules\Theme\Services;
 
 use Throwable;
 
-//----- Models -----
+// ----- Models -----
 
-//---- xot extend -----
-//----- services --
+// ---- xot extend -----
+// ----- services --
 
-//---------CSS------------
+// ---------CSS------------
 
 /**
  * Class SvgService.
@@ -21,19 +21,19 @@ class SvgService {
      * Check if $path provided is SVG.
      */
     public static function isSVG(?string $path): bool {
-        if (null == $path) {
+        if (null === $path) {
             return false;
         }
-        //if (is_string($path)) {
+        // if (is_string($path)) {
         $extension = strrchr($path, '.');
-        if (false == $extension) {
+        if (false === $extension) {
             return false;
         }
 
         return 'svg' === substr($extension, 1);
-        //}
+        // }
 
-        //return false;
+        // return false;
     }
 
     /**
@@ -42,7 +42,7 @@ class SvgService {
     public static function getSVG(string $filepath, string $class = ''): string {
         //  echo $filepath;
 
-        if (! is_string($filepath) || ! file_exists($filepath)) {
+        if (! \is_string($filepath) || ! file_exists($filepath)) {
             return '';
         }
 
@@ -50,7 +50,7 @@ class SvgService {
 
         $dom = new \DOMDocument();
 
-        if (false == $svg_content) {
+        if (false === $svg_content) {
             return '';
         }
         $dom->loadXML($svg_content);
@@ -65,14 +65,14 @@ class SvgService {
         // remove unwanted tags
         $title = $dom->getElementsByTagName('title');
         if ($title['length']) {
-            if (null == $dom->documentElement) {
+            if (null === $dom->documentElement) {
                 throw new \Exception('$dom->documentElement==null');
             }
             $dom->documentElement->removeChild($title[0]);
         }
         $desc = $dom->getElementsByTagName('desc');
         if ($desc['length']) {
-            if (null == $dom->documentElement) {
+            if (null === $dom->documentElement) {
                 throw new \Exception('$dom->documentElement==null');
             }
             $dom->documentElement->removeChild($desc[0]);
@@ -80,7 +80,7 @@ class SvgService {
         $defs = $dom->getElementsByTagName('defs');
         if ($defs['length']) {
             // inserisco questo try catch perchè creando l'action ShowAllIconsAction
-            //aveva problemi quando arrivava a metronic_one\Resources\views\media\svg\illustrations\features.svg
+            // aveva problemi quando arrivava a metronic_one\Resources\views\media\svg\illustrations\features.svg
             /*
             try {
                 $dom->documentElement->removeChild($defs[0]);
@@ -88,7 +88,7 @@ class SvgService {
                 //dddx([$filepath, $defs['length']]);
             }
             */
-            if (null == $dom->documentElement) {
+            if (null === $dom->documentElement) {
                 throw new \Exception('$dom->documentElement==null');
             }
 

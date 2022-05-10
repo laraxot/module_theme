@@ -20,5 +20,5 @@ if($src=='') $src='/images/nophoto.png';
 		{{ Form::text($name, $value, array_merge(['id'=>$name, 'class' => 'form-control'], $attributes)) }}
 	</div>
 </div>
- 
+
 

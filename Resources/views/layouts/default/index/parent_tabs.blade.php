@@ -10,7 +10,7 @@
     @endphp
     <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
         <li class="nav-item">
-            {{-- dddx(get_class($second_last)) 
+            {{-- dddx(get_class($second_last))
 			[{{ get_class($second_last) }}][{{ $second_last->show_url }}] --}}
             <a class="nav-link btn btn-secondary" href="{{ $second_last->show_url }}">
                 @lang($trad.'.tab.content')
@@ -39,24 +39,24 @@
                         $parz['container3'] = $tab;
                         $route = route('containers.index', $parz);
                         break;
-                
+
                     default:
                         dddx($routename);
                         break;
                 }
-                
+
             @endphp
             <li class="nav-item">
                 <a class="btn btn-secondary nav-link {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"
                     role="tab" aria-controls="pills-menu" aria-selected="{{ $tab == $current_tab ? 'true' : 'false' }}">
                     @lang('pub_theme::'.$second_last->post_type.'.tab.'.$tab)
-                    {{-- @lang($trad.'.tab.'.$tab)  
+                    {{-- @lang($trad.'.tab.'.$tab)
 				@lang($view.'.tab.'.$tab)
 				<span class="badge badge-primary pull-right">
 					@php
 						$plural=str_plural($tab);
 						$q=$second_last->linked->$plural->count();
-						
+
 					@endphp
 					{{ $q }}
 				</span> --}}

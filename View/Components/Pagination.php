@@ -11,7 +11,7 @@ use Illuminate\View\Component;
  * Class Pagination.
  */
 class Pagination extends Component {
-    //public \Illuminate\Pagination\LengthAwarePaginator $rows;
+    // public \Illuminate\Pagination\LengthAwarePaginator $rows;
     public LengthAwarePaginator $rows;
 
     /**

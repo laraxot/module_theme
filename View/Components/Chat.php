@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-/*<script src="//app.dev:6001/socket.io/socket.io.js"></script> */
+/* <script src="//app.dev:6001/socket.io/socket.io.js"></script> */
 
 declare(strict_types=1);
 

@@ -12,34 +12,30 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Edit.
  */
-class Edit extends XotBaseComponent
-{
+class Edit extends XotBaseComponent {
     public PanelContract $panel;
     public string $method = 'edit';
 
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel)
-    {
+    public function __construct(PanelContract $panel) {
         $this->panel = $panel;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         $view = 'theme::components.button.edit';
         $view_params = [
             'view' => $view,
         ];
-        //if (! Gate::allows($this->method, $this->panel)) {
+        // if (! Gate::allows($this->method, $this->panel)) {
         //    return null;
-        //}
+        // }
 
         return view()->make($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return Gate::allows($this->method, $this->panel);
     }
 }

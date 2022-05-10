@@ -2,7 +2,7 @@
 /* --sweetaler2 e btnDelete messi nel webpack
  Theme::add('theme/bc/sweetalert2/dist/sweetalert2.min.js');
  Theme::add('theme/bc/sweetalert2/dist/sweetalert2.min.css');
- Theme::add('theme::js/btnDeleteX2.js'); 
+ Theme::add('theme::js/btnDeleteX2.js');
  //*/
 //DestructiveAction
 /*

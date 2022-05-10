@@ -10,15 +10,13 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
-class ResetPassword extends Component
-{
+class ResetPassword extends Component {
     public string $password;
 
     /**
      * @return void
      */
-    public function mount()
-    {
+    public function mount() {
     }
 
     protected array $rules = [
@@ -28,24 +26,23 @@ class ResetPassword extends Component
     /**
      * @return \Illuminate\Http\Response|void|\Illuminate\Http\RedirectResponse
      */
-    public function changePassword()
-    {
+    public function changePassword() {
         $data = $this->validate();
 
         $status = Password::reset(
-            //$request->only('email', 'password', 'password_confirmation', 'token'),
+            // $request->only('email', 'password', 'password_confirmation', 'token'),
             ['password' => $this->password],
             function ($user, $password) {
                 $user->forceFill(
                     [
-                    'password' => Hash::make($password),
+                        'password' => Hash::make($password),
                     ]
                 )->setRememberToken(Str::random(60));
 
                 $user->save();
 
-                //questo a cosa mi dovrebbe servire?
-                //event(new PasswordReset($user));
+                // questo a cosa mi dovrebbe servire?
+                // event(new PasswordReset($user));
             }
         );
 
@@ -53,13 +50,10 @@ class ResetPassword extends Component
                 ? redirect()->route('login')->with('status', __($status))
                 : back()->withErrors(['email' => [__($status)]]);
 
-        //return 'wip';
+        // return 'wip';
     }
 
-    /**
-     */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $views = [
             'pub_theme::livewire.auth.reset-password',
             'theme::livewire.auth.reset-password',

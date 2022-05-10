@@ -34,16 +34,16 @@ class FieldService extends BaseFieldService {
      * FieldService constructor.
      */
     public function __construct() {
-        //$this->label = $label;
-        //$this->name = $name ?? Str::snake(Str::lower($label));
-        //$this->key = 'form_data.'.$this->name;
+        // $this->label = $label;
+        // $this->name = $name ?? Str::snake(Str::lower($label));
+        // $this->key = 'form_data.'.$this->name;
     }
 
     /* Unsafe usage of new static(). Consider making the class or the constructor final
     */
 
     public static function make(): self {
-        //return new static($label, $name);
+        // return new static($label, $name);
         return new self();
     }
 
@@ -88,14 +88,14 @@ class FieldService extends BaseFieldService {
     }
 
     public function setType(string $type): self {
-        //@XOT
+        // @XOT
         $this->type = Str::snake($type);
 
         return $this;
     }
 
     public function type(string $type): self {
-        //@XOT
+        // @XOT
         $this->type = Str::snake($type);
 
         return $this;
@@ -125,10 +125,10 @@ class FieldService extends BaseFieldService {
         $start = 'theme::livewire.fields.';
         $views = [];
         $pieces = explode('_', $type);
-        $pieces_count = count($pieces);
+        $pieces_count = \count($pieces);
         for ($i = $pieces_count; $i > 0; --$i) {
-            $a = array_slice($pieces, 0, $i);
-            $b = array_slice($pieces, $i);
+            $a = \array_slice($pieces, 0, $i);
+            $b = \array_slice($pieces, $i);
             $views[] = $start.implode('_', $a).'.'.implode('_', array_merge(['field'], $b));
         }
         $view = collect($views)->first(
@@ -136,7 +136,7 @@ class FieldService extends BaseFieldService {
                 return \View::exists($view_check);
             }
         );
-        if (false == $view) {
+        if (false === $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -144,13 +144,13 @@ class FieldService extends BaseFieldService {
                     'file' => __FILE__,
                     'pub_theme' => config('xra.pub_theme'),
                     'adm_theme' => config('xra.adm_theme'),
-                    //'view0_dir' => self::viewNamespaceToDir($views[0]),
+                    // 'view0_dir' => self::viewNamespaceToDir($views[0]),
                     'views' => $views,
                 ];
             dddx($ddd_msg);
         }
 
-        if (is_null($view)) {
+        if (null === $view) {
             throw new \Exception('view is null');
         }
 
@@ -158,28 +158,30 @@ class FieldService extends BaseFieldService {
     }
 
     public function toHtml(): Renderable {
-        $view = strval($this->getView());
+        $view = (string) ($this->getView());
         $view_params = [
             'view' => $view,
             'field' => $this,
-            //'form_data' => $form_data,
-            //'row' => $row,
+            // 'form_data' => $form_data,
+            // 'row' => $row,
         ];
 
         return view()->make($view, $view_params);
     }
 
     public function html(array $form_data = [], ?Model $row = null): Renderable {
-        //@XOT //$form_data non dovrebbe servire
-        //$view = 'theme::livewire.fields.'.$this->type.'.field';
+        /**
+         * @XOT //$form_data non dovrebbe servire
+         * $view = 'theme::livewire.fields.'.$this->type.'.field';
+         */
         $type = Str::snake($this->type);
         $start = 'theme::livewire.fields.';
         $views = [];
         $pieces = explode('_', $type);
-        $pieces_count = count($pieces);
+        $pieces_count = \count($pieces);
         for ($i = $pieces_count; $i > 0; --$i) {
-            $a = array_slice($pieces, 0, $i);
-            $b = array_slice($pieces, $i);
+            $a = \array_slice($pieces, 0, $i);
+            $b = \array_slice($pieces, $i);
             $views[] = $start.implode('_', $a).'.'.implode('_', array_merge(['field'], $b));
         }
         $view = collect($views)->first(
@@ -187,7 +189,7 @@ class FieldService extends BaseFieldService {
                 return \View::exists($view_check);
             }
         );
-        if (false == $view) {
+        if (false === $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -195,7 +197,7 @@ class FieldService extends BaseFieldService {
                     'file' => __FILE__,
                     'pub_theme' => config('xra.pub_theme'),
                     'adm_theme' => config('xra.adm_theme'),
-                    //'view0_dir' => self::viewNamespaceToDir($views[0]),
+                    // 'view0_dir' => self::viewNamespaceToDir($views[0]),
                     'views' => $views,
                 ];
             dddx($ddd_msg);
@@ -208,7 +210,7 @@ class FieldService extends BaseFieldService {
             'row' => $row,
         ];
 
-        if (is_null($view)) {
+        if (null === $view) {
             throw new \Exception('view is null');
         }
 

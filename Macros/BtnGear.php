@@ -10,25 +10,21 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
-
-
 /**
  * Class BtnGear.
  */
-class BtnGear extends BaseFormBtnMacro
-{
+class BtnGear extends BaseFormBtnMacro {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra): ViewContract {
             $class = __CLASS__;
             $extra['generate_btn'] = 0;
             $vars = $class::before($extra);
 
-            if(!is_array($vars)) {
-                throw new Exception("vars is not an array");
+            if (! \is_array($vars)) {
+                throw new Exception('vars is not an array');
             }
 
             if ($vars['error']) {
@@ -62,7 +58,7 @@ class BtnGear extends BaseFormBtnMacro
             $row = $extra['row'];
             $btns = [];
             $user = \Auth::user();
-            if (null == $user) {
+            if (null === $user) {
                 throw new \Exception('$user is null');
             }
             if ($user->can($func, $row)) {
@@ -73,24 +69,24 @@ class BtnGear extends BaseFormBtnMacro
                 $tmp['modal'] = 0;
                 $btns[] = (object) $tmp;
             }
-            //if (true) {
+            // if (true) {
             $tmp = [];
             $tmp['title'] = 'Gestisti Traduzioni';
             $tmp['url'] = route('containers.index', ['container0' => 'translation', 'uri' => req_uri(), 'lang' => app()->getLocale()]);
             $tmp['icon'] = 'fas fa-language fa-2x';
             $tmp['modal'] = 1;
             $btns[] = (object) $tmp;
-            //}
+            // }
             $vars['btns'] = $btns;
             if (! isset($vars['view_comp'])) {
                 dddx(['err' => 'view_comp is missing']);
                 $vars['view_comp'] = '';
             }
 
-            //return view($vars['view_comp'], $vars);
+            // return view($vars['view_comp'], $vars);
             return view()->make($vars['view_comp'], $vars);
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

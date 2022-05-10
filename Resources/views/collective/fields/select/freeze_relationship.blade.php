@@ -12,7 +12,7 @@ try {
  if(isset($opts[$field->value])){
   $label=$opts[$field->value];
  }else{
-  
+
  }
  */
 //$label=isset($opts[$field->value])?'SI':'NO';

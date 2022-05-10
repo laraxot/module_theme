@@ -14,7 +14,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Item extends XotBaseComponent {
     public array $attrs;
 
-    public function __construct(string $id = 'users-security-item-0', string $operativesystem, string $browser, string $iplocation, string $time) {
+    public function __construct(string $id, string $operativesystem, string $browser, string $iplocation, string $time) {
         $this->attrs['id'] = $id;
         $this->attrs['operativesystem'] = $operativesystem;
         $this->attrs['browser'] = $browser;

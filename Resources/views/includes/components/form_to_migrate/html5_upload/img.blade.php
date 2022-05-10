@@ -2,13 +2,13 @@
 	//Theme::add($comp_view.'/js/html5imageupload.js');
 	//Theme::add($comp_view.'/css/html5imageupload.css');
 	//Theme::add($comp_view.'/css/glyphicons.css');
-	//Theme::add($comp_view.'/css/style.css'); 
+	//Theme::add($comp_view.'/css/style.css');
 
 	$label=isset($attributes['label'])?$attributes['label']:trans($view.'.field.'.$name);
 	$placeholder=isset($attributes['placeholder'])?$attributes['placeholder']:trans($view.'.field.'.$name.'_placeholder');
 @endphp
 
-<div class="form-group"> 
+<div class="form-group">
     <label>{{ $label }}</label> {{-- url('it/image?_act=canvas') --}}
     <div class="dropzone" data-width="400" data-height="400" data-url="{{ url('it/image?_act=canvas') }}"  style="width: 100%;" data-image="{{ $value }}" data-name="{{ $name }}">
      	{{ Form::file($name.'_thumb', $value, array_merge(['id'=>$name.'_thumb', 'class' => 'form-control'], $attributes)) }}
@@ -42,5 +42,5 @@
 	});
 //});
 </script>
-@endpush	    
+@endpush
 --}}

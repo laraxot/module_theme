@@ -7,8 +7,7 @@ namespace Modules\Theme\View\Components;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class Button extends Component
-{
+class Button extends Component {
     /**
      * The button type.
      */
@@ -21,8 +20,7 @@ class Button extends Component
      *
      * @return void
      */
-    public function __construct(?array $attrs = null)
-    {
+    public function __construct(?array $attrs = null) {
         if (isset($attrs)) {
             $this->attrs = array_merge($this->attrs, $attrs);
         }
@@ -34,11 +32,10 @@ class Button extends Component
         }
     }
 
-   
-    public function render():Renderable
-    {
-        $view='theme::components.button';
-        $view_params=['view'=>$view];
+    public function render(): Renderable {
+        $view = 'theme::components.button';
+        $view_params = ['view' => $view];
+
         return view()->make($view, $view_params);
     }
 }

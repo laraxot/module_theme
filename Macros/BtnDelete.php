@@ -9,26 +9,24 @@ use Exception;
 /**
  * Class BtnDelete.
  */
-class BtnDelete extends BaseFormBtnMacro
-{
+class BtnDelete extends BaseFormBtnMacro {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra) {
             $class = __CLASS__;
             $vars = $class::before($extra);
-            if(!is_array($vars)) {
-                throw new Exception("vars is not an array");
+            if (! \is_array($vars)) {
+                throw new Exception('vars is not an array');
             }
             if ($vars['error']) {
                 return $vars['error_msg'];
             }
 
             return $vars['btn'];
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

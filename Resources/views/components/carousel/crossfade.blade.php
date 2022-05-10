@@ -1,4 +1,4 @@
-{{--  
+{{--
 https://getbootstrap.com/docs/4.5/components/carousel/#crossfade
 --}}
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">

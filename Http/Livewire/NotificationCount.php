@@ -21,7 +21,7 @@ final class NotificationCount extends Component {
     ];
 
     public function render(): Renderable {
-        if (! is_null(Auth::user())) {
+        if (null !== Auth::user()) {
             $this->count = Auth::user()->unreadNotifications()->count();
         } else {
             $this->count = 0;

@@ -38,8 +38,7 @@ use Modules\Xot\Services\PanelService;
  * @property bool   $dayClickEnabled
  * @property bool   $eventClickEnabled
  */
-class V2 extends Component
-{
+class V2 extends Component {
     public Carbon $startsAt;
     public Carbon $endsAt;
 
@@ -118,7 +117,7 @@ class V2 extends Component
         $extras = []
     ): void {
         $this->weekStartsAt = $weekStartsAt ?? Carbon::SUNDAY;
-        $this->weekEndsAt = Carbon::SUNDAY == $this->weekStartsAt
+        $this->weekEndsAt = Carbon::SUNDAY === $this->weekStartsAt
             ? Carbon::SATURDAY
             : collect([0, 1, 2, 3, 4, 5, 6])->get($this->weekStartsAt + 6 - 7);
 
@@ -143,8 +142,8 @@ class V2 extends Component
         $this->afterMount($extras);
 
         $this->model = 'Modules\Blog\Models\Event';
-        //$this->fields = PanelService::make()->get(app($this->model))->fields();
-        //dddx($this->fields);
+        // $this->fields = PanelService::make()->get(app($this->model))->fields();
+        // dddx($this->fields);
         $panel = PanelService::make()->get(app($this->model));
         $this->form_edit = $panel->formLivewireEdit();
     }
@@ -152,8 +151,7 @@ class V2 extends Component
     /**
      * @param array $extras
      */
-    public function afterMount($extras = []): void
-    {
+    public function afterMount($extras = []): void {
     }
 
     /**
@@ -184,51 +182,45 @@ class V2 extends Component
      * @param mixed $pollMillis
      * @param mixed $pollAction
      */
-    public function setupPoll($pollMillis, $pollAction): void
-    {
+    public function setupPoll($pollMillis, $pollAction): void {
         $this->pollMillis = $pollMillis;
         $this->pollAction = $pollAction;
     }
 
-    public function goToPreviousMonth(): void
-    {
+    public function goToPreviousMonth(): void {
         $this->startsAt->subMonthNoOverflow();
         $this->endsAt->subMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToNextMonth(): void
-    {
+    public function goToNextMonth(): void {
         $this->startsAt->addMonthNoOverflow();
         $this->endsAt->addMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToCurrentMonth(): void
-    {
+    public function goToCurrentMonth(): void {
         $this->startsAt = Carbon::today()->startOfMonth()->startOfDay();
         $this->endsAt = $this->startsAt->clone()->endOfMonth()->startOfDay();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function calculateGridStartsEnds(): void
-    {
+    public function calculateGridStartsEnds(): void {
         $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt);
         $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt);
     }
 
-    public function monthGrid(): Collection
-    {
+    public function monthGrid(): Collection {
         $firstDayOfGrid = $this->gridStartsAt;
         $lastDayOfGrid = $this->gridEndsAt;
 
         $numbersOfWeeks = $lastDayOfGrid->diffInWeeks($firstDayOfGrid) + 1;
         $days = $lastDayOfGrid->diffInDays($firstDayOfGrid) + 1;
 
-        if (0 != $days % 7) {
+        if (0 !== $days % 7) {
             throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
@@ -241,15 +233,14 @@ class V2 extends Component
         }
 
         $monthGrid = $monthGrid->chunk(7);
-        if ($numbersOfWeeks != $monthGrid->count()) {
+        if ($numbersOfWeeks !== $monthGrid->count()) {
             throw new Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
         }
 
         return $monthGrid;
     }
 
-    public function events(): Collection
-    {
+    public function events(): Collection {
         $this->model = 'Modules\Blog\Models\Event';
         $events = app($this->model)->with('post')
             ->whereDate('date_start', '>=', $this->gridStartsAt)
@@ -258,24 +249,23 @@ class V2 extends Component
             ->map(
                 function ($model) {
                     return [
-                    'id' => $model->id,
-                    'title' => $model->title,
-                    'description' => '', //$model->note,
-                    'date' => $model->date_start->toDateTimeLocalString(),
-                    'start' => $model->date_start->toDateTimeLocalString(),
-                    'end' => $model->date_end->toDateTimeLocalString(),
-                    //'start' => '2020-12-09T12:30:00',
+                        'id' => $model->id,
+                        'title' => $model->title,
+                        'description' => '', // $model->note,
+                        'date' => $model->date_start->toDateTimeLocalString(),
+                        'start' => $model->date_start->toDateTimeLocalString(),
+                        'end' => $model->date_end->toDateTimeLocalString(),
+                        // 'start' => '2020-12-09T12:30:00',
                     ];
                 }
-            ); //->all();
+            ); // ->all();
 
         return $events;
 
-        //return collect();
+        // return collect();
     }
 
-    public function getEventsForDay(mixed $day, Collection $events): Collection
-    {
+    public function getEventsForDay(mixed $day, Collection $events): Collection {
         return $events
             ->filter(
                 function ($event) use ($day) {
@@ -287,8 +277,7 @@ class V2 extends Component
     /*public function onDayClick($year, $month, $day): void {
     }*/
 
-    public function onEventClick(int $eventId): void
-    {
+    public function onEventClick(int $eventId): void {
         $this->event_id = $eventId;
         $row = app($this->model)->find($eventId);
         $panel = PanelService::make()->get($row);
@@ -305,31 +294,29 @@ class V2 extends Component
         */
         foreach ($fields as $field) {
             $value = Arr::get($row, $field->name);
-            if (is_object($value)) {
-                switch (get_class($value)) {
+            if (\is_object($value)) {
+                switch (\get_class($value)) {
                 case 'Illuminate\Support\Carbon':
                     $value = $value->format('Y-m-d\TH:i');
                     break;
                 default:
-                    dddx([get_class($value)]);
+                    dddx([\get_class($value)]);
                     break;
                 }
             }
             Arr::set($this->form_data, $field->name, $value);
         }
 
-        //dddx($this->form_data);
+        // dddx($this->form_data);
     }
 
-    public function update(): void
-    {
+    public function update(): void {
         $row = app($this->model)->find($this->event_id);
         $panel = PanelService::make()->get($row);
         $panel->update($this->form_data);
     }
 
-    public function cancel(): void
-    {
+    public function cancel(): void {
     }
 
     /*public function onEventDropped($eventId, $year, $month, $day): void {
@@ -342,8 +329,7 @@ class V2 extends Component
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $events = $this->events();
         $view = $this->calendarView;
         $view_params = [

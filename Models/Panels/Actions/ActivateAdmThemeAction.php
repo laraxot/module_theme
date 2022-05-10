@@ -4,30 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels\Actions;
 
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 use Modules\Tenant\Services\TenantService;
+use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Class ActivateAdmThemeAction.
  */
-class ActivateAdmThemeAction extends XotBasePanelAction
-{
+class ActivateAdmThemeAction extends XotBasePanelAction {
     public bool $onItem = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
 
     public ?string $theme;
 
-    public function __construct(?string $theme)
-    {
+    public function __construct(?string $theme) {
         $this->theme = $theme;
     }
 
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $parz = [
             'name' => 'xra',
             'data' => [

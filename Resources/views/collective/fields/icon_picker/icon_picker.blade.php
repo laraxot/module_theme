@@ -1,7 +1,7 @@
-<?php
-//<!-- icon picker input -->
+<?php declare(strict_types=1);
+// <!-- icon picker input -->
 // if no iconset was provided, set the default iconset to Font-Awesome
-if (!isset($field['iconset'])) {
+if (! isset($field['iconset'])) {
     $field['iconset'] = 'fontawesome';
 }
 ?>

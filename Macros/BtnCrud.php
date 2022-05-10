@@ -4,22 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Macros;
 
-//use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 use Collective\Html\FormFacade as Form;
 
-//----- services -----
+// ----- services -----
 
 /**
  * Class BtnCrud.
  */
-class BtnCrud
-{
+class BtnCrud {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra, array $params = []) {
             extract($params);
 
@@ -37,12 +35,12 @@ class BtnCrud
             if (empty($params) || isset($show)) {
                 $btns .= Form::bsBtnShow($extra);
             }
-            //$btns.=Form::bsBtnClone($extra);
+            // $btns.=Form::bsBtnClone($extra);
             $btns .= '</div>';
 
             return $btns;
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

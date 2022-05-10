@@ -8,7 +8,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Modules\Xot\Contracts\PanelContract;
 
-//use Modules\Xot\View\Components\XotBaseComponent;
+// use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
  * Class Field.

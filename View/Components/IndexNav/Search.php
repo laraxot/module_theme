@@ -14,7 +14,7 @@ use Illuminate\View\Component;
  */
 class Search extends Component {
     public array $attrs = [];
-    //public ?string $type = null;
+    // public ?string $type = null;
     public ?string $action = null;
 
     /**
@@ -22,8 +22,8 @@ class Search extends Component {
      *
      * @return void
      */
-    public function __construct(/*?string $type = null,*/ ?string $action = null) {
-        //$this->type = isset($type) ? $type : 'default';
+    public function __construct(/* ?string $type = null, */ ?string $action = null) {
+        // $this->type = isset($type) ? $type : 'default';
         $this->action = $action;
     }
 
@@ -31,7 +31,7 @@ class Search extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.index_nav.search'; //.'.$this->type;
+        $view = 'theme::components.index_nav.search'; // .'.$this->type;
 
         $view_params = [
             'view' => $view,

@@ -47,6 +47,6 @@ $name=$start_name.'__'.$end_name;
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{  Theme::addScript('backend::js/bsDateTimeRange.js') }}
 
-{{-- 
+{{--
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}

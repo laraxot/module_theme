@@ -5,31 +5,29 @@ declare(strict_types=1);
 namespace Modules\Theme\Macros;
 
 use Illuminate\Support\Facades\Request;
-//use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-//----- services -----
+// ----- services -----
 use Modules\Xot\Services\PanelService;
 use Modules\Xot\Services\StubService;
 
 /**
  * Class BaseFormBtnMacro.
  */
-abstract class BaseFormBtnMacro
-{
+abstract class BaseFormBtnMacro {
     /**
      * @return array|void
      */
-    public static function before(array $params)
-    {
+    public static function before(array $params) {
         $generate_btn = 1;
         $user = \Auth::user();
-        if (null == $user) {
+        if (null === $user) {
             return ['error' => 1, 'error_msg' => '[Not Logged]'];
         }
-        $class = get_called_class();
-        $class_name = class_basename($class); //BtnDetach
+        $class = static::class;
+        $class_name = class_basename($class); // BtnDetach
         $btn = Str::after($class_name, 'Btn');
-        if ('Delete' == $btn) {
+        if ('Delete' === $btn) {
             $btn = 'Destroy';
         }
         $act = Str::camel($btn);
@@ -39,24 +37,24 @@ abstract class BaseFormBtnMacro
 
             return;
         }
-        if (! $user->can($act, $row) && ! in_array($act, ['gear'])) {
+        if (! $user->can($act, $row) && ! \in_array($act, ['gear'], true)) {
             $policy = StubService::make()->setModelAndName($row, 'policy')->get();
             $error_msg = '[not can '.$act.']['.$policy.']';
-            //dddx(App::environment('local'));
-            if ('local' == env('APP_ENV')) {
+            // dddx(App::environment('local'));
+            if ('local' === env('APP_ENV')) {
                 return ['error' => 1, 'error_msg' => $error_msg];
             } else {
                 return ['error' => 1, 'error_msg' => ''];
             }
         }
-        if (! isset($row->pivot) && 'detach' == $act) {
+        if (! isset($row->pivot) && 'detach' === $act) {
             return ['error' => 1, 'error_msg' => '[Not Pivot]'];
         }
         $act_route = Str::snake($act);
 
         $route_action = optional(\Route::currentRouteAction());
         $old_act = '';
-        if (! is_null(optional(\Route::currentRouteAction())->value)) {
+        if (null !== optional(\Route::currentRouteAction())->value) {
             $old_act = Str::snake(Str::after($route_action, '@'));
         }
         $routename = optional(Request::route())->getName();
@@ -92,28 +90,28 @@ abstract class BaseFormBtnMacro
             if (strpos($key, 'item') > -1) {
                 ++$count;
             } else {
-                array_push($route_name, $key);
+                $route_name[] = $key;
             }
         }
 
-        //dddx([join('.', array_keys($route_params)).'.'.$act, array_merge($route_params, ['item'.$count => $row->{$row->getRouteKeyName()}])]);
+        // dddx([join('.', array_keys($route_params)).'.'.$act, array_merge($route_params, ['item'.$count => $row->{$row->getRouteKeyName()}])]);
 
         unset($route_name[0]);
 
-        //dddx($route_name);
+        // dddx($route_name);
 
         $route = route(
-            join('.', array_values($route_name)).'.'.$act,
+            implode('.', array_values($route_name)).'.'.$act,
             array_merge($route_params, ['item'.$count => $row->{$row->getRouteKeyName()}])
         );
 
-        //dddx([get_defined_vars(), $routename]); // route($routename.$act, array_merge($route_params, ['item1' => $row->{$row->getRouteKeyName()}]))]);
+        // dddx([get_defined_vars(), $routename]); // route($routename.$act, array_merge($route_params, ['item1' => $row->{$row->getRouteKeyName()}]))]);
 
-        //dddx($route);
+        // dddx($route);
 
-        //$route = $panel->url($act);
+        // $route = $panel->url($act);
 
-        //dddx($route);
+        // dddx($route);
 
         $view_comp_dir = 'theme::includes.components.btn';
         $view_comp = $view_comp_dir.'.'.$act_route;
@@ -129,16 +127,16 @@ abstract class BaseFormBtnMacro
             'old_act_route' => $old_act_route,
             'row' => $row,
             'id' => 2,
-            //'routename_act' => $routename_act,
+            // 'routename_act' => $routename_act,
             'route' => $route,
             'btn_class' => 'btn btn-small btn-info',
             'view_comp' => $view_comp,
             'view_comp_dir' => $view_comp_dir,
         ];
-        //dddx($generate_btn);
-        //if ($generate_btn) {
+        // dddx($generate_btn);
+        // if ($generate_btn) {
         $data['btn'] = view()->make($view_comp, $data);
-        //}
+        // }
 
         return $data;
     }

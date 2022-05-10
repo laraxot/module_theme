@@ -6,7 +6,7 @@
     //dddx(get_defined_vars());
     //Theme::add('theme::css/radio_animated_switch.css');
  @endphp
- 
+
  <style>
    .switch {
   position: relative;
@@ -70,7 +70,7 @@
 // Just for styling
 
 body{
-  background: #333;  
+  background: #333;
   color: #999;
   position: absolute;
   top:50%;
@@ -80,7 +80,7 @@ body{
 }
 
 </style>
- 
+
  <div class="switch">
   <input name="switch" id="one" type="radio" checked/>
   <label for="one" class="switch__label">One</label>

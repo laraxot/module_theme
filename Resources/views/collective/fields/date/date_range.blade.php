@@ -1,18 +1,17 @@
-<?php
-//<!-- bootstrap daterange picker input -->
+<?php declare(strict_types=1);
+// <!-- bootstrap daterange picker input -->
 // if the column has been cast to Carbon or Date (using attribute casting)
 // get the value as a date string
-if (!function_exists('formatDate')) {
+if (! function_exists('formatDate')) {
     /**
      * @param $entry
      * @param $dateFieldName
      *
      * @return bool|string|null
      */
-    function formatDate($entry, $dateFieldName)
-    {
+    function formatDate($entry, $dateFieldName) {
         $formattedDate = null;
-        if (isset($entry) && !empty($entry->{$dateFieldName})) {
+        if (isset($entry) && ! empty($entry->{$dateFieldName})) {
             $dateField = $entry->{$dateFieldName};
             if ($dateField instanceof \Carbon\CarbonInterface) {
                 $formattedDate = $dateField->format('Y-m-d H:i:s');

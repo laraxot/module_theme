@@ -17,7 +17,7 @@ class Item extends XotBaseComponent {
     public function __construct(string $id, string $title, string $i) {
         $this->attrs['id'] = $id;
         $this->attrs['title'] = $title;
-        //$this->attrs['description'] = $description;
+        // $this->attrs['description'] = $description;
         $this->attrs['i'] = $i;
     }
 

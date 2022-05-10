@@ -14,7 +14,7 @@
                         <div class="alert alert-danger">
                             {{ session('error') }}
                         </div>
-                @endif  
+                @endif
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label fw-bold">Email address</label>
                     <input type="text" class="form-control @error('username') is-invalid @enderror" id="exampleFormControlInput1" name="username" placeholder="Your Email" wire:model.lazy="username">

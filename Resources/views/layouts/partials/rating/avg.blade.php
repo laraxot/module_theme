@@ -24,7 +24,7 @@
 		<meta itemprop="url" content="{{ $row_panel->url() }} " >
 		<meta itemprop="name" content="{{ $row->title }} " >
 		{!! $row_panel->microdataSchemaOrg() !!}
-		
+
 	</div>
 
 </div>
@@ -36,4 +36,4 @@
 </div>
 
 
-	
+

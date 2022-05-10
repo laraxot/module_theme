@@ -23,7 +23,7 @@ class Body extends Component {
     public function __construct(string $action, string $modelClass) {
         $this->action = $action;
         $this->modelClass = $modelClass;
-        //$this->model = new $this->modelClass();
+        // $this->model = new $this->modelClass();
         $this->model = app($modelClass);
     }
 

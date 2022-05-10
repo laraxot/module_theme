@@ -48,21 +48,21 @@ trait FollowsRules {
      * @return array|bool|string[]
      */
     public function fieldRules($field, $rules_ignore) {
-        //$field_rules = is_array($field->rules) ? $field->rules : explode('|', $field->rules);
+        // $field_rules = is_array($field->rules) ? $field->rules : explode('|', $field->rules);
         $field_rules = $field->rules;
-        //51     Else branch is unreachable because ternary operator condition is always true.
+        // 51     Else branch is unreachable because ternary operator condition is always true.
 
-        //if ($rules_ignore) {
+        // if ($rules_ignore) {
         $field_rules = array_udiff(
                 $field_rules,
                 $rules_ignore,
                 function ($a, $b): int {
-                    $returned_variable = intval($a != $b);
+                    $returned_variable = (int) ($a !== $b);
 
                     return $returned_variable;
                 }
             );
-        //}
+        // }
 
         return $field_rules;
     }

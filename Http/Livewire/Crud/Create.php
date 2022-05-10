@@ -58,14 +58,14 @@ class Create extends Component {
     public function saveAndStay() {
         $this->submit();
 
-        //$this->saveAndStayResponse();
+        // $this->saveAndStayResponse();
     }
 
     /**
      * @return void
      */
     public function saveAndStayResponse() {
-        //return redirect()->route('users.create');
+        // return redirect()->route('users.create');
     }
 
     /**
@@ -73,14 +73,14 @@ class Create extends Component {
      */
     public function saveAndGoBack() {
         $this->submit();
-        //$this->saveAndGoBackResponse();
+        // $this->saveAndGoBackResponse();
     }
 
     /**
      * @return void
      */
     public function saveAndGoBackResponse() {
-        //return redirect()->route('users.index');
+        // return redirect()->route('users.index');
     }
 
     /**
@@ -88,7 +88,7 @@ class Create extends Component {
      */
     public function submit() {
         $validatedData = $this->validate($this->rules);
-        //dddx($validatedData);
+        // dddx($validatedData);
         /*
          "form_data" => array:3 [▼
         "body" => "dff"
@@ -109,13 +109,13 @@ class Create extends Component {
         $func = '\Modules\Xot\Jobs\PanelCrud\\'.Str::studly($method).'Job';
         $panel = $func::dispatchSync($this->form_data, $panel);
         session()->flash('message', 'Item was created');
-        //$this->success();
+        // $this->success();
     }
 
-    //public function success()
-    //{
+    // public function success()
+    // {
     //    $this->form_data['password'] = bcrypt($this->form_data['password']);
 
     //    \App\User::create($this->form_data);
-    //}
+    // }
 }

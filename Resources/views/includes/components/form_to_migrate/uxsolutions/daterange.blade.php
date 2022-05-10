@@ -23,5 +23,5 @@
 {{	Theme::add('/theme/bc/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}
 {{	Theme::add('/theme/bc/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js') }}
 
-{{  Theme::add('backend::includes/components/form/uxsolutions/js/bsDateRange.js') }}	
+{{  Theme::add('backend::includes/components/form/uxsolutions/js/bsDateRange.js') }}
 

@@ -1,5 +1,5 @@
 @props(['disabled' => false])
-{{--  
+{{--
 https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/input.blade.php
 --}}
 

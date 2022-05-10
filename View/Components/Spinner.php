@@ -4,26 +4,25 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\View\Component;
 
 /**
  * Class Spinner.
  */
 class Spinner extends Component {
     public string $type;
-    
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(?string $type=null) {
-        if($type===null){
-            $type='default';
+    public function __construct(?string $type = null) {
+        if (null === $type) {
+            $type = 'default';
         }
         $this->type = $type;
-        
     }
 
     /**
@@ -37,6 +36,4 @@ class Spinner extends Component {
 
         return view()->make($view, $view_params);
     }
-
-   
 }

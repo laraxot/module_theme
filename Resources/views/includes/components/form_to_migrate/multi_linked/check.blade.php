@@ -30,7 +30,7 @@ $all = !is_null($model_linked) ? $model_linked->get() : [];
             $input_name = $name . '[' . $v->post_id . ']';
             $input_value = 1;
             $obj = $val->firstWhere('post_id', $v->post_id);
-            
+
             if (is_object($obj)) {
                 $checked = $obj->pivot->value;
             } else {

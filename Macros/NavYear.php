@@ -7,17 +7,15 @@ namespace Modules\Theme\Macros;
 /**
  * Class NavYear.
  */
-class NavYear
-{
+class NavYear {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra = []) {
             return 'NAV YEAR !!';
-        }; //end return
+        }; // end return
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

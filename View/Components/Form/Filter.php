@@ -9,8 +9,7 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Filter extends Component
-{
+class Filter extends Component {
     public array $attrs = [];
     public string $action;
     public ?string $type;
@@ -21,8 +20,7 @@ class Filter extends Component
     /**
      * Undocumented function.
      */
-    public function __construct(string $action, ?string $class, ?string $type, string $name, string $placeholder = 'Keywords')
-    {
+    public function __construct(string $action, ?string $class, ?string $type, string $name, string $placeholder = 'Keywords') {
         $this->action = $action;
         $this->attrs['class'] = $class;
         $this->type = $type;
@@ -34,8 +32,7 @@ class Filter extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::components.form.filter';
 
         $view_params = [

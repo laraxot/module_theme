@@ -5,15 +5,15 @@
     <div class="form-group">
       <input type="time" class="form-control" id="exampleInputTime" min="9:00" max="18:00">
       <label for="exampleInputTime">Campo di tipo ora</label>
-    </div>  
+    </div>
   */
 
   /*esempio utilizzo
-      <x-theme::input 
-        type="time" 
-        name="time" 
-        label="time" 
-        class="form-control" 
+      <x-theme::input
+        type="time"
+        name="time"
+        label="time"
+        class="form-control"
         id="exampleInputTime"
         min="9:00"
         max="18:00"

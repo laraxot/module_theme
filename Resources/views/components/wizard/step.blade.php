@@ -1,4 +1,4 @@
-{{-- 
+{{--
     https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/wizard-step.blade.php
      --}}
 @props(['active' => false, 'current' => false, 'isLast' => false])

@@ -9,7 +9,7 @@
     funziona in base al nome della relazione inserito nel campo 'name' del fields del pannello
     collaudato con creazione/aggioramento articolo(modulo blog)
     visualizza un input select con ricerca automatica del testo inserito
-    all'inserimento del testo elenca tutti gli elementi già esistenti della relazione (esempio tag, category), 
+    all'inserimento del testo elenca tutti gli elementi già esistenti della relazione (esempio tag, category),
     che hanno le stesso iniziali del testo scritto, permettendo di inserirne altri.
     permette la selezione multipla
 

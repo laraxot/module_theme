@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\View\Composers;
 
-//use App\Repositories\UserRepository;
+// use App\Repositories\UserRepository;
 use Illuminate\View\View;
 use Modules\Theme\Services\ThemeViewService;
 
 /**
  * Class ThemeComposer.
  */
-class ThemeComposer
-{
+class ThemeComposer {
     /**
      * The user repository implementation.
      */
-    //protected $users;
+    // protected $users;
 
     /**
      * Create a new profile composer.
@@ -38,9 +37,8 @@ class ThemeComposer
      *
      * @return void
      */
-    public function compose(View $view)
-    {
-        //$view->with('count', $this->users->count());
+    public function compose(View $view) {
+        // $view->with('count', $this->users->count());
         $theme = new ThemeViewService();
         $view->with('_theme', $theme);
     }

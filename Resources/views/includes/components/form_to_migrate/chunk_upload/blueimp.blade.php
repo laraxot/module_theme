@@ -23,7 +23,7 @@
     background: white;
     cursor: inherit;
     display: block;
-}	
+}
 </style>
 
 <div class="input-group">

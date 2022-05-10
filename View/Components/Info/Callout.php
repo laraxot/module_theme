@@ -34,9 +34,9 @@ class Callout extends Component {
 
     public string $title;
 
-    public function __construct(string $type = 'info', string $title) {
+    public function __construct(string $type, string $title) {
         $this->attrs['class'] = 'callout callout-'.$type;
-        //$this->type = $type;
+        // $this->type = $type;
         $this->title = $title;
     }
 

@@ -1,25 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Models\Panels;
 
 use Illuminate\Http\Request;
 use Modules\Xot\Contracts\RowsContract;
-//--- Services --
+// --- Services --
 
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 class MenuPanel extends XotBasePanel {
     /**
      * The model the resource corresponds to.
-     *
-     * @var string
      */
     public static string $model = 'Modules\Theme\Models\Menu';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
      */
     public static string $title = 'title';
 
@@ -28,19 +26,17 @@ class MenuPanel extends XotBasePanel {
      *
      * @var array
      */
-    public static $search = array (
-);
+    public static $search = [
+    ];
 
     /**
      * The relationships that should be eager loaded on index queries.
-     *
      */
-    public function with():array {
+    public function with(): array {
         return [];
     }
 
-    public function search() :array {
-
+    public function search(): array {
         return [];
     }
 
@@ -60,9 +56,11 @@ class MenuPanel extends XotBasePanel {
 
     /**
      * on select the option label.
+     *
+     * @param mixed $row
      */
-    public function optionLabel($row):string {
-        return (string)$row->area_define_name;
+    public function optionLabel($row): string {
+        return (string) $row->area_define_name;
     }
 
     /**
@@ -79,35 +77,24 @@ class MenuPanel extends XotBasePanel {
      *
      * @return RowsContract
      */
-    public static function indexQuery(array $data, $query)
-    {
-        //return $query->where('user_id', $request->user()->id);
+    public static function indexQuery(array $data, $query) {
+        // return $query->where('user_id', $request->user()->id);
         return $query;
     }
 
-
-
     /**
      * Get the fields displayed by the resource.
-     *
-     * @return array
-        'col_size' => 6,
-        'sortable' => 1,
-        'rules' => 'required',
-        'rules_messages' => ['it'=>['required'=>'Nome Obbligatorio']],
         'value'=>'..',
      */
     public function fields(): array {
-        return array (
-);
+        return [
+        ];
     }
 
     /**
      * Get the tabs available.
-     *
-     * @return array
      */
-    public function tabs():array {
+    public function tabs(): array {
         $tabs_name = [];
 
         return $tabs_name;
@@ -115,10 +102,8 @@ class MenuPanel extends XotBasePanel {
 
     /**
      * Get the cards available for the request.
-     *
-     * @return array
      */
-    public function cards(Request $request):array {
+    public function cards(Request $request): array {
         return [];
     }
 
@@ -126,28 +111,22 @@ class MenuPanel extends XotBasePanel {
      * Get the filters available for the resource.
      *
      * @param \Illuminate\Http\Request $request
-     *
-     * @return array
      */
-    public function filters(Request $request = null):array {
+    public function filters(Request $request = null): array {
         return [];
     }
 
     /**
      * Get the lenses available for the resource.
-     *
-     * @return array
      */
-    public function lenses(Request $request):array {
+    public function lenses(Request $request): array {
         return [];
     }
 
     /**
      * Get the actions available for the resource.
-     *
-     * @return array
      */
-    public function actions():array {
+    public function actions(): array {
         return [];
     }
 }

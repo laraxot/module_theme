@@ -1,23 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Theme\Models;
 
-use Sushi\Sushi;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Traits\SushiConfigCrud;
+use Sushi\Sushi;
 
 /**
  * @mixin IdeHelperMenuItem
  */
-class MenuItem extends Model
-{
-
+class MenuItem extends Model {
     use Sushi;
     use SushiConfigCrud;
 
-    protected string $config_name='menu_builder_item';
+    protected string $config_name = 'menu_builder_item';
 
-    //protected $table = null;
+    // protected $table = null;
 
     protected $fillable = [
         'id',
@@ -40,22 +40,23 @@ class MenuItem extends Model
     */
 
     public function getRows(): array {
-        $rows=config($this->config_name);
-        if(!is_array($rows)){
+        $rows = config($this->config_name);
+        if (! \is_array($rows)) {
             return [
                 [
-                'id'=>1,
-                'label'=>'',
-                'link'=>'',
-                'parent'=>0,
-                'sort'=>1,
-                'class'=>'',
-                'menu'=>0,
-                'depth'=>0,
-                'role_id'=>0,
+                    'id' => 1,
+                    'label' => '',
+                    'link' => '',
+                    'parent' => 0,
+                    'sort' => 1,
+                    'class' => '',
+                    'menu' => 0,
+                    'depth' => 0,
+                    'role_id' => 0,
                 ],
             ];
         }
+
         return $rows;
     }
 
@@ -65,27 +66,26 @@ class MenuItem extends Model
     }
     */
 
-
-    public function getsons($id){
-        return $this->where("parent", $id)->get();
+    public function getsons($id) {
+        return $this->where('parent', $id)->get();
     }
 
-    public function getall($id){
-        return $this->where("menu", $id)
-            ->orderBy("sort", "asc")
+    public function getall($id) {
+        return $this->where('menu', $id)
+            ->orderBy('sort', 'asc')
             ->get();
     }
 
-    public static function getNextSortRoot($menu){
+    public static function getNextSortRoot($menu) {
         return self::where('menu', $menu)->max('sort') + 1;
     }
 
-    public function parent_menu(){
+    public function parent_menu() {
         return $this->belongsTo(Menu::class, 'menu');
     }
 
-    public function child(){
-        return $this->hasMany(MenuItem::class, 'parent')
+    public function child() {
+        return $this->hasMany(self::class, 'parent')
             ->orderBy('sort', 'ASC');
     }
 }

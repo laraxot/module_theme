@@ -1,4 +1,4 @@
-{{--  
+{{--
 https://getbootstrap.com/docs/4.5/components/card/#card-columns
 --}}
 <div class="card-columns">

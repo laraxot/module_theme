@@ -10,13 +10,11 @@ use Illuminate\Support\Str;
 /**
  * Class OpenPanel.
  */
-class OpenPanel
-{
+class OpenPanel {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($panel, $act = '', $params = []) {
             $route_params = optional(\Route::current())->parameters();
             $req_params = \Request::all();
@@ -26,7 +24,7 @@ class OpenPanel
                 $method = 'POST';
                 break;
             case 'update':
-                $method = 'PUT'; //PUT/PATCH
+                $method = 'PUT'; // PUT/PATCH
                 break;
             case 'destroy':
                 $method = 'DELETE';
@@ -42,9 +40,9 @@ class OpenPanel
             if (isset($params['form_name'])) {
                 $form_name = $params['form_name'];
             }
-            //$func = Str::camel($act).'Url';
+            // $func = Str::camel($act).'Url';
 
-            //$url = $panel->$func();
+            // $url = $panel->$func();
             $url = $panel->url($act);
 
             return Form::model(
@@ -56,8 +54,8 @@ class OpenPanel
                 ]
             )
             .method_field($method);
-        }; //end function
+        }; // end function
     }
 
-    //end invoke
-}//end class
+    // end invoke
+}// end class

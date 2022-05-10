@@ -11,15 +11,15 @@
   											// +"timezone": "UTC"
             }
             if($value!==null) $val=$value;
-            
+
         @endphp
-        
+
 		{{ Form::datetimeLocal($name,$val, array_merge(['class' => 'form-control'], $attributes)) }}
 		<span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
         </span>
         </div>
-        
+
 		@if ( $errors->has($name) )
 			<span class="help-block">
 				<strong>{{ $errors->first($name) }}</strong>
@@ -36,7 +36,7 @@
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{--  Theme::addScript('backend::js/bsDateTime.js') --}}
 
-{{-- 
+{{--
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}
 
@@ -58,6 +58,6 @@ webshim.setOptions('forms-ext', {
 
 //start polyfilling
 webshim.polyfill('forms forms-ext');
-    
+
 </script>
 @endpush

@@ -54,7 +54,7 @@ class V1 extends Component {
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)
             ->startOfMonth()
             ->isoWeekday();
-        if (! is_int($startOfMonthDay)) {
+        if (! \is_int($startOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -68,7 +68,7 @@ class V1 extends Component {
         }
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
-        if (! is_int($endOfMonthDay)) {
+        if (! \is_int($endOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -166,7 +166,7 @@ class V1 extends Component {
     }
 
     public function setByDay(int $day = null): void {
-        if (is_null($day)) {
+        if (null === $day) {
             return;
         }
 

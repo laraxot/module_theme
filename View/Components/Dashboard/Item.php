@@ -6,15 +6,13 @@ namespace Modules\Theme\View\Components\Dashboard;
 
 use Illuminate\View\Component;
 
-//use Modules\Xot\View\Components\XotBaseComponent;
+// use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
  * Class Field.
  */
-class Item extends Component
-{
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+class Item extends Component {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::empty';
         $view_params = [
             'view' => $view,
@@ -23,8 +21,7 @@ class Item extends Component
         return view()->make($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return false;
     }
 }

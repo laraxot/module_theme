@@ -16,19 +16,17 @@ use Livewire\Component;
 /**
  * Class FullCalendar.
  */
-class FullCalendar extends Component
-{
+class FullCalendar extends Component {
     /**
      * @var string
      */
     public ?string $name = 'Barry';
 
-    public array $events = []; //non sono gli eventi in calendario ma le azioni
+    public array $events = []; // non sono gli eventi in calendario ma le azioni
 
     public array $form_data = [];
 
-    public function mount(): void
-    {
+    public function mount(): void {
         /*$name = 'Barry';
         $events = [];
         foreach (range(0, 6) as $i) {
@@ -42,16 +40,14 @@ class FullCalendar extends Component
         */
     }
 
-    public function updatedName(): void
-    {
+    public function updatedName(): void {
         $this->emit('refreshCalendar');
     }
 
     /**
      * @return string[]
      */
-    public function getNamesProperty()
-    {
+    public function getNamesProperty() {
         return [
             'Barry',
             'Taylor',
@@ -64,9 +60,8 @@ class FullCalendar extends Component
      *
      * @return array
      */
-    public function getEvents()
-    {
-        //dddx('preso');
+    public function getEvents() {
+        // dddx('preso');
         $name = 'Barry'; // $request->get('name');
 
         $events = [];
@@ -77,15 +72,14 @@ class FullCalendar extends Component
                 'start' => now()->addDays(random_int(-10, 10))->toDateString(),
             ];
         }
-        //$this->events = $events;
+        // $this->events = $events;
         return $events;
     }
 
     /**
      * @return array|string[]
      */
-    public function getTasksProperty()
-    {
+    public function getTasksProperty() {
         switch ($this->name) {
         case 'Barry':
             return ['Debugbar', 'IDE Helper'];
@@ -98,13 +92,11 @@ class FullCalendar extends Component
         return [];
     }
 
-    public function eventReceive(array $event): void
-    {
+    public function eventReceive(array $event): void {
         $this->events[] = 'eventReceive: '.print_r($event, true);
     }
 
-    public function eventDrop(array $event, array $oldEvent): void
-    {
+    public function eventDrop(array $event, array $oldEvent): void {
         $this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
     }
 
@@ -113,16 +105,12 @@ class FullCalendar extends Component
      */
     /**
      * Render the component.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         return view()->make('theme::livewire.full_calendar');
     }
 
-    public function edit(array $calEvent): void
-    {
+    public function edit(array $calEvent): void {
         /*dddx($calEvent['event']);
          array:4 [▼
         "title" => "IDE Helper"
@@ -132,25 +120,22 @@ class FullCalendar extends Component
         ]
         */
         $this->form_data = $calEvent['event'];
-        //yyyy-MM-ddThh:mm
-        //$this->form_data['start'] = Carbon::parse($this->form_data['start'])->format('Y-m-d\TH:i');
-        //$this->form_data['end'] = Carbon::parse($this->form_data['end'])->format('Y-m-d\TH:i');
+        // yyyy-MM-ddThh:mm
+        // $this->form_data['start'] = Carbon::parse($this->form_data['start'])->format('Y-m-d\TH:i');
+        // $this->form_data['end'] = Carbon::parse($this->form_data['end'])->format('Y-m-d\TH:i');
     }
 
-    public function update(): void
-    {
+    public function update(): void {
         session()->flash('message', 'Updated Successfully.');
         $this->resetInputFields();
     }
 
-    public function cancel(): void
-    {
-        //$this->updateMode = false;
+    public function cancel(): void {
+        // $this->updateMode = false;
         $this->resetInputFields();
     }
 
-    private function resetInputFields(): void
-    {
+    private function resetInputFields(): void {
         $this->form_data = [];
     }
 }

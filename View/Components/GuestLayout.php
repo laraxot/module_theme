@@ -7,13 +7,11 @@ namespace Modules\Theme\View\Components;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class GuestLayout extends Component
-{
+class GuestLayout extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'pub_theme::components.layouts.guest';
         $view_params = [
             'view' => $view,

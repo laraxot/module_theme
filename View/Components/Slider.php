@@ -11,8 +11,8 @@ use Illuminate\View\Component;
  */
 class Slider extends Component {
     public string $driver;
-    public string $errorKey = '?'; //phpstan
-    public string $name = '?'; //phpstan
+    public string $errorKey = '?'; // phpstan
+    public string $name = '?'; // phpstan
 
     /**
      * The bootstrap-slider plugin configuration parameters. Array with
@@ -28,12 +28,12 @@ class Slider extends Component {
      *
      * @return void
      */
-    public function __construct(?string $driver=null) {
-        if($driver===null){
-            $driver='noui';
+    public function __construct(?string $driver = null) {
+        if (null === $driver) {
+            $driver = 'noui';
         }
         $this->driver = $driver;
-        //$this->config = is_array($config) ? $config : [];
+        // $this->config = is_array($config) ? $config : [];
         $this->config = [];
     }
 
@@ -64,7 +64,7 @@ class Slider extends Component {
         // The next workaround setups the plugin when using sm/lg sizes.
         // Note: this may change with newer plugin versions.
 
-        if (isset($this->size) && in_array($this->size, ['sm', 'lg'])) {
+        if (isset($this->size) && \in_array($this->size, ['sm', 'lg'], true)) {
             $classes[] = "form-control-{$this->size}";
             $classes[] = 'p-0';
         }
@@ -100,7 +100,7 @@ class Slider extends Component {
      */
     protected function makeErrorKey() {
         $errKey = preg_replace('@\[\]$@', '', $this->name);
-        if (null == $errKey) {
+        if (null === $errKey) {
             return $this->name;
         }
 

@@ -21,7 +21,7 @@ https://www.nicesnippets.com/blog/laravel-livewire-fullcalendar-integration-tuto
  */
 
 use Carbon\Carbon;
-//use Modules\Customer\Models\Customer;
+// use Modules\Customer\Models\Customer;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
 use Modules\Xot\Services\PanelService;
@@ -29,37 +29,33 @@ use Modules\Xot\Services\PanelService;
 /**
  * Modules\Theme\Http\Livewire\FullCalendar\V1.
  */
-class Event extends XotBaseComponent
-{
-    //private $model; //Customer::class;
+class Event extends XotBaseComponent {
+    // private $model; //Customer::class;
     public string $model;
     /**
      * @var string
      */
     public ?string $name = 'Barry';
 
-    public array $events = []; //non sono gli eventi in calendario ma le azioni
+    public array $events = []; // non sono gli eventi in calendario ma le azioni
 
     public array $info = [];
 
     public array $form_data = [];
 
-    public function mount(mixed $model_class): void
-    {
-        //$this->model = app($model_class);
+    public function mount(mixed $model_class): void {
+        // $this->model = app($model_class);
         $this->model = $model_class;
     }
 
-    public function updatedName(): void
-    {
+    public function updatedName(): void {
         $this->emit('refreshCalendar');
     }
 
     /**
      * @return string[]
      */
-    public function getNamesProperty()
-    {
+    public function getNamesProperty() {
         return [
             'Barry',
             'Taylor',
@@ -67,17 +63,14 @@ class Event extends XotBaseComponent
         ];
     }
 
-    /*
+    /**
      * @param string|null $info
      *
      * @throws \Exception
-     *
-     * @return array
      */
-    public function getEvents(array $info): array
-    {
+    public function getEvents(array $info): array {
         $this->info = $info;
-        //$name = 'Barry'; // $request->get('name');
+        // $name = 'Barry'; // $request->get('name');
 
         $events = app($this->model)->with('post')
             ->whereDate('date_start', '>=', $info['startStr'])
@@ -86,12 +79,12 @@ class Event extends XotBaseComponent
             ->map(
                 function ($model) {
                     return [
-                    'id' => $model->id,
-                    'title' => $model->title,
-                    'description' => '', //$model->note,
-                    'start' => $model->date_start->toDateTimeLocalString(),
-                    'end' => $model->date_end->toDateTimeLocalString(),
-                    //'start' => '2020-12-09T12:30:00',
+                        'id' => $model->id,
+                        'title' => $model->title,
+                        'description' => '', // $model->note,
+                        'start' => $model->date_start->toDateTimeLocalString(),
+                        'end' => $model->date_end->toDateTimeLocalString(),
+                        // 'start' => '2020-12-09T12:30:00',
                     ];
                 }
             )->all();
@@ -106,8 +99,7 @@ class Event extends XotBaseComponent
     /**
      * @return array|string[]
      */
-    public function getTasksProperty()
-    {
+    public function getTasksProperty() {
         switch ($this->name) {
         case 'Barry':
             return ['Debugbar', 'IDE Helper'];
@@ -123,14 +115,12 @@ class Event extends XotBaseComponent
     /**
      * @param array $event
      */
-    public function eventReceive($event): void
-    {
+    public function eventReceive($event): void {
         $this->events[] = 'eventReceive: '.print_r($event, true);
     }
 
-    public function eventResize(array $event): void
-    {
-        //$this->events[] = 'eventResize: '.print_r($event, true);
+    public function eventResize(array $event): void {
+        // $this->events[] = 'eventResize: '.print_r($event, true);
         session()->flash('message', '['.$event['id'].'] Aggiornato');
         $row = app($this->model)->find($event['id']);
         $row->date_start = $event['start'];
@@ -142,9 +132,8 @@ class Event extends XotBaseComponent
      * @param array $event
      * @param array $oldEvent
      */
-    public function eventDrop($event, $oldEvent): void
-    {
-        //$this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
+    public function eventDrop($event, $oldEvent): void {
+        // $this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
         session()->flash('message', '['.$event['id'].'] '.$event['title'].' spostato da '.$oldEvent['start'].' a '.$event['start']);
         $row = app($this->model)->find($event['id']);
         $row->date_start = $event['start'];
@@ -155,8 +144,7 @@ class Event extends XotBaseComponent
     /**
      * Render the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = $this->getView();
         $view_params = [
             'view' => $view,
@@ -168,11 +156,10 @@ class Event extends XotBaseComponent
     /**
      * @param array $calEvent
      */
-    public function edit($calEvent): void
-    {
+    public function edit($calEvent): void {
         $this->form_data = $calEvent['event'];
 
-        //yyyy-MM-ddThh:mm
+        // yyyy-MM-ddThh:mm
 
         $this->form_data['start'] = Carbon::parse($this->form_data['start'])->format('Y-m-d\TH:i');
         if (isset($this->form_data['end'])) {
@@ -182,13 +169,12 @@ class Event extends XotBaseComponent
         }
     }
 
-    public function update(): void
-    {
-        //dddx(['info' => $this->info, 'events' => $this->events]);
+    public function update(): void {
+        // dddx(['info' => $this->info, 'events' => $this->events]);
         session()->flash('message', 'Updated Successfully.');
 
         $row = app($this->model)->find($this->form_data['id']);
-        //*
+        // *
         $data = [
             'date_start' => $this->form_data['start'],
             'date_end' => $this->form_data['end'],
@@ -201,19 +187,17 @@ class Event extends XotBaseComponent
         */
         $row->post->update($data_post);
         $row->update($data);
-        //*/
+        // */
         $this->resetInputFields();
-        //$this->events = $this->getEvents($this->info);
+        // $this->events = $this->getEvents($this->info);
     }
 
-    public function cancel(): void
-    {
-        //$this->updateMode = false;
+    public function cancel(): void {
+        // $this->updateMode = false;
         $this->resetInputFields();
     }
 
-    private function resetInputFields(): void
-    {
+    private function resetInputFields(): void {
         $this->form_data = [
             'title' => null,
             'start' => null,

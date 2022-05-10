@@ -29,7 +29,7 @@ class Search extends Component {
      */
     public function render(): Renderable {
         $view = 'theme::components.form.search';
-        if (null != $this->type) {
+        if (null !== $this->type) {
             $view .= '.'.$this->type;
         }
         $view_params = [

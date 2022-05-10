@@ -6,12 +6,10 @@ namespace Modules\Theme\Http\Livewire\Chip;
 
 use Livewire\Component;
 
-class Simple extends Component
-{
-    /*public $row;*/
+class Simple extends Component {
+    /* public $row; */
     public mixed $elements;
     public string $tag = 'test';
-
 
     /*public function mount($row, $name):void {
 
@@ -22,11 +20,8 @@ class Simple extends Component
      */
     /**
      * Render the component.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::livewire.chip.simple';
 
         $view_params = [
@@ -37,8 +32,7 @@ class Simple extends Component
         return view()->make($view, $view_params);
     }
 
-    public function add():void
-    {
+    public function add(): void {
         dddx(['preso']);
     }
 }

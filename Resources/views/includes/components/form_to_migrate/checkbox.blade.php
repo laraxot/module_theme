@@ -12,5 +12,5 @@
 			<strong>{{ $errors->first($name) }}</strong>
 		</span>
 	@endif
-	<small class="form-text text-muted">{{ trans($view.'.field.'.$name.'_help') }} </small> 
+	<small class="form-text text-muted">{{ trans($view.'.field.'.$name.'_help') }} </small>
 </div>

@@ -26,4 +26,4 @@
 	@endslot
 @endcomponent
 
- 
+

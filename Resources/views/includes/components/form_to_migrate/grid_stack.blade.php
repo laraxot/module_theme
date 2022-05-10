@@ -13,7 +13,7 @@
 {{ Theme::add('/theme/bc/jquery.easing/js/jquery.easing.min.js') }}
 
 {{ Theme::add('/theme/bc/gridstack/dist/gridstack.js') }}
-{{ Theme::add('/theme/bc/gridstack/dist/gridstack.jQueryUI.js') }} 
+{{ Theme::add('/theme/bc/gridstack/dist/gridstack.jQueryUI.js') }}
 
 
 @push('styles')
@@ -28,7 +28,7 @@
             background-color: #18bc9c;
         }
 
-       
+
     </style>
 @endpush
 
@@ -65,7 +65,7 @@
 				<i class="fa fa-trash-o remove"></i>
 			</a>
 	</div>
-	<br style="clear:both;"/> 
+	<br style="clear:both;"/>
 	<input type="text" name="content_type" value="text" class="form-input"/>
 	<input type="text" name="content_source" value="" class="form-input"/>
     <textarea name="content" ></textarea>
@@ -119,7 +119,7 @@
                         	$el.find('[name='+i+']').val(node[i]);
                         };
                     }, this);
-                    
+
                     return false;
                 }.bind(this);
 
@@ -132,13 +132,13 @@
 							$k=$(this).attr('name');
 							$v=$(this).val();
                         	//alert($k+'  '+$v);
-							$data[$k]=$v; 
+							$data[$k]=$v;
 						});
                         $data.x=node.x;
                         $data.y=node.y;
                         $data.width=node.width;
                         $data.height=node.height;
-                        
+
                         return $data;
                     }, this);
                     $('#saved-data').val(JSON.stringify(this.serializedData, null, '    '));
@@ -159,14 +159,14 @@
 
 
 
-            
+
         });
     </script>
 @endpush
 
 
 
-{{--  
+{{--
 links di riferimento
 https://codepen.io/delagics/pen/ezgryg
 

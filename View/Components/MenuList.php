@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-///use Harimayco\Menu\Facades\Menu;
+// /use Harimayco\Menu\Facades\Menu;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
@@ -12,21 +12,19 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class MenuList extends Component
-{
-    //public array $attrs = [];
+class MenuList extends Component {
+    // public array $attrs = [];
     public array $menus = [];
     public ?string $title = null;
     public array $attrs;
 
-    public function __construct(string $menuName, ?string $title = null, ?string $titleClass = null, ?string $ulClass = null, ?string $aliClass = null)
-    {
-        //$this->menus = Menu::getByName($menuName);
+    public function __construct(string $menuName, ?string $title = null, ?string $titleClass = null, ?string $ulClass = null, ?string $aliClass = null) {
+        // $this->menus = Menu::getByName($menuName);
         $this->menus = [];
         $this->title = $title;
         $this->attrs['class'] = 'text-uppercase';
 
-        //$this->attrs['titleClass'] = isset($titleClass) ? $titleClass : 'text-uppercase text-dark mb-3';
+        // $this->attrs['titleClass'] = isset($titleClass) ? $titleClass : 'text-uppercase text-dark mb-3';
 
         $this->attrs['titleClass'] = 'text-uppercase text-dark mb-3';
         if (isset($titleClass) && ! Str::startsWith($titleClass, '+')) {
@@ -53,9 +51,7 @@ class MenuList extends Component
         }
     }
 
-
-    public function render():Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.menu-list';
 
         $view_params = [

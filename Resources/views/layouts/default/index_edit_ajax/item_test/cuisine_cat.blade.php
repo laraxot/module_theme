@@ -29,9 +29,9 @@
 					<div class="rating-block"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
 					<p> 245 Reviews</p>
 
-					@foreach($tabs as $tab)											
+					@foreach($tabs as $tab)
 					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.'.$tab)</a>
-					@endforeach 
+					@endforeach
 					--}}
 				</div>
 			</div>

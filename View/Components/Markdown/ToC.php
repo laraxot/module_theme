@@ -12,22 +12,18 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class ToC.
  */
-class ToC extends XotBaseComponent
-{
+class ToC extends XotBaseComponent {
     public string $url;
 
-    public function __construct(string $url = null)
-    {
+    public function __construct(string $url = null) {
         $this->url = $url ?? '';
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make('theme::components.markdown.toc');
     }
 
-    public function items(string $markdown): Collection
-    {
+    public function items(string $markdown): Collection {
         // Remove code blocks which might contain headers.
         $markdown = preg_replace('(```[a-z]*\n[\s\S]*?\n```)', '', $markdown).'';
 
@@ -41,9 +37,9 @@ class ToC extends XotBaseComponent
             ->map(
                 function (string $line) {
                     return [
-                    'level' => strlen(trim(Str::before($line, '# '))) + 1,
-                    'title' => $title = trim(Str::after($line, '# ')),
-                    'anchor' => Str::slug($title),
+                        'level' => \strlen(trim(Str::before($line, '# '))) + 1,
+                        'title' => $title = trim(Str::after($line, '# ')),
+                        'anchor' => Str::slug($title),
                     ];
                 }
             );

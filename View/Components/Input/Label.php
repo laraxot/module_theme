@@ -11,8 +11,7 @@ use stdClass;
 /**
  * Undocumented class.
  */
-class Label extends Component
-{
+class Label extends Component {
     public ?stdClass $field = null;
     public ?string $label = null;
     public string $for;
@@ -24,9 +23,8 @@ class Label extends Component
     /**
      * Undocumented function.
      */
-    public function __construct(?stdClass $field = null, ?string $label = null, ?string $name = null, ?string $type = null)
-    {
-        if (is_object($field) && isset($field->name)) {
+    public function __construct(?stdClass $field = null, ?string $label = null, ?string $name = null, ?string $type = null) {
+        if (\is_object($field) && isset($field->name)) {
             $this->field = $field;
             $this->name = $field->name;
             $this->label = $field->label;
@@ -53,13 +51,12 @@ class Label extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $theme = inAdmin() ? 'adm_theme' : 'pub_theme';
         FileService::viewCopy('theme::components.input.label', $theme.'::components.input.label');
 
         $view = $theme.'::components.input.label';
-        if (null == $this->field) {
+        if (null === $this->field) {
             $this->field = (object) [
                 'name' => $this->name,
                 'type' => $this->type,

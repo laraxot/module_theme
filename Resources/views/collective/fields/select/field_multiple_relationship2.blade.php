@@ -12,7 +12,7 @@
 
     $row=Form::getModel();
     //$rows=$row->$name; //risultati per l'edit ..
-    $related=$row->$name()->getRelated(); 
+    $related=$row->$name()->getRelated();
     $related_panel=Panel::make()->get($related);
     $rows=$related->get()->load('post');
     $related_panel->setRows($rows);

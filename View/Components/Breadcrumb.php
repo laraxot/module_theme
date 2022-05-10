@@ -10,8 +10,7 @@ use Modules\Xot\Contracts\PanelContract;
 /**
  * Class Breadcrumb.
  */
-class Breadcrumb extends Component
-{
+class Breadcrumb extends Component {
     public string $olClass;
     public PanelContract $panel;
 
@@ -20,8 +19,7 @@ class Breadcrumb extends Component
      *
      * @return void
      */
-    public function __construct(string $olClass, PanelContract $panel)
-    {
+    public function __construct(string $olClass, PanelContract $panel) {
         $this->olClass = $olClass;
         $this->panel = $panel;
     }
@@ -29,8 +27,7 @@ class Breadcrumb extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         return view()->make('theme::components.breadcrumb');
     }
 }

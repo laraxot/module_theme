@@ -7,8 +7,7 @@ namespace Modules\Theme\Menu;
 /**
  * Class Builder.
  */
-class Builder
-{
+class Builder {
     public array $menu = [];
 
     public array $slim_header_menu = [];
@@ -21,21 +20,19 @@ class Builder
 
     private array $filters;
 
-    public function __construct(array $filters = [])
-    {
+    public function __construct(array $filters = []) {
         $this->filters = $filters;
     }
 
     /**
      * @param array $menu
      */
-    public function add_slim_header($menu): void
-    {
-        //$items = $this->transformItems(func_get_args());
+    public function add_slim_header($menu): void {
+        // $items = $this->transformItems(func_get_args());
         $items = $this->transformItems($menu);
-        //dddx(['items' => $items]);
+        // dddx(['items' => $items]);
         foreach ($items as $item) {
-            array_push($this->slim_header_menu, $item);
+            $this->slim_header_menu[] = $item;
         }
         /*
         dddx([
@@ -48,42 +45,39 @@ class Builder
     /**
      * @param array $menu
      */
-    public function add_header($menu): void
-    {
+    public function add_header($menu): void {
         /*
         $items = $this->transformItems(func_get_args());
         */
         $items = $this->transformItems($menu);
         foreach ($items as $item) {
-            array_push($this->header_menu, $item);
+            $this->header_menu[] = $item;
         }
     }
 
     /**
      * @param array $menu
      */
-    public function add_footer($menu): void
-    {
+    public function add_footer($menu): void {
         /*
         $items = $this->transformItems(func_get_args());
         */
         $items = $this->transformItems($menu);
         foreach ($items as $item) {
-            array_push($this->footer_menu, $item);
+            $this->footer_menu[] = $item;
         }
     }
 
     /**
      * @param array $menu
      */
-    public function add_footer_bar($menu): void
-    {
+    public function add_footer_bar($menu): void {
         /*
         $items = $this->transformItems(func_get_args());
         */
         $items = $this->transformItems($menu);
         foreach ($items as $item) {
-            array_push($this->footer_bar, $item);
+            $this->footer_bar[] = $item;
         }
     }
 
@@ -92,10 +86,9 @@ class Builder
      *
      * @return array
      */
-    public function transformItems($items)
-    {
+    public function transformItems($items) {
         $res = array_filter(array_map([$this, 'applyFilters'], $items));
-        //dddx(['items' => $items, 'res' => $res]);
+        // dddx(['items' => $items, 'res' => $res]);
 
         return $res;
     }
@@ -105,9 +98,8 @@ class Builder
      *
      * @return mixed|string
      */
-    protected function applyFilters($item)
-    {
-        if (is_string($item)) {
+    protected function applyFilters($item) {
+        if (\is_string($item)) {
             return $item;
         }
 

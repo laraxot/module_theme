@@ -6,15 +6,13 @@ namespace Modules\Theme\View\Components\Authentication;
 
 use Illuminate\View\Component;
 
-//use Modules\Xot\View\Components\XotBaseComponent;
+// use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
  * Class Field.
  */
-class Card extends Component
-{
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
+class Card extends Component {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $view = 'theme::components.authentication.card';
         $view_params = [
             'view' => $view,

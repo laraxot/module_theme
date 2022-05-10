@@ -25,7 +25,7 @@
 	background: white;
 	cursor: inherit;
 	display: block;
-}	
+}
 </style>
 
 
@@ -39,7 +39,7 @@
 			<span class="input-group-addon btn btn-default btn-file">
 				<a id="lfm_img" data-input="{{ $name }}" data-preview="holder" >
 					<i class="fa fa-folder-open-o"></i> Sfoglia
-				</a>  
+				</a>
 			</span>
 			{{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
 		</div>

@@ -1,7 +1,7 @@
 <div class="breadcrumb">
 	<div class="container">
 		<ul itemscope itemtype="http://schema.org/BreadcrumbList">
-			{{-- 
+			{{--
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 				<a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="{{ asset('/') }}">
 					<span itemprop="name">Home</span>

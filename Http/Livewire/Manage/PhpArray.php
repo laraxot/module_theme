@@ -35,7 +35,7 @@ class PhpArray extends Component {
         return collect($rows)
             ->map(
                 function ($value, $key) {
-                    if (is_array($value)) {
+                    if (\is_array($value)) {
                         $value = $this->mapData($value);
                     }
 
@@ -54,7 +54,7 @@ class PhpArray extends Component {
             ->map(
                 function ($item) {
                     $value = $item['value'];
-                    if (is_array($value)) {
+                    if (\is_array($value)) {
                         $value = $this->unMapData($value);
                     }
 
@@ -79,7 +79,7 @@ class PhpArray extends Component {
                     'input_type' => 'text',
                     'placeholder' => 'placeholder',
                     'autocomplete' => false,
-                    //'textarea_rows' => 6,
+                    // 'textarea_rows' => 6,
                     'column_width' => 3,
                     'help' => '',
                 ],
@@ -89,7 +89,7 @@ class PhpArray extends Component {
                     'input_type' => 'text',
                     'placeholder' => 'placeholder',
                     'autocomplete' => false,
-                    //'textarea_rows' => 6,
+                    // 'textarea_rows' => 6,
                     'column_width' => 9,
                     'help' => '',
                 ],

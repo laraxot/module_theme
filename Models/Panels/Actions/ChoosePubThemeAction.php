@@ -10,8 +10,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class ChoosePubThemeAction.
  */
-class ChoosePubThemeAction extends XotBasePanelAction
-{
+class ChoosePubThemeAction extends XotBasePanelAction {
     public bool $onItem = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
@@ -19,8 +18,7 @@ class ChoosePubThemeAction extends XotBasePanelAction
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $themes = ThemeService::getThemes();
         $view_params = [
             'themes' => $themes,

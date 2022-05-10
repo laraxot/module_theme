@@ -47,19 +47,19 @@
 @push('scripts')
 <script>
 	$(function() {
-		
+
 
 		$( "#sortable" ).sortable({
 			placeholder: "ui-state-highlight",
 			update: function (event, ui) {
 				var $list =  $(this).sortable("toArray").join("|");
-				//var sortable_data = $(this).sortable('serialize'); 
+				//var sortable_data = $(this).sortable('serialize');
 				//alert(sortable_data);
 				$('input[name="order_list"]').val($list);
 				/*
 				 $.ajax({   url: "/persistListOrder.php",
-                                      data: { 
-                                                  'section':this.id,              
+                                      data: {
+                                                  'section':this.id,
                                                   'components': list
                                             }
                                   });

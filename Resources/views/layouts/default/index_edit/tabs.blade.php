@@ -32,7 +32,7 @@
                         //dddx($routename);
                         break;
                 }
-                
+
             @endphp
             <li class="nav-item">
                 <a class="nav-link btn btn-secondary {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"

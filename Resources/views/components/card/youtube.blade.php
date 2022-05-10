@@ -5,7 +5,6 @@
         </div>
     </div><!-- card image -->
     <div class="card-content">
-        <span class="card-title">Will my credits transfer?</span>                    
+        <span class="card-title">Will my credits transfer?</span>
     </div><!-- card content -->
 </div>
-        

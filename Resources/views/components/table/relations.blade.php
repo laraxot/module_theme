@@ -1,5 +1,5 @@
 @props(['type'])
-{{--  
+{{--
 https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/show-relations-table.blade.php
 --}}
 

@@ -38,8 +38,7 @@ use Livewire\Component;
  * @property bool   $dayClickEnabled
  * @property bool   $eventClickEnabled
  */
-abstract class BaseV2 extends Component
-{
+abstract class BaseV2 extends Component {
     public Carbon $startsAt;
 
     public Carbon $endsAt;
@@ -115,7 +114,7 @@ abstract class BaseV2 extends Component
         $beforeCalendarView = null,
         $afterCalendarView = null,
         $pollMillis = null,
-        //$pollAction = null,
+        // $pollAction = null,
         $pollAction = '',
         $dragAndDropEnabled = true,
         $dayClickEnabled = true,
@@ -123,7 +122,7 @@ abstract class BaseV2 extends Component
         $extras = []
     ): void {
         $this->weekStartsAt = $weekStartsAt ?? Carbon::SUNDAY;
-        $this->weekEndsAt = Carbon::SUNDAY == $this->weekStartsAt
+        $this->weekEndsAt = Carbon::SUNDAY === $this->weekStartsAt
             ? Carbon::SATURDAY
             : collect([0, 1, 2, 3, 4, 5, 6])->get($this->weekStartsAt + 6 - 7);
 
@@ -151,8 +150,7 @@ abstract class BaseV2 extends Component
     /**
      * @param array $extras
      */
-    public function afterMount($extras = []): void
-    {
+    public function afterMount($extras = []): void {
     }
 
     /**
@@ -185,38 +183,33 @@ abstract class BaseV2 extends Component
      * @param int|null $pollMillis
      * @param string   $pollAction
      */
-    public function setupPoll($pollMillis, $pollAction): void
-    {
+    public function setupPoll($pollMillis, $pollAction): void {
         $this->pollMillis = $pollMillis;
         $this->pollAction = $pollAction;
     }
 
-    public function goToPreviousMonth(): void
-    {
+    public function goToPreviousMonth(): void {
         $this->startsAt->subMonthNoOverflow();
         $this->endsAt->subMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToNextMonth(): void
-    {
+    public function goToNextMonth(): void {
         $this->startsAt->addMonthNoOverflow();
         $this->endsAt->addMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToCurrentMonth(): void
-    {
+    public function goToCurrentMonth(): void {
         $this->startsAt = Carbon::today()->startOfMonth()->startOfDay();
         $this->endsAt = $this->startsAt->clone()->endOfMonth()->startOfDay();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function calculateGridStartsEnds(): void
-    {
+    public function calculateGridStartsEnds(): void {
         $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt);
         $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt);
     }
@@ -227,15 +220,14 @@ abstract class BaseV2 extends Component
      * @return mixed
      * @return mixed
      */
-    public function monthGrid()
-    {
+    public function monthGrid() {
         $firstDayOfGrid = $this->gridStartsAt;
         $lastDayOfGrid = $this->gridEndsAt;
 
         $numbersOfWeeks = $lastDayOfGrid->diffInWeeks($firstDayOfGrid) + 1;
         $days = $lastDayOfGrid->diffInDays($firstDayOfGrid) + 1;
 
-        if (0 != $days % 7) {
+        if (0 !== $days % 7) {
             throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
@@ -248,36 +240,34 @@ abstract class BaseV2 extends Component
         }
 
         $monthGrid = $monthGrid->chunk(7);
-        if ($numbersOfWeeks != $monthGrid->count()) {
+        if ($numbersOfWeeks !== $monthGrid->count()) {
             throw new Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
         }
 
         return $monthGrid;
     }
 
-    public function events(): Collection
-    {
-        //return collect();
+    public function events(): Collection {
+        // return collect();
         return collect(
             [
-            [
-                'id' => 1,
-                'title' => 'Breakfast',
-                'description' => 'Pancakes! 🥞',
-                'date' => Carbon::today(),
-            ],
-            [
-                'id' => 2,
-                'title' => 'Meeting with Pamela',
-                'description' => 'Work stuff',
-                'date' => Carbon::tomorrow(),
-            ],
+                [
+                    'id' => 1,
+                    'title' => 'Breakfast',
+                    'description' => 'Pancakes! 🥞',
+                    'date' => Carbon::today(),
+                ],
+                [
+                    'id' => 2,
+                    'title' => 'Meeting with Pamela',
+                    'description' => 'Work stuff',
+                    'date' => Carbon::tomorrow(),
+                ],
             ]
         );
     }
 
-    public function getEventsForDay(int $day, Collection $events): Collection
-    {
+    public function getEventsForDay(int $day, Collection $events): Collection {
         return $events
             ->filter(
                 function ($event) use ($day) {
@@ -291,19 +281,16 @@ abstract class BaseV2 extends Component
      * @param int $month
      * @param int $day
      */
-    public function onDayClick($year, $month, $day): void
-    {
+    public function onDayClick($year, $month, $day): void {
     }
 
     /**
      * @param int $eventId
      */
-    public function onEventClick($eventId): void
-    {
+    public function onEventClick($eventId): void {
     }
 
-    public function onEventDropped(int $eventId, int $year, int $month, int $day): void
-    {
+    public function onEventDropped(int $eventId, int $year, int $month, int $day): void {
     }
 
     /**
@@ -311,23 +298,22 @@ abstract class BaseV2 extends Component
      *
      * return Factory|View
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $events = $this->events();
 
-        if (null == $this->calendarView) {
+        if (null === $this->calendarView) {
             throw new \Exception('$this->calendarView is null ['.__LINE__.']['.__FILE__.']');
         }
 
         return view()->make($this->calendarView)
             ->with(
                 [
-                'componentId' => $this->id,
-                'monthGrid' => $this->monthGrid(),
-                'events' => $events,
-                'getEventsForDay' => function ($day) use ($events) {
-                    return $this->getEventsForDay($day, $events);
-                },
+                    'componentId' => $this->id,
+                    'monthGrid' => $this->monthGrid(),
+                    'events' => $events,
+                    'getEventsForDay' => function ($day) use ($events) {
+                        return $this->getEventsForDay($day, $events);
+                    },
                 ]
             );
     }

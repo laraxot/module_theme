@@ -3,15 +3,15 @@
     extract($params);
 @endphp
 
-<button 
-    type="button" 
-    class="btn" 
-    data-toggle="popover" 
+<button
+    type="button"
+    class="btn"
+    data-toggle="popover"
     {{-- data-trigger="click" --}}
     data-html="true"
     title="{{ $title }}"
     data-content="
-        
+
         @foreach($actions as $action)
             @php
                 //dddx($action);
@@ -23,7 +23,7 @@
                 'error_label' => false,
             ]) !!}
         @endforeach
-        
+
         {{-- Call to a member function getParents() on null
         @foreach($panel->actions() as $action)
             {!! $action->btnHtml(

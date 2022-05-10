@@ -12,8 +12,7 @@ use Modules\Xot\Services\SmartyService;
 /**
  * Class TestAction.
  */
-class ConvertSmartyToBladeAction extends XotBasePanelAction
-{
+class ConvertSmartyToBladeAction extends XotBasePanelAction {
     public bool $onContainer = true;
 
     public string $icon = '<i class="fas fa-exchange-alt"></i>';
@@ -21,11 +20,10 @@ class ConvertSmartyToBladeAction extends XotBasePanelAction
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $directory = FileService::getViewNameSpacePath('pub_theme');
 
-        if (null == $directory) {
+        if (null === $directory) {
             throw new \Exception('$directory is null');
         }
 
@@ -33,16 +31,16 @@ class ConvertSmartyToBladeAction extends XotBasePanelAction
         $smarty = new SmartyService();
 
         foreach ($files as $file) {
-            //dddx(get_class_methods($file));
-            if ('tpl' == $file->getExtension()) {
+            // dddx(get_class_methods($file));
+            if ('tpl' === $file->getExtension()) {
                 $file_get_real_path = $file->getRealPath();
-                if (false == $file_get_real_path) {
+                if (false === $file_get_real_path) {
                     throw new \Exception('$directory is null');
                 }
                 $converted = $smarty->convert($file_get_real_path);
 
                 $new_file = substr(optional($file)->getRealPath(), 0, -3).'blade.php';
-                //dddx($new_file);
+                // dddx($new_file);
                 File::put($new_file, $converted);
             }
         }
