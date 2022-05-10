@@ -55,6 +55,7 @@ $date_list = $_panel->getRow()->{$name};
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
@@ -80,6 +81,9 @@ $date_list = $_panel->getRow()->{$name};
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
 >>>>>>> ede0df75 (first)
+=======
+{{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> ceab487e (.)
 
 
 

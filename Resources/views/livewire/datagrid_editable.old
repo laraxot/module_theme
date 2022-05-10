@@ -19,6 +19,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
     <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -44,6 +45,9 @@ count : {{ $rows->count() }}
 =======
     <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> ede0df75 (first)
+=======
+    <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> ceab487e (.)
 
 </tr>
 @endforeach
@@ -177,14 +181,14 @@ count : {{ $rows->count() }}
                     {{--  
                     @livewire('formx::datagrid_editable.head',['row'=>$row,'index'=>$index],key($row->id))
                     --}}
-                    <livewire:formx::datagrid_editable.head :row="$row" :index="$index" :key="$row->id" />
+                    <livewire:datagrid_editable.head :row="$row" :index="$index" :key="$row->id" />
                 </tr>
             @endif
             <tr {{-- wire:key="row-field-{{ $index }}" --}} >
                 {{--  
                 @livewire('formx::datagrid_editable.row',['row'=>$row,'index'=>$index],key($row->id))
                 --}}
-                <livewire:formx::datagrid_editable.row :row="$row" :index="$index" :key="$row->id" />
+                <livewire:datagrid_editable.row :row="$row" :index="$index" :key="$row->id" />
             </tr>
             
 

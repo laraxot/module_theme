@@ -62,6 +62,7 @@
 
     
       
+<<<<<<< HEAD
         <livewire:formx::input 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -70,6 +71,9 @@
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> ede0df75 (first)
+=======
+        <livewire:input 
+>>>>>>> ceab487e (.)
 
 
     <form class="upload-dragdrop" method="post" action="" enctype="multipart/form-data">

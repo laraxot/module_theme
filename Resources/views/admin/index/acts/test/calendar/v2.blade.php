@@ -15,6 +15,7 @@
 >>>>>>> b6141c95 (first)
 =======
 
+<<<<<<< HEAD
     <livewire:theme::calendar.v2 />
 >>>>>>> 6aa89a58 (first)
 =======
@@ -39,4 +40,7 @@
 
     <livewire:theme::calendar.v2 />
 >>>>>>> ede0df75 (first)
+=======
+    <livewire:calendar.v2 />
+>>>>>>> ceab487e (.)
 @endsection

@@ -79,6 +79,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:theme::like-thread :thread="$thread" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -106,5 +107,8 @@
 =======
         <livewire:theme::like-thread :thread="$thread" />
 >>>>>>> ede0df75 (first)
+=======
+        <livewire:like-thread :thread="$thread" />
+>>>>>>> ceab487e (.)
     </div> --}}
 </div>

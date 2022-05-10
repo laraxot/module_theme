@@ -20,6 +20,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -45,6 +46,9 @@ count : {{ $rows->count() }}
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> ede0df75 (first)
+=======
+            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> ceab487e (.)
 
         </tr>
     @endforeach

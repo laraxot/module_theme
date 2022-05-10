@@ -42,6 +42,7 @@
     {{--  
     {!! Menu::render() !!}
     --}}
+<<<<<<< HEAD
     <livewire:theme::menu.builder />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -50,6 +51,9 @@
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> ede0df75 (first)
+=======
+    <livewire:menu.builder />
+>>>>>>> ceab487e (.)
 @endsection
 
 
