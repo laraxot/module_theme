@@ -6,10 +6,14 @@
             aria-label="Search here" name="q" value="{{ request('q') }}">
         <button class="btn btn-outline-dark border-start-0" type="submit">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <i class="{{ $attrs['icon'] }} text-lg"></i>
 =======
             <i class="fa fa-search text-lg"></i>
 >>>>>>> b6141c95 (first)
+=======
+            <i class="fa fa-search text-lg"></i>
+>>>>>>> 6aa89a58 (first)
         </button>
     </div>
 </x-form>

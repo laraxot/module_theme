@@ -19,10 +19,14 @@
                     </svg></a> --}}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <livewire:favorite :model="$model">
 =======
                 <livewire:rating::favorite :model="$model">
 >>>>>>> b6141c95 (first)
+=======
+                <livewire:rating::favorite :model="$model">
+>>>>>>> 6aa89a58 (first)
             </div>
         </div>
         <div class="card-body">

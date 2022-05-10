@@ -12,10 +12,14 @@ count : {{ $rows->count() }}
 <tr>
     <td> {{ $k }} </td><td> {{ $v->id }}</td>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
     <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> b6141c95 (first)
+=======
+    <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> 6aa89a58 (first)
 
 </tr>
 @endforeach
@@ -23,10 +27,14 @@ count : {{ $rows->count() }}
 
 <table class="table table-bordered" >
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{--
 =======
     {{--  
 >>>>>>> b6141c95 (first)
+=======
+    {{--  
+>>>>>>> 6aa89a58 (first)
     <form wire:submit.prevent="rowsUpdate">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -53,6 +61,7 @@ count : {{ $rows->count() }}
         --}}
         @foreach ($rows as $index => $row)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             @if($loop->first)
                 <tr>
@@ -72,6 +81,8 @@ count : {{ $rows->count() }}
 
             {{--
 =======
+=======
+>>>>>>> 6aa89a58 (first)
             
             @if($loop->first)
                 <tr>
@@ -90,7 +101,10 @@ count : {{ $rows->count() }}
             
 
             {{-- 
+<<<<<<< HEAD
 >>>>>>> b6141c95 (first)
+=======
+>>>>>>> 6aa89a58 (first)
             <div wire:key="row-field-{{ $row->id }}">
                 <input type="text" wire:model="rows.{{ $index }}.img">
 
@@ -116,10 +130,14 @@ count : {{ $rows->count() }}
         --}}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         {{--
 =======
         {{--  
 >>>>>>> b6141c95 (first)
+=======
+        {{--  
+>>>>>>> 6aa89a58 (first)
         <button type="submit">Save</button>
     </form>
     --}}
