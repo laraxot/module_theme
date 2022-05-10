@@ -27,6 +27,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:favorite :model="$model" />
 =======
         <livewire:rating::favorite :model="$model" />
@@ -40,6 +41,9 @@
 =======
         <livewire:favorite :model="$model" />
 >>>>>>> ceab487e (.)
+=======
+        <livewire:favorite :model="$model" />
+>>>>>>> 7f97b271 (up)
     </div>
 
 
@@ -53,6 +57,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
 =======
 <livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
@@ -66,3 +71,6 @@
 =======
 <livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
 >>>>>>> ceab487e (.)
+=======
+<livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
+>>>>>>> 7f97b271 (up)

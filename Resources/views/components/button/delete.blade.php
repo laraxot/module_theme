@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:buttons.delete /> --}}
 =======
 {{-- <livewire:theme::buttons.delete /> --}}
@@ -19,3 +20,6 @@
 =======
 {{-- <livewire:buttons.delete /> --}}
 >>>>>>> ceab487e (.)
+=======
+{{-- <livewire:buttons.delete /> --}}
+>>>>>>> 7f97b271 (up)

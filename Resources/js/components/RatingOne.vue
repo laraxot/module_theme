@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <h4>{{ this.title }}</h4>
 =======
         <h3>{{ this.title }}</h3>
@@ -13,6 +14,9 @@
 =======
         <h4>{{ this.title }}</h4>
 >>>>>>> ede0df75 (first)
+=======
+        <h4>{{ this.title }}</h4>
+>>>>>>> 7f97b271 (up)
         <v-rating
             v-model="rating"
             background-color="orange lighten-3"
@@ -30,6 +34,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <input type="hidden" :name="name" :value="rating">
 =======
         <input type="hidden" :value="rating" :name="name">
@@ -40,6 +45,9 @@
 =======
         <input type="hidden" :name="name" :value="rating">
 >>>>>>> ede0df75 (first)
+=======
+        <input type="hidden" :name="name" :value="rating">
+>>>>>>> 7f97b271 (up)
       </span>
     </div>
 </template>

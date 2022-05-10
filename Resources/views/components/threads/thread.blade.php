@@ -51,6 +51,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="prose prose-lio max-w-none p-6 break-words" x-data="{}" x-init="function() { highlightCode($el); }"
         x-html="{{ json_encode(replace_links(md_to_html($thread->body()))) }}">
     </div>
@@ -77,5 +78,12 @@
 =======
         <livewire:like-thread :thread="$thread" />
 >>>>>>> ceab487e (.)
+=======
+    <div class="prose prose-lio max-w-none p-6 break-words" x-data="{}" x-init="function() { highlightCode($el); }"
+        x-html="{{ json_encode(replace_links(md_to_html($thread->body()))) }}">
+    </div>
+    {{-- <div class="px-6 pb-6">
+        <livewire:like-thread :thread="$thread" />
+>>>>>>> 7f97b271 (up)
     </div> --}}
 </div>

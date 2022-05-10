@@ -11,6 +11,7 @@ $modal_id = Str::random(30);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:modal.body-view id="{{ $modal_id }}" popup_title="{{ $popup_title }}"
 =======
     <livewire:theme::modal.body-view id="{{ $modal_id }}" popup_title="{{ $popup_title }}"
@@ -24,6 +25,9 @@ $modal_id = Str::random(30);
 =======
     <livewire:modal.body-view id="{{ $modal_id }}" popup_title="{{ $popup_title }}"
 >>>>>>> ceab487e (.)
+=======
+    <livewire:modal.body-view id="{{ $modal_id }}" popup_title="{{ $popup_title }}"
+>>>>>>> 7f97b271 (up)
         popup_subtitle="{{ $popup_subtitle }}" popup_button="{{ $popup_button }}" title="{{ $title }}"
         bodyView="{{ $view . '.form' }}" />
 @endpush

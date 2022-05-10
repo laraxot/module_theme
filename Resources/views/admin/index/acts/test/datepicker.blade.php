@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- <livewire:calendar /> --}}
     <x-theme::input type="date" name="test" />
 =======
@@ -24,4 +25,8 @@
     <x-theme::input type="date" name="test" />
 
 >>>>>>> ede0df75 (first)
+=======
+    {{-- <livewire:calendar /> --}}
+    <x-theme::input type="date" name="test" />
+>>>>>>> 7f97b271 (up)
 @endsection

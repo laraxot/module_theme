@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:full_calendar />
 =======
 <livewire:theme::full_calendar />
@@ -17,4 +18,7 @@
 =======
 <livewire:full_calendar />
 >>>>>>> ceab487e (.)
+=======
+    <livewire:full_calendar />
+>>>>>>> 7f97b271 (up)
 @endsection
