@@ -6,59 +6,11 @@
             <div class="modal-content">
                 <div class="modal-header">
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 7f97b271 (up)
-=======
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 7f97b271 (up)
                     <h4 class="modal-title">{{ $title }}
                         @if (isset($subtitle))
                             <br>
                             <small>{{ $subtitle }}</small>
                         @endif
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    <h4 class="modal-title">{{ $popup_title }}
-                        <br>
-                        <small>{{ $popup_subtitle }}</small>
->>>>>>> b6141c95 (first)
-=======
-                    <h4 class="modal-title">{{ $popup_title }}
-                        <br>
-                        <small>{{ $popup_subtitle }}</small>
->>>>>>> 6aa89a58 (first)
-=======
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 7f97b271 (up)
-=======
-                    <h4 class="modal-title">{{ $popup_title }}
-                        <br>
-                        <small>{{ $popup_subtitle }}</small>
->>>>>>> b6141c95 (first)
-=======
-                    <h4 class="modal-title">{{ $popup_title }}
-                        <br>
-                        <small>{{ $popup_subtitle }}</small>
->>>>>>> 6aa89a58 (first)
-=======
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 7f97b271 (up)
                     </h4>
 
                     <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">

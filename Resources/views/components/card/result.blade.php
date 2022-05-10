@@ -23,47 +23,7 @@
 
 
     <div class="card-img-overlay-top text-end">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <livewire:favorite :model="$model" />
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> b6141c95 (first)
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> 6aa89a58 (first)
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> ede0df75 (first)
-=======
-        <livewire:favorite :model="$model" />
->>>>>>> ceab487e (.)
-=======
-        <livewire:favorite :model="$model" />
->>>>>>> 7f97b271 (up)
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> b6141c95 (first)
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> 6aa89a58 (first)
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> ede0df75 (first)
-=======
-        <livewire:favorite :model="$model" />
->>>>>>> ceab487e (.)
-=======
-        <livewire:favorite :model="$model" />
->>>>>>> 7f97b271 (up)
     </div>
 
 
@@ -73,44 +33,4 @@
         {{-- <p class="card-text text-sm">Artist capital of Europe</p> --}}
     </div>
 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 <livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> b6141c95 (first)
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> 6aa89a58 (first)
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> ede0df75 (first)
-=======
-<livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> ceab487e (.)
-=======
-<livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> 7f97b271 (up)
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> b6141c95 (first)
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> 6aa89a58 (first)
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> ede0df75 (first)
-=======
-<livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> ceab487e (.)
-=======
-<livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> 7f97b271 (up)

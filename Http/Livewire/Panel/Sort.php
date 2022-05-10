@@ -16,169 +16,28 @@ use Modules\Xot\Services\PanelService;
  * @property PanelContract $panel
  * @property Collection    $rows
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7f97b271 (up)
 class Sort extends Component {
     public array $routeParams = [];
     public array $data = [];
 
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
     public function mount(): void {
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6aa89a58 (first)
-=======
->>>>>>> ede0df75 (first)
-=======
->>>>>>> b6141c95 (first)
-=======
->>>>>>> 6aa89a58 (first)
-=======
->>>>>>> ede0df75 (first)
-class Sort extends Component
-{
-    public array $routeParams = [];
-    public array $data = [];
-
-    public function mount(): void
-    {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> b6141c95 (first)
-=======
->>>>>>> 6aa89a58 (first)
-=======
->>>>>>> ede0df75 (first)
-=======
-=======
->>>>>>> 7f97b271 (up)
-class Sort extends Component {
-    public array $routeParams = [];
-    public array $data = [];
-
-=======
-class Sort extends Component {
-    public array $routeParams = [];
-    public array $data = [];
-
->>>>>>> 2223b762 (.)
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public function mount(): void {
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 2223b762 (.)
-=======
->>>>>>> 7f97b271 (up)
-=======
->>>>>>> b6141c95 (first)
-=======
->>>>>>> 6aa89a58 (first)
-=======
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 2223b762 (.)
-=======
->>>>>>> 7f97b271 (up)
         $this->routeParams = getRouteParameters();
         $this->data = request()->all();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2223b762 (.)
-=======
->>>>>>> 7f97b271 (up)
-=======
->>>>>>> 2223b762 (.)
-=======
->>>>>>> 7f97b271 (up)
-    /**
-     * Undocumented function
-     *
-     * @return PanelContract
-     */
-    public function getPanelProperty():PanelContract {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    public function getPanelProperty():PanelContract
-    {
->>>>>>> b6141c95 (first)
-=======
-    public function getPanelProperty():PanelContract
-    {
->>>>>>> 6aa89a58 (first)
-=======
-    public function getPanelProperty():PanelContract
-    {
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 2223b762 (.)
-=======
->>>>>>> 7f97b271 (up)
-=======
-    public function getPanelProperty():PanelContract
-    {
->>>>>>> b6141c95 (first)
-=======
-    public function getPanelProperty():PanelContract
-    {
->>>>>>> 6aa89a58 (first)
-=======
-    public function getPanelProperty():PanelContract
-    {
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 2223b762 (.)
-=======
->>>>>>> 7f97b271 (up)
+    public function getPanelProperty(): PanelContract {
         $panel = PanelService::make()->getByParams($this->routeParams);
 
         return $panel;
     }
 
-    public function getRowsProperty():Collection
-    {
+    public function getRowsProperty(): Collection {
         return $this->panel->rows($this->data)
             ->orderBy('pos')
             ->get();
     }
 
-    public function render():Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::livewire.panel.sort';
         $view_params = [
             'view' => $view,
@@ -187,9 +46,8 @@ class Sort extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function updateTaskOrder(array $list):void
-    {
-        //dddx([$a]);
+    public function updateTaskOrder(array $list): void {
+        // dddx([$a]);
         /*
           7 => array:2 [▼
         "order" => 8
@@ -203,28 +61,4 @@ class Sort extends Component {
         }
         session()->flash('message', 'Sort successfully ');
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7f97b271 (up)
-=======
-}
->>>>>>> b6141c95 (first)
-=======
-}
->>>>>>> 6aa89a58 (first)
-=======
-}
->>>>>>> ede0df75 (first)
-=======
-}
->>>>>>> 2223b762 (.)
-=======
-}
->>>>>>> 7f97b271 (up)

@@ -5,47 +5,7 @@
         <input class="form-control bg-transparent border-dark border-end-0" type="search" placeholder="Search here"
             aria-label="Search here" name="q" value="{{ request('q') }}">
         <button class="btn btn-outline-dark border-start-0" type="submit">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <i class="{{ $attrs['icon'] }} text-lg"></i>
-=======
-            <i class="fa fa-search text-lg"></i>
->>>>>>> b6141c95 (first)
-=======
-            <i class="fa fa-search text-lg"></i>
->>>>>>> 6aa89a58 (first)
-=======
-            <i class="fa fa-search text-lg"></i>
->>>>>>> ede0df75 (first)
-=======
-            <i class="{{ $attrs['icon'] }} text-lg"></i>
->>>>>>> 34718830 (.)
-=======
-            <i class="{{ $attrs['icon'] }} text-lg"></i>
->>>>>>> 7f97b271 (up)
-=======
-            <i class="fa fa-search text-lg"></i>
->>>>>>> b6141c95 (first)
-=======
-            <i class="fa fa-search text-lg"></i>
->>>>>>> 6aa89a58 (first)
-=======
-            <i class="fa fa-search text-lg"></i>
->>>>>>> ede0df75 (first)
-=======
-            <i class="{{ $attrs['icon'] }} text-lg"></i>
->>>>>>> 34718830 (.)
-=======
-            <i class="{{ $attrs['icon'] }} text-lg"></i>
->>>>>>> 7f97b271 (up)
+            <i class="{{ $attrs['icon'] ?? 'fa fa-search' }} text-lg"></i>
         </button>
     </div>
 </x-form>

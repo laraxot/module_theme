@@ -12,47 +12,8 @@ $value = Form::getValueAttribute($name);
         {{ Form::label($name, $field->label, ['class' => 'control-label']) }}
     @endslot
     @slot('input')
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <livewire:input.string-list.color :name="$name" :value="$value" />
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> b6141c95 (first)
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> 6aa89a58 (first)
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> ede0df75 (first)
-=======
-        <livewire:input.string-list.color :name="$name" :value="$value" />
->>>>>>> ceab487e (.)
-=======
-        <livewire:input.string-list.color :name="$name" :value="$value" />
->>>>>>> 7f97b271 (up)
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> b6141c95 (first)
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> 6aa89a58 (first)
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> ede0df75 (first)
-=======
-        <livewire:input.string-list.color :name="$name" :value="$value" />
->>>>>>> ceab487e (.)
-=======
-        <livewire:input.string-list.color :name="$name" :value="$value" />
->>>>>>> 7f97b271 (up)
+
         {{-- <input type="text" name="{{ $name }}" />
         <div class="list_color">
             <input type="color">
@@ -62,49 +23,5 @@ $value = Form::getValueAttribute($name);
 @endcomponent
 
 @push('scripts')
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <script></script>
-=======
-    <script>
 
-    </script>
->>>>>>> b6141c95 (first)
-=======
-    <script>
-
-    </script>
->>>>>>> 6aa89a58 (first)
-=======
-    <script>
-
-    </script>
->>>>>>> ede0df75 (first)
-=======
-    <script></script>
->>>>>>> 7f97b271 (up)
-=======
-    <script>
-
-    </script>
->>>>>>> b6141c95 (first)
-=======
-    <script>
-
-    </script>
->>>>>>> 6aa89a58 (first)
-=======
-    <script>
-
-    </script>
->>>>>>> ede0df75 (first)
-=======
-    <script></script>
->>>>>>> 7f97b271 (up)
 @endpush

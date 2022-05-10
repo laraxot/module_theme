@@ -12,47 +12,7 @@ count : {{ $rows->count() }}
     @foreach ($rows as $k => $v)
         <tr>
             <td> {{ $k }} </td><td> {{ $v->id }}</td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
-=======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> b6141c95 (first)
-=======
-            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> 6aa89a58 (first)
-=======
-            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> ede0df75 (first)
-=======
-            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> ceab487e (.)
-=======
-            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> 7f97b271 (up)
-=======
-            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> b6141c95 (first)
-=======
-            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> 6aa89a58 (first)
-=======
-            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> ede0df75 (first)
-=======
-            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> ceab487e (.)
-=======
-            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
->>>>>>> 7f97b271 (up)
 
         </tr>
     @endforeach
@@ -71,45 +31,7 @@ count : {{ $rows->count() }}
         <form wire:submit.prevent="rowsUpdate">
             @foreach ($rows as $k => $v)
                 @php
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    $panel_fields = Panel::make()
-                        ->get($v)
-                        ->getFields(['act' => 'edit']);
-=======
                     $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
->>>>>>> b6141c95 (first)
-=======
-                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
->>>>>>> 6aa89a58 (first)
-=======
-                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
->>>>>>> ede0df75 (first)
-=======
-                    $panel_fields = Panel::make()
-                        ->get($v)
-                        ->getFields(['act' => 'edit']);
->>>>>>> 7f97b271 (up)
-=======
-                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
->>>>>>> b6141c95 (first)
-=======
-                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
->>>>>>> 6aa89a58 (first)
-=======
-                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
->>>>>>> ede0df75 (first)
-=======
-                    $panel_fields = Panel::make()
-                        ->get($v)
-                        ->getFields(['act' => 'edit']);
->>>>>>> 7f97b271 (up)
                     $fields = [];
                     foreach ($panel_fields as $field) {
                         $fields[] = $this->makeField($field->name, $field->type);
@@ -137,36 +59,7 @@ count : {{ $rows->count() }}
     </table>
 
     @component('theme::components.pagination.simple', ['page' => $page, 'per_page' => $per_page, 'total' => $total])
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> b6141c95 (first)
-=======
-
->>>>>>> 6aa89a58 (first)
-=======
-
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 7f97b271 (up)
-=======
-
->>>>>>> b6141c95 (first)
-=======
-
->>>>>>> 6aa89a58 (first)
-=======
-
->>>>>>> ede0df75 (first)
-=======
->>>>>>> 7f97b271 (up)
     @endcomponent
 
 

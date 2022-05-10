@@ -18,47 +18,8 @@
                         <use xlink:href="#heart-1"> </use>
                     </svg></a> --}}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <livewire:favorite :model="$panel->row">
-=======
-                <livewire:rating::favorite :model="$panel->row">
->>>>>>> b6141c95 (first)
-=======
-                <livewire:rating::favorite :model="$panel->row">
->>>>>>> 6aa89a58 (first)
-=======
-                <livewire:rating::favorite :model="$panel->row">
->>>>>>> ede0df75 (first)
-=======
-                <livewire:favorite :model="$panel->row">
->>>>>>> ceab487e (.)
-=======
-                <livewire:favorite :model="$panel->row">
->>>>>>> 7f97b271 (up)
-=======
-                <livewire:rating::favorite :model="$panel->row">
->>>>>>> b6141c95 (first)
-=======
-                <livewire:rating::favorite :model="$panel->row">
->>>>>>> 6aa89a58 (first)
-=======
-                <livewire:rating::favorite :model="$panel->row">
->>>>>>> ede0df75 (first)
-=======
-                <livewire:favorite :model="$panel->row">
->>>>>>> ceab487e (.)
-=======
-                <livewire:favorite :model="$panel->row">
->>>>>>> 7f97b271 (up)
+
             </div>
         </div>
         <div class="card-body">
