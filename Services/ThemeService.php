@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
@@ -601,6 +602,7 @@ class ThemeService {
             $view = 'pub_theme::'.$path;
         }
         */
+
         $params = getRouteParameters();
         $view1 = RouteService::getView().'.'.RouteService::getAct();
         $view1 = Str::replace('..', '.', $view1);
@@ -614,7 +616,10 @@ class ThemeService {
         // dddx(['view0' => $view, 'view1' => $view1, 'route_action' => $route_action]);
         $view1 = Str::replace('::.', '::', $view1);
 
-        return self::getViewWithFormat($view1);
+        $view2 = self::getViewWithFormat($view1);
+        // dddx(['view1' => $view1, 'view2' => $view2]);
+
+        return $view2;
 
         // ------------ CASI PARTICOLARI -----------
         // if ('pub_theme::translation.index' == $view) {
@@ -730,9 +735,9 @@ class ThemeService {
         }
         */
 
-        $act = \Request::input('_act');
+        $act = Request::input('_act', '');
         $act = Str::snake($act);
-        if (null !== $act) {
+        if ('' !== $act) {
             $view .= '.acts.'.$act;
         }
 
