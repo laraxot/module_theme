@@ -16,6 +16,7 @@ class FieldFilter {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public string $where_method;
 =======
 >>>>>>> b6141c95 (first)
@@ -27,6 +28,8 @@ class FieldFilter {
 =======
     public string $where_method;
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> b6141c95 (first)
 
     public array $rules;
 
@@ -48,6 +51,7 @@ class FieldFilter {
      */
     public function setVars(array $vars): self {
         foreach ($vars as $k => $v) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -74,6 +78,9 @@ class FieldFilter {
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+            $func = 'set'.str::Studly($k);
+>>>>>>> b6141c95 (first)
             $this->{$func}($v);
         }
 
@@ -99,6 +106,7 @@ class FieldFilter {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
@@ -119,6 +127,8 @@ class FieldFilter {
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> b6141c95 (first)
     /**
      * @param string|array $rules
      */
@@ -130,6 +140,7 @@ class FieldFilter {
 
         return $this;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -147,3 +158,6 @@ class FieldFilter {
 =======
 }
 >>>>>>> 7f97b271 (up)
+=======
+}
+>>>>>>> b6141c95 (first)

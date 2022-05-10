@@ -16,6 +16,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
     <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -32,12 +33,16 @@ count : {{ $rows->count() }}
 =======
     <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> 7f97b271 (up)
+=======
+    <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> b6141c95 (first)
 
 </tr>
 @endforeach
 </table>
 
 <table class="table table-bordered" >
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -55,6 +60,9 @@ count : {{ $rows->count() }}
 =======
     {{--
 >>>>>>> 7f97b271 (up)
+=======
+    {{--  
+>>>>>>> b6141c95 (first)
     <form wire:submit.prevent="rowsUpdate">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -80,6 +88,7 @@ count : {{ $rows->count() }}
         @endif
         --}}
         @foreach ($rows as $index => $row)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -139,6 +148,26 @@ count : {{ $rows->count() }}
 
             {{--
 >>>>>>> 7f97b271 (up)
+=======
+            
+            @if($loop->first)
+                <tr>
+                    {{--  
+                    @livewire('formx::datagrid_editable.head',['row'=>$row,'index'=>$index],key($row->id))
+                    --}}
+                    <livewire:formx::datagrid_editable.head :row="$row" :index="$index" :key="$row->id" />
+                </tr>
+            @endif
+            <tr {{-- wire:key="row-field-{{ $index }}" --}} >
+                {{--  
+                @livewire('formx::datagrid_editable.row',['row'=>$row,'index'=>$index],key($row->id))
+                --}}
+                <livewire:formx::datagrid_editable.row :row="$row" :index="$index" :key="$row->id" />
+            </tr>
+            
+
+            {{-- 
+>>>>>>> b6141c95 (first)
             <div wire:key="row-field-{{ $row->id }}">
                 <input type="text" wire:model="rows.{{ $index }}.img">
 
@@ -167,6 +196,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         {{--
 =======
         {{--  
@@ -180,6 +210,9 @@ count : {{ $rows->count() }}
 =======
         {{--
 >>>>>>> 7f97b271 (up)
+=======
+        {{--  
+>>>>>>> b6141c95 (first)
         <button type="submit">Save</button>
     </form>
     --}}

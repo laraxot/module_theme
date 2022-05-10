@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:panel.sort />
 @endsection
 =======
@@ -27,3 +28,7 @@
     <livewire:panel.sort />
 @endsection
 >>>>>>> 7f97b271 (up)
+=======
+<livewire:theme::panel.sort />
+@endsection
+>>>>>>> b6141c95 (first)

@@ -17,6 +17,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -33,6 +34,9 @@ count : {{ $rows->count() }}
 =======
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> 7f97b271 (up)
+=======
+            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> b6141c95 (first)
 
         </tr>
     @endforeach
@@ -55,6 +59,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $panel_fields = Panel::make()
                         ->get($v)
                         ->getFields(['act' => 'edit']);
@@ -72,6 +77,9 @@ count : {{ $rows->count() }}
                         ->get($v)
                         ->getFields(['act' => 'edit']);
 >>>>>>> 7f97b271 (up)
+=======
+                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
+>>>>>>> b6141c95 (first)
                     $fields = [];
                     foreach ($panel_fields as $field) {
                         $fields[] = $this->makeField($field->name, $field->type);
@@ -103,6 +111,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> b6141c95 (first)
@@ -114,6 +123,9 @@ count : {{ $rows->count() }}
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+
+>>>>>>> b6141c95 (first)
     @endcomponent
 
 

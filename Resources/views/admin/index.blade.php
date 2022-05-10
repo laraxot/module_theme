@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- <livewire:input type="number" name="inputNumber" label="number" value="100" /> --}}
 =======
     {{-- <livewire:theme::input type="number" name="inputNumber" label="number" value="100" /> --}}
@@ -23,4 +24,7 @@
 =======
     {{-- <livewire:input type="number" name="inputNumber" label="number" value="100" /> --}}
 >>>>>>> 7f97b271 (up)
+=======
+    {{-- <livewire:theme::input type="number" name="inputNumber" label="number" value="100" /> --}}
+>>>>>>> b6141c95 (first)
 @endsection

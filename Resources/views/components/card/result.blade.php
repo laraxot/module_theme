@@ -28,6 +28,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:favorite :model="$model" />
 =======
         <livewire:rating::favorite :model="$model" />
@@ -44,6 +45,9 @@
 =======
         <livewire:favorite :model="$model" />
 >>>>>>> 7f97b271 (up)
+=======
+        <livewire:rating::favorite :model="$model" />
+>>>>>>> b6141c95 (first)
     </div>
 
 
@@ -58,6 +62,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
 =======
 <livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
@@ -74,3 +79,6 @@
 =======
 <livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
 >>>>>>> 7f97b271 (up)
+=======
+<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
+>>>>>>> b6141c95 (first)

@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- {!! Menu::render() !!} --}}
     <livewire:menu.builder />
 =======
@@ -31,10 +32,17 @@
     {{-- {!! Menu::render() !!} --}}
     <livewire:menu.builder />
 >>>>>>> 7f97b271 (up)
+=======
+    {{--  
+    {!! Menu::render() !!}
+    --}}
+    <livewire:theme::menu.builder />
+>>>>>>> b6141c95 (first)
 @endsection
 
 
 @push('scripts')
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -58,4 +66,9 @@
 =======
     {{-- {!! Menu::scripts() !!} --}}
 >>>>>>> 7f97b271 (up)
+=======
+    {{--  
+    {!! Menu::scripts() !!}
+    --}}
+>>>>>>> b6141c95 (first)
 @endpush

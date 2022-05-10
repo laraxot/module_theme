@@ -10,6 +10,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <i class="{{ $attrs['icon'] }} text-lg"></i>
 =======
             <i class="fa fa-search text-lg"></i>
@@ -26,6 +27,9 @@
 =======
             <i class="{{ $attrs['icon'] }} text-lg"></i>
 >>>>>>> 7f97b271 (up)
+=======
+            <i class="fa fa-search text-lg"></i>
+>>>>>>> b6141c95 (first)
         </button>
     </div>
 </x-form>

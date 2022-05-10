@@ -23,6 +23,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <livewire:favorite :model="$model">
 =======
                 <livewire:rating::favorite :model="$model">
@@ -39,6 +40,9 @@
 =======
                 <livewire:favorite :model="$model">
 >>>>>>> 7f97b271 (up)
+=======
+                <livewire:rating::favorite :model="$model">
+>>>>>>> b6141c95 (first)
             </div>
         </div>
         <div class="card-body">

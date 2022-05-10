@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     (object)
 [
 =======
@@ -23,6 +24,9 @@
     (object)
 [
 >>>>>>> 7f97b271 (up)
+=======
+    (object) [
+>>>>>>> b6141c95 (first)
         'type' => 'DateList',
         'name' => 'listadata',
         'comment' => null,
@@ -35,6 +39,7 @@ $field = transFields(get_defined_vars());
 $date_list = $_panel->getRow()->{$name};
 //dddx($lista_data);
 @endphp
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -56,6 +61,9 @@ $date_list = $_panel->getRow()->{$name};
 =======
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 >>>>>>> 7f97b271 (up)
+=======
+{{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> b6141c95 (first)
 
 
 
