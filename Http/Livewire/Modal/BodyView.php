@@ -132,6 +132,9 @@ class BodyView extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e003a241 (.)
 =======
 >>>>>>> e003a241 (.)
     /**
@@ -144,6 +147,7 @@ class BodyView extends Component {
      * @return void
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
@@ -154,6 +158,8 @@ class BodyView extends Component {
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> e003a241 (.)
     public function mount(string $id, string $title, string $subtitle = null, string $bodyView): void {
         $this->show = false;
         $this->title = $title;
