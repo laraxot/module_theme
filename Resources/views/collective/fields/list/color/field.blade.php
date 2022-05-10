@@ -21,6 +21,7 @@ $value = Form::getValueAttribute($name);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:input.string-list.color :name="$name" :value="$value" />
 =======
         <livewire:theme::input.string-list.color :name="$name" :value="$value" />
@@ -49,6 +50,9 @@ $value = Form::getValueAttribute($name);
 =======
         <livewire:input.string-list.color :name="$name" :value="$value" />
 >>>>>>> ceab487e (.)
+=======
+        <livewire:input.string-list.color :name="$name" :value="$value" />
+>>>>>>> 7f97b271 (up)
         {{-- <input type="text" name="{{ $name }}" />
         <div class="list_color">
             <input type="color">
@@ -65,6 +69,7 @@ $value = Form::getValueAttribute($name);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script></script>
 =======
     <script>
@@ -99,4 +104,7 @@ $value = Form::getValueAttribute($name);
 
     </script>
 >>>>>>> ede0df75 (first)
+=======
+    <script></script>
+>>>>>>> 7f97b271 (up)
 @endpush

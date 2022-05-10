@@ -22,6 +22,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:favorite :model="$model" />
 =======
         <livewire:rating::favorite :model="$model" />
@@ -50,6 +51,9 @@
 =======
         <livewire:favorite :model="$model" />
 >>>>>>> ceab487e (.)
+=======
+        <livewire:favorite :model="$model" />
+>>>>>>> 7f97b271 (up)
     </div>
 
 

@@ -11,6 +11,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     (object)
 [
 =======
@@ -35,6 +36,10 @@
 =======
     (object) [
 >>>>>>> ede0df75 (first)
+=======
+    (object)
+[
+>>>>>>> 7f97b271 (up)
         'type' => 'DateList',
         'name' => 'listadata',
         'comment' => null,
@@ -56,6 +61,7 @@ $date_list = $_panel->getRow()->{$name};
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
@@ -84,6 +90,9 @@ $date_list = $_panel->getRow()->{$name};
 =======
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 >>>>>>> ceab487e (.)
+=======
+{{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> 7f97b271 (up)
 
 
 

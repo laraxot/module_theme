@@ -25,6 +25,9 @@ use Modules\Xot\Services\PanelService;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7f97b271 (up)
 class Sort extends Component {
     public array $routeParams = [];
     public array $data = [];
@@ -35,6 +38,7 @@ class Sort extends Component {
      * @return void
      */
     public function mount(): void {
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 6aa89a58 (first)
@@ -95,6 +99,8 @@ class Sort extends Component {
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 2223b762 (.)
+=======
+>>>>>>> 7f97b271 (up)
         $this->routeParams = getRouteParameters();
         $this->data = request()->all();
     }
@@ -108,12 +114,15 @@ class Sort extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 2223b762 (.)
 =======
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> 2223b762 (.)
+=======
+>>>>>>> 7f97b271 (up)
     /**
      * Undocumented function
      *
@@ -123,6 +132,7 @@ class Sort extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public function getPanelProperty():PanelContract
     {
@@ -153,6 +163,8 @@ class Sort extends Component {
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 2223b762 (.)
+=======
+>>>>>>> 7f97b271 (up)
         $panel = PanelService::make()->getByParams($this->routeParams);
 
         return $panel;
@@ -196,6 +208,7 @@ class Sort extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -212,3 +225,6 @@ class Sort extends Component {
 =======
 }
 >>>>>>> 2223b762 (.)
+=======
+}
+>>>>>>> 7f97b271 (up)

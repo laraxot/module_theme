@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:manage.php-array :filename="$filename" />
 =======
     <livewire:theme::manage.php-array :filename="$filename" />
@@ -43,4 +44,7 @@
     <livewire:theme::manage.php-array :filename="$filename" />
 
 >>>>>>> ede0df75 (first)
+=======
+    <livewire:manage.php-array :filename="$filename" />
+>>>>>>> 7f97b271 (up)
 @endsection

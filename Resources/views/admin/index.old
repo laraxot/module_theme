@@ -12,6 +12,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -57,9 +58,11 @@
 =======
 >>>>>>> ede0df75 (first)
     
+=======
+>>>>>>> 7f97b271 (up)
 
-    
 
+<<<<<<< HEAD
     
       
 <<<<<<< HEAD
@@ -74,6 +77,13 @@
 =======
         <livewire:input 
 >>>>>>> ceab487e (.)
+=======
+
+
+
+
+        <livewire:input
+>>>>>>> 7f97b271 (up)
 
 
     <form class="upload-dragdrop" method="post" action="" enctype="multipart/form-data">

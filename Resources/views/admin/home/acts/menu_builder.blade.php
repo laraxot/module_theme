@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- {!! Menu::render() !!} --}}
     <livewire:menu.builder />
 =======
@@ -54,6 +55,10 @@
 =======
     <livewire:menu.builder />
 >>>>>>> ceab487e (.)
+=======
+    {{-- {!! Menu::render() !!} --}}
+    <livewire:menu.builder />
+>>>>>>> 7f97b271 (up)
 @endsection
 
 
@@ -65,6 +70,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- {!! Menu::scripts() !!} --}}
 =======
     {{--  
@@ -99,4 +105,7 @@
     {!! Menu::scripts() !!}
     --}}
 >>>>>>> ede0df75 (first)
+=======
+    {{-- {!! Menu::scripts() !!} --}}
+>>>>>>> 7f97b271 (up)
 @endpush

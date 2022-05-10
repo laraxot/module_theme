@@ -21,6 +21,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -49,6 +50,9 @@ count : {{ $rows->count() }}
 =======
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> ceab487e (.)
+=======
+            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> 7f97b271 (up)
 
         </tr>
     @endforeach
@@ -64,6 +68,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $panel_fields = Panel::make()
                         ->get($v)
                         ->getFields(['act' => 'edit']);
@@ -90,6 +95,11 @@ count : {{ $rows->count() }}
 =======
                     $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
 >>>>>>> ede0df75 (first)
+=======
+                    $panel_fields = Panel::make()
+                        ->get($v)
+                        ->getFields(['act' => 'edit']);
+>>>>>>> 7f97b271 (up)
                     $fields = [];
                     foreach ($panel_fields as $field) {
                         $fields[] = $this->makeField($field->name, $field->type);
@@ -105,6 +115,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <livewire:datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-' . $v->id" />
 =======
                     <livewire:theme::datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
@@ -133,6 +144,9 @@ count : {{ $rows->count() }}
 =======
                     <livewire:datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
 >>>>>>> ceab487e (.)
+=======
+                    <livewire:datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-' . $v->id" />
+>>>>>>> 7f97b271 (up)
                     {{-- <tr>
                 @foreach ($fields as $field)
                     <th>
@@ -150,6 +164,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <livewire:datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-' . $v->id" />
 =======
                 <livewire:theme::datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
@@ -178,6 +193,9 @@ count : {{ $rows->count() }}
 =======
                 <livewire:datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
 >>>>>>> ceab487e (.)
+=======
+                <livewire:datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-' . $v->id" />
+>>>>>>> 7f97b271 (up)
                 {{-- <tr>
 
             @foreach ($fields as $field)
@@ -199,6 +217,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> b6141c95 (first)
@@ -219,6 +238,8 @@ count : {{ $rows->count() }}
 =======
 
 >>>>>>> ede0df75 (first)
+=======
+>>>>>>> 7f97b271 (up)
     @endcomponent
 
 

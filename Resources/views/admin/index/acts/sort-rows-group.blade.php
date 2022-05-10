@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:panel.sort-rows-group groupBy="question,subquestion" />
 =======
     <livewire:theme::panel.sort-rows-group groupBy="question,subquestion" />
@@ -37,4 +38,7 @@
 =======
     <livewire:panel.sort-rows-group groupBy="question,subquestion" />
 >>>>>>> ceab487e (.)
+=======
+    <livewire:panel.sort-rows-group groupBy="question,subquestion" />
+>>>>>>> 7f97b271 (up)
 @endsection

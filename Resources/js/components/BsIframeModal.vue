@@ -74,6 +74,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { bsIframeModalVue } from '../../../../../../../Modules/Theme/Resources/js/components/mixins/bsIframeModalVue';
 =======
 import { bsIframeModalVue } from '../../../../../../../Modules/Theme/resources/mixins/bsIframeModalVue';
@@ -96,6 +97,9 @@ import { bsIframeModalVue } from '../../../../../../../Modules/Theme/resources/m
 =======
 import { bsIframeModalVue } from '../../../../../../../Modules/Theme/Resources/js/components/mixins/bsIframeModalVue';
 >>>>>>> ede0df75 (first)
+=======
+import { bsIframeModalVue } from '../../../../../../../Modules/Theme/Resources/js/components/mixins/bsIframeModalVue';
+>>>>>>> 7f97b271 (up)
 
 
 export default {

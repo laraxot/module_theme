@@ -11,6 +11,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     (object)
 [
 =======
@@ -35,6 +36,10 @@
 =======
     (object) [
 >>>>>>> ede0df75 (first)
+=======
+    (object)
+[
+>>>>>>> 7f97b271 (up)
         'type' => 'DateList',
         'name' => 'listadata',
         'comment' => null,
@@ -59,6 +64,7 @@ if (is_null($date_list)) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
@@ -87,6 +93,9 @@ if (is_null($date_list)) {
 =======
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 >>>>>>> ceab487e (.)
+=======
+{{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> 7f97b271 (up)
 
 
 

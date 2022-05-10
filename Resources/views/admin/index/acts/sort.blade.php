@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:panel.sort />
 @endsection
 =======
@@ -47,3 +48,7 @@
 <livewire:panel.sort />
 @endsection
 >>>>>>> ceab487e (.)
+=======
+    <livewire:panel.sort />
+@endsection
+>>>>>>> 7f97b271 (up)
