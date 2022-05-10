@@ -82,6 +82,9 @@ class BodyView extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e003a241 (.)
     /**
      * Undocumented function
      *
@@ -91,10 +94,13 @@ class BodyView extends Component {
      * @param string $bodyView
      * @return void
      */
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> e003a241 (.)
     public function mount(string $id, string $title, string $subtitle = null, string $bodyView): void {
         $this->show = false;
         $this->title = $title;
