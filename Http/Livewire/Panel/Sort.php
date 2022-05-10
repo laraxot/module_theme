@@ -16,6 +16,7 @@ use Modules\Xot\Services\PanelService;
  * @property PanelContract $panel
  * @property Collection    $rows
  */
+<<<<<<< HEAD
 class Sort extends Component {
     public array $routeParams = [];
     public array $data = [];
@@ -26,16 +27,30 @@ class Sort extends Component {
      * @return void
      */
     public function mount(): void {
+=======
+class Sort extends Component
+{
+    public array $routeParams = [];
+    public array $data = [];
+
+    public function mount(): void
+    {
+>>>>>>> b6141c95 (first)
         $this->routeParams = getRouteParameters();
         $this->data = request()->all();
     }
 
+<<<<<<< HEAD
     /**
      * Undocumented function
      *
      * @return PanelContract
      */
     public function getPanelProperty():PanelContract {
+=======
+    public function getPanelProperty():PanelContract
+    {
+>>>>>>> b6141c95 (first)
         $panel = PanelService::make()->getByParams($this->routeParams);
 
         return $panel;

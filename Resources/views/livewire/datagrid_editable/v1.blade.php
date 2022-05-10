@@ -12,7 +12,11 @@ count : {{ $rows->count() }}
     @foreach ($rows as $k => $v)
         <tr>
             <td> {{ $k }} </td><td> {{ $v->id }}</td>
+<<<<<<< HEAD
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+=======
+            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> b6141c95 (first)
 
         </tr>
     @endforeach
@@ -31,9 +35,13 @@ count : {{ $rows->count() }}
         <form wire:submit.prevent="rowsUpdate">
             @foreach ($rows as $k => $v)
                 @php
+<<<<<<< HEAD
                     $panel_fields = Panel::make()
                         ->get($v)
                         ->getFields(['act' => 'edit']);
+=======
+                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
+>>>>>>> b6141c95 (first)
                     $fields = [];
                     foreach ($panel_fields as $field) {
                         $fields[] = $this->makeField($field->name, $field->type);
@@ -61,6 +69,10 @@ count : {{ $rows->count() }}
     </table>
 
     @component('theme::components.pagination.simple', ['page' => $page, 'per_page' => $per_page, 'total' => $total])
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6141c95 (first)
     @endcomponent
 
 

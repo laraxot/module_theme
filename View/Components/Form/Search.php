@@ -18,10 +18,16 @@ class Search extends Component {
     /**
      * Undocumented function.
      */
+<<<<<<< HEAD
     public function __construct(?string $type = null, ?string $action = '#', ?string $icon = 'fa fa-search') {
         $this->type = $type;
         $this->attrs['action'] = $action;
         $this->attrs['icon'] = $icon;
+=======
+    public function __construct(?string $type = null, ?string $action = '#') {
+        $this->type = $type;
+        $this->attrs['action'] = $action;
+>>>>>>> b6141c95 (first)
     }
 
     /**
@@ -38,4 +44,8 @@ class Search extends Component {
 
         return view()->make($view, $view_params);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b6141c95 (first)

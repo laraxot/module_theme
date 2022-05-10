@@ -1,6 +1,10 @@
 <template>
 	<div class="text-center mt-12">
+<<<<<<< HEAD
         <h4>{{ this.title }}</h4>
+=======
+        <h3>{{ this.title }}</h3>
+>>>>>>> b6141c95 (first)
         <v-rating
             v-model="rating"
             background-color="orange lighten-3"
@@ -15,7 +19,11 @@
             ></v-rating>
 
     <span class="font-weight-bold">
+<<<<<<< HEAD
         <input type="hidden" :name="name" :value="rating">
+=======
+        <input type="hidden" :value="rating" :name="name">
+>>>>>>> b6141c95 (first)
       </span>
     </div>
 </template>

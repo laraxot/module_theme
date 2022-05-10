@@ -5,7 +5,11 @@
         <input class="form-control bg-transparent border-dark border-end-0" type="search" placeholder="Search here"
             aria-label="Search here" name="q" value="{{ request('q') }}">
         <button class="btn btn-outline-dark border-start-0" type="submit">
+<<<<<<< HEAD
             <i class="{{ $attrs['icon'] }} text-lg"></i>
+=======
+            <i class="fa fa-search text-lg"></i>
+>>>>>>> b6141c95 (first)
         </button>
     </div>
 </x-form>

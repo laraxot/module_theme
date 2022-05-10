@@ -13,7 +13,11 @@
 
 
     <div class="card-img-overlay-top text-end">
+<<<<<<< HEAD
         <livewire:favorite :model="$model" />
+=======
+        <livewire:rating::favorite :model="$model" />
+>>>>>>> b6141c95 (first)
     </div>
 
 

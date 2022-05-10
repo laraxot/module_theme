@@ -5,6 +5,7 @@
     <x-formx::input type="number" name="inputNumber" label="number" value="100" />
 
     {{-- <x-theme::avatar type="circle" size="sm" img_src="{{ asset('') }}">AAAAAAAAAAAA</x-thene::avatar.circle>
+<<<<<<< HEAD
 
 
 
@@ -12,6 +13,15 @@
 
 
         <livewire:input
+=======
+    
+
+    
+
+    
+      
+        <livewire:formx::input 
+>>>>>>> b6141c95 (first)
 
 
     <form class="upload-dragdrop" method="post" action="" enctype="multipart/form-data">

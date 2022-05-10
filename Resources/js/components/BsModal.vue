@@ -63,8 +63,13 @@
 <script>
 
 var formSerialize = require('form-serialize');
+<<<<<<< HEAD
 import { bsModalVue } from '../../../../../../../Modules/Theme/Resources/js/components/mixins/bsModalVue';
 
+=======
+//import { bsModalVue } from '../../../../../../../Modules/Theme/resources/mixins/bsModalVue';
+import { bsModalVue } from './mixins/bsModalVue';
+>>>>>>> b6141c95 (first)
 
 export default {
 	name: 'bs-modal',

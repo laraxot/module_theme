@@ -6,11 +6,17 @@
             <div class="modal-content">
                 <div class="modal-header">
 
+<<<<<<< HEAD
                     <h4 class="modal-title">{{ $title }}
                         @if (isset($subtitle))
                             <br>
                             <small>{{ $subtitle }}</small>
                         @endif
+=======
+                    <h4 class="modal-title">{{ $popup_title }}
+                        <br>
+                        <small>{{ $popup_subtitle }}</small>
+>>>>>>> b6141c95 (first)
                     </h4>
 
                     <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">

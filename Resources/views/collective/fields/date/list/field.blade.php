@@ -4,8 +4,12 @@
     da utilizzare nel caso si abbia, nel db, un campo stringa che elenca una serie di date
     esempio: 18/8/2004,19/6/2004,19/8/2004,25/8/2004,26/8/2004,28/7/2004,29/7/2004,30/7/2004
 
+<<<<<<< HEAD
     (object)
 [
+=======
+    (object) [
+>>>>>>> b6141c95 (first)
         'type' => 'DateList',
         'name' => 'listadata',
         'comment' => null,
@@ -21,7 +25,11 @@ if (is_null($date_list)) {
     $date_list = '';
 }
 @endphp
+<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
+=======
+{{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> b6141c95 (first)
 
 
 

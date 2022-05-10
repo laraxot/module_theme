@@ -48,10 +48,18 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="prose prose-lio max-w-none p-6 break-words" x-data="{}" x-init="function() { highlightCode($el); }"
         x-html="{{ json_encode(replace_links(md_to_html($thread->body()))) }}">
     </div>
     {{-- <div class="px-6 pb-6">
         <livewire:like-thread :thread="$thread" />
+=======
+    <div class="prose prose-lio max-w-none p-6 break-words" x-data="{}" x-init="function () { highlightCode($el); }"
+        x-html="{{ json_encode(replace_links(md_to_html($thread->body()))) }}">
+    </div>
+    {{-- <div class="px-6 pb-6">
+        <livewire:theme::like-thread :thread="$thread" />
+>>>>>>> b6141c95 (first)
     </div> --}}
 </div>

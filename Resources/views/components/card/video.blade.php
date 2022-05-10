@@ -6,6 +6,7 @@
     </video>
     <!--Card content-->
     <div class="card-body">
+<<<<<<< HEAD
         @if (isset($title))
             <!--Title-->
             <h4 class="card-title">{{ $title }}</h4>
@@ -15,3 +16,15 @@
     </div>
 </div>
 <!--/.Card-->
+=======
+        <!--Title-->
+        <h4 class="card-title">Card title</h4>
+        <!--Text-->
+        <p class="card-text">{{ $txt ?? '' }}</p>
+        {{--
+        <a href="#" class="btn btn-primary">Button</a>
+        --}}
+    </div>
+</div>
+<!--/.Card-->
+>>>>>>> b6141c95 (first)
