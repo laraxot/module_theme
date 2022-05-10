@@ -69,6 +69,7 @@ var formSerialize = require('form-serialize');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { bsModalVue } from '../../../../../../../Modules/Theme/Resources/js/components/mixins/bsModalVue';
 
 =======
@@ -95,6 +96,10 @@ import { bsModalVue } from './mixins/bsModalVue';
 //import { bsModalVue } from '../../../../../../../Modules/Theme/resources/mixins/bsModalVue';
 import { bsModalVue } from './mixins/bsModalVue';
 >>>>>>> 6aa89a58 (first)
+=======
+import { bsModalVue } from '../../../../../../../Modules/Theme/Resources/js/components/mixins/bsModalVue';
+
+>>>>>>> ede0df75 (first)
 
 export default {
 	name: 'bs-modal',

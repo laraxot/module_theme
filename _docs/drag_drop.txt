@@ -34,6 +34,7 @@ https://github.com/ahamed/treeSortable !!
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 https://github.com/bevacqua/dragula  quello usato da spatie
@@ -57,3 +58,5 @@ https://github.com/bevacqua/dragula  quello usato da spatie
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)

@@ -12,10 +12,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> ede0df75 (first)
                     <h4 class="modal-title">{{ $title }}
                         @if (isset($subtitle))
                             <br>
@@ -23,6 +26,7 @@
                         @endif
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     <h4 class="modal-title">{{ $popup_title }}
                         <br>
@@ -47,6 +51,8 @@
                         <br>
                         <small>{{ $popup_subtitle }}</small>
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
                     </h4>
 
                     <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">

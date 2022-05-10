@@ -12,10 +12,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> ede0df75 (first)
         @if (isset($title))
             <!--Title-->
             <h4 class="card-title">{{ $title }}</h4>
@@ -25,6 +28,7 @@
     </div>
 </div>
 <!--/.Card-->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -61,3 +65,5 @@
 =======
 <!--/.Card-->
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)

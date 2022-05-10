@@ -16,6 +16,7 @@ use Livewire\Component;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Undocumented class
  */
@@ -39,6 +40,8 @@ use Livewire\Component;
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
 class BodyView extends Component {
     public bool $show = false;
     public string $body_view;
@@ -49,10 +52,13 @@ class BodyView extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> ede0df75 (first)
 
     public string $title;
     public ?string $subtitle;
@@ -60,6 +66,7 @@ class BodyView extends Component {
     public array $form_data = [];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public string $title;
     public string $popup_title;
@@ -84,6 +91,8 @@ class BodyView extends Component {
     public string $popup_title;
     public string $popup_button;
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
 
     /**
      * Listener di eventi di Livewire.
@@ -96,6 +105,7 @@ class BodyView extends Component {
         'sendMessage' => 'sendMessage',
     ];
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -121,11 +131,14 @@ class BodyView extends Component {
 >>>>>>> 7f97b271 (up)
 =======
 >>>>>>> e003a241 (.)
+=======
+>>>>>>> ede0df75 (first)
     public function mount(string $id, string $title, string $subtitle = null, string $bodyView): void {
         $this->show = false;
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->body_view = $bodyView;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -162,6 +175,8 @@ class BodyView extends Component {
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
         $this->modal_id = $id;
     }
 
@@ -172,10 +187,13 @@ class BodyView extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> ede0df75 (first)
         session()->flash('message', $msg);
     }
 
@@ -188,6 +206,7 @@ class BodyView extends Component {
 
     public function sendData(): void {
         // dddx($this->form_data);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         $this->emit('updateDataFromModal', $this->modal_id, $this->form_data);
@@ -232,6 +251,11 @@ class BodyView extends Component {
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+        $this->emit('updateDataFromModal', $this->form_data);
+    }
+
+>>>>>>> ede0df75 (first)
     public function doShow(): void {
         $this->show = true;
     }
@@ -248,6 +272,7 @@ class BodyView extends Component {
         $view = 'theme::livewire.modal.body_view';
 
         $view_params = [
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -279,11 +304,14 @@ class BodyView extends Component {
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
             'view' => $view,
         ];
 
         return view()->make($view, $view_params);
     }
+<<<<<<< HEAD
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -297,3 +325,6 @@ class BodyView extends Component {
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+}
+>>>>>>> ede0df75 (first)

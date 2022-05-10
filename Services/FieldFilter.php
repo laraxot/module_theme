@@ -18,6 +18,7 @@ class FieldFilter {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public string $where_method;
 =======
 >>>>>>> b6141c95 (first)
@@ -33,6 +34,9 @@ class FieldFilter {
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+    public string $where_method;
+>>>>>>> ede0df75 (first)
 
     public array $rules;
 
@@ -60,10 +64,13 @@ class FieldFilter {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> ede0df75 (first)
             $func = 'set'.Str::Studly($k);
             /*
             if(!method_exists($this,$func)){
@@ -72,6 +79,7 @@ class FieldFilter {
             //*/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             $func = 'set'.str::Studly($k);
 >>>>>>> b6141c95 (first)
@@ -88,6 +96,8 @@ class FieldFilter {
 =======
             $func = 'set'.str::Studly($k);
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
             $this->{$func}($v);
         }
 
@@ -115,10 +125,13 @@ class FieldFilter {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ede0df75 (first)
 =======
 >>>>>>> 7f97b271 (up)
+=======
+>>>>>>> ede0df75 (first)
     public function setWhereMethod(string $where_method): self {
         $this->where_method = $where_method;
 
@@ -127,6 +140,7 @@ class FieldFilter {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b6141c95 (first)
 =======
@@ -139,6 +153,8 @@ class FieldFilter {
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
     /**
      * @param string|array $rules
      */
@@ -156,6 +172,7 @@ class FieldFilter {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -175,3 +192,6 @@ class FieldFilter {
 =======
 }
 >>>>>>> 6aa89a58 (first)
+=======
+}
+>>>>>>> ede0df75 (first)
