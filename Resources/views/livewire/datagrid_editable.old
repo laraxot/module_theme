@@ -13,6 +13,7 @@ count : {{ $rows->count() }}
     <td> {{ $k }} </td><td> {{ $v->id }}</td>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
     <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -20,12 +21,16 @@ count : {{ $rows->count() }}
 =======
     <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> 6aa89a58 (first)
+=======
+    <td><livewire:formx::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> ede0df75 (first)
 
 </tr>
 @endforeach
 </table>
 
 <table class="table table-bordered" >
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     {{--
@@ -35,6 +40,9 @@ count : {{ $rows->count() }}
 =======
     {{--  
 >>>>>>> 6aa89a58 (first)
+=======
+    {{--  
+>>>>>>> ede0df75 (first)
     <form wire:submit.prevent="rowsUpdate">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -62,6 +70,7 @@ count : {{ $rows->count() }}
         @foreach ($rows as $index => $row)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             @if($loop->first)
                 <tr>
@@ -83,6 +92,8 @@ count : {{ $rows->count() }}
 =======
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
             
             @if($loop->first)
                 <tr>
@@ -102,9 +113,12 @@ count : {{ $rows->count() }}
 
             {{-- 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
             <div wire:key="row-field-{{ $row->id }}">
                 <input type="text" wire:model="rows.{{ $index }}.img">
 
@@ -131,6 +145,7 @@ count : {{ $rows->count() }}
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         {{--
 =======
         {{--  
@@ -138,6 +153,9 @@ count : {{ $rows->count() }}
 =======
         {{--  
 >>>>>>> 6aa89a58 (first)
+=======
+        {{--  
+>>>>>>> ede0df75 (first)
         <button type="submit">Save</button>
     </form>
     --}}

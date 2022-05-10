@@ -6,6 +6,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     (object)
 [
 =======
@@ -14,6 +15,9 @@
 =======
     (object) [
 >>>>>>> 6aa89a58 (first)
+=======
+    (object) [
+>>>>>>> ede0df75 (first)
         'type' => 'DateList',
         'name' => 'listadata',
         'comment' => null,
@@ -31,6 +35,7 @@ if (is_null($date_list)) {
 @endphp
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
@@ -38,6 +43,9 @@ if (is_null($date_list)) {
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
 >>>>>>> 6aa89a58 (first)
+=======
+{{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> ede0df75 (first)
 
 
 

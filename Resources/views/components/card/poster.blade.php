@@ -15,6 +15,7 @@
     <div class="card-img-overlay-top text-end">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:favorite :model="$model" />
 =======
         <livewire:rating::favorite :model="$model" />
@@ -22,6 +23,9 @@
 =======
         <livewire:rating::favorite :model="$model" />
 >>>>>>> 6aa89a58 (first)
+=======
+        <livewire:rating::favorite :model="$model" />
+>>>>>>> ede0df75 (first)
     </div>
 
 

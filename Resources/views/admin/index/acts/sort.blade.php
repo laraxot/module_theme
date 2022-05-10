@@ -2,6 +2,7 @@
 @section('content')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:panel.sort />
 @endsection
 =======
@@ -12,3 +13,7 @@
 <livewire:theme::panel.sort />
 @endsection
 >>>>>>> 6aa89a58 (first)
+=======
+<livewire:theme::panel.sort />
+@endsection
+>>>>>>> ede0df75 (first)

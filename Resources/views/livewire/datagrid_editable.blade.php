@@ -14,6 +14,7 @@ count : {{ $rows->count() }}
             <td> {{ $k }} </td><td> {{ $v->id }}</td>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -21,6 +22,9 @@ count : {{ $rows->count() }}
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> 6aa89a58 (first)
+=======
+            <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> ede0df75 (first)
 
         </tr>
     @endforeach
@@ -29,6 +33,7 @@ count : {{ $rows->count() }}
         <form wire:submit.prevent="rowsUpdate">
             @foreach ($rows as $k => $v)
                 @php
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     $panel_fields = Panel::make()
@@ -40,12 +45,16 @@ count : {{ $rows->count() }}
 =======
                     $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
 >>>>>>> 6aa89a58 (first)
+=======
+                    $panel_fields = Panel::make()->get($v)->getFields(['act' => 'edit']);
+>>>>>>> ede0df75 (first)
                     $fields = [];
                     foreach ($panel_fields as $field) {
                         $fields[] = $this->makeField($field->name, $field->type);
                     }
                 @endphp
                 @if ($loop->first)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <livewire:datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-' . $v->id" />
@@ -55,6 +64,9 @@ count : {{ $rows->count() }}
 =======
                     <livewire:theme::datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
 >>>>>>> 6aa89a58 (first)
+=======
+                    <livewire:theme::datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
+>>>>>>> ede0df75 (first)
                     {{-- <tr>
                 @foreach ($fields as $field)
                     <th>
@@ -65,6 +77,7 @@ count : {{ $rows->count() }}
                 @endif
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <livewire:datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-' . $v->id" />
 =======
                 <livewire:theme::datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
@@ -72,6 +85,9 @@ count : {{ $rows->count() }}
 =======
                 <livewire:theme::datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
 >>>>>>> 6aa89a58 (first)
+=======
+                <livewire:theme::datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
+>>>>>>> ede0df75 (first)
                 {{-- <tr>
 
             @foreach ($fields as $field)
@@ -88,12 +104,16 @@ count : {{ $rows->count() }}
     @component('theme::components.pagination.simple', ['page' => $page, 'per_page' => $per_page, 'total' => $total])
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> b6141c95 (first)
 =======
 
 >>>>>>> 6aa89a58 (first)
+=======
+
+>>>>>>> ede0df75 (first)
     @endcomponent
 
 

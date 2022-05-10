@@ -20,6 +20,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <livewire:favorite :model="$panel->row">
 =======
                 <livewire:rating::favorite :model="$panel->row">
@@ -27,6 +28,9 @@
 =======
                 <livewire:rating::favorite :model="$panel->row">
 >>>>>>> 6aa89a58 (first)
+=======
+                <livewire:rating::favorite :model="$panel->row">
+>>>>>>> ede0df75 (first)
             </div>
         </div>
         <div class="card-body">

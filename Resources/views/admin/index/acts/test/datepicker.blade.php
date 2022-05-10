@@ -2,6 +2,7 @@
 @section('content')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- <livewire:calendar /> --}}
     <x-theme::input type="date" name="test" />
 =======
@@ -14,4 +15,9 @@
     <x-theme::input type="date" name="test" />
 
 >>>>>>> 6aa89a58 (first)
+=======
+    {{-- <livewire:theme::calendar /> --}}
+    <x-theme::input type="date" name="test" />
+
+>>>>>>> ede0df75 (first)
 @endsection

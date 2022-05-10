@@ -7,6 +7,7 @@
     {{-- <x-theme::avatar type="circle" size="sm" img_src="{{ asset('') }}">AAAAAAAAAAAA</x-thene::avatar.circle>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -17,6 +18,8 @@
 =======
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
     
 
     
@@ -25,9 +28,12 @@
       
         <livewire:formx::input 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b6141c95 (first)
 =======
 >>>>>>> 6aa89a58 (first)
+=======
+>>>>>>> ede0df75 (first)
 
 
     <form class="upload-dragdrop" method="post" action="" enctype="multipart/form-data">

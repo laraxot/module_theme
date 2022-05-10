@@ -7,6 +7,7 @@
         <button class="btn btn-outline-dark border-start-0" type="submit">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <i class="{{ $attrs['icon'] }} text-lg"></i>
 =======
             <i class="fa fa-search text-lg"></i>
@@ -14,6 +15,9 @@
 =======
             <i class="fa fa-search text-lg"></i>
 >>>>>>> 6aa89a58 (first)
+=======
+            <i class="fa fa-search text-lg"></i>
+>>>>>>> ede0df75 (first)
         </button>
     </div>
 </x-form>
