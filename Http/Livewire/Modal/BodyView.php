@@ -209,6 +209,7 @@ class BodyView extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->emit('updateDataFromModal', $this->modal_id, $this->form_data);
     }
 
@@ -253,6 +254,9 @@ class BodyView extends Component {
 >>>>>>> 6aa89a58 (first)
 =======
         $this->emit('updateDataFromModal', $this->form_data);
+=======
+        $this->emit('updateDataFromModal', $this->modal_id, $this->form_data);
+>>>>>>> 992fe1f3 (.)
     }
 
 >>>>>>> ede0df75 (first)
