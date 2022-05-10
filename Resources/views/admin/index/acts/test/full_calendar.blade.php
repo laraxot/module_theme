@@ -2,5 +2,5 @@
 @section('content')
     @include($view.'.head')
 
-    @livewire('theme::full_calendar')
+    @livewire('full_calendar')
 @endsection

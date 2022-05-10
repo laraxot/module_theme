@@ -29,6 +29,6 @@ $date_list = $_panel->getRow()->{$name};
         {{ Form::label($name, $field->label, ['class' => 'control-label form-label']) }}
     @endslot
     @slot('input')
-        @livewire('theme::calendar.stringlist',['date_list'=>$date_list, 'input_name' => $name])
+        @livewire('calendar.stringlist',['date_list'=>$date_list, 'input_name' => $name])
     @endslot
 @endcomponent
