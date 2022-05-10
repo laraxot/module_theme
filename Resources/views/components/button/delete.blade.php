@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:buttons.delete /> --}}
 =======
 {{-- <livewire:theme::buttons.delete /> --}}
@@ -15,3 +16,6 @@
 =======
 {{-- <livewire:theme::buttons.delete /> --}}
 >>>>>>> ede0df75 (first)
+=======
+{{-- <livewire:buttons.delete /> --}}
+>>>>>>> ceab487e (.)

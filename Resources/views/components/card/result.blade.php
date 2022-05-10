@@ -26,6 +26,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <livewire:favorite :model="$model" />
 =======
         <livewire:rating::favorite :model="$model" />
@@ -36,6 +37,9 @@
 =======
         <livewire:rating::favorite :model="$model" />
 >>>>>>> ede0df75 (first)
+=======
+        <livewire:favorite :model="$model" />
+>>>>>>> ceab487e (.)
     </div>
 
 
@@ -45,6 +49,7 @@
         {{-- <p class="card-text text-sm">Artist capital of Europe</p> --}}
     </div>
 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -58,3 +63,6 @@
 =======
 <livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
 >>>>>>> ede0df75 (first)
+=======
+<livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
+>>>>>>> ceab487e (.)

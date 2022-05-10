@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:panel.sort />
 @endsection
 =======
@@ -17,3 +18,7 @@
 <livewire:theme::panel.sort />
 @endsection
 >>>>>>> ede0df75 (first)
+=======
+<livewire:panel.sort />
+@endsection
+>>>>>>> ceab487e (.)

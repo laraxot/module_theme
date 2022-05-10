@@ -15,6 +15,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
@@ -25,6 +26,9 @@ count : {{ $rows->count() }}
 =======
             <td><livewire:theme::test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
 >>>>>>> ede0df75 (first)
+=======
+            <td><livewire:test.row  :row="$v" :index="$loop->index" :key="$v->id" /></td>
+>>>>>>> ceab487e (.)
 
         </tr>
     @endforeach
@@ -57,6 +61,7 @@ count : {{ $rows->count() }}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <livewire:datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-' . $v->id" />
 =======
                     <livewire:theme::datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
@@ -67,6 +72,9 @@ count : {{ $rows->count() }}
 =======
                     <livewire:theme::datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
 >>>>>>> ede0df75 (first)
+=======
+                    <livewire:datagrid_editable.head :row="$v" :index="$loop->index" :key="'head-'.$v->id" />
+>>>>>>> ceab487e (.)
                     {{-- <tr>
                 @foreach ($fields as $field)
                     <th>
@@ -75,6 +83,7 @@ count : {{ $rows->count() }}
                 @endforeach
             </tr> --}}
                 @endif
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -88,6 +97,9 @@ count : {{ $rows->count() }}
 =======
                 <livewire:theme::datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
 >>>>>>> ede0df75 (first)
+=======
+                <livewire:datagrid_editable.row :row="$v" :index="$loop->index" :key="'row-'.$v->id" />
+>>>>>>> ceab487e (.)
                 {{-- <tr>
 
             @foreach ($fields as $field)

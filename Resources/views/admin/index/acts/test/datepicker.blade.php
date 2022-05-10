@@ -3,10 +3,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{-- <livewire:calendar /> --}}
     <x-theme::input type="date" name="test" />
 =======
     {{-- <livewire:theme::calendar /> --}}
+=======
+    {{-- <livewire:calendar /> --}}
+>>>>>>> ceab487e (.)
     <x-theme::input type="date" name="test" />
 
 >>>>>>> b6141c95 (first)

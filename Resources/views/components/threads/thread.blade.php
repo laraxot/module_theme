@@ -65,6 +65,7 @@
         x-html="{{ json_encode(replace_links(md_to_html($thread->body()))) }}">
     </div>
     {{-- <div class="px-6 pb-6">
+<<<<<<< HEAD
         <livewire:theme::like-thread :thread="$thread" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -73,5 +74,8 @@
 >>>>>>> 6aa89a58 (first)
 =======
 >>>>>>> ede0df75 (first)
+=======
+        <livewire:like-thread :thread="$thread" />
+>>>>>>> ceab487e (.)
     </div> --}}
 </div>

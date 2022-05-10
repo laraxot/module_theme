@@ -36,6 +36,7 @@ if (is_null($date_list)) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
@@ -46,6 +47,9 @@ if (is_null($date_list)) {
 =======
 {{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
 >>>>>>> ede0df75 (first)
+=======
+{{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
+>>>>>>> ceab487e (.)
 
 
 

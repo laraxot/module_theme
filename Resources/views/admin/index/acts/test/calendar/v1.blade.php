@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <livewire:calendar.v1 />
 =======
     <livewire:theme::calendar.v1 />
@@ -13,4 +14,7 @@
 =======
     <livewire:theme::calendar.v1 />
 >>>>>>> ede0df75 (first)
+=======
+    <livewire:calendar.v1 />
+>>>>>>> ceab487e (.)
 @endsection
