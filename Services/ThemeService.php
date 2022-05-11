@@ -295,7 +295,11 @@ class ThemeService {
         return mb_substr($path, 0, $pos);
     }
 
-    public static function asset(string $path): string {
+    public static function asset(?string $path): string {
+        if (null === $path) {
+            return '';
+        }
+
         return FileService::asset($path);
     }
 
@@ -427,7 +431,7 @@ class ThemeService {
     public static function metatag($index) {
         $ris = self::__getStatic($index);
         // echo '<br/>['.$index.']['.$ris.']';
-        if ('' === $ris) {
+        if ('' === $ris || null === $ris) {
             $ris = config('metatag.'.$index);
             self::__setStatic($index, $ris);
         }
