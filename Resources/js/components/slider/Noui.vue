@@ -27,12 +27,12 @@ export default {
         //console.log('slider');
         //console.log(this.options);
         this.slider = noUiSlider.create(range, {
-            start: [0, 0],
+            start: [0, 1000],
             connect: true,
             tooltips: true,
             range: {
                 'min': 0,
-                'max': 100
+                'max': 1000
             }
 
         });
@@ -48,7 +48,7 @@ export default {
             });
 
             Livewire.on('setSliderMinMax',(from,to) =>{
-                //console.log('setSliderMinMax');
+                console.log('nouivue - setSliderMinMax ['+from+' ; '+to +']');
                 //console.log(from+ ': '+to);
                 this.slider.updateOptions({
                     range: {
@@ -57,6 +57,15 @@ export default {
                     }
                 });
             });
+
+            Livewire.on('setSliderValues',(from,to) =>{
+                //console.log('nouivue - setSliderValues ['+from+' ; '+to +']');
+                this.slider.updateOptions({
+                    start: [from,to]
+                });
+            });
+
+
             /*
             window.addEventListener('setSliderMinMax', event => {
                 console.log('aaaa');
