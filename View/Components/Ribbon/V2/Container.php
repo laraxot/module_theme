@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Ribbon;
+namespace Modules\Theme\View\Components\Ribbon\V2;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
@@ -18,15 +18,16 @@ class Container extends Component {
      *
      * @return void
      */
-    public function __construct(?string $id = '') {
-        $this->attrs['id'] = $id;
+    public function __construct(?string $class = null) {
+        $this->attrs['class'] = $class ?? 'card bg-gray-100 w-100 position-relative py-6 border-0 shadow';
+
     }
 
     /**
      * Undocumented function.
      */
     public function render(): Renderable {
-        $view = 'theme::components.ribbon.container';
+        $view = 'theme::components.ribbon.v2.container';
 
         $view_params = [
             'view' => $view,
