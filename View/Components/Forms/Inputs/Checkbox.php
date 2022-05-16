@@ -19,7 +19,7 @@ class Checkbox extends Input {
     }
 
     public function render(): Renderable {
-        $view = 'theme::components.forms.inputs.checkbox';
+        $view = 'theme::components.form.inputs.checkbox';
 
         return view()->make($view);
     }

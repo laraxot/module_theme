@@ -20,9 +20,20 @@ class Button extends Component {
      *
      * @return void
      */
-    public function __construct(?array $attrs = null) {
+    public function __construct(?array $attrs = null, ?string $title = null, ?string $url) {
         if (isset($attrs)) {
             $this->attrs = array_merge($this->attrs, $attrs);
+        }
+        if (null != $title) {
+            $this->attrs['title'] = $title;
+        } else {
+            $this->attrs['title'] = '';
+        }
+
+        if (null != $title) {
+            $this->attrs['url'] = $title;
+        } else {
+            $this->attrs['url'] = '';
         }
 
         $this->attrs['class'] = 'btn btn-primary';
