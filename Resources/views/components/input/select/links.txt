@@ -1,0 +1,7 @@
+Multiselect with icons
+https://bootsnipp.com/snippets/k7kB
+
+//------------------------------------------------
+Multiselect with icons
+https://mdbootstrap.com/docs/standard/extended/multiselect/
+
