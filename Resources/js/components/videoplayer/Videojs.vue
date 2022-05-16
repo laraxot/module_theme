@@ -75,7 +75,7 @@ export default {
                 onMarkerReached: function(marker) {
                     //console.log("marker reached: " + marker.text )
                 },
-                });
+            });
         }
 
         myPlayer.ready(function() {
@@ -88,9 +88,14 @@ export default {
                 var time = this.getAttribute('data-start');
                 myPlayer.currentTime(time);
             });
-            
-           
-               
+        });
+
+        Livewire.on('setVideoMarkers',($markers) =>{
+            //console.log('---------------setVideoMarkers--------------');
+            //console.log($markers);
+            if(Array.isArray($markers)){
+                myPlayer.markers.reset($markers);
+            }
         });
         /*
         myPlayer.on('playing', function() {
