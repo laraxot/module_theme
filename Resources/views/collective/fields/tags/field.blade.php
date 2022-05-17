@@ -14,6 +14,8 @@ $tagA = \Modules\Tag\Models\Tag::findOrCreate('camera', 'domains');
     @endphp
     .
     @foreach ($tags as $tag)
-        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" @checked(in_array($tag->id, $values_ids)) />
+        --------------------------------------------------------------
+        <x-input type="checkbox" name="tags[]" value="{{ $tag->id }}" @checked(in_array($tag->id, $values_ids)) />
+        ++++++++++++++++++++++++++++++++++++
     @endforeach
 @endforeach

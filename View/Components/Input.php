@@ -38,6 +38,7 @@ class Input extends Component {
         ?array $options = null,
         ?string $icon = null
     ) {
+
         try {
             $this->tradKey = 'pub_theme::txt';
 
@@ -192,6 +193,7 @@ class Input extends Component {
 
         $type = Str::snake($type);
         $view = 'theme::components.input.'.$type.'.field';
+
 
         $view_params = get_object_vars($this->field);
 
