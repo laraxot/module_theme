@@ -20,21 +20,15 @@ class Button extends Component {
      *
      * @return void
      */
-    public function __construct(?array $attrs = null, ?string $title = null, ?string $url) {
-        if (isset($attrs)) {
+    public function __construct(?array $attrs = null, ?string $title = null, ?string $url=null) {
+        if (isset($attrs) && is_array($attrs)) {
             $this->attrs = array_merge($this->attrs, $attrs);
         }
-        if (null != $title) {
-            $this->attrs['title'] = $title;
-        } else {
-            $this->attrs['title'] = '';
-        }
 
-        if (null != $title) {
-            $this->attrs['url'] = $title;
-        } else {
-            $this->attrs['url'] = '';
-        }
+        $this->attrs['title'] = $title ?? '';
+
+        $this->attrs['url'] = $url ?? '';
+
 
         $this->attrs['class'] = 'btn btn-primary';
         $this->attrs['icon_html'] = '';
@@ -43,6 +37,11 @@ class Button extends Component {
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return Renderable
+     */
     public function render(): Renderable {
         $view = 'theme::components.button';
         $view_params = ['view' => $view];
