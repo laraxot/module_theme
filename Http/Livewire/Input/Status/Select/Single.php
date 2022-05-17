@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Http\Livewire\Input\Status;
+namespace Modules\Theme\Http\Livewire\Input\Status\Select;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
 /**
- * Class Select.
+ * Class Single.
  * https://github.com/spatie/laravel-model-status.
  */
-class Select extends Component {
+class Single extends Component {
     public Model $model;
     public array $options;
     public string $status = '';
@@ -32,7 +32,7 @@ class Select extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        $view = 'theme::livewire.input.status.select';
+        $view = 'theme::livewire.input.status.select.single';
         $view_params = [
             'view' => $view,
         ];
