@@ -15,7 +15,7 @@ class Coll extends Component {
     public Collection $data;
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @param [type] $data
      *
@@ -26,7 +26,7 @@ class Coll extends Component {
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      */
     public function render(): Renderable {
         return view('theme::livewire.sort.coll');

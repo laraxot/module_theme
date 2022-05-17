@@ -22,7 +22,7 @@ class Form extends Component {
     public Model $row;
 
     /**
-     * Listener di eventi di Livewire
+     * Listener di eventi di Livewire.
      *
      * @var array
      */

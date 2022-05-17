@@ -41,17 +41,15 @@ class Select extends Component {
     }
 
     public function changeStatus(): void {
-
-
         if ('' != $this->status) {
-                if(!is_null($this->model->status())){
-                    $this->model->status()->delete();
-                }
-                $this->model->setStatus($this->status);
-                session()->flash('message', 'Status Changed');
+            if (! is_null($this->model->status())) {
+                $this->model->status()->delete();
+            }
+            $this->model->setStatus($this->status);
+            session()->flash('message', 'Status Changed');
         }
 
-        if('' == $this->status){
+        if ('' == $this->status) {
             $this->model->status()->delete(); // returns the latest instance of `Spatie\ModelStatus\Status`
             session()->flash('message', 'Status Removed');
         }

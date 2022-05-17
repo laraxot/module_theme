@@ -20,10 +20,10 @@ class Select extends Component {
      * @return void
      */
     public function __construct() {
-        //$this->options = $options;
-        //$this->attrs['name'] = $name;
-        //$this->attrs['id'] = 'form_'.$name;
-        //$this->attrs['class'] = $class;
+        // $this->options = $options;
+        // $this->attrs['name'] = $name;
+        // $this->attrs['id'] = 'form_'.$name;
+        // $this->attrs['class'] = $class;
     }
 
     /**
@@ -34,6 +34,7 @@ class Select extends Component {
         $view_params = [
             'view' => $view,
         ];
+
         return view()->make($view, $view_params);
     }
 }

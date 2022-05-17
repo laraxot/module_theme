@@ -20,7 +20,7 @@ class Button extends Component {
      *
      * @return void
      */
-    public function __construct(?array $attrs = null, ?string $title = null, ?string $url=null) {
+    public function __construct(?array $attrs = null, ?string $title = null, ?string $url = null) {
         if (isset($attrs) && is_array($attrs)) {
             $this->attrs = array_merge($this->attrs, $attrs);
         }
@@ -28,7 +28,6 @@ class Button extends Component {
         $this->attrs['title'] = $title ?? '';
 
         $this->attrs['url'] = $url ?? '';
-
 
         $this->attrs['class'] = 'btn btn-primary';
         $this->attrs['icon_html'] = '';
@@ -38,9 +37,7 @@ class Button extends Component {
     }
 
     /**
-     * Undocumented function
-     *
-     * @return Renderable
+     * Undocumented function.
      */
     public function render(): Renderable {
         $view = 'theme::components.button';

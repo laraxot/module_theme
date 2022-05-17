@@ -63,7 +63,7 @@ class Server extends Component {
 
         */
         /**
-         * $cmd = 'wmic ComputerSystem get TotalPhysicalMemory';
+         * $cmd = 'wmic ComputerSystem get TotalPhysicalMemory';.
          *
          * @exec($cmd, $outputTotalPhysicalMemory);
          * dddx($outputTotalPhysicalMemory);
