@@ -245,9 +245,18 @@ class FormXService {
             $view_params['manage_url'] = $url;
 
             if (method_exists((object) $rows, 'getPivotClass')) {
+                //dddx($rows);
                 $pivot_class = $rows->getPivotClass();
                 // $pivot = new $pivot_class();
-                $pivot = app($pivot_class);
+                //dddx($pivot_class);
+                //$pivot = app($pivot_class);
+                if (is_object($pivot_class)) {
+                    $pivot = $pivot_class;
+                } else {
+                    $pivot = app($pivot_class);
+                }
+
+                //dddx($pivot);
                 $pivot_panel = ThemeService::panelModel($pivot);
                 // ogni tanto ThemeService::panelModel($pivot) rilascia una stringa e non un oggetto
                 // ci ho messo una pezza, ma forse dovrebbe aggiornare morph_map?
