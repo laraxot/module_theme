@@ -25,9 +25,9 @@ class Button extends Component {
             $this->attrs = array_merge($this->attrs, $attrs);
         }
 
-        $this->attrs['title'] = $title ?? '';
+        $this->attrs['title'] = $title ?? $this->attrs['title'] ?? '';
 
-        $this->attrs['url'] = $url ?? '';
+        $this->attrs['url'] = $url ?? $this->attrs['url'] ?? '';
 
         $this->attrs['class'] = 'btn btn-primary';
         $this->attrs['icon_html'] = '';
