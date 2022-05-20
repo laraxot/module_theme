@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire;
 
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Modules\Theme\Contracts\HasLikeContract;
 use Modules\Theme\Jobs\LikeJob;
 use Modules\Theme\Jobs\UnlikeJob;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Theme\Contracts\HasLikeContract;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 final class LikeArticle extends Component {
     use DispatchesJobs;
 
-    public HasLikeContract $article;
+    public Model $article;
 
     public bool $isSidebar = true;
 
@@ -25,7 +26,7 @@ final class LikeArticle extends Component {
      */
     protected $listeners = ['likeToggled'];
 
-    public function mount(HasLikeContract $article): void {
+    public function mount(Model $article): void {
         $this->article = $article;
     }
 
