@@ -1,0 +1,4 @@
+
+https://laravel-themes-manager.netlify.app/1.10/usage/basic.html
+https://github.com/hexadog/laravel-theme-installer
+
