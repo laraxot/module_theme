@@ -1,0 +1,12 @@
+{
+    "require": {
+        "fire015/flintstone": "2.*",
+        "google/apiclient": "^2.0",
+        "phpmailer/phpmailer": "^6.0",
+        "intervention/image": "^2.3",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": { "App\\": "classes/" }
+    }
+}
