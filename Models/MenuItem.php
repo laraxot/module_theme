@@ -11,7 +11,6 @@ use Sushi\Sushi;
 /**
  * Modules\Theme\Models\MenuItem
  *
- * @mixin IdeHelperMenuItem
  * @property int $id
  * @property string|null $label
  * @property string|null $link
@@ -36,6 +35,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereParent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereRoleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereSort($value)
+ * @mixin IdeHelperMenuItem
  */
 class MenuItem extends Model {
     use Sushi;

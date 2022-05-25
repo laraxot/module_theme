@@ -11,7 +11,6 @@ use Sushi\Sushi;
 /**
  * Modules\Theme\Models\Menu
  *
- * @mixin IdeHelperMenu
  * @property int $id
  * @property string|null $name
  * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\MenuItem[] $items
@@ -21,6 +20,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
+ * @mixin IdeHelperMenu
  */
 class Menu extends Model {
     use Sushi;
