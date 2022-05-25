@@ -22,7 +22,6 @@ use Sushi\Sushi;
  * @property string|null                     $created_by
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $updated_by
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme query()
@@ -37,7 +36,6 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereVersion($value)
  * @mixin \Eloquent
- *
  * @property string|null $name
  * @property string|null $type
  * @property string|null $description
@@ -48,7 +46,6 @@ use Sushi\Sushi;
  * @property string|null $files
  * @property string|null $requires
  * @property string|null $path
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereAliases($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereDescription($value)

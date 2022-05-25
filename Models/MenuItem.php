@@ -9,7 +9,33 @@ use Modules\Xot\Traits\SushiConfigCrud;
 use Sushi\Sushi;
 
 /**
+ * Modules\Theme\Models\MenuItem
+ *
  * @mixin IdeHelperMenuItem
+ * @property int $id
+ * @property string|null $label
+ * @property string|null $link
+ * @property int|null $parent
+ * @property int|null $sort
+ * @property string|null $class
+ * @property int|null $menu
+ * @property int|null $depth
+ * @property int|null $role_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|MenuItem[] $child
+ * @property-read int|null $child_count
+ * @property-read \Modules\Theme\Models\Menu|null $parent_menu
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereClass($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereDepth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereMenu($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereParent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereRoleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereSort($value)
  */
 class MenuItem extends Model {
     use Sushi;

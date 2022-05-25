@@ -9,7 +9,18 @@ use Modules\Xot\Traits\SushiConfigCrud;
 use Sushi\Sushi;
 
 /**
+ * Modules\Theme\Models\Menu
+ *
  * @mixin IdeHelperMenu
+ * @property int $id
+ * @property string|null $name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\MenuItem[] $items
+ * @property-read int|null $items_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
  */
 class Menu extends Model {
     use Sushi;
