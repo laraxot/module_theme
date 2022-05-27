@@ -849,7 +849,7 @@ class ThemeService
             $views[] = $mod_trad;
         }
 
-        return $views;
+        return array_unique($views);
     }
 
     /**

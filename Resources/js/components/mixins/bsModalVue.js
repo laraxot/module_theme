@@ -124,7 +124,7 @@ export const bsModalVue = {
                         this.loading = false;
                         this.body = res.data.html;
 
-                        //$.getScript(base_url+'/bc/jquery/dist/jquery.min.js');
+                        
                         //$.getScript(base_url+'/bc/jquery.rateit/scripts/jquery.rateit.min.js');
                         //$.getScript(base_url+'/bc/jquery.rateit/scripts/rateit.css');
                         $.getScript(base_url+'/themes/coderdocs/dist/js/app.js');

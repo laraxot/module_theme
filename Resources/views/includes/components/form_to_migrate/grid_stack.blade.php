@@ -1,7 +1,7 @@
 {{ Theme::add('/theme/bc/bootstrap/dist/css/bootstrap.min.css') }}
 {{ Theme::add('/theme/bc/gridstack/dist/gridstack.css') }}
 
-{{ Theme::add('/theme/bc/jquery/dist/jquery.min.js') }}
+
 {{ Theme::add('/theme/bc/jquery-ui/jquery-ui.min.js') }}
 
 {{ Theme::add('/theme/bc/jqueryui-touch-punch/jquery.ui.touch-punch.min.js') }}

@@ -46,7 +46,7 @@
 </div>
 
 
-{{ Theme::addScript("/theme/bc/jquery/dist/jquery.min.js") }}
+
 {{ Theme::addScript("/theme/bc/bootstrap/dist/js/bootstrap.min.js") }}
 {{ Theme::addScript('/theme/bc/multiselect/dist/js/multiselect.js') }}
 

@@ -1,6 +1,6 @@
 {{-- http://laraveldaily.com/laravel-ajax-file-upload-blueimp-jquery-library/
     http://laraveldaily.com/upload-multiple-files-laravel-5-4/ --}}
-{{ Theme::add('/theme/bc/jquery/dist/jquery.min.js') }}
+
 {{ Theme::add('/theme/bc/blueimp-file-upload/js/vendor/jquery.ui.widget.js') }}
 {{ Theme::add('/theme/bc/blueimp-load-image/js/load-image.all.min.js') }}
 {{ Theme::add('/theme/bc/blueimp-canvas-to-blob/js/canvas-to-blob.min.js') }}

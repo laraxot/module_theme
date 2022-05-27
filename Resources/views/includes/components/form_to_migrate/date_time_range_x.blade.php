@@ -42,7 +42,7 @@ $name=$start_name.'__'.$end_name;
 
 {{	Theme::addStyle('/theme/bc/bootstrap-daterangepicker/daterangepicker.css') }}
 
-{{  Theme::addScript('/theme/bc/jquery/dist/jquery.min.js') }}
+
 {{--	Theme::addScript('/theme/bc/moment/min/moment.min.js') --}}
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{  Theme::addScript('backend::js/bsDateTimeRange.js') }}

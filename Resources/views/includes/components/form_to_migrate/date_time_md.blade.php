@@ -18,7 +18,7 @@ https://getmdl.io/components/index.html#cards-section
     <label for="input_starttime">Light version, 12hours</label>
 </div>
 
-{{ Theme::add('theme/bc/jquery/dist/jquery.min.js') }}
+
 
 {{ Theme::add('theme/bc/tether/dist/css/tether.min.css') }}
 {{ Theme::add('theme/bc/tether/dist/js/tether.min.js') }}

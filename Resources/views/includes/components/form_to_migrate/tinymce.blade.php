@@ -10,5 +10,5 @@
 	</div>
 </div>
 
-{{ Theme::addScript('/theme/bc/jquery/dist/jquery.min.js') }}
+
 {{ Theme::addScript('backend::js/bsTinymce.js') }}
