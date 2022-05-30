@@ -39,7 +39,8 @@ class Card extends Component {
         bool $maximizable = false,
         bool $disabled = false,
         bool $outline = false,
-        bool $full = false
+        bool $full = false,
+        ?string $src = '',
     ) {
         // $this->bg = $bg;
         $this->model = $model;
@@ -60,6 +61,8 @@ class Card extends Component {
          ($outline ? ' card-outline' : '').
          ($collapsed ? ' collapsed-card' : '').
          ($full ? ' bg-'.$bg : '');
+
+        $this->src = $src;
     }
 
     public function render(): Renderable {
