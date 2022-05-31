@@ -20,7 +20,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
- * @mixin IdeHelperMenu
+ * @mixin \Eloquent
  */
 class Menu extends Model {
     use Sushi;
