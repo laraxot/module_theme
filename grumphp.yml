@@ -14,3 +14,4 @@ grumphp:
              #The option "allow-risky" does not exist. Defined options are: "allow_risky", "cache_file", "config", "config_contains_finder", "diff", "rules", "triggered_by", "using_cache", "verbose".
         #}
     }
+
