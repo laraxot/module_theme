@@ -76,7 +76,7 @@ abstract class BaseV2 extends Component {
     public bool $eventClickEnabled;
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
     protected $casts = [
         'startsAt' => 'date',
