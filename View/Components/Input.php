@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Xot\Services\PanelService;
@@ -14,7 +16,7 @@ use stdClass;
  * Undocumented class.
  */
 class Input extends Component {
-    public ?stdClass $field = null;
+    public stdClass $field;
     // public ?string $label = null;
     // public string $for;
     // public ?string $name = null;
@@ -49,6 +51,7 @@ class Input extends Component {
             $this->tradKey = 'pub_theme::txt';
         }
         // --- Setting
+        $this->field = (object) [];
         $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
         $args = \func_get_args();
@@ -84,7 +87,7 @@ class Input extends Component {
             return $this;
         }
 
-        $this->attrs['class'] = 'form-control';
+        $this->attrs['class'] = $this->field->class ?? 'form-control';
         if (null !== $this->field) {
             switch ($this->field->type) {
                 case 'checkbox':
@@ -184,10 +187,11 @@ class Input extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable {
-        if (null === $this->field) {
-            throw new \Exception('this->field is null');
-        }
+    public function render(): Renderable {
+        // Strict comparison using === between null and stdClass will always evaluate to false.
+        // if (null === $this->field) {
+        //    throw new \Exception('this->field is null');
+        // }
         $type = $this->field->type;
 
         $type = Str::snake($type);
@@ -199,6 +203,8 @@ class Input extends Component {
 
         $view_params['value'] = null; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-        return view()->make($view, $view_params);
+        // Call to an undefined method Illuminate\Contracts\View\Factory|Illuminate\Contracts\View\View::make().
+        // return view()->make($view, $view_params);
+        return View::make($view, $view_params);
     }
 }

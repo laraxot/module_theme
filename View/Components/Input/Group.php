@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Input;
 
 use Exception;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
@@ -16,7 +18,7 @@ use stdClass;
  * Undocumented class.
  */
 class Group extends Component {
-    public ?stdClass $field = null;
+    public stdClass $field;
     // public ?string $label = null;
     // public string $for;
     // public ?string $name = null;
@@ -26,6 +28,8 @@ class Group extends Component {
     // public ?array $options = null; //serve per il select
     public int $colSize = 12;
     public string $tradKey;
+
+    public string $tpl = 'default';
 
     /**
      * Undocumented function.
@@ -78,14 +82,15 @@ class Group extends Component {
         ?string $class = null,
         ?array $options = null,
         ?int $colSize = null,
-        ?string $icon = null
+        ?string $icon = null,
+        ?string $tpl = null
     ) {
         $panel = PanelService::make()->getRequestPanel();
         $this->tradKey = 'pub_theme::txt';
         if (null !== $panel) {
             $this->tradKey = $panel->getTradMod();
         }
-
+        $this->field = (object) [];
         // --- Setting
         $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
@@ -105,6 +110,12 @@ class Group extends Component {
         }
     }
 
+    public function setTpl(string $tpl): self {
+        $this->tpl = $tpl;
+
+        return $this;
+    }
+
     public function setField(stdClass $field): self {
         $this->field = $field;
         if (isset($field->name)) {
@@ -121,7 +132,8 @@ class Group extends Component {
             return $this;
         }
 
-        $this->attrs['class'] = 'form-control';
+        // $this->attrs['class'] = 'form-control';
+        $this->attrs['class'] = 'form-control form-control-solid';
 
         if (null !== $this->field) {
             switch ($this->field->type) {
@@ -138,6 +150,7 @@ class Group extends Component {
                     break;
             }
         }
+        $this->field->class = $this->attrs['class'];
 
         return $this;
     }
@@ -225,27 +238,21 @@ class Group extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): Renderable {
+        /*
         $theme = inAdmin() ? 'adm_theme' : 'pub_theme';
         FileService::viewCopy('theme::components.input.group', $theme.'::components.input.group');
 
         $view = $theme.'::components.input.group';
-        /*
-        if (null == $this->field) {
-            $this->field = (object) [
-                'name' => $this->name,
-                'type' => $this->type,
-                'label' => $this->label,
-                'options' => $this->options,
-            ];
-        }
         */
 
+        $view = 'theme::components.input.group.'.$this->tpl;
         $view_params = [
             'view' => $view,
             'field' => (object) $this->field,
         ];
-
-        return view()->make($view, $view_params);
+        // Call to an undefined method Illuminate\Contracts\View\Factory|Illuminate\Contracts\View\View::make().
+        // return view()->make($view, $view_params);
+        return View::make($view, $view_params);
     }
 }
