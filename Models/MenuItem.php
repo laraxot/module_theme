@@ -14,12 +14,12 @@ use Sushi\Sushi;
  * @property int $id
  * @property string|null $label
  * @property string|null $link
- * @property int|null $parent
+ * @property float|null $menu
  * @property int|null $sort
+ * @property string|null $parent
  * @property string|null $class
- * @property int|null $menu
- * @property int|null $depth
- * @property int|null $role_id
+ * @property string|null $depth
+ * @property string|null $role_id
  * @property-read \Illuminate\Database\Eloquent\Collection|MenuItem[] $child
  * @property-read int|null $child_count
  * @property-read \Modules\Theme\Models\Menu|null $parent_menu
