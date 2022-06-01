@@ -110,8 +110,10 @@ class Group extends Component {
         }
     }
 
-    public function setTpl(string $tpl): self {
-        $this->tpl = $tpl;
+    public function setTpl(?string $tpl): self {
+        if (null !== $tpl) {
+            $this->tpl = $tpl;
+        }
 
         return $this;
     }
