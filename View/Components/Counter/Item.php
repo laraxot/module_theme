@@ -11,6 +11,8 @@ use Illuminate\View\Component;
  * Class Item.
  */
 class Item extends Component {
+    public ?string $number;
+    public ?string $title;
     /**
      * Create a new component instance.
      *

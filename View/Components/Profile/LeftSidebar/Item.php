@@ -12,6 +12,9 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * nb: funziona in directorybs5 ma non in adminlte.
  */
 class Item extends XotBaseComponent {
+    public ?string $active;
+    public ?string $icon;
+
     public function __construct(?string $active = '', ?string $icon = 'fa-user') {
         $this->active = $active;
         $this->icon = $icon;
@@ -20,8 +23,8 @@ class Item extends XotBaseComponent {
     public function render(): Renderable {
         $view = 'theme::components.profile.left-sidebar.item';
         $view_params = [
-            'active' => $this->active,
-            'icon' => $this->icon,
+            //'active' => $this->active,
+            //'icon' => $this->icon,
             'view' => $view,
         ];
 

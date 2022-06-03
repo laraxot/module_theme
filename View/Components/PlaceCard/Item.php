@@ -11,6 +11,12 @@ use Illuminate\View\Component;
  * Class Item.
  */
 class Item extends Component {
+
+    public ?string $imgurl;
+    public ?string $title;
+    public ?string $price;
+    public ?string $width;
+    public ?string $height;
     /**
      * Create a new component instance.
      *

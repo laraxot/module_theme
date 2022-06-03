@@ -11,16 +11,16 @@ use Illuminate\View\Component;
  * Undocumented class.
  */
 class CounterItem extends Component {
-    public $counter;
+    public int $counter;
 
     /**
      * Create a new component instance.
      *
-     * @param mixed $counter
+     * @param int $counter
      *
      * @return void
      */
-    public function __construct($counter) {
+    public function __construct(int $counter) {
         $this->counter = $counter;
     }
 

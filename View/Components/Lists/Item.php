@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Lists;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class Item.

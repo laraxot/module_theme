@@ -22,9 +22,9 @@ class Link extends Component {
      * Undocumented function
      */
     public function __construct(?string $rel=null,?string $type=null,?string $href=null){
-        //$this->attrs['rel']=$rel;
-        //$this->attrs['type']=$type;
-        //$this->attrs['href']=$href;
+        $this->attrs['rel']=$rel;
+        $this->attrs['type']=$type;
+        $this->attrs['href']=$href;
         if($href!=null){
             ThemeService::add($href);
         }

@@ -15,6 +15,8 @@ class Collapse extends Component {
     public array $attrs = [];
     public array $menus = [];
 
+    public string $menu_name;
+
     /**
      * Create a new component instance.
      *
@@ -22,6 +24,7 @@ class Collapse extends Component {
      */
     public function __construct(string $menuName) {
         // $this->menus = Menu::getByName($menuName);
+        $this->menu_name=$menuName;
         $this->menus = [];
     }
 

@@ -11,6 +11,7 @@ use Illuminate\View\Component;
  * Class Container.
  */
 class Container extends Component {
+    public ?string $title;
     /**
      * Create a new component instance.
      *

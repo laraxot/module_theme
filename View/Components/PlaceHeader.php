@@ -11,6 +11,11 @@ use Illuminate\View\Component;
  * Class Container.
  */
 class PlaceHeader extends Component {
+
+    public string ?$img;
+    public string ?$title;
+    public string ?$sutitle;
+
     /**
      * Create a new component instance.
      *

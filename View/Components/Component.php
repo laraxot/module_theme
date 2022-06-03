@@ -51,7 +51,8 @@ class Component extends ViewComponent {
         if (null === $view) {
             throw new \Exception('not exists '.$views[0].' or '.$views[1]);
         }
-
-        return view()->make($view);
+        $view_params=[];
+        //return view()->make($view);
+        return View::make($view,$view_params);
     }
 }
