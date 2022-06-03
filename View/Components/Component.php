@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\View;
 use Illuminate\View\Component as ViewComponent;
 use Modules\Xot\Services\FileService;
 
@@ -51,8 +52,8 @@ class Component extends ViewComponent {
         if (null === $view) {
             throw new \Exception('not exists '.$views[0].' or '.$views[1]);
         }
-        $view_params=[];
-        //return view()->make($view);
-        return View::make($view,$view_params);
+        $view_params = [];
+        // return view()->make($view);
+        return View::make($view, $view_params);
     }
 }
