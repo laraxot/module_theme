@@ -7,12 +7,8 @@ namespace Modules\Theme\View\Components;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
-<<<<<<< HEAD
-=======
 use Illuminate\View\Component as ViewComponent;
->>>>>>> 1a1cdb1c3d54898e7ab5a900efc7d76cfd2aef9b
 use Modules\Xot\Services\FileService;
-use Illuminate\View\Component as ViewComponent;
 
 /**
  * Class Component.
@@ -57,17 +53,11 @@ class Component extends ViewComponent {
         if (null === $view) {
             throw new Exception('not exists '.$views[0].' or '.$views[1]);
         }
-<<<<<<< HEAD
         $view_params=[];
         if(!is_string($view)){
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         //return view()->make($view);
         return View::make($view,$view_params);
-=======
-        $view_params = [];
-        // return view()->make($view);
-        return View::make($view, $view_params);
->>>>>>> 1a1cdb1c3d54898e7ab5a900efc7d76cfd2aef9b
     }
 }
