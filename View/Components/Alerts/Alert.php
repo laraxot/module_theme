@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Alerts;
 
-use Illuminate\Contracts\View\View;
+use Exception;
 use Illuminate\Support\Arr;
+use Illuminate\Contracts\View\View;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
@@ -25,14 +26,20 @@ class Alert extends XotBaseComponent {
     }
 
     public function message(): string {
-        return (string) Arr::first($this->messages());
+        $res= Arr::first($this->messages());
+        if(!is_string($res)){
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
+        return $res;
     }
 
     public function messages(): array {
-        return (array) session()->get($this->type);
+        //return (array) session()->get($this->type);
+        return [];//------------ TO FIX -----------------
     }
 
     public function exists(): bool {
-        return session()->has($this->type) && ! empty($this->messages());
+        //return session()->has($this->type) && ! empty($this->messages());
+        return false; //-------------- TO FIX --------------
     }
 }

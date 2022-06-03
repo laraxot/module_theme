@@ -21,7 +21,7 @@ class Article extends Component {
      *
      * @return void
      */
-    public function __construct(?Model $row, ?string $class = '', ?string $style = '', ?string $id = '') {
+    public function __construct(Model $row, ?string $class = '', ?string $style = '', ?string $id = '') {
         $this->attrs['class'] = $class;
         $this->attrs['style'] = $style;
         $this->attrs['id'] = $id;

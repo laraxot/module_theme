@@ -12,9 +12,9 @@ use Illuminate\View\Component;
  */
 class PlaceHeader extends Component {
 
-    public string ?$img;
-    public string ?$title;
-    public string ?$sutitle;
+    public ?string $img;
+    public ?string $title;
+    public ?string $subtitle;
 
     /**
      * Create a new component instance.

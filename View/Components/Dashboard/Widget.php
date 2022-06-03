@@ -6,6 +6,7 @@ namespace Modules\Theme\View\Components\Dashboard;
 
 use Exception;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\View;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Renderable;
 
@@ -23,6 +24,7 @@ class Widget extends Component {
      * --.
      */
     public function render():Renderable {
+        /*
         $componentClass = '\Modules\\'.$this->area->getAttributeValue('area_define_name').'\View\Components\Dashboard\Item';
 
         // return $componentClass;
@@ -31,6 +33,8 @@ class Widget extends Component {
         }
         //Cannot call method render() on mixed
         return app()->make($componentClass)->render();
+        */
+        return View::make('theme::components.empty');
     }
 
     public function shouldRender(): bool {

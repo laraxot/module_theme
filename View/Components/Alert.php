@@ -7,10 +7,11 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Contracts\View\View;
+use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\Session\Session;
 
 /**
  * Undocumented class.
@@ -53,11 +54,20 @@ class Alert extends Component {
     }
 
     public function message(): string {
-        return (string) Arr::first($this->messages());
+        $res= Arr::first($this->messages());
+        if(!is_string($res)){
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
+        return $res;
     }
 
     public function messages(): array {
-        return (array) session()->get($this->type);
+        //Cannot call method get() on mixed.
+        //return (array) session()->get($this->type);
+        //return (array) Session::get($this->type);
+        //return $this->session->get($this->type);
+        //------------- TO FIX --------------------
+        return [];
     }
 
     /*

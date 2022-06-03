@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Illuminate\Contracts\View\View;
+use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 /**
  * Class Avatar.
@@ -34,14 +35,20 @@ class Avatar extends Component {
     }
 
     public function message(): string {
-        return (string) Arr::first($this->messages());
+        $res= Arr::first($this->messages());
+        if(!is_string($res)){
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
+        return $res;
     }
 
     public function messages(): array {
-        return (array) session()->get($this->type);
+        //return (array) session()->get($this->type);
+        return []; //////------------ to fix ------------
     }
 
     public function exists(): bool {
-        return session()->has($this->type) && ! empty($this->messages());
+        //return session()->has($this->type) && ! empty($this->messages());
+        return false; //------------- to fix -----------
     }
 }
