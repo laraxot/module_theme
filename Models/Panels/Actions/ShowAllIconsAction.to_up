@@ -26,9 +26,16 @@ class ShowAllIconsAction extends XotBasePanelAction {
 
     public function handle() {
         //$html_icon = ThemeService::renderIcon(ThemeService::tenantConfig('icons.tree.'.$name_icon));
-
-        if (TenantService::config('icons.'.TenantService::config('xra.adm_theme'))) {
-            $folder = TenantService::config('icons.'.TenantService::config('xra.adm_theme').'.folder');
+        /**
+         * @var string
+         */
+        $adm_theme=config('xra.adm_theme');
+        $icons=config('icons.'.$adm_theme);
+        if ($icons) {
+            /**
+             * @var string
+             */
+            $folder = config('icons.'.$adm_theme.'.folder');
             if (File::exists($folder)) {
                 $this->checkDirectories($folder);
             //$this->checkFiles($folder);

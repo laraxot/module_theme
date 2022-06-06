@@ -46,7 +46,7 @@ class MenuItemPanel extends XotBasePanel {
      * quando aggiungi un campo select, è il numero della chiave
      * che viene messo come valore su value="id"
      *
-     * @param Modules\Theme\Models\MenuItem $row
+     * @param \Modules\Theme\Models\MenuItem $row
      *
      * @return int|string|null
      */
