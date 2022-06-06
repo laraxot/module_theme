@@ -26,6 +26,9 @@ final class NotificationCount extends Component {
         } else {
             $this->count = 0;
         }
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.notification_count';
         $view_params = [
             'count' => $this->count,

@@ -52,6 +52,9 @@ class Panel extends Component {
      * Render the component.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.card.result.panel';
         $txt = substr($this->txt, $this->pos - 50, 100);
         $txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);

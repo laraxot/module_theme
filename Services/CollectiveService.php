@@ -121,7 +121,11 @@ class CollectiveService {
 
     public static function registerMacros(string $macros_dir): void {
         // $macros_dir = __DIR__.'/../Macros';
-        Collection::make(glob($macros_dir.'/*.php'))
+        $files=glob($macros_dir.'/*.php');
+        if($files==false){
+            $files=[];
+        }
+        Collection::make($files)
             ->mapWithKeys(
                 function ($path) {
                     if (false !== $path) {

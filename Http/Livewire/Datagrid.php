@@ -84,6 +84,9 @@ class Datagrid extends Component {
     */
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.datagrid';
         $model = app($this->model_class);
         $join_on = '';

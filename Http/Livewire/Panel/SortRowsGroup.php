@@ -63,6 +63,9 @@ class SortRowsGroup extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.panel.sort-rows-group';
 
         $view_params = [

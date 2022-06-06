@@ -31,6 +31,9 @@ final class LikeArticle extends Component {
     }
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.like-article';
 
         $view_params = [

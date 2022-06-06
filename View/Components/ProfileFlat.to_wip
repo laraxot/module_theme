@@ -40,6 +40,9 @@ class ProfileFlat extends Component {
      *
          */
     public function render():\Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.profile-flat';
 
         $view_params = [

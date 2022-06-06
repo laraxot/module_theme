@@ -24,6 +24,9 @@ class SortAction extends XotBasePanelAction {
         // return $view;
 
         // return 'preso';
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::admin.index.acts.sort';
         $view_params = [
             'view' => $view,

@@ -78,6 +78,9 @@ class DatagridEditable extends Component {
      * @return \Illuminate\Contracts\View\View
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.datagrid_editable';
         $view_params = [
             'view' => $view,

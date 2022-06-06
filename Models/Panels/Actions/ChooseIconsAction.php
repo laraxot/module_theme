@@ -25,8 +25,10 @@ class ChooseIconsAction extends XotBasePanelAction
     {
         
         $view=ThemeService::getView();
-
-        $icons=TenantService::config('icons');  
+        /**
+         * @var array
+         */
+        $icons=config('icons');  
         
         $adm_theme=config('xra.adm_theme');
 

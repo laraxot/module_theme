@@ -19,6 +19,9 @@ class ArrowButton extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.button.arrow-button';
         $view_params = ['view' => $view];
 

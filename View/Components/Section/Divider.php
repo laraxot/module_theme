@@ -33,6 +33,9 @@ class Divider extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.section.divider';
         $view_params = [
             'view' => $view,

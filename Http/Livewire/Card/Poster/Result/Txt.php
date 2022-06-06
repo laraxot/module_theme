@@ -80,6 +80,9 @@ class Txt extends Component {
      * Render the component.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.card.poster.result.txt';
 
         $this->setUrlQ();

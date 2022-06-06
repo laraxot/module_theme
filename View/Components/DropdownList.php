@@ -42,6 +42,9 @@ class DropdownList extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.dropdown-list';
 
         $view_params = [

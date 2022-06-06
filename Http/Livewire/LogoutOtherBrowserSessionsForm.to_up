@@ -123,6 +123,9 @@ class LogoutOtherBrowserSessionsForm extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'profile.logout-other-browser-sessions-form';
 
         return view()->make($view);

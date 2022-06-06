@@ -443,6 +443,9 @@ class ThemeService
      */
     public static function metatags()
     {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::metatags';
 
         return (string) view($view);
@@ -552,6 +555,9 @@ class ThemeService
         $files = File::files($mod_path);
         $data = [];
         $ns = 'Modules\\' . $mod->getName() . '\\Models';  // con la barra davanti non va il search ?
+        /**
+         * @var array<int,string>
+         */
         $models = config('morph_map');
 
         // dddx($model_coll);
@@ -634,7 +640,10 @@ class ThemeService
             $path = str_replace('admin.'.$mod.'.', 'admin.', $path);
             $view = $mod.'::'.$path;
         } else {
-            $view = 'pub_theme::'.$path;
+             
+         @phpstan-var view-string
+        
+        $view = 'pub_theme::'.$path;
         }
         */
 
@@ -1515,8 +1524,7 @@ class ThemeService
         return (string) (SvgService::getSVG($filepath, $class));
     }
 
-    public static function getThemeType($theme_type)
-    {
+    public static function getThemeType(string $theme_type): string {
         $xot = config('xra');
         if (!\is_array($xot)) {
             //throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');

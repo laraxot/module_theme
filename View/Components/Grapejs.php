@@ -19,6 +19,9 @@ class Grapejs extends XotBaseComponent {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.grapejs';
         $view_params = [
             'view' => $view,

@@ -23,6 +23,9 @@ class Poster extends Component {
      * --.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.card.poster';
         $view_params = [
             'view' => $view,

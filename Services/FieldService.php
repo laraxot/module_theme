@@ -118,9 +118,10 @@ class FieldService extends BaseFieldService {
     }
 
     /**
-     * @return \Illuminate\Contracts\Support\Renderable|string|void
+     * phpstan-param view-string $view
+     * @return string 
      */
-    public function getView() {
+    public function getView(): string {
         $type = Str::snake($this->type);
         $start = 'theme::livewire.fields.';
         $views = [];
@@ -136,7 +137,7 @@ class FieldService extends BaseFieldService {
                 return \View::exists($view_check);
             }
         );
-        if (false === $view) {
+        if (false == $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -172,7 +173,10 @@ class FieldService extends BaseFieldService {
     public function html(array $form_data = [], ?Model $row = null): Renderable {
         /**
          * @XOT //$form_data non dovrebbe servire
-         * $view = 'theme::livewire.fields.'.$this->type.'.field';
+         * /** 
+        * @phpstan-var view-string
+        */
+        $view = 'theme::livewire.fields.'.$this->type.'.field';
          */
         $type = Str::snake($this->type);
         $start = 'theme::livewire.fields.';
@@ -189,7 +193,7 @@ class FieldService extends BaseFieldService {
                 return \View::exists($view_check);
             }
         );
-        if (false === $view) {
+        if (null === $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',

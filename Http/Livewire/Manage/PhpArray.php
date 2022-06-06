@@ -108,6 +108,9 @@ class PhpArray extends Component {
     }
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.manage.php-array';
         $view_params = [
             'view' => $view,

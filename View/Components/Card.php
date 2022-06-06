@@ -73,6 +73,9 @@ class Card extends Component {
         /**
          * var view-string|null
          */
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.card';
         if (null !== $this->type) {
             $view .= '.'.$this->type;

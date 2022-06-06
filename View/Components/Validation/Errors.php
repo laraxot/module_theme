@@ -24,6 +24,9 @@ class Errors extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): ViewContract {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.validation.errors';
         $view_params = [
             'view' => $view,

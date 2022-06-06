@@ -204,6 +204,9 @@ class V1 extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.calendar.v1';
         $view_params = [
             'view' => $view,

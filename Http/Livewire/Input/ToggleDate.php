@@ -31,6 +31,9 @@ class ToggleDate extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.input.toggle-date';
         $view_params = [
             'view' => $view,

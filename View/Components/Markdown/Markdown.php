@@ -70,8 +70,11 @@ class Markdown extends XotBaseComponent {
 
     protected function generateAnchors(string $markdown): string {
         preg_match_all('(```[a-z]*\n[\s\S]*?\n```)', $markdown, $matches);
-
-        collect($matches[0] ?? [])->each(
+        /**
+         * @var array
+         */
+        $anchors=$matches[0] ?? [];
+        collect($anchors)->each(
             function (string $match, int $index) use (&$markdown) {
                 $markdown = str_replace($match, "<!--code-block-$index-->", $markdown);
             }
@@ -100,8 +103,11 @@ class Markdown extends XotBaseComponent {
                 }
             )
             ->implode(PHP_EOL);
-
-        collect($matches[0] ?? [])->each(
+        /**
+         * @var array
+         */
+        $data=$matches[0] ?? [];
+        collect($data)->each(
             function (string $match, int $index) use (&$markdown) {
                 $markdown = str_replace("<!--code-block-$index-->", $match, $markdown);
             }

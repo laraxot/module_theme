@@ -142,8 +142,15 @@ class FormXService {
 
         $tmp = Str::snake($field->type);
 
-        // $view = 'theme::includes.components.input.'.$tmp.'.freeze';
+        /* 
+        * @phpstan-var view-string
+        
+        $view = 'theme::includes.components.input.'.$tmp.'.freeze';
+        */
         /*
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::collective.fields.'.$tmp.'.freeze';
 
         if (isset($field->sub_type)) {
@@ -249,12 +256,14 @@ class FormXService {
                 $pivot_class = $rows->getPivotClass();
                 // $pivot = new $pivot_class();
                 //dddx($pivot_class);
-                //$pivot = app($pivot_class);
+                $pivot = app($pivot_class);
+                /*
                 if (is_object($pivot_class)) {
                     $pivot = $pivot_class;
                 } else {
                     $pivot = app($pivot_class);
                 }
+                */
 
                 //dddx($pivot);
                 $pivot_panel = ThemeService::panelModel($pivot);
@@ -423,9 +432,9 @@ class FormXService {
         }
 
         if (isset($modal)) {
-            if ('' === $data_title) {
+            //if (strlen((string)$data_title) <1 ) {
                 $title = trans($module_name.'::'.strtolower(class_basename($row)).'.act.'.$act);
-            }
+            //}
         }
 
         if (isset($guest_url) && ! \Auth::check()) {

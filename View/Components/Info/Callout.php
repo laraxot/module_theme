@@ -44,6 +44,9 @@ class Callout extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.info.callout';
 
         $view_params = [

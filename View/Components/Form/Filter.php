@@ -33,6 +33,9 @@ class Filter extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.form.filter';
 
         $view_params = [

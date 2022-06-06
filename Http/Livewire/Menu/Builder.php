@@ -36,6 +36,9 @@ class Builder extends Component {
             $this->role_pk = config('menu.roles_pk');
             $this->role_title_field = config('menu.roles_title_field');
         }
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.menu.builder';
 
         return view($view);

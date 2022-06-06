@@ -24,6 +24,9 @@ class Form extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.forms.form';
 
         return view()->make($view);

@@ -13,6 +13,9 @@ use Illuminate\View\Component;
  */
 class Item extends Component {
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::empty';
         $view_params = [
             'view' => $view,

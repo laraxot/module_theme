@@ -70,6 +70,9 @@ class BodyView extends Component {
     }
 
     public function render() {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.modal.body_view';
 
         $view_params = [

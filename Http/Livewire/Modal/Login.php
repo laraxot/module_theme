@@ -30,6 +30,9 @@ class Login extends Component {
     }
 
     public function render(): View {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.modal.login';
         $view_params = [
             'view' => $view,

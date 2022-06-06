@@ -53,6 +53,9 @@ class Pikaday extends Input {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.forms.inputs.pikaday';
 
         return view()->make($view);

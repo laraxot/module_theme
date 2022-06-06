@@ -36,6 +36,9 @@ class Create extends Component {
      * Render the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.panel.create';
 
         $view_params = [

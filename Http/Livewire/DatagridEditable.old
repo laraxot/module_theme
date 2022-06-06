@@ -59,6 +59,9 @@ class DatagridEditable extends Component {
     }
 
     public function render(): View {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'formx::livewire.datagrid_editable';
         $view_params = [
             'view' => $view,

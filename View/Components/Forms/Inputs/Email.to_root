@@ -15,6 +15,9 @@ class Email extends Input {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.forms.inputs.email';
 
         return view()->make($view);

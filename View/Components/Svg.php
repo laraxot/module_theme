@@ -83,6 +83,9 @@ class Svg extends Component {
             throw new \Exception('svg ['.$svg_path.'] is strange ['.__LINE__.']['.__FILE__.']');
         }
 
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.svg';
         $view_params = [
             'view' => $view,

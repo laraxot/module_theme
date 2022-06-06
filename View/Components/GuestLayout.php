@@ -12,7 +12,15 @@ class GuestLayout extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        // $view = 'pub_theme::components.layouts.guest';
+        /* 
+        * @phpstan-var view-string
+        
+        $view = 'pub_theme::components.layouts.guest';
+        */
+        
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.layouts.guest';
         $view_params = [
             'view' => $view,

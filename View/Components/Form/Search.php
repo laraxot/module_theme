@@ -28,6 +28,9 @@ class Search extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.form.search';
         if (null !== $this->type) {
             $view .= '.'.$this->type;

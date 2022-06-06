@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Traits\SushiConfigCrud;
 use Sushi\Sushi;
@@ -54,11 +55,11 @@ class Menu extends Model {
         return $rows;
     }
 
-    public static function byName($name) {
+    public static function byName(string $name):?Menu {
         return self::where('name', '=', $name)->first();
     }
 
-    public function items() {
+    public function items():Builder {
         return $this->hasMany(MenuItem::class, 'menu')
             ->with('child')
             ->where(function ($query) {

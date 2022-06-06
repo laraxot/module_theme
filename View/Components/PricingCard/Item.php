@@ -20,6 +20,9 @@ class Item extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.pricing_card.item';
         $view_params = [
             'view' => $view,

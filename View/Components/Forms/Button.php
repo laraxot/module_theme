@@ -19,6 +19,9 @@ class Button extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.forms.button';
 
         return view()->make($view);

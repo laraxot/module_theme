@@ -83,6 +83,9 @@ class V1 extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.datagrid_editable.v1';
         $view_params = [
             'view' => $view,

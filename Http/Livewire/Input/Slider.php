@@ -39,6 +39,9 @@ class Slider extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.input.slider.'.$this->driver;
         $view_params = [
             'view' => $view,

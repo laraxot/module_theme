@@ -24,6 +24,9 @@ class Edit extends XotBaseComponent {
     }
 
     public function render(): View {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.button.edit';
         $view_params = [
             'view' => $view,

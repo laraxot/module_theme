@@ -79,6 +79,9 @@ class Phonecall extends Component {
     }
 
     public function render() {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.modal.form.phonecall';
 
         $view_params = [

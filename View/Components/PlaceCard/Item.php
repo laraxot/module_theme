@@ -35,6 +35,9 @@ class Item extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.place_card.item';
 
         $view_params = [

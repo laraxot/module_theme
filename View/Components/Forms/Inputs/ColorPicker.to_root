@@ -24,6 +24,9 @@ class ColorPicker extends Input {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.forms.inputs.color-picker';
 
         return view()->make($view);

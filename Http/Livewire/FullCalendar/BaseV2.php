@@ -168,6 +168,9 @@ abstract class BaseV2 extends Component {
         $beforeCalendarView = null,
         $afterCalendarView = null
     ): void {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.full_calendar.v2';
 
         $this->calendarView = $calendarView ?? $view.'.calendar';

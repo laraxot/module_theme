@@ -13,6 +13,9 @@ use Illuminate\View\Component;
  */
 class CardLogo extends Component {
     public function render() {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.authentication.card-logo';
         $view_params = [
             'view' => $view,

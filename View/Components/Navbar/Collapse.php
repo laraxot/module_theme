@@ -32,6 +32,9 @@ class Collapse extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.navbar.collapse';
 
         $view_params = [

@@ -26,6 +26,9 @@ class Avatar extends Component {
     }
 
     public function render(): View {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.avatar.circle';
         $view_params = [
             'view' => $view,

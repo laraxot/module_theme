@@ -38,6 +38,9 @@ class Gallery extends XotBaseComponent {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.gallery.'.$this->type;
         $view_params = [
             'view' => $view,

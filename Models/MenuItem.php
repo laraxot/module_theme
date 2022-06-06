@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Xot\Traits\SushiConfigCrud;
 use Sushi\Sushi;
 
@@ -92,25 +95,25 @@ class MenuItem extends Model {
     }
     */
 
-    public function getsons($id) {
+    public function getsons(string $id):Collection {
         return $this->where('parent', $id)->get();
     }
 
-    public function getall($id) {
+    public function getall(string $id):Collection {
         return $this->where('menu', $id)
             ->orderBy('sort', 'asc')
             ->get();
     }
 
-    public static function getNextSortRoot($menu) {
-        return self::where('menu', $menu)->max('sort') + 1;
+    public static function getNextSortRoot(string $menu):int {
+        return (int)self::where('menu', $menu)->max('sort') + 1;
     }
 
-    public function parent_menu() {
+    public function parent_menu():BelongsTo {
         return $this->belongsTo(Menu::class, 'menu');
     }
 
-    public function child() {
+    public function child():HasMany {
         return $this->hasMany(self::class, 'parent')
             ->orderBy('sort', 'ASC');
     }

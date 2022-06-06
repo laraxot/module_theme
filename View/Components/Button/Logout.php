@@ -20,6 +20,9 @@ class Logout extends XotBaseComponent {
 
     public function render(): View {
         // $view = $this->getView();
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.button.logout';
         $view_params = [
             'view' => $view,

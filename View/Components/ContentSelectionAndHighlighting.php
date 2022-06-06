@@ -27,6 +27,9 @@ class ContentSelectionAndHighlighting extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.content_selection_and_highlighting.'.$this->content;
         $view_params = [
             'view' => $view,

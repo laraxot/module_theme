@@ -23,6 +23,9 @@ class Color extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.input.list.color';
         $view_params = [
             'view' => $view,

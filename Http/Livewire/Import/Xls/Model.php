@@ -72,6 +72,9 @@ class Model extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.import.xls.model';
         $view_params = [];
 

@@ -27,6 +27,9 @@ class Submit extends Component {
     }
 
     public function render(): View {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.input.submit';
         $view_params = [
             'view' => $view,

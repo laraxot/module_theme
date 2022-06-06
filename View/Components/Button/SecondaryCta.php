@@ -19,6 +19,9 @@ class SecondaryCta extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.button.secondary-cta';
         $view_params = ['view' => $view];
 

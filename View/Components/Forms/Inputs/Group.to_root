@@ -31,6 +31,9 @@ class Group extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.inputs.group';
         $view_params = [
             'view' => $view,

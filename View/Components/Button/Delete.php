@@ -24,6 +24,9 @@ class Delete extends Component {
     }
 
     public function render(): View {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.button.delete';
         $view_params = [
             'view' => $view,

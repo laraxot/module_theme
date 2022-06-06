@@ -31,6 +31,9 @@ class InputField extends Component {
     public function render(): \Illuminate\Contracts\Support\Renderable {
         $type = $this->field->type;
         $type = Str::snake($type);
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.fields.'.$type.'.field';
         $view_params = [
             'view' => $view,

@@ -31,6 +31,9 @@ class Search extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.index_nav.search'; // .'.$this->type;
 
         $view_params = [

@@ -22,6 +22,9 @@ class Item extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.accordion.item';
         $view_params = [
             'view' => $view,

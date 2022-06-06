@@ -29,6 +29,9 @@ class Personal extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.users.personal';
         $view_params = [
             'view' => $view,

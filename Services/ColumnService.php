@@ -139,7 +139,7 @@ class ColumnService {
                 return \View::exists($view_check);
             }
         );
-        if (false === $view) {
+        if (null === $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',

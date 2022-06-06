@@ -31,6 +31,9 @@ class PlaceHeader extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.place_header';
 
         $view_params = [

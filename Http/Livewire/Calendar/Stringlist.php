@@ -261,6 +261,9 @@ class Stringlist extends Component {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.calendar.string_list';
         // dddx($this->date_list);
         $view_params = [

@@ -19,6 +19,9 @@ class Label extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.forms.label';
 
         return view()->make($view);

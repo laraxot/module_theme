@@ -43,6 +43,9 @@ class Create extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::livewire.crud.create';
 
         $view_params = [

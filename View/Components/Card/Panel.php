@@ -27,6 +27,9 @@ class Panel extends Component {
      * --.
      */
     public function render(): Renderable {
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.card.panel';
         $view_params = [
             'view' => $view,

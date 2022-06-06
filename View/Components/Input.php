@@ -195,6 +195,9 @@ class Input extends Component {
         $type = $this->field->type;
 
         $type = Str::snake($type);
+        /** 
+        * @phpstan-var view-string
+        */
         $view = 'theme::components.input.'.$type.'.field';
 
         $view_params = get_object_vars($this->field);
