@@ -85,14 +85,24 @@ class CollectiveService {
 
     public static function registerComponents(string $path = '', string $namespace = '', string $prefix = ''): void {
         $comps = self::getComponents($path, $namespace, $prefix, false);
-
+        /*
         $blade_component = 'components.blade.input';
         if (inAdmin()) {
             $blade_component = 'adm_theme::layouts.'.$blade_component;
         } else {
             $blade_component = 'pub_theme::layouts.'.$blade_component;
         }
-
+        */
+        $blade_component_piece = 'collective.fields.group';
+        if (inAdmin()) {
+            $blade_component = 'adm_theme::'.$blade_component_piece;
+            
+        } else {
+            $blade_component = 'pub_theme::'.$blade_component_piece;
+        }
+        FileService::viewCopy('theme::'.$blade_component_piece, $blade_component);
+        
+        
         foreach ($comps as $comp) {
             Form::component(
                 $comp->name,
