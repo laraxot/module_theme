@@ -29,6 +29,11 @@ class Coll extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        return view('theme::livewire.sort.coll');
+        /**
+         * @phpstan-var view-string
+         */
+        $view='theme::livewire.sort.coll';
+        $view_params=[];
+        return view($view,$view_params);
     }
 }
