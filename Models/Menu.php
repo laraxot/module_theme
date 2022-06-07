@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models;
 
-use Illuminate\Contracts\Database\Eloquent\Builder;
+
+use Sushi\Sushi;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Traits\SushiConfigCrud;
-use Sushi\Sushi;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Modules\Theme\Models\Menu
