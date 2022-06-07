@@ -862,10 +862,8 @@ class ThemeService
     }
 
     /**
-     * @return string
      */
-    public static function getViewWork(array $params = [])
-    {
+    public static function getViewWork(array $params = []):string   {
         $views = self::getDefaultViewArray($params);
         $view_work = collect($views)->first(
             function ($view_check) {
