@@ -6,9 +6,11 @@ namespace Modules\Theme\Models;
 
 
 use Sushi\Sushi;
+use Modules\Theme\Models\MenuItem;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Traits\SushiConfigCrud;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Modules\Theme\Models\Menu
@@ -60,7 +62,12 @@ class Menu extends Model {
         return self::where('name', '=', $name)->first();
     }
 
-    public function items():Builder {
+    /**
+     * Undocumented function
+     *
+     * @return  HasMany<MenuItem>
+     */
+    public function items():HasMany {
         return $this->hasMany(MenuItem::class, 'menu')
             ->with('child')
             ->where(function ($query) {
