@@ -17,12 +17,12 @@ use Sushi\Sushi;
  * @property int $id
  * @property string|null $label
  * @property string|null $link
- * @property float|null $menu
+ * @property int|null $parent
  * @property int|null $sort
- * @property string|null $parent
  * @property string|null $class
- * @property string|null $depth
- * @property string|null $role_id
+ * @property int|null $menu
+ * @property int|null $depth
+ * @property int|null $role_id
  * @property-read Collection|MenuItem[] $child
  * @property-read int|null $child_count
  * @property-read \Modules\Theme\Models\Menu|null $parent_menu
