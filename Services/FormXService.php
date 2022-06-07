@@ -142,15 +142,14 @@ class FormXService {
 
         $tmp = Str::snake($field->type);
 
-        /* 
+        /*
         * @phpstan-var view-string
-        
+
         $view = 'theme::includes.components.input.'.$tmp.'.freeze';
         */
         /*
-        /** 
-        * @phpstan-var view-string
-        */
+        /*
+
         $view = 'theme::collective.fields.'.$tmp.'.freeze';
 
         if (isset($field->sub_type)) {
@@ -252,10 +251,10 @@ class FormXService {
             $view_params['manage_url'] = $url;
 
             if (method_exists((object) $rows, 'getPivotClass')) {
-                //dddx($rows);
+                // dddx($rows);
                 $pivot_class = $rows->getPivotClass();
                 // $pivot = new $pivot_class();
-                //dddx($pivot_class);
+                // dddx($pivot_class);
                 $pivot = app($pivot_class);
                 /*
                 if (is_object($pivot_class)) {
@@ -265,7 +264,7 @@ class FormXService {
                 }
                 */
 
-                //dddx($pivot);
+                // dddx($pivot);
                 $pivot_panel = ThemeService::panelModel($pivot);
                 // ogni tanto ThemeService::panelModel($pivot) rilascia una stringa e non un oggetto
                 // ci ho messo una pezza, ma forse dovrebbe aggiornare morph_map?
@@ -432,9 +431,9 @@ class FormXService {
         }
 
         if (isset($modal)) {
-            //if (strlen((string)$data_title) <1 ) {
-                $title = trans($module_name.'::'.strtolower(class_basename($row)).'.act.'.$act);
-            //}
+            // if (strlen((string)$data_title) <1 ) {
+            $title = trans($module_name.'::'.strtolower(class_basename($row)).'.act.'.$act);
+            // }
         }
 
         if (isset($guest_url) && ! \Auth::check()) {

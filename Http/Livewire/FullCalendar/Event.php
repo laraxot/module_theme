@@ -64,8 +64,6 @@ class Event extends XotBaseComponent {
     }
 
     /**
-     * @param string|null $info
-     *
      * @throws \Exception
      */
     public function getEvents(array $info): array {

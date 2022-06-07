@@ -13,6 +13,7 @@ use Livewire\Component;
  */
 class Txt extends Component {
     public string $txt;
+    public string $url;
     public string $q;
     public int $pos = 0; // posizione della parola nella stringa
     public int $n = 0; // numero di ricorrenze totali della parola nella stringa
@@ -80,9 +81,9 @@ class Txt extends Component {
      * Render the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.card.poster.result.txt';
 
         $this->setUrlQ();

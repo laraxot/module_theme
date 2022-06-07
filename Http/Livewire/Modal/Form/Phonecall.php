@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Modal\Form;
 
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Modules\Cybersecurity\Mail\MyTestMail;
 
@@ -14,6 +15,10 @@ class Phonecall extends Component {
     public string $title;
     public bool $show = false;
     public string $body_view;
+    public string $popup_subtitle;
+    public string $popup_title;
+    public string $popup_button;
+    public string $color;
 
     protected $listeners = ['doSend' => 'doSend'];
 
@@ -72,16 +77,17 @@ class Phonecall extends Component {
 
         $to_email = 'pentesting@cybersec00.com';
 
-        \Mail::to($to_email)->send(new MyTestMail($details));
+        // ---------- schifo
+        // Mail::to($to_email)->send(new MyTestMail($details));
 
         $this->emitTo('theme::modal.body-view', 'sendMessage', 'Messaggio Inviato');
         // $this->emitTo('theme::modal.body-view', 'doClose');
     }
 
     public function render() {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.modal.form.phonecall';
 
         $view_params = [

@@ -23,16 +23,14 @@ use Modules\Xot\Services\FileService;
 /**
  * Class ThemeServiceProvider.
  */
-class ThemeServiceProvider extends XotBaseServiceProvider
-{
+class ThemeServiceProvider extends XotBaseServiceProvider {
     protected string $module_dir = __DIR__;
 
     protected string $module_ns = __NAMESPACE__;
 
     public string $module_name = 'theme';
 
-    public function bootCallback(): void
-    {
+    public function bootCallback(): void {
         $this->registerNamespaces('adm_theme');
         $this->registerNamespaces('pub_theme');
 
@@ -44,7 +42,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider
 
         $this->bootThemeProvider('pub_theme');
 
-        BladeService::registerComponents($this->module_dir . '/../View/Components', 'Modules\\Theme');
+        BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Theme');
 
         $this->registerCollective();
 
@@ -56,15 +54,14 @@ class ThemeServiceProvider extends XotBaseServiceProvider
         Paginator::useBootstrap();
     }
 
-    public function registerCollective(): void
-    {
+    public function registerCollective(): void {
         CollectiveService::registerComponents(
-            $this->module_dir . '/../Resources/views/collective/fields',
+            $this->module_dir.'/../Resources/views/collective/fields',
             '',
-            $this->module_name . '::',
+            $this->module_name.'::',
         );
 
-        CollectiveService::registerMacros($this->module_dir . '/../Macros');
+        CollectiveService::registerMacros($this->module_dir.'/../Macros');
     }
 
     /**
@@ -72,29 +69,26 @@ class ThemeServiceProvider extends XotBaseServiceProvider
      *
      * @return void
      */
-    public function bootThemeProvider(string $theme_type)
-    {
+    public function bootThemeProvider(string $theme_type) {
         $xot = config('xra');
 
         // $xot = TenantService::config('xra');
-        if (!\is_array($xot)) {
-            //throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+        if (! \is_array($xot)) {
+            // throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             $xot = [];
         }
-        if (!isset($xot[$theme_type])) {
+        if (! isset($xot[$theme_type])) {
             return;
         }
         $theme = $xot[$theme_type];
-        if (!File::exists(base_path('Themes/' . $theme))) {
-            throw new Exception('[' . base_path('Themes/' . $theme) . ' not exists][' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+        if (! File::exists(base_path('Themes/'.$theme))) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
-
-            return;
+            throw new Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
         }
-        $provider = 'Themes\\' . $theme . '\Providers\\' . $theme . 'ServiceProvider';
-        if (!class_exists($provider)) {
-            throw new \Exception('class not exists [' . $provider . '][' . __LINE__ . '][' . basename(__FILE__) . ']');
+        $provider = 'Themes\\'.$theme.'\Providers\\'.$theme.'ServiceProvider';
+        if (! class_exists($provider)) {
+            throw new \Exception('class not exists ['.$provider.']['.__LINE__.']['.basename(__FILE__).']');
         }
 
         $provider = new $provider();
@@ -109,8 +103,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider
      *
      * @return void
      */
-    public function registerNamespaces(string $theme_type)
-    {
+    public function registerNamespaces(string $theme_type) {
         $xot = config('xra');
 
         /*
@@ -119,17 +112,17 @@ class ThemeServiceProvider extends XotBaseServiceProvider
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         */
-        if (!isset($xot[$theme_type])) {
+        if (! isset($xot[$theme_type])) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             // TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
         }
         // */
         $theme = $xot[$theme_type];
 
-        $resource_path = 'Themes/' . $theme . '/Resources';
-        $lang_dir = base_path($resource_path . '/lang');
+        $resource_path = 'Themes/'.$theme.'/Resources';
+        $lang_dir = base_path($resource_path.'/lang');
         $lang_dir = FileService::fixPath($lang_dir);
-        $theme_dir = base_path($resource_path . '/views');
+        $theme_dir = base_path($resource_path.'/views');
         $theme_dir = FileService::fixPath($theme_dir);
         // 120    Cannot access offset 'view' on Illuminate\Contracts\Foundation\Application.
         /*
@@ -145,22 +138,21 @@ class ThemeServiceProvider extends XotBaseServiceProvider
         $this->loadTranslationsFrom($lang_dir, $theme_type);
     }
 
-    public function registerThemeConfig(string $theme_type): void
-    {
+    public function registerThemeConfig(string $theme_type): void {
         // $xot = TenantService::config('xra');
         $xot = config('xra');
-        if (!\is_array($xot)) {
-            //throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+        if (! \is_array($xot)) {
+            // throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
             $xot = [];
         }
-        if (!isset($xot[$theme_type])) {
+        if (! isset($xot[$theme_type])) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             // TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
         }
         $theme = $xot[$theme_type];
 
-        $config_path = base_path('Themes/' . $theme . '/Config');
-        if (!File::exists($config_path)) {
+        $config_path = base_path('Themes/'.$theme.'/Config');
+        if (! File::exists($config_path)) {
             return;
         }
         $files = File::files($config_path);
@@ -168,37 +160,35 @@ class ThemeServiceProvider extends XotBaseServiceProvider
             $name = $file->getFilenameWithoutExtension();
             $real_path = $file->getRealPath();
             if (false === $real_path) {
-                throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+                throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
             $data = File::getRequire($real_path);
-            Config::set($theme_type . '::' . $name, $data);
+            Config::set($theme_type.'::'.$name, $data);
         }
     }
 
-    public function registerCallback(): void
-    {
+    public function registerCallback(): void {
         $loader = AliasLoader::getInstance();
         $loader->alias('Theme', 'Modules\Theme\Services\ThemeService');
 
         // $this->registerViewComposers();
     }
 
-    private function registerViewComposers(): void
-    {
+    private function registerViewComposers(): void {
         $xot = config('xra');
         // $xot = TenantService::config('xra');
-        if (!\is_array($xot)) {
-            //throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+        if (! \is_array($xot)) {
+            // throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
             $xot = [];
         }
         $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
 
         $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
         if (null === $theme) {
-            throw new Exception('iuston gavemo un problema [' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+            throw new Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
-        $custom_composer = '\Themes\\' . $theme . '\View\Composers\ThemeComposer';
+        $custom_composer = '\Themes\\'.$theme.'\View\Composers\ThemeComposer';
         if (class_exists($custom_composer)) {
             View::composer('*', $custom_composer);
 

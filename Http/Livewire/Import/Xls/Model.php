@@ -16,6 +16,8 @@ use SplFileInfo;
 
 /**
  * Class Field.
+ *
+ * @property Collection $data
  */
 class Model extends Component {
     use WithFileUploads;
@@ -27,6 +29,7 @@ class Model extends Component {
 
     public array $fillable;
     public array $fields = [];
+    public array $trans = [];
     public array $form_data = [];
     public string $modelClass;
 
@@ -72,9 +75,9 @@ class Model extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.import.xls.model';
         $view_params = [];
 
@@ -108,7 +111,9 @@ class Model extends Component {
             $values = $v->values()->all();
             $data = array_combine($keys, $values);
 
-            if (false !== $data && false !== $this->fields) {
+            // Result of && is always true.
+            // if (false !== $data && false !== $this->fields) {
+            if (false != $data && false != $this->fields) {
                 $data = array_merge($data, $this->fields);
             }
             // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data]);

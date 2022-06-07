@@ -17,7 +17,7 @@ class Coll extends Component {
     /**
      * Undocumented function.
      *
-     * @param [type] $data
+     * @param Collection $data
      *
      * @return void
      */

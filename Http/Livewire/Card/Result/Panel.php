@@ -7,6 +7,7 @@ namespace Modules\Theme\Http\Livewire\Card\Result;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Modules\Theme\Models\BaseModelLang;
 use Modules\Xot\Contracts\PanelContract;
 
 /**
@@ -26,7 +27,13 @@ class Panel extends Component {
     public function mount(PanelContract $panel, string $q): void {
         // $this->panel = $panel;
         $this->q = $q;
-        $this->txt = $panel->row->txt;
+        // Access to an undefined property Illuminate\Database\Eloquent\Model::$txt
+        // $this->txt = $panel->row->txt;
+        /**
+         * @var BaseModelLang
+         */
+        $row = $panel->row;
+        $this->txt = $row->txt;
         $this->pos = stripos($this->txt, $this->q);
         $this->n = Str::substrCount(strtolower($this->txt), strtolower($q));
     }
@@ -52,9 +59,9 @@ class Panel extends Component {
      * Render the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.card.result.panel';
         $txt = substr($this->txt, $this->pos - 50, 100);
         $txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);

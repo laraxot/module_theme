@@ -23,7 +23,7 @@ use Sushi\Sushi;
  * @property string|null $class
  * @property string|null $depth
  * @property string|null $role_id
- * @property-read \Illuminate\Database\Eloquent\Collection|MenuItem[] $child
+ * @property-read Collection|MenuItem[] $child
  * @property-read int|null $child_count
  * @property-read \Modules\Theme\Models\Menu|null $parent_menu
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newModelQuery()

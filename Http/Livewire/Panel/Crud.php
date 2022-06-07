@@ -7,6 +7,7 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Modules\LU\Models\User;
 use Modules\Xot\Contracts\PanelContract;
 
 /**
@@ -18,6 +19,10 @@ class Crud extends Component {
     public array $rules;
     public array $form_data;
     public string $model_name;
+    public bool $updateMode = false;
+    public int $user_id;
+    public string $name;
+    public string $email;
 
     /**
      * Undocumented function.
@@ -43,9 +48,9 @@ class Crud extends Component {
      * Render the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.panel.crud';
 
         $view_params = [
@@ -88,15 +93,13 @@ class Crud extends Component {
     /**
      * Undocumented function.
      *
-     * @param [type] $id
-     *
      * @return void
      */
-    public function edit($id) {
+    public function edit(int $id) {
         $this->updateMode = true;
         $user = User::where('id', $id)->first();
         $this->user_id = $id;
-        $this->name = $user->name;
+        $this->name = $user->first_name;
         $this->email = $user->email;
     }
 

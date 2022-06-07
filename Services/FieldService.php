@@ -118,8 +118,7 @@ class FieldService extends BaseFieldService {
     }
 
     /**
-     * phpstan-param view-string $view
-     * @return string 
+     * phpstan-param view-string $view.
      */
     public function getView(): string {
         $type = Str::snake($this->type);
@@ -171,11 +170,11 @@ class FieldService extends BaseFieldService {
     }
 
     public function html(array $form_data = [], ?Model $row = null): Renderable {
-        /**
+        /*
          * @XOT //$form_data non dovrebbe servire
-         * /** 
+         *
         * @phpstan-var view-string
-        */
+
         $view = 'theme::livewire.fields.'.$this->type.'.field';
          */
         $type = Str::snake($this->type);

@@ -7,13 +7,14 @@ namespace Modules\Theme\Http\Livewire\Input\Status\Select;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
+use Modules\Xot\Contracts\ModelWithStatusContract;
 
 /**
  * Class Single.
  * https://github.com/spatie/laravel-model-status.
  */
 class Single extends Component {
-    public Model $model;
+    public ModelWithStatusContract $model;
     public array $options;
     public string $status = '';
 
@@ -22,7 +23,7 @@ class Single extends Component {
      *
      * @return void
      */
-    public function mount(Model $model, array $options) {
+    public function mount(ModelWithStatusContract $model, array $options) {
         $this->model = $model;
         $this->options = $options;
         $this->status = $model->status;
@@ -32,9 +33,9 @@ class Single extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.input.status.select.single';
         $view_params = [
             'view' => $view,

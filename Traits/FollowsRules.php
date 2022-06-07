@@ -1,14 +1,13 @@
 <?php
+/**
+* @see https://github.com/kdion4891/laravel-livewire-forms/blob/master/src/Traits/FollowsRules.php
+*/
 
 declare(strict_types=1);
 
 namespace Modules\Theme\Traits;
 
 use Modules\Theme\Services\FieldService;
-
-/*
-* https://github.com/kdion4891/laravel-livewire-forms/blob/master/src/Traits/FollowsRules.php
-*/
 
 /**
  * Trait FollowsRules.

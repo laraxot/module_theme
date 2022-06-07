@@ -43,10 +43,10 @@ class BaseFieldService {
 
     protected array $rules = [];
 
-    /** 
-        * @phpstan-var view-string
-        */
-         protected string $view = '';
+    /**
+     * @phpstan-var view-string
+     */
+    protected string $view;
 
     /**
      * @param mixed $property
