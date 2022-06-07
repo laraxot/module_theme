@@ -47,6 +47,7 @@ class Component extends ViewComponent {
 
         $view = Arr::first(
             $views, function ($item) {
+                // Call to an undefined method Illuminate\Contracts\View\Factory|Illuminate\Contracts\View\View::exists()
                 return view()->exists($item);
             }
         );
