@@ -15,6 +15,8 @@ use Modules\Xot\Traits\Updater;
 
 /**
  * Class BaseModelLang.
+ *
+ * @property string|null $post_type
  */
 abstract class BaseModelLang extends Model {
     use HasFactory;
