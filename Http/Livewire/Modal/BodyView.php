@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Modal;
 
+use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 
 /**
@@ -42,6 +43,11 @@ class BodyView extends Component {
         $this->show = false;
     }
 
+    /**
+     * Undocumented function.
+     *
+     * @return void
+     */
     public function sendMessage(string $msg) {
         session()->flash('message', $msg);
     }
@@ -69,10 +75,10 @@ class BodyView extends Component {
         $this->doClose();
     }
 
-    public function render() {
-        /** 
-        * @phpstan-var view-string
-        */
+    public function render(): Renderable {
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.modal.body_view';
 
         $view_params = [

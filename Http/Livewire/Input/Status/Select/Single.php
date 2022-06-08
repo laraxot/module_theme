@@ -54,7 +54,10 @@ class Single extends Component {
         }
 
         if ('' == $this->status) {
-            $this->model->status()->delete(); // returns the latest instance of `Spatie\ModelStatus\Status`
+            $status = $this->model->status();
+            if (null != $status) {
+                $status->delete(); // returns the latest instance of `Spatie\ModelStatus\Status`
+            }
             session()->flash('message', 'Status Removed');
         }
     }

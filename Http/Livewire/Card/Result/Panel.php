@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Card\Result;
 
+use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -33,11 +34,19 @@ class Panel extends Component {
          * @var BaseModelLang
          */
         $row = $panel->row;
-        $this->txt = $row->txt;
-        $this->pos = stripos($this->txt, $this->q);
+        if (null == $row) {
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
+        $this->txt = $row->txt ?? '';
+        $this->pos = (int) stripos($this->txt, $this->q);
         $this->n = Str::substrCount(strtolower($this->txt), strtolower($q));
     }
 
+    /**
+     * Undocumented function.
+     *
+     * @return void
+     */
     public function goNext() {
         $pos = stripos($this->txt, $this->q, $this->pos + 1);
         ++$this->i;
@@ -45,13 +54,18 @@ class Panel extends Component {
             $pos = stripos($this->txt, $this->q);
             $this->i = 1;
         }
-        $this->pos = $pos;
+        $this->pos = (int) $pos;
     }
 
+    /**
+     * Undocumented function.
+     *
+     * @return void
+     */
     public function goPrev() {
         // $offset=-$this->pos;
         $offset = -\strlen($this->txt) + $this->pos - 1;
-        $this->pos = strripos($this->txt, $this->q, $offset);
+        $this->pos = (int) strripos($this->txt, $this->q, $offset);
         --$this->i;
     }
 

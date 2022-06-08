@@ -43,13 +43,13 @@ class Txt extends Component {
             $this->i = 1;
         }
         $this->checkToggleButton();
-        $this->pos = $pos;
+        $this->pos = (int) $pos;
         $this->setUrlQ();
     }
 
     public function goPrev(): void {
         $offset = -\strlen($this->txt) + $this->pos - 1;
-        $this->pos = strripos($this->txt, $this->q, $offset);
+        $this->pos = (int) strripos($this->txt, $this->q, $offset);
         --$this->i;
         $this->checkToggleButton();
         $this->setUrlQ();

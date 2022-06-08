@@ -189,6 +189,8 @@ class BaseFieldService {
     }
 
     /**
+     * @phpstan-param view-string $view
+     *
      * @param string $view
      *
      * @return $this

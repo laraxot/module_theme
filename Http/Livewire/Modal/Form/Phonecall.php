@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Modal\Form;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Modules\Cybersecurity\Mail\MyTestMail;
@@ -20,6 +21,11 @@ class Phonecall extends Component {
     public string $popup_button;
     public string $color;
 
+    /**
+     * Undocumented variable.
+     *
+     * @var array
+     */
     protected $listeners = ['doSend' => 'doSend'];
 
     public function mount(string $title = '', string $popup_title = 'Titolo Modal', string $popup_subtitle = 'Sotto-titolo Modal', string $popup_button = 'Invia', string $color = '#007bff'): void {
@@ -43,7 +49,7 @@ class Phonecall extends Component {
         $this->show = false;
     }
 
-    public function doSend($form_data): void {
+    public function doSend(array $form_data): void {
         if (empty($form_data['business_name'])) {
             $this->emitTo('theme::modal.body-view', 'sendMessage', 'Compila il campo Azienda');
 
@@ -84,7 +90,7 @@ class Phonecall extends Component {
         // $this->emitTo('theme::modal.body-view', 'doClose');
     }
 
-    public function render() {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

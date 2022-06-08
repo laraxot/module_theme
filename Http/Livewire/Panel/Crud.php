@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Panel;
 
+use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -98,9 +99,12 @@ class Crud extends Component {
     public function edit(int $id) {
         $this->updateMode = true;
         $user = User::where('id', $id)->first();
+        if (null == $user) {
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
         $this->user_id = $id;
-        $this->name = $user->first_name;
-        $this->email = $user->email;
+        $this->name = $user->first_name ?? '';
+        $this->email = $user->email ?? '';
     }
 
     /**
@@ -126,16 +130,25 @@ class Crud extends Component {
 
         if ($this->user_id) {
             $user = User::find($this->user_id);
-            $user->update([
-                'name' => $this->name,
-                'email' => $this->email,
-            ]);
+            if (null != $user) {
+                $user->update([
+                    'name' => $this->name,
+                    'email' => $this->email,
+                ]);
+            }
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');
             $this->resetInputFields();
         }
     }
 
+    /**
+     * Undocumented function.
+     *
+     * @param string $id
+     *
+     * @return void
+     */
     public function delete($id) {
         if ($id) {
             User::where('id', $id)->delete();
