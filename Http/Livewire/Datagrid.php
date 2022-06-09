@@ -55,7 +55,11 @@ class Datagrid extends Component {
         // if (is_array($sql)) {
         //    throw new \Exception('sql is an array ['.__LINE__.']['.__FILE__.']');
         // }
-        $bindings = collect($rows->getBindings())
+        /**
+         * @var array
+         */
+        $rows_bindings=$rows->getBindings();
+        $bindings = collect($rows_bindings)
             ->map(
                 function ($item) {
                     return "'".$item."'";
