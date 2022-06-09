@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Macros;
 
-use Illuminate\Support\Facades\Request;
 // use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Exception;
 // ----- services -----
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 use Modules\Xot\Services\PanelService;
 use Modules\Xot\Services\StubService;
 
@@ -54,7 +55,11 @@ abstract class BaseFormBtnMacro {
 
         $route_action = optional(\Route::currentRouteAction());
         $old_act = '';
+
         if (null !== \Route::currentRouteAction()->value) {
+            if (! is_string($route_action)) {
+                throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            }
             $old_act = Str::snake(Str::after($route_action, '@'));
         }
         $routename = optional(Request::route())->getName();
