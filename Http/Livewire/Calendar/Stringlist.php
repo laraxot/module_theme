@@ -219,10 +219,10 @@ class Stringlist extends Component {
         $collect = collect($arr);
         $date = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
         $i = $collect->search($date);
-        if (false !== $i) {
+        if (is_string($i) or is_int($i)) {
             $collect = $collect->forget($i);
         } else {
-            $collect = $collect->merge($date);
+            $collect = $collect->merge([$date]);
         }
         $collect = $collect->filter(
             function ($value) {

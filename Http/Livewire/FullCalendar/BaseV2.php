@@ -234,6 +234,8 @@ abstract class BaseV2 extends Component {
             throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
+        //Unable to resolve the template type TKey in call to function collect
+        //Unable to resolve the template type TValue in call to function collec
         $monthGrid = collect();
         $currentDay = $firstDayOfGrid->clone();
 

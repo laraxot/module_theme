@@ -17,13 +17,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @property int $id
  * @property string|null $name
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\MenuItem[] $items
+ * @property-read \Illuminate\Database\Eloquent\Collection|MenuItem[] $items
  * @property-read int|null $items_count
- * @method static \Illuminate\Database\Eloquent\Builder|Menu newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Menu newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
- * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
+ * @method static Builder|Menu newModelQuery()
+ * @method static Builder|Menu newQuery()
+ * @method static Builder|Menu query()
+ * @method static Builder|Menu whereId($value)
+ * @method static Builder|Menu whereName($value)
  * @mixin \Eloquent
  */
 class Menu extends Model {

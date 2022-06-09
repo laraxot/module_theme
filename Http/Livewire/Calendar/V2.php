@@ -224,6 +224,9 @@ class V2 extends Component {
             throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
+        /**
+         * @var Collection
+         */
         $monthGrid = collect();
         $currentDay = $firstDayOfGrid->clone();
 
