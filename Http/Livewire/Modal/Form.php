@@ -50,6 +50,9 @@ class Form extends Component {
         $this->form_data = $data;
 
         if (isset($data['address']) && isJson($data['address'])) {
+            /**
+             * @var object
+             */
             $tmp = json_decode($data['address']);
             $this->form_data['address_value'] = $tmp->value ?? '';
         }

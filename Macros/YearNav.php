@@ -13,9 +13,13 @@ class YearNav {
      */
     public function __invoke() {
         return function ($paramz) {
+            /**
+             * @var string
+             */
             $routename = optional(\Route::currentRouteName());
             extract($paramz);
-            $params = optional(\Route::current())->parameters();
+            //$params = optional(\Route::current())->parameters();
+            $params= getRouteParameters();
             if (isset($params['anno'])) {
                 $anno = $params['anno'];
             } else {

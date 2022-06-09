@@ -39,7 +39,8 @@ class ConvertSmartyToBladeAction extends XotBasePanelAction {
                 }
                 $converted = $smarty->convert($file_get_real_path);
 
-                $new_file = substr(optional($file)->getRealPath(), 0, -3).'blade.php';
+                //$new_file = substr(optional($file)->getRealPath(), 0, -3).'blade.php';
+                $new_file = substr($file->getRealPath(), 0, -3).'blade.php';
                 // dddx($new_file);
                 File::put($new_file, $converted);
             }

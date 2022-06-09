@@ -26,6 +26,9 @@ class PhpArray extends Component {
      */
     public function mount(string $filename): void {
         $this->filename = $filename;
+        /**
+         * @var array
+         */
         $contents = File::getRequire($this->filename);
         $data = $this->mapData($contents);
         $this->form_data[$this->field->name] = $data;

@@ -180,13 +180,17 @@ class FormXService {
             $view = $view1;
         }
         */
+        /**
+         * --- da fare contratto etc etc (interface)
+         * @var object
+         */
         $comp_field = Arr::first(
             self::getComponents(),
             function ($item) use ($field) {
                 return $item->name === 'bs'.$field->type;
             }
         );
-        if (null === $comp_field) {
+        if (null == $comp_field) {
             $msg = 'not registered component [bs'.$field->type.']';
 
             return view()->make('theme::collective.fields.error.err1', ['msg' => $msg]);

@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\DatagridEditable;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Database\Eloquent\Model;
-// use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+// use Livewire\WithFileUploads;
+use Modules\Xot\Services\PanelService;
 // use Modules\Theme\Traits\HandlesArrays;
 // use Modules\Theme\Traits\UploadsFiles;
 
+use Illuminate\Database\Eloquent\Model;
 use Modules\Theme\Services\FieldService;
-use Modules\Xot\Http\Livewire\XotBaseComponent;
+use Modules\Theme\Contracts\FieldContract;
 use Modules\Xot\Models\Panels\XotBasePanel;
-use Modules\Xot\Services\PanelService;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Xot\Http\Livewire\XotBaseComponent;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Head.
@@ -61,6 +63,9 @@ class Head extends XotBaseComponent {
     }
 
     public function fields(): array {
+        /**
+         * @var Collection<FieldContract>
+         */
         $index_fields = $this->panel->getFields(['act' => 'index']);
 
         $fields = [];

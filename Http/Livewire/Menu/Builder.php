@@ -41,8 +41,12 @@ class Builder extends Component {
 
     public function render(): Renderable {
         $this->getMenus();
+        /**
+         * @var string
+         */
+        $menu_roles_table=config('menu.roles_table');
         if (config('menu.use_roles')) {
-            $this->roles = DB::table(config('menu.roles_table'))
+            $this->roles = DB::table($menu_roles_table)
                 ->select([config('menu.roles_pk'), config('menu.roles_title_field')])
                 ->get();
             $this->role_pk = config('menu.roles_pk');

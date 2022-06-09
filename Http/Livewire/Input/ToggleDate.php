@@ -49,7 +49,8 @@ class ToggleDate extends Component {
      */
     public function updating(string $field, mixed $value) {
         $val = $value ? now() : null;
-        $this->model->setAttribute($this->field, $val)->save();
+        $this->model->setAttribute($this->field, $val);
+        $this->model->save();
         $this->emit('updateField', $this->model->getKey(), $this->field, $val);
     }
 }

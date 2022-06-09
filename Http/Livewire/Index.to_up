@@ -27,7 +27,7 @@ class Index extends XotBaseTableComponent
 
     public function mount(): void
     {
-        $this->route_params = optional(request()->route())->parameters();
+        $this->route_params = getRouteParameters();
         $this->data = request()->all();
         $this->setTableProperties();
         $this->sort_attribute = $this->panel->getRow()->getKeyName();

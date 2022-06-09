@@ -48,7 +48,8 @@ class ToggleBool extends Component {
      * @return void
      */
     public function updating(string $field, mixed $value) {
-        $this->model->setAttribute($this->field, $value)->save();
+        $this->model->setAttribute($this->field, $value);
+        $this->model->save();
         $this->emit('updateField', $this->model->getKey(), $this->field, $value);
     }
 }

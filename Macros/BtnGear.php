@@ -32,7 +32,7 @@ class BtnGear extends BaseFormBtnMacro {
             }
             //$routename = optional(Request::route())->getName();
             $routename = getRouteName();
-            $routetmp = Str::before($routename, $vars['old_act_route']);
+            $routetmp = Str::before((string)$routename, $vars['old_act_route']);
             $act = 'no-set';
             switch ($vars['old_act_route']) {
             case 'index':
@@ -49,7 +49,8 @@ class BtnGear extends BaseFormBtnMacro {
                 break;
             }
             $routename_gear = $routetmp.$act;
-            $route_params = optional(\Route::current())->parameters();
+            //$route_params = optional(\Route::current())->parameters();
+            $route_params = getRouteParameters();
             try {
                 $route_gear = route($routename_gear, $route_params);
             } catch (\Exception $e) {

@@ -54,7 +54,7 @@ abstract class BaseFormBtnMacro {
 
         $route_action = optional(\Route::currentRouteAction());
         $old_act = '';
-        if (null !== optional(\Route::currentRouteAction())->value) {
+        if (null !== \Route::currentRouteAction()->value) {
             $old_act = Str::snake(Str::after($route_action, '@'));
         }
         $routename = optional(Request::route())->getName();

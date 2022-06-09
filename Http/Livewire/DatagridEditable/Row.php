@@ -49,7 +49,7 @@ class Row extends XotBaseComponent {
      * @param string                                   $index
      */
     public function mount($row, $index): void {
-        $this->route_params = optional(request()->route())->parameters();
+        $this->route_params = getRouteParameters();
         $this->data = request()->all();
         $this->in_admin = inAdmin();
         $this->route_params['in_admin'] = $this->in_admin;

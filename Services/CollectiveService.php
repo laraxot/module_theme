@@ -46,6 +46,9 @@ class CollectiveService {
 
         if ($exists && ! $force_recreate) {
             $content = File::get($components_json);
+            /**
+             * @var array
+             */
             $json = json_decode($content);
 
             if (empty($json)) {

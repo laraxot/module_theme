@@ -16,7 +16,8 @@ class OpenPanel {
      */
     public function __invoke() {
         return function ($panel, $act = '', $params = []) {
-            $route_params = optional(\Route::current())->parameters();
+            //$route_params = optional(\Route::current())->parameters();
+            $$route_params= getRouteParameters();
             $req_params = \Request::all();
 
             switch ($act) {

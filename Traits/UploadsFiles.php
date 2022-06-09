@@ -18,7 +18,13 @@ trait UploadsFiles {
      * @return array
      */
     public static function fileUpload() {
+        /**
+         * @var string
+         */
         $storage_disk = self::$storage_disk ?? config('laravel-livewire-forms.storage_disk');
+        /**
+         * @var string
+         */
         $storage_path = self::$storage_path ?? config('laravel-livewire-forms.storage_path');
         $files = [];
 

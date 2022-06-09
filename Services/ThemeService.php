@@ -110,6 +110,9 @@ class ThemeService
     public static function get_language(array $params): string
     {
         $lang = app()->getLocale();
+        /**
+         * @var array
+         */
         $locale = config('laravellocalization.supportedLocales.' . $lang);
 
         return $locale['regional'];
@@ -149,6 +152,9 @@ class ThemeService
     public static function addStyle(string $style, ?int $position = null): void
     {
         if (null === $position) {
+            /**
+             * @var array
+             */
             $styles = self::__getStatic('styles');
             $position = \count($styles) + 10;
         }
@@ -159,6 +165,9 @@ class ThemeService
     public static function addScript(string $script, ?int $position = null): void
     {
         if (null === $position) {
+            /**
+             * @var array
+             */
             $scripts = self::__getStatic('scripts');
             $position = \count($scripts) + 10;
         }
@@ -265,6 +274,9 @@ class ThemeService
      */
     public static function logo_html()
     {
+        /**
+         * @var string
+         */
         $logo_src = self::metatag('logo_img');
         $newsrc = FileService::getFileUrl($logo_src);
         $logo_alt = self::metatag('logo_alt');

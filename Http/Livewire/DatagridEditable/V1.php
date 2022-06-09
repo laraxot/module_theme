@@ -48,7 +48,7 @@ class V1 extends Component {
     public Collection $rows;
 
     public function mount(): void {
-        $this->route_params = optional(request()->route())->parameters();
+        $this->route_params = getRouteParameters();
         $this->data = request()->all();
         $this->in_admin = inAdmin();
         $this->route_params['in_admin'] = $this->in_admin;

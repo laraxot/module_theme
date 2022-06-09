@@ -104,6 +104,9 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
      * @return void
      */
     public function registerNamespaces(string $theme_type) {
+        /**
+         * @var array
+         */
         $xot = config('xra');
 
         /*
