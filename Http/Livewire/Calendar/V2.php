@@ -227,7 +227,7 @@ class V2 extends Component {
         /**
          * @var Collection
          */
-        $monthGrid = collect();
+        $monthGrid = collect([]);
         $currentDay = $firstDayOfGrid->clone();
 
         while (! $currentDay->greaterThan($lastDayOfGrid)) {

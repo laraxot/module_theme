@@ -236,7 +236,8 @@ abstract class BaseV2 extends Component {
 
         //Unable to resolve the template type TKey in call to function collect
         //Unable to resolve the template type TValue in call to function collec
-        $monthGrid = collect();
+        //$monthGrid = collect();
+        $monthGrid = collect([]);
         $currentDay = $firstDayOfGrid->clone();
 
         while (! $currentDay->greaterThan($lastDayOfGrid)) {
