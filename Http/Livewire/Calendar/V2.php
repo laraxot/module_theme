@@ -159,19 +159,15 @@ class V2 extends Component {
     }
 
     /**
-     * @param mixed $calendarView
-     * @param mixed $dayView
-     * @param mixed $eventView
-     * @param mixed $dayOfWeekView
-     * @param mixed $beforeCalendarView
-     * @param mixed $afterCalendarView
-     */
-    public function setupViews($calendarView = null,
-        $dayView = null,
-        $eventView = null,
-        $dayOfWeekView = null,
-        $beforeCalendarView = null,
-        $afterCalendarView = null
+        * -----
+    */
+    public function setupViews(
+        string $calendarView = null,
+        string $dayView = null,
+        string $eventView = null,
+        string $dayOfWeekView = null,
+        string $beforeCalendarView = null,
+        string $afterCalendarView = null
     ): void {
         $this->calendarView = $calendarView ?? 'theme::livewire.calendar.v2.calendar';
         $this->dayView = $dayView ?? 'theme::livewire.calendar.v2.day';

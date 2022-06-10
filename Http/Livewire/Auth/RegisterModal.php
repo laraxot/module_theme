@@ -66,6 +66,9 @@ class RegisterModal extends Component {
         $data = $this->validate();
 
         $data['password'] = Hash::make($data['password']);
+        /**
+         * @var string
+         */
         $user_class = config('auth.providers.users.model');
         $user = app($user_class);
 

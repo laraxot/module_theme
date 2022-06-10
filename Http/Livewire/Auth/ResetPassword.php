@@ -29,6 +29,9 @@ class ResetPassword extends Component {
     public function changePassword() {
         $data = $this->validate();
 
+        /**
+         * @var string
+         */
         $status = Password::reset(
             // $request->only('email', 'password', 'password_confirmation', 'token'),
             ['password' => $this->password],

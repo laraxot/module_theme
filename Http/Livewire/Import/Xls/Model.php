@@ -91,12 +91,14 @@ class Model extends Component {
      */
     public function import() {
         $model = app($this->modelClass);
-        /**
-         * @var Collection
-         */
+
         $rows = $this->data;
 
-        // controllo che non vengano erroneamente importati contatti con tutti campi null
+
+        /**
+         * controllo che non vengano erroneamente importati contatti con tutti campi null
+         * @var Collection<Collection>
+         */
         $rows = $rows->filter(function ($item) {
             foreach ($item->toArray() as $key => $value) {
                 if (null !== $value) {
