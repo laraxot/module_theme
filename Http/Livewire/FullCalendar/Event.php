@@ -43,7 +43,7 @@ class Event extends XotBaseComponent {
 
     public array $form_data = [];
 
-    public function mount(mixed $model_class): void {
+    public function mount(string $model_class): void {
         // $this->model = app($model_class);
         $this->model = $model_class;
     }

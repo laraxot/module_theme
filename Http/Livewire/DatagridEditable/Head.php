@@ -71,7 +71,7 @@ class Head extends XotBaseComponent {
         $fields = [];
         foreach ($index_fields as $field) {
             $fields[] = (new FieldService())
-                ->setName($field->name)
+                ->setName((string)$field->name)
                 ->setType($field->type)
                 ->setInputComponent('nolabel');
         }

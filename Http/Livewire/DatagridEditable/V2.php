@@ -48,7 +48,8 @@ class V2 extends Component {
         $this->in_admin = inAdmin();
         $this->route_params['in_admin'] = $this->in_admin;
         $this->total = $this->query()->count();
-        $this->page = request()->input('page', 1);
+        $page=intval(request()->input('page', 1));
+        $this->page = $page;
         $offset = ($this->page - 1) * $this->per_page;
         $rows = $this->query()->offset((int) $offset)->limit($this->per_page)->get();
         // $rows = collect($rows->toArray());
@@ -77,7 +78,7 @@ class V2 extends Component {
     }
 
     public function render(): ViewContract {
-        /** 
+        /**
         * @phpstan-var view-string
         */
         $view = 'theme::livewire.datagrid_editable.v2';

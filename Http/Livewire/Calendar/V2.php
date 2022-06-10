@@ -80,41 +80,45 @@ class V2 extends Component {
         'gridEndsAt' => 'date',
     ];
 
+
     /**
-     * @param int       $initialYear
-     * @param int       $initialMonth
-     * @param int|mixed $weekStartsAt
-     * @param mixed     $calendarView
-     * @param mixed     $dayView
-     * @param mixed     $eventView
-     * @param mixed     $dayOfWeekView
-     * @param mixed     $dragAndDropClasses
-     * @param mixed     $beforeCalendarView
-     * @param mixed     $afterCalendarView
-     * @param mixed     $pollMillis
-     * @param mixed     $pollAction
-     * @param mixed     $dragAndDropEnabled
-     * @param mixed     $dayClickEnabled
-     * @param mixed     $eventClickEnabled
-     * @param mixed     $eventClickEnabled
-     * @param array     $extras
+     * Undocumented function
+     *
+     * @param integer|null $initialYear
+     * @param integer|null $initialMonth
+     * @param integer|null $weekStartsAt
+     * @param string|null $calendarView
+     * @param string|null $dayView
+     * @param string|null $eventView
+     * @param string|null $dayOfWeekView
+     * @param string|null $dragAndDropClasses
+     * @param string|null $beforeCalendarView
+     * @param string|null $afterCalendarView
+     * @param string|null $pollMillis
+     * @param string|null $pollAction
+     * @param boolean $dragAndDropEnabled
+     * @param boolean $dayClickEnabled
+     * @param boolean $eventClickEnabled
+     * @param array $extras
+     * @return void
      */
-    public function mount($initialYear = null,
-        $initialMonth = null,
-        $weekStartsAt = null,
-        $calendarView = null,
-        $dayView = null,
-        $eventView = null,
-        $dayOfWeekView = null,
-        $dragAndDropClasses = null,
-        $beforeCalendarView = null,
-        $afterCalendarView = null,
-        $pollMillis = null,
-        $pollAction = null,
-        $dragAndDropEnabled = true,
-        $dayClickEnabled = true,
-        $eventClickEnabled = true,
-        $extras = []
+    public function mount(
+        int $initialYear = null,
+        int $initialMonth = null,
+        int $weekStartsAt = null,
+        string $calendarView = null,
+        string $dayView = null,
+        string $eventView = null,
+        string $dayOfWeekView = null,
+        string $dragAndDropClasses = null,
+        string $beforeCalendarView = null,
+        string $afterCalendarView = null,
+        string $pollMillis = null,
+        string $pollAction = null,
+        bool $dragAndDropEnabled = true,
+        bool $dayClickEnabled = true,
+        bool $eventClickEnabled = true,
+        array $extras = []
     ): void {
         $this->weekStartsAt = $weekStartsAt ?? Carbon::SUNDAY;
         $this->weekEndsAt = Carbon::SUNDAY === $this->weekStartsAt

@@ -63,7 +63,7 @@ class SortRowsGroup extends Component {
     }
 
     public function render(): Renderable {
-        /** 
+        /**
         * @phpstan-var view-string
         */
         $view = 'theme::livewire.panel.sort-rows-group';
@@ -86,6 +86,7 @@ class SortRowsGroup extends Component {
         */
         $i = 1;
         foreach ($list as $v) {
+            //Cannot call method sortBy() on mixed.
             $group = $this->groups->get($v['value'])->sortBy('pos');
             foreach ($group as $row) {
                 $row->pos = $i++;

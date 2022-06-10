@@ -55,23 +55,22 @@ abstract class BaseFormBtnMacro {
 
         $route_action = optional(\Route::currentRouteAction());
         $old_act = '';
-
-        if (null !== \Route::currentRouteAction()->value) {
+        /* --- le macro le stiamo sostituendo con i blade component
+        if (null !== \Route::currentRouteAction()  && null !== \Route::currentRouteAction()->value) {
             if (! is_string($route_action)) {
                 throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
             $old_act = Str::snake(Str::after($route_action, '@'));
         }
-        $routename = optional(Request::route())->getName();
+        */
+        $routename =getRouteName();
         $old_act_route = last(explode('.', $routename));
 
         if (! isset($panel)) {
             $panel = PanelService::make()->get($row);
         }
 
-        /*PROVA SE COSI TI TROVI MEGLIO,
-        PERCHE SU FRONTEND SE SEI SU UNA REGIONE E VUOI MODIFICARE UNA SOTTO PROVINCIA
-        NON TE LO FA CON IL METODO CORRENTE */
+
 
         $route_params = getRouteParameters();
 

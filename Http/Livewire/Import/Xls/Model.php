@@ -111,6 +111,7 @@ class Model extends Component {
 
         foreach ($rows as $v) {
             $keys = array_values($this->form_data);
+            //Cannot call method values() on mixed.
             $values = $v->values()->all();
             $data = array_combine($keys, $values);
 

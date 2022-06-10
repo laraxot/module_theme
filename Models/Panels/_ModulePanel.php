@@ -12,7 +12,11 @@ use Modules\Xot\Models\Panels\XotBasePanel;
  */
 class _ModulePanel extends XotBasePanel {
     public function actions(): array {
-        $theme = request()->input('theme');
+        //$theme = request()->input('theme');
+        /**
+         * @var string|null
+         */
+        $theme=request('theme');
         $act = request()->input('_act');
         $actions = [
             new Actions\ChoosePubThemeAction(),

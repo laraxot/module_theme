@@ -30,7 +30,7 @@ class BtnGear extends BaseFormBtnMacro {
             if ($vars['error']) {
                 return $vars['error_msg'];
             }
-            //$routename = optional(Request::route())->getName();
+            //$routename =getRouteName();
             $routename = getRouteName();
             $routetmp = Str::before((string)$routename, $vars['old_act_route']);
             $act = 'no-set';

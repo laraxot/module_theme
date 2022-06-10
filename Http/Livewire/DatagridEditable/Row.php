@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\DatagridEditable;
 
-use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Collection;
+use Intervention\Image\Facades\Image;
+use Modules\Xot\Services\PanelService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
-use Livewire\WithFileUploads;
-use Modules\Theme\Services\FieldService;
 // use Modules\Theme\Traits\UploadsFiles;
 
 use Modules\Theme\Traits\HandlesArrays;
-use Modules\Xot\Http\Livewire\XotBaseComponent;
+use Modules\Theme\Services\FieldService;
+use Modules\Theme\Contracts\FieldContract;
 use Modules\Xot\Models\Panels\XotBasePanel;
-use Modules\Xot\Services\PanelService;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Xot\Http\Livewire\XotBaseComponent;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Row.
@@ -81,6 +83,9 @@ class Row extends XotBaseComponent {
     }
 
     public function fields(): array {
+        /**
+         * @var Collection<FieldContract>
+         */
         $panel_fields = $this->panel->getFields(['act' => 'index']);
 
         $fields = [];

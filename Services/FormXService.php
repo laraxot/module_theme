@@ -4,26 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
-use Collective\Html\FormFacade as Form;
 use Exception;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
-use Illuminate\Database\Eloquent\Relations\MorphOneOrMany;
-// ---- services ---
-use Illuminate\Database\Eloquent\Relations\MorphPivot;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
-use Modules\Xot\Services\PolicyService;
 use Modules\Xot\Services\RouteService;
+// ---- services ---
+use Collective\Html\FormFacade as Form;
+use Modules\Xot\Services\PolicyService;
+use Modules\Theme\Contracts\FieldContract;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphPivot;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\MorphOneOrMany;
 
 /**
  * Class FormXService.
@@ -182,7 +183,7 @@ class FormXService {
         */
         /**
          * --- da fare contratto etc etc (interface)
-         * @var object
+         * @var FieldContract
          */
         $comp_field = Arr::first(
             self::getComponents(),
@@ -196,7 +197,7 @@ class FormXService {
             return view()->make('theme::collective.fields.error.err1', ['msg' => $msg]);
         }
 
-        $view = Str::beforeLast($comp_field->view, '.field').'.freeze';
+        $view = Str::beforeLast((string)$comp_field->view, '.field').'.freeze';
         if (! View::exists($view)) {
             return view()->make('theme::collective.fields.error.err1', ['msg' => '['.$view.'] NOT EXISTS !!']);
         }

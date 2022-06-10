@@ -38,7 +38,7 @@ class Sort extends Component {
     }
 
     public function render(): Renderable {
-        /** 
+        /**
         * @phpstan-var view-string
         */
         $view = 'theme::livewire.panel.sort';
@@ -57,7 +57,10 @@ class Sort extends Component {
         "value" => "4418"
         ]
         */
+
+        //https://github.com/spatie/eloquent-sortable
         foreach ($list as $v) {
+
             $row = $this->rows->firstWhere('id', $v['value']);
             $row->pos = $v['order'];
             $row->save();

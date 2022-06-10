@@ -49,8 +49,16 @@ class Builder extends Component {
             $this->roles = DB::table($menu_roles_table)
                 ->select([config('menu.roles_pk'), config('menu.roles_title_field')])
                 ->get();
-            $this->role_pk = config('menu.roles_pk');
-            $this->role_title_field = config('menu.roles_title_field');
+            /**
+             * @var string
+             */
+            $role_pk=config('menu.roles_pk');
+            $this->role_pk = $role_pk;
+            /**
+             * @var string
+             */
+            $role_title_field = config('menu.roles_title_field');
+            $this->role_title_field = $role_title_field;
         }
         /**
          * @phpstan-var view-string
@@ -276,6 +284,7 @@ class Builder extends Component {
         $i = 0;
         foreach ($items as $item) {
             $data_arr[$i] = $item;
+            // Cannot access property $id on mixed.
             $find = $all_items->where('parent', $item->id);
             $data_arr[$i]['child'] = [];
             if ($find->count()) {

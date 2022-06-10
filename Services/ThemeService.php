@@ -347,7 +347,13 @@ class ThemeService
     {
         // TODO FIX url da funzione e non replace !!!
         //
+        /**
+         * @var array
+         */
         $scripts_pos = self::__getStatic('scripts_pos');
+        /**
+         * @var array
+         */
         $scripts = self::__getStatic('scripts');
         $scripts = array_values(
             \Arr::sort(
@@ -428,8 +434,17 @@ class ThemeService
      */
     public static function showStyles($compress_css = true)
     {
+        /**
+         * @var array
+         */
         $styles_pos = self::__getStatic('styles_pos');
+        /**
+         * @var array
+         */
         $styles = self::__getStatic('styles');
+        /**
+         * @var array
+         */
         $styles = array_values(
             \Arr::sort(
                 $styles,
@@ -455,7 +470,7 @@ class ThemeService
      */
     public static function metatags()
     {
-        /** 
+        /**
         * @phpstan-var view-string
         */
         $view = 'theme::metatags';
@@ -486,7 +501,7 @@ class ThemeService
     public static function setMetatags(Model $row): void
     {
         // dddx($row);
-        $params = optional(\Route::current())->parameters();
+        $params = getRouteParameters();
         foreach ($params as $v) {
             if (\is_object($v) && isset($v->title)) {
                 self::__concatBeforeStatic('title', $v->title . ' | ');
@@ -507,6 +522,9 @@ class ThemeService
         // self::__setStatic('category', $row->post_type);
         // self::__setStatic('published_at', $row->published_at);
         // self::__setStatic('updated_at', $row->updated_at);
+        /**
+         * @var array
+         */
         $supportedLocales = config('laravellocalization.supportedLocales');
         $lang = app()->getLocale();
         if ('' === $row->getAttributeValue('lang')) {
@@ -531,14 +549,15 @@ class ThemeService
     }
 
     /**
-     * @return bool|mixed|string
+     * ---
      */
-    public static function getArea()
+    public static function getArea():?string
     {
-        $params = optional(\Route::current())->parameters();
+        $params = getRouteParameters();
         if (isset($params['module'])) {
             return $params['module'];
         }
+        /*
         $tmp = explode('/', optional(\Route::current())->getCompiled()->getStaticPrefix());
         $tmp = \array_slice($tmp, 2, 1);
         if (\count($tmp) < 1) {
@@ -546,18 +565,20 @@ class ThemeService
         }
 
         return $tmp[0];
+        */
+        return null;
     }
 
     /**
-     * @return array|void
+     * ---
      */
-    public static function getModels(array $params)
+    public static function getModels(array $params):?array
     {
         extract($params);
         if (!isset($module)) {
             dddx(['err' => 'module is missing']);
 
-            return;
+            return null;
         }
         $mod = \Module::find($module);
         if (null === $mod) {
@@ -565,6 +586,9 @@ class ThemeService
         }
         $mod_path = $mod->getPath() . '\Models';
         $files = File::files($mod_path);
+        /**
+         * @var array
+         */
         $data = [];
         $ns = 'Modules\\' . $mod->getName() . '\\Models';  // con la barra davanti non va il search ?
         /**
@@ -607,7 +631,7 @@ class ThemeService
      */
     public static function route(array $params = [])
     {
-        $params = array_merge(optional(\Route::current())->parameters(), $params);
+        $params = array_merge(getRouteParameters(), $params);
         $routename = Route::currentRouteName();
         if (null === $routename) {
             throw new \Exception('$routename is null');
@@ -622,7 +646,7 @@ class ThemeService
     public static function getView(?array $parz = []): string
     {
         /*
-        $params = optional(\Route::current())->parameters();
+        $params = getRouteParameters();
         $route_action = \Route::currentRouteAction();
         //dddx($route_action);//Modules\Xot\Http\Controllers\Container0Controller@index
         if (null == $route_action) {
@@ -652,9 +676,9 @@ class ThemeService
             $path = str_replace('admin.'.$mod.'.', 'admin.', $path);
             $view = $mod.'::'.$path;
         } else {
-             
+
          @phpstan-var view-string
-        
+
         $view = 'pub_theme::'.$path;
         }
         */
@@ -780,12 +804,9 @@ class ThemeService
     }
 
     /**
-     * @param string $view
-     *
-     * @return mixed|string
+     * ---
      */
-    public static function getViewWithFormat($view)
-    {
+    public static function getViewWithFormat(string $view):string {
         // return $view; //bypasso tutto
         /*
         if (\Request::ajax()) {
@@ -794,7 +815,9 @@ class ThemeService
             $view .= '_iframe';
         }
         */
-
+        /**
+         * @var string
+         */
         $act = Request::input('_act', '');
         $act = Str::snake($act);
         if ('' !== $act) {
@@ -813,7 +836,7 @@ class ThemeService
         extract($params);
 
         /*
-        $params = optional(\Route::current())->parameters();
+        $params = getRouteParameters();
         $route_action = \Route::currentRouteAction();
         $act = Str::snake(Str::after($route_action, '@'));
         */
@@ -822,7 +845,7 @@ class ThemeService
         $view_module = self::getViewModule();
         // ---------------------------------------------------------------------------
         if (null === $view) {
-            $params = optional(\Route::current())->parameters();
+            $params = getRouteParameters();
             $view = self::getView($params);
         }
 
@@ -916,7 +939,7 @@ class ThemeService
             throw new \Exception('Panel does not exists');
         }
         $row = $panel->row;
-        // $route_params = optional(\Route::current())->parameters();
+        // $route_params = getRouteParameters();
         // $row_name = last($route_params);
         // if (! is_object($row) && '' != config('morph_map.'.$row)) {
         /*
@@ -941,7 +964,7 @@ class ThemeService
         //    $row_type = \Str::camel(class_basename($row));
         // }
 
-        $routename = optional(\Route::current())->getName();
+        $routename = getRouteName();
         $route_action = \Route::currentRouteAction();
 
         // --- per passare la view all'interno dei componenti
@@ -1017,7 +1040,7 @@ class ThemeService
         $rotename_arr = array_slice($rotename_arr, 0, -1);
         $routename_base = implode('.', $rotename_arr);
         //dddx($rotename_arr);
-        $params = optional(\Route::current())->parameters();
+        $params = getRouteParameters();
         $data = $request->all();
         if (! isset($data['_action'])) {
             $data['_action'] = 'save_close';
@@ -1261,7 +1284,7 @@ class ThemeService
 
     public static function getAdminJsonMenu(): void
     {
-        $route_params = optional(\Route::current())->parameters();
+        $route_params = getRouteParameters();
         extract($route_params);
         if (!isset($module)) {
             dddx(['err' => 'module is missing']);
@@ -1295,7 +1318,7 @@ class ThemeService
      */
     public static function getXmlMenu()
     {
-        $route_params = optional(\Route::current())->parameters();
+        $route_params = getRouteParameters();
         extract($route_params);
         if (!isset($module)) {
             return [];
@@ -1554,7 +1577,7 @@ class ThemeService
     {
         $themes_dir = base_path('Themes');
         if (!File::exists($themes_dir)) {
-            throw new \Exception('Themes directory do not exits [' . __LINE__ . '][' . __FILE__ . ']');
+            throw new Exception('Themes directory do not exits [' . __LINE__ . '][' . __FILE__ . ']');
         }
         $themes = File::directories($themes_dir);
         $default_data = [
@@ -1624,6 +1647,9 @@ class ThemeService
         $themes = self::getThemes();
 
         $type = Str::before($theme_type, '_theme');
+        /**
+         * @var array|null
+         */
         $theme = $themes->firstWhere('type', $type);
 
         if (null === $theme /* || $theme->isEmpty() */) {
