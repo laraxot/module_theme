@@ -48,7 +48,7 @@ class V2 extends Component {
         $this->in_admin = inAdmin();
         $this->route_params['in_admin'] = $this->in_admin;
         $this->total = $this->query()->count();
-        $page=intval(request()->input('page', 1));
+        $page = intval(request()->input('page', 1));
         $this->page = $page;
         $offset = ($this->page - 1) * $this->per_page;
         $rows = $this->query()->offset((int) $offset)->limit($this->per_page)->get();
@@ -79,8 +79,8 @@ class V2 extends Component {
 
     public function render(): ViewContract {
         /**
-        * @phpstan-var view-string
-        */
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.datagrid_editable.v2';
         $view_params = [
             'view' => $view,
@@ -118,7 +118,11 @@ class V2 extends Component {
         $data = $data['rows'];
         dddx($data);
         $func = '\Modules\Xot\Jobs\PanelCrud\UpdateJob';
-        foreach ($this->rows as $k => $row) {
+        foreach ($this->rows as $k => $item) {
+            /**
+             * @var \Illuminate\Database\Eloquent\Model
+             */
+            $row = $item;
             $func::dispatch($data[$k], PanelService::make()->get($row));
         }
         session()->flash('message', 'Post successfully updated.');

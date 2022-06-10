@@ -7,6 +7,7 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Modules\Xot\Contracts\ModelWithPosContract;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Services\PanelService;
 
@@ -39,8 +40,8 @@ class Sort extends Component {
 
     public function render(): Renderable {
         /**
-        * @phpstan-var view-string
-        */
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.panel.sort';
         $view_params = [
             'view' => $view,
@@ -58,12 +59,20 @@ class Sort extends Component {
         ]
         */
 
-        //https://github.com/spatie/eloquent-sortable
+        // https://github.com/spatie/eloquent-sortable
         foreach ($list as $v) {
-
+            /**
+             * @var ModelWithPosContract
+             */
             $row = $this->rows->firstWhere('id', $v['value']);
+            /*
             $row->pos = $v['order'];
             $row->save();
+            */
+            $up = [
+                'pos' => $v['order'],
+            ];
+            $row->update($up);
         }
         session()->flash('message', 'Sort successfully ');
     }

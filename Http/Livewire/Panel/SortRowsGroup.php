@@ -7,6 +7,7 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Modules\Xot\Contracts\ModelWithPosContract;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Services\PanelService;
 
@@ -64,8 +65,8 @@ class SortRowsGroup extends Component {
 
     public function render(): Renderable {
         /**
-        * @phpstan-var view-string
-        */
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.panel.sort-rows-group';
 
         $view_params = [
@@ -86,7 +87,7 @@ class SortRowsGroup extends Component {
         */
         $i = 1;
         foreach ($list as $v) {
-            //Cannot call method sortBy() on mixed.
+            // Cannot call method sortBy() on mixed.
             $group = $this->groups->get($v['value'])->sortBy('pos');
             foreach ($group as $row) {
                 $row->pos = $i++;
@@ -106,9 +107,18 @@ class SortRowsGroup extends Component {
         */
         // *
         foreach ($list as $v) {
+            /**
+             * @var ModelWithPosContract
+             */
             $row = $this->rows->firstWhere('id', $v['value']);
+            /*
             $row->pos = $v['order'];
             $row->save();
+            */
+            $up = [
+                'pos' => $v['order'],
+            ];
+            $row->update($up);
         }
         session()->flash('message', 'updateTaskOrder successfully ');
         // */

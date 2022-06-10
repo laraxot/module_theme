@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\DatagridEditable;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Model;
 // use Livewire\WithFileUploads;
-use Modules\Xot\Services\PanelService;
+use Illuminate\Support\Collection;
 // use Modules\Theme\Traits\HandlesArrays;
 // use Modules\Theme\Traits\UploadsFiles;
 
-use Illuminate\Database\Eloquent\Model;
-use Modules\Theme\Services\FieldService;
+use Illuminate\Support\Str;
 use Modules\Theme\Contracts\FieldContract;
-use Modules\Xot\Models\Panels\XotBasePanel;
-use Illuminate\Contracts\Support\Renderable;
+use Modules\Theme\Services\FieldService;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
+use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Xot\Services\PanelService;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Head.
@@ -71,8 +71,8 @@ class Head extends XotBaseComponent {
         $fields = [];
         foreach ($index_fields as $field) {
             $fields[] = (new FieldService())
-                ->setName((string)$field->name)
-                ->setType($field->type)
+                ->setName((string) $field->name)
+                ->setType((string) $field->type)
                 ->setInputComponent('nolabel');
         }
 
@@ -83,7 +83,12 @@ class Head extends XotBaseComponent {
      * @return \Illuminate\Contracts\Foundation\Application|mixed|null
      */
     public function getPanelProperty() {
-        return PanelService::make()->get($this->row);
+        /**
+         * @var \Illuminate\Database\Eloquent\Model
+         */
+        $row = $this->row;
+
+        return PanelService::make()->get($row);
     }
 
     public function setFormProperties(?Model $model = null): void {

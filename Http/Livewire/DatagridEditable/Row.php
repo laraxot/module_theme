@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\DatagridEditable;
 
-use Illuminate\Support\Str;
-use Livewire\WithFileUploads;
-use Illuminate\Support\Collection;
-use Intervention\Image\Facades\Image;
-use Modules\Xot\Services\PanelService;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+use Livewire\WithFileUploads;
 // use Modules\Theme\Traits\UploadsFiles;
 
-use Modules\Theme\Traits\HandlesArrays;
-use Modules\Theme\Services\FieldService;
 use Modules\Theme\Contracts\FieldContract;
-use Modules\Xot\Models\Panels\XotBasePanel;
-use Illuminate\Contracts\Support\Renderable;
+use Modules\Theme\Services\FieldService;
+use Modules\Theme\Traits\HandlesArrays;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
+use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Xot\Services\PanelService;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Row.
@@ -91,8 +91,8 @@ class Row extends XotBaseComponent {
         $fields = [];
         foreach ($panel_fields as $field) {
             $fields[] = FieldService::make()
-                ->setName($field->name)
-                ->setType($field->type)
+                ->setName((string) $field->name)
+                ->setType((string) $field->type)
                 ->setInputComponent('nolabel')
                 // ->set('form_data',$this->)
                 ;

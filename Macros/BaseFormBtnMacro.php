@@ -7,7 +7,6 @@ namespace Modules\Theme\Macros;
 // use Illuminate\Http\Request;
 use Exception;
 // ----- services -----
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Modules\Xot\Services\PanelService;
 use Modules\Xot\Services\StubService;
@@ -63,14 +62,12 @@ abstract class BaseFormBtnMacro {
             $old_act = Str::snake(Str::after($route_action, '@'));
         }
         */
-        $routename =getRouteName();
-        $old_act_route = last(explode('.', $routename));
+        $routename = getRouteName();
+        $old_act_route = last(explode('.', (string) $routename));
 
         if (! isset($panel)) {
             $panel = PanelService::make()->get($row);
         }
-
-
 
         $route_params = getRouteParameters();
 

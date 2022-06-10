@@ -83,9 +83,9 @@ class V1 extends Component {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.datagrid_editable.v1';
         $view_params = [
             'view' => $view,
@@ -113,7 +113,11 @@ class V1 extends Component {
         $data = $data['rows'];
 
         $func = '\Modules\Xot\Jobs\PanelCrud\UpdateJob';
-        foreach ($this->rows as $k => $row) {
+        foreach ($this->rows as $k => $item) {
+            /**
+             * @var \Illuminate\Database\Eloquent\Model
+             */
+            $row = $item;
             $func::dispatch($data[$k], PanelService::make()->get($row));
         }
         session()->flash('message', 'Post successfully updated.');
