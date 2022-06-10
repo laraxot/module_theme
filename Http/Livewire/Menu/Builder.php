@@ -279,6 +279,13 @@ class Builder extends Component {
         }
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Collection<MenuItem> $items
+     * @param Collection<MenuItem> $all_items
+     * @return array
+     */
     private static function tree(Collection $items, Collection $all_items): array {
         $data_arr = [];
         $i = 0;
