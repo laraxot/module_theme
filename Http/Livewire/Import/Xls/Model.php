@@ -100,6 +100,7 @@ class Model extends Component {
          * @var Collection<Collection>
          */
         $rows = $rows->filter(function ($item) {
+            // Cannot call method toArray() on mixed.
             foreach ($item->toArray() as $key => $value) {
                 if (null !== $value) {
                     return $item;
