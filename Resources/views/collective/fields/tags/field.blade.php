@@ -1,4 +1,13 @@
 @php
+/* esempio di utilizzo nel pannello, funzione fields
+    (object)
+[
+        'type' => 'Tags',
+        'name' => 'tags',
+        'col_size' => 12,
+        'options' => ['domains'],
+    ],
+*/
 $opts = $options['field']->options;
 //dddx([$opts, get_defined_vars()]);
 $row = $_panel->row;
@@ -8,23 +17,24 @@ $row = $_panel->row;
 @endphp
 @foreach ($opts as $opt)
     <fieldset class="form-group border p-3">
-    <legend class="w-auto px-2">{{ $opt }}</legend>
-    <div class="mb-3">
-    @php
-        $tags = \Modules\Tag\Models\Tag::getWithType($opt);
-        $values = $row->tagsWithType($opt);
-        $values_ids = $values->pluck('id')->all();
-    @endphp
-    {{-- se nessun checkbox e' settato non viene inviato valore --}}
-    <input type="hidden" name="tags[]" />
-    @foreach ($tags as $tag)
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="tags[]" value="{{ $tag->id }}" @checked(in_array($tag->id, $values_ids)) id="tag-{{ $tag->id }}" />
-            <label class="form-check-label" for="tag-{{ $tag->id }}">
-                {{ $tag->name }}
-            </label>
+        <legend class="w-auto px-2">{{ $opt }}</legend>
+        <div class="mb-3">
+            @php
+                $tags = \Modules\Tag\Models\Tag::getWithType($opt);
+                $values = $row->tagsWithType($opt);
+                $values_ids = $values->pluck('id')->all();
+            @endphp
+            {{-- se nessun checkbox e' settato non viene inviato valore --}}
+            <input type="hidden" name="tags[]" />
+            @foreach ($tags as $tag)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="tags[]" value="{{ $tag->id }}"
+                        @checked(in_array($tag->id, $values_ids)) id="tag-{{ $tag->id }}" />
+                    <label class="form-check-label" for="tag-{{ $tag->id }}">
+                        {{ $tag->name }}
+                    </label>
+                </div>
+            @endforeach
         </div>
-    @endforeach
-    </div>
     </fieldset>
 @endforeach
