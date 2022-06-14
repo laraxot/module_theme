@@ -79,9 +79,24 @@ class Stringlist extends Component {
     }
 
     private function setDate(): void {
-        $this->selectedDay = session('calendar.now')->day;
-        $this->selectedMonth = $this->currentMonth = session('calendar.now')->month;
-        $this->selectedYear = $this->currentYear = session('calendar.now')->year;
+        /**
+         * @var int
+         */
+        $day = session('calendar.now')->day;
+
+        /**
+         * @var int
+         */
+        $month = session('calendar.now')->month;
+
+        /**
+         * @var int
+         */
+        $year = session('calendar.now')->year;
+
+        $this->selectedDay = $day;
+        $this->selectedMonth = $this->currentMonth = $month;
+        $this->selectedYear = $this->currentYear = $year;
     }
 
     public function calendar(): array {
@@ -261,9 +276,9 @@ class Stringlist extends Component {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.calendar.string_list';
         // dddx($this->date_list);
         $view_params = [

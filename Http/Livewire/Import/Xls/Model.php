@@ -94,19 +94,24 @@ class Model extends Component {
 
         $rows = $this->data;
 
-
         /**
-         * controllo che non vengano erroneamente importati contatti con tutti campi null
+         * controllo che non vengano erroneamente importati contatti con tutti campi null.
+         *
          * @var Collection<Collection>
          */
-        $rows = $rows->filter(function ($item) {
-            // Cannot call method toArray() on mixed.
-            foreach ($item->toArray() as $key => $value) {
-                if (null !== $value) {
-                    return $item;
+        $rows = $rows->filter(
+            /**
+             * @param Model $item
+             */
+            function ($item) {
+                // Cannot call method toArray() on mixed.
+                foreach ($item->toArray() as $key => $value) {
+                    if (null !== $value) {
+                        return $item;
+                    }
                 }
             }
-        });
+        );
 
         if ($this->is_first_row_head) {
             $rows = $rows->slice(1);
@@ -114,7 +119,7 @@ class Model extends Component {
 
         foreach ($rows as $v) {
             $keys = array_values($this->form_data);
-            //Cannot call method values() on mixed.
+            // Cannot call method values() on mixed.
             $values = $v->values()->all();
             $data = array_combine($keys, $values);
 

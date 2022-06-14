@@ -44,7 +44,7 @@ class Builder extends Component {
         /**
          * @var string
          */
-        $menu_roles_table=config('menu.roles_table');
+        $menu_roles_table = config('menu.roles_table');
         if (config('menu.use_roles')) {
             $this->roles = DB::table($menu_roles_table)
                 ->select([config('menu.roles_pk'), config('menu.roles_title_field')])
@@ -52,7 +52,7 @@ class Builder extends Component {
             /**
              * @var string
              */
-            $role_pk=config('menu.roles_pk');
+            $role_pk = config('menu.roles_pk');
             $this->role_pk = $role_pk;
             /**
              * @var string
@@ -280,11 +280,10 @@ class Builder extends Component {
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @param Collection<MenuItem> $items
      * @param Collection<MenuItem> $all_items
-     * @return array
      */
     private static function tree(Collection $items, Collection $all_items): array {
         $data_arr = [];

@@ -17,11 +17,11 @@ use Sushi\Sushi;
  * @property int                             $id
  * @property string|null                     $label
  * @property string|null                     $link
- * @property int|null                        $parent
+ * @property float|null                      $menu
  * @property int|null                        $sort
+ * @property string|null                     $parent
  * @property string|null                     $class
- * @property int|null                        $menu
- * @property int|null                        $depth
+ * @property string|null                     $depth
  * @property int|null                        $role_id
  * @property Collection|MenuItem[]           $child
  * @property int|null                        $child_count
@@ -65,6 +65,22 @@ class MenuItem extends Model {
         'role_id',
     ];
 
+    /**
+     * Undocumented variable.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'id' => 'int',
+        'label' => 'string',
+        'link' => 'string',
+        'parent' => 'int',
+        'sort' => 'bool',
+        'class' => 'strng',
+        'menu' => 'int',
+        'depth' => 'int',
+        'role_id' => 'int',
+    ];
     /*
     public function __construct(array $attributes = [])
     {
