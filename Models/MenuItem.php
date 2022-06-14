@@ -17,11 +17,11 @@ use Sushi\Sushi;
  * @property int                             $id
  * @property string|null                     $label
  * @property string|null                     $link
- * @property float|null                      $menu
+ * @property int|null                        $menu
  * @property int|null                        $sort
- * @property string|null                     $parent
+ * @property int|null                        $parent
  * @property string|null                     $class
- * @property string|null                     $depth
+ * @property int|null                        $depth
  * @property int|null                        $role_id
  * @property Collection|MenuItem[]           $child
  * @property int|null                        $child_count
@@ -75,8 +75,8 @@ class MenuItem extends Model {
         'label' => 'string',
         'link' => 'string',
         'parent' => 'int',
-        'sort' => 'bool',
-        'class' => 'strng',
+        'sort' => 'int',
+        'class' => 'string',
         'menu' => 'int',
         'depth' => 'int',
         'role_id' => 'int',
