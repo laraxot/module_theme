@@ -7,16 +7,25 @@ namespace Modules\Theme\View\Components;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
+use Illuminate\View\Component as ViewComponent;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 use Illuminate\View\Component as ViewComponent;
+=======
+>>>>>>> 8a61b67d (.)
 >>>>>>> 1a1cdb1c (.)
+=======
+>>>>>>> dd49825e (.)
 use Modules\Xot\Services\FileService;
+<<<<<<< HEAD
 >>>>>>> 8aea1aa3 (.)
 use Illuminate\View\Component as ViewComponent;
 use Modules\Xot\Services\FileService;
+=======
+>>>>>>> 8a61b67d (.)
 
 /**
  * Class Component.
@@ -63,6 +72,7 @@ class Component extends ViewComponent {
             throw new Exception('not exists '.$views[0].' or '.$views[1]);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         $view_params = [];
         if (! is_string($view)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
@@ -71,17 +81,25 @@ class Component extends ViewComponent {
         return View::make($view, $view_params);
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 8a61b67d (.)
         $view_params=[];
         if(!is_string($view)){
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         //return view()->make($view);
         return View::make($view,$view_params);
+<<<<<<< HEAD
 =======
         $view_params = [];
         // return view()->make($view);
         return View::make($view, $view_params);
 >>>>>>> 1a1cdb1c (.)
+<<<<<<< HEAD
 >>>>>>> 8aea1aa3 (.)
+=======
+=======
+>>>>>>> dd49825e (.)
+>>>>>>> 8a61b67d (.)
     }
 }
