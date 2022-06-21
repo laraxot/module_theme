@@ -30,7 +30,34 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
     public string $module_name = 'theme';
 
+    public array $xot=[];
+
+
+    /**
+     * Undocumented function
+     *
+     * @return array
+     */
+    public function getXot():array{
+        return $this->xot;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function bootCallback(): void {
+        $xot = config('xra');
+
+        // $xot = TenantService::config('xra');
+        if (! \is_array($xot)) {
+            // throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            $xot = [];
+        }
+        $this->xot=$xot;
+
+
         $this->registerNamespaces('adm_theme');
         $this->registerNamespaces('pub_theme');
 
@@ -70,13 +97,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
      * @return void
      */
     public function bootThemeProvider(string $theme_type) {
-        $xot = config('xra');
-
-        // $xot = TenantService::config('xra');
-        if (! \is_array($xot)) {
-            // throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
-            $xot = [];
-        }
+        $xot=$this->getXot();
         if (! isset($xot[$theme_type])) {
             return;
         }
@@ -107,7 +128,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         /**
          * @var array
          */
-        $xot = config('xra');
+        $xot=$this->getXot();
 
         /*
         $xot = TenantService::config('xra');
@@ -142,12 +163,9 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     }
 
     public function registerThemeConfig(string $theme_type): void {
-        // $xot = TenantService::config('xra');
-        $xot = config('xra');
-        if (! \is_array($xot)) {
-            // throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
-            $xot = [];
-        }
+       
+        $xot=$this->getXot();
+        
         if (! isset($xot[$theme_type])) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             // TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
@@ -177,14 +195,20 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         // $this->registerViewComposers();
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     private function registerViewComposers(): void {
-        $xot = config('xra');
-        // $xot = TenantService::config('xra');
-        if (! \is_array($xot)) {
-            // throw new Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
-            $xot = [];
+        $xot=$this->getXot();
+        if(!isset($xot['pub_theme'])){
+            $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
         }
-        $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
+        if(!isset($xot['adm_theme'])){
+            $xot['adm_theme'] = ThemeService::getThemeType('adm_theme');
+        }
+
 
         $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
         if (null === $theme) {

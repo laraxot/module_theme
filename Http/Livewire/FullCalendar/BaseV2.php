@@ -277,7 +277,12 @@ abstract class BaseV2 extends Component {
         return $events
             ->filter(
                 function ($event) use ($day) {
-                    return Carbon::parse($event['date'])->isSameDay((string) $day);
+                    //Cannot access offset 'date' on mixed.  
+                    $date=$event['date'];
+                    if(!is_string($date)){
+                        throw new Exception('['.__LINE__.']['.__FILE__.']');
+                    }
+                    return Carbon::parse()->isSameDay((string) $day);
                 }
             );
     }

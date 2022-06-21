@@ -55,8 +55,8 @@ class V2 extends Component {
 
     public string $dragAndDropClasses;
 
-    public string $beforeCalendarView;
-    public string $afterCalendarView;
+    public ?string $beforeCalendarView;
+    public ?string $afterCalendarView;
 
     public int $pollMillis;
     public string $pollAction;
