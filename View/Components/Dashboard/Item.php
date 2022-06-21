@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Dashboard;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
 // use Modules\Xot\View\Components\XotBaseComponent;
@@ -12,10 +13,13 @@ use Illuminate\View\Component;
  * Class Field.
  */
 class Item extends Component {
-    public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+    /**
+     * Undocumented function.
+     */
+    public function render(): Renderable {
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::empty';
         $view_params = [
             'view' => $view,
