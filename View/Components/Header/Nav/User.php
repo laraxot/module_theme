@@ -13,23 +13,26 @@ use Illuminate\View\Component;
  */
 class User extends Component {
     public array $attrs = [];
+    public string $view;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct(?string $view = 'theme::components.header.nav.user_') {
+        $this->view = $view;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
-        $view = 'theme::components.header.nav.user_';
+        /**
+         * @phpstan-var view-string
+         */
+        // $view = 'theme::components.header.nav.user_';
+        $view = $this->view;
         $view .= Auth::guest() ? 'guest' : 'logged';
 
         $view_params = [
