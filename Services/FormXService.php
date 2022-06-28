@@ -4,27 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
+use Collective\Html\FormFacade as Form;
 use Exception;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
+use Illuminate\Database\Eloquent\Relations\MorphOneOrMany;
+// ---- services ---
+use Illuminate\Database\Eloquent\Relations\MorphPivot;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
-use Modules\Xot\Services\RouteService;
-// ---- services ---
-use Collective\Html\FormFacade as Form;
-use Modules\Xot\Services\PolicyService;
+use Illuminate\Support\Str;
 use Modules\Theme\Contracts\FieldContract;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphPivot;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Database\Eloquent\Relations\MorphOneOrMany;
+use Modules\Xot\Services\PolicyService;
+use Modules\Xot\Services\RouteService;
 
 /**
  * Class FormXService.
@@ -182,7 +182,8 @@ class FormXService {
         }
         */
         /**
-         * --- da fare contratto etc etc (interface)
+         * --- da fare contratto etc etc (interface).
+         *
          * @var FieldContract
          */
         $comp_field = Arr::first(
@@ -197,7 +198,7 @@ class FormXService {
             return view()->make('theme::collective.fields.error.err1', ['msg' => $msg]);
         }
 
-        $view = Str::beforeLast((string)$comp_field->view, '.field').'.freeze';
+        $view = Str::beforeLast((string) $comp_field->view, '.field').'.freeze';
         if (! View::exists($view)) {
             return view()->make('theme::collective.fields.error.err1', ['msg' => '['.$view.'] NOT EXISTS !!']);
         }
@@ -258,6 +259,27 @@ class FormXService {
             if (method_exists((object) $rows, 'getPivotClass')) {
                 // dddx($rows);
                 $pivot_class = $rows->getPivotClass();
+                if (! Str::startsWith($pivot_class, 'Modules\\')) {
+                    $pivot1 = implode('\\', array_slice(explode('\\', get_class($rows->getRelated())), 0, -1)).'\\';
+                    $pivot1 .= Str::studly(Str::singular($rows->getTable()));
+
+                    if (! class_exists($pivot1)) {
+                        dddx(
+                            [
+                                // 'rows' => $rows,
+                                'pivot_class' => $pivot_class,
+                                'related' => $rows->getRelated(),
+                                'getMorphClass' => $rows->getMorphClass(),
+                                'getMorphType' => $rows->getMorphType(),
+                                'table' => $rows->getTable(),
+                                'methods' => get_class_methods($rows),
+                                'pivot1' => $pivot1,
+                                'pivot1_exists' => class_exists($pivot1),
+                            ]
+                        );
+                    }
+                    $pivot_class = $pivot1;
+                }
                 // $pivot = new $pivot_class();
                 // dddx($pivot_class);
                 $pivot = app($pivot_class);
