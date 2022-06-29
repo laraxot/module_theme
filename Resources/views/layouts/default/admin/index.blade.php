@@ -1,8 +1,12 @@
 @extends('adm_theme::layouts.app')
 @section('content')
     {!! $_panel->indexNav() !!}
+    {!! Theme::include('inner_page', [], get_defined_vars()) !!}
+
+
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
+
             {!! Theme::include('topbar', [], get_defined_vars()) !!}
             @php
             $fields = $_panel->getFields(['act' => 'index']);
