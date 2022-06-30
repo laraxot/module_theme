@@ -220,6 +220,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             View::composer('*', $custom_composer);
 
             return;
+        }else{
+            dddx('['.$custom_composer.']');
         }
 
         View::composer('*', ThemeComposer::class);
