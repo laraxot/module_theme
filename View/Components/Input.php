@@ -28,7 +28,8 @@ class Input extends Component {
     // public array $options = [];
 
     /**
-     * Undocumented function.
+     * ---
+     * @param mixed|null $value
      */
     public function __construct(
         ?stdClass $field = null,
@@ -38,7 +39,8 @@ class Input extends Component {
         ?string $placeholder = null,
         ?string $class = null,
         ?array $options = null,
-        ?string $icon = null
+        ?string $icon = null,
+        $value=null,
     ) {
         try {
             $this->tradKey = 'pub_theme::txt';
@@ -54,6 +56,7 @@ class Input extends Component {
         $this->field = (object) [];
         $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
+        
         $args = \func_get_args();
         $data = collect([]);
         foreach ($parameters as $k => $v) {
@@ -103,6 +106,23 @@ class Input extends Component {
                     break;
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return self
+     */
+    public function setValue($value): self {
+        if($value==null){
+            //$value=old($this->field->name);
+            $value=request($this->field->name) ?? old($this->field->name);
+        }
+        $this->field->value = $value;
+        $this->attrs['value']=$value;
 
         return $this;
     }

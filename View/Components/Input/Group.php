@@ -73,6 +73,21 @@ class Group extends Component {
     }
     */
 
+    /**
+     * Undocumented function
+     *
+     * @param stdClass|null $field
+     * @param string|null $name
+     * @param string|null $type
+     * @param string|null $label
+     * @param string|null $placeholder
+     * @param string|null $class
+     * @param array|null $options
+     * @param integer|null $colSize
+     * @param string|null $icon
+     * @param string|null $tpl
+     * @param mixed|null $value
+     */
     public function __construct(
         ?stdClass $field = null,
         ?string $name = null,
@@ -83,7 +98,9 @@ class Group extends Component {
         ?array $options = null,
         ?int $colSize = null,
         ?string $icon = null,
-        ?string $tpl = null
+        ?string $tpl = null,
+        $value=null,
+        
     ) {
         $panel = PanelService::make()->getRequestPanel();
         $this->tradKey = 'pub_theme::txt';
@@ -115,6 +132,18 @@ class Group extends Component {
             $this->tpl = $tpl;
         }
 
+        return $this;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param mixed $value
+     * @return self
+     */
+    public function setValue($value): self {
+        $this->field->value=$value;
+        //$this->attrs['value']=$value;
         return $this;
     }
 
