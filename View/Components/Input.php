@@ -118,7 +118,6 @@ class Input extends Component {
      */
     public function setValue($value): self {
         if($value==null){
-            //$value=old($this->field->name);
             $value=request($this->field->name) ?? old($this->field->name);
         }
         $this->field->value = $value;
