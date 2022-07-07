@@ -142,6 +142,9 @@ class Group extends Component {
      * @return self
      */
     public function setValue($value): self {
+        if($value==null){
+            $value=request($this->field->name) ?? old($this->field->name);
+        }
         $this->field->value=$value;
         //$this->attrs['value']=$value;
         return $this;
@@ -175,7 +178,7 @@ class Group extends Component {
                     $this->attrs['class'] = 'selectpicker form-control';
                     $this->attrs['multiple'] = 'multiple';
                     $this->attrs['data-style'] = 'btn-selectpicker';
-
+                    $this->attrs['data-live-search']="true";
                     $this->attrs['data-selected-text-format'] = 'count &gt; 1';
                     $this->attrs['data-none-selected-text'] = '';
                     break;

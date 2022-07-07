@@ -117,11 +117,13 @@ class Input extends Component {
      * @return self
      */
     public function setValue($value): self {
-        if($value==null){
-            $value=request($this->field->name) ?? old($this->field->name);
-        }
-        $this->field->value = $value;
-        $this->attrs['value']=$value;
+        //if($value==null){
+        //    $value=request($this->field->name) ?? old($this->field->name);
+        //}
+        $val= $this->field->value ?? $value;
+        
+        $this->field->value = $val;
+        $this->attrs['value']=$val;
 
         return $this;
     }
