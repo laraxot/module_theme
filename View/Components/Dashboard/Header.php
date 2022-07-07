@@ -17,7 +17,7 @@ class Header extends Component {
      * @return void
      */
     public function __construct(
-        string $view, // esempio 'adm_theme::components.dashboard.header'
+        string $view, // example 'adm_theme::components.dashboard.header'
         string $title,
         string $subtitle = '') {
         $this->view = $view;
