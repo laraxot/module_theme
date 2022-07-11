@@ -226,14 +226,21 @@ class Group extends Component {
     }
 
     public function setLabel(?string $label = null): self {
+        /*
         if (null === $label) {
             if (null !== $this->field) {
                 $label = trans($this->tradKey.'.'.$this->field->name.'.label');
             }
         }
-        if (null !== $this->field) {
-            $this->field->label = $label;
+        */
+        $val= $this->field->label ?? $label;
+        
+        $this->field->label = $val;
+        $this->attrs['label']=$val;
+        if($val!=null){
+            $this->label=$val;
         }
+
 
         return $this;
     }

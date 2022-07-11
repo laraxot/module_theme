@@ -171,9 +171,12 @@ class Input extends Component {
                 $label = trans($this->tradKey.'.'.$this->field->name.'.label');
             }
         }
-        if (null !== $this->field) {
-            $this->field->label = $label;
-        }
+        
+
+        $val= $this->field->label ?? $label;
+        
+        $this->field->label = $val;
+        $this->attrs['label']=$val;
 
         return $this;
     }

@@ -7,7 +7,6 @@
     'helpText' => false,
     'optional' => false,
 ])
-
 <div {{ $attributes }}>
     @if ($label)
         <div class="flex items-center justify-between">
