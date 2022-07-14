@@ -33,10 +33,21 @@ class Status extends Component {
         $status=$model->status;
         $statuses=collect($statuses->toArray())->map(function($item) use($status){
             $item['label']=$item['name'];
+            $item['color']=$this->getColor($item['name']);
             $item['active']=($status == $item['name']);
             return $item;
         })->all();
         $this->statuses=$statuses;
+    }
+
+    private function getColor(string $name):string{
+        $color='blue';
+        switch($name){
+            case 'draft': return 'yellow';
+            case 'private': return 'red';
+            case 'public': return 'green';
+        }
+        return $color;
     }
 
     /**
