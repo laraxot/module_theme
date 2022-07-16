@@ -59,8 +59,11 @@ class BodyView extends Component {
         }
     }
 
-    public function sendData(): void {
-        $this->emit('updateDataFromModal', $this->modal_id, $this->form_data);
+    public function sendData(?string $event = null): void {
+        if (is_null($event)) {
+            $event = 'updateDataFromModal';
+        }
+        $this->emit($event, $this->modal_id, $this->form_data);
         session()->flash('message', 'Saved !');
     }
 
