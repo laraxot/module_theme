@@ -12,10 +12,11 @@
                             <small>{{ $subtitle }}</small>
                         @endif
                     </h4>
-
-                    <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">
+                    {{-- <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">
                         <span aria-hidden="true">×</span>
-                    </button>
+                    </button> --}}
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        wire:click.prevent="doClose()"></button>
                 </div>
                 <div class="modal-body">
                     @if (session()->has('message'))
