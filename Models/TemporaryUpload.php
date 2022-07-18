@@ -39,6 +39,8 @@ use Modules\Theme\Exceptions\TemporaryUploadDoesNotBelongToCurrentSession;
  * @mixin \Eloquent
  */
 class TemporaryUpload extends Model implements HasMedia {
+    protected $fillable=['id','session_id','created_at','created_by','updated_at','updated_by'];
+
     use InteractsWithMedia;
 
     protected $guarded = [];
