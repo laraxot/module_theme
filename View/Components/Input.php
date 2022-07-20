@@ -40,7 +40,7 @@ class Input extends Component {
         ?string $class = null,
         ?array $options = null,
         ?string $icon = null,
-        $value=null,
+        $value=null
     ) {
         try {
             $this->tradKey = 'pub_theme::txt';
