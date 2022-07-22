@@ -1,7 +1,7 @@
 <!--Card-->
 <div class="card" style="width: 18rem;">
     <!--Card image-->
-    <video class="img-fluid" controls playsinline {{-- autoplay muted loop --}}>
+    <video class="img-fluid lazy" controls playsinline {{-- autoplay muted loop --}}>
         <source src="{{ $videoSrc }}" type="video/mp4">
     </video>
     <!--Card content-->
