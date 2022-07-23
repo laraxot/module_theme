@@ -99,7 +99,7 @@ class Group extends Component {
         ?int $colSize = null,
         ?string $icon = null,
         ?string $tpl = null,
-        $value=null,
+        $value=null
         
     ) {
         $panel = PanelService::make()->getRequestPanel();
