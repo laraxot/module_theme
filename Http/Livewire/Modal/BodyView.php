@@ -57,6 +57,7 @@ class BodyView extends Component {
             $this->doShow();
             $this->form_data = array_merge($this->form_data, $data);
         }
+        // dddx($this->form_data); // qui controllo cosa arriva al modal
     }
 
     public function sendData(?string $event = null): void {
