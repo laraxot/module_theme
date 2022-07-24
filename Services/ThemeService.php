@@ -905,7 +905,7 @@ class ThemeService
                 return View::exists($view_check);
             }
         );
-        if (false === $view_work) {
+        if (false === $view_work  || null === $view_work) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
