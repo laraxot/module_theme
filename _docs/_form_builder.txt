@@ -5,10 +5,65 @@ form builder gui dra drop
 //-------------- SCARICABILI -----------------
 //---------
 https://github.com/formio/formio
+https://github.com/formio/formio.js
 demo:
 https://codepen.io/travist/full/xVyMjo/
 note: ha molte funzionalità 
 //----------
+https://it.wordpress.org/plugins/visual-form-builder/
+-- usa il motore js della creazione menu
+//-----------
+https://github.com/laraform/laraform
+e' in vue ..
+//-------------
+https://gitgo.ir/4xmen/laravel-form-builder.git    !!!!!!!!!!
+ https://github.com/4xmen/laravel-form-builder  !!!!!!!!!!
+
+//-----------
+https://github.com/kevinchappell/formBuilder  !!!!!!!
+https://formbuilder.online/
+https://www.webdeveloperguide.in/jquery-formbuilder-tutorial/  : TUTORIAL
+https://webcodeflow.com/drag-drop-formbuilder/
+https://demo.quebixtechnology.com/prime/design/1
+
+//-----------
+https://github.com/formio/formio.js
+
+//-----------
+https://github.com/Draggable/formeo
+https://draggable.github.io/formeo/ !!!!
+//------------
+https://github.com/Formoid/Formoid ???
+//--------------
+https://github.com/orbeon/orbeon-forms
+https://www.orbeon.com/
+//---------------
+https://github.com/rhythmagency/formulate
+//----------------
+https://github.com/IhabSoliman/Bootstrap-Form-Builder
+//----------------
+https://github.com/frappe/bootstrap-form-builder   !!!
+//------------------
+https://github.com/shalotelli/form_builder
+//------------------
+https://github.com/Draggable/formeo !!!
+//------------------
+https://github.com/dobtco/formbuilder   !!!!
+//------------------
+https://github.com/jazmy/laravel-formbuilder   !!!!
+https://github.com/neri4488/laravel-formbuilder
+//------------------
+https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js
+//------------------
+//------------------
+//------------------
+//------------------
+//------------------
+
+
+
+
+
 
 //---------
 https://code.google.com/archive/p/php-form-builder-class/downloads   10 anni fa ..
@@ -21,11 +76,24 @@ note: ha condition
 --------- GRUPPI ---------
 https://code.tutsplus.com/articles/comparing-the-best-php-form-builders--cms-32273
 https://codecanyon.net/category/php-scripts/forms?term=form%20builder&_ga=2.70989592.96734970.1658911723-509771156.1658911723
+https://www.dunebook.com/top-19-opensource-form-builder-projects/
+https://ourcodeworld.com/articles/read/610/top-5-best-drag-and-drop-form-builders-plugins-for-javascript-and-jquery  !!
+https://codecanyon.net/category/php-scripts?tags=laravel&term=drag%20%26%20drop%20form%20builder
+---------------------------
+
+
 
 
 
 //-------------- NON SCARICABILI -----------------
+https://www.fastfieldforms.com/digital-forms.html?utm_device=c&utm_matchtype=p&utm_term=form%20builder&utm_content=612897789781&utm_campaign=MobileFormscustomerMobileonly&gclid=Cj0KCQjwxIOXBhCrARIsAL1QFCZqoAdd4Hh_GB-UdpineEZGnx_Z3nVcWJ3TNHHJgAege8L9XKa5YhsaAhmPEALw_wcB
+https://kwesforms.com/laravel-form-builder
+https://laraform.io/examples
+https://laraform.io/examples#elements
+https://formbuilder.online/
 
+https://www.jotform.com/it/php-form-generator/
+https://www.machform.com/
 //--------
 http://www.phpform.org/forms/index.php
 da guardare
@@ -47,6 +115,49 @@ boh
 https://try.formsonfire.com/mobileforms1/?capterra_tracking_key=capterra
 
 //-------------
+
+
+
+
+librerie che da prendere spunto per modulo theme
+https://airephp.com/
+https://docs.laravel-enso.com/backend/forms.html#advanced-usage
+https://docs.botble.com/cms/master/form-builder
+
+ [
+            'type'       => 'text',
+            'label'      => __('Text'),
+            'label_attr' => ['class' => 'control-label required'],
+            'attributes' => [
+                'name'    => 'text',
+                'value'   => null,
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 255,
+                ],
+            ],
+        ],
+
+https://pyrocms.com/documentation/streams-platform/1.4/ui/forms
+
+https://infyom.com/open-source/
+
+https://retool.com/blog/best-laravel-admin-panels/
+
+https://vemto.app/  !!!
+
+https://freek.dev/1609-building-complex-forms-with-laravel-livewire-in-oh-dear
+
+
+https://laraship.com/  
+
+
+
+
+
+
+
+
 
 
 
