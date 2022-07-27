@@ -1,0 +1,53 @@
+form builder gui dra drop
+
+//-------- DA GUARDARE: installare sulla propria macchina e rilevare problemi
+
+//-------------- SCARICABILI -----------------
+//---------
+https://github.com/formio/formio
+demo:
+https://codepen.io/travist/full/xVyMjo/
+note: ha molte funzionalità 
+//----------
+
+//---------
+https://code.google.com/archive/p/php-form-builder-class/downloads   10 anni fa ..
+note: 10 anni fa, non ha il gui, non serve guardarlo
+//-----------
+https://www.phpformbuilder.pro/drag-n-drop-form-builder/index.php
+note: ha condition
+--------------
+
+--------- GRUPPI ---------
+https://code.tutsplus.com/articles/comparing-the-best-php-form-builders--cms-32273
+https://codecanyon.net/category/php-scripts/forms?term=form%20builder&_ga=2.70989592.96734970.1658911723-509771156.1658911723
+
+
+
+//-------------- NON SCARICABILI -----------------
+
+//--------
+http://www.phpform.org/forms/index.php
+da guardare
+//---------
+https://www.machform.com/?ref=pform
+
+
+//---------
+PAID ... ma se si trova in giro ...
+https://www.formstack.com/products/online-forms?utm_source=capterra.com&utm_medium=paid+referral&utm_source=capterra
+
+
+//-------------
+free ma da usare online
+https://www.bitrix24.com/uses/free-web-form-generator.php?utm_source=capterra&utm_medium=cpc&utm_campaign=com_crm_capterra-formsautomation
+
+//------------
+boh
+https://try.formsonfire.com/mobileforms1/?capterra_tracking_key=capterra
+
+//-------------
+
+
+
+
