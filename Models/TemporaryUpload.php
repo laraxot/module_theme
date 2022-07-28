@@ -24,7 +24,7 @@ use Modules\Theme\Exceptions\TemporaryUploadDoesNotBelongToCurrentSession;
  * @property string|null $created_by
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $updated_by
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|Media[] $media
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\Modules\Media\Models\SpatieImage[] $media
  * @property-read int|null $media_count
  * @method static Builder|TemporaryUpload newModelQuery()
  * @method static Builder|TemporaryUpload newQuery()
