@@ -19,7 +19,7 @@ use stdClass;
  */
 class Group extends Component {
     public stdClass $field;
-    // public ?string $label = null;
+    public ?string $label = null;
     // public string $for;
     // public ?string $name = null;
     // public ?string $type = null;

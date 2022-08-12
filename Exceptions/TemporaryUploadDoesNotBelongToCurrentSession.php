@@ -4,7 +4,7 @@ namespace Modules\Theme\Exceptions;
 
 use Exception;
 
-class TemporaryUploadDoesNotBelongToCurrentSession extends Exception
+final class TemporaryUploadDoesNotBelongToCurrentSession extends Exception
 {
     public static function create(): self
     {

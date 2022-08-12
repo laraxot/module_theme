@@ -17,10 +17,10 @@ use Sushi\Sushi;
  * @property int $id
  * @property string|null $label
  * @property string|null $link
- * @property int|null $parent
- * @property int|null $sort
- * @property string|null $class
  * @property int|null $menu
+ * @property int|null $sort
+ * @property int|null $parent
+ * @property string|null $class
  * @property int|null $depth
  * @property int|null $role_id
  * @property-read Collection|MenuItem[] $child

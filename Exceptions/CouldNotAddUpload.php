@@ -4,7 +4,7 @@ namespace Modules\Theme\Exceptions;
 
 use Exception;
 
-class CouldNotAddUpload extends Exception
+final class CouldNotAddUpload extends Exception
 {
     public static function uuidAlreadyExists()
     {
