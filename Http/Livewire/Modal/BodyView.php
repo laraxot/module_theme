@@ -53,19 +53,23 @@ class BodyView extends Component {
     }
 
     public function showModal(string $id, array $data): void {
+        $this->form_data = [];
         if ($id === $this->modal_id) {
             $this->doShow();
             $this->form_data = array_merge($this->form_data, $data);
+            // dddx([array_merge($this->form_data, $data), $this->form_data, $data]);
         }
         // dddx($this->form_data); // qui controllo cosa arriva al modal
     }
 
     public function sendData(?string $event = null): void {
+        // dddx($this->form_data);
         if (is_null($event)) {
             $event = 'updateDataFromModal';
         }
+        // dddx($this->modal_id);
         $this->emit($event, $this->modal_id, $this->form_data);
-        session()->flash('message', 'Saved !');
+        // session()->flash('message', 'Saved !');
     }
 
     public function doShow(): void {
