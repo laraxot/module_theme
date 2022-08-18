@@ -14,17 +14,22 @@ class Arr extends Component {
     public string $type;
     public string $name;
     public array $form_data;
+    public string $group;
+    public string $email;
 
     /**
      * Undocumented function.
      *
      * @return void
      */
-    public function mount(string $type, string $name) {
+    public function mount(string $type, string $name/* , string $group */) {
         $this->type = $type;
         $this->name = $name;
         $data = request()->all();
         $this->form_data = $data;
+        $this->form_data[$this->name] = [];
+        $this->group = '';
+        $this->email = '';
     }
 
     /**
@@ -42,13 +47,18 @@ class Arr extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function addArr(): void {
-        $this->form_data[$this->name][] = null;
+    public function addGroup(): void {
+        // $this->form_data[$this->name] =
+
+        $this->form_data[$this->name][$this->group] = [];
+        $this->group = '';
+
         // dddx($this->form_data);
     }
 
-    public function subArr(int $id): void {
-        unset($this->form_data[$this->name][$id]);
+    public function addMail(): void {
+        $this->form_data[$this->name][$this->group][] = $this->email;
+        $this->email = '';
     }
 
     public function getData(): void {

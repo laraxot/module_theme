@@ -14,18 +14,19 @@ class Arr extends Component {
     public string $type;
     public string $name;
     public array $form_data;
-     /**
+
+    /**
      * Undocumented function.
      *
      * @return void
      */
     public function mount(string $type, string $name) {
-        $this->type=$type;
-        $this->name=$name;
-        $data=request()->all();
-        $this->form_data=$data;
-        //$data[$name] ?? [];
-        //dddx($this->form_data);
+        $this->type = $type;
+        $this->name = $name;
+        $data = request()->all();
+        $this->form_data = $data;
+        // $data[$name] ?? [];
+        // dddx($this->form_data);
     }
 
     /**
@@ -43,10 +44,11 @@ class Arr extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function addArr():void{
-        $this->form_data[$this->name][]=null;
+    public function addArr(): void {
+        $this->form_data[$this->name][] = null;
     }
-    public function subArr(int $id):void{
+
+    public function subArr(int $id): void {
         unset($this->form_data[$this->name][$id]);
     }
 }
