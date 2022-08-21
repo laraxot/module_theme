@@ -15,17 +15,22 @@
             </ul>
         </div>
         <div class="card-header">
-            @foreach ($_panel->getTabs() as $level)
             <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
-                @foreach ($level as $tab)
-                    <li class="nav-item ">
-                        <a class="nav-link {{ $tab->active ? 'active' : '' }}" href="{{ $tab->url }}">
-                            {{ $tab->title }}
-                        </a>
-                    </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{-- $tab->active?'active':'' --}}" href="{{ $_panel->getBreads()->first()->url('edit') }}">
+                        {{ $_panel->getBreads()->first()->title() }}
+                    </a>
+                </li>
+                @foreach ($_panel->getTabs() as $level)
+                    @foreach ($level as $tab)
+                        <li class="nav-item ">
+                            <a class="nav-link {{ $tab->active ? 'active' : '' }}" href="{{ $tab->url }}">
+                                {{ $tab->title }}
+                            </a>
+                        </li>
+                    @endforeach
                 @endforeach
             </ul>
-            @endforeach
         </div>
 
         <div class="card-body">
