@@ -31,6 +31,10 @@ class Group extends Component {
 
     public string $tpl = 'default';
 
+    public array $div_attrs=[];
+    public array $label_attrs=[];
+    public array $input_attrs=[];
+
     /**
      * Undocumented function.
      */
@@ -116,11 +120,10 @@ class Group extends Component {
         foreach ($parameters as $k => $v) {
             $tmp = [
                 'name' => $v->getName(),
-                'value' => $args[$k],
+                'value' => $args[$k] ?? $field->{$v->getName()} ?? $field->{Str::snake($v->getName())} ?? null,
             ];
             $data->push($tmp);
         }
-
         foreach ($data as $k => $v) {
             $func = 'set'.Str::studly($v['name']);
             $this->{$func}($v['value']);
@@ -146,19 +149,15 @@ class Group extends Component {
             $value=request($this->field->name) ?? old($this->field->name);
         }
         $this->field->value=$value;
-        //$this->attrs['value']=$value;
         return $this;
     }
 
     public function setField(stdClass $field): self {
         $this->field = $field;
-        if (isset($field->name)) {
-            $this->setName($field->name);
-        }
-
         return $this;
     }
 
+    
     public function setClass(?string $class = null): self {
         if (null !== $class) {
             $this->attrs['class'] = $class;
@@ -188,25 +187,16 @@ class Group extends Component {
 
         return $this;
     }
+   
 
     public function setIcon(?string $icon = null): self {
-        if (null === $icon) {
-            return $this;
-        }
-        if (null !== $this->field) {
-            $this->field->icon = $icon;
-        }
-
+        $this->field->icon = $icon;
         return $this;
     }
 
     public function setName(?string $name = null): self {
-        if (null === $name) {
-            return $this;
-        }
-        if (null !== $this->field) {
-            $this->field->name = $name;
-        }
+        $this->field->name = $name;
+
         $this->attrs['name'] = $name;
         $this->attrs['wire:model'] = 'form_data.'.$name;
 
@@ -214,65 +204,44 @@ class Group extends Component {
     }
 
     public function setType(?string $type = null): self {
-        if (null === $type) {
-            return $this;
-        }
-        // dddx($type);//select.multiple
-        if (null !== $this->field) {
-            $this->field->type = $type;
-        }
-
+        $this->field->type = $type;
         return $this;
     }
 
     public function setLabel(?string $label = null): self {
-        /*
-        if (null === $label) {
-            if (null !== $this->field) {
-                $label = trans($this->tradKey.'.'.$this->field->name.'.label');
-            }
-        }
-        */
-        $val= $this->field->label ?? $label;
         
-        $this->field->label = $val;
-        $this->attrs['label']=$val;
-        if($val!=null){
-            $this->label=$val;
+        if (null === $label) {
+            $trans_key=$this->tradKey.'.'.$this->field->name.'.label';
+            $label = trans($trans_key);
         }
-
-
+        
+        $this->field->label = $label;
+        $this->attrs['label']=$label;
+        $this->label=$label;
         return $this;
     }
 
     public function setPlaceholder(?string $placeholder = null): self {
         if (null === $placeholder) {
-            if (null !== $this->field) {
-                $placeholder = trans($this->tradKey.'.'.$this->field->name.'.placeholder');
-            }
+            $placeholder = trans($this->tradKey.'.'.$this->field->name.'.placeholder');
         }
-        if (null !== $this->field) {
-            $this->field->placeholder = $placeholder;
-        }
-
+        $this->field->placeholder = $placeholder;
         return $this;
     }
 
     public function setOptions(?array $options = null): self {
         $options = \is_array($options) ? $options : [];
-        if (null !== $this->field) {
-            $this->field->options = $options;
-        }
-
+        $this->field->options = $options;
         return $this;
     }
 
     public function setColSize(?int $colSize = null): self {
+        
         if (null === $colSize) {
-            return $this;
+            $colSize=12;
         }
         $this->colSize = $colSize;
-
+        $this->div_attrs['class']='col-'.$colSize;
         return $this;
     }
 
@@ -280,13 +249,6 @@ class Group extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        /*
-        $theme = inAdmin() ? 'adm_theme' : 'pub_theme';
-        FileService::viewCopy('theme::components.input.group', $theme.'::components.input.group');
-
-        $view = $theme.'::components.input.group';
-        */
-
         /** 
         * @phpstan-var view-string
         */
@@ -294,9 +256,13 @@ class Group extends Component {
         $view_params = [
             'view' => $view,
             'field' => (object) $this->field,
+            
         ];
-        // Call to an undefined method Illuminate\Contracts\View\Factory|Illuminate\Contracts\View\View::make().
-        // return view()->make($view, $view_params);
         return View::make($view, $view_params);
+    }
+
+
+    public function shouldRender():bool {
+        return true; 
     }
 }

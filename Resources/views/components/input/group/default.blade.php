@@ -7,7 +7,7 @@
     'helpText' => false,
     'optional' => false,
 ])
-<div {{ $attributes }}>
+<div {{ $attributes->merge($div_attrs) }}>
     @if ($label)
         <div class="flex items-center justify-between">
             <label for="{{ $for }}"
