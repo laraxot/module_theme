@@ -75,4 +75,8 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
     public function testComponents(UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function tryProgressbar(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }

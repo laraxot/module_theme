@@ -12,11 +12,11 @@ use Modules\Xot\Models\Panels\XotBasePanel;
  */
 class _ModulePanel extends XotBasePanel {
     public function actions(): array {
-        //$theme = request()->input('theme');
+        // $theme = request()->input('theme');
         /**
          * @var string|null
          */
-        $theme=request('theme');
+        $theme = request('theme');
         $act = request()->input('_act');
         $actions = [
             new Actions\ChoosePubThemeAction(),
@@ -30,6 +30,7 @@ class _ModulePanel extends XotBasePanel {
             new Actions\GrapeJsAction(),
             // new Actions\ShowAllIconsAction(), //visualizza tutte le icone disponibili per il tema //da rifare
             new Actions\TestComponentsAction(),
+            new Actions\TryProgressbarAction(),
             new ManageLangModuleAction('theme'),
         ];
         if (\in_array($act, ['choose_pub_theme', 'activate_pub_theme'], true)) {
