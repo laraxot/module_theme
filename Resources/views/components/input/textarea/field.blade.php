@@ -20,6 +20,7 @@
         cols="25"
         />
   */
+  //meglio usare wysiwyg o similare
 @endphp
 @component($input_component)
     @slot('label')
