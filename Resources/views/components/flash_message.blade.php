@@ -1,28 +1,30 @@
-@php
-    dddx(session());
-@endphp
-@if (Session::has('status') && !is_array(Session::get('status')) )
+@if (session('status') && !is_array(session('status')) )
     <div class="alert alert-success">
-        {{ Session::get('status') }}
+        {{ session('status') }}
     </div>
 @endif
 
-@if (Session::has('status_error'))
+@if (session('status_error'))
     <div class="alert alert-danger">
-        {{ Session::get('status_error') }}
+        {{ session('status_error') }}
     </div>
 @endif
+@if (session('swal'))
+@php
+//dddx(json_encode(session('swal')));
+@endphp
 
-@if (Session::has('swal'))
-    @push('scripts')
-        <script>
-        $(document).ready(function(){
-            Swal.fire({!! json_encode(session('swal')) !!});
-        });
-        </script>
-    @endpush
+<script>
+$(document).ready(function(){
+	Swal.fire({!! json_encode(session('swal')) !!});
+});
+</script>
+
 @endif
+{{--
+	https://github.com/laracasts/flash/blob/master/src/views/message.blade.php
 
+ --}}
  @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
