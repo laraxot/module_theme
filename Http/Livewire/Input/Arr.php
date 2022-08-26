@@ -14,17 +14,26 @@ class Arr extends Component {
     public string $type;
     public string $name;
     public array $form_data;
+    public array $value = [];
 
     /**
      * Undocumented function.
      *
      * @return void
      */
-    public function mount(string $type, string $name) {
+    public function mount(string $type, string $name, ?array $value) {
         $this->type = $type;
         $this->name = $name;
         $data = request()->all();
+        
+        if (is_array($value)) {
+            
+            $data[$name] = array_merge($value, $data[$name] ?? []);
+        }
+
         $this->form_data = $data;
+
+   
         // $data[$name] ?? [];
         // dddx($this->form_data);
     }
