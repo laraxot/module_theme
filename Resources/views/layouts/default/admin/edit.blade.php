@@ -26,7 +26,8 @@ $test=route('admin.item.update',$parz);
 @section('content')
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
-            {!! Theme::include('topbar', [], get_defined_vars()) !!}
+            {{--!! Theme::include('topbar', [], get_defined_vars()) !!--}}
+            <x-include-view view="topbar" />
             <x-theme::alerts.error :errors="$errors" />
             {{-- <x-theme::forms.panel :panel="$_panel" action="update"> --}}
             {!! Form::bsOpenPanel($_panel, 'update') !!}

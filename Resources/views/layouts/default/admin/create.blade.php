@@ -10,6 +10,7 @@ $fields = $_panel->getFields(['act' => 'edit']);
 @section('content')
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
+            <x-include-view view="topbar" />
             {{-- prima di rimettere sto schifo spiegatemelo
             <h1>Crea {{ $_panel_name }}</h1> --}}
             <x-theme::alerts.error :errors="$errors" />
