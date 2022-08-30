@@ -14,5 +14,5 @@
   height="30"
   layout="fixed"
   data-layout="button_count"
-  data-href="https://www.facebook.com/foodfriendfindercom/">
+  data-href="https://www.facebook.com/test sitenamecom/">
 </amp-facebook-like>
