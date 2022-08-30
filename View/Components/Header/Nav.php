@@ -12,13 +12,16 @@ use Illuminate\View\Component;
  */
 class Nav extends Component {
     public array $attrs = [];
-
+    public bool $adv = false;
+    public string $text = "";
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct(?bool $adv=false,?string $text="") {
+        $this->adv = $adv;
+        $this->text = $text;
     }
 
     /**

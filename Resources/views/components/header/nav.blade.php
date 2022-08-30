@@ -14,6 +14,11 @@
                             placeholder="Search" aria-label="Search" type="search" name="q" />
                     </div>
                 </form>
+
+                @if ($adv === true)
+                    <button class="btn btn-info"
+                        onclick="Livewire.emit('showModal','elastic_advanced_search',[])">{{ $text }}</button>
+                @endif
             </div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
@@ -23,3 +28,6 @@
     </nav>
     <!-- /Navbar -->
 </header>
+<livewire:modal.body-view show="false" id="elastic_advanced_search" title="Advanced Search" subtitle=""
+    bodyView="theme::livewire.elastic.filter.v2">
+</livewire:modal.body-view>

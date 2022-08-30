@@ -15,15 +15,20 @@ class Arr extends Component {
     public string $name;
     public array $form_data;
     public array $value = [];
+    public bool $update_model=false;
+
+    protected $listener = ["updateModel"];
 
     /**
      * Undocumented function.
      *
      * @return void
      */
-    public function mount(string $type, string $name, ?array $value) {
+    public function mount(string $type, string $name, ?array $value, ?bool $update_model) {
         $this->type = $type;
         $this->name = $name;
+        $this->update_model=$update_model;
+
         $data = request()->all();
         
         if (is_array($value)) {
@@ -36,6 +41,16 @@ class Arr extends Component {
    
         // $data[$name] ?? [];
         // dddx($this->form_data);
+    }
+
+    public function updateModel(){
+
+        $data = request()->all();
+
+        $this->form_data = $data;
+
+        dddx([$data,$this->name]);
+
     }
 
     /**

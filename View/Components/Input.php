@@ -28,7 +28,8 @@ class Input extends Component {
     // public array $options = [];
 
     /**
-     * ---
+     * ---.
+     *
      * @param mixed|null $value
      */
     public function __construct(
@@ -40,7 +41,7 @@ class Input extends Component {
         ?string $class = null,
         ?array $options = null,
         ?string $icon = null,
-        $value=null
+        $value = null
     ) {
         try {
             $this->tradKey = 'pub_theme::txt';
@@ -56,7 +57,7 @@ class Input extends Component {
         $this->field = (object) [];
         $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
-        
+
         $args = \func_get_args();
         $data = collect([]);
         foreach ($parameters as $k => $v) {
@@ -111,19 +112,18 @@ class Input extends Component {
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @param mixed $value
-     * @return self
      */
     public function setValue($value): self {
-        //if($value==null){
+        // if($value==null){
         //    $value=request($this->field->name) ?? old($this->field->name);
-        //}
-        $val= $this->field->value ?? $value;
-        
+        // }
+        $val = $this->field->value ?? $value;
+
         $this->field->value = $val;
-        $this->attrs['value']=$val;
+        $this->attrs['value'] = $val;
 
         return $this;
     }
@@ -148,7 +148,7 @@ class Input extends Component {
             $this->field->name = $name;
         }
         $this->attrs['name'] = $name;
-        $this->attrs['wire:model'] = 'form_data.'.$name;
+        $this->attrs['wire:model.lazy'] = 'form_data.'.$name;
 
         return $this;
     }
@@ -171,12 +171,11 @@ class Input extends Component {
                 $label = trans($this->tradKey.'.'.$this->field->name.'.label');
             }
         }
-        
 
-        $val= $this->field->label ?? $label;
-        
+        $val = $this->field->label ?? $label;
+
         $this->field->label = $val;
-        $this->attrs['label']=$val;
+        $this->attrs['label'] = $val;
 
         return $this;
     }
@@ -219,9 +218,9 @@ class Input extends Component {
         $type = $this->field->type;
 
         $type = Str::snake($type);
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.input.'.$type.'.field';
 
         $view_params = get_object_vars($this->field);
