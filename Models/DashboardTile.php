@@ -7,7 +7,6 @@ namespace Modules\Theme\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Dashboard\Models\Tile as BaseTile;
 
-
 /**
  * Modules\Theme\Models\DashboardTile
  *
@@ -30,7 +29,7 @@ use Spatie\Dashboard\Models\Tile as BaseTile;
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile whereUpdatedBy($value)
  * @mixin \Eloquent
  */
-class DashboardTile extends BaseTile {
+class DashboardTile extends BaseTile
+{
     protected $fillable=['id','name','data','created_at','created_by','updated_at','updated_by'];
-
 }

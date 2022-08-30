@@ -10,22 +10,15 @@ use Illuminate\View\Component;
 
 /**
  * Class Home.
- * una schifosa prova per visualizzare una home personalizzata.
  */
-class Home extends Component {
+class Home extends Component
+{
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct() {
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): Renderable {
-
-        return view()->make('mediamonitor::DirectoryBs5.home');
+    public function __construct()
+    {
     }
 }
