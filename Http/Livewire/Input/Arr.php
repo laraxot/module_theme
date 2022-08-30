@@ -15,42 +15,26 @@ class Arr extends Component {
     public string $name;
     public array $form_data;
     public array $value = [];
-    public bool $update_model=false;
-
-    protected $listener = ["updateModel"];
+    public ?int $model_id;
 
     /**
      * Undocumented function.
      *
      * @return void
      */
-    public function mount(string $type, string $name, ?array $value, ?bool $update_model) {
+    public function mount(string $type, string $name, ?array $value, ?int $modelId) {
         $this->type = $type;
         $this->name = $name;
-        $this->update_model=$update_model;
 
         $data = request()->all();
-        
+
         if (is_array($value)) {
-            
             $data[$name] = array_merge($value, $data[$name] ?? []);
         }
 
-        $this->form_data = $data;
-
-   
-        // $data[$name] ?? [];
-        // dddx($this->form_data);
-    }
-
-    public function updateModel(){
-
-        $data = request()->all();
+        $this->model_id = $modelId;
 
         $this->form_data = $data;
-
-        dddx([$data,$this->name]);
-
     }
 
     /**
@@ -74,5 +58,12 @@ class Arr extends Component {
 
     public function subArr(int $id): void {
         unset($this->form_data[$this->name][$id]);
+        $this->form_data['model_id'] = $this->model_id;
+        $this->emit('updatedFormDataEvent', $this->form_data);
+    }
+
+    public function updatedFormData(string $value, string $key) {
+        $this->form_data['model_id'] = $this->model_id;
+        $this->emit('updatedFormDataEvent', $this->form_data);
     }
 }

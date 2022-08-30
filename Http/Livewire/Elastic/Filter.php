@@ -17,6 +17,18 @@ class Filter extends Component {
     public array $must_not = [];
     public array $should = [];
 
+    public ?int $model_id;
+
+    public ?string $model_class;
+
+    /**
+     * @var array
+     */
+    protected $listeners = [
+        // 'updateDataFromModal' => 'updateDataFromModal',
+        'updatedFormDataEvent' => 'updateFormData',
+    ];
+
     /**
      * Undocumented function.
      *
@@ -29,6 +41,8 @@ class Filter extends Component {
             $this->must = $row->must ?? [];
             $this->must_not = $row->must_not ?? [];
             $this->should = $row->should ?? [];
+            $this->model_id = $row->getKey();
+            $this->model_class = get_class($row);
         }
     }
 
@@ -45,5 +59,21 @@ class Filter extends Component {
         ];
 
         return view()->make($view, $view_params);
+    }
+
+    public function updateFormData(array $data) {
+        if ($this->model_id == $data['model_id']) {
+            $fields = ['must', 'must_not', 'should'];
+            $up = [];
+            foreach ($fields as $field) {
+                if (isset($data[$field])) {
+                    $up[$field] = $data[$field];
+                }
+            }
+            if ([] != $up) {
+                app($this->model_class)->find($this->model_id)->update($up);
+                session()->flash('message', 'Updated.');
+            }
+        }
     }
 }
