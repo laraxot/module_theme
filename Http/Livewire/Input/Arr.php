@@ -31,7 +31,7 @@ class Arr extends Component {
         if (is_array($value)) {
             $data[$name] = array_merge($value, $data[$name] ?? []);
         }
-
+        
         $this->model_id = $modelId;
 
         $this->form_data = $data;
@@ -58,12 +58,16 @@ class Arr extends Component {
 
     public function subArr(int $id): void {
         unset($this->form_data[$this->name][$id]);
-        $this->form_data['model_id'] = $this->model_id;
-        $this->emit('updatedFormDataEvent', $this->form_data);
+        if(isset($this->model_id)){
+            $this->form_data['model_id'] = $this->model_id;
+            $this->emit('updatedFormDataEvent', $this->form_data);
+        }
     }
 
     public function updatedFormData(string $value, string $key) {
-        $this->form_data['model_id'] = $this->model_id;
-        $this->emit('updatedFormDataEvent', $this->form_data);
+        if(isset($this->model_id)){
+            $this->form_data['model_id'] = $this->model_id;
+            $this->emit('updatedFormDataEvent', $this->form_data);
+        }
     }
 }
