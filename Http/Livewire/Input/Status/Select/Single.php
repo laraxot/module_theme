@@ -14,7 +14,8 @@ use Modules\Xot\Contracts\ModelWithStatusContract;
  * https://github.com/spatie/laravel-model-status.
  */
 class Single extends Component {
-    public ModelWithStatusContract $model;
+    public string $modelClass;
+    public int $modelId;
     public array $options;
     public string $status = '';
 
@@ -23,8 +24,10 @@ class Single extends Component {
      *
      * @return void
      */
-    public function mount(ModelWithStatusContract $model, array $options) {
-        $this->model = $model;
+    public function mount(Model $model, array $options) {
+        $this->modelClass = get_class($model);
+        $this->modelId=$model->getKey();
+    
         $this->options = $options;
         $this->status = $model->status;
     }

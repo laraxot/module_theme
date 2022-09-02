@@ -1,7 +1,7 @@
 <template>
-    <video-js controls preload="auto" ref="video-player" class="video-js vjs-big-play-centered">
+    <{{ $row->type }}-js controls preload="auto" ref="video-player" class="video-js vjs-big-play-centered">
         <source :src="src" type="video/mp4" />
-    </video-js>
+    </{{ $row->type }}-js>
 
 </template>
 
