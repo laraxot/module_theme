@@ -11,7 +11,7 @@
                         <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span
                                 class="sr-only">What are you looking for?</span></label>
                         <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
-                            placeholder="Search" aria-label="Search" type="search" name="q" />
+                            placeholder="Search" aria-label="Search" type="search" name="must[]" />
                     </div>
                 </form>
 
@@ -28,6 +28,8 @@
     </nav>
     <!-- /Navbar -->
 </header>
+@push('modals')
 <livewire:modal.body-view show="false" id="elastic_advanced_search" title="Advanced Search" subtitle=""
     bodyView="theme::livewire.elastic.filter.v2">
 </livewire:modal.body-view>
+@endpush
