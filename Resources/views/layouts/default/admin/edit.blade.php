@@ -20,7 +20,6 @@ $test=route('admin.item.update',$parz);
 */
 
 
-
 @endphp
 
 @section('content')
