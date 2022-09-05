@@ -31,9 +31,17 @@ class Bar extends Component {
         /** 
         * @phpstan-var view-string
         */
+
+        if($this->tot > 0){
+            $width = $this->value/$this->tot;
+        }else{
+            $width = 0;
+        }
+
         $view = 'theme::components.progress.bar_tot';
         $view_params = [
             'view' => $view,
+            'width' => $width,
         ];
 
         return view()->make($view, $view_params);
