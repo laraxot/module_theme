@@ -16,6 +16,8 @@ class Filter extends Component {
     public array $must = [];
     public array $must_not = [];
     public array $should = [];
+    public array $fuzzy = [];
+    public array $regexp = [];
 
     public ?int $model_id;
 
@@ -41,6 +43,8 @@ class Filter extends Component {
             $this->must = $row->must ?? [];
             $this->must_not = $row->must_not ?? [];
             $this->should = $row->should ?? [];
+            $this->regexp = $row->regexp ?? [];
+            $this->should = $row->fuzzy ?? [];
             $this->model_id = $row->getKey();
             $this->model_class = get_class($row);
         }
@@ -63,7 +67,7 @@ class Filter extends Component {
 
     public function updateFormData(array $data) {
         if ($this->model_id == $data['model_id']) {
-            $fields = ['must', 'must_not', 'should'];
+            $fields = ['must', 'must_not', 'should', 'regexp', 'fuzzy'];
             $up = [];
             foreach ($fields as $field) {
                 if (isset($data[$field])) {

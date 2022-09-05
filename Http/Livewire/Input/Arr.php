@@ -13,6 +13,7 @@ use Livewire\Component;
 class Arr extends Component {
     public string $type;
     public string $name;
+    public string $label;
     public array $form_data;
     public array $value = [];
     public ?int $model_id;
@@ -22,16 +23,17 @@ class Arr extends Component {
      *
      * @return void
      */
-    public function mount(string $type, string $name, ?array $value, ?int $modelId) {
+    public function mount(string $type, string $name, ?string $label, ?array $value, ?int $modelId) {
         $this->type = $type;
         $this->name = $name;
+        $this->label = $label;
 
         $data = request()->all();
 
         if (is_array($value)) {
             $data[$name] = array_merge($value, $data[$name] ?? []);
         }
-        
+
         $this->model_id = $modelId;
 
         $this->form_data = $data;
@@ -58,14 +60,14 @@ class Arr extends Component {
 
     public function subArr(int $id): void {
         unset($this->form_data[$this->name][$id]);
-        if(isset($this->model_id)){
+        if (isset($this->model_id)) {
             $this->form_data['model_id'] = $this->model_id;
             $this->emit('updatedFormDataEvent', $this->form_data);
         }
     }
 
     public function updatedFormData(string $value, string $key) {
-        if(isset($this->model_id)){
+        if (isset($this->model_id)) {
             $this->form_data['model_id'] = $this->model_id;
             $this->emit('updatedFormDataEvent', $this->form_data);
         }
