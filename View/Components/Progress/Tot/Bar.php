@@ -33,7 +33,7 @@ class Bar extends Component {
         */
 
         if($this->tot > 0){
-            $width = $this->value/$this->tot;
+            $width = ($this->value*100)/$this->tot;
         }else{
             $width = 0;
         }
