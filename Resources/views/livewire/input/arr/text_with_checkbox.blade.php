@@ -10,7 +10,7 @@
         <div class="input-group" :wire:key="'group-'.$model_id">
             <div class="input-group-text">
                 <input type="checkbox" wire:model.lazy="form_data.fuzzy_{{ $name }}.{{ $k }}"
-                    name="fuzzy_{{ $name }}[]" class="form-check-input mt-0" aria-label="Fuzzy" />&nbsp;Fuzzy
+                    name="fuzzy_{{ $name }}[]" class="form-check-input mt-0" aria-label="Fuzzy" />&nbsp;Simile
             </div>
             <input type="text" wire:model.lazy="form_data.{{ $name }}.{{ $k }}"
                 value="{{ $v }}" name="{{ $name }}[]" class="form-control" />
