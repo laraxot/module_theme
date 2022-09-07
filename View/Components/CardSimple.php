@@ -20,18 +20,19 @@ class CardSimple extends Component {
          * @phpstan-var view-string
          */
         $view = 'theme::components.card-simple.'.$this->type;
-        // $view_params = [];
+        $view_params = [];
 
         // return View::make($view, $view_params);
-        $res = function (array $data) use ($view) {
-            // $data['componentName'];
-            // $data['attributes'];
-            // $data['slot'];
-            // dddx($data);
+        return view($view, $view_params);
+        // $res = function (array $data) use ($view) {
+        // $data['componentName'];
+        // $data['attributes'];
+        // $data['slot'];
+        // dddx($data);
 
-            return $view; // /resources/views/components/post.blade.php
-        };
+        //    return $view; // /resources/views/components/post.blade.php
+        // };
 
-        return $res;
+        // return $res;
     }
 }
