@@ -318,8 +318,8 @@ class ThemeService {
         return FileService::asset($path);
     }
 
-    public static function showScripts111(): Renderable {
-        return view('theme::empty');
+    public static function showScripts(): Renderable {
+        
         /**
          * @var array
          */
