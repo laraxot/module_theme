@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
+use Modules\Cms\Services\RouteService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Xot\Services\PolicyService;
-use Modules\Xot\Services\RouteService;
 
 /**
  * Class FormXService.
@@ -369,31 +369,31 @@ class FormXService {
         // 320    Dead catch - Exception is never thrown in the try block.
         return Form::$input_type($input_name, $input_value, $input_attrs, $input_opts);
         // } catch (\Exception $e) {
-            /*
-            return '<div style="border:red">
-                ERRORE
+        /*
+        return '<div style="border:red">
+            ERRORE
+        </div>';
+        */
+        /*
+        dddx(
+            [
+                'message' => $e->getMessage(),
+                'code' => $e->getCode(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                //'methods' => get_class_methods($e),
+                'e' => $e,
+            ]
+        );
+        */
+        /*
+        return '<div>
+            message :'.$e->getMessage().'
+            code :'.$e->getCode().'
+            file :'.$e->getFile().'
+            line :'.$e->getLine().'
             </div>';
-            */
-            /*
-            dddx(
-                [
-                    'message' => $e->getMessage(),
-                    'code' => $e->getCode(),
-                    'file' => $e->getFile(),
-                    'line' => $e->getLine(),
-                    //'methods' => get_class_methods($e),
-                    'e' => $e,
-                ]
-            );
-            */
-            /*
-            return '<div>
-                message :'.$e->getMessage().'
-                code :'.$e->getCode().'
-                file :'.$e->getFile().'
-                line :'.$e->getLine().'
-                </div>';
-            */
+        */
         // }
         // */
     }
@@ -474,10 +474,10 @@ class FormXService {
             $url = url_queries(['format' => $modal], $url);
             $target = '';
             switch ($modal) {
-            case 'iframe':  $target = 'myModalIframe';
-                break;
-            case 'ajax':    $target = 'myModalAjax';
-                break;
+                case 'iframe':  $target = 'myModalIframe';
+                    break;
+                case 'ajax':    $target = 'myModalAjax';
+                    break;
             }
 
             return
