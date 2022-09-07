@@ -318,25 +318,20 @@ class ThemeService {
         return FileService::asset($path);
     }
 
-    /**
-     * @param bool   $compress_js
-     * @param string $page
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public static function showScripts($compress_js = true, $page = '') {
-        // TODO FIX url da funzione e non replace !!!
-        //
+    public static function showScripts111(): Renderable {
+        return view('theme::empty');
         /**
          * @var array
          */
         $scripts_pos = self::__getStatic('scripts_pos');
+
         /**
          * @var array
          */
         $scripts = self::__getStatic('scripts');
+
         $scripts = array_values(
-            \Arr::sort(
+            Arr::sort(
                 $scripts,
                 function ($v, $k) use ($scripts_pos) {
                     return $scripts_pos[$k];
@@ -345,66 +340,23 @@ class ThemeService {
         );
         $scripts = array_unique($scripts);
 
-        // $scripts = self::viewNamespaceToUrl($scripts);
         $scripts = collect($scripts)->map(
             function ($item) {
                 return self::asset($item);
             }
         )->all();
-        // dddx($scripts);
-
-        /*
-        $scripts=collect($scripts)->map(function($item){
-            return self::asset($item);
-        })->all();
-        */
-        // dddx($scripts);
-        /*  -- forse creare AsseticService o MinifyService
-        if ($compress_js) {
-            $scripts_list = \implode(',', $scripts);
-            $scripts_md5 = \md5($scripts_list);
-
-            $name = '/js/script_'.$scripts_md5.'.js';
-            $path = public_path($name);
-            $force = config('xra.force_rewrite_js');
-            if (! \file_exists($path) || $force) {
-                //$cache = new FilesystemCache($_SERVER['DOCUMENT_ROOT'] . '/tmp'); //cartella tmp non esiste piu'
-                $cache = new FilesystemCache(base_path('../cache'));
-                $collection = new AssetCollection();
-                foreach ($scripts as $filePath) {
-                    $filePath = self::getRealFile($filePath);
-                    if ('http' == \mb_substr($filePath, 0, \mb_strlen('http'))) {
-                        $filename = \md5($filePath).'.css';
-                        if (! \Storage::disk('cache')->exists($filename)) {
-                            \Storage::disk('cache')->put($filename, \fopen($filePath, 'r'));
-                        }
-                        $asset = new FileAsset(\Storage::disk('cache')->path($filename));
-                    } else {
-                        $asset = new FileAsset($filePath);
-                    }
-                    if (\class_exists('JsMinFilter')) {
-                        $asset->ensureFilter(new JsMinFilter());
-                    }
-
-                    $cachedAsset = new AssetCache($asset, $cache);
-                    $collection->add($cachedAsset);
-                }//end foreach
-
-                \File::put($path, $collection->dump());
-            }//end if
-            $scripts = [$name];
-        } else {
-            //foreach ($scripts as $k => $filePath) {
-            //    $scripts[$k] = self::getFileUrl($filePath);
-            //}//end foreach
-        }//end if
-        */
 
         $scripts = array_unique($scripts);
 
-        return view()->make('theme::services.script')->with('scripts', $scripts);
-    }
+        $view = 'theme::services.script';
 
+        $view_params = [
+            'view' => $view,
+            'scripts' => $scripts,
+        ];
+
+        return view($view, $view_params);
+    }
     // end function
 
     /**

@@ -17,8 +17,8 @@
     <div class="form-group">
         <h4>Order</h4>
         <select class="form-control" name="orderBy">
-            <option value="DESC">DESC</option>
-            <option value="ASC">ASC</option>
+            <option value="desc">DESC</option>
+            <option value="asc">ASC</option>
         </select>
     </div>
 </div>

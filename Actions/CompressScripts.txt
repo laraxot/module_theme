@@ -1,0 +1,46 @@
+/*
+        $scripts=collect($scripts)->map(function($item){
+            return self::asset($item);
+        })->all();
+        */
+        // dddx($scripts);
+        /*  -- forse creare AsseticService o MinifyService
+        if ($compress_js) {
+            $scripts_list = \implode(',', $scripts);
+            $scripts_md5 = \md5($scripts_list);
+
+            $name = '/js/script_'.$scripts_md5.'.js';
+            $path = public_path($name);
+            $force = config('xra.force_rewrite_js');
+            if (! \file_exists($path) || $force) {
+                //$cache = new FilesystemCache($_SERVER['DOCUMENT_ROOT'] . '/tmp'); //cartella tmp non esiste piu'
+                $cache = new FilesystemCache(base_path('../cache'));
+                $collection = new AssetCollection();
+                foreach ($scripts as $filePath) {
+                    $filePath = self::getRealFile($filePath);
+                    if ('http' == \mb_substr($filePath, 0, \mb_strlen('http'))) {
+                        $filename = \md5($filePath).'.css';
+                        if (! \Storage::disk('cache')->exists($filename)) {
+                            \Storage::disk('cache')->put($filename, \fopen($filePath, 'r'));
+                        }
+                        $asset = new FileAsset(\Storage::disk('cache')->path($filename));
+                    } else {
+                        $asset = new FileAsset($filePath);
+                    }
+                    if (\class_exists('JsMinFilter')) {
+                        $asset->ensureFilter(new JsMinFilter());
+                    }
+
+                    $cachedAsset = new AssetCache($asset, $cache);
+                    $collection->add($cachedAsset);
+                }//end foreach
+
+                \File::put($path, $collection->dump());
+            }//end if
+            $scripts = [$name];
+        } else {
+            //foreach ($scripts as $k => $filePath) {
+            //    $scripts[$k] = self::getFileUrl($filePath);
+            //}//end foreach
+        }//end if
+        */
