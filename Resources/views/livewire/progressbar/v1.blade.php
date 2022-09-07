@@ -10,6 +10,14 @@
     <x-progress.bar value="{{ $perc }}" />
     <br/>
     <button wire:click="start()" class="btn btn-success">Start</button>
+
+
+    @foreach($errors as $error)
+        {!! $error !!}
+    @endforeach
+
+
+
     @push('scripts')
     <script>
         Livewire.on('updateProgress', perc => {
