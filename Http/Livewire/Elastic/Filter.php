@@ -18,8 +18,8 @@ class Filter extends Component {
     public array $should = [];
     public array $fuzzy = [];
     public array $regexp = [];
-    public array $date_gt = [];
-    public array $date_lt = [];
+    public string $date_gt = '';
+    public string $date_lt = '';
 
     public ?int $model_id;
 
@@ -47,8 +47,8 @@ class Filter extends Component {
             $this->should = $row->should ?? [];
             $this->regexp = $row->regexp ?? [];
             $this->should = $row->fuzzy ?? [];
-            $this->date_gt = $row->date_gt ?? date('yyyy-mm-dd');
-            $this->date_lt = $row->date_lt ?? date('yyyy-mm-dd');
+            $this->date_gt = $row->date_gt ?? '';
+            $this->date_lt = $row->date_lt ?? '';
             $this->model_id = $row->getKey();
             $this->model_class = get_class($row);
         }
