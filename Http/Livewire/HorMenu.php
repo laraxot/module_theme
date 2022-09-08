@@ -47,9 +47,9 @@ class HorMenu extends Component {
      * Render the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.hor_menu';
 
         $menu['items'][] = [
@@ -280,7 +280,7 @@ class HorMenu extends Component {
                             }
                         }
 
-                        $html .= '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
+                        $html .= '<div class="menu-submenu '.$submenu_class.'" '.$submenu_fixed_width.'>';
 
                         $html .= '<div class="menu-subnav">';
                         $html .= '<ul class="menu-content">';

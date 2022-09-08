@@ -22,9 +22,9 @@ class Simple extends Component {
      * Render the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.chip.simple';
 
         $view_params = [

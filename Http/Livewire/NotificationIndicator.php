@@ -24,13 +24,14 @@ final class NotificationIndicator extends Component {
         if (null !== Auth::user()) {
             $this->hasNotification = (bool) $this->setHasNotification(
                 Auth::user()->unreadNotifications()->count()
-        );
+            );
         } else {
             $this->hasNotification = false;
         }
 
         return view(
-            'theme::livewire.notification-indicator', [
+            'theme::livewire.notification-indicator',
+            [
                 'hasNotification' => $this->hasNotification,
             ]
         );

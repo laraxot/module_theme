@@ -45,37 +45,37 @@ trait ThanksYajra {
             $model = $last_query->getRelation($each_relationship);
 
             switch (true) {
-            case $model instanceof BelongsToMany:
-                $pivot = $model->getTable();
-                $pivotPK = $model->getExistenceCompareKey();
-                $pivotFK = $model->getQualifiedParentKeyName();
-                $query->leftJoin($pivot, $pivotPK, $pivotFK);
+                case $model instanceof BelongsToMany:
+                    $pivot = $model->getTable();
+                    $pivotPK = $model->getExistenceCompareKey();
+                    $pivotFK = $model->getQualifiedParentKeyName();
+                    $query->leftJoin($pivot, $pivotPK, $pivotFK);
 
-                $related = $model->getRelated();
-                $table = $related->getTable();
-                $tablePK = $related->getForeignKey();
-                $foreign = $pivot.'.'.$tablePK;
-                $other = $related->getQualifiedKeyName();
+                    $related = $model->getRelated();
+                    $table = $related->getTable();
+                    $tablePK = $related->getForeignKey();
+                    $foreign = $pivot.'.'.$tablePK;
+                    $other = $related->getQualifiedKeyName();
 
-                $last_query->addSelect($table.'.'.$attribute);
-                $query->leftJoin($table, $foreign, $other);
+                    $last_query->addSelect($table.'.'.$attribute);
+                    $query->leftJoin($table, $foreign, $other);
 
-                break;
+                    break;
 
-            case $model instanceof HasOneOrMany:
-                $table = $model->getRelated()->getTable();
-                $foreign = $model->getQualifiedForeignKeyName();
-                $other = $model->getQualifiedParentKeyName();
-                break;
+                case $model instanceof HasOneOrMany:
+                    $table = $model->getRelated()->getTable();
+                    $foreign = $model->getQualifiedForeignKeyName();
+                    $other = $model->getQualifiedParentKeyName();
+                    break;
 
-            case $model instanceof BelongsTo:
-                $table = $model->getRelated()->getTable();
-                $foreign = $model->getQualifiedForeignKeyName();
-                $other = $model->getQualifiedOwnerKeyName();
-                break;
+                case $model instanceof BelongsTo:
+                    $table = $model->getRelated()->getTable();
+                    $foreign = $model->getQualifiedForeignKeyName();
+                    $other = $model->getQualifiedOwnerKeyName();
+                    break;
 
-            default:
-                return $attribute;
+                default:
+                    return $attribute;
             }
 
             $query->leftJoin($table, $foreign, $other);

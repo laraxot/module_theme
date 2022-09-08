@@ -16,8 +16,11 @@ class Modal extends Component {
     public array $attrs = [];
 
     public function __construct(
-        string $title, ?string $size, string $id,
-        bool $centered = true, int $index = 1
+        string $title,
+        ?string $size,
+        string $id,
+        bool $centered = true,
+        int $index = 1
     ) {
         $this->id = $id;
         $this->title = $title;

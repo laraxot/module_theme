@@ -19,9 +19,9 @@ class Container extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.users.security.container';
         $view_params = [
             'view' => $view,

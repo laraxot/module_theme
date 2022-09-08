@@ -50,12 +50,13 @@ class Markdown extends XotBaseComponent {
             $markdown = $this->generateAnchors($markdown);
         }
 
-        return (string) ($this->converter()->convertToHtml($markdown));
+        return (string) $this->converter()->convertToHtml($markdown);
     }
 
     protected function converter(): MarkdownConverterInterface {
         $options = array_merge(
-            $this->options, [
+            $this->options,
+            [
                 'html_input' => $this->htmlInput,
                 'allow_unsafe_links' => $this->allowUnsafeLinks,
             ]
@@ -73,7 +74,7 @@ class Markdown extends XotBaseComponent {
         /**
          * @var array
          */
-        $anchors=$matches[0] ?? [];
+        $anchors = $matches[0] ?? [];
         collect($anchors)->each(
             function (string $match, int $index) use (&$markdown) {
                 $markdown = str_replace($match, "<!--code-block-$index-->", $markdown);
@@ -106,7 +107,7 @@ class Markdown extends XotBaseComponent {
         /**
          * @var array
          */
-        $data=$matches[0] ?? [];
+        $data = $matches[0] ?? [];
         collect($data)->each(
             function (string $match, int $index) use (&$markdown) {
                 $markdown = str_replace("<!--code-block-$index-->", $match, $markdown);

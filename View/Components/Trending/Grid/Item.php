@@ -50,9 +50,9 @@ class Item extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.trending.grid.item';
 
         $view_params = [

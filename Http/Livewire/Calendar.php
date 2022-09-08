@@ -77,7 +77,7 @@ class Calendar extends Component {
     public function calendar(): array {
         $days = [];
 
-        $startOfMonthDay = (Carbon::createFromDate($this->currentYear, $this->currentMonth)->startOfMonth()->isoWeekday());
+        $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->startOfMonth()->isoWeekday();
         if (! is_int($startOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
@@ -86,7 +86,7 @@ class Calendar extends Component {
             $days[] = null;
         }
 
-        $daysInMonth = (Carbon::createFromDate($this->currentYear, $this->currentMonth)->daysInMonth);
+        $daysInMonth = Carbon::createFromDate($this->currentYear, $this->currentMonth)->daysInMonth;
         if (! is_int($daysInMonth)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
@@ -95,7 +95,7 @@ class Calendar extends Component {
             $days[] = $i;
         }
 
-        $endOfMonthDay = (Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday());
+        $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
         if (! is_int($endOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
@@ -307,7 +307,8 @@ class Calendar extends Component {
         $this->opening_hours = $this->shop->openingHours()->where('day_of_week', $this->weekDay)->get();
 
         return view()->make(
-            'theme::livewire.calendar', [
+            'theme::livewire.calendar',
+            [
                 'calendar' => $this->calendar(),
                 'items' => $this->items,
                 'opening_hours' => $this->opening_hours,

@@ -85,9 +85,9 @@ class Server extends Component {
         );
         */
 
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.info.server';
 
         $view_params = [

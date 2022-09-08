@@ -14,9 +14,15 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Container extends XotBaseComponent {
     public array $attrs;
 
-    public function __construct(string $img = 'img.png',string $imgalt = 'Image',
-    string $fullname = 'Full Name',string $location = '1st Street, NY',string $reviewsnumber = '0',
-    string $verificationstatus = 'Unverified', string $name = 'Name') {
+    public function __construct(
+        string $img = 'img.png',
+        string $imgalt = 'Image',
+        string $fullname = 'Full Name',
+        string $location = '1st Street, NY',
+        string $reviewsnumber = '0',
+        string $verificationstatus = 'Unverified',
+        string $name = 'Name'
+    ) {
         /*string $img = 'img.png',string $img_alt = 'Image',
         string $full_name = 'Full Name',string $location = '1st Street, NY',string $reviews_number = '0',
         string $verification_status = 'Unverified', string $name = 'Name'*/
@@ -31,9 +37,9 @@ class Container extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.profile.summary_card.container';
         $view_params = [
             'view' => $view,

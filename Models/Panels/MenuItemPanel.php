@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Modules\Theme\Models\MenuItem;
 // --- Services --
 
-use Modules\Xot\Contracts\RowsContract;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 class MenuItemPanel extends XotBasePanel {

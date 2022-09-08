@@ -319,7 +319,6 @@ class ThemeService {
     }
 
     public static function showScripts(): Renderable {
-        
         /**
          * @var array
          */

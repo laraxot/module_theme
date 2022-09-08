@@ -27,9 +27,9 @@ class BootstrapSelect extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.bootstrap_select.'.$this->type;
         $view_params = [
             'datastyle' => $this->datastyle,

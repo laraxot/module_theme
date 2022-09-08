@@ -46,7 +46,8 @@ class Component extends ViewComponent {
         ];
 
         $view = Arr::first(
-            $views, function ($item) {
+            $views,
+            function ($item) {
                 // Call to an undefined method Illuminate\Contracts\View\Factory|Illuminate\Contracts\View\View::exists()
                 return view()->exists($item);
             }
@@ -60,6 +61,5 @@ class Component extends ViewComponent {
         }
         // return view()->make($view);
         return View::make($view, $view_params);
-        
     }
 }

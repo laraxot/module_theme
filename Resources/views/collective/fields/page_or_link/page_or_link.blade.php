@@ -31,8 +31,8 @@ $active_pages = $page_model::all();
     <div class="col-sm-9">
         <!-- external link input -->
         <div class="page_or_link_value <?php if (! isset($entry) || 'external_link' !== $entry->type) {
-    echo 'hidden';
-} ?>" id="page_or_link_external_link">
+            echo 'hidden';
+        } ?>" id="page_or_link_external_link">
             <input type="url" class="form-control" name="link"
                 placeholder="{{ trans('backpack::crud.page_link_placeholder') }}"
                 @if (!isset($entry) || $entry->type != 'external_link') disabled="disabled" @endif
@@ -40,8 +40,8 @@ $active_pages = $page_model::all();
         </div>
         <!-- internal link input -->
         <div class="page_or_link_value <?php if (! isset($entry) || 'internal_link' !== $entry->type) {
-    echo 'hidden';
-} ?>" id="page_or_link_internal_link">
+            echo 'hidden';
+        } ?>" id="page_or_link_internal_link">
             <input type="text" class="form-control" name="link"
                 placeholder="{{ trans('backpack::crud.internal_link_placeholder', ['url',url(config('backpack.base.route_prefix') . '/page')]) }}"
                 @if (!isset($entry) || $entry->type != 'internal_link') disabled="disabled" @endif
@@ -49,8 +49,8 @@ $active_pages = $page_model::all();
         </div>
         <!-- page slug input -->
         <div class="page_or_link_value <?php if (isset($entry) && 'page_link' !== $entry->type) {
-    echo 'hidden';
-} ?>" id="page_or_link_page">
+            echo 'hidden';
+        } ?>" id="page_or_link_page">
             <select class="form-control" name="page_id">
                 @if (!count($active_pages))
                     <option value="">-</option>

@@ -12,6 +12,7 @@ use Illuminate\View\Component;
  */
 class Container extends Component {
     public ?string $img;
+
     /**
      * Create a new component instance.
      *
@@ -25,9 +26,9 @@ class Container extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.counter.container';
 
         $view_params = [

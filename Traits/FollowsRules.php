@@ -53,14 +53,14 @@ trait FollowsRules {
 
         // if ($rules_ignore) {
         $field_rules = array_udiff(
-                $field_rules,
-                $rules_ignore,
-                function ($a, $b): int {
-                    $returned_variable = (int) ($a !== $b);
+            $field_rules,
+            $rules_ignore,
+            function ($a, $b): int {
+                $returned_variable = (int) ($a !== $b);
 
-                    return $returned_variable;
-                }
-            );
+                return $returned_variable;
+            }
+        );
         // }
 
         return $field_rules;

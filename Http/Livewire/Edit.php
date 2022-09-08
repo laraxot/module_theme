@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire;
 
-use Illuminate\Support\Collection;
-use Modules\Xot\Services\PanelService;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Theme\Services\FieldService;
+use Illuminate\Support\Collection;
 use Modules\Theme\Contracts\FieldContract;
+use Modules\Theme\Services\FieldService;
 use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Xot\Services\PanelService;
 
 // use Illuminate\Support\Carbon;
 
@@ -55,7 +55,7 @@ class Edit extends XotBaseFormComponent {
         $fields = [];
         foreach ($panel_fields as $field) {
             // $fields[] = FieldService::make($field->name)->type($field->type);
-            //Parameter #1 $object of function get_object_vars expects object, mixed given.
+            // Parameter #1 $object of function get_object_vars expects object, mixed given.
             $fields[] = (new FieldService())->setVars(get_object_vars($field));
         }
         /*

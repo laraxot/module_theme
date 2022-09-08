@@ -35,7 +35,8 @@ class EasyMDE extends XotBaseComponent {
         return array_merge(
             [
                 'forceSync' => true,
-            ], $this->options
+            ],
+            $this->options
         );
     }
 

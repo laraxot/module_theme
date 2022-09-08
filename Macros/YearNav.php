@@ -18,8 +18,8 @@ class YearNav {
              */
             $routename = optional(\Route::currentRouteName());
             extract($paramz);
-            //$params = optional(\Route::current())->parameters();
-            $params= getRouteParameters();
+            // $params = optional(\Route::current())->parameters();
+            $params = getRouteParameters();
             if (isset($params['anno'])) {
                 $anno = $params['anno'];
             } else {
@@ -43,7 +43,7 @@ class YearNav {
             $html = '<nav aria-label="year_nav">
 			<ul class="pager pagination justify-content-center">
 			<li class="previous page-item"><a class="page-link" href="'.$route_prev.'">&laquo;'.($anno - 1).'</a></li>
-			<li class="current page-item active"><a class="page-link" href="'.$route_curr.'">'.($anno).' </a></li>
+			<li class="current page-item active"><a class="page-link" href="'.$route_curr.'">'.$anno.' </a></li>
 			<li class="next page-item"><a class="page-link" href="'.$route_next.'">'.($anno + 1).' &raquo; </a></li>
 			</ul>
 			</nav>';

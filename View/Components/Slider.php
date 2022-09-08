@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Illuminate\View\Component;
 use Illuminate\Support\Facades\Session;
+use Illuminate\View\Component;
 
 /**
  * Class Slider.
@@ -42,9 +42,9 @@ class Slider extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.slider.'.$this->driver;
         $view_params = [
             'view' => $view,
@@ -85,13 +85,13 @@ class Slider extends Component {
     public function isInvalid() {
         // Get the errors bag from session. The errors bag will be an instance
         // of the Illuminate\Support\MessageBag class.
-        //Cannot call method get() on mixed.
-        //$errors = session()->get('errors');
+        // Cannot call method get() on mixed.
+        // $errors = session()->get('errors');
         $errors = Session::get('errors');
         // Check if exists any error related to the configured error key.
         return ! empty($errors);
         // Cannot call method first() on mixed.
-        //return ! empty($errors) && ! empty($errors->first($this->errorKey));
+        // return ! empty($errors) && ! empty($errors->first($this->errorKey));
     }
 
     /**

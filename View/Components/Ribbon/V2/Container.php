@@ -26,9 +26,9 @@ class Container extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.ribbon.v2.container';
 
         $view_params = [

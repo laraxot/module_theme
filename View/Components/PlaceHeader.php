@@ -11,7 +11,6 @@ use Illuminate\View\Component;
  * Class Container.
  */
 class PlaceHeader extends Component {
-
     public ?string $img;
     public ?string $title;
     public ?string $subtitle;
@@ -31,9 +30,9 @@ class PlaceHeader extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.place_header';
 
         $view_params = [

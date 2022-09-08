@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components;
 
 use Exception;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
-use Illuminate\Contracts\View\View;
 
 /**
  * Class Avatar.
@@ -26,9 +26,9 @@ class Avatar extends Component {
     }
 
     public function render(): View {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.avatar.circle';
         $view_params = [
             'view' => $view,
@@ -38,20 +38,21 @@ class Avatar extends Component {
     }
 
     public function message(): string {
-        $res= Arr::first($this->messages());
-        if(!is_string($res)){
+        $res = Arr::first($this->messages());
+        if (! is_string($res)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
+
         return $res;
     }
 
     public function messages(): array {
-        //return (array) session()->get($this->type);
-        return []; //////------------ to fix ------------
+        // return (array) session()->get($this->type);
+        return []; // ////------------ to fix ------------
     }
 
     public function exists(): bool {
-        //return session()->has($this->type) && ! empty($this->messages());
-        return false; //------------- to fix -----------
+        // return session()->has($this->type) && ! empty($this->messages());
+        return false; // ------------- to fix -----------
     }
 }

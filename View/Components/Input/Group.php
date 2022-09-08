@@ -9,7 +9,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
-use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\PanelService;
 use ReflectionMethod;
 use stdClass;
@@ -31,9 +30,9 @@ class Group extends Component {
 
     public string $tpl = 'default';
 
-    public array $div_attrs=[];
-    public array $label_attrs=[];
-    public array $input_attrs=[];
+    public array $div_attrs = [];
+    public array $label_attrs = [];
+    public array $input_attrs = [];
 
     /**
      * Undocumented function.
@@ -78,18 +77,8 @@ class Group extends Component {
     */
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @param stdClass|null $field
-     * @param string|null $name
-     * @param string|null $type
-     * @param string|null $label
-     * @param string|null $placeholder
-     * @param string|null $class
-     * @param array|null $options
-     * @param integer|null $colSize
-     * @param string|null $icon
-     * @param string|null $tpl
      * @param mixed|null $value
      */
     public function __construct(
@@ -103,8 +92,7 @@ class Group extends Component {
         ?int $colSize = null,
         ?string $icon = null,
         ?string $tpl = null,
-        $value=null
-        
+        $value = null
     ) {
         $panel = PanelService::make()->getRequestPanel();
         $this->tradKey = 'pub_theme::txt';
@@ -139,25 +127,25 @@ class Group extends Component {
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @param mixed $value
-     * @return self
      */
     public function setValue($value): self {
-        if($value==null){
-            $value=request($this->field->name) ?? old($this->field->name);
+        if (null == $value) {
+            $value = request($this->field->name) ?? old($this->field->name);
         }
-        $this->field->value=$value;
+        $this->field->value = $value;
+
         return $this;
     }
 
     public function setField(stdClass $field): self {
         $this->field = $field;
+
         return $this;
     }
 
-    
     public function setClass(?string $class = null): self {
         if (null !== $class) {
             $this->attrs['class'] = $class;
@@ -177,7 +165,7 @@ class Group extends Component {
                     $this->attrs['class'] = 'selectpicker form-control';
                     $this->attrs['multiple'] = 'multiple';
                     $this->attrs['data-style'] = 'btn-selectpicker';
-                    $this->attrs['data-live-search']="true";
+                    $this->attrs['data-live-search'] = 'true';
                     $this->attrs['data-selected-text-format'] = 'count &gt; 1';
                     $this->attrs['data-none-selected-text'] = '';
                     break;
@@ -187,10 +175,10 @@ class Group extends Component {
 
         return $this;
     }
-   
 
     public function setIcon(?string $icon = null): self {
         $this->field->icon = $icon;
+
         return $this;
     }
 
@@ -205,19 +193,20 @@ class Group extends Component {
 
     public function setType(?string $type = null): self {
         $this->field->type = $type;
+
         return $this;
     }
 
     public function setLabel(?string $label = null): self {
-        
         if (null === $label) {
-            $trans_key=$this->tradKey.'.'.$this->field->name.'.label';
+            $trans_key = $this->tradKey.'.'.$this->field->name.'.label';
             $label = trans($trans_key);
         }
-        
+
         $this->field->label = $label;
-        $this->attrs['label']=$label;
-        $this->label=$label;
+        $this->attrs['label'] = $label;
+        $this->label = $label;
+
         return $this;
     }
 
@@ -226,22 +215,24 @@ class Group extends Component {
             $placeholder = trans($this->tradKey.'.'.$this->field->name.'.placeholder');
         }
         $this->field->placeholder = $placeholder;
+
         return $this;
     }
 
     public function setOptions(?array $options = null): self {
         $options = \is_array($options) ? $options : [];
         $this->field->options = $options;
+
         return $this;
     }
 
     public function setColSize(?int $colSize = null): self {
-        
         if (null === $colSize) {
-            $colSize=12;
+            $colSize = 12;
         }
         $this->colSize = $colSize;
-        $this->div_attrs['class']='col-'.$colSize;
+        $this->div_attrs['class'] = 'col-'.$colSize;
+
         return $this;
     }
 
@@ -249,20 +240,19 @@ class Group extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.input.group.'.$this->tpl;
         $view_params = [
             'view' => $view,
             'field' => (object) $this->field,
-            
         ];
+
         return View::make($view, $view_params);
     }
 
-
-    public function shouldRender():bool {
-        return true; 
+    public function shouldRender(): bool {
+        return true;
     }
 }

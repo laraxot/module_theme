@@ -31,9 +31,9 @@ class Logout extends Component {
     }
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.auth.logout';
         $view_params = [
             'view' => $view,

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Lists;
 
-use Illuminate\View\Component;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\View\Component;
 
 /**
  * Class Item.
@@ -32,9 +32,9 @@ class Item extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.lists.item';
 
         $view_params = [

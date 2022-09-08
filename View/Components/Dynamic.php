@@ -44,24 +44,24 @@ EOF;
             $bindings = $this->bindings($class = $this->classForComponent());
 
             return str_replace(
-[
-    '{{ component }}',
-    '{{ props }}',
-    '{{ bindings }}',
-    '{{ attributes }}',
-    '{{ slots }}',
-    '{{ defaultSlot }}',
-],
-[
-    $this->component,
-    $this->compileProps($bindings),
-    $this->compileBindings($bindings),
-    '{{ $attributes->merge($attrs) }}',
-    $this->compileSlots($data['__laravel_slots']),
-    '{{ $slot ?? "" }}',
-],
-$template
-);
+                [
+                    '{{ component }}',
+                    '{{ props }}',
+                    '{{ bindings }}',
+                    '{{ attributes }}',
+                    '{{ slots }}',
+                    '{{ defaultSlot }}',
+                ],
+                [
+                    $this->component,
+                    $this->compileProps($bindings),
+                    $this->compileBindings($bindings),
+                    '{{ $attributes->merge($attrs) }}',
+                    $this->compileSlots($data['__laravel_slots']),
+                    '{{ $slot ?? "" }}',
+                ],
+                $template
+            );
         };
     }
 }

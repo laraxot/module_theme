@@ -11,8 +11,6 @@ use Modules\Theme\Services\ThemeViewService;
  * Class ThemeComposer.
  */
 class ThemeComposer {
-   
-
     /**
      * Bind data to the view.
      *

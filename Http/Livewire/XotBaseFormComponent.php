@@ -111,9 +111,9 @@ abstract class XotBaseFormComponent extends Component {
      * @return \Illuminate\Contracts\View\View
      */
     public function formView() {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.form';
         $view_params = [
             'view' => $view,

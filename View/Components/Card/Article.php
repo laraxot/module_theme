@@ -32,9 +32,9 @@ class Article extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.card.article';
         // dddx($this->row);
         $view_params = [

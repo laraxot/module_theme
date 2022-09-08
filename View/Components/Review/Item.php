@@ -25,7 +25,8 @@ class Item extends Component {
         ?string $avatar = 'pub_theme::img/src/round-avatar-1.jpg',
         ?string $name = 'Name',
         ?string $stars = '4.5',
-        ?string $date = '01.02.2021') {
+        ?string $date = '01.02.2021'
+    ) {
         $this->avatar = $avatar;
         $this->name = $name;
 
@@ -37,9 +38,9 @@ class Item extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.review.item';
 
         $view_params = [

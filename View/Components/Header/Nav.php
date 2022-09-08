@@ -13,13 +13,14 @@ use Illuminate\View\Component;
 class Nav extends Component {
     public array $attrs = [];
     public bool $adv = false;
-    public string $text = "";
+    public string $text = '';
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(?bool $adv=false,?string $text="") {
+    public function __construct(?bool $adv = false, ?string $text = '') {
         $this->adv = $adv;
         $this->text = $text;
     }
@@ -28,9 +29,9 @@ class Nav extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.header.nav';
 
         $view_params = [

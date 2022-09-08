@@ -11,12 +11,12 @@ use Illuminate\View\Component;
  * Class Item.
  */
 class Item extends Component {
-
     public ?string $imgurl;
     public ?string $title;
     public ?string $price;
     public ?string $width;
     public ?string $height;
+
     /**
      * Create a new component instance.
      *
@@ -35,9 +35,9 @@ class Item extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.place_card.item';
 
         $view_params = [

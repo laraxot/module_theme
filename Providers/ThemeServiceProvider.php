@@ -30,22 +30,17 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
     public string $module_name = 'theme';
 
-    public array $xot=[];
-
+    public array $xot = [];
 
     /**
-     * Undocumented function
-     *
-     * @return array
+     * Undocumented function.
      */
-    public function getXot():array{
+    public function getXot(): array {
         return $this->xot;
     }
 
     /**
-     * Undocumented function
-     *
-     * @return void
+     * Undocumented function.
      */
     public function bootCallback(): void {
         $xot = config('xra');
@@ -55,8 +50,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             // throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             $xot = [];
         }
-        $this->xot=$xot;
-
+        $this->xot = $xot;
 
         $this->registerNamespaces('adm_theme');
         $this->registerNamespaces('pub_theme');
@@ -97,7 +91,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
      * @return void
      */
     public function bootThemeProvider(string $theme_type) {
-        $xot=$this->getXot();
+        $xot = $this->getXot();
         if (! isset($xot[$theme_type])) {
             return;
         }
@@ -128,7 +122,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         /**
          * @var array
          */
-        $xot=$this->getXot();
+        $xot = $this->getXot();
 
         /*
         $xot = TenantService::config('xra');
@@ -163,9 +157,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     }
 
     public function registerThemeConfig(string $theme_type): void {
-       
-        $xot=$this->getXot();
-        
+        $xot = $this->getXot();
+
         if (! isset($xot[$theme_type])) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             // TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
@@ -196,19 +189,16 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     }
 
     /**
-     * Undocumented function
-     *
-     * @return void
+     * Undocumented function.
      */
     private function registerViewComposers(): void {
-        $xot=$this->getXot();
-        if(!isset($xot['pub_theme'])){
+        $xot = $this->getXot();
+        if (! isset($xot['pub_theme'])) {
             $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
         }
-        if(!isset($xot['adm_theme'])){
+        if (! isset($xot['adm_theme'])) {
             $xot['adm_theme'] = ThemeService::getThemeType('adm_theme');
         }
-
 
         $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
         if (null === $theme) {
@@ -220,7 +210,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             View::composer('*', $custom_composer);
 
             return;
-        }else{
+        } else {
             dddx('['.$custom_composer.']');
         }
 

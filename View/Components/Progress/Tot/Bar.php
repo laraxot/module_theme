@@ -28,13 +28,13 @@ class Bar extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        /** 
+        /*
         * @phpstan-var view-string
         */
 
-        if($this->tot > 0){
-            $width = ($this->value*100)/$this->tot;
-        }else{
+        if ($this->tot > 0) {
+            $width = ($this->value * 100) / $this->tot;
+        } else {
             $width = 0;
         }
 

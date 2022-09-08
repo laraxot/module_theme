@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models;
 
-
-use Sushi\Sushi;
-use Modules\Theme\Models\MenuItem;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Traits\SushiConfigCrud;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Modules\Xot\Traits\SushiConfigCrud;
+use Sushi\Sushi;
 
 /**
- * Modules\Theme\Models\Menu
+ * Modules\Theme\Models\Menu.
  *
- * @property int $id
- * @property string|null $name
- * @property-read \Illuminate\Database\Eloquent\Collection|MenuItem[] $items
- * @property-read int|null $items_count
+ * @property int                                                 $id
+ * @property string|null                                         $name
+ * @property \Illuminate\Database\Eloquent\Collection|MenuItem[] $items
+ * @property int|null                                            $items_count
+ *
  * @method static Builder|Menu newModelQuery()
  * @method static Builder|Menu newQuery()
  * @method static Builder|Menu query()
  * @method static Builder|Menu whereId($value)
  * @method static Builder|Menu whereName($value)
+ *
  * @mixin \Eloquent
  */
 class Menu extends Model {
@@ -58,16 +58,16 @@ class Menu extends Model {
         return $rows;
     }
 
-    public static function byName(string $name):?Menu {
+    public static function byName(string $name): ?Menu {
         return self::where('name', '=', $name)->first();
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
-     * @return  HasMany<MenuItem>
+     * @return HasMany<MenuItem>
      */
-    public function items():HasMany {
+    public function items(): HasMany {
         return $this->hasMany(MenuItem::class, 'menu')
             ->with('child')
             ->where(function ($query) {

@@ -32,8 +32,9 @@ class Coll extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view='theme::livewire.sort.coll';
-        $view_params=[];
-        return view($view,$view_params);
+        $view = 'theme::livewire.sort.coll';
+        $view_params = [];
+
+        return view($view, $view_params);
     }
 }

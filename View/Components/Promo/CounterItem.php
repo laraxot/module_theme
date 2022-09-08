@@ -16,8 +16,6 @@ class CounterItem extends Component {
     /**
      * Create a new component instance.
      *
-     * @param int $counter
-     *
      * @return void
      */
     public function __construct(int $counter) {

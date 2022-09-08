@@ -13,9 +13,9 @@ use Illuminate\View\Component;
  */
 class Card extends Component {
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.authentication.card';
         $view_params = [
             'view' => $view,

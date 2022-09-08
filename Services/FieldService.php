@@ -158,7 +158,7 @@ class FieldService extends BaseFieldService {
     }
 
     public function toHtml(): Renderable {
-        $view = (string) ($this->getView());
+        $view = (string) $this->getView();
         $view_params = [
             'view' => $view,
             'field' => $this,

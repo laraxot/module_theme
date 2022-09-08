@@ -25,9 +25,9 @@ class Crud extends XotBaseComponent {
      * Undocumented function.
      */
     public function render(): View {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.button.crud';
         $view_params = [
             'view' => $view,

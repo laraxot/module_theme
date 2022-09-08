@@ -15,8 +15,8 @@ class PageObject {
      */
     public function __get($field) {
         switch ($field) {
-        case 'navigation':
-            return $this->getNavigationAttribute();
+            case 'navigation':
+                return $this->getNavigationAttribute();
         }
 
         return $field;

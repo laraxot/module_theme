@@ -12,7 +12,6 @@ class Progressbar extends Component {
     public int $loop_index = 0;
     public int $loop_max = 100;
     public array $errors = [];
-    
 
     /**
      * Undocumented function.
@@ -31,7 +30,7 @@ class Progressbar extends Component {
      */
     public function start(): void {
         if ($this->loop_index < $this->loop_max) {
-            $this->perc = (int) ($this->loop_index * 100/$this->loop_max);
+            $this->perc = (int) ($this->loop_index * 100 / $this->loop_max);
             $this->handle();
             $this->emit('updateProgress', $this->perc);
         } else {

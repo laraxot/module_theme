@@ -28,58 +28,58 @@ class ThemePanel extends XotBasePanel {
      */
     public function fields(): array {
         return [
-            (object) ([
+            (object) [
                 'type' => 'Id',
                 'name' => 'id',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 // 'name' => 'title',
                 'name' => 'name',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'type',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'description',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'keywords',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'active',
                 'comment' => null,
-            ]),
+            ],
 
-            (object) ([
+            (object) [
                 'type' => 'String',
                 'name' => 'order',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'aliases',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'files',
                 'comment' => null,
-            ]),
-            (object) ([
+            ],
+            (object) [
                 'type' => 'String',
                 'name' => 'requires',
                 'comment' => null,
-            ]),
+            ],
 
             /*
             (object) ([

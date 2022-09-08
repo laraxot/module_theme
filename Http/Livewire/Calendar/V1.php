@@ -43,9 +43,9 @@ class V1 extends Component {
     }
 
     private function setDate(): void {
-        $day=session('calendar.now')->day;
-        $month= session('calendar.now')->month;
-        $year= session('calendar.now')->year;
+        $day = session('calendar.now')->day;
+        $month = session('calendar.now')->month;
+        $year = session('calendar.now')->year;
         $this->selectedDay = $day;
         $this->selectedMonth = $this->currentMonth = $month;
         $this->selectedYear = $this->currentYear = $year;
@@ -208,8 +208,8 @@ class V1 extends Component {
 
     public function render(): Renderable {
         /**
-        * @phpstan-var view-string
-        */
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.calendar.v1';
         $view_params = [
             'view' => $view,

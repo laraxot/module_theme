@@ -5,16 +5,16 @@
     <?php
         $entity_model = $crud->getModel();
 
-        // short name for dependency fields
-        $primary_dependency = $field['subfields']['primary'];
-        $secondary_dependency = $field['subfields']['secondary'];
+    // short name for dependency fields
+    $primary_dependency = $field['subfields']['primary'];
+    $secondary_dependency = $field['subfields']['secondary'];
 
-        // all items with relation
-        $dependencies = $primary_dependency['model']::with($primary_dependency['entity_secondary'])->get();
+    // all items with relation
+    $dependencies = $primary_dependency['model']::with($primary_dependency['entity_secondary'])->get();
 
-        $dependencyArray = [];
+    $dependencyArray = [];
 
-        // convert dependency array to simple matrix ( prymary id as key and array with secondaries id )
+    // convert dependency array to simple matrix ( prymary id as key and array with secondaries id )
     foreach ($dependencies as $primary) {
         $dependencyArray[$primary->id] = [];
         foreach ($primary->{$primary_dependency['entity_secondary']} as $secondary) {
@@ -22,7 +22,7 @@
         }
     }
 
-      // for update form, get initial state of the entity
+    // for update form, get initial state of the entity
     if (isset($id) && $id) {
         // get entity with relations for primary dependency
         $entity_dependencies = $entity_model->with($primary_dependency['entity'])
@@ -52,8 +52,8 @@
         }
     }
 
-        // json encode of dependency matrix
-        $dependencyJson = json_encode($dependencyArray);
+    // json encode of dependency matrix
+    $dependencyJson = json_encode($dependencyArray);
     ?>
 
     <div class="row" >

@@ -27,9 +27,9 @@ class Show extends Component {
      * Undocumented function.
      */
     public function render(): ?View {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.button.show';
         $view_params = [
             'view' => $view,

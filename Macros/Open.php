@@ -19,8 +19,8 @@ class Open {
     public function __invoke() {
         return function ($model, $from, $to = '', $params = null, $formName = 'theForm') {
             if (null === $params) {
-                //$params = optional(\Route::current())->parameters();
-                $params= getRouteParameters();
+                // $params = optional(\Route::current())->parameters();
+                $params = getRouteParameters();
             }
             $req_params = \Request::all();
 
@@ -31,10 +31,10 @@ class Open {
             if ('' === $to) {
                 $to = $from;
                 switch ($to) {
-                case 'update': $from = 'edit';
-                    break;
-                case 'store': $from = 'create';
-                    break;
+                    case 'update': $from = 'edit';
+                        break;
+                    case 'store': $from = 'create';
+                        break;
                 }
             }
             /*
@@ -58,18 +58,18 @@ class Open {
             $url = $panel->url($act);
 
             switch ($to) {
-            case 'store':
-                $method = 'POST';
-                break;
-            case 'update':
-                $method = 'PUT'; // PUT/PATCH
-                break;
-            case 'destroy':
-                $method = 'DELETE';
-                break;
-            default:
-                $method = 'POST';
-                break;
+                case 'store':
+                    $method = 'POST';
+                    break;
+                case 'update':
+                    $method = 'PUT'; // PUT/PATCH
+                    break;
+                case 'destroy':
+                    $method = 'DELETE';
+                    break;
+                default:
+                    $method = 'POST';
+                    break;
             }
             if (isset($params['method'])) {
                 $method = $params['method'];

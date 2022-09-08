@@ -107,12 +107,12 @@ class V1 extends XotBaseComponent {
      */
     public function getTasksProperty() {
         switch ($this->name) {
-        case 'Barry':
-            return ['Debugbar', 'IDE Helper'];
-        case 'Taylor':
-            return ['Laravel', 'Jetstream'];
-        case 'Caleb':
-            return ['Livewire', 'Sushi'];
+            case 'Barry':
+                return ['Debugbar', 'IDE Helper'];
+            case 'Taylor':
+                return ['Laravel', 'Jetstream'];
+            case 'Caleb':
+                return ['Livewire', 'Sushi'];
         }
 
         return [];

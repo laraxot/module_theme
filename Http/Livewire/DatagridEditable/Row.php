@@ -95,7 +95,7 @@ class Row extends XotBaseComponent {
                 ->setType((string) $field->type)
                 ->setInputComponent('nolabel')
                 // ->set('form_data',$this->)
-                ;
+            ;
         }
 
         return $fields;

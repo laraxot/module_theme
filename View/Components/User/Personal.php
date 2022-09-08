@@ -14,8 +14,18 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Personal extends XotBaseComponent {
     public array $attrs;
 
-    public function __construct(string $id, string $fullname, string $birthdate, string $email,
-    string $phone, string $address, string $city, string $state, string $zip, string $apt) {
+    public function __construct(
+        string $id,
+        string $fullname,
+        string $birthdate,
+        string $email,
+        string $phone,
+        string $address,
+        string $city,
+        string $state,
+        string $zip,
+        string $apt
+    ) {
         $this->attrs['id'] = $id;
         $this->attrs['fullname'] = $fullname;
         $this->attrs['birthdate'] = $birthdate;
@@ -29,9 +39,9 @@ class Personal extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.users.personal';
         $view_params = [
             'view' => $view,

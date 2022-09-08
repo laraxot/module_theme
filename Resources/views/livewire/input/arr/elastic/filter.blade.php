@@ -28,7 +28,36 @@
             :wire:key="'sub-arr-'.$model_id"> -
         </button>
         
-        
     </div>
     @endforeach
+
+    <div class="form-group">
+        <x-calendar></x-calendar>
+    </div>
+    
+    <div class="form-group">
+        <h4>Order</h4>
+        <select class="form-control" name="orderBy">
+            <option value="desc">DESC</option>
+            <option value="asc">ASC</option>
+        </select>
+    </div>
+
 </div>
+@push('scripts')
+    <script>
+        Date.prototype.oneYearAgo = (function() {
+            var local = new Date(this);
+            local.setFullYear(this.getFullYear() - 1);
+            return local.toJSON().slice(0, 10);
+        });
+        document.getElementById('dateFrom').value = new Date().oneYearAgo();
+
+        Date.prototype.toDateInputValue = (function() {
+            var local = new Date(this);
+            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+            return local.toJSON().slice(0, 10);
+        });
+        document.getElementById('dateTo').value = new Date().toDateInputValue();
+    </script>
+@endpush

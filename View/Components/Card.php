@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Illuminate\View\Component;
-use Illuminate\Support\Facades\View;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\View;
+use Illuminate\View\Component;
 
 class Card extends Component {
     // public string $bg;
@@ -50,8 +50,8 @@ class Card extends Component {
         $this->title = $title;
 
         $this->type = $type;
-        $this->avatar=$avatar;
-        $this->category=$category;
+        $this->avatar = $avatar;
+        $this->category = $category;
 
         $this->collapsed = $collapsed;
         $this->removable = $removable;
@@ -71,11 +71,11 @@ class Card extends Component {
 
     public function render(): Renderable {
         /**
-         * var view-string|null
+         * var view-string|null.
          */
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.card';
         if (null !== $this->type) {
             $view .= '.'.$this->type;

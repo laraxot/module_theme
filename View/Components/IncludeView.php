@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\View\Component;
 use Modules\Theme\Services\ThemeService;
-use Illuminate\Support\Facades\View;
 
 /**
  * Undocumented class.
@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\View;
 class IncludeView extends Component {
     public string $view;
 
-    public function __construct(string $view){
+    public function __construct(string $view) {
         $this->view = $view;
     }
 
-    public function render(){
+    public function render() {
         $views = ThemeService::getDefaultViewArray();
 
         $view_tpl = $this->view;
 
         $views = collect($views)->map(
             function ($item) use ($view_tpl) {
-                return $item . '.' . $view_tpl;
+                return $item.'.'.$view_tpl;
             }
         );
 
-        //dddx($views);
+        // dddx($views);
         $view_work = $views->first(
             function ($view_check) {
                 return View::exists($view_check);
@@ -44,10 +44,6 @@ class IncludeView extends Component {
 
             dddx(['err' => 'view not Exists', 'views' => $views]);
         }
-
-
-        
-
 
         if (null === $view_work) {
             throw new \Exception('$view_work is null');

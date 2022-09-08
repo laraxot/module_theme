@@ -91,17 +91,16 @@ class SortRowsGroup extends Component {
             /**
              * @var Collection<ModelWithPosContract>
              */
-            $tmp=$this->groups->get($v['value']);
+            $tmp = $this->groups->get($v['value']);
             /**
              * @var Collection<ModelWithPosContract>
              */
             $group = $tmp->sortBy('pos');
             foreach ($group as $row) {
-                //$row->pos = $i++;
-                //$row->save();
-                $up=[
-                    'pos'=>$i++,
-
+                // $row->pos = $i++;
+                // $row->save();
+                $up = [
+                    'pos' => $i++,
                 ];
                 $row->update($up);
             }

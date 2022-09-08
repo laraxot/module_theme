@@ -24,9 +24,9 @@ class SortRowsGroupAction extends XotBasePanelAction {
         // return $view;
 
         // return 'preso';
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::admin.index.acts.sort-rows-group';
         $view_params = [
             'view' => $view,

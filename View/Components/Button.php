@@ -40,9 +40,9 @@ class Button extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.button';
         $view_params = ['view' => $view];
 

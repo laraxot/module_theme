@@ -4,39 +4,31 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Exception;
-use Illuminate\Support\Arr;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 /**
  * Class Avatar.
  */
 class Badge extends Component {
     /**
-     * Undocumented variable
-     *
-     * @var string
+     * Undocumented variable.
      */
-    public string $type='default';
-
+    public string $type = 'default';
 
     /**
-     * Undocumented function
+     * Undocumented function.
      */
     public function __construct() {
-        
     }
 
     /**
-     * Undocumented function
-     *
-     * @return View
+     * Undocumented function.
      */
     public function render(): View {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.badge.'.$this->type;
         $view_params = [
             'view' => $view,
@@ -44,5 +36,4 @@ class Badge extends Component {
 
         return view()->make($view, $view_params);
     }
-
 }

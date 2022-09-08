@@ -14,7 +14,7 @@ class Editor extends Component {
 
     public string $placeholder = 'Write a reply...';
 
-    public string $body='';
+    public string $body = '';
 
     public string $hasButton;
 
@@ -25,16 +25,17 @@ class Editor extends Component {
     public string $buttonIcon;
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        $body=old('body', $this->body);
-        if(is_string($body)){
+        $body = old('body', $this->body);
+        if (is_string($body)) {
             $this->body = $body;
         }
         /**
          *  @phpstan-var view-string
          */
-        $view='theme::livewire.editor';
-        $view_params=[];
-        return view($view,$view_params);
+        $view = 'theme::livewire.editor';
+        $view_params = [];
+
+        return view($view, $view_params);
     }
 
     public function getPreviewProperty(): string {

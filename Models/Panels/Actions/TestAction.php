@@ -33,7 +33,9 @@ class TestAction extends XotBasePanelAction {
                 // dddx($img_src);//http://ptvx.local/img/test00.jpg
 
                 return $image->make($img_src)->resize(300, 200)->greyscale();
-            }, 60 * 60 * 24, true
+            },
+            60 * 60 * 24,
+            true
         );
 
         dddx(

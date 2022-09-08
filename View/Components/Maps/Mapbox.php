@@ -45,7 +45,8 @@ class Mapbox extends XotBaseComponent {
             [
                 'container' => $this->id,
                 'style' => "mapbox://styles/mapbox/{$this->theme}",
-            ], $this->options
+            ],
+            $this->options
         );
     }
 }

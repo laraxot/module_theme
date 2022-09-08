@@ -17,9 +17,9 @@ class BaseLayout extends Component {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'pub_theme::components.layouts.base';
         $view_params = ['view' => $view];
 

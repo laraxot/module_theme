@@ -80,27 +80,8 @@ class V2 extends Component {
         'gridEndsAt' => 'date',
     ];
 
-
     /**
-     * Undocumented function
-     *
-     * @param integer|null $initialYear
-     * @param integer|null $initialMonth
-     * @param integer|null $weekStartsAt
-     * @param string|null $calendarView
-     * @param string|null $dayView
-     * @param string|null $eventView
-     * @param string|null $dayOfWeekView
-     * @param string|null $dragAndDropClasses
-     * @param string|null $beforeCalendarView
-     * @param string|null $afterCalendarView
-     * @param string|null $pollMillis
-     * @param string|null $pollAction
-     * @param boolean $dragAndDropEnabled
-     * @param boolean $dayClickEnabled
-     * @param boolean $eventClickEnabled
-     * @param array $extras
-     * @return void
+     * Undocumented function.
      */
     public function mount(
         int $initialYear = null,
@@ -159,8 +140,8 @@ class V2 extends Component {
     }
 
     /**
-        * -----
-    */
+     * -----.
+     */
     public function setupViews(
         string $calendarView = null,
         string $dayView = null,
@@ -299,12 +280,12 @@ class V2 extends Component {
             $value = Arr::get($row, $field->name);
             if (\is_object($value)) {
                 switch (\get_class($value)) {
-                case 'Illuminate\Support\Carbon':
-                    $value = $value->format('Y-m-d\TH:i');
-                    break;
-                default:
-                    dddx([\get_class($value)]);
-                    break;
+                    case 'Illuminate\Support\Carbon':
+                        $value = $value->format('Y-m-d\TH:i');
+                        break;
+                    default:
+                        dddx([\get_class($value)]);
+                        break;
                 }
             }
             Arr::set($this->form_data, $field->name, $value);

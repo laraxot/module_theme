@@ -99,13 +99,11 @@ class CollectiveService {
         $blade_component_piece = 'collective.fields.group';
         if (inAdmin()) {
             $blade_component = 'adm_theme::'.$blade_component_piece;
-            
         } else {
             $blade_component = 'pub_theme::'.$blade_component_piece;
         }
         FileService::viewCopy('theme::'.$blade_component_piece, $blade_component);
-        
-        
+
         foreach ($comps as $comp) {
             Form::component(
                 $comp->name,
@@ -124,9 +122,9 @@ class CollectiveService {
 
     public static function registerMacros(string $macros_dir): void {
         // $macros_dir = __DIR__.'/../Macros';
-        $files=glob($macros_dir.'/*.php');
-        if($files==false){
-            $files=[];
+        $files = glob($macros_dir.'/*.php');
+        if (false == $files) {
+            $files = [];
         }
         Collection::make($files)
             ->mapWithKeys(

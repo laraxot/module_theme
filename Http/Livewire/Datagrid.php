@@ -58,7 +58,7 @@ class Datagrid extends Component {
         /**
          * @var array
          */
-        $rows_bindings=$rows->getBindings();
+        $rows_bindings = $rows->getBindings();
         $bindings = collect($rows_bindings)
             ->map(
                 function ($item) {
@@ -88,9 +88,9 @@ class Datagrid extends Component {
     */
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.datagrid';
         $model = app($this->model_class);
         $join_on = '';
@@ -113,7 +113,8 @@ class Datagrid extends Component {
         $rows = $rows->selectRaw($select);
         if ('' !== $join) {
             $rows = $rows->join(
-                $join_table, function ($query) use ($join_on) {
+                $join_table,
+                function ($query) use ($join_on) {
                     $query->whereRaw($join_on);
                 }
             );

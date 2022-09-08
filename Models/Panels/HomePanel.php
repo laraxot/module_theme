@@ -41,11 +41,12 @@ class HomePanel extends XotBasePanel {
      * Get the actions available for the resource.
      */
     public function actions(Request $request = null): array {
-        //$cmd = (string) request()->input('cmd');
+        // $cmd = (string) request()->input('cmd');
         /**
          * @var string
          */
-        $cmd = request('cmd','');
+        $cmd = request('cmd', '');
+
         return [
             new \Modules\Xot\Models\Panels\Actions\ArtisanAction($cmd),
             new Actions\TestAction(),

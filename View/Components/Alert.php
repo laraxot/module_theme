@@ -8,10 +8,10 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components;
 
 use Exception;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
-use Illuminate\Contracts\View\View;
-use Illuminate\Contracts\Session\Session;
 
 /**
  * Undocumented class.
@@ -40,33 +40,34 @@ class Alert extends Component {
 
     public function icon(): string {
         switch ($this->type) {
-        case 'info':
-            return 'info';
-        case 'warning':
-            return 'exclamation-triangle';
-        case 'success':
-            return 'check';
-        case 'danger':
-            return 'ban';
-        default:
-            return 'exclamation';
+            case 'info':
+                return 'info';
+            case 'warning':
+                return 'exclamation-triangle';
+            case 'success':
+                return 'check';
+            case 'danger':
+                return 'ban';
+            default:
+                return 'exclamation';
         }
     }
 
     public function message(): string {
-        $res= Arr::first($this->messages());
-        if(!is_string($res)){
+        $res = Arr::first($this->messages());
+        if (! is_string($res)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
+
         return $res;
     }
 
     public function messages(): array {
-        //Cannot call method get() on mixed.
-        //return (array) session()->get($this->type);
-        //return (array) Session::get($this->type);
-        //return $this->session->get($this->type);
-        //------------- TO FIX --------------------
+        // Cannot call method get() on mixed.
+        // return (array) session()->get($this->type);
+        // return (array) Session::get($this->type);
+        // return $this->session->get($this->type);
+        // ------------- TO FIX --------------------
         return [];
     }
 

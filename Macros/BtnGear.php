@@ -6,7 +6,6 @@ namespace Modules\Theme\Macros;
 
 use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -30,26 +29,26 @@ class BtnGear extends BaseFormBtnMacro {
             if ($vars['error']) {
                 return $vars['error_msg'];
             }
-            //$routename =getRouteName();
+            // $routename =getRouteName();
             $routename = getRouteName();
-            $routetmp = Str::before((string)$routename, $vars['old_act_route']);
+            $routetmp = Str::before((string) $routename, $vars['old_act_route']);
             $act = 'no-set';
             switch ($vars['old_act_route']) {
-            case 'index':
-                $act = 'index_edit';
-                break;
-            case 'index_edit':
-                $act = 'index';
-                break;
-            case 'show':
-                $act = 'edit';
-                break;
-            case 'edit':
-                $act = 'show';
-                break;
+                case 'index':
+                    $act = 'index_edit';
+                    break;
+                case 'index_edit':
+                    $act = 'index';
+                    break;
+                case 'show':
+                    $act = 'edit';
+                    break;
+                case 'edit':
+                    $act = 'show';
+                    break;
             }
             $routename_gear = $routetmp.$act;
-            //$route_params = optional(\Route::current())->parameters();
+            // $route_params = optional(\Route::current())->parameters();
             $route_params = getRouteParameters();
             try {
                 $route_gear = route($routename_gear, $route_params);

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Modules\Theme\Models\Menu;
 // --- Services --
 
-use Modules\Xot\Contracts\RowsContract;
 use Modules\Xot\Models\Panels\XotBasePanel;
 
 class MenuPanel extends XotBasePanel {
@@ -22,7 +21,6 @@ class MenuPanel extends XotBasePanel {
      * The single value that should be used to represent the resource when being displayed.
      */
     public static string $title = 'title';
-
 
     /**
      * Get the fields displayed by the resource.

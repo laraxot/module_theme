@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 i nomi delle pagine statiche di frontend con i guid. attendo suggerimenti
 e/o modifiche da parte di qualcuno */
 
-    /*
-    Spostata su route di login di backend
-    Route::get('/area-clienti', function () {
-        return view()->make('pub_theme::home', ['view' => 'pub_theme::area-clienti', 'lang' => 'it']);
-    });*/
+/*
+Spostata su route di login di backend
+Route::get('/area-clienti', function () {
+    return view()->make('pub_theme::home', ['view' => 'pub_theme::area-clienti', 'lang' => 'it']);
+});*/

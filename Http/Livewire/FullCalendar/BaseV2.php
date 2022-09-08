@@ -103,7 +103,8 @@ abstract class BaseV2 extends Component {
      * @param bool        $eventClickEnabled
      * @param array       $extras
      */
-    public function mount($initialYear = null,
+    public function mount(
+        $initialYear = null,
         $initialMonth = null,
         $weekStartsAt = null,
         $calendarView = null,
@@ -161,16 +162,17 @@ abstract class BaseV2 extends Component {
      * @param string|null $beforeCalendarView
      * @param string|null $afterCalendarView
      */
-    public function setupViews($calendarView = null,
+    public function setupViews(
+        $calendarView = null,
         $dayView = null,
         $eventView = null,
         $dayOfWeekView = null,
         $beforeCalendarView = null,
         $afterCalendarView = null
     ): void {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.full_calendar.v2';
 
         $this->calendarView = $calendarView ?? $view.'.calendar';
@@ -234,9 +236,9 @@ abstract class BaseV2 extends Component {
             throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
-        //Unable to resolve the template type TKey in call to function collect
-        //Unable to resolve the template type TValue in call to function collec
-        //$monthGrid = collect();
+        // Unable to resolve the template type TKey in call to function collect
+        // Unable to resolve the template type TValue in call to function collec
+        // $monthGrid = collect();
         $monthGrid = collect([]);
         $currentDay = $firstDayOfGrid->clone();
 
@@ -277,11 +279,12 @@ abstract class BaseV2 extends Component {
         return $events
             ->filter(
                 function ($event) use ($day) {
-                    //Cannot access offset 'date' on mixed.  
-                    $date=$event['date'];
-                    if(!is_string($date)){
+                    // Cannot access offset 'date' on mixed.
+                    $date = $event['date'];
+                    if (! is_string($date)) {
                         throw new Exception('['.__LINE__.']['.__FILE__.']');
                     }
+
                     return Carbon::parse()->isSameDay((string) $day);
                 }
             );

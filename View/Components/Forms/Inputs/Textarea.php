@@ -10,12 +10,9 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Textarea.
  */
-class Textarea extends XotBaseComponent
-{
+class Textarea extends XotBaseComponent {
     /**
-     * 
-     *
-     * @var string 
+     * @var string
      */
     public ?string $name;
 
@@ -23,15 +20,13 @@ class Textarea extends XotBaseComponent
 
     public int $rows;
 
-    public function __construct(string $name, string $id = null, int $rows = 3)
-    {
+    public function __construct(string $name, string $id = null, int $rows = 3) {
         $this->name = $name;
         $this->id = $id ?? $name;
         $this->rows = $rows;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.forms.inputs.textarea';
 
         return view()->make($view);

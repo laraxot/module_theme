@@ -63,12 +63,12 @@ class Svg extends Component {
         $m2='<path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555...'
         */
         $xml = simplexml_load_string($svg_content);
-        if($xml==null){
+        if (null == $xml) {
             throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
-        //Strict comparison using === between false and SimpleXMLElement|null will always evaluate to false.
-        //if (false == $xml || false === $xml->attributes()) {
-        if ($xml == null || null == $xml->attributes()) {
+        // Strict comparison using === between false and SimpleXMLElement|null will always evaluate to false.
+        // if (false == $xml || false === $xml->attributes()) {
+        if (null == $xml || null == $xml->attributes()) {
             throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
         $str = @json_encode($xml->attributes());
@@ -83,9 +83,9 @@ class Svg extends Component {
             throw new \Exception('svg ['.$svg_path.'] is strange ['.__LINE__.']['.__FILE__.']');
         }
 
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.svg';
         $view_params = [
             'view' => $view,
@@ -98,14 +98,14 @@ class Svg extends Component {
     }
 }
 
-        /*
-        $pattern = '/<svg[^>]*>\s*(<defs.*?>.*?<\ /defs>)\s*<\ /svg>/';
-        preg_match($pattern, $svg_content, $m);
-        */
-        /*
-        $xml = simplexml_load_string($svg_content);
-        $tmp = @json_decode(@json_encode($xml->attributes()), true);
-        $tmp = $tmp['@attributes'];
-        $this->attrs = $xml->text();
-        */
-        // $this->attrs = $m;
+/*
+$pattern = '/<svg[^>]*>\s*(<defs.*?>.*?<\ /defs>)\s*<\ /svg>/';
+preg_match($pattern, $svg_content, $m);
+*/
+/*
+$xml = simplexml_load_string($svg_content);
+$tmp = @json_decode(@json_encode($xml->attributes()), true);
+$tmp = $tmp['@attributes'];
+$this->attrs = $xml->text();
+*/
+// $this->attrs = $m;

@@ -14,8 +14,13 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Container extends XotBaseComponent {
     public array $attrs;
 
-    public function __construct(string $id, string $title = '', string $price = '$ 0.00',
-    string $period = 'month', string $highlight = 'false') {
+    public function __construct(
+        string $id,
+        string $title = '',
+        string $price = '$ 0.00',
+        string $period = 'month',
+        string $highlight = 'false'
+    ) {
         $this->attrs['id'] = $id;
         $this->attrs['title'] = $title;
         $this->attrs['price'] = $price;
@@ -24,9 +29,9 @@ class Container extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.pricing_card.container';
         $view_params = [
             'view' => $view,

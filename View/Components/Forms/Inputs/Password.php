@@ -9,15 +9,12 @@ use Illuminate\Contracts\Support\Renderable;
 /**
  * Class Password.
  */
-class Password extends Input
-{
-    public function __construct(string $name = 'password', string $id = null)
-    {
+class Password extends Input {
+    public function __construct(string $name = 'password', string $id = null) {
         parent::__construct($name, $id, 'password');
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.forms.inputs.password';
 
         return view()->make($view);

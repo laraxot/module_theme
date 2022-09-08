@@ -69,7 +69,7 @@ class PhpArray extends Component {
     }
 
     public function getFieldProperty(): object {
-        $field = (object) ([
+        $field = (object) [
             'key' => 'form_data.test',
             'name' => 'test',
             'label' => 'label',
@@ -97,7 +97,7 @@ class PhpArray extends Component {
                     'help' => '',
                 ],
             ],
-        ]);
+        ];
 
         return $field;
     }
@@ -111,9 +111,9 @@ class PhpArray extends Component {
     }
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.manage.php-array';
         $view_params = [
             'view' => $view,

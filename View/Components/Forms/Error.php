@@ -22,9 +22,9 @@ class Error extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.forms.error';
 
         return view()->make($view);

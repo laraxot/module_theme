@@ -21,18 +21,18 @@ class OpenPanel {
             $req_params = \Request::all();
 
             switch ($act) {
-            case 'store':
-                $method = 'POST';
-                break;
-            case 'update':
-                $method = 'PUT'; // PUT/PATCH
-                break;
-            case 'destroy':
-                $method = 'DELETE';
-                break;
-            default:
-                $method = 'POST';
-                break;
+                case 'store':
+                    $method = 'POST';
+                    break;
+                case 'update':
+                    $method = 'PUT'; // PUT/PATCH
+                    break;
+                case 'destroy':
+                    $method = 'DELETE';
+                    break;
+                default:
+                    $method = 'POST';
+                    break;
             }
             if (isset($params['method'])) {
                 $method = $params['method'];

@@ -21,13 +21,13 @@ class Item extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.profile.left-sidebar.item';
         $view_params = [
-            //'active' => $this->active,
-            //'icon' => $this->icon,
+            // 'active' => $this->active,
+            // 'icon' => $this->icon,
             'view' => $view,
         ];
 

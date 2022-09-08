@@ -11,9 +11,9 @@ use Livewire\Component;
  */
 class Delete extends Component {
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.buttons.delete';
         $view_params = [
             'view' => $view,

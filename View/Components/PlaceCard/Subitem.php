@@ -23,9 +23,9 @@ class Subitem extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.place_card.subitem';
 
         $view_params = [

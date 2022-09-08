@@ -13,6 +13,7 @@ use Illuminate\View\Component;
 class Item extends Component {
     public ?string $number;
     public ?string $title;
+
     /**
      * Create a new component instance.
      *
@@ -28,9 +29,9 @@ class Item extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.counter.item';
 
         $view_params = [

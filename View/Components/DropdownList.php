@@ -21,7 +21,7 @@ class DropdownList extends Component {
 
     public function __construct(string $menuName, ?string $title = null) {
         // $this->menus = Menu::getByName($menuName);
-        $this->menu_name=$menuName;
+        $this->menu_name = $menuName;
         $this->menus = [];
         $this->title = $title;
 
@@ -42,9 +42,9 @@ class DropdownList extends Component {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.dropdown-list';
 
         $view_params = [

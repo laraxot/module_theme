@@ -48,9 +48,9 @@ class Input extends Component {
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function render() {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::livewire.fields.'.$this->type.'.field';
         $view_params = [
             'view' => $view,

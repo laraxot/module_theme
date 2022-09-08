@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Composers;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use Modules\Theme\Models\Menu;
-use Modules\Theme\Models\MenuItem;
 
 /**
  * --.
  */
 abstract class ViewComposer {
     /**
-     * --. fa riferimento a modelli di theme, e per mostrare una cosa nel tema
+     * --. fa riferimento a modelli di theme, e per mostrare una cosa nel tema.
      */
     public function getMenuByName(string $name): ?Menu {
         return Menu::firstWhere('name', $name);
@@ -29,7 +27,7 @@ abstract class ViewComposer {
             return collect([]);
         }
         $rows = $menu->items;
-        
+
         return $rows;
     }
 }

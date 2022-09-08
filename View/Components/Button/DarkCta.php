@@ -19,9 +19,9 @@ class DarkCta extends Component {
     }
 
     public function render(): Renderable {
-        /** 
-        * @phpstan-var view-string
-        */
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.button.dark-cta';
         $view_params = ['view' => $view];
 

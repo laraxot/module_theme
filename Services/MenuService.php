@@ -442,7 +442,7 @@ class MenuService {
                             }
                         }
 
-                        echo '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
+                        echo '<div class="menu-submenu '.$submenu_class.'" '.$submenu_fixed_width.'>';
 
                         echo '<div class="menu-subnav">';
                         echo '<ul class="menu-content">';
