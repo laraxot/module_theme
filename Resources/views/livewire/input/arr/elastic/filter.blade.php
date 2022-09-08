@@ -31,10 +31,13 @@
     </div>
     @endforeach
 
+    {{--
     <div class="form-group">
         <x-calendar></x-calendar>
     </div>
-    
+    --}}
+
+
     <div class="form-group">
         <h4>Order</h4>
         <select class="form-control" name="orderBy">
