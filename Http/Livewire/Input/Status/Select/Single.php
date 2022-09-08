@@ -7,7 +7,6 @@ namespace Modules\Theme\Http\Livewire\Input\Status\Select;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
-use Modules\Xot\Contracts\ModelWithStatusContract;
 
 /**
  * Class Single.
@@ -25,26 +24,15 @@ class Single extends Component {
      * @return void
      */
     public function mount(Model $model, array $options) {
+        $this->model = $model;
+
         $this->modelClass = get_class($model);
-        $this->modelId=$model->getKey();
-    
+        $this->modelId = $model->getKey();
+
         $this->options = $options;
         $this->status = $model->status;
-    }
 
-    /**
-     * Get the view / contents that represents the component.
-     */
-    public function render(): Renderable {
-        /**
-         * @phpstan-var view-string
-         */
-        $view = 'theme::livewire.input.status.select.single';
-        $view_params = [
-            'view' => $view,
-        ];
-
-        return view()->make($view, $view_params);
+        // dddx($model->status);
     }
 
     public function changeStatus(): void {
@@ -63,5 +51,20 @@ class Single extends Component {
             }
             session()->flash('message', 'Status Removed');
         }
+    }
+
+    /**
+     * Get the view / contents that represents the component.
+     */
+    public function render(): Renderable {
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::livewire.input.status.select.single';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view()->make($view, $view_params);
     }
 }

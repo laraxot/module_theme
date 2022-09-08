@@ -11,17 +11,26 @@ use Livewire\Component;
  * Class Filter.
  */
 class Filter extends Component {
-    public string $type = 'v3';
-    public array $form_data = [];
+    public string $type = 'v1';
 
-    // public array $filters = ['must', 'must_not', 'should', 'regexp', 'fuzzy'];
+    public array $must = [];
+    public array $must_not = [];
+    public array $should = [];
+    public array $fuzzy = [];
+    public array $regexp = [];
+    public string $date_gt = '';
+    public string $date_lt = '';
+
+    public ?int $model_id;
+
+    public ?string $model_class;
 
     /**
      * @var array
      */
     protected $listeners = [
         // 'updateDataFromModal' => 'updateDataFromModal',
-        //  'updatedFormDataEvent' => 'updateFormData',
+        'updatedFormDataEvent' => 'updateFormData',
     ];
 
     /**
@@ -32,12 +41,16 @@ class Filter extends Component {
      * @return void
      */
     public function mount($row = null) {
-        // $data = request()->all();
-        // dddx($data);
-
         if (null != $row) {
-            // $this->model_id = $row->getKey();
-            // $this->model_class = get_class($row);
+            $this->must = $row->must ?? [];
+            $this->must_not = $row->must_not ?? [];
+            $this->should = $row->should ?? [];
+            $this->regexp = $row->regexp ?? [];
+            $this->should = $row->fuzzy ?? [];
+            $this->date_gt = $row->date_gt ?? '';
+            $this->date_lt = $row->date_lt ?? '';
+            $this->model_id = $row->getKey();
+            $this->model_class = get_class($row);
         }
     }
 
@@ -56,7 +69,6 @@ class Filter extends Component {
         return view()->make($view, $view_params);
     }
 
-    /*
     public function updateFormData(array $data) {
         if ($this->model_id == $data['model_id']) {
             $fields = ['must', 'must_not', 'should', 'regexp', 'fuzzy'];
@@ -72,5 +84,4 @@ class Filter extends Component {
             }
         }
     }
-    */
 }

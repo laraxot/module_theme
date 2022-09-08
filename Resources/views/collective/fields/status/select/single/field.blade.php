@@ -1,5 +1,5 @@
 @php
-//dddx($_panel->row);
+
 //dddx(get_defined_vars());
 @endphp
 <div class="form-group col-sm-12">
