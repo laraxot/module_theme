@@ -12,6 +12,7 @@ class Progressbar extends Component {
     public int $loop_index = 0;
     public int $loop_max = 100;
     public array $errors = [];
+    public string $title = '';
 
     /**
      * Undocumented function.

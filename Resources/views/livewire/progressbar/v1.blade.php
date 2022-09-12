@@ -6,7 +6,10 @@
             </div>
         @endif
     </div>
+    <h1>{{$title}}</h1>
+    <div>
     {{$loop_index}}/{{$loop_max}}
+    </div>
     <x-progress.bar value="{{ $perc }}" />
     <br/>
     <button wire:click="start()" class="btn btn-success">Start</button>
