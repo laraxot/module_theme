@@ -3,11 +3,17 @@
         <h3 class="float-left">{{ $label ?? $name }}</h3>
         <button type="button" class="btn btn-primary float-right" wire:click="addArr()">+</button>
     </div>
+   
+    @php
+        //dddx($form_data);
+    @endphp
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
             $input_name=''.$name.'['.$k.']';
             $wire_name='form_data.'.$name.'.'.$k;
         @endphp
+
+
     <div class="input-group mb-3">
         <select class="form-select" name="{{ $input_name }}[criteria]" wire:model.lazy="{{ $wire_name }}.criteria">
             <option value="must">Must</option>
