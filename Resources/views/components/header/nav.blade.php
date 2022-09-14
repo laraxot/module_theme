@@ -10,8 +10,9 @@
                     <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
                         <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span
                                 class="sr-only">What are you looking for?</span></label>
-                        <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
-                            placeholder="Search" aria-label="Search" type="search" name="must[]" />
+                                <input type="hidden" name="filter[0][criteria]" value="must">
+                                <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
+                            placeholder="Search" aria-label="Search" type="search" name="filter[0][q]" />
                     </div>
                 </form>
 
