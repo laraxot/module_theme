@@ -32,22 +32,9 @@
     @endforeach
 
     <div class="input-group mb-3">
-        
-        {{--<x-input.date name="dateFrom" class="form-control" placeholder="dateFrom" :value="date('Y-m-d')"></x-input.date>
-        <x-input.date name="dateTo" class="form-control" placeholder="dateTo" :value="date('Y-m-d')"></x-input.date>--}}
         <input class="form-control" type="date" id="dateFrom" name="dateFrom">
         <input class="form-control" type="date" id="dateTo" name="dateTo">
     </div>
-    {{--
-        https://bootstrap-datepicker.readthedocs.io/en/latest/markup.html#date-range
-    <div class="input-group input-daterange">
-        <input type="text" class="form-control" value="2012-04-05">
-        <div class="input-group-addon">to</div>
-        <input type="text" class="form-control" value="2012-04-19">
-    </div>
-    --}}
-    
-
 
     <div class="form-group">
         <h4>Order</h4>
@@ -58,20 +45,42 @@
     </div>
 
 </div>
+
+@php
+$request=request()->all();
+$dateFrom=$request['dateFrom'] ?? "0";
+$dateTo=$request['dateTo'] ?? "0";
+$max_search_days= $profile->getProfile()->max_search_days ?? 365;
+
+//dddx([$dateFrom,$dateTo,$max_search_days]);
+//dddx($dateFrom==="0");
+@endphp
+
 @push('scripts')
     <script>
-        Date.prototype.oneMonthAgo = (function() {
+        
+        Date.prototype.daysAgo = (function(max_search_days) {
             var local = new Date(this);
-            local.setMonth(this.getMonth() - 1);
+            local.setDate(this.getDate() - max_search_days);
             return local.toJSON().slice(0, 10);
         });
-        document.getElementById('dateFrom').value = new Date().oneYearAgo();
+
+        if({{$dateFrom}}=="0"){
+            document.getElementById('dateFrom').value = new Date().daysAgo({{$max_search_days}});
+        }else{
+            document.getElementById('dateFrom').value = "{{$dateFrom}}"
+        }
 
         Date.prototype.toDateInputValue = (function() {
             var local = new Date(this);
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
             return local.toJSON().slice(0, 10);
         });
-        document.getElementById('dateTo').value = new Date().toDateInputValue();
+        if({{$dateTo}}=="0"){
+            document.getElementById('dateTo').value = new Date().toDateInputValue();
+        }else{
+            document.getElementById('dateTo').value = "{{$dateTo}}";
+        }
+        
     </script>
 @endpush

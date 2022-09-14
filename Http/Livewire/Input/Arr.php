@@ -48,6 +48,7 @@ class Arr extends Component {
          */
         $view = 'theme::livewire.input.arr.'.$this->type;
         $view_params = [
+            // ProfileService::make()->getProfile()->max_search_days
             'view' => $view,
         ];
 
