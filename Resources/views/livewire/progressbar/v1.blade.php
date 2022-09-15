@@ -12,7 +12,12 @@
     </div>
     <x-progress.bar value="{{ $perc }}" />
     <br/>
-    <button wire:click="start()" class="btn btn-success">Start</button>
+    <div class="row mb-3">
+        <button wire:click="start()" class="btn btn-success">Start</button>
+    </div>
+    <div class="row">
+        <a class="btn btn-primary" href="{{ url()->previous() }}" role="button">Torna Indietro</a>
+    </div>
 
 
     @foreach($errors as $error)
