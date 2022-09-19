@@ -12,17 +12,16 @@
     </div>
     <x-progress.bar value="{{ $perc }}" />
     <br/>
-    <div class="row mb-3">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a class="btn btn-primary" href="{{ url()->previous() }}" role="button">
+            <i class="fas fa-backward"></i>
+        </a>
         <button wire:click="start()" class="btn btn-success">Start</button>
     </div>
-    <div class="row">
-        <a class="btn btn-primary" href="{{ url()->previous() }}" role="button">Torna Indietro</a>
-    </div>
-
-
     @foreach($errors as $error)
         {!! $error !!}
     @endforeach
+    <div>{!! $message !!}</div>
 
 
 
