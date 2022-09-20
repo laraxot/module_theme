@@ -13,11 +13,8 @@ class Progressbar extends Component {
     public int $loop_max = 100;
     public array $errors = [];
     public string $title = '';
-<<<<<<< HEAD
     public string $message = '';
-=======
-    public string $url = '';
->>>>>>> 7e2bc92 (up)
+    public string $url = './';
 
     /**
      * Undocumented function.

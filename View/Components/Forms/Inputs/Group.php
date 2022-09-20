@@ -10,12 +10,7 @@ use stdClass;
 /**
  * Undocumented class.
  */
-<<<<<<< HEAD
 class Group extends Component {
-=======
-class Group extends Component
-{
->>>>>>> 2a3fafb (up)
     public stdClass $field;
     public string $label;
     public string $for;
@@ -24,14 +19,8 @@ class Group extends Component
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
     public function __construct(stdClass $field) {
         // $this->field = get_object_vars($field);
-=======
-    public function __construct(stdClass $field)
-    {
-        //$this->field = get_object_vars($field);
->>>>>>> 2a3fafb (up)
         $this->field = $field;
         $this->attrs['name'] = $field->name;
         $this->label = $field->name;
@@ -41,12 +30,7 @@ class Group extends Component
     /**
      * Get the view / contents that represents the component.
      */
-<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
-=======
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
->>>>>>> 2a3fafb (up)
         $view = 'theme::components.inputs.group';
         $view_params = [
             'view' => $view,
