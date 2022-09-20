@@ -22,6 +22,7 @@
             <option value="should">Potrebbe conterere (or):</option>
             <option value="regexp">Inizia con:</option>
         </select>
+
         
         <input type="text" class="form-control" name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q" />
 
@@ -39,6 +40,12 @@
     </div>
     @endforeach
 
+    
+    <div class="form-group">
+        <h4>Command Legend</h4>
+       
+    </div>
+
     <div class="input-group mb-3">
         <input class="form-control" type="date" id="dateFrom" name="dateFrom">
         <input class="form-control" type="date" id="dateTo" name="dateTo">
@@ -51,6 +58,8 @@
             <option value="asc">ASC</option>
         </select>
     </div>
+
+    
 
 </div>
 
