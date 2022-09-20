@@ -4,9 +4,6 @@
         <button type="button" class="btn btn-primary float-right" wire:click="addArr()">+</button>
     </div>
    
-    @php
-        //dddx($form_data);
-    @endphp
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
             $input_name=''.$name.'['.$k.']';
@@ -42,13 +39,14 @@
 
     
     <div class="form-group">
-        <h4>Command Legend</h4>
+        <h4>Legenda</h4>
         <ul>
             <li>Virgolette: racchiudono una frase oppure due parole - "lega nord" frase, lega nord due parole separate</li>
             <li>Parentesi: vedi espressioni matematiche - (new AND york) OR ((los AND angeles) OR California) OR "U.S.A."</li>
             <li>AND: devono esserci entrambe le parole o frasi - "leader della lega" AND Salvini frase E parola</li>
             <li>OR: deve esserci una delle due parole o frasi - "leader della lega" OR Salvini frase O parola</li>
-            <li>~NUM: ricerca di prossimità (NEAR) - "governo carroccio"~3 cerca governo e carroccio a distanza di 3 parole</li>
+            <li>~N: ricerca di prossimità (NEAR) - "governo carroccio"~3 cerca governo e carroccio a distanza di 3 parole</li>
+            <li>~N: ricerca di parole simili (FUZZY) - governo~2 cerca governo e parole simili (MASSIMO 2 lettere diverse. es. inverno)</li>
         </ul>
        
     </div>
@@ -65,9 +63,6 @@
             <option value="asc">ASC</option>
         </select>
     </div>
-
-    
-
 </div>
 
 @php
