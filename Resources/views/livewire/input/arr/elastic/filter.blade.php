@@ -16,9 +16,11 @@
 
     <div class="input-group mb-3">
         <select class="form-select" name="{{ $input_name }}[criteria]" wire:model.lazy="{{ $wire_name }}.criteria">
-            <option value="must">Must</option>
-            <option value="mustNot">Must NOT</option>
-            <option value="should">Should</option>
+            <option value="query_string_query">Query diretta:</option>
+            <option value="must">Deve contenere:</option>
+            <option value="mustNot">Non deve contenere:</option>
+            <option value="should">Potrebbe conterere (or):</option>
+            <option value="regexp">Inizia con:</option>
         </select>
         
         <input type="text" class="form-control" name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q" />
