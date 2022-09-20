@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 if (! function_exists('str_starts_with')) {
@@ -20,6 +21,31 @@ if (! function_exists('str_contains')) {
 
 function ask(string $question, string $default = ''): string {
     $answer = readline($question.($default ? " ({$default})" : null).': ');
+=======
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle)
+    {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+    }
+}
+if (!function_exists('str_ends_with')) {
+    function str_ends_with($haystack, $needle)
+    {
+        return $needle !== '' && substr($haystack, -strlen($needle)) === (string)$needle;
+    }
+}
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle)
+    {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+}
+
+
+function ask(string $question, string $default = ''): string
+{
+    $answer = readline($question . ($default ? " ({$default})" : null) . ': ');
+>>>>>>> 2a3fafb (up)
 
     if (! $answer) {
         return $default;
@@ -28,13 +54,20 @@ function ask(string $question, string $default = ''): string {
     return $answer;
 }
 
+<<<<<<< HEAD
 function confirm(string $question, bool $default = false): bool {
     $answer = ask($question.' ('.($default ? 'Y/n' : 'y/N').')');
+=======
+function confirm(string $question, bool $default = false): bool
+{
+    $answer = ask($question . ' (' . ($default ? 'Y/n' : 'y/N') . ')');
+>>>>>>> 2a3fafb (up)
 
     if (! $answer) {
         return $default;
     }
 
+<<<<<<< HEAD
     return 'y' === strtolower($answer);
 }
 
@@ -50,12 +83,33 @@ function str_after(string $subject, string $search): string {
     $pos = strrpos($subject, $search);
 
     if (false === $pos) {
+=======
+    return strtolower($answer) === 'y';
+}
+
+function writeln(string $line): void
+{
+    echo $line . PHP_EOL;
+}
+
+function run(string $command): string
+{
+    return trim(shell_exec($command));
+}
+
+function str_after(string $subject, string $search): string
+{
+    $pos = strrpos($subject, $search);
+
+    if ($pos === false) {
+>>>>>>> 2a3fafb (up)
         return $subject;
     }
 
     return substr($subject, $pos + strlen($search));
 }
 
+<<<<<<< HEAD
 function slugify(string $subject): string {
     return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $subject), '-'));
 }
@@ -69,6 +123,25 @@ function title_snake(string $subject, string $replace = '_'): string {
 }
 
 function replace_in_file(string $file, array $replacements): void {
+=======
+function slugify(string $subject): string
+{
+    return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $subject), '-'));
+}
+
+function title_case(string $subject): string
+{
+    return str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $subject)));
+}
+
+function title_snake(string $subject, string $replace = '_'): string
+{
+    return str_replace(['-', '_'], $replace, $subject);
+}
+
+function replace_in_file(string $file, array $replacements): void
+{
+>>>>>>> 2a3fafb (up)
     $contents = file_get_contents($file);
 
     file_put_contents(
@@ -81,7 +154,12 @@ function replace_in_file(string $file, array $replacements): void {
     );
 }
 
+<<<<<<< HEAD
 function remove_prefix(string $prefix, string $content): string {
+=======
+function remove_prefix(string $prefix, string $content): string
+{
+>>>>>>> 2a3fafb (up)
     if (str_starts_with($content, $prefix)) {
         return substr($content, strlen($prefix));
     }
@@ -89,7 +167,12 @@ function remove_prefix(string $prefix, string $content): string {
     return $content;
 }
 
+<<<<<<< HEAD
 function remove_composer_deps(array $names) {
+=======
+function remove_composer_deps(array $names)
+{
+>>>>>>> 2a3fafb (up)
     $data = json_decode(file_get_contents(__DIR__.'/composer.json'), true);
 
     foreach ($data['require-dev'] as $name => $version) {
@@ -101,7 +184,12 @@ function remove_composer_deps(array $names) {
     file_put_contents(__DIR__.'/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
+<<<<<<< HEAD
 function remove_composer_script($scriptName) {
+=======
+function remove_composer_script($scriptName)
+{
+>>>>>>> 2a3fafb (up)
     $data = json_decode(file_get_contents(__DIR__.'/composer.json'), true);
 
     foreach ($data['scripts'] as $name => $script) {
@@ -114,7 +202,12 @@ function remove_composer_script($scriptName) {
     file_put_contents(__DIR__.'/composer.json', json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
+<<<<<<< HEAD
 function remove_readme_paragraphs(string $file): void {
+=======
+function remove_readme_paragraphs(string $file): void
+{
+>>>>>>> 2a3fafb (up)
     $contents = file_get_contents($file);
 
     file_put_contents(
@@ -123,12 +216,18 @@ function remove_readme_paragraphs(string $file): void {
     );
 }
 
+<<<<<<< HEAD
 function safeUnlink(string $filename) {
+=======
+function safeUnlink(string $filename)
+{
+>>>>>>> 2a3fafb (up)
     if (file_exists($filename) && is_file($filename)) {
         unlink($filename);
     }
 }
 
+<<<<<<< HEAD
 function determineSeparator(string $path): string {
     return str_replace('/', DIRECTORY_SEPARATOR, $path);
 }
@@ -139,6 +238,21 @@ function replaceForWindows(): array {
 
 function replaceForAllOtherOSes(): array {
     return explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com" --exclude-dir=vendor ./* ./.github/* | grep -v '.basename(__FILE__)));
+=======
+function determineSeparator(string $path): string
+{
+    return str_replace('/', DIRECTORY_SEPARATOR, $path);
+}
+
+function replaceForWindows(): array
+{
+    return preg_split('/\\r\\n|\\r|\\n/', run('dir /S /B * | findstr /v /i .git\ | findstr /v /i vendor | findstr /v /i '.basename(__FILE__).' | findstr /r /i /M /F:/ ":author :vendor :package VendorName skeleton migration_table_name vendor_name vendor_slug author@domain.com"'));
+}
+
+function replaceForAllOtherOSes(): array
+{
+    return explode(PHP_EOL, run('grep -E -r -l -i ":author|:vendor|:package|VendorName|skeleton|migration_table_name|vendor_name|vendor_slug|author@domain.com" --exclude-dir=vendor ./* ./.github/* | grep -v ' . basename(__FILE__)));
+>>>>>>> 2a3fafb (up)
 }
 
 $gitName = run('git config user.name');
@@ -179,11 +293,19 @@ writeln("Vendor     : {$vendorName} ({$vendorSlug})");
 writeln("Package    : {$packageSlug} <{$description}>");
 writeln("Namespace  : {$vendorNamespace}\\{$className}");
 writeln("Class name : {$className}");
+<<<<<<< HEAD
 writeln('---');
 writeln('Packages & Utilities');
 writeln('Use PhpCsFixer       : '.($usePhpCsFixer ? 'yes' : 'no'));
 writeln('Use Larastan/PhpStan : '.($usePhpStan ? 'yes' : 'no'));
 writeln('Use Auto-Changelog   : '.($useUpdateChangelogWorkflow ? 'yes' : 'no'));
+=======
+writeln("---");
+writeln("Packages & Utilities");
+writeln("Use PhpCsFixer       : " . ($usePhpCsFixer ? 'yes' : 'no'));
+writeln("Use Larastan/PhpStan : " . ($usePhpStan ? 'yes' : 'no'));
+writeln("Use Auto-Changelog   : " . ($useUpdateChangelogWorkflow ? 'yes' : 'no'));
+>>>>>>> 2a3fafb (up)
 writeln('------');
 
 writeln('This script will replace the above values in all relevant files in the project directory.');
@@ -196,6 +318,7 @@ $files = (str_starts_with(strtoupper(PHP_OS), 'WIN') ? replaceForWindows() : rep
 
 foreach ($files as $file) {
     replace_in_file(
+<<<<<<< HEAD
         $file,
         [
             ':author_name' => $authorName,
@@ -212,6 +335,23 @@ foreach ($files as $file) {
             ':migration_table_name' => title_snake($packageSlug),
             ':variable' => $variableName,
             ':package_description' => $description,
+=======
+        $file, [
+        ':author_name' => $authorName,
+        ':author_username' => $authorUsername,
+        'author@domain.com' => $authorEmail,
+        ':vendor_name' => $vendorName,
+        ':vendor_slug' => $vendorSlug,
+        ':VendorName' => $vendorNamespace,
+        ':package_name' => $packageName,
+        ':package_slug' => $packageSlug,
+        ':package_slug_without_prefix' => $packageSlugWithoutPrefix,
+        ':Skeleton' => $className,
+        ':skeleton' => $packageSlug,
+        ':migration_table_name' => title_snake($packageSlug),
+        ':variable' => $variableName,
+        ':package_description' => $description,
+>>>>>>> 2a3fafb (up)
         ]
     );
     /*
@@ -227,6 +367,7 @@ foreach ($files as $file) {
     };
     */
     if (str_contains($file, determineSeparator('src/Skeleton.php'))) {
+<<<<<<< HEAD
         rename($file, determineSeparator('./src/'.$className.'.php'));
     }
     if (str_contains($file, determineSeparator('src/SkeletonServiceProvider.php'))) {
@@ -243,6 +384,24 @@ foreach ($files as $file) {
     }
     if (str_contains($file, determineSeparator('config/skeleton.php'))) {
         rename($file, determineSeparator('./config/'.$packageSlugWithoutPrefix.'.php'));
+=======
+        rename($file, determineSeparator('./src/' . $className . '.php'));
+    }
+    if (str_contains($file, determineSeparator('src/SkeletonServiceProvider.php'))) {
+        rename($file, determineSeparator('./src/' . $className . 'ServiceProvider.php'));
+    }
+    if (str_contains($file, determineSeparator('src/Facades/Skeleton.php'))) {
+        rename($file, determineSeparator('./src/Facades/' . $className . '.php'));
+    }
+    if (str_contains($file, determineSeparator('src/Commands/SkeletonCommand.php'))) {
+        rename($file, determineSeparator('./src/Commands/' . $className . 'Command.php'));
+    }
+    if (str_contains($file, determineSeparator('database/migrations/create_skeleton_table.php.stub'))) {
+        rename($file, determineSeparator('./database/migrations/create_' . title_snake($packageSlugWithoutPrefix) . '_table.php.stub'));
+    }
+    if (str_contains($file, determineSeparator('config/skeleton.php'))) {
+        rename($file, determineSeparator('./config/' . $packageSlugWithoutPrefix . '.php'));
+>>>>>>> 2a3fafb (up)
     }
     if (str_contains($file, 'README.md')) {
         remove_readme_paragraphs($file);
@@ -250,6 +409,7 @@ foreach ($files as $file) {
 }
 
 if (! $usePhpCsFixer) {
+<<<<<<< HEAD
     safeUnlink(__DIR__.'/.php_cs.dist.php');
     safeUnlink(__DIR__.'/.github/workflows/php-cs-fixer.yml');
 }
@@ -265,6 +425,23 @@ if (! $usePhpStan) {
             'phpstan/phpstan-deprecation-rules',
             'phpstan/phpstan-phpunit',
             'nunomaduro/larastan',
+=======
+    safeUnlink(__DIR__ . '/.php_cs.dist.php');
+    safeUnlink(__DIR__ . '/.github/workflows/php-cs-fixer.yml');
+}
+
+if (! $usePhpStan) {
+    safeUnlink(__DIR__ . '/phpstan.neon.dist');
+    safeUnlink(__DIR__ . '/phpstan-baseline.neon');
+    safeUnlink(__DIR__ . '/.github/workflows/phpstan.yml');
+
+    remove_composer_deps(
+        [
+        'phpstan/extension-installer',
+        'phpstan/phpstan-deprecation-rules',
+        'phpstan/phpstan-phpunit',
+        'nunomaduro/larastan',
+>>>>>>> 2a3fafb (up)
         ]
     );
 
@@ -272,7 +449,11 @@ if (! $usePhpStan) {
 }
 
 if (! $useUpdateChangelogWorkflow) {
+<<<<<<< HEAD
     safeUnlink(__DIR__.'/.github/workflows/update-changelog.yml');
+=======
+    safeUnlink(__DIR__ . '/.github/workflows/update-changelog.yml');
+>>>>>>> 2a3fafb (up)
 }
 
 confirm('Execute `composer install` and run tests?') && run('composer install && composer test');

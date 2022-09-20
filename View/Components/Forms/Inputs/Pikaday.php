@@ -9,7 +9,12 @@ use Illuminate\Contracts\Support\Renderable;
 /**
  * Class Pikaday.
  */
+<<<<<<< HEAD
 class Pikaday extends Input {
+=======
+class Pikaday extends Input
+{
+>>>>>>> 2a3fafb (up)
     public string $format;
 
     public string $placeholder;
@@ -36,6 +41,7 @@ class Pikaday extends Input {
         $this->options = $options;
     }
 
+<<<<<<< HEAD
     public function options(): array {
         return array_merge(
             [
@@ -46,6 +52,19 @@ class Pikaday extends Input {
     }
 
     public function jsonOptions(): string {
+=======
+    public function options(): array
+    {
+        return array_merge(
+            [
+            'format' => $this->format,
+            ], $this->options
+        );
+    }
+
+    public function jsonOptions(): string
+    {
+>>>>>>> 2a3fafb (up)
         if (empty($this->options())) {
             return '';
         }
@@ -53,7 +72,12 @@ class Pikaday extends Input {
         return ', ...'.json_encode((object) $this->options());
     }
 
+<<<<<<< HEAD
     public function render(): Renderable {
+=======
+    public function render(): Renderable
+    {
+>>>>>>> 2a3fafb (up)
         $view = 'theme::components.forms.inputs.pikaday';
 
         return view()->make($view);
