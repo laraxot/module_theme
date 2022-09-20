@@ -10,7 +10,6 @@
             $wire_name='form_data.'.$name.'.'.$k;
         @endphp
 
-
     <div class="input-group mb-3">
         <select class="form-select" name="{{ $input_name }}[criteria]" wire:model.lazy="{{ $wire_name }}.criteria">
             <option value="query_string_query">Query diretta:</option>
@@ -19,11 +18,9 @@
             <option value="should">Potrebbe conterere (or):</option>
             <option value="regexp">Inizia con:</option>
         </select>
-
         
         <input type="text" class="form-control" name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q" />
 
-        
         <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" name="{{ $input_name }}[fuzzy]" 
             wire:model.lazy="{{ $wire_name }}.fuzzy"
@@ -36,7 +33,6 @@
         
     </div>
     @endforeach
-
     
     <div class="form-group">
         <h4>Legenda</h4>
@@ -48,7 +44,6 @@
             <li><strong>~N:</strong> ricerca di prossimità (NEAR) - "governo carroccio"~3 cerca governo e carroccio a distanza di 3 parole</li>
             <li><strong>~N:</strong> ricerca di parole simili (FUZZY) - governo~2 cerca governo e parole simili (MASSIMO 2 lettere diverse. es. inverno)</li>
         </ul>
-       
     </div>
 
     <div class="input-group mb-3">
