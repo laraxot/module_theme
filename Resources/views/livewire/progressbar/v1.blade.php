@@ -18,6 +18,14 @@
         </a>
         <button wire:click="start()" class="btn btn-success">Start</button>
     </div>
+<<<<<<< HEAD
+=======
+    <div class="row">
+        <a class="btn btn-primary" href="{{ $url }}" role="button">Torna Indietro</a>
+    </div>
+
+
+>>>>>>> 7e2bc92 (up)
     @foreach($errors as $error)
         {!! $error !!}
     @endforeach
