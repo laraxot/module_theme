@@ -14,7 +14,7 @@ class Progressbar extends Component {
     public array $errors = [];
     public string $title = '';
     public string $message = '';
-    public string $url = './';
+    public string $url = '?';
 
     /**
      * Undocumented function.
@@ -37,6 +37,7 @@ class Progressbar extends Component {
             $this->handle();
             $this->emit('updateProgress', $this->perc);
         } else {
+            $this->perc = 100;
             session()->flash('message', 'FINITO');
         }
     }
