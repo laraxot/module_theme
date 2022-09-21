@@ -35,7 +35,8 @@
     @endforeach
     
     <div class="form-group">
-        <h4>Legenda</h4>
+        <h4></h4>
+        <a href="#" data-bs-toggle="tooltip" title="" data-bs-original-title="Default tooltip"><h4>Legenda</h4></a>
         <ul>
             <li><strong>Virgolette:</strong> racchiudono una frase oppure due parole - "lega nord" frase, lega nord due parole separate</li>
             <li><strong>Parentesi:</strong> vedi espressioni matematiche - (new AND york) OR ((los AND angeles) OR California) OR "U.S.A."</li>
