@@ -10,8 +10,14 @@
                     <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
                         <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span
                                 class="sr-only">What are you looking for?</span></label>
-                                <input type="hidden" name="filter[0][criteria]" value="query_string_query">
-                                <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
+                        <input type="hidden" name="filter[0][criteria]" value="query_string_query">
+                        @php
+                            $max_search_days = $profile->getProfile()->max_search_days ?? 365;
+                        @endphp
+                        <input type="hidden" name="dateFrom" value="{{ date('Y-m-d', strtotime('-'.$max_search_days.' days')) }}">
+                        <input type="hidden" name="dateTo" value="{{ date('Y-m-d') }}">
+                        <input type="hidden" name="orderBy" value="desc">
+                        <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
                             placeholder="Search" aria-label="Search" type="search" name="filter[0][q]" />
                     </div>
                 </form>
@@ -30,7 +36,7 @@
     <!-- /Navbar -->
 </header>
 @push('modals')
-<livewire:modal.body-view show="false" id="elastic_advanced_search" title="Advanced Search" subtitle=""
-    bodyView="theme::livewire.elastic.filter.v2">
-</livewire:modal.body-view>
+    <livewire:modal.body-view show="false" id="elastic_advanced_search" title="Advanced Search" subtitle=""
+        bodyView="theme::livewire.elastic.filter.v2">
+    </livewire:modal.body-view>
 @endpush
