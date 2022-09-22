@@ -13,6 +13,7 @@
 
     <div class="input-group mb-3">
         <select class="form-select" name="{{ $input_name }}[criteria]" wire:model.lazy="{{ $wire_name }}.criteria">
+            <option >---</option>
             <option value="query_string_query">Query diretta:</option>
             <option value="must">Deve contenere:</option>
             <option value="mustNot">Non deve contenere:</option>
@@ -21,13 +22,13 @@
         </select>
         
         <input type="text" class="form-control" name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q" />
-
-        <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" name="{{ $input_name }}[fuzzy]" 
-            wire:model.lazy="{{ $wire_name }}.fuzzy"
-            aria-label="Checkbox for following text input" />
-        </div>
-
+        @if($form_data[$name][$k]['criteria']!='query_string_query')
+            <div class="input-group-text">
+                <input class="form-check-input mt-0" type="checkbox" name="{{ $input_name }}[fuzzy]" 
+                wire:model.lazy="{{ $wire_name }}.fuzzy"
+                aria-label="Checkbox for following text input" />
+            </div>
+        @endif
         <button type="button" class="btn btn-danger input-group-text" wire:click="subArr({{ $k }})"
             :wire:key="'sub-arr-'.$model_id"> -
         </button>
