@@ -32,7 +32,8 @@ class Arr extends Component {
 
         if (is_array($value)) {
             // $data[$name] = array_merge($value, $data[$name] ?? []);
-            $data[$name] = array_merge($value[$name] ?? [], $data[$name] ?? []);
+            // $data[$name] = array_merge($value[$name] ?? [], $data[$name] ?? []);
+            $data = array_merge($data, $value);
         }
 
         $this->model_id = $modelId;

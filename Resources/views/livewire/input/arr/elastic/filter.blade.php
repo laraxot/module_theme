@@ -22,7 +22,7 @@
         </select>
         
         <input type="text" class="form-control" name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q" />
-        @if($form_data[$name][$k]['criteria']!='query_string_query')
+        @if(isset($form_data[$name][$k]['criteria']) && $form_data[$name][$k]['criteria']!='query_string_query')
             <div class="input-group-text">
                 <input class="form-check-input mt-0" type="checkbox" name="{{ $input_name }}[fuzzy]" 
                 wire:model.lazy="{{ $wire_name }}.fuzzy"
@@ -41,15 +41,18 @@
         <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="<ul><li><strong>Virgolette:</strong> racchiudono una frase oppure due parole - %22lega nord%22 frase, lega nord due parole separate</li><li><strong>Parentesi:</strong> vedi espressioni matematiche - (new AND york) OR ((los AND angeles) OR California) OR %22U.S.A.%22</li><li><strong>AND:</strong> devono esserci entrambe le parole o frasi - %22leader della lega%22 AND Salvini frase E parola</li><li><strong>OR:</strong> deve esserci una delle due parole o frasi - %22leader della lega%22 OR Salvini frase O parola</li><li><strong>~N:</strong> ricerca di prossimità (NEAR) - %22governo carroccio%22~3 cerca governo e carroccio a distanza di 3 parole</li><li><strong>~N:</strong> ricerca di parole simili (FUZZY) - governo~2 cerca governo e parole simili (MASSIMO 2 lettere diverse. es. inverno)</li></ul>"><h5>Legenda Query Diretta</h5></a>
         
     </div>
-
+    
     <div class="input-group mb-3">
-        <input class="form-control" type="date" id="dateFrom" name="dateFrom">
-        <input class="form-control" type="date" id="dateTo" name="dateTo">
+        {{--
+            2022-02-02T00:00:00.000000Z
+        --}}
+        <input class="form-control" type="date" id="dateFrom" name="dateFrom" wire:model.lazy="form_data.date_from">
+        <input class="form-control" type="date" id="dateTo" name="dateTo"  wire:model.lazy="form_data.date_to">
     </div>
 
     <div class="form-group">
         <h4>Order</h4>
-        <select class="form-control" name="orderBy">
+        <select class="form-control" name="orderBy" wire:model.lazy="form_data.sort">
             <option value="desc">DESC</option>
             <option value="asc">ASC</option>
         </select>
