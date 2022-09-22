@@ -4,6 +4,7 @@
         <button type="button" class="btn btn-primary float-right" wire:click="addArr()">+</button>
     </div>
    
+    
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
             $input_name=''.$name.'['.$k.']';

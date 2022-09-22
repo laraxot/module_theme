@@ -31,7 +31,8 @@ class Arr extends Component {
         $data = request()->all();
 
         if (is_array($value)) {
-            $data[$name] = array_merge($value, $data[$name] ?? []);
+            // $data[$name] = array_merge($value, $data[$name] ?? []);
+            $data[$name] = array_merge($value[$name] ?? [], $data[$name] ?? []);
         }
 
         $this->model_id = $modelId;
