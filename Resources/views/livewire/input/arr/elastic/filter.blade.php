@@ -12,6 +12,20 @@
         @endphp
 
     <div class="input-group mb-3">
+        {{--
+        <div class="dropdown d-inline-block">
+            <button class="btn  dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">.*</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="">
+              <h6 class="dropdown-header fw-normal">Elastic Filter</h6>
+                <span class="dropdown-item" href="#">Query diretta</span>
+                <span class="dropdown-item" href="#">Deve contenere</span>
+                <span class="dropdown-item" href="#">Non deve contenere</span>
+                <span class="dropdown-item" href="#">Potrebbe conterere</span>
+                
+            </div>
+        </div>
+        --}}
+        
         <select class="form-select" name="{{ $input_name }}[criteria]" wire:model.lazy="{{ $wire_name }}.criteria">
             <option >---</option>
             <option value="query_string_query">Query diretta:</option>
@@ -20,6 +34,7 @@
             <option value="should">Potrebbe conterere (or):</option>
             <option value="regexp">Inizia con:</option>
         </select>
+        
         
         <input type="text" class="form-control" name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q" />
         @if(isset($form_data[$name][$k]['criteria']) && $form_data[$name][$k]['criteria']!='query_string_query')
