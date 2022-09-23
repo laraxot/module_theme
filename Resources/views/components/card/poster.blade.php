@@ -11,10 +11,13 @@
     </div>
 
 
-
+    {{-- 
     <div class="card-img-overlay-top text-end">
         <livewire:favorite :model="$model" />
     </div>
+    --}}
+
+    {{ $favorite }}
 
 
     <div class="card-body overlay-content">
