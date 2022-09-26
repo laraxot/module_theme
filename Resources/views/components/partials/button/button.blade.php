@@ -1,16 +1,15 @@
-
 @if(isset($link))
 <a href="#" class=" ps-0
-@if(isset($primary))btn-primary @endif
-@if(isset($secondary))btn-secondary @endif
-@if(isset($outline_primary))btn-outline-primary @endif
-@if(isset($outline_secondary))btn-outline-secondary @endif
-@if(isset($disabled))disabled @endif
-@if(isset($fullMobile))full-mobile @endif
-	{{class}}"
+	@if(isset($primary))btn-primary @endif
+	@if(isset($secondary))btn-secondary @endif
+	@if(isset($outline_primary))btn-outline-primary @endif
+	@if(isset($outline_secondary))btn-outline-secondary @endif
+	@if(isset($disabled))disabled @endif
+	@if(isset($fullMobile))full-mobile @endif
+	{{$class}}"
 	aria-label="{{$label}}"
 	title="{{$label}}">
-  @if(isset($icon_url))
+	@if(isset($icon_url))
 	<svg class="icon {{$icon_class}}" aria-hidden="true">
 		<use href="{{$icon_url}}" xlink:href="{{$icon_url}}"></use>
 	</svg>
@@ -25,22 +24,22 @@ class="btn
 @if(isset($success))btn-success @endif
 @if(isset($secondary))btn-secondary @endif
 @if(isset($outline_primary))btn-outline-primary @endif
-@if(isset($outline_secondary)) btn-outline-secondary @endif
-@if(isset($disabled))  disabled @endif
-{{#if fullMobile}} full-mobile @endif
-{{#if bg-white}} bg-white @endif
-{{class}}
+@if(isset($outline_secondary))btn-outline-secondary @endif
+@if(isset($disabled))disabled @endif
+@if(isset($fullMobile))full-mobile @endif
+@if(isset($bg_white))bg-white @endif
+{{$class}}
 ">
-{{#if iconBtn}}
+@if(isset($iconBtn))
 <span class="rounded-icon">
-	<svg class="icon {{#if iconWhite}}icon-white{{else}}icon-primary@endif {{#if sm}}icon-sm@endif {{#if xs}}icon-xs@endif {{class-icon}}" aria-hidden="true">
-		<use href="../assets/bootstrap-italia/dist/svg/sprites.svg#{{iconBtn}}"></use>
+	<svg class="icon @if(isset($iconWhite)) icon-white @else icon-primary @endif @if(isset($sm)) icon-sm @endif @if(isset($xs))icon-xs @endif {{$class_icon}}" aria-hidden="true">
+		<use href="../assets/bootstrap-italia/dist/svg/sprites.svg#{{$iconBtn}}"></use>
 	</svg>
 </span>
 @endif
-{{#if iconBtnUrl}}
-<img src="{{iconBtnUrl}}" alt="{{label}}" class="me-2">
+@if(isset($iconBtnUrl))
+<img src="{{$iconBtnUrl}}" alt="{{$label}}" class="me-2">
 @endif
-<span class="{{label-class}}">{{label}}</span>
+<span class="{{$label_class}}">{{$label}}</span>
 </button>
 @endif
