@@ -1,5 +1,5 @@
-<div class="cmp-heading @if($heading_p0) p-0@elsepb-3 pb-lg-4 @endif">
-    @if($iconTitle)
+<div class="cmp-heading @if(isset($heading_p0)) p-0 @else pb-3 pb-lg-4 @endif">
+    @if(isset($iconTitle))
         <div class="categoryicon-top d-flex">
             <svg class="icon icon-success {{$iconClass}}" aria-hidden="true">
                 <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#{{$iconTitle}}"></use>
@@ -18,46 +18,67 @@
         @endif
     @endif
 
-  @php
-  /*
+  
 
-    {{#if label-tag-up}}
+@if(isset($label_tag_up))
   <div class="d-flex flex-wrap cmp-heading__tag">
-    {{>partials/cmp-tag/cmp-tag}}
+    <x-partials.tag.tag>
+        <x-slot name="class"></x-slot>
+        <x-slot name="label_tag"></x-slot>
+        <x-slot name="label_tag_up"></x-slot>
+    </x-partials.tag.tag>
+    {{-- {{>partials/cmp-tag/cmp-tag}} --}}
   </div>
-  @endif
+@endif
 
-  {{#if subTitle}}
-  <p class="subtitle-small {{pClass}}">{{{subTitle}}}</p>
-  @endif
+@if(isset($subTitle))
+  <p class="subtitle-small @if(isset($pClass)) {{ $pClass }} @endif">{{{$subTitle}}}</p>
+@endif
 
-  {{#if label-tag}}
+  
+
+  
+  @if(isset($label_tag))
   <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
-    {{>partials/cmp-tag/cmp-tag}}
+    <x-partials.tag.tag>
+        <x-slot name="class"></x-slot>
+        <x-slot name="label_tag"></x-slot>
+        <x-slot name="label_tag_up"></x-slot>
+    </x-partials.tag.tag>
+    {{-- {{>partials/cmp-tag/cmp-tag}} --}}
   </div>
   @endif
 
-  {{#if descriptionAfterTag}}
+  @if(isset($descriptionAfterTag))
   <p class="text-paragraph">
-    {{descriptionAfterTag}}
+    {{$descriptionAfterTag}}
   </p>
   @endif
 
-  {{#if description}}
-  <p class="subtitle-small {{desClass}}">{{{description}}}</p>
+  
+@if(isset($description))
+  <p class="subtitle-small {{$desClass}}">{{$description}}</p>
+@endif
+
+@if(isset($button))
+  <x-partials.button.button>
+    <x-slot class="fw-bold"></x-slot>
+  </x-partials.button.button>
+    {{-- {{>partials/button/button class="fw-bold"}} --}}
   @endif
 
-  {{#if button}}
-    {{>partials/button/button class="fw-bold"}}
-  @endif
-
-  {{#if double-button}}
+  
+@if(isset($double_button))
   <div class="d-lg-flex gap-30 mb-2">
-      {{>partials/button/button class="fw-bold btn-primary mr-lg-30"}}
-      {{>partials/button/button class="fw-bold btn-outline-primary t-primary" label=second-label aria-label=second-ariaLabel}}
+    <x-partials.button.button>
+    <x-slot name="class">fw-bold btn-primary mr-lg-30</x-slot>
+  </x-partials.button.button>
+  <x-partials.button.button>
+    <x-slot name="class">fw-bold btn-outline-primary t-primary</x-slot>
+    <x-slot name="label">second-label</x-slot>
+    <x-slot name="aria_label">second-ariaLabel</x-slot>
+  </x-partials.button.button>
+    
   </div>
   @endif
-
-  */
-  @endphp
 </div>
