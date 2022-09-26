@@ -26,7 +26,7 @@ class="btn
 @if(isset($secondary))btn-secondary @endif
 @if(isset($outline_primary))btn-outline-primary @endif
 @if(isset($outline_secondary)) btn-outline-secondary @endif
-@if(isset($disabled)) disabled @endif
+@if(isset($disabled))  disabled @endif
 {{#if fullMobile}} full-mobile @endif
 {{#if bg-white}} bg-white @endif
 {{class}}
