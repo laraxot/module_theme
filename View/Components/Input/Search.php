@@ -2,32 +2,30 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Category;
+namespace Modules\Theme\View\Components\Input;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
 /**
- * Class Lists.
+ * Class Search.
  */
-class Lists extends Component {
-    public string $type = 'category.categories';
-    public Collection $icon_lists;
+class Search extends Component {
+    public string $type = 'search';
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $icon_lists) {
-        $this->icon_lists = $icon_lists;
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.'.$this->type;
+        $view = 'theme::components.input.'.$this->type;
         $view_params = [
             'view' => $view,
         ];

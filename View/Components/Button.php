@@ -11,7 +11,8 @@ class Button extends Component {
     /**
      * The button type.
      */
-    public string $type = 'primary';
+    //public string $type = 'primary';
+    public string $type = '';
 
     public array $attrs = [];
 
@@ -44,6 +45,11 @@ class Button extends Component {
          * @phpstan-var view-string
          */
         $view = 'theme::components.button';
+
+        if(!empty($this->type)){
+            $view .= '.'.$this->type;
+        }
+
         $view_params = ['view' => $view];
 
         return view()->make($view, $view_params);

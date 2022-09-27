@@ -13,6 +13,7 @@ use Modules\Theme\Services\ThemeService;
  */
 class Link extends Component {
     public array $attrs = [];
+    public string $type = 'empty';
 
     /**
      * Undocumented function.
@@ -30,7 +31,7 @@ class Link extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.empty';
+        $view = 'theme::components.link.'.$this->type;
         $view_params = [
             'view' => $view,
         ];
