@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Card;
+namespace Modules\Theme\View\Components\Info;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -31,7 +31,7 @@ class Rows extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.card.'.$this->type;
+        $view = 'theme::components.info.'.$this->type;
         $view_params = [
             'view' => $view,
         ];

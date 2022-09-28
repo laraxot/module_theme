@@ -40,6 +40,6 @@ class="btn
 @if(isset($iconBtnUrl))
 <img src="{{$iconBtnUrl}}" alt="{{$label}}" class="me-2">
 @endif
-<span class="{{$label_class}}">{{$label}}</span>
+<span class="{{$label_class ?? ''}}">{{$label}}</span>
 </button>
 @endif

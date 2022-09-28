@@ -2,27 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Card;
+namespace Modules\Theme\View\Components;
 
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 use Modules\Theme\Services\ThemeService;
 
 /**
- * Class Rows.
+ * Class Rating.
  */
-class Rows extends Component {
+class Rating extends Component {
     public string $type;
-    public Collection $rows;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $rows, ?string $type = 'rows') {
-        $this->rows = $rows;
+    public function __construct(?string $type = 'rating') {
         $this->type = $type;
         // ThemeService::make()->add('theme::View/Components/Card/rows.scss');
     }
@@ -31,7 +28,7 @@ class Rows extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.card.'.$this->type;
+        $view = 'theme::components.rating.'.$this->type;
         $view_params = [
             'view' => $view,
         ];

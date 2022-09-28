@@ -1,4 +1,4 @@
-<div class="cmp-breadcrumbs {{$class}}" role="navigation">
+<div class="cmp-breadcrumbs {{$class ?? ''}}" role="navigation">
 	<nav class="breadcrumb-container">
 		<ol class="breadcrumb p-0" data-element="breadcrumb">
 			{{--         
@@ -13,7 +13,7 @@
 			{{/if}} --}}
 			@foreach($rows as $item)
 			    <li class="breadcrumb-item">
-                    <a href="#">{{ $item }}</a>
+                    <a href="#">{{-- $item --}}</a>
                     <span class="separator">/</span>
                 </li>
 			@endforeach

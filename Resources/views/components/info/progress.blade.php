@@ -1,7 +1,5 @@
-<div class="cmp-info-progress d-flex {{ $class }} @if ($data_progress) d-none @endif"
-    data-progress="{{ $data_progress }}">
-
-    @foreach ($step_list as $step)
+<div {{ $attributes->class(['cmp-info-progress d-flex']) }}>
+    @foreach ($rows as $step)
         <!-- Desktop -->
         <div
             class="info-progress-wrapper d-none d-lg-flex w-100 px-3 flex-column justify-content-end @if ($step->completed) completed @endif @if ($step->active) step-active @endif">
@@ -26,7 +24,7 @@
             </span>
             <span class="step">{{ $step_num }}/{{ $step_tot }}</span>
         </h4>
-        @if ($subtitle)
+        @if(isset($subtitle))
             <p class="title-xsmall {{ $classSubtitle }}">{{ $subtitle }}</p>
         @endif
     </div>
