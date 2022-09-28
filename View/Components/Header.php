@@ -8,25 +8,24 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
 /**
- * Class Breadcrumb.
+ * Class Heading.
  */
-class Breadcrumb extends Component {
-    public string $type;
+class Header extends Component {
+    public string $type = 'header';
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(?string $type = 'breadcrumb') {
-        $this->type = $type;
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.breadcrumb.'.$this->type;
+        $view = 'theme::components.header.'.$this->type;
         $view_params = [
             'view' => $view,
         ];

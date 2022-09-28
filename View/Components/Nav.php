@@ -11,14 +11,22 @@ use Illuminate\View\Component;
  * Class Nav.
  */
 class Nav extends Component {
+<<<<<<< HEAD
     public string $type;
+=======
+    public ?string $type = 'nav';
+>>>>>>> 6d7fdd4 (up)
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
+<<<<<<< HEAD
     public function __construct(?string $type = 'nav') {
+=======
+    public function __construct(?string $type) {
+>>>>>>> 6d7fdd4 (up)
         $this->type = $type;
     }
 
