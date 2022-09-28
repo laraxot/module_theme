@@ -26,7 +26,6 @@ class Nav extends Component {
      */
     public function render(): Renderable {
         $view = 'theme::components.nav.'.$this->type;
-        dddx($view);
         $view_params = [
             'view' => $view,
         ];
