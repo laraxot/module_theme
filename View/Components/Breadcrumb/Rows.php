@@ -2,25 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components;
+namespace Modules\Theme\View\Components\Breadcrumb;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 use Modules\Theme\Services\ThemeService;
 
 /**
- * Class Hero.
+ * Class Rows.
  */
-class Hero extends Component {
-    public string $type;
+class Rows extends Component {
+    public string $type = 'rows';
+    public Collection $rows;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(?string $type = 'hero') {
-        $this->type = $type;
+    public function __construct(Collection $rows) {
+        $this->rows = $rows;
         // ThemeService::make()->add('theme::View/Components/Card/rows.scss');
     }
 
@@ -28,7 +30,7 @@ class Hero extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.hero.'.$this->type;
+        $view = 'theme::components.breadcrumb.'.$this->type;
         $view_params = [
             'view' => $view,
         ];
