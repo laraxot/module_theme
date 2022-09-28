@@ -1,6 +1,6 @@
 <div class="cmp-accordion">
   <div class="accordion" id="{{$id}}">
-    @foreach($accordions as $item)
+    @foreach($rows as $item)
     <div class="accordion-item">
       <div class="accordion-header" id="heading{{$item->num}}">
         <button class="accordion-button collapsed title-snall-semi-bold @if(isset($item->txt)) py-3 @endif" type="button"
@@ -10,7 +10,7 @@
             {{$item->title}}
             <div class="icon-wrapper">
               <img class="icon-folder @if(isset($warning_icon))icon-warning @endif" src="../assets/images/{{$item->icon}}"
-                alt="folder {{$item->icon_label}}" role="img""">
+                alt="folder {{$item->icon_label}}" role="img">
               <span class="{{$item->color}}">{{$item->icon_label}}</span>
             </div>
         </button>
@@ -58,20 +58,13 @@
             }} --}}
 
             @if(isset($item->btn_label))
-
-
-
-              {{>partials/button/button label=item.btn-label primary="true" class="justify-content-center
-              my-3"}}
-            
-                {{-- <x-button type="advanced">
-                    <x-slot name="label">Filtra</x-slot>
-                    <x-slot name="iconBtn">it-funnel</x-slot>
-                    <x-slot name="class">p-0 pe-2</x-slot>
-                    <x-slot name="xs">true</x-slot>
-                    <x-slot name="class_icon">me-1</x-slot>
-                <x-button> --}}
-            
+              {{-- {{>partials/button/button label=item.btn-label primary="true" class="justify-content-center
+              my-3"}} --}}
+                <x-button type="advanced">
+                    <x-slot name="label">{{$item->btn_label}}</x-slot>
+                    <x-slot name="class">justify-content-center my-3</x-slot>
+                    <x-slot name="primary">{{true}}</x-slot>
+                <x-button>
             @endif
           @endif
         </div>

@@ -13,6 +13,7 @@ class Modal extends Component {
     public ?string $size;
     public bool $centered;
     public int $index;
+    public ?string $type;
     public array $attrs = [];
 
     public function __construct(
@@ -20,13 +21,15 @@ class Modal extends Component {
         ?string $size,
         string $id,
         bool $centered = true,
-        int $index = 1
+        int $index = 1,
+        ?string $type
     ) {
         $this->id = $id;
         $this->title = $title;
         $this->centered = $centered;
         $this->size = $size;
         $this->index = $index;
+        $this->type = $type;
         $this->attrs['class'] = 'modal fade';
         // $this->attrs['id'] =$id ;
         $this->attrs['style'] = 'z-index: '.$this->zindex();
@@ -41,6 +44,11 @@ class Modal extends Component {
     }
 
     public function render(): Renderable {
-        return view('theme::components.modal');
+
+        $view='theme::components.modal';
+        if(!empty($this->type)){
+            $view.='.'.$this->type;
+        }
+        return view()->make($view);
     }
 }
