@@ -11,7 +11,7 @@
             $wire_name='form_data.'.$name.'.'.$k;
         @endphp
 
-   
+    <div class="input-group mb-3">
         {{--
         <div class="dropdown d-inline-block">
             <button class="btn  dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">.*</button>
@@ -41,15 +41,14 @@
             <div class="input-group-text">
                 <input class="form-check-input mt-0" type="checkbox" name="{{ $input_name }}[fuzzy]" 
                 wire:model.lazy="{{ $wire_name }}.fuzzy"
-                aria-label="Checkbox for following text input" />&nbsp;Parola Simile
+                aria-label="Checkbox for following text input" />
             </div>
         @endif
-
         <button type="button" class="btn btn-danger input-group-text" wire:click="subArr({{ $k }})"
             :wire:key="'sub-arr-'.$model_id"> -
         </button>
-        <button type="button" class="btn btn-success float-right" onclick="addTilde('{{ $input_name }}[q]')">~</button>
- 
+        
+    </div>
     @endforeach
     {{--
     <div class="form-group">
@@ -109,11 +108,6 @@ $max_search_days= $profile->getProfile()->max_search_days ?? 365;
             document.getElementById('dateTo').value = new Date().toDateInputValue();
         }else{
             document.getElementById('dateTo').value = "{{$dateTo}}";
-        }
-
-        function addTilde(element){
-           const el=$('[name="'+element+'"]').not('#search_search')
-           $(el).val($(el).val()+'~')
         }
         
     </script>

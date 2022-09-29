@@ -23,8 +23,9 @@
                 </form>
 
                 @if ($adv === true)
-                    <button class="btn btn-info"
-                        onclick="Livewire.emit('showModal','elastic_advanced_search',[])">{{ $text }}</button>
+                    {{--<button class="btn btn-info"
+                        onclick="Livewire.emit('showModal','elastic_advanced_search',[])">{{ $text }}</button>--}}
+                        <a href="/it/presses?filter[0][criteria]=must&dateFrom=&dateTo=&orderBy=desc&filter[0][q]=" class="btn btn-primary">{{ $text }}</a>
                 @endif
             </div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
