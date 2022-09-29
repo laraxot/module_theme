@@ -24,7 +24,7 @@
 
     <div
         class="@if ($label) mt-1 @endif relative @if (!$noShadow) rounded-md shadow-sm @endif">
-        <x-input :field="$field" />
+        <x-input.field :field="$field" />
     </div>
 
     @error($for)

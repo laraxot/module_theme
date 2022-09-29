@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components;
+namespace Modules\Theme\View\Components\Input;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\View;
@@ -13,9 +13,9 @@ use ReflectionMethod;
 use stdClass;
 
 /**
- * Undocumented class.
+ * Undocumented .
  */
-class Input extends Component {
+class Field extends Component {
     public stdClass $field;
     // public ?string $label = null;
     // public string $for;
