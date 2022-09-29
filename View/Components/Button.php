@@ -10,15 +10,16 @@ use Illuminate\View\Component;
 class Button extends Component {
     public string $type;
 
-    public array $attrs = [];
+    public array $attrs;
 
     /**
      * Create the component instance.
      *
      * @return void
      */
-    public function __construct(?string $type = 'button') {
+    public function __construct(?string $type = 'button', ?array $attrs = []) {
         $this->type = $type;
+        $this->attrs = $attrs;
     }
 
     /**
