@@ -1,5 +1,5 @@
 <div class="cmp-input-search">
-  <div class="form-group autocomplete-wrapper {{$wrapper_class}}">
+  <div class="form-group autocomplete-wrapper {{$wrapper_class ?? ''}}">
     <div class="input-group">
       <label for="autocomplete-{{$id}}"
         class="{{isset($label_visible)?'label-visible':'visually-hidden'}}">{{$label_text}}</label>
@@ -14,7 +14,7 @@
       @endif
       
       <span class="autocomplete-icon" aria-hidden="true">
-        <svg class="icon icon-sm {{$icon_class}}">
+        <svg class="icon icon-sm {{$icon_class ?? ''}}">
           <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>
         </svg>
       </span>

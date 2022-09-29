@@ -22,11 +22,16 @@
 
 @if(isset($label_tag_up))
   <div class="d-flex flex-wrap cmp-heading__tag">
-    <x-partials.tag.tag>
+    {{-- <x-partials.tag.tag>
         <x-slot name="class"></x-slot>
         <x-slot name="label_tag"></x-slot>
         <x-slot name="label_tag_up"></x-slot>
-    </x-partials.tag.tag>
+    </x-partials.tag.tag> --}}
+    <x-link type="tag">
+      <x-slot name="class"></x-slot>
+      <x-slot name="label_tag"></x-slot>
+      <x-slot name="label_tag_up"></x-slot>
+    </x-link>
     {{-- {{>partials/cmp-tag/cmp-tag}} --}}
   </div>
 @endif
@@ -40,11 +45,16 @@
   
   @if(isset($label_tag))
   <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
-    <x-partials.tag.tag>
+    {{-- <x-partials.tag.tag>
         <x-slot name="class"></x-slot>
         <x-slot name="label_tag"></x-slot>
         <x-slot name="label_tag_up"></x-slot>
-    </x-partials.tag.tag>
+    </x-partials.tag.tag> --}}
+    <x-link type="tag">
+      <x-slot name="class"></x-slot>
+      <x-slot name="label_tag"></x-slot>
+      <x-slot name="label_tag_up"></x-slot>
+    </x-link>
     {{-- {{>partials/cmp-tag/cmp-tag}} --}}
   </div>
   @endif
@@ -61,23 +71,42 @@
 @endif
 
 @if(isset($button))
-  <x-partials.button.button>
+  {{-- <x-partials.button.button>
     <x-slot class="fw-bold"></x-slot>
-  </x-partials.button.button>
+  </x-partials.button.button> --}}
+
+
+    <x-button type="advanced">
+      <x-slot class="fw-bold"></x-slot>
+    </x-button>
     {{-- {{>partials/button/button class="fw-bold"}} --}}
   @endif
 
   
 @if(isset($double_button))
   <div class="d-lg-flex gap-30 mb-2">
-    <x-partials.button.button>
-    <x-slot name="class">fw-bold btn-primary mr-lg-30</x-slot>
-  </x-partials.button.button>
-  <x-partials.button.button>
-    <x-slot name="class">fw-bold btn-outline-primary t-primary</x-slot>
-    <x-slot name="label">second-label</x-slot>
-    <x-slot name="aria_label">second-ariaLabel</x-slot>
-  </x-partials.button.button>
+    {{-- <x-partials.button.button>
+      <x-slot name="class">fw-bold btn-primary mr-lg-30</x-slot>
+    </x-partials.button.button> --}}
+
+    <x-button type="advanced">
+      <x-slot name="class">fw-bold btn-primary mr-lg-30</x-slot>
+    </x-button>
+
+
+
+
+    {{-- <x-partials.button.button>
+      <x-slot name="class">fw-bold btn-outline-primary t-primary</x-slot>
+      <x-slot name="label">second-label</x-slot>
+      <x-slot name="aria_label">second-ariaLabel</x-slot>
+    </x-partials.button.button> --}}
+
+    <x-button type="advanced">
+      <x-slot name="class">fw-bold btn-outline-primary t-primary</x-slot>
+      <x-slot name="label">second-label</x-slot>
+      <x-slot name="aria_label">second-ariaLabel</x-slot>
+    </x-button>
     
   </div>
   @endif

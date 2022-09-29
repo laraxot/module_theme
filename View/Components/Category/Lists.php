@@ -11,7 +11,7 @@ use Illuminate\View\Component;
  * Class Lists.
  */
 class Lists extends Component {
-    public string $type = 'category.categories';
+    public string $type;
     public Collection $icon_lists;
 
     /**
@@ -19,8 +19,9 @@ class Lists extends Component {
      *
      * @return void
      */
-    public function __construct(Collection $icon_lists) {
+    public function __construct(Collection $icon_lists, ?string $type = 'category.categories') {
         $this->icon_lists = $icon_lists;
+        $this->type = $type;
     }
 
     /**

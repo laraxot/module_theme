@@ -13,13 +13,31 @@
           txt="Inserisci l’informazione per proseguire con la richiesta"
           >
         </x-input> --}}
-        <x-input>
-          <x-slot name="id">id</x-slot>
+        <x-input.v2>
+          <x-slot name="id">phone</x-slot>
           <x-slot name="type_input">tel</x-slot>
           <x-slot name="label">Telefono</x-slot>
           <x-slot name="placeholder">Inserisci qui il tuo telefono</x-slot>
           <x-slot name="txt">Inserisci l’informazione per proseguire con la richiesta</x-slot>
-        </x-input>
+        </x-input.v2>
+
+        <x-input.v2>
+          <x-slot name="id">email</x-slot>
+          <x-slot name="type_input">email</x-slot>
+          <x-slot name="label">Email</x-slot>
+          <x-slot name="required">{{ true }}</x-slot>
+          <x-slot name="placeholder">Inserisci qui la tua email</x-slot>
+          <x-slot name="txt">Inserisci l’informazione per proseguire con la richiesta</x-slot>
+        </x-input.v2>
+
+        <x-input.v2>
+          <x-slot name="id">address</x-slot>
+          <x-slot name="type_input">text</x-slot>
+          <x-slot name="label">Recapito Postale</x-slot>
+          <x-slot name="required">{{ true }}</x-slot>
+          <x-slot name="placeholder">Inserisci il tuo indirizzo</x-slot>
+          <x-slot name="txt">Inserisci l’informazione per proseguire con la richiesta</x-slot>
+        </x-input.v2>
 
 
         {{-- {{>partials/input/input id="phone" type="tel" label="Telefono" placeholder="Inserisci qui il tuo telefono" text="Inserisci l’informazione per proseguire con la richiesta"}}

@@ -4,7 +4,7 @@
   @endif
 <div class="link-list-wrapper @if(isset($default)) default @endif">
   <ul class="link-list {{$classMenu}}">
-    @foreach($rows as $item)
+    @foreach($icon_lists as $item)
     <li class="{{class}}">
       <a class="list-item icon-left t-primary title-small-semi-bold" href="#" @if(isset($aria_label)) aria-label="{{$item->aria_label}} {{$item->link}}"@endif @if(isset($inly_ariaLabel)) aria-label="{{$item->only_ariaLabel}}"@endif>
         <span class="list-item-title-icon-wrapper">

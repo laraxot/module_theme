@@ -46,10 +46,10 @@
             @endif
 
 
-            <x-lists type="icon" :icon_lists="collect([])">
+            {{-- <x-lists type="icon" :icon_lists="collect([])">
                 <x-slot name="title">{{false}}</x-slot>
                 <x-slot name="class">mt-3 p-0</x-slot>
-            </x-lists>
+            </x-lists> --}}
 
             {{-- {{>cmp-icon-list/cmp-icon-list
             title=false
