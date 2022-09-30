@@ -62,8 +62,11 @@
         {{--
             2022-02-02T00:00:00.000000Z
         --}}
-        <input class="form-control" type="date" id="dateFrom" name="date_from" wire:model.lazy="form_data.date_from">
-        <input class="form-control" type="date" id="dateTo" name="date_to"  wire:model.lazy="form_data.date_to">
+        {{--<input class="form-control" type="date" id="dateFrom" name="date_from" wire:model.lazy="form_data.date_from">
+        <input class="form-control" type="date" id="dateTo" name="date_to"  wire:model.lazy="form_data.date_to">--}}
+        <x-input type="date.time.range" label="test" name="date_from"></x-input>
+
+        <x-input type="date.time.range.v1" label="test" name="date_from"></x-input>
     </div>
 
     <div class="form-group">
@@ -85,7 +88,7 @@ $max_search_days= $profile->getProfile()->max_search_days ?? 365;
 //dddx($dateFrom==="0");
 @endphp
 
-@push('scripts')
+{{--@push('scripts')
     <script>
         
         Date.prototype.daysAgo = (function(max_search_days) {
@@ -118,3 +121,4 @@ $max_search_days= $profile->getProfile()->max_search_days ?? 365;
         
     </script>
 @endpush
+--}}
