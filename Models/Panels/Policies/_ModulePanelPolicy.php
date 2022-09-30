@@ -79,4 +79,8 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
     public function tryProgressbar(UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function TryDateRangeFlatpickr(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }

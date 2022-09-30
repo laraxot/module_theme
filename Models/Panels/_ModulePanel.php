@@ -31,6 +31,7 @@ class _ModulePanel extends XotBasePanel {
             // new Actions\ShowAllIconsAction(), //visualizza tutte le icone disponibili per il tema //da rifare
             new Actions\TestComponentsAction(),
             new Actions\TryProgressbarAction(),
+            new Actions\TryDateRangeFlatpickrAction(),
             new ManageLangModuleAction('theme'),
         ];
         if (\in_array($act, ['choose_pub_theme', 'activate_pub_theme'], true)) {
