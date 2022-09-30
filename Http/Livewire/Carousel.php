@@ -14,12 +14,14 @@ class Carousel extends Component {
     public string $type = 'carousel';
     public array $items;
     public int $i = 0;
+    public bool $showBtnLink;
 
     /**
      * Undocumented function.
      */
-    public function mount(array $items): void {
+    public function mount(array $items, ?bool $showBtnLink = true): void {
         $this->items = $items;
+        $this->showBtnLink = $showBtnLink;
     }
 
     /**

@@ -8,9 +8,11 @@
             {{ $i >= count($items) - 1 ? 'disabled' : '' }}>
             <i class="fas fa-chevron-right"></i>
         </button>
+        @if($showBtnLink)
         <a href="{{ $items[$i]['url'] ?? '' }}" class="btn btn-success">
             <i class="fas fa-link"></i>
         </a>
+        @endif
     </div>
     {!! $items[$i]['txt'] ?? '' !!}
 </div>
