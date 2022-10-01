@@ -1,7 +1,7 @@
 <div class="cmp-modal">
-    <div class="modal fade it-dialog-scrollable" tabindex="-1" role="dialog" id="{{id}}" aria-labelledby="{{id}}-modal-title">
-      <div class="modal-dialog modal-dialog-centered {{class}}" role="document">
-        <div class="modal-content modal-dimensions {{sub-class}}">
+    <div class="modal fade it-dialog-scrollable" tabindex="-1" role="dialog" id="{{$id}}" aria-labelledby="{{$id}}-modal-title">
+      <div class="modal-dialog modal-dialog-centered {{$class}}" role="document">
+        <div class="modal-content modal-dimensions {{$sub_class}}">
           <div class="cmp-modal__header modal-header pb-0">
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
             </button>
@@ -16,7 +16,7 @@
             @endif
           </div>
           <div class="modal-body">
-            {{> @partial-block}}
+            {{-- {{> @partial-block}} --}}
           </div>
         </div>
       </div>

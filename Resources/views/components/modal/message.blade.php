@@ -5,21 +5,22 @@ dell'infanzia per l'anno scolastico 2022/23"
 sub-class="h-100"}} --}}
 
 <x-modal.structure type="3">
-</x-modal.structure>
+<x-slot name="id">modal-message</x-slot>
+<x-slot name="date">15/03/2022</x-slot>
 
 <div class="mb-60 mb-lg-80">
 
   @if(isset($subtitle))
-  <h5 class="subtitle-large">{{$subtitle}}</h5>
+    <h5 class="subtitle-large">{{$subtitle}}</h5>
   @endif
 
   @if(isset($txt))
-  <p class="text-paragraph mb-4 fw-normal">{{$txt}}</p>
-    @endif
+    <p class="text-paragraph mb-4 fw-normal">{{$txt}}</p>
+  @endif
 
   @if(isset($link))
-  <a href="#" class="text-paragraph t-primary text-decoration-underline">{{$link}}</a>
-    @endif
+    <a href="#" class="text-paragraph t-primary text-decoration-underline">{{$link}}</a>
+  @endif
 </div>
-
+</x-modal.structure>
 {{-- {{/cmp-modal/cmp-modal-structure-3}} --}}
