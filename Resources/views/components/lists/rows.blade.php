@@ -1,0 +1,27 @@
+<div class="cmp-icon-list">
+    @if(isset($title))
+    <h2 class="title-xxlarge mt-40 mb-2 mb-lg-4 {{$titleClass}}"@if(isset($id_title)) id="{{$id_title}}"@endif>{{{$title}}}</h2>
+    @endif
+  <div class="link-list-wrapper @ifif(isset($default)) default @endif">
+    <ul class="link-list {{classMenu}}">
+      @foreach($icon_lists as $item)
+      <li class="{{$class}}">
+        <a class="list-item icon-left t-primary title-small-semi-bold" href="#"      
+            @if(isset($aria_label))aria-label="{{$item->aria_label}} {{$item->link}}"@endif 
+            @if(isset($only_ariaLabel))aria-label="{{$item->only_ariaLabel}}"@endif>
+        <span class="list-item-title-icon-wrapper">
+            <svg class="icon icon-sm align-self-start {{$item->icon_class}} icon-color" aria-hidden="true">
+                <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#{{$item->icon}}"></use></svg>
+            <span class="list-item-title title-small-semi-bold {{$item->classLink}}">{{$item->link}}</span>
+          </span>
+          
+        @if(isset($item->txt))
+        <p class="ml-40 text-paragraph-regular-medium text-black">{{$item->txt}}</p>
+        @endif
+        </a>
+  
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  </div>

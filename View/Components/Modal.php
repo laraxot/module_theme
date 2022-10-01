@@ -44,11 +44,11 @@ class Modal extends Component {
     }
 
     public function render(): Renderable {
-
-        $view='theme::components.modal';
-        if(!empty($this->type)){
-            $view.='.'.$this->type;
+        $view = 'theme::components.modal';
+        if (! empty($this->type)) {
+            $view .= '.'.$this->type;
         }
+
         return view()->make($view);
     }
 }

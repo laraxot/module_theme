@@ -1,5 +1,5 @@
 <div class="cmp-accordion">
-  <div class="accordion" id="{{$id}}">
+  <div class="accordion" id="{{$id ?? ''}}">
     @foreach($rows as $item)
     <div class="accordion-item">
       <div class="accordion-header" id="heading{{$item->num}}">
@@ -46,10 +46,10 @@
             @endif
 
 
-            {{-- <x-lists type="icon" :icon_lists="collect([])">
+            <x-lists.rows :icon_lists="collect([])">
                 <x-slot name="title">{{false}}</x-slot>
                 <x-slot name="class">mt-3 p-0</x-slot>
-            </x-lists> --}}
+            </x-lists>
 
             {{-- {{>cmp-icon-list/cmp-icon-list
             title=false
@@ -64,7 +64,7 @@
                     <x-slot name="label">{{$item->btn_label}}</x-slot>
                     <x-slot name="class">justify-content-center my-3</x-slot>
                     <x-slot name="primary">{{true}}</x-slot>
-                <x-button>
+                </x-button>
             @endif
           @endif
         </div>

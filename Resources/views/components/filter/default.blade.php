@@ -9,7 +9,7 @@
           <x-slot name="class">p-0 pe-2</x-slot>
           <x-slot name="xs">true</x-slot>
           <x-slot name="class_icon">me-1</x-slot>
-      <x-button>
+      </x-button>
 
 
       <x-dropdown>
