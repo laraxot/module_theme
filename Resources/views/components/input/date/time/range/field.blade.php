@@ -5,6 +5,7 @@
 <input type="hidden" id="date_from_{{$name}}" name="date_from_{{$name}}" wire:model.lazy="form_data.date_from_{{$name}}">
 <input type="hidden" id="date_to_{{$name}}" name="date_to_{{$name}}" wire:model.lazy="form_data.date_to_{{$name}}">
 
+<input type="text" wire:model.lazy="form_data.{{$name}}.test" />
 @push('scripts')
     <script>
         $(function() {
