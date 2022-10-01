@@ -1,93 +1,93 @@
-<div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+<div id="reportrange_{{$name}}" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
     <i class="fa fa-calendar"></i>&nbsp;
     <span></span> <i class="fa fa-caret-down"></i>
 </div>
-{{--<div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="time_slot" name="time_slot">
-    <label class="form-check-label" for="time_slot">
-        Fascia Oraria
-    </label>
-</div>--}}
-
-<input type="hidden" id="date_from" name="date_from">
-<input type="hidden" id="date_to" name="date_to">
+<input type="hidden" id="date_from_{{$name}}" name="date_from_{{$name}}" wire:model.lazy="form_data.date_from_{{$name}}">
+<input type="hidden" id="date_to_{{$name}}" name="date_to_{{$name}}" wire:model.lazy="form_data.date_to_{{$name}}">
 
 @push('scripts')
     <script>
-        let drp = null;
+        $(function() {
 
-        moment.locale('it')
+            moment.locale('it')
 
-        function cb(start, end) {
-            $('#date_from').val(start.format('yyyy-MM-DDTHH:mm:ss'))
-            $('#date_to').val(end.format('yyyy-MM-DDTHH:mm:ss'))
+            this.cb = function(start, end)  {
+                $('#date_from_{{$name}}').val(start.format('yyyy-MM-DDTHH:mm:ss'))
+                $('#date_to_{{$name}}').val(end.format('yyyy-MM-DDTHH:mm:ss'))
 
-            $('#reportrange span').html(start.format('yyyy-MM-DD HH:mm:ss') + ' - ' + end.format('yyyy-MM-DD HH:mm:ss') +
-                ' <input id="reportrange_checkbox" type="checkbox" onclick="event.stopPropagation();setTime()">');
-        }
-
-        var start = moment().subtract(29, 'days').set("hour", '00').set("minute", '00').set("seconds", '00');
-        var end = moment().set("hour", '23').set("minute", '59').set("seconds", '59');
-
-        drp = $('#reportrange').daterangepicker({
-            timePicker: false,
-            timePicker24Hour: true,
-            locale: {
-                format: 'yyyy-MM-DDTHH:mm:ss'
-            },
-            ranges: {
-                'Today': [moment(), moment()],
-                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month': [moment().startOf('month'), moment().endOf('month')],
-                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
-                    'month').endOf('month')]
-            }
-        }, cb);
-
-        cb(start, end);
-
-
-
-        function setTime() {
-
-            if ($('#reportrange_checkbox').prop('checked') === true) {
-                drp.daterangepicker({
-                    timePicker: true,
-                    timePicker24Hour: true,
-                    locale: {
-                        format: 'yyyy-MM-DDTHH:mm:ss'
-                    },
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
-                            'month').endOf('month')]
-                    }
-                }, cb)
-            } else {
-                drp.daterangepicker({
-                    timePicker: false,
-                    timePicker24Hour: true,
-                    locale: {
-                        format: 'yyyy-MM-DDTHH:mm:ss'
-                    },
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
-                            'month').endOf('month')]
-                    }
-                }, cb);
+                $('#reportrange_{{$name}} span').html(start.format('yyyy-MM-DD HH:mm:ss') + ' - ' + end.format(
+                        'yyyy-MM-DD HH:mm:ss') +
+                    ' <input id="reportrange_checkbox_{{$name}}" type="checkbox" onclick="event.stopPropagation();setTime()">'
+                    );
             }
 
-        }
+            this.start = moment().subtract(29, 'days').set("hour", '00').set("minute", '00').set("seconds", '00');
+            this.end = moment().set("hour", '23').set("minute", '59').set("seconds", '59');
+
+            this.drp = $('#reportrange_{{$name}}').daterangepicker({
+                timePicker: false,
+                timePicker24Hour: true,
+                locale: {
+                    format: 'yyyy-MM-DDTHH:mm:ss'
+                },
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                        'month').endOf('month')]
+                }
+            }, this.cb);
+
+            this.cb(this.start, this.end);
+
+
+
+            this.setTime = function() {
+
+                if ($('#reportrange_checkbox_{{$name}}').prop('checked') === true) {
+                    this.drp.daterangepicker({
+                        timePicker: true,
+                        timePicker24Hour: true,
+                        locale: {
+                            format: 'yyyy-MM-DDTHH:mm:ss'
+                        },
+                        ranges: {
+                            'Today': [moment(), moment()],
+                            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                            'This Month': [moment().startOf('month'), moment().endOf('month')],
+                            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
+                                .subtract(1,
+                                    'month').endOf('month')
+                            ]
+                        }
+                    }, this.cb)
+                } else {
+                    this.drp.daterangepicker({
+                        timePicker: false,
+                        timePicker24Hour: true,
+                        locale: {
+                            format: 'yyyy-MM-DDTHH:mm:ss'
+                        },
+                        ranges: {
+                            'Today': [moment(), moment()],
+                            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                            'This Month': [moment().startOf('month'), moment().endOf('month')],
+                            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment()
+                                .subtract(1,
+                                    'month').endOf('month')
+                            ]
+                        }
+                    }, this.cb);
+                }
+
+            }
+        })
     </script>
 @endpush
