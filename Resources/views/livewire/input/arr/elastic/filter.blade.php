@@ -75,7 +75,7 @@
 
     <div class="form-group">
         <h4>Order</h4>
-        <select class="form-control" name="orderBy" wire:model.lazy="form_data.sort">
+        <select class="form-control" name="sort"  wire:model.lazy="form_data.rows.{{ $model_id }}.sort"  >
             <option value="desc">DESC</option>
             <option value="asc">ASC</option>
         </select>

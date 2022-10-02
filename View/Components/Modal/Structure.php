@@ -28,7 +28,7 @@ class Structure extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.modal.'.$this->type;
+        $view = 'theme::components.modal.structure.'.$this->type;
         $view_params = [
             'view' => $view,
         ];

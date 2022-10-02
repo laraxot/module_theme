@@ -5,8 +5,14 @@ dell'infanzia per l'anno scolastico 2022/23"
 sub-class="h-100"}} --}}
 
 <x-modal.structure type="3">
-<x-slot name="id">modal-message</x-slot>
+<x-slot name="id">{{ $id }}</x-slot>
+{{-- <x-slot name="id">modal-message</x-slot>
 <x-slot name="date">15/03/2022</x-slot>
+<x-slot name="title">Iscrizione alla scuola dell’infanzia</x-slot>
+<x-slot name="subtitle">Graduatoria 2022/23</x-slot>
+<x-slot name="txt">La graduatoria per l’iscrizione alla Scuola dell’Infanzia,
+  a.a. 2022/2023 è stata pubblicata. Consulta la graduatoria online e perfeziona la pratica.</x-slot>
+<x-slot name="link">Graduatoria Scuola dell'infanzia per l'anno scolastico 2022/23</x-slot> --}}
 
 <div class="mb-60 mb-lg-80">
 

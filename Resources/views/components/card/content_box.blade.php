@@ -1,4 +1,4 @@
-<div class="cmp-card {{ $cmpClass??'' }} {{ $margin_class??'' }}">
+<div class="cmp-card {{ $cmpClass ?? '' }} {{ $margin_class ?? '' }}">
     <div
         class="card {{ isset($bg_grey) ? 'has-bkg-grey shadow-sm' : '' }} {{ isset($bg_grey_primary) ? 'has-bkg-primary-grey' : '' }}  {{ isset($contacts) ? 'contacts has-bkg-grey' : '' }}  {{ $class??'' }}">
 
@@ -44,7 +44,7 @@
 @endif
     <div class="card-body
                         p-0">
-                        @yield('content')
+                        {!! $slot !!} 
             </div>
     </div>
 </div>

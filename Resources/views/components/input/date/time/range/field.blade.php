@@ -1,5 +1,5 @@
 <div class="datetime_range_picker" id="{{ Str::slug($name) }}"
-    style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+    style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%" wire:ignore>
     <i class="fa fa-calendar"></i>&nbsp;
     <span></span> <i class="fa fa-caret-down"></i>
 

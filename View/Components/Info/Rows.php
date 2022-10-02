@@ -21,7 +21,7 @@ class Rows extends Component {
      *
      * @return void
      */
-    public function __construct(Collection $rows, ?string $type = 'rows') {
+    public function __construct(Collection $rows, ?string $type = 'default') {
         $this->rows = $rows;
         $this->type = $type;
         // ThemeService::make()->add('theme::View/Components/Card/rows.scss');
@@ -31,7 +31,7 @@ class Rows extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.info.'.$this->type;
+        $view = 'theme::components.info.rows.'.$this->type;
         $view_params = [
             'view' => $view,
         ];
