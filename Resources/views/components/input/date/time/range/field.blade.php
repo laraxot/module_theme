@@ -2,25 +2,33 @@
     style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
     <i class="fa fa-calendar"></i>&nbsp;
     <span></span> <i class="fa fa-caret-down"></i>
-</div>
-<div style="display:none">
-<br/>{{ $name }}<br/>
-<input type="text" name="{{ $name }}_from" wire:model.lazy="form_data.{{ $name }}_from">
-<input type="text" name="{{ $name }}_to" wire:model.lazy="form_data.{{ $name }}_to">
+
+    <div style="display:none">
+    <br/>{{ $name }}<br/>
+    <input type="text" name="date_from" wire:model.lazy="form_data.{{ $name }}_from">
+    <input type="text" name="date_to" wire:model.lazy="form_data.{{ $name }}_to">
+    </div>
 </div>
 
 @push('scripts')
 <script>
     $(function() {
         moment.locale('it');
-        var start = moment($('[name="{{ $name }}_from"]').val());
-        var end = moment($('[name="{{ $name }}_to"]').val());
+        var start = moment($('#{{Str::slug($name)}} [name="date_from"]').val());
+        if(!start.isValid()){
+            start= moment().subtract(29, 'days');
+        }
+        var end = moment($('#{{Str::slug($name)}} [name="date_to"]').val());
+        if(!end.isValid()){
+            end= moment();
+        }
+        
        
         function cb(start, end) {
             //*
             $('#{{Str::slug($name)}} span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            $('[name="{{ $name }}_from"]').val(start.format('yyyy-MM-DDTHH:mm:ss'))
-            $('[name="{{ $name }}_to"]').val(end.format('yyyy-MM-DDTHH:mm:ss'))
+            $('#{{Str::slug($name)}} [name="date_from"]').val(start.format('yyyy-MM-DDTHH:mm:ss'))
+            $('#{{Str::slug($name)}} [name="date_to"]').val(end.format('yyyy-MM-DDTHH:mm:ss'))
             //console.log("{{$name}}");
             @this.emit('setFormDataValueEvent',"{{ $name }}_from",start.format('yyyy-MM-DDTHH:mm:ss'));
             @this.emit('setFormDataValueEvent',"{{ $name }}_to",end.format('yyyy-MM-DDTHH:mm:ss'));
