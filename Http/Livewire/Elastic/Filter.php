@@ -24,7 +24,7 @@ class Filter extends Component {
      */
     protected $listeners = [
         // 'updateDataFromModal' => 'updateDataFromModal',
-        // 'updatedFormDataEvent' => 'updateFormData',
+        'updatedFormDataEvent' => 'updatedFormData',
     ];
 
     /**
@@ -78,21 +78,26 @@ class Filter extends Component {
         return view()->make($view, $view_params);
     }
 
-    /*
-    public function updateFormData(array $data) {
-        if (isset($this->model_class) && $this->model_id == $data['model_id']) {
-            $tmp = $data['filter'];
-            $filter = [];
-            foreach ($tmp as $k => $v) {
-                $criteria = $v['criteria'] ?? 'query_string_query';
-                $filter[$k][$criteria] = $v['q'] ?? '';
-            }
-            $up = [];
-            $up['filter'] = $filter;
+     public function updatedFormData(array $data) {
+         dddx($this->form_data);
 
-            app($this->model_class)->find($this->model_id)->update($up);
-            session()->flash('message', 'Updated.');
-        }
-    }
-    // */
+         $this->form_data[$data[1]] = $data[0];
+     }
+    /*
+     public function updateFormData(array $data) {
+         if (isset($this->model_class) && $this->model_id == $data['model_id']) {
+             $tmp = $data['filter'];
+             $filter = [];
+             foreach ($tmp as $k => $v) {
+                 $criteria = $v['criteria'] ?? 'query_string_query';
+                 $filter[$k][$criteria] = $v['q'] ?? '';
+             }
+             $up = [];
+             $up['filter'] = $filter;
+
+             app($this->model_class)->find($this->model_id)->update($up);
+             session()->flash('message', 'Updated.');
+         }
+     }
+     // */
 }
