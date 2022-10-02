@@ -38,6 +38,8 @@
         
         $('#{{Str::slug($name)}}').daterangepicker(
             {
+            timePicker: true,
+            timePicker24Hour: true,    
             startDate: start,
             endDate: end,
             ranges: {
