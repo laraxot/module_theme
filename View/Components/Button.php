@@ -30,7 +30,7 @@ class Button extends Component {
          * @phpstan-var view-string
          */
         $view = 'theme::components.button.'.$this->type;
-
+        
         $view_params = ['view' => $view];
 
         return view()->make($view, $view_params);

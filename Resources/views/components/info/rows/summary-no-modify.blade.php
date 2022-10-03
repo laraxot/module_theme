@@ -1,16 +1,17 @@
-<div class="cmp-info-summary bg-white {{ $class }}">
+@props(['header_class' => ''])
+<div class="cmp-info-summary bg-white {{$attributes->class([])}}">
     <div class="card">
 
         @if (isset($title))
             <div
-                class="card-header border-bottom border-light p-0 mb-0 {{ $header_class }} @if (isset($info_title)) d-flex justify-content-between @endif  @if (isset($info_list)) @if (isset($info_list)) d-flex justify-content-end @endif @endif ">
+                class="card-header border-bottom border-light p-0 mb-0 {{ $header_class }} @if (isset($title)) d-flex justify-content-between @endif  @if (isset($rows)) @if (isset($rows)) d-flex justify-content-end @endif @endif ">
                 <h3 class="title-large-semi-bold mb-3">{{ $title }}</h3>
             </div>
         @endif
 
         <div class="card-body p-0">
-            @if (isset($info_list))
-                @foreach ($info_list as $info)
+            @if (isset($rows))
+                @foreach ($rows as $info)
                     <div class="single-line-info border-light @if (isset($info->border_unset)) border-unset @endif ">
                         @if (isset($info->name))
                             <div class="text-paragraph-small">{{ $info->name }}</div>

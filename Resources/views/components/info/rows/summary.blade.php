@@ -1,6 +1,5 @@
-uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
-
-<div class="cmp-info-summary bg-white {{$class}}">
+@props(['header_class' => '', 'info' => false])
+<div class="cmp-info-summary bg-white {{$attributes->class([])}}">
     <div class="card">
   
       <div
@@ -15,19 +14,18 @@ uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
             class="text-button-sm-semi t-primary">Modifica</span></a>
         @endif
       </div>
-cccccccccccccccccccccccccccccc
+
       <div class="card-body p-0">
         @if(isset($info))
-          BBBBBBBBBBBBBBBBBBBBBBBBB
           @foreach($rows as $info)
-          AAAAAAAA
             <div class="single-line-info border-light @if(isset($info->border_unset)) border-unset @endif" @if(isset($info->warning)) id="{{$info->warningId}}"@endif>
               @if(isset($info->name))
                 <div class="text-paragraph-small">{{$info->name}}</div>
               @endif
               @if(isset($info->warning))
                 @if(isset($info->txt))
-                  <p class="data-text @if(isset($info->summary)) summary-inline @endif">
+                  <p class="data-text 
+                  @if(isset($info->summary)) summary-inline @endif">
                   {{$info->txt}}</p>
                 @endif
                 <p class="fw-semibold data-text description-alert d-flex align-items-center border-light">
@@ -41,7 +39,7 @@ cccccccccccccccccccccccccccccc
               @else
                 <div class="border-light @if(isset($summary_item_class)) border-0 @endif @if(isset($info->summary)) summary-inline @endif">
                   @if(isset($info->txt))
-                    <p class="data-text @if($info->summary)summary-inline @endif">
+                    <p class="data-text @if(isset($info->summary)) summary-inline @endif">
                       {{$info->txt}}
                       @if(isset($info->summary))
                         <strong>{{$info->summary}}</strong>

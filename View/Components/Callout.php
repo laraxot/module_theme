@@ -24,6 +24,11 @@ class Callout extends Component {
          * @phpstan-var view-string
          */
         $view = 'theme::components.callout';
+
+        if($this->type != 'info'){
+            $view = 'theme::components.callout.'.$this->type;
+        }
+
         $view_params = ['view' => $view];
 
         return view()->make($view, $view_params);
