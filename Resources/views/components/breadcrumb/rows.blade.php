@@ -12,9 +12,15 @@
 			<li class="breadcrumb-item active" aria-current="page"><span class="separator">/</span>{{link3}}</li>
 			{{/if}} --}}
 			@foreach($rows as $item)
-			    <li class="breadcrumb-item">
-                    <a href="#">{{-- $item --}}</a>
-                    <span class="separator">/</span>
+			    <li class="breadcrumb-item
+					@if($loop->last)
+						active
+					@endif
+				">
+                    <a href="#">{{ $item->title }}</a>
+					@if(!$loop->last)
+                    	<span class="separator">/</span>
+					@endif
                 </li>
 			@endforeach
 		</ol>
