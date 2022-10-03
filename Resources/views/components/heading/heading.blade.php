@@ -28,9 +28,6 @@
         <x-slot name="label_tag_up"></x-slot>
     </x-partials.tag.tag> --}}
     <x-link type="tag">
-      <x-slot name="class"></x-slot>
-      <x-slot name="label_tag"></x-slot>
-      <x-slot name="label_tag_up"></x-slot>
     </x-link>
     {{-- {{>partials/cmp-tag/cmp-tag}} --}}
   </div>
@@ -51,9 +48,6 @@
         <x-slot name="label_tag_up"></x-slot>
     </x-partials.tag.tag> --}}
     <x-link type="tag">
-      <x-slot name="class"></x-slot>
-      <x-slot name="label_tag"></x-slot>
-      <x-slot name="label_tag_up"></x-slot>
     </x-link>
     {{-- {{>partials/cmp-tag/cmp-tag}} --}}
   </div>

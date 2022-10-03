@@ -1,38 +1,46 @@
-<div class="cmp-heading {{#if heading-p0}}p-0{{else}}pb-3 pb-lg-4{{/if}}">
+<div class="cmp-heading @if(isset($heading_p0)) p-0 @else pb-3 pb-lg-4 @endif ">
   <div class="row">
     <div class="col-lg-8">
-      {{#if h2}}
-        <h2 class="title-xxxlarge {{title-class}}">{{title}}</h2>
-      {{else}}
-        <h1 class="title-xxxlarge {{title-class}}" data-element="service-title">{{title}}</h1>
-      {{/if}}
+      @if(isset($h2))
+        <h2 class="title-xxxlarge {{$title_class}}">{{$title}}</h2>
+       @else 
+        <h1 class="title-xxxlarge {{$title_class}}" data-element="service-title">{{$title}}</h1>
+       @endif 
 
-      {{#if label-tag-up}}
+      @if(isset($label_tag_up))
         <div class="d-flex flex-wrap cmp-heading__tag">
           <div class="cmp-tag">
             <span class="cmp-tag__tag title-xsmall" data-element="service-status">Servizio attivo</span>
           </div>
         </div>
-      {{/if}}
+       @endif 
 
-      {{#if subTitle}}
-        <p class="subtitle-small {{pClass}}">{{{subTitle}}}</p>
-      {{/if}}
+      @if(isset($subTitle))
+        <p class="subtitle-small {{$pClass}}">{{$subTitle}}</p>
+       @endif 
 
-      {{#if description}}
-        <p class="subtitle-small {{desClass}}" data-element="service-description">{{{description}}}</p>
-      {{/if}}
+      @if(isset($description))
+        <p class="subtitle-small {{$desClass}}" data-element="service-description">{{$description}}</p>
+       @endif 
 
-      {{#if button}}
-        {{>partials/button/button class="fw-bold"}}
-      {{/if}}
+      @if(isset($button))
+      <x-button>
+        <x-slot name="class">fw-bold</x-slot>
+      </x-button>
+       @endif 
 
-      {{#if double-button}}
+      @if(isset($double-button))
         <div class="d-lg-flex gap-30 mb-2">
-            {{>partials/button/button class="fw-bold btn-primary mr-lg-30"}}
-            {{>partials/button/button class="fw-bold btn-outline-primary t-primary" label=second-label aria-label=second-ariaLabel}}
+            <x-button>
+                <x-slot name="class">fw-bold btn-primary mr-lg-30"</x-slot>
+              </x-button>
+              <x-button>
+                <x-slot name="class">fw-bold btn-outline-primary t-primary</x-slot>
+                <x-slot name="label">{{$second_label}}</x-slot>
+                <x-slot name="aria_label">{{$second_ariaLabel}}</x-slot>
+              </x-button>
         </div>
-      {{/if}}
+       @endif 
     </div>
     <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
       <div class="dropdown">
