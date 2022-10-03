@@ -6,7 +6,7 @@
 	@if(isset($outline_secondary))btn-outline-secondary @endif
 	@if(isset($disabled))disabled @endif
 	@if(isset($fullMobile))full-mobile @endif
-	{{$class}}"
+	@if(isset($class)) {{$class}}" @endif
 	aria-label="{{$label}}"
 	title="{{$label}}">
 	@if(isset($icon_url))
@@ -29,7 +29,7 @@ class="btn
 @if(isset($disabled))disabled @endif
 @if(isset($fullMobile))full-mobile @endif
 @if(isset($bg_white))bg-white @endif
-{{$class}}
+@if(isset($class)) {{$class}}" @endif
 ">
 @if(isset($iconBtn))
 <span class="rounded-icon">
@@ -41,6 +41,6 @@ class="btn
 @if(isset($iconBtnUrl))
 <img src="{{$iconBtnUrl}}" alt="{{$label}}" class="me-2">
 @endif
-<span class="{{$label_class ?? ''}}">{{$label}}</span>
+<span class="{{$label_class ?? ''}}">{{$label ?? ''}}</span>
 </button>
 @endif
