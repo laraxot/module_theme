@@ -3,7 +3,7 @@
         class="card {{ isset($bg_grey) ? 'has-bkg-grey shadow-sm' : '' }} {{ isset($bg_grey_primary) ? 'has-bkg-primary-grey' : '' }}  {{ isset($contacts) ? 'contacts has-bkg-grey' : '' }}  {{ $class??'' }}">
 
         @if (isset($card_title))
-            <div class="card-header border-0 p-0 mb-lg-30 {{ isset($header_m0) ? 'm-0' : '' }} {{ $header_class }}">
+            <div class="card-header border-0 p-0 mb-lg-30 {{ isset($header_m0) ? 'm-0' : '' }} {{ $header_class ?? '' }}">
                 <div class="d-flex">
                     @if (isset($card_title))
                         @if (isset($h3_title))
@@ -24,7 +24,7 @@
                 @endif
 
                 @if (isset($subtitle))
-                    <p class="subtitle-small mb-0 {{ $subtitleClass }}  @if (isset($lora)) lora ">{{ $subtitle }}</p> @endif
+                    <p class="subtitle-small mb-0 {{ $subtitleClass ?? '' }}  @if (isset($lora)) lora ">{{ $subtitle }}</p> @endif
 @endif
       
       @if (isset($toggle)) <x-toggle>
