@@ -1,73 +1,81 @@
-<div class="cmp-info-button-card {{#if radio}} radio-card{{/if}} {{card-class}}">
-  <div class="card {{#if shadow}}shadow{{/if}} p-3 p-lg-4">
-    {{#if radio}}
-    <div class="card-header mb-0 p-0">
-      <div class="form-check m-0">
-        <input class="radio-input" name="{{group}}" type="radio" id="{{idRadio}}">
-        <label for="{{idRadio}}">
-          <h3 class="big-title mb-0">{{{radio-title}}}</h3>
-        </label>
-      </div>
+<div class="cmp-info-button-card @if (isset($radio)) radio-card @endif  {{ $card_class }} ">
+    <div class="card @if (isset($shadow)) shadow @endif  p-3 p-lg-4">
+        @if (isset($radio))
+            <div class="card-header mb-0 p-0">
+                <div class="form-check m-0">
+                    <input class="radio-input" name="{{ $group }}" type="radio" id="{{ $idRadio }}">
+                    <label for="{{ $idRadio }}">
+                        <h3 class="big-title mb-0">{{ $radio_title ?? '' }}</h3>
+                    </label>
+                </div>
+            </div>
+        @endif
+        <div class="card-body p-0">
+            @if (isset($big_title))
+                <h3 class="big-title mb-0">{{ $big_title ?? '' }}</h3>
+            @endif
+
+            @if (isset($medium_title))
+                <h3 class="medium-title mb-0">{{ $medium_title ?? '' }}</h3>
+            @endif
+
+            @if (isset($name))
+                <p class="name">{{ $name }}</p>
+            @endif
+
+            @if (isset($label_1))
+                <p class="card-info">{{ $label_1 }}</p>
+            @endif
+
+            @if (isset($label_2))
+                <p class="card-info">{{ $label_2 ?? '' }}</p>
+            @endif
+
+            @if (isset($error))
+                {{-- > cmp-alert-box/cmp-alert-box message=alertMessage- --}}
+                <button type="button" class="btn btn-outline-primary mt-3 w-100" data-bs-toggle="modal"
+                    data-bs-target="#{{ $modalId }}">{{ $btnLabel }}</button>
+            @endif
+
+            @if (isset($show_more_anagrafica))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_more_anagrafica_2))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_more_anagrafica_3))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_more_anagrafica_4))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_more_vehicle))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_more_isee))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_more_disservizio))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+
+            @if (isset($show_accordion_bank))
+                <x-accordion.rows type="anagrafica" :rows="collect([])">
+                </x-accordion.rows>
+            @endif
+        </div>
     </div>
-    {{/if}}
-    <div class="card-body p-0">
-      {{#if big-title}}
-      <h3 class="big-title mb-0">{{{big-title}}}</h3>
-      {{/if}}
-
-      {{#if medium-title}}
-      <h3 class="medium-title mb-0">{{{medium-title}}}</h3>
-      {{/if}}
-
-      {{#if name}}
-      <p class="name">{{name}}</p>
-      {{/if}}
-
-      {{#if label-1}}
-      <p class="card-info">{{{label-1}}}</p>
-      {{/if}}
-
-      {{#if label-2}}
-      <p class="card-info">{{{label-2}}}</p>
-      {{/if}}
-
-      {{#if error}}
-      {{> cmp-alert-box/cmp-alert-box message=alertMessage}}
-      <button type="button" class="btn btn-outline-primary mt-3 w-100" data-bs-toggle="modal"
-        data-bs-target="#{{modalId}}">{{btnLabel}}</button>
-      {{/if}}
-
-      {{#if show-more-anagrafica}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica }}
-      {{/if}}
-
-      {{#if show-more-anagrafica-2}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica-2 acc-open=acc-open}}
-      {{/if}}
-
-      {{#if show-more-anagrafica-3}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica-3 }}
-      {{/if}}
-
-      {{#if show-more-anagrafica-4}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica-4 }}
-      {{/if}}
-
-      {{#if show-more-vehicle}}
-      {{>partials/cmp-accordion/cmp-accordion-vehicle }}
-      {{/if}}
-
-      {{#if show-more-isee}}
-      {{>partials/cmp-accordion/cmp-accordion-isee acc-open=acc-open }}
-      {{/if}}
-
-      {{#if show-more-disservizio}}
-      {{>partials/cmp-accordion/cmp-accordion-disservizio no-header=true }}
-      {{/if}}
-
-      {{#if show-accordion-bank}}
-      {{>partials/cmp-accordion/cmp-accordion-bank }}
-      {{/if}}
-    </div>
-  </div>
 </div>
