@@ -1,4 +1,4 @@
-<div class="cmp-info-button-card {{isset($radio)?'radio-card':''}} {{$card_class}}">
+<div class="cmp-info-button-card @if(isset($radio)) 'radio-card' @else '' @endif {{$card_class ?? ''}}">
   <div class="card @if(isset($shadow)) shadow @endif p-3 p-lg-4">
     @if(isset($radio))
         <div class="card-header mb-0 p-0">
@@ -43,37 +43,44 @@
 
       
       @if(isset($show_more_anagrafica))
-      
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica }}
+      <x-accordion.rows type="anagrafica" :rows="collect([])"></x-accordion.rows>
       @endif
 
-      {{#if show-more-anagrafica-2}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica-2 acc-open=acc-open}}
-      {{/if}}
+      @if(isset($show_more_anagrafica_2))
+      <x-accordion.rows type="anagrafica" :rows="collect([])">
+      <x-slot name="acc_open">acc-open</x-slot>
+      </x-accordion.rows>
+      @endif
+    
+      @if(isset($show_more_anagrafica_3))
+      <x-accordion.rows type="anagrafica" :rows="collect([])"></x-accordion.rows>
+      @endif
 
-      {{#if show-more-anagrafica-3}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica-3 }}
-      {{/if}}
+      @if(isset($show_more_anagrafica_4))
+      <x-accordion.rows type="anagrafica" :rows="collect([])"></x-accordion.rows>
+      @endif
 
-      {{#if show-more-anagrafica-4}}
-      {{>partials/cmp-accordion/cmp-accordion-anagrafica-4 }}
-      {{/if}}
+      @if(isset($show_more_vehicle))
+      <x-accordion.rows type="anagrafica" :rows="collect([])"></x-accordion.rows>
+      @endif
 
-      {{#if show-more-vehicle}}
-      {{>partials/cmp-accordion/cmp-accordion-vehicle }}
-      {{/if}}
+      @if(isset($show_more_isee))
+      <x-accordion.rows type="anagrafica" :rows="collect([])">
+      <x-slot name="acc_open">acc-open</x-slot>
+      </x-accordion.rows>
+      @endif
 
-      {{#if show-more-isee}}
-      {{>partials/cmp-accordion/cmp-accordion-isee acc-open=acc-open }}
-      {{/if}}
+      @if(isset($show_more_disservizio))
+      <x-accordion.rows type="anagrafica" :rows="collect([])">
+      <x-slot name="no_header">true</x-slot>
+      </x-accordion.rows>
+      @endif
 
-      {{#if show-more-disservizio}}
-      {{>partials/cmp-accordion/cmp-accordion-disservizio no-header=true }}
-      {{/if}}
-
-      {{#if show-accordion-bank}}
-      {{>partials/cmp-accordion/cmp-accordion-bank }}
-      {{/if}}
+      @if(isset($show_accordion_bank))
+      <x-accordion.rows type="anagrafica" :rows="collect([])">
+      </x-accordion.rows>
+      @endif
+    
     </div>
   </div>
 </div>
