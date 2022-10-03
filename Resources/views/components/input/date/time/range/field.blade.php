@@ -16,17 +16,17 @@
         moment.locale('it');
         var start = moment($('#{{Str::slug($name)}} [name="date_from"]').val());
         if(!start.isValid()){
-            start= moment().subtract(29, 'days');
+            start= moment().subtract(29, 'days').set('hour', 0).set('minute', 0).set('second', 0);
         }
         var end = moment($('#{{Str::slug($name)}} [name="date_to"]').val());
         if(!end.isValid()){
-            end= moment();
+            end= moment().set('hour', 23).set('minute', 59).set('second', 59);
         }
         
        
         function cb(start, end) {
             //*
-            $('#{{Str::slug($name)}} span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('#{{Str::slug($name)}} span').html(start.format('D MMM YYYY HH:mm') + ' - ' + end.format('D MMM YYYY HH:mm'));
             $('#{{Str::slug($name)}} [name="date_from"]').val(start.format('yyyy-MM-DDTHH:mm:ss'))
             $('#{{Str::slug($name)}} [name="date_to"]').val(end.format('yyyy-MM-DDTHH:mm:ss'))
             //console.log("{{$name}}");

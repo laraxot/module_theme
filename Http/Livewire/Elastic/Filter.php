@@ -24,7 +24,7 @@ class Filter extends Component {
      */
     protected $listeners = [
         // 'updateDataFromModal' => 'updateDataFromModal',
-        'updatedFormDataEvent' => 'updatedFormData',
+        // 'updatedFormDataEvent' => 'updatedFormData',
     ];
 
     /**
@@ -78,11 +78,6 @@ class Filter extends Component {
         return view()->make($view, $view_params);
     }
 
-     public function updatedFormData(array $data) {
-         dddx($this->form_data);
-
-         $this->form_data[$data[1]] = $data[0];
-     }
     /*
      public function updateFormData(array $data) {
          if (isset($this->model_class) && $this->model_id == $data['model_id']) {
