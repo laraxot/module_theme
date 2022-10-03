@@ -1,4 +1,4 @@
-<div class="cmp-info-button-card @if (isset($radio)) radio-card @endif  {{ $card_class }} ">
+<div class="cmp-info-button-card @if (isset($radio)) radio-card @endif  {{ $card_class ?? '' }} ">
     <div class="card @if (isset($shadow)) shadow @endif  p-3 p-lg-4">
         @if (isset($radio))
             <div class="card-header mb-0 p-0">
