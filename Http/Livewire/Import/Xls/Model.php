@@ -122,7 +122,7 @@ class Model extends Component {
             // Cannot call method values() on mixed.
             $values = $v->values()->all();
             $data = array_combine($keys, $values);
-
+            //dddx([$keys, $data, $values]);
             // Result of && is always true.
             // if (false !== $data && false !== $this->fields) {
             if (false != $data && false != $this->fields) {
