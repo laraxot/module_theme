@@ -50,9 +50,10 @@ class Model extends Component {
         }
         if (\is_array($trans)) {
             $this->trans = $trans;
-            $this->fillable = array_merge($this->fillable, $this->trans);
-            // dddx($this->fillable);
+            $this->fillable = collect($this->fillable)->merge($this->trans)->all();
+            
         }
+        
     }
 
     /**
@@ -122,13 +123,13 @@ class Model extends Component {
             // Cannot call method values() on mixed.
             $values = $v->values()->all();
             $data = array_combine($keys, $values);
-            //dddx([$keys, $data, $values]);
+            // dddx([$keys, $data, $values]);
             // Result of && is always true.
             // if (false !== $data && false !== $this->fields) {
             if (false != $data && false != $this->fields) {
                 $data = array_merge($data, $this->fields);
             }
-            // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data]);
+            // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data, 'keys' => $keys]);
             $model->create($data);
         }
         session()->flash('message', 'Import successfully ');
