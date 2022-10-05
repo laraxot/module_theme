@@ -31,7 +31,10 @@ class Rows extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.card.'.$this->type;
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.card.rows.'.$this->type;
         $view_params = [
             'view' => $view,
         ];
