@@ -16,7 +16,7 @@
 
 @push('scripts')
 <script>
-    dragula([document.getElementById('left-defaults'), document.getElementById('right-defaults')],{
+    var drake = dragula([document.getElementById('left-defaults'), document.getElementById('right-defaults')],{
         copy: function (el, source) {
             return source === document.getElementById('left-defaults')
         },
