@@ -1,3 +1,4 @@
+@props(['label', 'id'])
 <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-{{ $id ?? '' }}">
     <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
         <div class="navbar-custom" id="navbarNavProgress">
