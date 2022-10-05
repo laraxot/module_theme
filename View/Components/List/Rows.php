@@ -14,15 +14,15 @@ use Modules\Theme\Services\ThemeService;
  */
 class Rows extends Component {
     public string $type;
-    public Collection $icon_lists;
+    public Collection $rows;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $icon_lists, ?string $type = 'rows') {
-        $this->icon_lists = $icon_lists;
+    public function __construct(Collection $rows, ?string $type = 'rows') {
+        $this->rows = $rows;
         $this->type = $type;
         // ThemeService::make()->add('theme::View/Components/Accordion/rows.scss');
     }
@@ -31,7 +31,7 @@ class Rows extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.list.'.$this->type;
+        $view = 'theme::components.list.rows.'.$this->type;
         $view_params = [
             'view' => $view,
         ];
