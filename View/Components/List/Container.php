@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Lists;
+namespace Modules\Theme\View\Components\List;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;

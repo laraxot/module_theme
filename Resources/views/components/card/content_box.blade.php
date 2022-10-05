@@ -1,4 +1,4 @@
-@props(['bg_grey'=>false])
+@props(['bg_grey'=>false, 'title', 'header_m0', 'h2_class'])
 <div class="cmp-card {{ $cmpClass ?? '' }} {{ $margin_class ?? '' }}">
 	<div
 		class="card {{ $bg_grey ? 'has-bkg-grey shadow-sm' : '' }} {{ isset($bg_grey_primary) ? 'has-bkg-primary-grey' : '' }}  {{ isset($contacts) ? 'contacts has-bkg-grey' : '' }}  {{ $class??'' }}">

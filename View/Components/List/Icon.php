@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Lists;
+namespace Modules\Theme\View\Components\List;
 
-use Illuminate\View\Component;
-use Illuminate\Support\Collection;
-use Modules\Theme\Services\ThemeService;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Collection;
+use Illuminate\View\Component;
+use Modules\Theme\Services\ThemeService;
 
 /**
  * Class Icon.
@@ -16,7 +16,6 @@ class Icon extends Component {
     public string $type = 'icon';
     public Collection $rows;
 
-
     /**
      * Create a new component instance.
      *
@@ -24,7 +23,7 @@ class Icon extends Component {
      */
     public function __construct(Collection $rows) {
         $this->rows = $rows;
-        //ThemeService::make()->add('theme::View/Components/Card/rows.scss');
+        // ThemeService::make()->add('theme::View/Components/Card/rows.scss');
     }
 
     /**

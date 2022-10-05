@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\View\Components\Maps;
+namespace Modules\Theme\View\Components\Map;
 
 use Illuminate\Contracts\View\View;
 use Modules\Xot\View\Components\XotBaseComponent;
