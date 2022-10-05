@@ -9,8 +9,8 @@
           <li>
             <div class="form-check">
               <div class="checkbox-body border-light py-2">
-                <input type="checkbox" id="mob-{{checkbox.id}}" name="{{checkbox.name}}" value="{{checkbox.value}}">
-                <label for="mob-{{checkbox.id}}" class="subtitle-small_semi-bold mb-0 category-list__list">{{checkbox.label}}</label>
+                <input type="checkbox" id="mob-{{ $checkbox->id}}" name="{{ $checkbox->name}}" value="{{ $checkbox->value}}">
+                <label for="mob-{{ $checkbox->id}}" class="subtitle-small_semi-bold mb-0 category-list__list">{{ $checkbox->label}}</label>
               </div>
             </div>
           </li>

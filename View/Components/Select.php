@@ -6,23 +6,22 @@ namespace Modules\Theme\View\Components;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 /**
  * Class Select.
  */
 class Select extends Component {
     public string $type = 'select';
-    public bool $no_bg;
-    public array $select_option_list;
+    // public Collection $options;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(?bool $no_bg = false, array $select_option_list) {
-        $this->no_bg = $no_bg;
-        $this->select_option_list = $select_option_list;
+    public function __construct() {
+        // $this->options = $options;
     }
 
     /**

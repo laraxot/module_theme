@@ -1,4 +1,4 @@
-@props(['bg_grey'=>false, 'title', 'header_m0', 'h2_class'])
+@props(['bg_grey'=>false, 'title', 'header_m0', 'h2_class', 'subtitle', 'select' => true])
 <div class="cmp-card {{ $cmpClass ?? '' }} {{ $margin_class ?? '' }}">
 	<div
 		class="card {{ $bg_grey ? 'has-bkg-grey shadow-sm' : '' }} {{ isset($bg_grey_primary) ? 'has-bkg-primary-grey' : '' }}  {{ isset($contacts) ? 'contacts has-bkg-grey' : '' }}  {{ $class??'' }}">
@@ -30,12 +30,14 @@
                 </x-toggle>
 			@endif
 			@if (isset($select)) 
-                <x-select>
+                {{-- <x-select :options="$_theme->getSelectOptionList()"> --}}
+				<x-input type="address.google" name="address">
                     <x-slot name="id">select-id</x-slot>
                     <x-slot name="no-bg">true</x-slot>
                     <x-slot name="class">classSelect</x-slot>
-                    <x-slot name="label-text">labelSelect</x-slot>
-                </x-select>
+                    <x-slot name="label_text">labelSelect</x-slot>
+                </x-input>
+				{{-- {{>partials/select/select id=select-id no-bg=true class=classSelect label-text=labelSelect}} --}}
 			@endif
 		</div>
 		@endif

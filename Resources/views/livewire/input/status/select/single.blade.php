@@ -1,5 +1,5 @@
 <div>
-    {{-- <x-input.select></x-input.select> --}}
+    {{-- <x-input type="select"></x-input.select> --}}
     <div>
         @if (session()->has('message'))
             <div class="alert alert-success">

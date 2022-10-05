@@ -21,7 +21,7 @@ class Group extends Component {
     public ?string $label = null;
     // public string $for;
     // public ?string $name = null;
-    public ?string $type = null;
+    // public ?string $type = null;
     // public ?string $bs_col_size = null;
     public array $attrs = [];
     // public ?array $options = null; //serve per il select
@@ -116,8 +116,6 @@ class Group extends Component {
             $func = 'set'.Str::studly($v['name']);
             $this->{$func}($v['value']);
         }
-
-        $this->type = $type;
     }
 
     public function setTpl(?string $tpl): self {
@@ -246,9 +244,6 @@ class Group extends Component {
          * @phpstan-var view-string
          */
         $view = 'theme::components.input.group.'.$this->tpl;
-        if(!is_null($this->type)){
-            $view = 'theme::components.input.group.'.$this->type;
-        }
         $view_params = [
             'view' => $view,
             'field' => (object) $this->field,

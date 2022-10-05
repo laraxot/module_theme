@@ -1,11 +1,13 @@
+@props(['id', 'no_bg', 'label_class' => '', 'class', 'label_text', 'selectClass' => '', 'placeholder' => ''])
 <div class="select-wrapper {{$class}} {{isset($no_bg)?'bg-transparent p-0':'select-partials'}}">
-  <label for="{{$id}}" class="{{ isset($label_hidden)?'visually-hidden':'' }}" {{$label_class}}>{{$label->text}}
+  <label for="{{$id}}" class="{{ isset($label_hidden)?'visually-hidden':'' }}" {{$label_class}}>{{$label_text}}
   {{isset($required)?'*':''}}</label>
   <select id="{{$id}}" class="{{isset($no_bg)?'bg-transparent':''}} {{$selectClass}}" {{isset($required)?'required':''}}>
+
     <option selected value="">{{$placeholder}}</option>
-    @foreach($select_option_list as $item)
+    {{-- @foreach($options as $item)
         <option value="{{$item->value}}">{{$item->value}}</option>
-    @endforeach
+    @endforeach --}}
   </select>
   
   @if(isset($text))
