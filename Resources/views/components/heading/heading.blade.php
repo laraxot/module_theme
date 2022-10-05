@@ -69,7 +69,6 @@
     <x-slot class="fw-bold"></x-slot>
   </x-partials.button.button> --}}
 
-
     <x-button type="advanced">
       <x-slot class="fw-bold"></x-slot>
     </x-button>
