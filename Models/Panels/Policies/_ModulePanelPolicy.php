@@ -83,4 +83,8 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
     public function TryDateRangeFlatpickr(UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function tryFormBuilder(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }
