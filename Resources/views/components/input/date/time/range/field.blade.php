@@ -38,9 +38,8 @@
 
             }
 
-            input = $('#{{ Str::slug($name) }}')
 
-            input.daterangepicker({
+            $('#{{ Str::slug($name) }}').daterangepicker({
                 timePicker: true,
                 timePicker24Hour: true,
                 startDate: start,
@@ -55,9 +54,6 @@
                         'month').endOf('month')]
                 }
             }, cb);
-
-            input.data('daterangepicker').hide = function() {};
-            input.daterangepicker('show');
 
             cb(start, end);
 
