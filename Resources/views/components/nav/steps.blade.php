@@ -1,3 +1,5 @@
+@props(['save', 'saveBtn', 'next' => false])
+
 <div class="cmp-nav-steps">
     <nav class="steppers-nav">
         <button type="button"
@@ -22,7 +24,7 @@
         @endif
 
 
-        @if (isset($next))
+        @if ($next)
             <button @if (isset($validate)) type="submit" @else type="button" @endif
                 class="btn btn-primary btn-sm steppers-btn-confirm send"
                 @if (isset($validate)) data-bs-validate="validate"

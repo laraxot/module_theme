@@ -1,4 +1,5 @@
 @props(['aria_label', 'class', 'primary', 'label'])
+
 @if(isset($label))
 <a href="#" class=" ps-0
 	@if(isset($primary))btn-primary @endif
