@@ -2,7 +2,9 @@
     'buttonNext'=>false,
     'img_path'=>false,
     'imgClass'=>'',
+	'label'
 ])
+
 <div class="row g-4">
 	@foreach($rows as $card)
 	<div class="col-lg-6 col-xl-4">
@@ -56,6 +58,7 @@
         {{--
 		{{>partials/button/button  primary="true" class="px-5 py-3 full-mb" aria-label=aria-label }}
         --}}
+		<x-button type="advanced" primary="true" class="px-5 py-3 full-mb" aria_label=aria-label :label="$label"></x-button>
 	</div>
 	@endif
 </div>
