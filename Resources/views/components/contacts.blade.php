@@ -1,3 +1,5 @@
+@props(['city_problems'])
+
 <div class="cmp-contacts">
   <div class="card w-100">
     <div class="card-body">
