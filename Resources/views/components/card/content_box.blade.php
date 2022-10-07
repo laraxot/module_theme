@@ -57,8 +57,7 @@
 			@endif
 		</div>
 		@endif
-		<div class="card-body
-			p-0">
+		<div class="card-body p-0">
 			{!! $slot !!} 
 		</div>
 	</div>

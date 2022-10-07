@@ -1,7 +1,8 @@
-@props([
+##TEXT##
+{{-- @props([
     'disservizio_btn',
 ])
-{{ dddx($disservizio_btn) }}
+
 
 <div class="cmp-text-button @if($disservizioBtn) mt-0 @endif @if($sBtn) mb-40 mb-lg-80 mt-lg-40 @endif {{$textBtnClass}}">
     @if($cardDescription)
@@ -11,13 +12,12 @@
      </div>
      @endif
      <div class="button-wrapper {{$class}}">
-        {{-- {{> @partial-block}} --}}
         {!! $slot !!}
      </div>
   
 
      @if($linkLabel)
       <a class="{{$classLink}} simple-link" href="#">{{$linkLabel}} <span class="visually-hidden">{{$linkLabel}}</span></a>
-      @endif
-   </div>
+  @endif
+</div> --}}
   
