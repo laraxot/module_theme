@@ -15,6 +15,8 @@ class Builder extends Component {
 
     public $blade_component;
     public $components;
+    public $index = null;
+    public $selected_element = null;
     public $form_elements = [];
 
     protected $listeners = [
@@ -75,6 +77,7 @@ class Builder extends Component {
         $view_params = [
             'blade_components' => $this->blade_components,
             'form' => $this->form_elements,
+            'selected_element' => $this->selected_element,
         ];
 
         // dddx($view_params);
@@ -84,9 +87,27 @@ class Builder extends Component {
 
     public function addComponentToForm($key) {
         $this->form_elements[] = $this->blade_components[$key];
+        $this->setDefaultFormElement();
     }
 
     public function deleteComponentFromForm($k) {
         unset($this->form_elements[$k]);
+        $this->setDefaultFormElement();
+    }
+
+    public function setDefaultFormElement() {
+        if (! isset($this->form_elements[0])) {
+            $this->selected_element = null;
+            $this->index = null;
+        }
+        if (! isset($selected_element) && isset($this->form_elements[0])) {
+            $this->selected_element = &$this->form_elements[0];
+            $this->index = 0;
+        }
+    }
+
+    public function selectElement($k) {
+        $this->index = $k;
+        $this->selected_element = &$this->form_elements[$k];
     }
 }
