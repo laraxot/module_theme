@@ -11,8 +11,8 @@
         </div>
     @endif
     <div class="card-body p-0">
-      @if(isset($bit_title))
-        <h3 class="big-title mb-0">{{{$bit_title}}}</h3>
+      @if(isset($big_title))
+        <h3 class="big-title mb-0">{{{$big_title}}}</h3>
       @endif
 
         @if(isset($medium_title))

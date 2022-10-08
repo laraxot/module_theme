@@ -246,9 +246,7 @@ class Group extends Component {
          * @phpstan-var view-string
          */
         $view = 'theme::components.input.group.'.$this->tpl;
-        // if(!is_null($this->type)){
-        //    $view = 'theme::components.input.group.'.$this->type;
-        // }
+
         $view_params = [
             'view' => $view,
             'field' => (object) $this->field,
