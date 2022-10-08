@@ -1,5 +1,5 @@
 @props([
-    'class' => 'm-0 p-3 px-lg-4 pt-lg-5 pb-lg-4 bg-white',
+    // 'class',
     'id',
     'visible' => false,
     'placeholder' => 'Dettagli*',
@@ -9,8 +9,8 @@
     'maxlength',
     'labelClass' => ''
 ])
-
-<div class="cmp-text-area {{ $class }}">
+{{ dddx($attributes->merge(['class' => ''])) }}
+<div class="cmp-text-area {{ $class }} {{ $attributes->class(['cmp-text-area']) }}">
     <div class="form-group">
       <label for="{{$id}}" class="{{ $visible?'d-block':'visually-hidden' }}">{{ $placeholder }}@if($required)*@endif</label>
       <textarea class="text-area {{$textareaClass}}" id="{{$id}}" rows="{{ $num }}" 

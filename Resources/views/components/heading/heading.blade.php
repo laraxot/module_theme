@@ -1,3 +1,6 @@
+@props([
+  'title'
+])
 <div class="cmp-heading @if(isset($heading_p0)) p-0 @else pb-3 pb-lg-4 @endif">
     @if(isset($iconTitle))
         <div class="categoryicon-top d-flex">

@@ -22,13 +22,5 @@
   */
   //meglio usare wysiwyg o similare
 @endphp
-@component($input_component)
-    @slot('label')
-        <label>
-            {{ $label }}
-        </label>
-    @endslot
-    @slot('input')
-        <textarea {{ $attributes->merge($attrs) }}></textarea>
-    @endslot
-@endcomponent
+
+<textarea {{ $attributes->merge($attrs) }}></textarea>
