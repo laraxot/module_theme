@@ -58,7 +58,7 @@
         <a href="#" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="<ul><li><strong>Virgolette:</strong> racchiudono una frase oppure due parole - %22lega nord%22 frase, lega nord due parole separate</li><li><strong>Parentesi:</strong> vedi espressioni matematiche - (new AND york) OR ((los AND angeles) OR California) OR %22U.S.A.%22</li><li><strong>AND:</strong> devono esserci entrambe le parole o frasi - %22leader della lega%22 AND Salvini frase E parola</li><li><strong>OR:</strong> deve esserci una delle due parole o frasi - %22leader della lega%22 OR Salvini frase O parola</li><li><strong>~N:</strong> ricerca di prossimità (NEAR) - %22governo carroccio%22~3 cerca governo e carroccio a distanza di 3 parole</li><li><strong>~N:</strong> ricerca di parole simili (FUZZY) - governo~2 cerca governo e parole simili (MASSIMO 2 lettere diverse. es. inverno)</li></ul>"><h5>Legenda Query Diretta</h5></a>
     </div>
     --}}
-
+    {{--
     <div class="input-group mb-3">
         <x-input type="date.time.range" label="test" name="rows.{{ $model_id }}.date"></x-input>
     </div>
@@ -70,6 +70,7 @@
             <option value="asc">ASC</option>
         </select>
     </div>
+    --}}
     
 </div>
 
