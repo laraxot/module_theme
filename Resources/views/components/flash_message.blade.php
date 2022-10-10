@@ -1,3 +1,9 @@
+@if (session()->has('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
 @if (session('status') && !is_array(session('status')) )
     <div class="alert alert-success">
         {{ session('status') }}
@@ -9,6 +15,7 @@
         {{ session('status_error') }}
     </div>
 @endif
+
 @if (session('swal'))
 @php
 //dddx(json_encode(session('swal')));
