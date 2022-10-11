@@ -14,3 +14,4 @@ $field = transFields(get_defined_vars());
         {{ Form::select($name, $options, $value, $field->attributes) }}
     @endslot
 @endcomponent
+

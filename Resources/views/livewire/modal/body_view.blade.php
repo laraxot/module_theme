@@ -24,9 +24,10 @@
                             {{ session('message') }}
                         </div>
                     @endif
-
+                    
+                    
                     @include($body_view)
-
+                    
                 </div>
 
             </div>
