@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Composers;
 
-use Illuminate\Support\Collection;
 use Modules\Theme\Models\Menu;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
+use Modules\Xot\Services\FileService;
 
 /**
  * --.
@@ -29,5 +31,12 @@ class ThemeComposer {
         $rows = $menu->items;
 
         return $rows;
+    }
+
+
+    public function cssInLine(string $file):string {
+        
+        $content=File::get(FileService::assetPath($file));;
+        return $content;
     }
 }
