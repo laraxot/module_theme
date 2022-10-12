@@ -17,6 +17,9 @@
             <i class="fas fa-backward"></i>
         </a>
         <button wire:click="start()" class="btn btn-success">Start</button>
+        @if($perc==100 && $onComplete!='')  
+        <button wire:click="{{ $onComplete }}()" class="btn btn-success btn-lg">{{ $onComplete }}</button>
+        @endif
     </div>
     
 

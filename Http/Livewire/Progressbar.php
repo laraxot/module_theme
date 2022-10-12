@@ -15,6 +15,7 @@ class Progressbar extends Component {
     public string $title = '';
     public string $message = '';
     public string $url = '?';
+    public string $onComplete='';
 
     /**
      * Undocumented function.
