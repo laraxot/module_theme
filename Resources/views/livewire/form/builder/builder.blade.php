@@ -11,12 +11,23 @@
         <div class="col-4 h-100" id='right-defaults' class="container">
 
             @foreach ($form_elements as $k => $element)
-                <div class="list-group-item list-group-item-info d-inline-block col-md-10" wire:click="selectElement({{ $k }})"
-                    name="{{ $element['class_name'] }}">{{ $element['comp_name'] }}
-                </div>
-                <div class="d-inline-block float-right col-md-2 text-center bg-danger list-group-item list-group-item-info" style="cursor:pointer"
-                        wire:click="deleteComponentFromForm({{ $k }})" name="{{ $element['class_name'] }}">X
+                {{-- <div class="list-group-item list-group-item-info d-inline-block col-md-10"
+                    wire:click="selectElement({{ $k }})" name="{{ $element['class_name'] }}">
+                </div> --}}
+
+                <div class="row clearfix">
+                    <div wire:click="selectElement({{ $k }})" class="d-inline-block col-md-10">
+                        <x-{{ $element['comp_name'] }} name="{{ $element['props'][0]['value'] ?? '' }}"
+                            class="{{ $element['props'][2]['value'] ?? '' }}">
+                            {{ $element['props'][1]['value'] ?? '---' }}
+                            </x-{{ $element['comp_name'] }}>
                     </div>
+
+                    <div class="d-inline-block float-right col-md-2 text-center bg-danger list-group-item list-group-item-info"
+                        style="cursor:pointer" wire:click="deleteComponentFromForm({{ $k }})"
+                        name="{{ $element['class_name'] }}">X
+                    </div>
+                </div>
             @endforeach
         </div>
         <div class="col-4 h-100" style="border-left:1px solid darkgrey;">Properties
@@ -24,12 +35,14 @@
                 @if (isset($selected_element))
                     <h3>{{ $selected_element['comp_name'] }}</h3>
                     @foreach ($selected_element['props'] as $kp => $prop)
-                        <input class="form-control" wire:model="form_elements.{{$index}}.props.{{$kp}}.value" name="{{ Str::slug($prop['name']) }}"
+                        <input class="form-control"
+                            wire:model="form_elements.{{ $index }}.props.{{ $kp }}.value"
+                            name="{{ Str::slug($prop['name']) }}"
                             placeholder="{{ $prop['placeholder'] ?? $prop['name'] }}" type="text">
                     @endforeach
-                <pre>
+                    <pre>
                     @php
-                        // echo var_export($form_elements,true);   
+                        echo var_export($form_elements, true);
                     @endphp
                 </pre>
                 @endif
