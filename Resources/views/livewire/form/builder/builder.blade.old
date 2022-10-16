@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-4 h-100" style="border-right:1px solid darkgrey;" id='left-defaults' class="container">
             @foreach ($blade_components as $k => $component)
-                {{-- @if (strpos($component->comp_name, '.') === false) --}}
-                <div class="list-group-item list-group-item-info" name="{{ $k }}">
-                    {{ $component->comp_name }}</div>
-                {{-- @endif --}}
+                @if (strpos($component->comp_name, '.') === false)
+                    <div class="list-group-item list-group-item-info" name="{{ $k }}">
+                        {{ $component->comp_name }}</div>
+                @endif
             @endforeach
         </div>
         <div class="col-4 h-100" id='right-defaults' class="container">
@@ -19,7 +19,7 @@
                     <div wire:click="selectElement({{ $k }})" class="d-inline-block col-md-10">
                         <x-{{ $element['comp_name'] }} name="{{ $element['props'][0]['value'] ?? '' }}"
                             class="{{ $element['props'][2]['value'] ?? '' }}">
-                            {{ $element['comp_name'] }} {{ $element['props'][1]['value'] ?? '---' }}
+                            {{ $element['props'][1]['value'] ?? '---' }}
                             </x-{{ $element['comp_name'] }}>
                     </div>
 
