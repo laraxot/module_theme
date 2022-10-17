@@ -5,17 +5,10 @@
     --}}
 </div>
 @push('styles')
-<<<<<<< HEAD
 
 @endpush
 @push('scripts')
 
-=======
-   
-@endpush
-@push('scripts')
-   
->>>>>>> ede0df7 (first)
     <script>
         $(() => {
             var range = document.getElementById('{{ $attrs['id'] }}');
@@ -32,11 +25,6 @@
             slider.on('change', function(values, handle) {
                 @this.updateValues(values);
             });
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> ede0df7 (first)
             window.addEventListener('setSliderMinMax', event => {
                 range.noUiSlider.updateOptions({
                     range: {

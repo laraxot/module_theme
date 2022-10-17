@@ -24,11 +24,6 @@
 		<meta itemprop="url" content="{{ $row_panel->url() }} " >
 		<meta itemprop="name" content="{{ $row->title }} " >
 		{!! $row_panel->microdataSchemaOrg() !!}
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> ede0df7 (first)
 	</div>
 
 </div>
@@ -40,8 +35,3 @@
 </div>
 
 
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> ede0df7 (first)

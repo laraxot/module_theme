@@ -27,15 +27,9 @@
       				<span itemprop="postalCode">{{ $row->postal_code }}</span>
       				<span itemprop="addressLocality">{{ $row->locality }}</span>,
       				(<span itemprop="addressRegion">{{ $row->administrative_area_level_2_short }}</span>)
-<<<<<<< HEAD
       				<meta itemprop="addressCountry" content="{{ $row->country_short}}" />
     			</div>
 
-=======
-      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" /> 
-    			</div>
-				
->>>>>>> ede0df7 (first)
 				{{--
 				@include('pub_theme::layouts.partials.item.address',['linked'=>$row->linked])
 				<ul class="list-inline">
@@ -54,15 +48,9 @@
 					<p> 245 Reviews</p>
 					--}}
 
-<<<<<<< HEAD
 					@foreach($tabs as $tab)
 					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.'.$tab)</a>
 					@endforeach
-=======
-					@foreach($tabs as $tab)											
-					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.'.$tab)</a>
-					@endforeach 
->>>>>>> ede0df7 (first)
 				</div>
 			</div>
 			<!-- end:right info -->

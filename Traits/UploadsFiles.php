@@ -13,7 +13,6 @@ namespace Modules\Theme\Traits;
 /**
  * Trait UploadsFiles.
  */
-<<<<<<< HEAD
 trait UploadsFiles {
     /**
      * @return array
@@ -30,20 +29,6 @@ trait UploadsFiles {
         $files = [];
 
         if (is_iterable(request()->file('files'))) {
-=======
-trait UploadsFiles
-{
-    /**
-     * @return array
-     */
-    public static function fileUpload()
-    {
-        $storage_disk = self::$storage_disk ?? config('laravel-livewire-forms.storage_disk');
-        $storage_path = self::$storage_path ?? config('laravel-livewire-forms.storage_path');
-        $files = [];
-
-        if(is_iterable(request()->file('files'))) {
->>>>>>> ede0df7 (first)
             foreach (request()->file('files') as $file) {
                 $files[] = [
                     'file' => $file->store($storage_path, $storage_disk),
@@ -55,22 +40,12 @@ trait UploadsFiles
             }
         }
 
-<<<<<<< HEAD
         return ['field_name' => request()->input('field_name'), 'uploaded_files' => $files];
     }
 
     public function fileUpdate(string $field_name, array $uploaded_files): void {
         foreach ($this->fields() as $field) {
             if ($field->name === $field_name) {
-=======
-        return ['field_name' => request()->input('field_name'), 'uploaded_files' => $files];    
-    }
-
-    public function fileUpdate(string $field_name, array $uploaded_files): void
-    {
-        foreach ($this->fields() as $field) {
-            if ($field->name == $field_name) {
->>>>>>> ede0df7 (first)
                 $value = $field->file_multiple ? array_merge($this->form_data[$field_name], $uploaded_files) : $uploaded_files;
                 break;
             }
@@ -80,12 +55,7 @@ trait UploadsFiles
         $this->updated('form_data.'.$field_name);
     }
 
-<<<<<<< HEAD
     public function fileIcon(string $mime_type): string {
-=======
-    public function fileIcon(string $mime_type): string
-    {
->>>>>>> ede0df7 (first)
         $icons = [
             'image' => 'fa-file-image',
             'audio' => 'fa-file-audio',

@@ -36,9 +36,5 @@
 @endonce
 
 {{--
-<<<<<<< HEAD
     https://realrashid.medium.com/how-to-use-sweetalert2-with-livewire-96ea02673b51
-=======
-    https://realrashid.medium.com/how-to-use-sweetalert2-with-livewire-96ea02673b51 
->>>>>>> ede0df7 (first)
      --}}

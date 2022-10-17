@@ -16,11 +16,7 @@
 	        <div role="tabpanel" class="tab-pane fade @if($k==0) in active @endif " id="{{ $v['name'] }}">
 	        @include($tabs_view.'.'.$v['view'])
 	        </div>
-<<<<<<< HEAD
 	    @endforeach
-=======
-	    @endforeach 
->>>>>>> ede0df7 (first)
 	    </div>
 	</div>
 </section>

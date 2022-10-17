@@ -11,11 +11,6 @@
 		<div class="clearfix"></div>
 	</div>
 	<div class="collapse show" id="m{{ $ingredientCat->post_id }}">
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> ede0df7 (first)
 		@foreach($ingredientCat->ingredients as $key=>$ingredient)
 			@include($view_default.'.item.ingredient_cat_x_ingredient',['key'=>$key,'ingredient'=>$ingredient])
 		@endforeach

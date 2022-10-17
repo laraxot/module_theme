@@ -21,11 +21,7 @@
     @if(View::exists('pub_theme::layouts.partials.tabs'))
         @include('pub_theme::layouts.partials.tabs',['tabs'=>$panel->getTabs()])
     @endif
-<<<<<<< HEAD
     {{--
-=======
-    {{--  
->>>>>>> ede0df7 (first)
         {!! Theme::include('tabs',['tabs'=>$panel->getTabs()],get_defined_vars() ) !!}
         --}}
 	<section class="create-page inner-page">

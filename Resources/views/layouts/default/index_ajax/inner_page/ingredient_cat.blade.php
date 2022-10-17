@@ -6,11 +6,7 @@ $recipe_curr=collect($params)->where('type','recipe')->last();
 	<div class="col-xs-12 col-sm-6 col-lg-6">
 		<b>{{$recipe_curr->title}}</b>
 	</div>
-<<<<<<< HEAD
 	<div class="col-xs-6 col-sm-2 col-lg-2 text-xs-center">
-=======
-	<div class="col-xs-6 col-sm-2 col-lg-2 text-xs-center"> 
->>>>>>> ede0df7 (first)
 		<span class="price pull-left">€ {{ number_format($recipe_curr->pivot->price,2) }}</span>
 	</div>
 	<div class="col-xs-6 col-sm-4 col-lg-4">

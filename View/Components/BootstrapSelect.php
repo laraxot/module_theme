@@ -23,7 +23,6 @@ class BootstrapSelect extends XotBaseComponent {
         $this->datastyle = $datastyle;
         $this->options = $options;
 
-<<<<<<< HEAD
         // $this->attrs['class'] = 'col-lg-4 col-6 px-1 mb-2';
     }
 
@@ -31,12 +30,6 @@ class BootstrapSelect extends XotBaseComponent {
         /**
          * @phpstan-var view-string
          */
-=======
-        //$this->attrs['class'] = 'col-lg-4 col-6 px-1 mb-2';
-    }
-
-    public function render(): Renderable {
->>>>>>> ede0df7 (first)
         $view = 'theme::components.bootstrap_select.'.$this->type;
         $view_params = [
             'datastyle' => $this->datastyle,

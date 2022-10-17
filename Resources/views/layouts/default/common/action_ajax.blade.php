@@ -15,11 +15,7 @@
 			--}}
 			@include('theme::layouts.default.common.'.$_layout->view_body)
 		</div>
-<<<<<<< HEAD
 	</div>
-=======
-	</div> 
->>>>>>> ede0df7 (first)
 </section>
 {{--
 {!! Theme::include('footer',['edit_type'=>$row_type],get_defined_vars() ) !!}

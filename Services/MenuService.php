@@ -9,21 +9,12 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Modules\Tenant\Services\TenantService;
 
-<<<<<<< HEAD
 // ----- Models -----
 
 // ---- xot extend -----
 // ----- services --
 
 // ---------CSS------------
-=======
-//----- Models -----
-
-//---- xot extend -----
-//----- services --
-
-//---------CSS------------
->>>>>>> ede0df7 (first)
 
 /**
  * Class MenuService.
@@ -44,22 +35,13 @@ class MenuService {
             $module_original = $module;
         }
         $mod = \Module::find($module_original);
-<<<<<<< HEAD
         if (null === $mod) {
-=======
-        if (null == $mod) {
->>>>>>> ede0df7 (first)
             throw new \Exception('module ['.$module_original.'] was not found');
         }
         $mod_path = $mod->getPath();
         $json_path = $mod_path.'/_menuxml/admin/'.$module.'/_menufull.php';
-<<<<<<< HEAD
         // \Debugbar::addMessage($json_path, 'menu path:');
         $json_path = str_replace(['\\', '/'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $json_path);
-=======
-        //\Debugbar::addMessage($json_path, 'menu path:');
-        $json_path = str_replace(['\\', '/'], [DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR], $json_path);
->>>>>>> ede0df7 (first)
         if (! File::exists($json_path)) {
             return [];
         }
@@ -80,11 +62,7 @@ class MenuService {
         $html = '';
         self::checkRecursion($rec);
         if (! $item) {
-<<<<<<< HEAD
             // return '<div>menu misconfiguration</div>';
-=======
-            //return '<div>menu misconfiguration</div>';
->>>>>>> ede0df7 (first)
 
             return '<div></div>';
         }
@@ -103,11 +81,7 @@ class MenuService {
             if (isset($item['submenu'])) {
                 $item_class .= ' menu-item-submenu'; // m-menu__item--active
 
-<<<<<<< HEAD
                 if (isset($item['toggle']) && 'click' === $item['toggle']) {
-=======
-                if (isset($item['toggle']) && 'click' == $item['toggle']) {
->>>>>>> ede0df7 (first)
                     $item_attr .= ' data-menu-toggle="click"';
                 } else {
                     $item_attr .= ' data-menu-toggle="hover"';
@@ -153,11 +127,7 @@ class MenuService {
                 }
 
                 $target = '';
-<<<<<<< HEAD
                 if (isset($item['new-tab']) && true === $item['new-tab']) {
-=======
-                if (isset($item['new-tab']) && true == $item['new-tab']) {
->>>>>>> ede0df7 (first)
                     $target = 'target="_blank"';
                 }
 
@@ -172,28 +142,16 @@ class MenuService {
             // bullet
             $bullet = '';
 
-<<<<<<< HEAD
             if (null !== $parent && isset($parent['bullet']) && 'dot' === $parent['bullet']) {
                 $bullet = 'dot';
             } elseif (null !== $parent && isset($parent['bullet']) && 'line' === $parent['bullet']) {
-=======
-            if (null != $parent && isset($parent['bullet']) && 'dot' == $parent['bullet']) {
-                $bullet = 'dot';
-            } elseif (null != $parent && isset($parent['bullet']) && 'line' == $parent['bullet']) {
->>>>>>> ede0df7 (first)
                 $bullet = 'line';
             }
 
             // Menu icon OR bullet
-<<<<<<< HEAD
             if ('dot' === $bullet) {
                 $html .= '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
             } elseif ('line' === $bullet) {
-=======
-            if ('dot' == $bullet) {
-                $html .= '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
-            } elseif ('line' == $bullet) {
->>>>>>> ede0df7 (first)
                 $html .= '<i class="menu-bullet menu-bullet-line"><span></span></i>';
             } elseif (true !== config('layout.aside.menu.hide-root-icons') && isset($item['icon']) && ! empty($item['icon'])) {
                 $html .= ThemeService::renderIcon($item['icon']);
@@ -205,11 +163,7 @@ class MenuService {
                 $html .= '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
             }
 
-<<<<<<< HEAD
             if (true === $singleItem) {
-=======
-            if (true == $singleItem) {
->>>>>>> ede0df7 (first)
                 if (isset($item['parent'])) {
                     $html .= '</span>';
                 } else {
@@ -222,19 +176,11 @@ class MenuService {
             }
 
             if (isset($item['submenu'])) {
-<<<<<<< HEAD
                 if (false === isset($item['root']) && 'plus-minus' === config('layout.menu.aside.submenu.arrow')) {
                     $html .= '<i class="menu-arrow menu-arrow-pm"><span><span></span></span></i>';
                 } elseif (false === isset($item['root']) && 'plus-minus-square' === config('layout.menu.aside.submenu.arrow')) {
                     $html .= '<i class="menu-arrow menu-arrow-pm-square"><span><span></span></span></i>';
                 } elseif (false === isset($item['root']) && 'plus-minus-circle' === config('layout.menu.aside.submenu.arrow')) {
-=======
-                if (false == isset($item['root']) && 'plus-minus' == config('layout.menu.aside.submenu.arrow')) {
-                    $html .= '<i class="menu-arrow menu-arrow-pm"><span><span></span></span></i>';
-                } elseif (false == isset($item['root']) && 'plus-minus-square' == config('layout.menu.aside.submenu.arrow')) {
-                    $html .= '<i class="menu-arrow menu-arrow-pm-square"><span><span></span></span></i>';
-                } elseif (false == isset($item['root']) && 'plus-minus-circle' == config('layout.menu.aside.submenu.arrow')) {
->>>>>>> ede0df7 (first)
                     $html .= '<i class="menu-arrow menu-arrow-pm-circle"><span><span></span></span></i>';
                 } else {
                     if (false !== @$item['arrow'] && false !== config('layout.aside.menu.root-arrow')) {
@@ -313,21 +259,13 @@ class MenuService {
             if (isset($item['submenu']) && self::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
 
-<<<<<<< HEAD
                 if ('tabs' === @$item['submenu']['type']) {
-=======
-                if ('tabs' == @$item['submenu']['type']) {
->>>>>>> ede0df7 (first)
                     $item_class .= ' menu-item-active-tab ';
                 }
             } elseif (self::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-active ';
 
-<<<<<<< HEAD
                 if ('tabs' === @$item['submenu']['type']) {
-=======
-                if ('tabs' == @$item['submenu']['type']) {
->>>>>>> ede0df7 (first)
                     $item_class .= ' menu-item-active-tab ';
                 }
             }
@@ -335,15 +273,9 @@ class MenuService {
             if (isset($item['submenu'])) {
                 $item_class .= ' menu-item-submenu'; // m-menu__item--active
 
-<<<<<<< HEAD
                 if (isset($item['toggle']) && 'click' === $item['toggle']) {
                     $item_attr .= ' data-menu-toggle="click"';
                 } elseif ('tabs' === @$item['submenu']['type']) {
-=======
-                if (isset($item['toggle']) && 'click' == $item['toggle']) {
-                    $item_attr .= ' data-menu-toggle="click"';
-                } elseif ('tabs' == @$item['submenu']['type']) {
->>>>>>> ede0df7 (first)
                     $item_attr .= ' data-menu-toggle="tab"';
                 } else {
                     $item_attr .= ' data-menu-toggle="hover"';
@@ -360,7 +292,6 @@ class MenuService {
                     $item['submenu']['type'] = 'classic';
                     $item['submenu']['alignment'] = 'right';
                 }
-<<<<<<< HEAD
                 if (('classic' === $item['submenu']['type']) && isset($item['root'])) {
                     $item_class .= ' menu-item-rel';
                 }
@@ -370,17 +301,6 @@ class MenuService {
                 }
 
                 if ('tabs' === $item['submenu']['type']) {
-=======
-                if (('classic' == $item['submenu']['type']) && isset($item['root'])) {
-                    $item_class .= ' menu-item-rel';
-                }
-
-                if (('mega' == $item['submenu']['type']) && isset($item['root']) && 'center' != @$item['align']) {
-                    $item_class .= ' menu-item-rel';
-                }
-
-                if ('tabs' == $item['submenu']['type']) {
->>>>>>> ede0df7 (first)
                     $item_class .= ' menu-item-tabs';
                 }
             }
@@ -393,19 +313,11 @@ class MenuService {
                 $item_class .= ' '.$item['custom-class'];
             }
 
-<<<<<<< HEAD
             if (true === @$item['icon-only']) {
                 $item_class .= ' menu-item-icon-only';
             }
 
             if (false === isset($item['heading'])) {
-=======
-            if (true == @$item['icon-only']) {
-                $item_class .= ' menu-item-icon-only';
-            }
-
-            if (false == isset($item['heading'])) {
->>>>>>> ede0df7 (first)
                 echo '<li class="menu-item '.$item_class.'" '.$item_attr.' aria-haspopup="true">';
             }
 
@@ -414,11 +326,7 @@ class MenuService {
                 echo $item['code'];
             } else {
                 // insert title or heading
-<<<<<<< HEAD
                 if (false === isset($item['heading'])) {
-=======
-                if (false == isset($item['heading'])) {
->>>>>>> ede0df7 (first)
                     $url = '#';
 
                     if (isset($item['page'])) {
@@ -426,11 +334,7 @@ class MenuService {
                     }
 
                     $target = '';
-<<<<<<< HEAD
                     if (isset($item['new-tab']) && true === $item['new-tab']) {
-=======
-                    if (isset($item['new-tab']) && true == $item['new-tab']) {
->>>>>>> ede0df7 (first)
                         $target = 'target="_blank"';
                     }
 
@@ -448,29 +352,17 @@ class MenuService {
                 $bullet = '';
 
                 if (isset($parent['bullet'])) {
-<<<<<<< HEAD
                     if ((@$item['heading'] && 'dot' === @$item['bullet']) || 'dot' === @$parent['bullet']) {
                         $bullet = 'dot';
                     } elseif ((@$item['heading'] && 'line' === @$item['bullet']) || 'line' === @$parent['bullet']) {
-=======
-                    if ((@$item['heading'] && 'dot' == @$item['bullet']) || 'dot' == @$parent['bullet']) {
-                        $bullet = 'dot';
-                    } elseif ((@$item['heading'] && 'line' == @$item['bullet']) || 'line' == @$parent['bullet']) {
->>>>>>> ede0df7 (first)
                         $bullet = 'line';
                     }
                 }
 
                 // Menu icon OR bullet
-<<<<<<< HEAD
                 if ('dot' === $bullet) {
                     echo '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
                 } elseif ('line' === $bullet) {
-=======
-                if ('dot' == $bullet) {
-                    echo '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
-                } elseif ('line' == $bullet) {
->>>>>>> ede0df7 (first)
                     echo '<i class="menu-bullet menu-bullet-line"><span></span></i>';
                 } elseif (isset($item['icon']) && ! empty($item['icon'])) {
                     self::renderIcon($item['icon']);
@@ -482,11 +374,7 @@ class MenuService {
                     echo '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
                 }
                 // Arrow
-<<<<<<< HEAD
                 if (isset($item['submenu']) && (! isset($item['arrow']) || false !== $item['arrow'])) {
-=======
-                if (isset($item['submenu']) && (! isset($item['arrow']) || false != $item['arrow'])) {
->>>>>>> ede0df7 (first)
                     // root down arrow
                     if (isset($item['root'])) {
                         // enable/disable root arrow
@@ -501,11 +389,7 @@ class MenuService {
                 }
 
                 // closing title or heading
-<<<<<<< HEAD
                 if (false === isset($item['heading'])) {
-=======
-                if (false == isset($item['heading'])) {
->>>>>>> ede0df7 (first)
                     echo '</a>';
                 } else {
                     echo '<i class="menu-arrow"></i></h3>';
@@ -513,28 +397,16 @@ class MenuService {
 
                 if (isset($item['submenu'])) {
                     $submenu_class = '';
-<<<<<<< HEAD
                     if (\in_array($item['submenu']['type'], ['classic', 'tabs'], true)) {
                         if (isset($item['submenu']['alignment'])) {
                             $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
 
                             if (isset($item['submenu']['pull']) && true === $item['submenu']['pull']) {
-=======
-                    if (in_array($item['submenu']['type'], ['classic', 'tabs'])) {
-                        if (isset($item['submenu']['alignment'])) {
-                            $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
-
-                            if (isset($item['submenu']['pull']) && true == $item['submenu']['pull']) {
->>>>>>> ede0df7 (first)
                                 $submenu_class .= ' menu-submenu-pull';
                             }
                         }
 
-<<<<<<< HEAD
                         if ('tabs' === $item['submenu']['type']) {
-=======
-                        if ('tabs' == $item['submenu']['type']) {
->>>>>>> ede0df7 (first)
                             $submenu_class .= ' menu-submenu-tabs';
                         }
 
@@ -552,17 +424,10 @@ class MenuService {
                         }
                         echo '</ul>';
                         echo '</div>';
-<<<<<<< HEAD
                     } elseif ('mega' === $item['submenu']['type']) {
                         $submenu_fixed_width = '';
 
                         if ((int) (@$item['submenu']['width']) > 0) {
-=======
-                    } elseif ('mega' == $item['submenu']['type']) {
-                        $submenu_fixed_width = '';
-
-                        if (intval(@$item['submenu']['width']) > 0) {
->>>>>>> ede0df7 (first)
                             $submenu_class = ' menu-submenu-fixed';
                             $submenu_fixed_width = 'style="width:'.$item['submenu']['width'].'"';
                         } else {
@@ -572,20 +437,12 @@ class MenuService {
                         if (isset($item['submenu']['alignment'])) {
                             $submenu_class .= ' menu-submenu-'.$item['submenu']['alignment'];
 
-<<<<<<< HEAD
                             if (isset($item['submenu']['pull']) && true === $item['submenu']['pull']) {
-=======
-                            if (isset($item['submenu']['pull']) && true == $item['submenu']['pull']) {
->>>>>>> ede0df7 (first)
                                 $submenu_class .= ' menu-submenu-pull';
                             }
                         }
 
-<<<<<<< HEAD
                         echo '<div class="menu-submenu '.$submenu_class.'" '.$submenu_fixed_width.'>';
-=======
-                        echo '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
->>>>>>> ede0df7 (first)
 
                         echo '<div class="menu-subnav">';
                         echo '<ul class="menu-content">';
@@ -614,17 +471,10 @@ class MenuService {
                 }
             }
 
-<<<<<<< HEAD
             if (false === isset($item['heading'])) {
                 echo '</li>';
             }
         } elseif (\is_array($item)) {
-=======
-            if (false == isset($item['heading'])) {
-                echo '</li>';
-            }
-        } elseif (is_array($item)) {
->>>>>>> ede0df7 (first)
             foreach ($item as $each) {
                 self::renderHorMenu($each, $parent, $rec++);
             }
@@ -660,19 +510,11 @@ class MenuService {
 
         self::checkRecursion($rec);
 
-<<<<<<< HEAD
         if (isset($item['page']) && $item['page'] === '/'.$page) {
             return true;
         }
 
         if (\is_array($item)) {
-=======
-        if (isset($item['page']) && $item['page'] == '/'.$page) {
-            return true;
-        }
-
-        if (is_array($item)) {
->>>>>>> ede0df7 (first)
             foreach ($item as $each) {
                 if (self::isActiveVerMenuItem($each, $page, $rec++)) {
                     return true;
@@ -693,30 +535,18 @@ class MenuService {
      * @return bool
      */
     public static function isActiveHorMenuItem($item, $page, $rec = 0) {
-<<<<<<< HEAD
         // dddx([$item, $page, $rec]);
-=======
-        //dddx([$item, $page, $rec]);
->>>>>>> ede0df7 (first)
         if (true === @$item['redirect']) {
             return false;
         }
 
         self::checkRecursion($rec);
 
-<<<<<<< HEAD
         if (isset($item['page']) && $item['page'] === $page) {
             return true;
         }
 
         if (\is_array($item)) {
-=======
-        if (isset($item['page']) && $item['page'] == $page) {
-            return true;
-        }
-
-        if (is_array($item)) {
->>>>>>> ede0df7 (first)
             foreach ($item as $each) {
                 if (self::isActiveHorMenuItem($each, $page, $rec++)) {
                     return true;
@@ -745,13 +575,8 @@ class MenuService {
     public static function renderIconName($icon_name) {
         $icon_key = 'icons.'.$icon_name;
         $icon = TenantService::config($icon_key);
-<<<<<<< HEAD
         // dddx(['icon' => $icon, 'name' => 'icon_key'.$icon_key]);
         if (! \is_string($icon)) {
-=======
-        //dddx(['icon' => $icon, 'name' => 'icon_key'.$icon_key]);
-        if (! is_string($icon)) {
->>>>>>> ede0df7 (first)
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 

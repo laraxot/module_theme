@@ -12,11 +12,6 @@
 </script>
 @stack('scripts_before')
 @php
-<<<<<<< HEAD
-
-=======
-Theme::add('/theme/bc/jquery/dist/jquery.min.js', 1);
->>>>>>> ede0df7 (first)
 Theme::add('pub_theme::js/bootstrap.min.js');
 Theme::add('pub_theme::js/xot.js');
 @endphp

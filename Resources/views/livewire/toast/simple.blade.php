@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
     https://github.com/ascsoftw/livewire-toast/blob/main/src/Http/Livewire/LivewireToast.php
 --}}
 
@@ -18,17 +14,10 @@
     x-show="show"
 
     @if($transition)
-<<<<<<< HEAD
         x-transition:enter="transition ease-in-out duration-300"
         x-transition:enter-start="opacity-0 transform {{$this->transitioClasses['enter_start_class']}}"
         x-transition:enter-end="opacity-100 transform {{$this->transitioClasses['enter_end_class']}}"
         x-transition:leave="transition ease-in-out duration-500"
-=======
-        x-transition:enter="transition ease-in-out duration-300" 
-        x-transition:enter-start="opacity-0 transform {{$this->transitioClasses['enter_start_class']}}" 
-        x-transition:enter-end="opacity-100 transform {{$this->transitioClasses['enter_end_class']}}" 
-        x-transition:leave="transition ease-in-out duration-500" 
->>>>>>> ede0df7 (first)
         x-transition:leave-start="opacity-100 transform {{$this->transitioClasses['leave_start_class']}}"
         x-transition:leave-end="opacity-0 transform {{$this->transitioClasses['leave_end_class']}}"
     @endif

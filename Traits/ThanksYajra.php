@@ -16,23 +16,13 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 /**
  * Trait ThanksYajra.
  */
-<<<<<<< HEAD
 trait ThanksYajra {
-=======
-trait ThanksYajra
-{
->>>>>>> ede0df7 (first)
     /**
      * @param string $attribute
      *
      * @return object
      */
-<<<<<<< HEAD
     public function relationship($attribute) {
-=======
-    public function relationship($attribute)
-    {
->>>>>>> ede0df7 (first)
         $parts = explode('.', $attribute);
 
         return (object) [
@@ -47,12 +37,7 @@ trait ThanksYajra
      *
      * @return string
      */
-<<<<<<< HEAD
     public function attribute(Builder $query, $relationships, $attribute) {
-=======
-    public function attribute(Builder $query, $relationships, $attribute)
-    {
->>>>>>> ede0df7 (first)
         $table = '';
         $last_query = $query;
 
@@ -60,7 +45,6 @@ trait ThanksYajra
             $model = $last_query->getRelation($each_relationship);
 
             switch (true) {
-<<<<<<< HEAD
                 case $model instanceof BelongsToMany:
                     $pivot = $model->getTable();
                     $pivotPK = $model->getExistenceCompareKey();
@@ -92,39 +76,6 @@ trait ThanksYajra
 
                 default:
                     return $attribute;
-=======
-            case $model instanceof BelongsToMany:
-                $pivot = $model->getTable();
-                $pivotPK = $model->getExistenceCompareKey();
-                $pivotFK = $model->getQualifiedParentKeyName();
-                $query->leftJoin($pivot, $pivotPK, $pivotFK);
-
-                $related = $model->getRelated();
-                $table = $related->getTable();
-                $tablePK = $related->getForeignKey();
-                $foreign = $pivot.'.'.$tablePK;
-                $other = $related->getQualifiedKeyName();
-
-                $last_query->addSelect($table.'.'.$attribute);
-                $query->leftJoin($table, $foreign, $other);
-
-                break;
-
-            case $model instanceof HasOneOrMany:
-                $table = $model->getRelated()->getTable();
-                $foreign = $model->getQualifiedForeignKeyName();
-                $other = $model->getQualifiedParentKeyName();
-                break;
-
-            case $model instanceof BelongsTo:
-                $table = $model->getRelated()->getTable();
-                $foreign = $model->getQualifiedForeignKeyName();
-                $other = $model->getQualifiedOwnerKeyName();
-                break;
-
-            default:
-                return $attribute;
->>>>>>> ede0df7 (first)
             }
 
             $query->leftJoin($table, $foreign, $other);

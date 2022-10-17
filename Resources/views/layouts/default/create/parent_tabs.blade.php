@@ -40,20 +40,10 @@
                         $parz['container3'] = $tab;
                         $route = route('containers.index', $parz);
                         break;
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> ede0df7 (first)
                     default:
                         dddx($routename);
                         break;
                 }
-<<<<<<< HEAD
-
-=======
-                
->>>>>>> ede0df7 (first)
             @endphp
             <li class="nav-item">
                 <a class="btn btn-secondary nav-link {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"
@@ -63,11 +53,6 @@
 					@php
 						$plural=str_plural($tab);
 						$q=$second_last->linked->$plural->count();
-<<<<<<< HEAD
-
-=======
-						
->>>>>>> ede0df7 (first)
 					@endphp
 					{{ $q }}
 				</span> --}}

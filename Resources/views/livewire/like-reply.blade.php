@@ -2,16 +2,10 @@
     @if (Auth::guest())
         <div class="flex items-center gap-x-2">
             <x-svg icon="o-thumb-up" class="w-6 h-6" />
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> ede0df7 (first)
             <span class="font-medium">
                 {{ count($this->reply->likes()) }}
             </span>
         </div>
-<<<<<<< HEAD
     @else
         <button type="button" wire:click="toggleLike" class="flex items-center gap-x-2 text-lio-500">
             <x-svg icon="o-thumb-up" class="w-6 h-6" />
@@ -20,16 +14,6 @@
                 {{ count($this->reply->likes()) }}
             </span>
 
-=======
-    @else 
-        <button type="button" wire:click="toggleLike" class="flex items-center gap-x-2 text-lio-500">
-            <x-svg icon="o-thumb-up" class="w-6 h-6" />
-            
-            <span class="font-medium">
-                {{ count($this->reply->likes()) }}
-            </span>
-            
->>>>>>> ede0df7 (first)
             @if ($this->reply->isLikedBy(Auth::user()))
                 <span class="text-gray-400 text-sm italic ml-1">You liked this reply</span>
             @endif

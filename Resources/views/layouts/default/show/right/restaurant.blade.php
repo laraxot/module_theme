@@ -42,10 +42,6 @@
 	{{--
 	@include('pub_theme::widgets.contact_us')
 	--}}
-<<<<<<< HEAD
 {{--
-=======
-{{-- 
->>>>>>> ede0df7 (first)
 </div>
 --}}

@@ -7,21 +7,12 @@
 			</div>
 			--}}
 			{{--
-<<<<<<< HEAD
-			<div class="rating pull-left">
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star"></i>
-				<i class="fa fa-star-o"></i>
-=======
 			<div class="rating pull-left"> 
 				<i class="fa fa-star"></i> 
 				<i class="fa fa-star"></i> 
 				<i class="fa fa-star"></i> 
 				<i class="fa fa-star"></i> 
 				<i class="fa fa-star-o"></i> 
->>>>>>> ede0df7 (first)
 			</div>
 			<div class="review pull-right"><a href="#">198 reviews</a> </div>
 			--}}
@@ -31,15 +22,9 @@
 			<div class="product-name">{{ $row->subtitle }}</div>
 			<p>{!! $row->txt !!}</p>
 			{{--
-<<<<<<< HEAD
-			<div class="price-btn-block">
-				<span class="price">$ 15,99</span>
-				<a href="{{ $row->url }}" class="btn theme-btn-dash pull-right">Read</a>
-=======
 			<div class="price-btn-block"> 
 				<span class="price">$ 15,99</span>
 				<a href="{{ $row->url }}" class="btn theme-btn-dash pull-right">Read</a> 
->>>>>>> ede0df7 (first)
 			</div>
 			--}}
 		</div>

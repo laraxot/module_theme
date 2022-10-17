@@ -4,11 +4,6 @@
     @endslot
 	@slot('input')
     <div class="col-lg-9 col-xl-6" wire:ignore>
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> ede0df7 (first)
         <div class="image-input image-input-empty image-input-outline" style="background-image: url({{-- $form_data[$field->name] --}})">
             <div class="image-input-wrapper"></div>
             <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change">

@@ -2,11 +2,6 @@
     Theme::add('https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css');
     Theme::add('https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js');
 
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> ede0df7 (first)
 @endphp
 <div id="jstree_demo_div">
 
@@ -27,11 +22,6 @@
       <li>Root node 2</li>
     </ul>
 
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> ede0df7 (first)
 </div>
 @push('scripts')
     <script>
@@ -45,11 +35,6 @@
                     if (operation === 'move_node' && node.parent !== node_parent.id) {
                         return false;
                     }
-<<<<<<< HEAD
-
-=======
-                    
->>>>>>> ede0df7 (first)
                     return true;
                 */
 

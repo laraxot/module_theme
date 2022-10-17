@@ -12,11 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 use Illuminate\Database\Eloquent\Relations\MorphOneOrMany;
-<<<<<<< HEAD
 // ---- services ---
-=======
-//---- services ---
->>>>>>> ede0df7 (first)
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -26,24 +22,14 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
-<<<<<<< HEAD
 use Modules\Cms\Services\RouteService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Xot\Services\PolicyService;
-=======
-use Modules\Xot\Services\PolicyService;
-use Modules\Xot\Services\RouteService;
->>>>>>> ede0df7 (first)
 
 /**
  * Class FormXService.
  */
-<<<<<<< HEAD
 class FormXService {
-=======
-class FormXService
-{
->>>>>>> ede0df7 (first)
     /**
      * ora selectRelationshipOne
      * da select/field_relationship_one.blade.php
@@ -61,12 +47,7 @@ class FormXService
     /**
      * retrocompatibilita.
      */
-<<<<<<< HEAD
     public static function getComponents(): array {
-=======
-    public static function getComponents(): array
-    {
->>>>>>> ede0df7 (first)
         $view_path = __DIR__.'/../Resources/views/collective/fields';
         $namespace = '';
         $prefix = 'theme::';
@@ -77,7 +58,6 @@ class FormXService
     /**
      * @param BelongsTo|HasManyThrough|HasOneOrMany|BelongsToMany|MorphOneOrMany|MorphPivot|MorphTo|MorphToMany $rows
      */
-<<<<<<< HEAD
     public static function fieldsExcludeRows($rows): array {
         $fields_exclude = [];
 
@@ -96,27 +76,6 @@ class FormXService
             $fields_exclude[] = $rows->getMorphType();
         }
         $fields_exclude[] = 'related_type'; // -- ??
-=======
-    public static function fieldsExcludeRows($rows): array
-    {
-        $fields_exclude = [];
-
-        array_push($fields_exclude, 'id');
-
-        if (method_exists($rows, 'getForeignKeyName')) {
-            array_push($fields_exclude, $rows->getForeignKeyName());
-        }
-        if (method_exists($rows, 'getForeignPivotKeyName')) {
-            array_push($fields_exclude, $rows->getForeignPivotKeyName());
-        }
-        if (method_exists($rows, 'getRelatedPivotKeyName')) {
-            array_push($fields_exclude, $rows->getRelatedPivotKeyName());
-        }
-        if (method_exists($rows, 'getMorphType')) {
-            array_push($fields_exclude, $rows->getMorphType());
-        }
-        array_push($fields_exclude, 'related_type'); //-- ??
->>>>>>> ede0df7 (first)
 
         return $fields_exclude;
     }
@@ -148,16 +107,9 @@ class FormXService
         return $fields_exclude;
     }*/
 
-<<<<<<< HEAD
     // ret \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|string|void
 
     public static function inputFreeze(array $params): Renderable {
-=======
-    //ret \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|string|void
-
-    public static function inputFreeze(array $params): Renderable
-    {
->>>>>>> ede0df7 (first)
         extract($params);
         if (! isset($field)) {
             throw new \Exception('field is missing');
@@ -168,38 +120,22 @@ class FormXService
 
         $field->name_dot = bracketsToDotted($field->name);
 
-<<<<<<< HEAD
         if (\in_array('value', array_keys($params), true)) {
-=======
-        if (in_array('value', array_keys($params))) {
->>>>>>> ede0df7 (first)
             $field->value = $params['value'];
         } else {
             try {
                 $field->value = Arr::get($row, $field->name_dot);
-<<<<<<< HEAD
                 if (null === $field->value) {
                     $field->value = Arr::get((array) $row, $field->name_dot);
                 }
                 // $field->value = $row->{$field->name_dot};
                 // $field->value = 'test['.$field->name_dot.']'.Arr::get($row, 'nome_diri');
-=======
-                if (null == $field->value) {
-                    $field->value = Arr::get((array) $row, $field->name_dot);
-                }
-                //$field->value = $row->{$field->name_dot};
-                //$field->value = 'test['.$field->name_dot.']'.Arr::get($row, 'nome_diri');
->>>>>>> ede0df7 (first)
             } catch (\Exception $e) {
                 $field->value = '---['.$field->name_dot.']['.$e->getMessage().']['.__LINE__.'-'.basename(__FILE__).']['.$row->{$field->name_dot}.']--';
             }
         }
 
-<<<<<<< HEAD
         // return '['.__LINE__.__FILE__.']';
-=======
-        //return '['.__LINE__.__FILE__.']';
->>>>>>> ede0df7 (first)
 
         if (isset($label)) {
             $field->label = $label;
@@ -207,7 +143,6 @@ class FormXService
 
         $tmp = Str::snake($field->type);
 
-<<<<<<< HEAD
         /*
         * @phpstan-var view-string
 
@@ -216,10 +151,6 @@ class FormXService
         /*
         /*
 
-=======
-        //$view = 'theme::includes.components.input.'.$tmp.'.freeze';
-        /*
->>>>>>> ede0df7 (first)
         $view = 'theme::collective.fields.'.$tmp.'.freeze';
 
         if (isset($field->sub_type)) {
@@ -250,7 +181,6 @@ class FormXService
             $view = $view1;
         }
         */
-<<<<<<< HEAD
         /**
          * --- da fare contratto etc etc (interface).
          *
@@ -260,12 +190,6 @@ class FormXService
             self::getComponents(),
             function ($item) use ($field) {
                 return $item->name === 'bs'.$field->type;
-=======
-        $comp_field = Arr::first(
-            self::getComponents(),
-            function ($item) use ($field) {
-                return $item->name == 'bs'.$field->type;
->>>>>>> ede0df7 (first)
             }
         );
         if (null == $comp_field) {
@@ -274,11 +198,7 @@ class FormXService
             return view()->make('theme::collective.fields.error.err1', ['msg' => $msg]);
         }
 
-<<<<<<< HEAD
         $view = Str::beforeLast((string) $comp_field->view, '.field').'.freeze';
-=======
-        $view = Str::beforeLast($comp_field->view, '.field').'.freeze';
->>>>>>> ede0df7 (first)
         if (! View::exists($view)) {
             return view()->make('theme::collective.fields.error.err1', ['msg' => '['.$view.'] NOT EXISTS !!']);
         }
@@ -289,18 +209,12 @@ class FormXService
         $view_params['field'] = $field;
         $field->method = Str::camel($field->name);
 
-<<<<<<< HEAD
         if (\is_object($field->value)) {
             $is_collection = ('Illuminate\Database\Eloquent\Collection' === \get_class($field->value));
-=======
-        if (is_object($field->value)) {
-            $is_collection = ('Illuminate\Database\Eloquent\Collection' == get_class($field->value));
->>>>>>> ede0df7 (first)
         } else {
             $is_collection = false;
         }
         if ($is_collection) {
-<<<<<<< HEAD
             $rows = $row->{$field->method}(); // cachare tutto per accellerare
             $related = $rows->getRelated();
             // $related=$field->value->first();
@@ -322,39 +236,12 @@ class FormXService
                 ->filter(
                     function ($item) use ($fields_exclude) {
                         return ! \in_array($item->name, $fields_exclude, true);
-=======
-            $rows = $row->{$field->method}(); //cachare tutto per accellerare
-            $related = $rows->getRelated();
-            //$related=$field->value->first();
-            /////////////////////////////////////
-            $params['rows'] = $rows;
-
-            //$view_params['rows']=$rows->get();
-            $view_params['rows'] = $field->value;
-
-            $fields_exclude = FormXService::fieldsExcludeRows($rows);
-            $related_panel = ThemeService::panelModel($related);
-            //220    Else branch is unreachable because previous condition is always true.
-            //if (is_object($related_panel)) {
-            $related_fields = $related_panel->fields();
-            //} else {
-            //    $related_fields = [];
-            //}
-            $related_fields = collect($related_fields)
-                ->filter(
-                    function ($item) use ($fields_exclude) {
-                        return ! in_array($item->name, $fields_exclude);
->>>>>>> ede0df7 (first)
                     }
                 )
                 ->all();
 
             $related_name = Str::singular($field->name);
-<<<<<<< HEAD
             // $view_params['related']=$related->get();
-=======
-            //$view_params['related']=$related->get();
->>>>>>> ede0df7 (first)
             $view_params['related_name'] = $related_name;
             $view_params['related_fields'] = $related_fields;
             /*
@@ -370,7 +257,6 @@ class FormXService
             $view_params['manage_url'] = $url;
 
             if (method_exists((object) $rows, 'getPivotClass')) {
-<<<<<<< HEAD
                 // dddx($rows);
                 $pivot_class = $rows->getPivotClass();
                 if (! Str::startsWith($pivot_class, 'Modules\\')) {
@@ -412,26 +298,11 @@ class FormXService
                 if (! \is_object($pivot_panel)) {
                     $pivot_panel = app($pivot_panel);
                     // dddx($pivot_panel);
-=======
-                $pivot_class = $rows->getPivotClass();
-                //$pivot = new $pivot_class();
-                $pivot = app($pivot_class);
-                $pivot_panel = ThemeService::panelModel($pivot);
-                //ogni tanto ThemeService::panelModel($pivot) rilascia una stringa e non un oggetto
-                //ci ho messo una pezza, ma forse dovrebbe aggiornare morph_map?
-                if (! is_object($pivot_panel)) {
-                    $pivot_panel = app($pivot_panel);
-                    //dddx($pivot_panel);
->>>>>>> ede0df7 (first)
                 }
                 $pivot_fields = $pivot_panel->fields();
                 $pivot_fields = collect($pivot_fields)->filter(
                     function ($item) use ($fields_exclude) {
-<<<<<<< HEAD
                         return ! \in_array($item->name, $fields_exclude, true);
-=======
-                        return ! in_array($item->name, $fields_exclude);
->>>>>>> ede0df7 (first)
                     }
                 )->all();
                 $view_params['pivot'] = $pivot;
@@ -439,13 +310,8 @@ class FormXService
                 $view_params['pivot_fields'] = $pivot_fields;
             }
 
-<<<<<<< HEAD
             // dddx($field->fields);
             // $field->fields=$field->value;
-=======
-            //dddx($field->fields);
-            //$field->fields=$field->value;
->>>>>>> ede0df7 (first)
         }
 
         $field->view = $view;
@@ -459,12 +325,7 @@ class FormXService
      *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Support\HtmlString
      */
-<<<<<<< HEAD
     public static function inputHtml(array $params) {
-=======
-    public static function inputHtml(array $params)
-    {
->>>>>>> ede0df7 (first)
         extract($params);
         if (! isset($field)) {
             throw new \Exception('field is missing');
@@ -477,22 +338,14 @@ class FormXService
 
         $input_name = collect(explode('.', $field->name))->map(
             function ($v, $k) {
-<<<<<<< HEAD
                 return 0 === $k ? $v : '['.$v.']';
-=======
-                return 0 == $k ? $v : '['.$v.']';
->>>>>>> ede0df7 (first)
             }
         )->implode('');
         $input_value = (isset($field->value) ? $field->value : null);
         $col_size = isset($field->col_size) ? $field->col_size : 12;
         $field->col_size = $col_size;
 
-<<<<<<< HEAD
         if (! isset($field->attributes) || ! \is_array($field->attributes)) {
-=======
-        if (! isset($field->attributes) || ! is_array($field->attributes)) {
->>>>>>> ede0df7 (first)
             $field->attributes = [];
         }
         $input_attrs = $field->attributes;
@@ -501,7 +354,6 @@ class FormXService
         }
         $div_exludes = ['Hidden', 'Cell'];
         $input_opts = ['field' => $field];
-<<<<<<< HEAD
         // if (! in_array($field->type, $div_exludes)) {
         //    return '<div class="col-sm-'.$col_size.'">'.Form::$input_type($input_name, $input_value, $input_attrs, $input_opts).'</div>';
         // }
@@ -547,54 +399,6 @@ class FormXService
     }
 
     public static function btnHtml(array $params): string {
-=======
-        //if (! in_array($field->type, $div_exludes)) {
-        //    return '<div class="col-sm-'.$col_size.'">'.Form::$input_type($input_name, $input_value, $input_attrs, $input_opts).'</div>';
-        //}
-        //dddx([$field, $input_opts]);
-        if (isset($field->label)) {
-            $input_attrs['label'] = $field->label;
-            //$input_attrs['field'] = $field;
-        }
-
-        //return Form::$input_type($input_name, $input_value, $input_attrs, $input_opts);
-        //*
-        //try {
-        //320    Dead catch - Exception is never thrown in the try block.
-        return Form::$input_type($input_name, $input_value, $input_attrs, $input_opts);
-        //} catch (\Exception $e) {
-            /*
-            return '<div style="border:red">
-                ERRORE
-            </div>';
-            */
-            /*
-            dddx(
-                [
-                    'message' => $e->getMessage(),
-                    'code' => $e->getCode(),
-                    'file' => $e->getFile(),
-                    'line' => $e->getLine(),
-                    //'methods' => get_class_methods($e),
-                    'e' => $e,
-                ]
-            );
-            */
-            /*
-            return '<div>
-                message :'.$e->getMessage().'
-                code :'.$e->getCode().'
-                file :'.$e->getFile().'
-                line :'.$e->getLine().'
-                </div>';
-            */
-        //}
-        //*/
-    }
-
-    public static function btnHtml(array $params): string
-    {
->>>>>>> ede0df7 (first)
         $class = 'btn btn-primary mb-2';
         $icon = null;       // icona a sx del titolo
         $label = null;
@@ -617,7 +421,6 @@ class FormXService
             throw new Exception('url is missing');
         }
 
-<<<<<<< HEAD
         if (null === $data_title) {
             $data_title = $title;
         }
@@ -633,34 +436,12 @@ class FormXService
         // $method = Str::camel($act);
 
         if (\in_array($act, ['destroy', 'delete', 'detach'], true)) {
-=======
-        if (null == $data_title) {
-            $data_title = $title;
-        }
-        $row = $panel->getRow();
-        if ('default' == $error_label) {
-            $error_label = '['.get_class($row).']['.$method.']';
-        }
-        $module_name = getModuleNameFromModel($row);
-        if (null == $tooltip) {
-            $tooltip = trans(strtolower($module_name.'::'.class_basename($row)).'.btn.'.$data_title);
-        }
-        //$url = RouteService::urlPanel(['panel' => $panel, 'act' => $act]);
-        //$method = Str::camel($act);
-
-        if (in_array($act, ['destroy', 'delete', 'detach'])) {
->>>>>>> ede0df7 (first)
             $class .= ' btn-danger btn-confirm-delete';
         }
 
         if (! Gate::allows($method, $panel)) {
-<<<<<<< HEAD
             // Strict comparison using === between false and string will always evaluate to false.
             // dddx([$method.'policy non esiste', ! Gate::allows($method, $panel), $method, $panel]);
-=======
-            //Strict comparison using === between false and string will always evaluate to false.
-            //dddx([$method.'policy non esiste', ! Gate::allows($method, $panel), $method, $panel]);
->>>>>>> ede0df7 (first)
 
             return '';
             /*
@@ -677,15 +458,9 @@ class FormXService
         }
 
         if (isset($modal)) {
-<<<<<<< HEAD
             // if (strlen((string)$data_title) <1 ) {
             $title = trans($module_name.'::'.strtolower(class_basename($row)).'.act.'.$act);
             // }
-=======
-            if ('' == $data_title) {
-                $title = trans($module_name.'::'.strtolower(class_basename($row)).'.act.'.$act);
-            }
->>>>>>> ede0df7 (first)
         }
 
         if (isset($guest_url) && ! \Auth::check()) {
@@ -699,17 +474,10 @@ class FormXService
             $url = url_queries(['format' => $modal], $url);
             $target = '';
             switch ($modal) {
-<<<<<<< HEAD
                 case 'iframe':  $target = 'myModalIframe';
                     break;
                 case 'ajax':    $target = 'myModalAjax';
                     break;
-=======
-            case 'iframe':  $target = 'myModalIframe';
-                break;
-            case 'ajax':    $target = 'myModalAjax';
-                break;
->>>>>>> ede0df7 (first)
             }
 
             return
@@ -722,15 +490,9 @@ class FormXService
             </span>';
         }
         // data-href serve per le chiamate ajax
-<<<<<<< HEAD
         // dddx($params, $title, $data_title);
         // $title = trans(strtolower($module_name.'::'.class_basename($row)).'.act.'.$title);
         // $data_title = $title;
-=======
-        //dddx($params, $title, $data_title);
-        //$title = trans(strtolower($module_name.'::'.class_basename($row)).'.act.'.$title);
-        //$data_title = $title;
->>>>>>> ede0df7 (first)
 
         return '<a href="'.$url.'"
                     data-href="'.$url.'"
@@ -741,8 +503,4 @@ class FormXService
                     '.$icon.' '.$title.'
                 </a>';
     }
-<<<<<<< HEAD
 }// end class
-=======
-}//end class
->>>>>>> ede0df7 (first)
