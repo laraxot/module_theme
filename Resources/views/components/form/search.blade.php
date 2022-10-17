@@ -10,8 +10,12 @@
 =======
             aria-label="Search here" name="q" value="{{ request('q') }}">
         <button class="btn btn-outline-dark border-start-0" type="submit">
+<<<<<<< HEAD
             <i class="fa fa-search text-lg"></i>
 >>>>>>> ede0df7 (first)
+=======
+            <i class="{{ $attrs['icon'] }} text-lg"></i>
+>>>>>>> 3471883 (.)
         </button>
     </div>
 </x-form>
