@@ -12,12 +12,7 @@ use Symfony\Component\Console\Input\InputOption;
 /**
  * Class CreateThemeCommand.
  */
-<<<<<<< HEAD
 class CreateThemeCommand extends Command {
-=======
-class CreateThemeCommand extends Command
-{
->>>>>>> ede0df7 (first)
     /**
      * The console command name.
      *
@@ -35,12 +30,7 @@ class CreateThemeCommand extends Command
     /**
      * Create a new command instance.
      */
-<<<<<<< HEAD
     public function __construct() {
-=======
-    public function __construct()
-    {
->>>>>>> ede0df7 (first)
         parent::__construct();
     }
 
@@ -49,7 +39,6 @@ class CreateThemeCommand extends Command
      *
      * @return mixed
      */
-<<<<<<< HEAD
     public function handle() {
         $name = $this->argument('name');
         if (\is_array($name)) {
@@ -59,18 +48,6 @@ class CreateThemeCommand extends Command
             throw new \Exception('name is missing');
         }
         // dd($name);
-=======
-    public function handle()
-    {
-        $name = $this->argument('name');
-        if (is_array($name)) {
-            $name = implode(' ', $name);
-        }
-        if (null == $name) {
-            throw new \Exception('name is missing');
-        }
-        //dd($name);
->>>>>>> ede0df7 (first)
         $dir = public_path('themes/'.$name);
         if (File::exists($dir)) {
             $this->error("Theme [{$name}] already exist!");
@@ -91,12 +68,7 @@ class CreateThemeCommand extends Command
      *
      * @return array
      */
-<<<<<<< HEAD
     protected function getArguments() {
-=======
-    protected function getArguments()
-    {
->>>>>>> ede0df7 (first)
         return [
             ['name', InputArgument::REQUIRED, 'The name of the Theme.'],
         ];
@@ -107,12 +79,7 @@ class CreateThemeCommand extends Command
      *
      * @return array
      */
-<<<<<<< HEAD
     protected function getOptions() {
-=======
-    protected function getOptions()
-    {
->>>>>>> ede0df7 (first)
         return [
             ['example', null, InputOption::VALUE_OPTIONAL, 'An example option.', null],
         ];
