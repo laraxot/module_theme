@@ -1,8 +1,4 @@
 includes:
-<<<<<<< HEAD
-# -  ./../../vendor/nunomaduro/larastan/extension.neon
-=======
->>>>>>> ede0df7 (first)
     - phpstan-baseline.neon
     
 
@@ -25,7 +21,6 @@ parameters:
         - ./vendor/*/*/*/*/*/*/*
         - ./vendor/*/*/*/*/*/*/*/*
 
-<<<<<<< HEAD
     # tmpDir: build/phpstan
      #checkModelProperties: true
     checkMissingIterableValueType: false
@@ -38,7 +33,5 @@ parameters:
     scanFiles:
     #    - ./Modules/Xot/Helpers/Helper.php
 
-=======
     tmpDir: build/phpstan
     checkMissingIterableValueType: false
->>>>>>> ede0df7 (first)
