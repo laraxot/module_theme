@@ -9,13 +9,8 @@
 @endphp
 <div class="form-group{{ $errors->has($name) ? ' has-error' : '' }}">
 	{{ Form::label($name, $label , ['class' => 'control-label']) }}
-<<<<<<< HEAD
 	<select class="form-control select2ajax" name="{{ $name }}" data-tags="true"
         					data-placeholder="{{ $placeholder }}"
-=======
-	<select class="form-control select2ajax" name="{{ $name }}" data-tags="true" 
-        					data-placeholder="{{ $placeholder }}" 
->>>>>>> ede0df7 (first)
         					data-allow-clear="true" data-ajax--url="{{ $ajaxurl }}" data-ajax--cache="true" >
     </select>
     @if ( $errors->has($name) )

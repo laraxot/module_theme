@@ -12,11 +12,6 @@ try {
  if(isset($opts[$field->value])){
   $label=$opts[$field->value];
  }else{
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> ede0df7 (first)
  }
  */
 //$label=isset($opts[$field->value])?'SI':'NO';

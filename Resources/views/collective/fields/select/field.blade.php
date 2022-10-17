@@ -14,7 +14,3 @@ $field = transFields(get_defined_vars());
         {{ Form::select($name, $options, $value, $field->attributes) }}
     @endslot
 @endcomponent
-<<<<<<< HEAD
-
-=======
->>>>>>> ede0df7 (first)

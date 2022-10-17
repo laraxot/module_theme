@@ -11,11 +11,7 @@
 	@endslot
 	@slot('input')
 	    <br/><br/>
-<<<<<<< HEAD
 		{{ Form::text($name, $value, $field->attributes) }}
-=======
-		{{ Form::text($name, $value, $field->attributes) }} 
->>>>>>> ede0df7 (first)
 	@endslot
 @endcomponent
 

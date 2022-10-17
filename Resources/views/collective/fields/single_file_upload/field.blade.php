@@ -4,11 +4,7 @@
 	else
 		$label=trans($view.'.field.'.$name);
     /*Theme::add('theme/bc/dropzone/dist/min/dropzone.min.css');
-<<<<<<< HEAD
 	Theme::add('theme/bc/dropzone/dist/min/dropzone.js');
-=======
-	Theme::add('theme/bc/dropzone/dist/min/dropzone.js'); 
->>>>>>> ede0df7 (first)
     /*Theme::add('pub_theme::includes/components/form/singleFileUpload/css/dropzone.css');
     Theme::add('pub_theme::includes/components/form/singleFileUpload/js/dropzone.js');*/
 @endphp

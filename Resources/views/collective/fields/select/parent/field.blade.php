@@ -22,34 +22,8 @@ $row = Form::getModel();
 //dddx($row);
 $row_panel = Panel::make()->get($row);
 $row_panel->setBuilder($row->with(['post']));
-<<<<<<< HEAD
 
 
-=======
-/*
- $options=$row->get()->map(function($item) use ($row_panel){
-  return [
-   'id'=>$row_panel->optionId($item),
-   'parent_id'=>$item->parent_id,
-   'title'=>$row_panel->optionLabel($item),
-  ];
- })->groupBy('parent_id')
- ->all()
- ;
-
- $tmp=[];
- foreach($options[0] as $root){
-  $root['title']='-- '.$root['title'];
-  $tmp[]=$root;
-  $sons=isset($options[$root['id']])?$options[$root['id']]:[];
-  foreach($sons as $son){
-   $son['title']='---- '.$son['title'];
-   $tmp[]=$son;
-  }
- }
- $options=collect($tmp)->pluck('title','id')->prepend('Root',0);
- */
->>>>>>> ede0df7 (first)
 $options = $row_panel->optionsTree();
 
 //dddx($blade_component);

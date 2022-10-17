@@ -13,11 +13,7 @@
 	@slot('label')
 		{{ Form::label($name, $label , ['class' => 'control-label']) }}
 	@endslot
-<<<<<<< HEAD
 	@slot('input')
-=======
-	@slot('input')	
->>>>>>> ede0df7 (first)
 		<span class="input-group-btn">
 			<img id="holder" style="margin-top:15px;max-height:100px;" src="{{ $src }}">
 			<a data-input="{{ $name }}" data-preview="holder" class="btn btn-secondary" id="lfm">

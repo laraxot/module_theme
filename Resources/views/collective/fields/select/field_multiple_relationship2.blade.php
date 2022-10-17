@@ -12,11 +12,7 @@
 
     $row=Form::getModel();
     //$rows=$row->$name; //risultati per l'edit ..
-<<<<<<< HEAD
     $related=$row->$name()->getRelated();
-=======
-    $related=$row->$name()->getRelated(); 
->>>>>>> ede0df7 (first)
     $related_panel=Panel::make()->get($related);
     $rows=$related->get()->load('post');
     $related_panel->setRows($rows);

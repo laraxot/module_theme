@@ -1,11 +1,6 @@
  @php
      //non si visualizza bene, da aggiustare
      //esempio preso da https://codepen.io/fredjens/pen/adqLNO
-<<<<<<< HEAD
-
-=======
-     
->>>>>>> ede0df7 (first)
      //dddx(get_defined_vars());
      //Theme::add('theme::css/radio_animated_switch.css');
  @endphp

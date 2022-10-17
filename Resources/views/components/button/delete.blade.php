@@ -2,9 +2,5 @@
     class="btn btn-primary mb-2 btn-danger btn-confirm-delete">
     <i class="far fa-trash-alt"></i>
 </a>
-<<<<<<< HEAD
 
 {{-- <livewire:buttons.delete /> --}}
-=======
-{{-- <livewire:theme::buttons.delete /> --}}
->>>>>>> ede0df7 (first)

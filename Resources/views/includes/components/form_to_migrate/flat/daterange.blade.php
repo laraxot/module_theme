@@ -33,15 +33,9 @@
     		"plugins": [new rangePlugin({ input: "#{{ $end_name }}"})],
     		/*
     		onChange: function(selectedDates, dateStr, instance){
-<<<<<<< HEAD
 
     			//selectedDates[0].getFullYear() + "-" + numeroAdosCaracteres(selectedDates[0].getMonth() + 1) + "-" + numeroAdosCaracteres(selectedDates[0].getDate());
 
-=======
-    			
-    			//selectedDates[0].getFullYear() + "-" + numeroAdosCaracteres(selectedDates[0].getMonth() + 1) + "-" + numeroAdosCaracteres(selectedDates[0].getDate());
-    			
->>>>>>> ede0df7 (first)
     			//https://github.com/flatpickr/flatpickr/issues/678
 				$('#first-input').val(selectedDates[0].getFullYear());
 				$('#second-input').val(selectedDates[1].getMonth());

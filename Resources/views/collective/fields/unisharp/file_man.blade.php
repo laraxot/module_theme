@@ -2,11 +2,6 @@
 	Theme::add('/vendor/laravel-filemanager/js/lfm.js');
 	Theme::add('/vendor/laravel-filemanager/css/lfm.css');
 	Theme::add('backend::includes/components/form/unisharp/js/imgman.js');
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> ede0df7 (first)
 	$src=Form::getValueAttribute($name);
 	//if($src=='') $src='/images/nophoto.png';
 
@@ -30,11 +25,7 @@
 	background: white;
 	cursor: inherit;
 	display: block;
-<<<<<<< HEAD
 }
-=======
-}	
->>>>>>> ede0df7 (first)
 </style>
 
 
@@ -48,11 +39,7 @@
 			<span class="input-group-addon btn btn-default btn-file">
 				<a id="lfm_img" data-input="{{ $name }}" data-preview="holder" >
 					<i class="fa fa-folder-open-o"></i> Sfoglia
-<<<<<<< HEAD
 				</a>
-=======
-				</a>  
->>>>>>> ede0df7 (first)
 			</span>
 			{{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
 		</div>
