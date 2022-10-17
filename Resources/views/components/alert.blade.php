@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
 https://getbootstrap.com/docs/4.5/components/alerts/
 --}}
 <div class="alert alert-{{$type}} {{($dismissable) ? 'alert-dismissible fade show' : ''}}">

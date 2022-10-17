@@ -1,11 +1,6 @@
 @php
 
 /* serve prendere una Relation del pannello chiamante e metterla in una variabile.
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> ede0df7 (first)
     Name è il nome della relazione che viene passato nel field del Panel. */
 
 $related = $_panel->row->{$name}()->getRelated();
@@ -14,11 +9,7 @@ $related = $_panel->row->{$name}()->getRelated();
 
 $related_panel = Panel::make()->get($related);
 
-<<<<<<< HEAD
 /* serve per creare una Relation dalla relation $related,
-=======
-/* serve per creare una Relation dalla relation $related, 
->>>>>>> ede0df7 (first)
     altrimenti ti trovi incasinato con le query successive, in certi casi
     In questo caso si può cacellare perchè uso il builer per fare il foreach
     */

@@ -1,9 +1,5 @@
 @props(['tab' => 1])
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
 https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/accordion-header.blade.php
     --}}
 

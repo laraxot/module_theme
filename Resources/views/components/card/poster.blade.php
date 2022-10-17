@@ -11,7 +11,6 @@
     </div>
 
 
-<<<<<<< HEAD
     {{-- 
     <div class="card-img-overlay-top text-end">
         <livewire:favorite :model="$model" />
@@ -19,12 +18,6 @@
     --}}
 
     {{ $favorite }}
-=======
-
-    <div class="card-img-overlay-top text-end">
-        <livewire:rating::favorite :model="$model" />
-    </div>
->>>>>>> ede0df7 (first)
 
 
     <div class="card-body overlay-content">

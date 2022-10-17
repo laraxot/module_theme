@@ -3,11 +3,6 @@
 
 <div class="text-center">
     @svg($icon, 'mx-auto h-12 w-12 text-gray-400')
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> ede0df7 (first)
     <h3 class="mt-2 text-sm font-medium text-gray-900">
         {{ $title }}
     </h3>

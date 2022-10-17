@@ -23,11 +23,7 @@
 
 
     <div class="card-img-overlay-top text-end">
-<<<<<<< HEAD
         <livewire:favorite :model="$model" />
-=======
-        <livewire:rating::favorite :model="$model" />
->>>>>>> ede0df7 (first)
     </div>
 
 
@@ -37,8 +33,4 @@
         {{-- <p class="card-text text-sm">Artist capital of Europe</p> --}}
     </div>
 </div>
-<<<<<<< HEAD
 <livewire:card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
-=======
-<livewire:theme::card.poster.result.txt :q="$q" :txt="$txt" :url="$url" />
->>>>>>> ede0df7 (first)

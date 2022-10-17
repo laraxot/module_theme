@@ -449,13 +449,8 @@ Theme::add('https://grapesjs.com/js/grapesjs-style-bg.min.js');
                 },
                 },
                 });
-<<<<<<< HEAD
 
 
-=======
-            
-            
->>>>>>> ede0df7 (first)
             @endverbatim
 
 
