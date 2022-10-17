@@ -27,14 +27,8 @@ https://www.jqueryscript.net/other/Sortable-Collapsible-Tree-View-Plugin-For-jQu
 
 
 https://github.com/ahamed/treeSortable !!
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 https://github.com/bevacqua/dragula  quello usato da spatie
-=======
->>>>>>> ede0df7 (first)
-=======
 
 
 https://github.com/bevacqua/dragula  quello usato da spatie 
->>>>>>> 2223b76 (.)
