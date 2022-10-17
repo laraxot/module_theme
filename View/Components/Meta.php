@@ -13,12 +13,7 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-<<<<<<< HEAD
 class Meta extends Component {
-=======
-class Meta extends Component
-{
->>>>>>> ede0df7 (first)
     public string $title;
     public string $description;
     public string $author;
@@ -57,12 +52,7 @@ class Meta extends Component
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
     public function render(): View {
-=======
-    public function render(): View
-    {
->>>>>>> ede0df7 (first)
         return view('theme::components.meta');
     }
 }

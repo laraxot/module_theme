@@ -18,7 +18,6 @@ class Range extends Component {
     public Closure $callback;
 
     public function __construct(
-<<<<<<< HEAD
         string $id,
         string $topclass,
         string $title,
@@ -26,10 +25,6 @@ class Range extends Component {
         int $init,
         Closure $callback,
         string $inputclass = ''
-=======
-        string $id, string $topclass = '', string $title = 'Filter Range', string $icon = 'far fa-calendar-alt',
-        int $init = 2, Closure $callback, string $inputclass = ''
->>>>>>> ede0df7 (first)
     ) {
         $this->id = $id;
         $this->topclass = $topclass;
@@ -43,7 +38,6 @@ class Range extends Component {
     public function initiator(): string {
         $s = '';
         switch ($this->init) {
-<<<<<<< HEAD
             case 0: $s = 'startDate: moment(), endDate: moment()';
                 break;
             case 1: $s = "startDate: moment().subtract(1, 'days'), endDate: moment().subtract(1, 'days')";
@@ -56,20 +50,6 @@ class Range extends Component {
                 break;
             case 5: $s = "startDate: moment().subtract(1, 'month').startOf('month'), endDate: moment().subtract(1, 'month').endOf('month')";
                 break;
-=======
-        case 0: $s = 'startDate: moment(), endDate: moment()';
-            break;
-        case 1: $s = "startDate: moment().subtract(1, 'days'), endDate: moment().subtract(1, 'days')";
-            break;
-        case 2: $s = "startDate: moment().subtract(6, 'days'), endDate: moment()";
-            break;
-        case 3: $s = "startDate: moment().subtract(29, 'days'), endDate: moment()";
-            break;
-        case 4: $s = "startDate: moment().startOf('month'), endDate: moment().endOf('month')";
-            break;
-        case 5: $s = "startDate: moment().subtract(1, 'month').startOf('month'), endDate: moment().subtract(1, 'month').endOf('month')";
-            break;
->>>>>>> ede0df7 (first)
         }
 
         return $s;

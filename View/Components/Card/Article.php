@@ -21,11 +21,7 @@ class Article extends Component {
      *
      * @return void
      */
-<<<<<<< HEAD
     public function __construct(Model $row, ?string $class = '', ?string $style = '', ?string $id = '') {
-=======
-    public function __construct(?Model $row, ?string $class = '', ?string $style = '', ?string $id = '') {
->>>>>>> ede0df7 (first)
         $this->attrs['class'] = $class;
         $this->attrs['style'] = $style;
         $this->attrs['id'] = $id;
@@ -36,16 +32,11 @@ class Article extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
         $view = 'theme::components.card.article';
         // dddx($this->row);
-=======
-        $view = 'theme::components.card.article';
-        //dddx($this->row);
->>>>>>> ede0df7 (first)
         $view_params = [
             'view' => $view,
             'panel' => PanelService::make()->get($this->row),

@@ -9,12 +9,7 @@ use Illuminate\View\Component;
 /**
  * Class ThankYou.
  */
-<<<<<<< HEAD
 class ThankYou extends Component {
-=======
-class ThankYou extends Component
-{
->>>>>>> ede0df7 (first)
     public bool $showSuccess = true;
 
     /**
@@ -22,19 +17,10 @@ class ThankYou extends Component
      *
      * @return void
      */
-<<<<<<< HEAD
     public function __construct() {
     }
 
     public function getLocalStorage(string $param): string {
-=======
-    public function __construct()
-    {
-    }
-
-    public function getLocalStorage(string $param): string
-    {
->>>>>>> ede0df7 (first)
         $local_storage = [
             'first_name' => 'Antonio',
             'last_name' => 'Rossi',
@@ -47,12 +33,7 @@ class ThankYou extends Component
     /**
      * Get the view / contents that represent the component.
      */
-<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
-=======
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
->>>>>>> ede0df7 (first)
         return view()->make('pub_theme::components.thank_you');
     }
 }

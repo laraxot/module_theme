@@ -8,11 +8,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\View\Component;
 
-<<<<<<< HEAD
 // use Modules\Xot\View\Components\XotBaseComponent;
-=======
-//use Modules\Xot\View\Components\XotBaseComponent;
->>>>>>> ede0df7 (first)
 
 /**
  * Class Field.
@@ -31,12 +27,9 @@ class Model extends Component {
      * --.
      */
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::components.card.model';
         $view_params = [
             'view' => $view,

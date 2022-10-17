@@ -11,11 +11,7 @@ use Illuminate\View\Component;
  * Class Pagination.
  */
 class Pagination extends Component {
-<<<<<<< HEAD
     // public \Illuminate\Pagination\LengthAwarePaginator $rows;
-=======
-    //public \Illuminate\Pagination\LengthAwarePaginator $rows;
->>>>>>> ede0df7 (first)
     public LengthAwarePaginator $rows;
 
     /**
@@ -31,12 +27,9 @@ class Pagination extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::components.pagination';
         $view_params = [
             'view' => $view,

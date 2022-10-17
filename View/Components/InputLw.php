@@ -39,11 +39,7 @@ class InputLw extends Component {
         $this->attrs['name'] = $props['name'];
 
         $this->props = $props;
-<<<<<<< HEAD
         // $this->label = $props['type'].'['.Str::snake($props['type'], '.').']';
-=======
-        //$this->label = $props['type'].'['.Str::snake($props['type'], '.').']';
->>>>>>> ede0df7 (first)
         $this->name = $props['name'];
         $this->label = $props['label'] ?? $props['name'];
         $this->value = $props['value'] ?? null;
@@ -53,11 +49,7 @@ class InputLw extends Component {
      * @return \Illuminate\Contracts\Support\Renderable|string
      */
     public function render() {
-<<<<<<< HEAD
         // return '<div>'.print_r($this->props, true).'</div>';
-=======
-        //return '<div>'.print_r($this->props, true).'</div>';
->>>>>>> ede0df7 (first)
         $view = Str::snake($this->props['type'], '.');
         $this->comp_ns = 'theme::components.fields.'.$view;
         $view = $this->comp_ns.'.field';

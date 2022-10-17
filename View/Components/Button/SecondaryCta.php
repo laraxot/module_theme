@@ -7,18 +7,12 @@ namespace Modules\Theme\View\Components\Button;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-<<<<<<< HEAD
 class SecondaryCta extends Component {
-=======
-class SecondaryCta extends Component
-{
->>>>>>> ede0df7 (first)
     /**
      * Create the component instance.
      *
      * @return void
      */
-<<<<<<< HEAD
     public function __construct() {
         // $this->type = $type;
         // $this->message = $message;
@@ -31,19 +25,6 @@ class SecondaryCta extends Component
         $view = 'theme::components.button.secondary-cta';
         $view_params = ['view' => $view];
 
-=======
-    public function __construct()
-    {
-        //$this->type = $type;
-        //$this->message = $message;
-    }
-
-    
-    public function render():Renderable
-    {
-        $view='theme::components.button.secondary-cta';
-        $view_params=['view'=>$view];
->>>>>>> ede0df7 (first)
         return view()->make($view);
     }
 }
