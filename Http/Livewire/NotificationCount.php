@@ -21,21 +21,14 @@ final class NotificationCount extends Component {
     ];
 
     public function render(): Renderable {
-<<<<<<< HEAD
         if (null !== Auth::user()) {
-=======
-        if (! is_null(Auth::user())) {
->>>>>>> ede0df7 (first)
             $this->count = Auth::user()->unreadNotifications()->count();
         } else {
             $this->count = 0;
         }
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.notification_count';
         $view_params = [
             'count' => $this->count,

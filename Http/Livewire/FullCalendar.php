@@ -16,31 +16,17 @@ use Livewire\Component;
 /**
  * Class FullCalendar.
  */
-<<<<<<< HEAD
 class FullCalendar extends Component {
-=======
-class FullCalendar extends Component
-{
->>>>>>> ede0df7 (first)
     /**
      * @var string
      */
     public ?string $name = 'Barry';
 
-<<<<<<< HEAD
     public array $events = []; // non sono gli eventi in calendario ma le azioni
 
     public array $form_data = [];
 
     public function mount(): void {
-=======
-    public array $events = []; //non sono gli eventi in calendario ma le azioni
-
-    public array $form_data = [];
-
-    public function mount(): void
-    {
->>>>>>> ede0df7 (first)
         /*$name = 'Barry';
         $events = [];
         foreach (range(0, 6) as $i) {
@@ -54,24 +40,14 @@ class FullCalendar extends Component
         */
     }
 
-<<<<<<< HEAD
     public function updatedName(): void {
-=======
-    public function updatedName(): void
-    {
->>>>>>> ede0df7 (first)
         $this->emit('refreshCalendar');
     }
 
     /**
      * @return string[]
      */
-<<<<<<< HEAD
     public function getNamesProperty() {
-=======
-    public function getNamesProperty()
-    {
->>>>>>> ede0df7 (first)
         return [
             'Barry',
             'Taylor',
@@ -84,14 +60,8 @@ class FullCalendar extends Component
      *
      * @return array
      */
-<<<<<<< HEAD
     public function getEvents() {
         // dddx('preso');
-=======
-    public function getEvents()
-    {
-        //dddx('preso');
->>>>>>> ede0df7 (first)
         $name = 'Barry'; // $request->get('name');
 
         $events = [];
@@ -102,18 +72,13 @@ class FullCalendar extends Component
                 'start' => now()->addDays(random_int(-10, 10))->toDateString(),
             ];
         }
-<<<<<<< HEAD
         // $this->events = $events;
-=======
-        //$this->events = $events;
->>>>>>> ede0df7 (first)
         return $events;
     }
 
     /**
      * @return array|string[]
      */
-<<<<<<< HEAD
     public function getTasksProperty() {
         switch ($this->name) {
             case 'Barry':
@@ -122,37 +87,16 @@ class FullCalendar extends Component
                 return ['Laravel', 'Jetstream'];
             case 'Caleb':
                 return ['Livewire', 'Sushi'];
-=======
-    public function getTasksProperty()
-    {
-        switch ($this->name) {
-        case 'Barry':
-            return ['Debugbar', 'IDE Helper'];
-        case 'Taylor':
-            return ['Laravel', 'Jetstream'];
-        case 'Caleb':
-            return ['Livewire', 'Sushi'];
->>>>>>> ede0df7 (first)
         }
 
         return [];
     }
 
-<<<<<<< HEAD
     public function eventReceive(array $event): void {
         $this->events[] = 'eventReceive: '.print_r($event, true);
     }
 
     public function eventDrop(array $event, array $oldEvent): void {
-=======
-    public function eventReceive(array $event): void
-    {
-        $this->events[] = 'eventReceive: '.print_r($event, true);
-    }
-
-    public function eventDrop(array $event, array $oldEvent): void
-    {
->>>>>>> ede0df7 (first)
         $this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
     }
 
@@ -161,25 +105,12 @@ class FullCalendar extends Component
      */
     /**
      * Render the component.
-<<<<<<< HEAD
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
         return view()->make('theme::livewire.full_calendar');
     }
 
     public function edit(array $calEvent): void {
-=======
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
-        return view()->make('theme::livewire.full_calendar');
-    }
-
-    public function edit(array $calEvent): void
-    {
->>>>>>> ede0df7 (first)
         /*dddx($calEvent['event']);
          array:4 [▼
         "title" => "IDE Helper"
@@ -189,43 +120,22 @@ class FullCalendar extends Component
         ]
         */
         $this->form_data = $calEvent['event'];
-<<<<<<< HEAD
         // yyyy-MM-ddThh:mm
         // $this->form_data['start'] = Carbon::parse($this->form_data['start'])->format('Y-m-d\TH:i');
         // $this->form_data['end'] = Carbon::parse($this->form_data['end'])->format('Y-m-d\TH:i');
     }
 
     public function update(): void {
-=======
-        //yyyy-MM-ddThh:mm
-        //$this->form_data['start'] = Carbon::parse($this->form_data['start'])->format('Y-m-d\TH:i');
-        //$this->form_data['end'] = Carbon::parse($this->form_data['end'])->format('Y-m-d\TH:i');
-    }
-
-    public function update(): void
-    {
->>>>>>> ede0df7 (first)
         session()->flash('message', 'Updated Successfully.');
         $this->resetInputFields();
     }
 
-<<<<<<< HEAD
     public function cancel(): void {
         // $this->updateMode = false;
         $this->resetInputFields();
     }
 
     private function resetInputFields(): void {
-=======
-    public function cancel(): void
-    {
-        //$this->updateMode = false;
-        $this->resetInputFields();
-    }
-
-    private function resetInputFields(): void
-    {
->>>>>>> ede0df7 (first)
         $this->form_data = [];
     }
 }

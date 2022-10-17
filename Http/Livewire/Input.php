@@ -9,12 +9,7 @@ use Livewire\Component;
 /**
  * Class Numberer.
  */
-<<<<<<< HEAD
 class Input extends Component {
-=======
-class Input extends Component
-{
->>>>>>> ede0df7 (first)
     public string $type;
     public string $name;
     public ?string $label;
@@ -52,24 +47,15 @@ class Input extends Component
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-<<<<<<< HEAD
     public function render() {
         /**
          * @phpstan-var view-string
          */
-=======
-    public function render()
-    {
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.fields.'.$this->type.'.field';
         $view_params = [
             'view' => $view,
         ];
-<<<<<<< HEAD
         // return '<div>'.$view.'</div>';
-=======
-        //return '<div>'.$view.'</div>';
->>>>>>> ede0df7 (first)
 
         return view()->make($view, $view_params);
     }
