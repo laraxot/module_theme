@@ -8,12 +8,7 @@ use Modules\LU\Models\User;
 use Modules\Theme\Contracts\HasLikeContract;
 use Modules\Theme\Exceptions\CannotLikeItemException;
 
-<<<<<<< HEAD
 final class LikeJob {
-=======
-final class LikeJob
-{
->>>>>>> ede0df7 (first)
     public HasLikeContract $model;
     public ?User $user;
 
@@ -28,12 +23,7 @@ final class LikeJob
     /**
      * @throws CannotLikeItemException
      */
-<<<<<<< HEAD
     public function handle(): void {
-=======
-    public function handle(): void
-    {
->>>>>>> ede0df7 (first)
         if ($this->model->isLikedBy($this->user)) {
             throw CannotLikeItemException::alreadyLiked('article');
         }

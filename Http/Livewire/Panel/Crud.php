@@ -4,17 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Panel;
 
-<<<<<<< HEAD
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Modules\LU\Models\User;
-=======
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Collection;
-use Livewire\Component;
->>>>>>> ede0df7 (first)
 use Modules\Xot\Contracts\PanelContract;
 
 /**
@@ -26,13 +20,10 @@ class Crud extends Component {
     public array $rules;
     public array $form_data;
     public string $model_name;
-<<<<<<< HEAD
     public bool $updateMode = false;
     public int $user_id;
     public string $name;
     public string $email;
-=======
->>>>>>> ede0df7 (first)
 
     /**
      * Undocumented function.
@@ -58,12 +49,9 @@ class Crud extends Component {
      * Render the component.
      */
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.panel.crud';
 
         $view_params = [
@@ -106,7 +94,6 @@ class Crud extends Component {
     /**
      * Undocumented function.
      *
-<<<<<<< HEAD
      * @return void
      */
     public function edit(int $id) {
@@ -118,18 +105,6 @@ class Crud extends Component {
         $this->user_id = $id;
         $this->name = $user->first_name ?? '';
         $this->email = $user->email ?? '';
-=======
-     * @param [type] $id
-     *
-     * @return void
-     */
-    public function edit($id) {
-        $this->updateMode = true;
-        $user = User::where('id', $id)->first();
-        $this->user_id = $id;
-        $this->name = $user->name;
-        $this->email = $user->email;
->>>>>>> ede0df7 (first)
     }
 
     /**
@@ -155,26 +130,18 @@ class Crud extends Component {
 
         if ($this->user_id) {
             $user = User::find($this->user_id);
-<<<<<<< HEAD
             if (null != $user) {
                 $user->update([
                     'name' => $this->name,
                     'email' => $this->email,
                 ]);
             }
-=======
-            $user->update([
-                'name' => $this->name,
-                'email' => $this->email,
-            ]);
->>>>>>> ede0df7 (first)
             $this->updateMode = false;
             session()->flash('message', 'Users Updated Successfully.');
             $this->resetInputFields();
         }
     }
 
-<<<<<<< HEAD
     /**
      * Undocumented function.
      *
@@ -182,16 +149,10 @@ class Crud extends Component {
      *
      * @return void
      */
-=======
->>>>>>> ede0df7 (first)
     public function delete($id) {
         if ($id) {
             User::where('id', $id)->delete();
             session()->flash('message', 'Users Deleted Successfully.');
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ede0df7 (first)

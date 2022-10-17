@@ -7,10 +7,7 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
-<<<<<<< HEAD
 use Modules\Xot\Contracts\ModelWithPosContract;
-=======
->>>>>>> ede0df7 (first)
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Services\PanelService;
 
