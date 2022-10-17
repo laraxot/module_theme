@@ -46,11 +46,6 @@
 </div>
 
 
-<<<<<<< HEAD
-
-=======
-{{ Theme::addScript("/theme/bc/jquery/dist/jquery.min.js") }}
->>>>>>> ede0df7 (first)
 {{ Theme::addScript("/theme/bc/bootstrap/dist/js/bootstrap.min.js") }}
 {{ Theme::addScript('/theme/bc/multiselect/dist/js/multiselect.js') }}
 

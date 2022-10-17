@@ -11,25 +11,14 @@
   											// +"timezone": "UTC"
             }
             if($value!==null) $val=$value;
-<<<<<<< HEAD
 
         @endphp
 
-=======
-            
-        @endphp
-        
->>>>>>> ede0df7 (first)
 		{{ Form::dateTimeLocal($name,$val, array_merge(['class' => 'form-control'], $attributes)) }}
 		<span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
         </span>
         </div>
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> ede0df7 (first)
 		@if ( $errors->has($name) )
 			<span class="help-block">
 				<strong>{{ $errors->first($name) }}</strong>

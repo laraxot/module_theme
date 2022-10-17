@@ -8,11 +8,7 @@
             --}}
         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
             @if($localeCode!=$lang)
-<<<<<<< HEAD
             <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-=======
-            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"  
->>>>>>> ede0df7 (first)
             class="dropdown-item">
                 {{ $properties['native'] }}
             </a>

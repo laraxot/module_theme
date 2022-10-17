@@ -9,11 +9,6 @@ $name=$start_name.'__'.$end_name;
 		//$val1=\Carbon\Carbon::parse($val)->formatLocalized('%d/%m/%Y %H:%M'); // da errore perche' son 2 date
 		$format='d/m/Y';
 		$start_val=Form::getValueAttribute($start_name);
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> ede0df7 (first)
 		if(is_string($start_val)){
 			$start_val_carbon=\Carbon\Carbon::parse($start_val)->formatLocalized('%d/%m/%Y');
 		}else{
@@ -30,11 +25,6 @@ $name=$start_name.'__'.$end_name;
 		}
 
 		$val1=$start_val_carbon.' - '.$end_val_carbon;
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> ede0df7 (first)
 		//echo '<br/> start_name :'.$start_name;
 		//echo '<br/> start_val :'.$start_val;
 		//echo '<br/> val1 :'.$val1;
@@ -63,19 +53,10 @@ $name=$start_name.'__'.$end_name;
 
 {{	Theme::addStyle('/theme/bc/bootstrap-daterangepicker/daterangepicker.css') }}
 
-<<<<<<< HEAD
-
-=======
-{{  Theme::addScript('/theme/bc/jquery/dist/jquery.min.js') }}
->>>>>>> ede0df7 (first)
 {{--	Theme::addScript('/theme/bc/moment/min/moment.min.js') --}}
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{  Theme::addScript('/theme/js/bsDateRange.js') }}
 
-<<<<<<< HEAD
 {{--
-=======
-{{-- 
->>>>>>> ede0df7 (first)
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}

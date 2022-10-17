@@ -1,11 +1,6 @@
 {{ Theme::add('/theme/bc/bootstrap/dist/css/bootstrap.min.css') }}
 {{ Theme::add('/theme/bc/gridstack/dist/gridstack.css') }}
 
-<<<<<<< HEAD
-
-=======
-{{ Theme::add('/theme/bc/jquery/dist/jquery.min.js') }}
->>>>>>> ede0df7 (first)
 {{ Theme::add('/theme/bc/jquery-ui/jquery-ui.min.js') }}
 
 {{ Theme::add('/theme/bc/jqueryui-touch-punch/jquery.ui.touch-punch.min.js') }}
@@ -17,11 +12,7 @@
 {{ Theme::add('/theme/bc/jquery.easing/js/jquery.easing.min.js') }}
 
 {{ Theme::add('/theme/bc/gridstack/dist/gridstack.js') }}
-<<<<<<< HEAD
 {{ Theme::add('/theme/bc/gridstack/dist/gridstack.jQueryUI.js') }}
-=======
-{{ Theme::add('/theme/bc/gridstack/dist/gridstack.jQueryUI.js') }} 
->>>>>>> ede0df7 (first)
 
 
 @push('styles')
@@ -36,11 +27,6 @@
             background-color: #18bc9c;
         }
 
-<<<<<<< HEAD
-
-=======
-       
->>>>>>> ede0df7 (first)
     </style>
 @endpush
 
@@ -77,11 +63,7 @@
 				<i class="fa fa-trash-o remove"></i>
 			</a>
 	</div>
-<<<<<<< HEAD
 	<br style="clear:both;"/>
-=======
-	<br style="clear:both;"/> 
->>>>>>> ede0df7 (first)
 	<input type="text" name="content_type" value="text" class="form-input"/>
 	<input type="text" name="content_source" value="" class="form-input"/>
     <textarea name="content" ></textarea>
@@ -135,11 +117,6 @@
                         	$el.find('[name='+i+']').val(node[i]);
                         };
                     }, this);
-<<<<<<< HEAD
-
-=======
-                    
->>>>>>> ede0df7 (first)
                     return false;
                 }.bind(this);
 
@@ -152,21 +129,12 @@
 							$k=$(this).attr('name');
 							$v=$(this).val();
                         	//alert($k+'  '+$v);
-<<<<<<< HEAD
 							$data[$k]=$v;
-=======
-							$data[$k]=$v; 
->>>>>>> ede0df7 (first)
 						});
                         $data.x=node.x;
                         $data.y=node.y;
                         $data.width=node.width;
                         $data.height=node.height;
-<<<<<<< HEAD
-
-=======
-                        
->>>>>>> ede0df7 (first)
                         return $data;
                     }, this);
                     $('#saved-data').val(JSON.stringify(this.serializedData, null, '    '));
@@ -187,22 +155,13 @@
 
 
 
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> ede0df7 (first)
         });
     </script>
 @endpush
 
 
 
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
 links di riferimento
 https://codepen.io/delagics/pen/ezgryg
 

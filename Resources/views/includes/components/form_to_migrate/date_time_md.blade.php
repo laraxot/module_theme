@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 {{--
-=======
-{{-- 
->>>>>>> ede0df7 (first)
 https://mdbootstrap.com/javascript/time-picker/
 http://t00rk.github.io/bootstrap-material-datetimepicker/
 http://www.jqueryscript.net/time-clock/Pretty-Date-Time-Picker-Plugin-For-Bootstrap-Material.html
@@ -22,7 +18,6 @@ https://getmdl.io/components/index.html#cards-section
     <label for="input_starttime">Light version, 12hours</label>
 </div>
 
-<<<<<<< HEAD
 
 
 {{ Theme::add('theme/bc/tether/dist/css/tether.min.css') }}
@@ -30,15 +25,6 @@ https://getmdl.io/components/index.html#cards-section
 {{--
 --}}
 {{--
-=======
-{{ Theme::add('theme/bc/jquery/dist/jquery.min.js') }}
-
-{{ Theme::add('theme/bc/tether/dist/css/tether.min.css') }}
-{{ Theme::add('theme/bc/tether/dist/js/tether.min.js') }}
-{{--  
---}}
-{{--  
->>>>>>> ede0df7 (first)
 {{ Theme::add('theme/bc/pickadate/lib/picker.js') }}
 {{ Theme::add('theme/bc/pickadate/lib/picker.date.js') }}
 {{ Theme::add('theme/bc/pickadate/lib/picker.time.js') }}

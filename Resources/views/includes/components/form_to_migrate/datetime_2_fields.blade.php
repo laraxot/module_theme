@@ -10,11 +10,7 @@
 		{{ Form::text($name, $value, $field->attributes) }}
 		--}}
 		<div class="row">
-<<<<<<< HEAD
     		<div class="col-md-6">
-=======
-    		<div class="col-md-6">	
->>>>>>> ede0df7 (first)
         		<div class="date_flatpickr input-group mb-3">
             		<input type="text" placeholder="Select Date.." data-input class="form-control" > <!-- input is mandatory -->
             		<div class="input-group-append">

@@ -1,20 +1,11 @@
 @php
 	$fields=$attributes['fields'];
-<<<<<<< HEAD
 	$model=Form::getModel();
 	$disabled=isset($attributes['disabled'])?'disabled':'';
 	$fields=collect($fields)->filter(function($item) {
 		if(!isset($item->except)) $item->except=[];
 		return (
 			//!in_array($item->type,['Password']) &&
-=======
-	$model=Form::getModel(); 
-	$disabled=isset($attributes['disabled'])?'disabled':'';
-	$fields=collect($fields)->filter(function($item) {
-		if(!isset($item->except)) $item->except=[];
-		return ( 
-			//!in_array($item->type,['Password']) && 
->>>>>>> ede0df7 (first)
 			   !in_array('edit',$item->except)  //controllare azione route
 			//&& !in_array($item->name,$excepts)
 		);

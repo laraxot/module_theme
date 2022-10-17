@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->
-=======
-<!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->  
->>>>>>> ede0df7 (first)
 <div id="config-panel" class="config-panel d-none d-lg-block">
 	<div class="panel-inner">
 		<a id="config-trigger" class="config-trigger config-panel-hide text-center" href="#"><i class="fas fa-cog mx-auto" data-fa-transform="down-6" ></i></a>
