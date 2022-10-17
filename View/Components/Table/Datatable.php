@@ -11,11 +11,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
 /**
-<<<<<<< HEAD
  * ---.
-=======
- * ---
->>>>>>> ede0df7 (first)
  */
 class Datatable extends Component {
     public bool $beautify;

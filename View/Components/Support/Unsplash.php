@@ -47,12 +47,7 @@ class Unsplash extends XotBaseComponent {
 
     public function render(): View {
         return view()->make(
-<<<<<<< HEAD
-            'theme::components.support.unsplash',
-            [
-=======
             'theme::components.support.unsplash', [
->>>>>>> ede0df7 (first)
                 'url' => $this->fetchPhoto(),
             ]
         );
@@ -64,18 +59,9 @@ class Unsplash extends XotBaseComponent {
         }
 
         $tmp1 = Cache::remember(
-<<<<<<< HEAD
-            'unsplash.'.$this->photo,
-            $this->ttl,
-            function () use ($accessKey) {
-                $tmp = Http::get(
-                    "https://api.unsplash.com/photos/{$this->photo}",
-                    array_filter(
-=======
             'unsplash.'.$this->photo, $this->ttl, function () use ($accessKey) {
                 $tmp = Http::get(
                     "https://api.unsplash.com/photos/{$this->photo}", array_filter(
->>>>>>> ede0df7 (first)
                         [
                             'client_id' => $accessKey,
                             'query' => $this->query,
@@ -86,21 +72,13 @@ class Unsplash extends XotBaseComponent {
                         ]
                     )
                 )->json();
-<<<<<<< HEAD
-                if (\is_array($tmp)) {
-=======
                 if (is_array($tmp)) {
->>>>>>> ede0df7 (first)
                     return $tmp['urls']['raw'];
                 }
             }
         );
 
-<<<<<<< HEAD
-        if (! \is_string($tmp1)) {
-=======
         if (! is_string($tmp1)) {
->>>>>>> ede0df7 (first)
             throw new \Exception('fetchPhoto must return string');
         }
 

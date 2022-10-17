@@ -26,12 +26,9 @@ class Bar extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::components.progress.bar';
         $view_params = [
             'view' => $view,

@@ -16,12 +16,9 @@ class Item extends XotBaseComponent {
     }
 
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::components.profile.summary_card.item';
         $view_params = [
             'view' => $view,

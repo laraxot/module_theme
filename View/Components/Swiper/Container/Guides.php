@@ -23,12 +23,9 @@ class Guides extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::components.swiper.container.guides';
 
         $view_params = [
@@ -37,8 +34,4 @@ class Guides extends Component {
 
         return view()->make($view, $view_params);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ede0df7 (first)

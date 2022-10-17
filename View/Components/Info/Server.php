@@ -12,39 +12,21 @@ namespace Modules\Theme\View\Components\Info;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
 
-<<<<<<< HEAD
 class Server extends Component {
     public array $attrs = [];
     // public $type;
     // public $title;
-=======
-class Server extends Component
-{
-    public array $attrs = [];
-    //public $type;
-    //public $title;
->>>>>>> ede0df7 (first)
 
     /**
      * Undocumented function.
      */
-<<<<<<< HEAD
     public function __construct() {
-=======
-    public function __construct()
-    {
->>>>>>> ede0df7 (first)
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
-=======
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
->>>>>>> ede0df7 (first)
         /*
         $free = shell_exec('free'); //return null ..
         $free = (string) trim((string) $free);
@@ -80,18 +62,12 @@ class Server extends Component
         memory_get_peak_usage() - Returns the peak of memory allocated by PHP
 
         */
-<<<<<<< HEAD
         /**
          * $cmd = 'wmic ComputerSystem get TotalPhysicalMemory';.
          *
          * @exec($cmd, $outputTotalPhysicalMemory);
          * dddx($outputTotalPhysicalMemory);
          */
-=======
-        //$cmd = 'wmic ComputerSystem get TotalPhysicalMemory';
-        //@exec($cmd, $outputTotalPhysicalMemory);
-        //dddx($outputTotalPhysicalMemory);
->>>>>>> ede0df7 (first)
         /*
         "_" => array:3 [▼
             0 => "TotalPhysicalMemory"
@@ -109,28 +85,18 @@ class Server extends Component
         );
         */
 
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::components.info.server';
 
         $view_params = [
             'view' => $view,
             'mem' => $mem,
-<<<<<<< HEAD
             // 'memory' => $memory,
             // 'totalram' => $totalram,
             // 'usedmemInGB' => $usedmemInGB,
             // 'load' => $load,
-=======
-            //'memory' => $memory,
-            //'totalram' => $totalram,
-            //'usedmemInGB' => $usedmemInGB,
-            //'load' => $load,
->>>>>>> ede0df7 (first)
         ];
 
         return view()->make($view, $view_params);
@@ -140,12 +106,7 @@ class Server extends Component
     /**
      * @return array|null
      */
-<<<<<<< HEAD
     public function getServerMemoryUsage() {
-=======
-    public function getServerMemoryUsage()
-    {
->>>>>>> ede0df7 (first)
         $memoryTotal = null;
         $memoryFree = null;
 
@@ -194,11 +155,7 @@ class Server extends Component
                         //
 
                         // Total memory
-<<<<<<< HEAD
                         if (2 === \count($statLineData) && 'MemTotal' === trim($statLineData[0])) {
-=======
-                        if (2 == count($statLineData) && 'MemTotal' == trim($statLineData[0])) {
->>>>>>> ede0df7 (first)
                             $memoryTotal = trim($statLineData[1]);
                             $memoryTotal = explode(' ', $memoryTotal);
                             $memoryTotal = (int) $memoryTotal[0];
@@ -206,11 +163,7 @@ class Server extends Component
                         }
 
                         // Free memory
-<<<<<<< HEAD
                         if (2 === \count($statLineData) && 'MemFree' === trim($statLineData[0])) {
-=======
-                        if (2 == count($statLineData) && 'MemFree' == trim($statLineData[0])) {
->>>>>>> ede0df7 (first)
                             $memoryFree = trim($statLineData[1]);
                             $memoryFree = explode(' ', $memoryFree);
                             $memoryFree = (int) $memoryFree[0];
@@ -221,11 +174,7 @@ class Server extends Component
             }
         }
 
-<<<<<<< HEAD
         if (null === $memoryTotal || null === $memoryFree) {
-=======
-        if (is_null($memoryTotal) || is_null($memoryFree)) {
->>>>>>> ede0df7 (first)
             return null;
         }
 
