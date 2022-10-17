@@ -23,11 +23,7 @@
     background: white;
     cursor: inherit;
     display: block;
-<<<<<<< HEAD
 }
-=======
-}	
->>>>>>> ede0df7 (first)
 </style>
 
 <div class="input-group">

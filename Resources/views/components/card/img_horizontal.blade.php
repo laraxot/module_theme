@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
 https://getbootstrap.com/docs/4.5/components/card/#horizontal
 --}}
 <div class="card mb-3" style="max-width: 540px;">
