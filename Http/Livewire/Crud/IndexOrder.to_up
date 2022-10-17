@@ -378,12 +378,9 @@ class IndexOrder extends Component
             'jquery_sortable',
         ];
 
-<<<<<<< HEAD
         /** 
         * @phpstan-var view-string
         */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.crud.index_order.'.$opts[0];
         $view_params = [
             'view' => $view,

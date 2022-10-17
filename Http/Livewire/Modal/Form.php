@@ -13,12 +13,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Xot\Services\PanelService;
 
-<<<<<<< HEAD
 class Form extends Component {
-=======
-class Form extends Component
-{
->>>>>>> ede0df7 (first)
     public bool $show = false;
     public array $data;
     public string $body_view;
@@ -27,11 +22,7 @@ class Form extends Component
     public Model $row;
 
     /**
-<<<<<<< HEAD
      * Listener di eventi di Livewire.
-=======
-     * Listener di eventi di Livewire
->>>>>>> ede0df7 (first)
      *
      * @var array
      */
@@ -42,12 +33,7 @@ class Form extends Component
 
     public array $form_data = [];
 
-<<<<<<< HEAD
     public function mount(array $data, string $bodyView, string $model): void {
-=======
-    public function mount(array $data, string $bodyView, string $model): void
-    {
->>>>>>> ede0df7 (first)
         $this->data = $data;
         $this->show = false;
         $this->form_data['id'] = 5;
@@ -58,23 +44,15 @@ class Form extends Component
         $this->edit_fields = $panel->getFields(['act' => 'edit']);
     }
 
-<<<<<<< HEAD
     public function editModal(string $id): void {
-=======
-    public function editModal(string $id): void
-    {
->>>>>>> ede0df7 (first)
         $this->row = app($this->model)->find($id);
         $data = $this->row->toArray();
         $this->form_data = $data;
 
         if (isset($data['address']) && isJson($data['address'])) {
-<<<<<<< HEAD
             /**
              * @var object
              */
-=======
->>>>>>> ede0df7 (first)
             $tmp = json_decode($data['address']);
             $this->form_data['address_value'] = $tmp->value ?? '';
         }
@@ -82,19 +60,12 @@ class Form extends Component
         $this->doShow();
     }
 
-<<<<<<< HEAD
     public function showModal(array $data): void {
         // $this->form_data = $data;
-=======
-    public function showModal(array $data): void
-    {
-        //$this->form_data = $data;
->>>>>>> ede0df7 (first)
 
         $this->doShow();
     }
 
-<<<<<<< HEAD
     public function doShow(): void {
         $this->show = true;
     }
@@ -104,27 +75,12 @@ class Form extends Component
     }
 
     public function doSomething(): void {
-=======
-    public function doShow(): void
-    {
-        $this->show = true;
-    }
-
-    public function doClose(): void
-    {
-        $this->show = false;
-    }
-
-    public function doSomething(): void
-    {
->>>>>>> ede0df7 (first)
         // Do Something With Your Modal
 
         // Close Modal After Logic
         $this->doClose();
     }
 
-<<<<<<< HEAD
     public function doSave(): void {
         // dddx($this->form_data);
         $panel = PanelService::make()->get($this->row);
@@ -136,21 +92,6 @@ class Form extends Component
     }
 
     public function render(): View {
-=======
-    public function doSave(): void
-    {
-        //dddx($this->form_data);
-        $panel = PanelService::make()->get($this->row);
-        $panel->update($this->form_data);
-        //$a = $this->validate($this->rules);
-
-        //$this->row->save();
-        session()->flash('message', 'Post successfully updated.');
-    }
-
-    public function render(): View
-    {
->>>>>>> ede0df7 (first)
         return view('theme::livewire.modal.form');
     }
 }

@@ -43,12 +43,9 @@ class Create extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.crud.create';
 
         $view_params = [
@@ -64,22 +61,14 @@ class Create extends Component {
     public function saveAndStay() {
         $this->submit();
 
-<<<<<<< HEAD
         // $this->saveAndStayResponse();
-=======
-        //$this->saveAndStayResponse();
->>>>>>> ede0df7 (first)
     }
 
     /**
      * @return void
      */
     public function saveAndStayResponse() {
-<<<<<<< HEAD
         // return redirect()->route('users.create');
-=======
-        //return redirect()->route('users.create');
->>>>>>> ede0df7 (first)
     }
 
     /**
@@ -87,22 +76,14 @@ class Create extends Component {
      */
     public function saveAndGoBack() {
         $this->submit();
-<<<<<<< HEAD
         // $this->saveAndGoBackResponse();
-=======
-        //$this->saveAndGoBackResponse();
->>>>>>> ede0df7 (first)
     }
 
     /**
      * @return void
      */
     public function saveAndGoBackResponse() {
-<<<<<<< HEAD
         // return redirect()->route('users.index');
-=======
-        //return redirect()->route('users.index');
->>>>>>> ede0df7 (first)
     }
 
     /**
@@ -110,11 +91,7 @@ class Create extends Component {
      */
     public function submit() {
         $validatedData = $this->validate($this->rules);
-<<<<<<< HEAD
         // dddx($validatedData);
-=======
-        //dddx($validatedData);
->>>>>>> ede0df7 (first)
         /*
          "form_data" => array:3 [▼
         "body" => "dff"
@@ -135,7 +112,6 @@ class Create extends Component {
         $func = '\Modules\Xot\Jobs\PanelCrud\\'.Str::studly($method).'Job';
         $panel = $func::dispatchSync($this->form_data, $panel);
         session()->flash('message', 'Item was created');
-<<<<<<< HEAD
         // $this->success();
     }
 
@@ -145,15 +121,4 @@ class Create extends Component {
 
     //    \App\User::create($this->form_data);
     // }
-=======
-        //$this->success();
-    }
-
-    //public function success()
-    //{
-    //    $this->form_data['password'] = bcrypt($this->form_data['password']);
-
-    //    \App\User::create($this->form_data);
-    //}
->>>>>>> ede0df7 (first)
 }

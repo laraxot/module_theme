@@ -9,20 +9,11 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-<<<<<<< HEAD
 class Delete extends Component {
     public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
-=======
-class Delete extends Component
-{
-    /**
-     */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.buttons.delete';
         $view_params = [
             'view' => $view,
@@ -38,13 +29,7 @@ class Delete extends Component
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     // public function destroy($contactId) {
         // Contact::find($contactId)->delete();
     // }
-=======
-    //public function destroy($contactId) {
-        //Contact::find($contactId)->delete();
-    //}
->>>>>>> ede0df7 (first)
 }

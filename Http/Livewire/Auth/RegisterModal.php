@@ -21,12 +21,7 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-<<<<<<< HEAD
 class RegisterModal extends Component {
-=======
-class RegisterModal extends Component
-{
->>>>>>> ede0df7 (first)
     public string $username = '';
     public string $email = '';
     public string $password = '';
@@ -34,14 +29,7 @@ class RegisterModal extends Component
 
     public string $currentPath = '';
 
-<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
-=======
-    /**
-     */
-    public function render():\Illuminate\Contracts\Support\Renderable
-    {
->>>>>>> ede0df7 (first)
         $views = [
             'pub_theme::livewire.auth.register-modal',
             'theme::livewire.auth.register-modal',
@@ -53,7 +41,6 @@ class RegisterModal extends Component
     /**
      * @return void
      */
-<<<<<<< HEAD
     public function mount() {
         $this->currentPath = request()->path();
     }
@@ -70,31 +57,11 @@ class RegisterModal extends Component
         // 'confirm_password' => 'required|same:password',
         // Constant expression contains invalid operations
         // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
-=======
-    public function mount()
-    {
-        $this->currentPath = request()->path();
-    }
-
-    //https://stephenreescarter.net/talks/hacking-laravel/
-    protected array $rules = [
-        //'username' => 'required|string',
-        'username' => ['required', 'string', 'max:255'],
-        //'email' => 'required|email|string',
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        // 'password' => ['required', 'confirmed', Rules\Password::min(8)->uncompromised()],
-        //'password' => ['required', 'confirmed'],
-        'password' => 'required|string|min:5|confirmed',
-        //'confirm_password' => 'required|same:password',
-        //Constant expression contains invalid operations
-        //'password' => ['required', 'confirmed', Rules\Password::defaults()],
->>>>>>> ede0df7 (first)
     ];
 
     /**
      * @return \Illuminate\Http\Response|void|\Illuminate\Http\RedirectResponse
      */
-<<<<<<< HEAD
     public function register(Request $request) {
         $data = $this->validate();
 
@@ -102,13 +69,6 @@ class RegisterModal extends Component
         /**
          * @var string
          */
-=======
-    public function register(Request $request)
-    {
-        $data = $this->validate();
-
-        $data['password'] = Hash::make($data['password']);
->>>>>>> ede0df7 (first)
         $user_class = config('auth.providers.users.model');
         $user = app($user_class);
 

@@ -10,11 +10,7 @@ namespace Modules\Theme\Http\Livewire\FullCalendar;
  */
 
 use Illuminate\Contracts\Support\Renderable;
-<<<<<<< HEAD
 // use Modules\Customer\Models\Customer;
-=======
-//use Modules\Customer\Models\Customer;
->>>>>>> ede0df7 (first)
 use Illuminate\Support\Str;
 use Modules\Theme\Contracts\ModelLangContract;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
@@ -22,30 +18,16 @@ use Modules\Xot\Http\Livewire\XotBaseComponent;
 /**
  * Modules\Theme\Http\Livewire\FullCalendar\V1.
  */
-<<<<<<< HEAD
 class V1 extends XotBaseComponent {
-=======
-class V1 extends XotBaseComponent
-{
->>>>>>> ede0df7 (first)
     private string $model = '?';
 
     public ?string $name = 'Barry';
 
-<<<<<<< HEAD
     public array $events = []; // non sono gli eventi in calendario ma le azioni
 
     public array $form_data = [];
 
     public function mount(): void {
-=======
-    public array $events = []; //non sono gli eventi in calendario ma le azioni
-
-    public array $form_data = [];
-
-    public function mount(): void
-    {
->>>>>>> ede0df7 (first)
         /*$name = 'Barry';
         $events = [];
         foreach (range(0, 6) as $i) {
@@ -59,21 +41,11 @@ class V1 extends XotBaseComponent
         */
     }
 
-<<<<<<< HEAD
     public function updatedName(): void {
         $this->emit('refreshCalendar');
     }
 
     public function getNamesProperty(): array {
-=======
-    public function updatedName(): void
-    {
-        $this->emit('refreshCalendar');
-    }
-
-    public function getNamesProperty(): array
-    {
->>>>>>> ede0df7 (first)
         return [
             'Barry',
             'Taylor',
@@ -88,14 +60,8 @@ class V1 extends XotBaseComponent
      *
      * @return array
      */
-<<<<<<< HEAD
     public function getEvents($info) {
         // dddx($info);
-=======
-    public function getEvents($info)
-    {
-        //dddx($info);
->>>>>>> ede0df7 (first)
         /*
         "start" => "2020-11-28T23:00:00.000Z"
         "end" => "2021-01-09T23:00:00.000Z"
@@ -103,11 +69,7 @@ class V1 extends XotBaseComponent
         "endStr" => "2021-01-10T00:00:00+01:00"
         "timeZone" => "local"
         */
-<<<<<<< HEAD
         // dddx('preso');
-=======
-        //dddx('preso');
->>>>>>> ede0df7 (first)
 
         $name = 'Barry'; // $request->get('name');
 
@@ -135,11 +97,7 @@ class V1 extends XotBaseComponent
                 ];
             })->all();
         */
-<<<<<<< HEAD
         // dddx(['events' => $events]);
-=======
-        //dddx(['events' => $events]);
->>>>>>> ede0df7 (first)
 
         return $events;
     }
@@ -147,7 +105,6 @@ class V1 extends XotBaseComponent
     /**
      * @return array|string[]
      */
-<<<<<<< HEAD
     public function getTasksProperty() {
         switch ($this->name) {
             case 'Barry':
@@ -156,39 +113,17 @@ class V1 extends XotBaseComponent
                 return ['Laravel', 'Jetstream'];
             case 'Caleb':
                 return ['Livewire', 'Sushi'];
-=======
-    public function getTasksProperty()
-    {
-        switch ($this->name) {
-        case 'Barry':
-            return ['Debugbar', 'IDE Helper'];
-        case 'Taylor':
-            return ['Laravel', 'Jetstream'];
-        case 'Caleb':
-            return ['Livewire', 'Sushi'];
->>>>>>> ede0df7 (first)
         }
 
         return [];
     }
 
-<<<<<<< HEAD
     public function eventReceive(array $event): void {
         $this->events[] = 'eventReceive: '.print_r($event, true);
     }
 
     public function eventDrop(array $event, array $oldEvent): void {
         // $this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
-=======
-    public function eventReceive(array $event): void
-    {
-        $this->events[] = 'eventReceive: '.print_r($event, true);
-    }
-
-    public function eventDrop(array $event, array $oldEvent): void
-    {
-        //$this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
->>>>>>> ede0df7 (first)
         session()->flash('message', '['.$event['id'].'] '.$event['title'].' spostato da '.$oldEvent['start'].' a '.$event['start']);
         $row = app($this->model)->find($event['id']);
         $row->date_next_check = $event['start'];
@@ -198,12 +133,7 @@ class V1 extends XotBaseComponent
     /**
      * Render the component.
      */
-<<<<<<< HEAD
     public function render(): Renderable {
-=======
-    public function render(): Renderable
-    {
->>>>>>> ede0df7 (first)
         $view = $this->getView();
         $view_params = [
             'view' => $view,
@@ -215,42 +145,21 @@ class V1 extends XotBaseComponent
     /**
      * @param array $calEvent
      */
-<<<<<<< HEAD
     public function edit($calEvent): void {
         $this->form_data = $calEvent['event'];
     }
 
     public function update(): void {
-=======
-    public function edit($calEvent): void
-    {
-        $this->form_data = $calEvent['event'];
-    }
-
-    public function update(): void
-    {
->>>>>>> ede0df7 (first)
         session()->flash('message', 'Users Updated Successfully.');
         $this->resetInputFields();
     }
 
-<<<<<<< HEAD
     public function cancel(): void {
         // $this->updateMode = false;
         $this->resetInputFields();
     }
 
     private function resetInputFields(): void {
-=======
-    public function cancel(): void
-    {
-        //$this->updateMode = false;
-        $this->resetInputFields();
-    }
-
-    private function resetInputFields(): void
-    {
->>>>>>> ede0df7 (first)
         $this->form_data = [];
     }
 }

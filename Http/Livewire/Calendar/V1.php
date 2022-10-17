@@ -43,18 +43,12 @@ class V1 extends Component {
     }
 
     private function setDate(): void {
-<<<<<<< HEAD
         $day = session('calendar.now')->day;
         $month = session('calendar.now')->month;
         $year = session('calendar.now')->year;
         $this->selectedDay = $day;
         $this->selectedMonth = $this->currentMonth = $month;
         $this->selectedYear = $this->currentYear = $year;
-=======
-        $this->selectedDay = session('calendar.now')->day;
-        $this->selectedMonth = $this->currentMonth = session('calendar.now')->month;
-        $this->selectedYear = $this->currentYear = session('calendar.now')->year;
->>>>>>> ede0df7 (first)
     }
 
     public function calendar(): array {
@@ -63,11 +57,7 @@ class V1 extends Component {
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)
             ->startOfMonth()
             ->isoWeekday();
-<<<<<<< HEAD
         if (! \is_int($startOfMonthDay)) {
-=======
-        if (! is_int($startOfMonthDay)) {
->>>>>>> ede0df7 (first)
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -81,11 +71,7 @@ class V1 extends Component {
         }
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
-<<<<<<< HEAD
         if (! \is_int($endOfMonthDay)) {
-=======
-        if (! is_int($endOfMonthDay)) {
->>>>>>> ede0df7 (first)
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -183,11 +169,7 @@ class V1 extends Component {
     }
 
     public function setByDay(int $day = null): void {
-<<<<<<< HEAD
         if (null === $day) {
-=======
-        if (is_null($day)) {
->>>>>>> ede0df7 (first)
             return;
         }
 
@@ -225,12 +207,9 @@ class V1 extends Component {
     }
 
     public function render(): Renderable {
-<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
-=======
->>>>>>> ede0df7 (first)
         $view = 'theme::livewire.calendar.v1';
         $view_params = [
             'view' => $view,
@@ -239,8 +218,4 @@ class V1 extends Component {
 
         return view()->make($view, $view_params);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ede0df7 (first)
