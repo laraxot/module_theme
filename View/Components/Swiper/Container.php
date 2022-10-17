@@ -22,7 +22,11 @@ class Container extends Component {
         ?string $containerClass = '',
         ?string $wrapperClass = '',
         ?string $wrapperStyle = ''
+<<<<<<< HEAD
     ) {
+=======
+        ) {
+>>>>>>> ede0df7 (first)
         $this->attrs['container_class'] = $containerClass;
         $this->attrs['wrapper_class'] = $wrapperClass;
         $this->attrs['wrapper_style'] = $wrapperStyle;
@@ -32,9 +36,12 @@ class Container extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.swiper.container';
 
         $view_params = [

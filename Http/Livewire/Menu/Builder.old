@@ -30,9 +30,12 @@ class Builder extends Component {
         $menulist = $menu->select(['id', 'name'])->get();
         $menulist = $menulist->pluck('name', 'id')->prepend('Select menu', 0)->all();
 
+<<<<<<< HEAD
         /** 
         * @phpstan-var view-string
         */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.menu.builder';
         $view_params = [
             'view' => $view,

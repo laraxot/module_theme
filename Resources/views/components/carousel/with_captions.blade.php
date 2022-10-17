@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
 https://getbootstrap.com/docs/4.5/components/carousel/#with-captions
 --}}
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

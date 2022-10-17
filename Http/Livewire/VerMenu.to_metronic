@@ -12,7 +12,11 @@ use Modules\Theme\Services\MenuService;
 use Modules\Theme\Services\SvgService;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Services\PanelService;
+<<<<<<< HEAD
 use Modules\LU\Services\ProfileService;
+=======
+use Modules\Xot\Services\ProfileService;
+>>>>>>> ede0df7 (first)
 
 /**
  * Class VerMenu.

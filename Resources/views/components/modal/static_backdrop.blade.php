@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
 When backdrop is set to static, the modal will not close when clicking outside it. Click the button below to try it.
 https://getbootstrap.com/docs/4.5/components/modal/#static-backdrop
 --}}

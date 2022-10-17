@@ -12,7 +12,11 @@ $maxWidth = [
 @endphp
 
 <!-- Modal -->
+<<<<<<< HEAD
 <div
+=======
+<div 
+>>>>>>> ede0df7 (first)
     x-data="{
         show: @entangle($attributes->wire('model')).defer,
         focusables() {
@@ -43,7 +47,11 @@ $maxWidth = [
         modal.on('hide.bs.modal', function () {
             show = false
         })
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ede0df7 (first)
         modal.click(function(e) {
             if (e.target == this) {
                 show = false;
@@ -53,10 +61,17 @@ $maxWidth = [
     x-on:keydown.escape.window="show = false"
     x-on:keydown.tab.prevent="$event.shiftKey || nextFocusable().focus()"
     x-on:keydown.shift.tab.prevent="prevFocusable().focus()"
+<<<<<<< HEAD
     wire:ignore.self
     class="modal fade"
     id="{{ $id }}"
     aria-labelledby="{{ $id }}"
+=======
+    wire:ignore.self 
+    class="modal fade" 
+    id="{{ $id }}" 
+    aria-labelledby="{{ $id }}" 
+>>>>>>> ede0df7 (first)
     aria-hidden="true"
     x-ref="{{ $id }}"
 >

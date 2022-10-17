@@ -8,7 +8,11 @@
     $field->attributes['class']=' form-control js-switch';
     Theme::add('theme::plugins/switchery/switchery.min.css');
     Theme::add('theme::plugins/switchery/switchery.min.js');
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
     //volevo inserire lo snippet qui dentro per non controllare l'esistenza di elems
     //nel caso questo field venisse chiamato più volte
     //Theme::add($comp_ns.'/switchery/index.js');
@@ -19,6 +23,7 @@
     @endslot
 
     @slot('input')
+<<<<<<< HEAD
         {{--
             <input
             name="{{ $name }}"
@@ -26,11 +31,24 @@
             type="checkbox"
             class="js-switch"
             value="{{ $value }}"
+=======
+        {{-- 
+            <input 
+            name="{{ $name }}" 
+            id="{{ $name }}" 
+            type="checkbox" 
+            class="js-switch" 
+            value="{{ $value }}" 
+>>>>>>> ede0df7 (first)
             {{ $value ? 'checked' : '' }}
             />
             --}}
         {{-- Form::bsHidden($name,0) --}}  {{-- se non selezionato restituisce 0 al posto di null --}}
+<<<<<<< HEAD
         <input type="hidden" name="{{ $name }}" value="0">
+=======
+        <input type="hidden" name="{{ $name }}" value="0"> 
+>>>>>>> ede0df7 (first)
         {{ Form::checkbox($name, 1,$value, $field->attributes) }}
 
 

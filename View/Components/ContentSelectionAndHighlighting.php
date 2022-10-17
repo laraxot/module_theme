@@ -9,7 +9,12 @@ use Illuminate\View\Component;
 /**
  * Class ContentSelectionAndHighlighting.
  */
+<<<<<<< HEAD
 class ContentSelectionAndHighlighting extends Component {
+=======
+class ContentSelectionAndHighlighting extends Component
+{
+>>>>>>> ede0df7 (first)
     public string $content;
     public string $text;
 
@@ -18,7 +23,12 @@ class ContentSelectionAndHighlighting extends Component {
      *
      * @return void
      */
+<<<<<<< HEAD
     public function __construct(string $content, string $text) {
+=======
+    public function __construct(string $content, string $text)
+    {
+>>>>>>> ede0df7 (first)
         $this->content = $content;
         $this->text = $text;
     }
@@ -26,10 +36,15 @@ class ContentSelectionAndHighlighting extends Component {
     /**
      * Get the view / contents that represent the component.
      */
+<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.content_selection_and_highlighting.'.$this->content;
         $view_params = [
             'view' => $view,

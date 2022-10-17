@@ -23,14 +23,21 @@ class Body extends Component {
     public function __construct(string $action, string $modelClass) {
         $this->action = $action;
         $this->modelClass = $modelClass;
+<<<<<<< HEAD
         // $this->model = new $this->modelClass();
+=======
+        //$this->model = new $this->modelClass();
+>>>>>>> ede0df7 (first)
         $this->model = app($modelClass);
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.forms.body';
 
         $panel = PanelService::make()->get($this->model);
@@ -42,4 +49,8 @@ class Body extends Component {
 
         return view()->make($view, $view_params);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ede0df7 (first)

@@ -20,6 +20,7 @@ class Callout extends Component {
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
@@ -29,6 +30,9 @@ class Callout extends Component {
             $view = 'theme::components.callout.'.$this->type;
         }
 
+=======
+        $view = 'theme::components.callout';
+>>>>>>> ede0df7 (first)
         $view_params = ['view' => $view];
 
         return view()->make($view, $view_params);

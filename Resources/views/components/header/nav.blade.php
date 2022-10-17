@@ -10,6 +10,7 @@
                     <div class="input-label-absolute input-label-absolute-left input-expand ms-lg-2 ms-xl-3">
                         <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span
                                 class="sr-only">What are you looking for?</span></label>
+<<<<<<< HEAD
                         <input type="hidden" name="filter[0][criteria]" value="query_string_query">
                         @php
                             $max_search_days = $profile->getProfile()->max_search_days ?? 365;
@@ -27,6 +28,12 @@
                         onclick="Livewire.emit('showModal','elastic_advanced_search',[])">{{ $text }}</button>--}}
                         <a href="/it/presses?filter[0][criteria]=query_string_query&dateFrom=&dateTo=&orderBy=desc&filter[0][q]=" class="btn btn-primary">{{ $text }}</a>
                 @endif
+=======
+                        <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
+                            placeholder="Search" aria-label="Search" type="search" name="q" />
+                    </div>
+                </form>
+>>>>>>> ede0df7 (first)
             </div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
@@ -36,8 +43,11 @@
     </nav>
     <!-- /Navbar -->
 </header>
+<<<<<<< HEAD
 @push('modals')
     <livewire:modal.body-view show="false" id="elastic_advanced_search" title="Advanced Search" subtitle=""
         bodyView="theme::livewire.elastic.filter.v2">
     </livewire:modal.body-view>
 @endpush
+=======
+>>>>>>> ede0df7 (first)

@@ -12,12 +12,18 @@ namespace Modules\Theme\Traits;
 /**
  * Trait HandlesArrays.
  */
+<<<<<<< HEAD
 trait HandlesArrays {
+=======
+trait HandlesArrays
+{
+>>>>>>> ede0df7 (first)
     /**
      * @param string $field_name
      *
      * @return void
      */
+<<<<<<< HEAD
     public function arrayAdd($field_name) {
         $array_fields = [];
 
@@ -25,6 +31,16 @@ trait HandlesArrays {
             if ($field->name === $field_name) {
                 foreach ($field->array_fields as $array_field) {
                     $array_fields[$array_field->name] = $array_field->default ?? ('checkboxes' === $array_field->type ? [] : null);
+=======
+    public function arrayAdd($field_name)
+    {
+        $array_fields = [];
+
+        foreach ($this->fields() as $field) {
+            if ($field->name == $field_name) {
+                foreach ($field->array_fields as $array_field) {
+                    $array_fields[$array_field->name] = $array_field->default ?? ('checkboxes' == $array_field->type ? [] : null);
+>>>>>>> ede0df7 (first)
                 }
 
                 break;
@@ -41,7 +57,12 @@ trait HandlesArrays {
      *
      * @return void
      */
+<<<<<<< HEAD
     public function arrayMoveUp($field_name, $key) {
+=======
+    public function arrayMoveUp($field_name, $key)
+    {
+>>>>>>> ede0df7 (first)
         if ($key > 0) {
             $prev = $this->form_data[$field_name][$key - 1];
             $this->form_data[$field_name][$key - 1] = $this->form_data[$field_name][$key];
@@ -55,8 +76,14 @@ trait HandlesArrays {
      *
      * @return void
      */
+<<<<<<< HEAD
     public function arrayMoveDown($field_name, $key) {
         if (($key + 1) < \count($this->form_data[$field_name])) {
+=======
+    public function arrayMoveDown($field_name, $key)
+    {
+        if (($key + 1) < count($this->form_data[$field_name])) {
+>>>>>>> ede0df7 (first)
             $next = $this->form_data[$field_name][$key + 1];
             $this->form_data[$field_name][$key + 1] = $this->form_data[$field_name][$key];
             $this->form_data[$field_name][$key] = $next;
@@ -69,6 +96,7 @@ trait HandlesArrays {
      *
      * @return void
      */
+<<<<<<< HEAD
     public function arrayRemove($field_name, $key) {
         unset($this->form_data[$field_name][$key]);
         $this->form_data[$field_name] = array_values($this->form_data[$field_name]);
@@ -78,4 +106,16 @@ trait HandlesArrays {
         dddx($boh);
     }
     */
+=======
+    public function arrayRemove($field_name, $key)
+    {
+        unset($this->form_data[$field_name][$key]);
+        $this->form_data[$field_name] = array_values($this->form_data[$field_name]);
+    }
+
+    public function updated(string $boh):void
+    {
+        dddx($boh);
+    }
+>>>>>>> ede0df7 (first)
 }

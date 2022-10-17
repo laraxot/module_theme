@@ -4,9 +4,15 @@
         <?php
         $val = Form::getValueAttribute($name);
         $val1 = \Carbon\Carbon::parse($val)->formatLocalized('%d/%m/%Y %H:%M'); // da errore perche' son 2 date
+<<<<<<< HEAD
         // echo '<br/>' . \Carbon\Carbon::createFromFormat('Y-m-d',$val)->formatLocalized('%d/%m/%Y');
         // echo '<br/>'.$value;
         // echo '<br/>'.\Carbon\Carbon::createFromFormat('Y-m-d H:i:s','2017-01-01 13:23:22');
+=======
+        //echo '<br/>' . \Carbon\Carbon::createFromFormat('Y-m-d',$val)->formatLocalized('%d/%m/%Y');
+        //echo '<br/>'.$value;
+        //echo '<br/>'.\Carbon\Carbon::createFromFormat('Y-m-d H:i:s','2017-01-01 13:23:22');
+>>>>>>> ede0df7 (first)
         // il form :: non date time ma text
         ?>
         <div class="datepicker-input input-group date">
@@ -25,11 +31,19 @@
 
 {{    Theme::addStyle('/theme/bc/bootstrap-daterangepicker/daterangepicker.css') }}
 
+<<<<<<< HEAD
 
+=======
+{{  Theme::addScript('/theme/bc/jquery/dist/jquery.min.js') }}
+>>>>>>> ede0df7 (first)
 {{--    Theme::addScript('/theme/bc/moment/min/moment.min.js') --}}
 {{--    Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{  Theme::addScript('/theme/js/bsDateTimeRange.js') }}
 
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}

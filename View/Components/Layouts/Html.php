@@ -22,7 +22,11 @@ class Html extends XotBaseComponent {
     }
 
     public function title(): string {
+<<<<<<< HEAD
         if (\is_string(config('app.name', 'Laravel'))) {
+=======
+        if (is_string(config('app.name', 'Laravel'))) {
+>>>>>>> ede0df7 (first)
             return $this->title ?: config('app.name', 'Laravel');
         } else {
             return 'NO TITLE';

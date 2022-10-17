@@ -1,7 +1,11 @@
 {!! Form::bsOpen(['url'=>$row],'store',"",null,"createUserForm") !!}
     {{--
     @if (count($errors) > 0)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $k=>$error)

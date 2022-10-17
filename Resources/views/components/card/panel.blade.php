@@ -18,8 +18,12 @@
                         <use xlink:href="#heart-1"> </use>
                     </svg></a> --}}
 
+<<<<<<< HEAD
                 <livewire:favorite :model="$panel->row">
 
+=======
+                <livewire:rating::favorite :model="$panel->row">
+>>>>>>> ede0df7 (first)
             </div>
         </div>
         <div class="card-body">

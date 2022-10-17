@@ -23,7 +23,11 @@
             {{-- $field->setPrefix('rows.'.$index)->html() --}}
                 {{ $field->html() }}
             {{--
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> ede0df7 (first)
             --}}
         </td>
     @endforeach

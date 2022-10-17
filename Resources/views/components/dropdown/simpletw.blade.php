@@ -1,5 +1,9 @@
 @props(['width' => '48'])
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
     https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/dropdown.blade.php
 --}}
 

@@ -1,7 +1,10 @@
 @extends('adm_theme::layouts.app')
 @section('content')
     {!! $_panel->indexNav() !!}
+<<<<<<< HEAD
     {!! Theme::include('inner_page', [], get_defined_vars()) !!}
+=======
+>>>>>>> ede0df7 (first)
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
             {!! Theme::include('topbar', [], get_defined_vars()) !!}

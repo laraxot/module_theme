@@ -4,11 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Card\Result;
 
+<<<<<<< HEAD
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Modules\Theme\Models\BaseModelLang;
+=======
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Str;
+use Livewire\Component;
+>>>>>>> ede0df7 (first)
 use Modules\Xot\Contracts\PanelContract;
 
 /**
@@ -23,6 +29,7 @@ class Panel extends Component {
 
     public string $txt;
 
+<<<<<<< HEAD
     // public string $txt_field='txt';
 
     public function mount(PanelContract $panel, string $q): void {
@@ -47,6 +54,18 @@ class Panel extends Component {
      *
      * @return void
      */
+=======
+    //public string $txt_field='txt';
+
+    public function mount(PanelContract $panel, string $q): void {
+        //$this->panel = $panel;
+        $this->q = $q;
+        $this->txt = $panel->row->txt;
+        $this->pos = stripos($this->txt, $this->q);
+        $this->n = Str::substrCount(strtolower($this->txt), strtolower($q));
+    }
+
+>>>>>>> ede0df7 (first)
     public function goNext() {
         $pos = stripos($this->txt, $this->q, $this->pos + 1);
         ++$this->i;
@@ -54,6 +73,7 @@ class Panel extends Component {
             $pos = stripos($this->txt, $this->q);
             $this->i = 1;
         }
+<<<<<<< HEAD
         $this->pos = (int) $pos;
     }
 
@@ -66,16 +86,32 @@ class Panel extends Component {
         // $offset=-$this->pos;
         $offset = -\strlen($this->txt) + $this->pos - 1;
         $this->pos = (int) strripos($this->txt, $this->q, $offset);
+=======
+        $this->pos = $pos;
+    }
+
+    public function goPrev() {
+        //$offset=-$this->pos;
+        $offset = -strlen($this->txt) + $this->pos - 1;
+        $this->pos = strripos($this->txt, $this->q, $offset);
+>>>>>>> ede0df7 (first)
         --$this->i;
     }
 
     /**
      * Render the component.
+<<<<<<< HEAD
      */
     public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function render(): Renderable {
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.card.result.panel';
         $txt = substr($this->txt, $this->pos - 50, 100);
         $txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);

@@ -11,7 +11,11 @@ use Livewire\WithPagination;
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Contracts\PanelContract;
 
+<<<<<<< HEAD
 // use Modules\Cart\Models\BookingItem;
+=======
+//use Modules\Cart\Models\BookingItem;
+>>>>>>> ede0df7 (first)
 
 /**
  * full calendar
@@ -23,7 +27,11 @@ class Datagrid extends Component {
 
     protected string $paginationTheme = 'bootstrap';
 
+<<<<<<< HEAD
     public \Illuminate\Support\Collection $index_fields; // private lo perde,protected anche
+=======
+    public \Illuminate\Support\Collection $index_fields; //private lo perde,protected anche
+>>>>>>> ede0df7 (first)
 
     public string $sql = '';
 
@@ -39,12 +47,17 @@ class Datagrid extends Component {
      * @return void
      */
     public function mount($_panel) {
+<<<<<<< HEAD
         $this->model_class = \get_class($_panel->getRow());
+=======
+        $this->model_class = get_class($_panel->getRow());
+>>>>>>> ede0df7 (first)
         $index_fields = $_panel->getFields(['act' => 'index']);
         $this->index_fields = $index_fields;
         $rows = $_panel->getRows();
         // 42     Call to an undefined method Illuminate\Database\Eloquent\Builder|Illuminate\Database\Eloquent\Relations\Relation::toSql().
         if (! method_exists($rows, 'toSql')) {
+<<<<<<< HEAD
             throw new \Exception('in ['.\get_class($rows).'] method [toSql] is missing ['.__LINE__.']['.__FILE__.']');
         }
         if (! method_exists($rows, 'getBindings')) {
@@ -60,13 +73,30 @@ class Datagrid extends Component {
          */
         $rows_bindings = $rows->getBindings();
         $bindings = collect($rows_bindings)
+=======
+            throw new \Exception('in ['.get_class($rows).'] method [toSql] is missing ['.__LINE__.']['.__FILE__.']');
+        }
+        if (! method_exists($rows, 'getBindings')) {
+            throw new \Exception('in ['.get_class($rows).'] method [getBindings] is missing ['.__LINE__.']['.__FILE__.']');
+        }
+
+        $sql = $rows->toSql();
+        //if (is_array($sql)) {
+        //    throw new \Exception('sql is an array ['.__LINE__.']['.__FILE__.']');
+        //}
+        $bindings = collect($rows->getBindings())
+>>>>>>> ede0df7 (first)
             ->map(
                 function ($item) {
                     return "'".$item."'";
                 }
             )->all();
         $sql = str_replace(explode(',', str_repeat('?,', 10)), $bindings, $sql);
+<<<<<<< HEAD
         if (\is_array($sql)) {
+=======
+        if (is_array($sql)) {
+>>>>>>> ede0df7 (first)
             $sql = implode(' ', $sql);
         }
         $this->sql = $sql;
@@ -88,9 +118,12 @@ class Datagrid extends Component {
     */
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.datagrid';
         $model = app($this->model_class);
         $join_on = '';
@@ -111,15 +144,25 @@ class Datagrid extends Component {
 
         $rows = $model->newQuery();
         $rows = $rows->selectRaw($select);
+<<<<<<< HEAD
         if ('' !== $join) {
             $rows = $rows->join(
                 $join_table,
                 function ($query) use ($join_on) {
+=======
+        if ('' != $join) {
+            $rows = $rows->join(
+                $join_table, function ($query) use ($join_on) {
+>>>>>>> ede0df7 (first)
                     $query->whereRaw($join_on);
                 }
             );
         }
+<<<<<<< HEAD
         if ('' !== $where) {
+=======
+        if ('' != $where) {
+>>>>>>> ede0df7 (first)
             $rows = $rows->whereRaw($where);
         }
         $rows = $rows->paginate(10);
@@ -135,10 +178,17 @@ class Datagrid extends Component {
      * @return string
      */
     public function getView() {
+<<<<<<< HEAD
         // no di themeservice, perche' livewire
         $mod_name = Str::between(__CLASS__, 'Modules\\', '\\Http\\');
         $mod_name_low = strtolower($mod_name);
         $name = Str::after(__CLASS__, '\Http\Livewire\\');
+=======
+        //no di themeservice, perche' livewire
+        $mod_name = Str::between(get_class(), 'Modules\\', '\\Http\\');
+        $mod_name_low = strtolower($mod_name);
+        $name = Str::after(get_class(), '\Http\Livewire\\');
+>>>>>>> ede0df7 (first)
         $name = str_replace('\\', '.', $name);
         $name = Str::snake($name);
         $view = $mod_name_low.'::livewire.'.$name;

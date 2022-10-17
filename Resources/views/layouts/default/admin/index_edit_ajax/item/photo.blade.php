@@ -5,7 +5,11 @@
     	</a>
 
         <div class="card-body">
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> ede0df7 (first)
             <h6><a href="#">{{ $row->title }}</a></h6>
             <p class="text-muted card-text">{{ $row->subtitle }}</p>
             {!! Form::bsBtnCrud(['row'=>$row]) !!}

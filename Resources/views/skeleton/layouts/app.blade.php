@@ -6,6 +6,10 @@
 	</div>
 	@if(isset($footer) && $footer=='off')
 	@else
+<<<<<<< HEAD
 	@include('pub_theme::layouts.partials.footer')
+=======
+	@include('pub_theme::layouts.partials.footer') 
+>>>>>>> ede0df7 (first)
 	@endif
 @endsection

@@ -38,7 +38,12 @@ use Livewire\Component;
  * @property bool   $dayClickEnabled
  * @property bool   $eventClickEnabled
  */
+<<<<<<< HEAD
 abstract class BaseV2 extends Component {
+=======
+abstract class BaseV2 extends Component
+{
+>>>>>>> ede0df7 (first)
     public Carbon $startsAt;
 
     public Carbon $endsAt;
@@ -76,7 +81,11 @@ abstract class BaseV2 extends Component {
     public bool $eventClickEnabled;
 
     /**
+<<<<<<< HEAD
      * @var array<string, string>
+=======
+     * @var string[]
+>>>>>>> ede0df7 (first)
      */
     protected $casts = [
         'startsAt' => 'date',
@@ -103,8 +112,12 @@ abstract class BaseV2 extends Component {
      * @param bool        $eventClickEnabled
      * @param array       $extras
      */
+<<<<<<< HEAD
     public function mount(
         $initialYear = null,
+=======
+    public function mount($initialYear = null,
+>>>>>>> ede0df7 (first)
         $initialMonth = null,
         $weekStartsAt = null,
         $calendarView = null,
@@ -115,7 +128,11 @@ abstract class BaseV2 extends Component {
         $beforeCalendarView = null,
         $afterCalendarView = null,
         $pollMillis = null,
+<<<<<<< HEAD
         // $pollAction = null,
+=======
+        //$pollAction = null,
+>>>>>>> ede0df7 (first)
         $pollAction = '',
         $dragAndDropEnabled = true,
         $dayClickEnabled = true,
@@ -123,7 +140,11 @@ abstract class BaseV2 extends Component {
         $extras = []
     ): void {
         $this->weekStartsAt = $weekStartsAt ?? Carbon::SUNDAY;
+<<<<<<< HEAD
         $this->weekEndsAt = Carbon::SUNDAY === $this->weekStartsAt
+=======
+        $this->weekEndsAt = Carbon::SUNDAY == $this->weekStartsAt
+>>>>>>> ede0df7 (first)
             ? Carbon::SATURDAY
             : collect([0, 1, 2, 3, 4, 5, 6])->get($this->weekStartsAt + 6 - 7);
 
@@ -151,7 +172,12 @@ abstract class BaseV2 extends Component {
     /**
      * @param array $extras
      */
+<<<<<<< HEAD
     public function afterMount($extras = []): void {
+=======
+    public function afterMount($extras = []): void
+    {
+>>>>>>> ede0df7 (first)
     }
 
     /**
@@ -162,17 +188,24 @@ abstract class BaseV2 extends Component {
      * @param string|null $beforeCalendarView
      * @param string|null $afterCalendarView
      */
+<<<<<<< HEAD
     public function setupViews(
         $calendarView = null,
+=======
+    public function setupViews($calendarView = null,
+>>>>>>> ede0df7 (first)
         $dayView = null,
         $eventView = null,
         $dayOfWeekView = null,
         $beforeCalendarView = null,
         $afterCalendarView = null
     ): void {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.full_calendar.v2';
 
         $this->calendarView = $calendarView ?? $view.'.calendar';
@@ -188,33 +221,58 @@ abstract class BaseV2 extends Component {
      * @param int|null $pollMillis
      * @param string   $pollAction
      */
+<<<<<<< HEAD
     public function setupPoll($pollMillis, $pollAction): void {
+=======
+    public function setupPoll($pollMillis, $pollAction): void
+    {
+>>>>>>> ede0df7 (first)
         $this->pollMillis = $pollMillis;
         $this->pollAction = $pollAction;
     }
 
+<<<<<<< HEAD
     public function goToPreviousMonth(): void {
+=======
+    public function goToPreviousMonth(): void
+    {
+>>>>>>> ede0df7 (first)
         $this->startsAt->subMonthNoOverflow();
         $this->endsAt->subMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
+<<<<<<< HEAD
     public function goToNextMonth(): void {
+=======
+    public function goToNextMonth(): void
+    {
+>>>>>>> ede0df7 (first)
         $this->startsAt->addMonthNoOverflow();
         $this->endsAt->addMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
+<<<<<<< HEAD
     public function goToCurrentMonth(): void {
+=======
+    public function goToCurrentMonth(): void
+    {
+>>>>>>> ede0df7 (first)
         $this->startsAt = Carbon::today()->startOfMonth()->startOfDay();
         $this->endsAt = $this->startsAt->clone()->endOfMonth()->startOfDay();
 
         $this->calculateGridStartsEnds();
     }
 
+<<<<<<< HEAD
     public function calculateGridStartsEnds(): void {
+=======
+    public function calculateGridStartsEnds(): void
+    {
+>>>>>>> ede0df7 (first)
         $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt);
         $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt);
     }
@@ -225,13 +283,19 @@ abstract class BaseV2 extends Component {
      * @return mixed
      * @return mixed
      */
+<<<<<<< HEAD
     public function monthGrid() {
+=======
+    public function monthGrid()
+    {
+>>>>>>> ede0df7 (first)
         $firstDayOfGrid = $this->gridStartsAt;
         $lastDayOfGrid = $this->gridEndsAt;
 
         $numbersOfWeeks = $lastDayOfGrid->diffInWeeks($firstDayOfGrid) + 1;
         $days = $lastDayOfGrid->diffInDays($firstDayOfGrid) + 1;
 
+<<<<<<< HEAD
         if (0 !== $days % 7) {
             throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
@@ -240,6 +304,13 @@ abstract class BaseV2 extends Component {
         // Unable to resolve the template type TValue in call to function collec
         // $monthGrid = collect();
         $monthGrid = collect([]);
+=======
+        if (0 != $days % 7) {
+            throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
+        }
+
+        $monthGrid = collect();
+>>>>>>> ede0df7 (first)
         $currentDay = $firstDayOfGrid->clone();
 
         while (! $currentDay->greaterThan($lastDayOfGrid)) {
@@ -248,13 +319,18 @@ abstract class BaseV2 extends Component {
         }
 
         $monthGrid = $monthGrid->chunk(7);
+<<<<<<< HEAD
         if ($numbersOfWeeks !== $monthGrid->count()) {
+=======
+        if ($numbersOfWeeks != $monthGrid->count()) {
+>>>>>>> ede0df7 (first)
             throw new Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
         }
 
         return $monthGrid;
     }
 
+<<<<<<< HEAD
     public function events(): Collection {
         // return collect();
         return collect(
@@ -271,10 +347,30 @@ abstract class BaseV2 extends Component {
                     'description' => 'Work stuff',
                     'date' => Carbon::tomorrow(),
                 ],
+=======
+    public function events(): Collection
+    {
+        //return collect();
+        return collect(
+            [
+            [
+                'id' => 1,
+                'title' => 'Breakfast',
+                'description' => 'Pancakes! 🥞',
+                'date' => Carbon::today(),
+            ],
+            [
+                'id' => 2,
+                'title' => 'Meeting with Pamela',
+                'description' => 'Work stuff',
+                'date' => Carbon::tomorrow(),
+            ],
+>>>>>>> ede0df7 (first)
             ]
         );
     }
 
+<<<<<<< HEAD
     public function getEventsForDay(int $day, Collection $events): Collection {
         return $events
             ->filter(
@@ -286,6 +382,14 @@ abstract class BaseV2 extends Component {
                     }
 
                     return Carbon::parse()->isSameDay((string) $day);
+=======
+    public function getEventsForDay(int $day, Collection $events): Collection
+    {
+        return $events
+            ->filter(
+                function ($event) use ($day) {
+                    return Carbon::parse($event['date'])->isSameDay((string) $day);
+>>>>>>> ede0df7 (first)
                 }
             );
     }
@@ -295,16 +399,30 @@ abstract class BaseV2 extends Component {
      * @param int $month
      * @param int $day
      */
+<<<<<<< HEAD
     public function onDayClick($year, $month, $day): void {
+=======
+    public function onDayClick($year, $month, $day): void
+    {
+>>>>>>> ede0df7 (first)
     }
 
     /**
      * @param int $eventId
      */
+<<<<<<< HEAD
     public function onEventClick($eventId): void {
     }
 
     public function onEventDropped(int $eventId, int $year, int $month, int $day): void {
+=======
+    public function onEventClick($eventId): void
+    {
+    }
+
+    public function onEventDropped(int $eventId, int $year, int $month, int $day): void
+    {
+>>>>>>> ede0df7 (first)
     }
 
     /**
@@ -312,22 +430,39 @@ abstract class BaseV2 extends Component {
      *
      * return Factory|View
      */
+<<<<<<< HEAD
     public function render(): Renderable {
         $events = $this->events();
 
         if (null === $this->calendarView) {
+=======
+    public function render(): Renderable
+    {
+        $events = $this->events();
+
+        if (null == $this->calendarView) {
+>>>>>>> ede0df7 (first)
             throw new \Exception('$this->calendarView is null ['.__LINE__.']['.__FILE__.']');
         }
 
         return view()->make($this->calendarView)
             ->with(
                 [
+<<<<<<< HEAD
                     'componentId' => $this->id,
                     'monthGrid' => $this->monthGrid(),
                     'events' => $events,
                     'getEventsForDay' => function ($day) use ($events) {
                         return $this->getEventsForDay($day, $events);
                     },
+=======
+                'componentId' => $this->id,
+                'monthGrid' => $this->monthGrid(),
+                'events' => $events,
+                'getEventsForDay' => function ($day) use ($events) {
+                    return $this->getEventsForDay($day, $events);
+                },
+>>>>>>> ede0df7 (first)
                 ]
             );
     }

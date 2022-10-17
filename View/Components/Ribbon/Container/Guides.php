@@ -23,9 +23,12 @@ class Guides extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.ribbon.container.guides';
 
         $view_params = [

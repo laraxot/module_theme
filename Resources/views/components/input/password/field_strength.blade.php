@@ -3,11 +3,19 @@
 
 
     /*esempio di utilizzo
+<<<<<<< HEAD
         <x-theme::input
         type="password"
         name="password_strength"
         label="password_strength"
         class="form-control input-password input-password-strength-meter"
+=======
+        <x-theme::input 
+        type="password" 
+        name="password_strength" 
+        label="password_strength" 
+        class="form-control input-password input-password-strength-meter" 
+>>>>>>> ede0df7 (first)
         id="exampleInputPassword3"
         data-enter-pass="Puoi usare un testo di aiuto personalizzato"
         />
@@ -24,8 +32,13 @@
         </label>
     @endslot
     @slot('input')
+<<<<<<< HEAD
         {{--
             <input type="password" class="form-control input-password input-password-strength-meter"
+=======
+        {{-- 
+            <input type="password" class="form-control input-password input-password-strength-meter" 
+>>>>>>> ede0df7 (first)
             data-enter-pass="Puoi usare un testo di aiuto personalizzato" id="exampleInputPassword3">
         --}}
         <input type="password" {{ $attributes }} />

@@ -11,6 +11,10 @@
             @endphp
                 <a class="dropdown-item" href="{{ $url_lang }}"  rel="alternate" hreflang="{{ $localeCode }}">{{ $properties['native'] }}</a>
             @endif
+<<<<<<< HEAD
         @endforeach
+=======
+        @endforeach 
+>>>>>>> ede0df7 (first)
   </div>
 </div>

@@ -42,7 +42,11 @@
 {{--
     <meta itemprop="og:headline" content="{{ Theme::metatag('subtitle') }}" />
 --}}
+<<<<<<< HEAD
 <meta property="fb:pages" content="test sitenamecom"/>
+=======
+<meta property="fb:pages" content="foodfriendfindercom"/>
+>>>>>>> ede0df7 (first)
 {{-- canonical si usa se ci sono 2 pagine con indirizzo diverso che vanno allo stesso contenuto.
 <link rel="canonical" 		href="{{ Theme::url(['locale'=>app()->getLocale()]) }}" />
 <meta property="og:url"  content="{{ Theme::url(['locale'=>app()->getLocale()]) }}" />

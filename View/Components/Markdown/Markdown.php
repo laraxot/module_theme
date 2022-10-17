@@ -14,7 +14,12 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Markdown.
  */
+<<<<<<< HEAD
 class Markdown extends XotBaseComponent {
+=======
+class Markdown extends XotBaseComponent
+{
+>>>>>>> ede0df7 (first)
     protected string $flavor;
 
     protected string $htmlInput;
@@ -41,15 +46,26 @@ class Markdown extends XotBaseComponent {
         $this->anchors = $anchors;
     }
 
+<<<<<<< HEAD
     public function render(): View {
         return view()->make('theme::components.markdown.markdown');
     }
 
     public function toHtml(string $markdown): string {
+=======
+    public function render(): View
+    {
+        return view()->make('theme::components.markdown.markdown');
+    }
+
+    public function toHtml(string $markdown): string
+    {
+>>>>>>> ede0df7 (first)
         if ($this->anchors) {
             $markdown = $this->generateAnchors($markdown);
         }
 
+<<<<<<< HEAD
         return (string) $this->converter()->convertToHtml($markdown);
     }
 
@@ -59,6 +75,17 @@ class Markdown extends XotBaseComponent {
             [
                 'html_input' => $this->htmlInput,
                 'allow_unsafe_links' => $this->allowUnsafeLinks,
+=======
+        return strval($this->converter()->convertToHtml($markdown));
+    }
+
+    protected function converter(): MarkdownConverterInterface
+    {
+        $options = array_merge(
+            $this->options, [
+            'html_input' => $this->htmlInput,
+            'allow_unsafe_links' => $this->allowUnsafeLinks,
+>>>>>>> ede0df7 (first)
             ]
         );
 
@@ -69,6 +96,7 @@ class Markdown extends XotBaseComponent {
         return new CommonMarkConverter($options);
     }
 
+<<<<<<< HEAD
     protected function generateAnchors(string $markdown): string {
         preg_match_all('(```[a-z]*\n[\s\S]*?\n```)', $markdown, $matches);
         /**
@@ -76,6 +104,13 @@ class Markdown extends XotBaseComponent {
          */
         $anchors = $matches[0] ?? [];
         collect($anchors)->each(
+=======
+    protected function generateAnchors(string $markdown): string
+    {
+        preg_match_all('(```[a-z]*\n[\s\S]*?\n```)', $markdown, $matches);
+
+        collect($matches[0] ?? [])->each(
+>>>>>>> ede0df7 (first)
             function (string $match, int $index) use (&$markdown) {
                 $markdown = str_replace($match, "<!--code-block-$index-->", $markdown);
             }
@@ -86,11 +121,19 @@ class Markdown extends XotBaseComponent {
                 function (string $line) {
                     // For levels 2 to 6.
                     $anchors = [
+<<<<<<< HEAD
                         '## ',
                         '### ',
                         '#### ',
                         '##### ',
                         '###### ',
+=======
+                    '## ',
+                    '### ',
+                    '#### ',
+                    '##### ',
+                    '###### ',
+>>>>>>> ede0df7 (first)
                     ];
 
                     if (! Str::startsWith($line, $anchors)) {
@@ -104,11 +147,16 @@ class Markdown extends XotBaseComponent {
                 }
             )
             ->implode(PHP_EOL);
+<<<<<<< HEAD
         /**
          * @var array
          */
         $data = $matches[0] ?? [];
         collect($data)->each(
+=======
+
+        collect($matches[0] ?? [])->each(
+>>>>>>> ede0df7 (first)
             function (string $match, int $index) use (&$markdown) {
                 $markdown = str_replace("<!--code-block-$index-->", $match, $markdown);
             }

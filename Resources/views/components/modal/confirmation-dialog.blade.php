@@ -1,5 +1,9 @@
 @props(['id' => null, 'maxWidth' => null])
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
     https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/confirmation-dialog.blade.php
 --}}
 

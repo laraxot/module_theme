@@ -11,14 +11,22 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> ede0df7 (first)
     $(".dropzone").dropzone({
         url: "{{ route('unisharp.lfm.upload') }}",
         maxFilesize: {{ isset($maxFileSize) ? $maxFileSize : config('attachment.max_size', 1000) / 1000 }},
         acceptedFiles: "{!! isset($acceptedFiles) ? $acceptedFiles : config('attachment.allowed') !!}",
         headers: {'X-CSRF-TOKEN': "{{ csrf_token() }}"}
     });
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
 });
 </script>
 @endpush

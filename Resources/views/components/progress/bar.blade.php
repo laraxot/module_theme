@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{ $value }} %
+=======
+{{ $value }}
+>>>>>>> ede0df7 (first)
 <div class="progress progress-striped active" style="height:5px;">
     <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0"
         aria-valuemax="100" style="width: {{ $value }}%;">

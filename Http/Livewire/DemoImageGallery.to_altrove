@@ -174,9 +174,12 @@ class DemoImageGallery extends Component {
         $this->getImages();
         $this->getTabs();
 
+<<<<<<< HEAD
         /** 
         * @phpstan-var view-string
         */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.demo_image_gallery';
         //dddx($this->images);
         //dddx([$this->showTab()]);

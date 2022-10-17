@@ -2,7 +2,11 @@
 @section('content')
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
+<<<<<<< HEAD
             {{-- @livewire('create',['model'=>$_panel->getRow()]) --}}
+=======
+            {{-- @livewire('formx::create',['model'=>$_panel->getRow()]) --}}
+>>>>>>> ede0df7 (first)
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>

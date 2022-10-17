@@ -39,8 +39,13 @@ class Stringlist extends Component {
     public string $input_name;
 
     public function mount(SessionManager $session, string $minDate = null, string $maxDate = null, string $date_list = null, string $input_name): void {
+<<<<<<< HEAD
         // dddx($date_list);
         if (null !== $date_list) {
+=======
+        //dddx($date_list);
+        if (null != $date_list) {
+>>>>>>> ede0df7 (first)
             $first_date = collect(explode(',', $date_list))->filter(
                 function ($value) {
                     return ! empty($value);
@@ -49,14 +54,22 @@ class Stringlist extends Component {
         } else {
             $first_date = null;
         }
+<<<<<<< HEAD
         if (null === $first_date) {
+=======
+        if (null == $first_date) {
+>>>>>>> ede0df7 (first)
             $first_date = Carbon::now();
         } else {
             $first_date = Carbon::createFromFormat('d/m/Y', $first_date);
         }
 
         // aggiusto le date, gli 0 avanti ai giorni e mesi non vengono renderizzati, ergo...
+<<<<<<< HEAD
         if (null !== $date_list) {
+=======
+        if (! is_null($date_list)) {
+>>>>>>> ede0df7 (first)
             $date_list = str_replace(',0', ',', $date_list);
             $date_list = str_replace('/0', '/', $date_list);
 
@@ -67,7 +80,11 @@ class Stringlist extends Component {
             $date_list = '';
         }
 
+<<<<<<< HEAD
         // dddx($date_list);
+=======
+        //dddx($date_list);
+>>>>>>> ede0df7 (first)
 
         $session->put('calendar.now', $first_date);
         $this->date_list = $date_list;
@@ -79,6 +96,7 @@ class Stringlist extends Component {
     }
 
     private function setDate(): void {
+<<<<<<< HEAD
         /**
          * @var int
          */
@@ -97,6 +115,11 @@ class Stringlist extends Component {
         $this->selectedDay = $day;
         $this->selectedMonth = $this->currentMonth = $month;
         $this->selectedYear = $this->currentYear = $year;
+=======
+        $this->selectedDay = session('calendar.now')->day;
+        $this->selectedMonth = $this->currentMonth = session('calendar.now')->month;
+        $this->selectedYear = $this->currentYear = session('calendar.now')->year;
+>>>>>>> ede0df7 (first)
     }
 
     public function calendar(): array {
@@ -105,7 +128,11 @@ class Stringlist extends Component {
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)
             ->startOfMonth()
             ->isoWeekday();
+<<<<<<< HEAD
         if (! \is_int($startOfMonthDay)) {
+=======
+        if (! is_int($startOfMonthDay)) {
+>>>>>>> ede0df7 (first)
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         for ($i = 1; $i < (int) $startOfMonthDay; ++$i) {
@@ -118,7 +145,11 @@ class Stringlist extends Component {
         }
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
+<<<<<<< HEAD
         if (! \is_int($endOfMonthDay)) {
+=======
+        if (! is_int($endOfMonthDay)) {
+>>>>>>> ede0df7 (first)
             throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -161,7 +192,11 @@ class Stringlist extends Component {
     private function isDaySelected(int $day = null): bool {
         $date_selected = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
 
+<<<<<<< HEAD
         return \in_array($date_selected, explode(',', $this->date_list), true);
+=======
+        return in_array($date_selected, explode(',', $this->date_list));
+>>>>>>> ede0df7 (first)
         /*
         if ($day !== $this->selectedDay) {
             return false;
@@ -222,7 +257,11 @@ class Stringlist extends Component {
     }
 
     public function setByDay(int $day = null): void {
+<<<<<<< HEAD
         if (null === $day) {
+=======
+        if (is_null($day)) {
+>>>>>>> ede0df7 (first)
             return;
         }
         /*
@@ -234,10 +273,17 @@ class Stringlist extends Component {
         $collect = collect($arr);
         $date = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
         $i = $collect->search($date);
+<<<<<<< HEAD
         if (is_string($i) or is_int($i)) {
             $collect = $collect->forget($i);
         } else {
             $collect = $collect->merge([$date]);
+=======
+        if (false !== $i) {
+            $collect = $collect->forget($i);
+        } else {
+            $collect = $collect->merge($date);
+>>>>>>> ede0df7 (first)
         }
         $collect = $collect->filter(
             function ($value) {
@@ -276,11 +322,16 @@ class Stringlist extends Component {
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
         $view = 'theme::livewire.calendar.string_list';
         // dddx($this->date_list);
+=======
+        $view = 'theme::livewire.calendar.string_list';
+        //dddx($this->date_list);
+>>>>>>> ede0df7 (first)
         $view_params = [
             'view' => $view,
             'calendar' => $this->calendar(),
@@ -288,4 +339,8 @@ class Stringlist extends Component {
 
         return view()->make($view, $view_params);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ede0df7 (first)

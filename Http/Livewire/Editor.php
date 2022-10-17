@@ -9,12 +9,21 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
+<<<<<<< HEAD
 class Editor extends Component {
+=======
+class Editor extends Component
+{
+>>>>>>> ede0df7 (first)
     public string $label;
 
     public string $placeholder = 'Write a reply...';
 
+<<<<<<< HEAD
     public string $body = '';
+=======
+    public string $body;
+>>>>>>> ede0df7 (first)
 
     public string $hasButton;
 
@@ -24,6 +33,7 @@ class Editor extends Component {
 
     public string $buttonIcon;
 
+<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
         $body = old('body', $this->body);
         if (is_string($body)) {
@@ -39,6 +49,19 @@ class Editor extends Component {
     }
 
     public function getPreviewProperty(): string {
+=======
+    /**
+     */
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+        $this->body = old('body', $this->body);
+
+        return view('theme::livewire.editor');
+    }
+
+    public function getPreviewProperty(): string
+    {
+>>>>>>> ede0df7 (first)
         $ret = '';
 
         $html = md_to_html($this->body ?: '');
@@ -50,7 +73,12 @@ class Editor extends Component {
         return replace_links($ret);
     }
 
+<<<<<<< HEAD
     public function preview(): void {
+=======
+    public function preview(): void
+    {
+>>>>>>> ede0df7 (first)
         $this->emit('previewRequested');
     }
 }

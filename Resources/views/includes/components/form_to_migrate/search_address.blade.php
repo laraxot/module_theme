@@ -7,7 +7,11 @@
 	else
 		$label=trans($view.'.field.'.$name);
 	$placeholder=trans($view.'.field.'.$name.'_placeholder');
+<<<<<<< HEAD
 @endphp
+=======
+@endphp 
+>>>>>>> ede0df7 (first)
 
 <div class="input-group mb-2">
 	<input type="search" name="{{ $name }}" id="autocomplete" class="form-control ds-input form-control-lg" placeholder="{{ $placeholder }}" required />
@@ -51,31 +55,52 @@
 				if (status === google.maps.GeocoderStatus.OK) {
 					fillFields(results[0]);
 					$('#autocomplete').val(results[0].formatted_address);
+<<<<<<< HEAD
 				}
+=======
+				} 
+>>>>>>> ede0df7 (first)
 				//console.log(results);
 			});
 
 			if($('input[name="locality"]').val()==''){
+<<<<<<< HEAD
 				showPopoverMessage( '#autocomplete', 'Inserisci un indirizzo completo', 'top' );
 				e.preventDefault();return false;
 			}
 			if($('input[name="lat"]').val()==''){
 				showPopoverMessage( '#autocomplete', 'Inserisci non riconosciuto', 'top' );
+=======
+				showPopoverMessage( '#autocomplete', 'Inserisci un indirizzo completo', 'top' );	
+				e.preventDefault();return false;
+			}
+			if($('input[name="lat"]').val()==''){
+				showPopoverMessage( '#autocomplete', 'Inserisci non riconosciuto', 'top' );	
+>>>>>>> ede0df7 (first)
 				e.preventDefault();return false;
 			}
 			/*
 			if($('input[name="address"]').val()==''){
+<<<<<<< HEAD
 				showPopoverMessage( '#autocomplete', 'Inserisci un indirizzo completo', 'top' );
+=======
+				showPopoverMessage( '#autocomplete', 'Inserisci un indirizzo completo', 'top' );	
+>>>>>>> ede0df7 (first)
 				e.preventDefault();return false;
 			}
 			*/
 			/*
 			if($('input[name="street_number"]').val()==''){
+<<<<<<< HEAD
 				showPopoverMessage( '#autocomplete', 'Manca numero civico', 'top' );
+=======
+				showPopoverMessage( '#autocomplete', 'Manca numero civico', 'top' );	
+>>>>>>> ede0df7 (first)
 				e.preventDefault();return false;
 			}
 			*/
 			//return false;
+<<<<<<< HEAD
 
 			//$("#addressform").trigger( 'submit' );
 			$("#addressform").submit();
@@ -92,6 +117,24 @@
 	// parameter when you first load the API. For example:
 	// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+=======
+			
+			//$("#addressform").trigger( 'submit' );
+			$("#addressform").submit();
+			
+			//return false;
+		});
+	});
+	
+
+	// This example displays an address form, using the autocomplete feature
+	// of the Google Places API to help users fill in the information.
+	
+	// This example requires the Places library. Include the libraries=places
+	// parameter when you first load the API. For example:
+	// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+	
+>>>>>>> ede0df7 (first)
 	var placeSearch, autocomplete;
 	var componentForm = {
 		street_number: 'short_name',
@@ -101,7 +144,11 @@
 		country: 'long_name',
 		postal_code: 'short_name'
 	};
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ede0df7 (first)
 	function initAutocomplete() {
 		  // Create the autocomplete object, restricting the search to geographical
 		  // location types.
@@ -113,13 +160,22 @@
 		  // fields in the form.
 		  autocomplete.addListener('place_changed', fillInAddress);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ede0df7 (first)
 	function fillInAddress() {
 		// Get the place details from the autocomplete object.
 		//hidePopoverMessage( '#autocomplete' );
 		var place = autocomplete.getPlace();
+<<<<<<< HEAD
 		fillFields(place);
 
+=======
+		fillFields(place);		
+		
+>>>>>>> ede0df7 (first)
 	}
 
 	function fillFields(place){
@@ -147,7 +203,11 @@
 			}
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ede0df7 (first)
 	// Bias the autocomplete object to the user's geographical location,
 	// as supplied by the browser's 'navigator.geolocation' object.
 	function geolocate() {
@@ -185,5 +245,9 @@
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?language=it&key={{ config('services.google.maps_key') }}&libraries=places&callback=initAutocomplete" async defer></script>
 
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> ede0df7 (first)
 @endpush

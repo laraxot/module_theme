@@ -9,17 +9,30 @@ use Livewire\Component;
 /**
  * Class Test.
  */
+<<<<<<< HEAD
 class Test extends Component {
+=======
+class Test extends Component
+{
+>>>>>>> ede0df7 (first)
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     /**
      * Render the component.
+<<<<<<< HEAD
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.test';
         $i = 1;
         $shops = [

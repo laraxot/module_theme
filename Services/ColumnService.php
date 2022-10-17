@@ -32,7 +32,11 @@ class ColumnService {
 
     protected bool $sortable = false;
     // se lo metto davanti alla variabile
+<<<<<<< HEAD
     // \Services\ColumnService::$sortCallback cannot have type callable
+=======
+    //\Services\ColumnService::$sortCallback cannot have type callable
+>>>>>>> ede0df7 (first)
     /**
      * Undocumented variable.
      *
@@ -42,7 +46,11 @@ class ColumnService {
 
     protected string $view;
 
+<<<<<<< HEAD
     // private static $instance = null;
+=======
+    //private static $instance = null;
+>>>>>>> ede0df7 (first)
 
     /**
      * ColumnService constructor.
@@ -52,7 +60,11 @@ class ColumnService {
      */
     public function __construct($heading, $attribute) {
         $this->heading = $heading;
+<<<<<<< HEAD
         // 54     Variable $attribute on left side of ?? always exists and is not nullable.
+=======
+        //54     Variable $attribute on left side of ?? always exists and is not nullable.
+>>>>>>> ede0df7 (first)
         $this->attribute = $attribute; // ?? Str::snake(Str::lower($heading));
     }
 
@@ -128,10 +140,17 @@ class ColumnService {
 
         $views = [];
         $pieces = explode('_', $type);
+<<<<<<< HEAD
         $pieces_count = \count($pieces);
         for ($i = $pieces_count; $i > 0; --$i) {
             $a = \array_slice($pieces, 0, $i);
             $b = \array_slice($pieces, $i);
+=======
+        $pieces_count = count($pieces);
+        for ($i = $pieces_count; $i > 0; --$i) {
+            $a = array_slice($pieces, 0, $i);
+            $b = array_slice($pieces, $i);
+>>>>>>> ede0df7 (first)
             $views[] = $start.implode('_', $a).'.'.implode('_', array_merge(['freeze'], $b));
         }
         $view = collect($views)->first(
@@ -139,7 +158,11 @@ class ColumnService {
                 return \View::exists($view_check);
             }
         );
+<<<<<<< HEAD
         if (null === $view) {
+=======
+        if (false == $view) {
+>>>>>>> ede0df7 (first)
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -147,26 +170,45 @@ class ColumnService {
                     'file' => __FILE__,
                     'pub_theme' => config('xra.pub_theme'),
                     'adm_theme' => config('xra.adm_theme'),
+<<<<<<< HEAD
                     // 'view0_dir' => self::viewNamespaceToDir($views[0]),
+=======
+                    //'view0_dir' => self::viewNamespaceToDir($views[0]),
+>>>>>>> ede0df7 (first)
                     'views' => $views,
                 ];
             dddx($ddd_msg);
         }
 
+<<<<<<< HEAD
         // dddx(\View::first($views));
+=======
+        //dddx(\View::first($views));
+>>>>>>> ede0df7 (first)
         $view_params = [
             'view' => $view,
             'row' => $model,
             'value' => $value,
+<<<<<<< HEAD
             // 'field' => $this,
         ];
 
         if (null === $view) {
+=======
+            //'field' => $this,
+        ];
+
+        if (is_null($view)) {
+>>>>>>> ede0df7 (first)
             throw new \Exception('view is null');
         }
 
         return view()->make($view, $view_params);
 
+<<<<<<< HEAD
         // return $value;
+=======
+        //return $value;
+>>>>>>> ede0df7 (first)
     }
 }

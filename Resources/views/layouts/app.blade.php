@@ -18,6 +18,10 @@
         @include('pub_theme::layouts.partials.footer')
     @endif
     @stack('modals')
+<<<<<<< HEAD
     @includeWhen(view()->exists('cookieConsent::index'), 'cookieConsent::index')
     @includeWhen(view()->exists('cookie-consent::index'), 'cookie-consent::index')
+=======
+    @include('cookieConsent::index')
+>>>>>>> ede0df7 (first)
 @endsection

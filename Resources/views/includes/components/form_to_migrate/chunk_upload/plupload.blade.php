@@ -7,13 +7,25 @@
 
 <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
 <br />
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ede0df7 (first)
 <div id="container">
     <a id="pickfiles" href="javascript:;">[Select files]</a>
     <a id="uploadfiles" href="javascript:;">[Upload files]</a>
 </div>
+<<<<<<< HEAD
 
 <br />
 <pre id="console"></pre>
 
 
+=======
+ 
+<br />
+<pre id="console"></pre>
+ 
+ 
+>>>>>>> ede0df7 (first)

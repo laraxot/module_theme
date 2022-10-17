@@ -29,9 +29,12 @@ class Search extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.hero.search.'.$this->type;
 
         $view_params = [

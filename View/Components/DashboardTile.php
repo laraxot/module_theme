@@ -6,7 +6,12 @@ namespace Modules\Theme\View\Components;
 
 use Illuminate\View\Component;
 
+<<<<<<< HEAD
 class DashboardTile extends Component {
+=======
+class DashboardTile extends Component
+{
+>>>>>>> ede0df7 (first)
     public string $gridArea;
 
     public ?int $refreshIntervalInSeconds;
@@ -35,17 +40,31 @@ class DashboardTile extends Component {
         $this->show = $show;
     }
 
+<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
         return view('theme::components.dashboard-tile');
     }
 
     protected function convertToGridArea(string $position): string {
+=======
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+        return view('theme::components.dashboard-tile');
+    }
+
+    protected function convertToGridArea(string $position): string
+    {
+>>>>>>> ede0df7 (first)
         $parts = explode(':', $position);
 
         $from = $parts[0];
         $to = $parts[1] ?? null;
 
+<<<<<<< HEAD
         if (\strlen($from) < 2 || ($to && \strlen($to) < 2)) {
+=======
+        if (strlen($from) < 2 || ($to && strlen($to) < 2)) {
+>>>>>>> ede0df7 (first)
             return '';
         }
 
@@ -63,10 +82,18 @@ class DashboardTile extends Component {
         return "{$areaFrom} / {$toStart} / {$toEnd}";
     }
 
+<<<<<<< HEAD
     private function indexInAlphabet(string $character): int {
         $alphabet = range('a', 'z');
 
         $index = array_search(strtolower($character), $alphabet, true);
+=======
+    private function indexInAlphabet(string $character): int
+    {
+        $alphabet = range('a', 'z');
+
+        $index = array_search(strtolower($character), $alphabet);
+>>>>>>> ede0df7 (first)
 
         return $index + 1;
     }

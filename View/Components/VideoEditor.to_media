@@ -203,9 +203,12 @@ class VideoEditor extends Component {
             /*}*/
         /*}*/
 
+<<<<<<< HEAD
         /** 
         * @phpstan-var view-string
         */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.video-editor.'.$this->driver;
 
         

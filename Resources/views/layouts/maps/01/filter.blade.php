@@ -2,7 +2,11 @@
 	<!-- /widget heading -->
 	<div class="widget-heading">
 		<h3 class="widget-title text-dark">
+<<<<<<< HEAD
 				@lang($view.'.Searchfilter')
+=======
+				@lang($view.'.Searchfilter') 
+>>>>>>> ede0df7 (first)
 
 			</h3>
 		<div class="clearfix"></div>

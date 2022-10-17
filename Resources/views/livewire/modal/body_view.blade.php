@@ -12,11 +12,18 @@
                             <small>{{ $subtitle }}</small>
                         @endif
                     </h4>
+<<<<<<< HEAD
                     {{-- <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">
                         <span aria-hidden="true">×</span>
                     </button> --}}
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         wire:click.prevent="doClose()"></button>
+=======
+
+                    <button class="close" type="button" aria-label="Close" wire:click.prevent="doClose()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+>>>>>>> ede0df7 (first)
                 </div>
                 <div class="modal-body">
                     @if (session()->has('message'))
@@ -24,10 +31,16 @@
                             {{ session('message') }}
                         </div>
                     @endif
+<<<<<<< HEAD
                     
                     
                     @include($body_view)
                     
+=======
+
+                    @include($body_view)
+
+>>>>>>> ede0df7 (first)
                 </div>
 
             </div>

@@ -25,4 +25,8 @@
 </div>
 </div>
 @endif
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ede0df7 (first)

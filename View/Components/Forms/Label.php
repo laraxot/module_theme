@@ -11,6 +11,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Label.
  */
+<<<<<<< HEAD
 class Label extends XotBaseComponent {
     public string $for;
 
@@ -22,12 +23,30 @@ class Label extends XotBaseComponent {
         /**
          * @phpstan-var view-string
          */
+=======
+class Label extends XotBaseComponent
+{
+    public string $for;
+
+    public function __construct(string $for)
+    {
+        $this->for = $for;
+    }
+
+    public function render(): Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.forms.label';
 
         return view()->make($view);
     }
 
+<<<<<<< HEAD
     public function fallback(): string {
+=======
+    public function fallback(): string
+    {
+>>>>>>> ede0df7 (first)
         return Str::ucfirst(str_replace('_', ' ', $this->for));
     }
 }

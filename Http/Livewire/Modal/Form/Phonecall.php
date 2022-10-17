@@ -7,8 +7,11 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Modal\Form;
 
+<<<<<<< HEAD
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Mail;
+=======
+>>>>>>> ede0df7 (first)
 use Livewire\Component;
 use Modules\Cybersecurity\Mail\MyTestMail;
 
@@ -16,6 +19,7 @@ class Phonecall extends Component {
     public string $title;
     public bool $show = false;
     public string $body_view;
+<<<<<<< HEAD
     public string $popup_subtitle;
     public string $popup_title;
     public string $popup_button;
@@ -26,6 +30,9 @@ class Phonecall extends Component {
      *
      * @var array
      */
+=======
+
+>>>>>>> ede0df7 (first)
     protected $listeners = ['doSend' => 'doSend'];
 
     public function mount(string $title = '', string $popup_title = 'Titolo Modal', string $popup_subtitle = 'Sotto-titolo Modal', string $popup_button = 'Invia', string $color = '#007bff'): void {
@@ -49,7 +56,11 @@ class Phonecall extends Component {
         $this->show = false;
     }
 
+<<<<<<< HEAD
     public function doSend(array $form_data): void {
+=======
+    public function doSend($form_data): void {
+>>>>>>> ede0df7 (first)
         if (empty($form_data['business_name'])) {
             $this->emitTo('theme::modal.body-view', 'sendMessage', 'Compila il campo Azienda');
 
@@ -83,6 +94,7 @@ class Phonecall extends Component {
 
         $to_email = 'pentesting@cybersec00.com';
 
+<<<<<<< HEAD
         // ---------- schifo
         // Mail::to($to_email)->send(new MyTestMail($details));
 
@@ -94,6 +106,15 @@ class Phonecall extends Component {
         /**
          * @phpstan-var view-string
          */
+=======
+        \Mail::to($to_email)->send(new MyTestMail($details));
+
+        $this->emitTo('theme::modal.body-view', 'sendMessage', 'Messaggio Inviato');
+        //$this->emitTo('theme::modal.body-view', 'doClose');
+    }
+
+    public function render() {
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.modal.form.phonecall';
 
         $view_params = [

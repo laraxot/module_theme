@@ -17,16 +17,23 @@ class Form extends Component {
 
     public bool $hasFiles;
 
+<<<<<<< HEAD
     public function __construct(string $action = '', string $method = 'POST', bool $hasFiles = false) {
+=======
+    public function __construct(string $action, string $method = 'POST', bool $hasFiles = false) {
+>>>>>>> ede0df7 (first)
         $this->action = $action;
         $this->method = strtoupper($method);
         $this->hasFiles = $hasFiles;
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.form';
         $view_params = [
             'view' => $view,

@@ -2,7 +2,11 @@
     @php
         //$tabs=['restaurant','cuisineCat'];
         $current_tab = $row->post_type;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ede0df7 (first)
         $trad = str_replace('.' . $row->post_type . '.index_edit', '', $view);
         //echo '<br/>view :['.$view.']';
         //echo '<br/>[.'.$row->post_type.'.index_edit]';
@@ -44,7 +48,11 @@
                         dddx($routename);
                         break;
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> ede0df7 (first)
             @endphp
             <li class="nav-item">
                 <a class="btn btn-secondary nav-link {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"

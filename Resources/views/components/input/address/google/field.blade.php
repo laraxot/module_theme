@@ -1,10 +1,25 @@
+<<<<<<< HEAD
 
+=======
+@component($input_component, get_defined_vars())
+    @slot('label')
+        <label>
+            {{ $label }}
+        </label>
+    @endslot
+    @slot('input')
+>>>>>>> ede0df7 (first)
         <input type="hidden" {{ $attributes->merge($attrs) }} />
         <div wire:ignore>
             <input type="text" data-google-address="{&quot;field&quot;: &quot;{{ $name }}&quot;}" class="form-control"
                 autocomplete="off" wire:model.lazy="form_data.{{ $name }}_value" />
         </div>
+<<<<<<< HEAD
 
+=======
+    @endslot
+@endcomponent
+>>>>>>> ede0df7 (first)
 @push('styles')
     <style>
         .ap-input-icon.ap-icon-pin {

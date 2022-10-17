@@ -19,6 +19,10 @@ class Item extends Component {
      * @return void
      */
     public function __construct(?string $class = ' h-auto px-2', ?string $style = null) {
+<<<<<<< HEAD
+=======
+        
+>>>>>>> ede0df7 (first)
         $this->attrs['slide_class'] = $class;
         $this->attrs['slide_style'] = $style;
     }
@@ -27,9 +31,12 @@ class Item extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.swiper.item';
 
         $view_params = [
@@ -38,4 +45,8 @@ class Item extends Component {
 
         return view()->make($view, $view_params);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ede0df7 (first)

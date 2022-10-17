@@ -12,26 +12,36 @@ use Illuminate\View\Component;
  */
 class Nav extends Component {
     public array $attrs = [];
+<<<<<<< HEAD
     public bool $adv = false;
     public string $text = '';
+=======
+>>>>>>> ede0df7 (first)
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
+<<<<<<< HEAD
     public function __construct(?bool $adv = false, ?string $text = '') {
         $this->adv = $adv;
         $this->text = $text;
+=======
+    public function __construct() {
+>>>>>>> ede0df7 (first)
     }
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.header.nav';
 
         $view_params = [

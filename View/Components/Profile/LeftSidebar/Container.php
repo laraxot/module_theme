@@ -11,6 +11,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Item.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
+<<<<<<< HEAD
 class Container extends XotBaseComponent {
     public function __construct() {
     }
@@ -19,6 +20,16 @@ class Container extends XotBaseComponent {
         /**
          * @phpstan-var view-string
          */
+=======
+class Container extends XotBaseComponent
+{
+    public function __construct()
+    {
+    }
+
+    public function render(): Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.profile.left-sidebar.container';
         $view_params = [
             'view' => $view,

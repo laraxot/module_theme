@@ -19,7 +19,11 @@
 			<strong>{{ $errors->first($name) }}</strong>
 		</span>
 	@endif
+<<<<<<< HEAD
 	<small class="form-text text-muted">{{ trans($view.'.field.'.$name.'_help') }} </small>
+=======
+	<small class="form-text text-muted">{{ trans($view.'.field.'.$name.'_help') }} </small> 
+>>>>>>> ede0df7 (first)
 </div>
 --}}
 	@endslot

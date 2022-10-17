@@ -90,8 +90,13 @@ $("#myModal").on("show.bs.modal", function(e) {
       $k=$(this).attr('name');//.slice(0,-2); // per togliere []
       $v=$(this).val();
       //alert($k+'   '+$v);
+<<<<<<< HEAD
       $data[$k]=$v;
     });
+=======
+      $data[$k]=$v; 
+    }); 
+>>>>>>> ede0df7 (first)
 
 
     //alert($data['_token']);
@@ -106,12 +111,21 @@ $("#myModal").on("show.bs.modal", function(e) {
       //contentType: "application/json; charset=utf-8",
         //dataType: "json",
       data:$data,
+<<<<<<< HEAD
       //data:{_token:$token,content:$data['content'],content_type:$data['content_type'],},
 
       success: function(data, status) {
                 $myModal.find(".modal-body").html(data);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
+=======
+      //data:{_token:$token,content:$data['content'],content_type:$data['content_type'],}, 
+      
+      success: function(data, status) {
+                $myModal.find(".modal-body").html(data);  
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+>>>>>>> ede0df7 (first)
               /*
               html='';
               for(i in XMLHttpRequest){
@@ -119,11 +133,19 @@ $("#myModal").on("show.bs.modal", function(e) {
               }
               alert(html);
               //alert('XMLHttpRequest' + XMLHttpRequest);
+<<<<<<< HEAD
                 alert("Status: " + textStatus); alert("Error: " + errorThrown);
               */
             }
     });
 
+=======
+                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+              */
+            }       
+    });
+      
+>>>>>>> ede0df7 (first)
 
 
 
@@ -136,9 +158,15 @@ $('#btnSave').click(function() {
         alert($k+'  '+$v);
         //$data[$k]=$v;
         //alert($invoker.parent().parent().find('[name='+$k+']').val());
+<<<<<<< HEAD
         $invoker.parent().parent().find('[name='+$k+']').val($v);
     });
 
+=======
+        $invoker.parent().parent().find('[name='+$k+']').val($v);     
+    });
+    
+>>>>>>> ede0df7 (first)
 
 
    $('#myModal').modal('hide');

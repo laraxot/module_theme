@@ -21,7 +21,11 @@ var_dump($file);
 <div id="ris">RIS</div>
 <div id='parse-data'>Patrse</div>
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
 http://james.padolsey.com/javascript/cross-domain-requests-with-jquery/
 https://github.com/padolsey-archive/jquery.fn/blob/master/cross-domain-ajax/test/test.js
 http://www.jacobward.co.uk/using-php-to-scrape-javascript-jquery-json-websites/
@@ -57,8 +61,13 @@ $(document).ready(function () {
                    document.getElementById('parse-data').innerHTML = data.query.results.body.div.h1;
                 });
     */
+<<<<<<< HEAD
 
 });
+=======
+	
+});	
+>>>>>>> ede0df7 (first)
 
 
 </script>

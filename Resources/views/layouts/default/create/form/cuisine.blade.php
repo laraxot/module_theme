@@ -1,5 +1,9 @@
 {!! Form::bsOpen($row,'store') !!}
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ede0df7 (first)
 {{ Form::bsTwitterTypeahead('title',null,['data-href'=>$row->url.'?q=%QUERY%']) }}
 {{--
 {{ Form::bsJqueryuiAutocomplete('title',null,['data-href'=>$row->url.'?q=%QUERY%']) }}

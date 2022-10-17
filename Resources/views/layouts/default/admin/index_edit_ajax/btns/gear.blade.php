@@ -12,7 +12,11 @@
 		@lang($view_default.'.view_page') <i class="fa fa-show"></i>
 		</a>
 		@include('theme::layouts.partials.btns.translate_manager')
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> ede0df7 (first)
 		{{--
 		<span>You will find much more options</span>
 		--}}

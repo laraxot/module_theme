@@ -1,7 +1,13 @@
 <template>
+<<<<<<< HEAD
     <{{ $row->type }}-js controls preload="auto" ref="video-player" class="video-js vjs-big-play-centered">
         <source :src="src" type="video/mp4" />
     </{{ $row->type }}-js>
+=======
+    <video-js controls preload="auto" ref="video-player" class="video-js vjs-big-play-centered">
+        <source :src="src" type="video/mp4" />
+    </video-js>
+>>>>>>> ede0df7 (first)
 
 </template>
 

@@ -11,12 +11,22 @@ use Illuminate\Support\Str;
 /**
  * Class ActiveChecker.
  */
+<<<<<<< HEAD
 class ActiveChecker {
+=======
+class ActiveChecker
+{
+>>>>>>> ede0df7 (first)
     private Request $request;
 
     private UrlGenerator $url;
 
+<<<<<<< HEAD
     public function __construct(Request $request, UrlGenerator $url) {
+=======
+    public function __construct(Request $request, UrlGenerator $url)
+    {
+>>>>>>> ede0df7 (first)
         $this->request = $request;
         $this->url = $url;
     }
@@ -26,7 +36,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     public function isActive($item) {
+=======
+    public function isActive($item)
+    {
+>>>>>>> ede0df7 (first)
         if (isset($item['active'])) {
             return $this->isExplicitActive($item['active']);
         }
@@ -52,7 +67,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected function checkExactOrSub($url) {
+=======
+    protected function checkExactOrSub($url)
+    {
+>>>>>>> ede0df7 (first)
         return $this->checkExact($url) || $this->checkSub($url);
     }
 
@@ -61,7 +81,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected function checkExact($url) {
+=======
+    protected function checkExact($url)
+    {
+>>>>>>> ede0df7 (first)
         return $this->checkPattern($url);
     }
 
@@ -70,7 +95,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected function checkSub($url) {
+=======
+    protected function checkSub($url)
+    {
+>>>>>>> ede0df7 (first)
         return $this->checkPattern($url.'/*') || $this->checkPattern($url.'?*');
     }
 
@@ -79,7 +109,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected function checkPattern($pattern) {
+=======
+    protected function checkPattern($pattern)
+    {
+>>>>>>> ede0df7 (first)
         $fullUrlPattern = $this->url->to($pattern);
 
         $fullUrl = $this->request->fullUrl();
@@ -92,7 +127,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     protected function containsActive($items) {
+=======
+    protected function containsActive($items)
+    {
+>>>>>>> ede0df7 (first)
         foreach ($items as $item) {
             if ($this->isActive($item)) {
                 return true;
@@ -107,7 +147,12 @@ class ActiveChecker {
      *
      * @return bool
      */
+<<<<<<< HEAD
     private function isExplicitActive($active) {
+=======
+    private function isExplicitActive($active)
+    {
+>>>>>>> ede0df7 (first)
         foreach ($active as $url) {
             if ($this->checkExact($url)) {
                 return true;

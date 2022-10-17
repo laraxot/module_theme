@@ -2,7 +2,11 @@
     Theme::add('/theme/bc/resumable.js/resumable.js');
     Theme::add('backend::includes/components/form/chunk_upload/js/resumable.js');
 @endphp
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
     <h2>Example</h2>
     <div class="text-center" >
         <div id="resumable-error" style="display: none">

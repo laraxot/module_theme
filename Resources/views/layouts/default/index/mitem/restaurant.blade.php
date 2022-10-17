@@ -17,23 +17,39 @@
 				<br/>
 				<i class="fa fa-cutlery" aria-hidden="true"></i>
 				@php
+<<<<<<< HEAD
 
 					$cuisineCats=$row->cuisineCats;//110
 
+=======
+					
+					$cuisineCats=$row->cuisineCats;//110
+					
+>>>>>>> ede0df7 (first)
 				@endphp
 				@foreach($cuisineCats as $cuisineCat)
 				<span itemprop="servesCuisine">{{ $cuisineCat->title }}</span>,
 				@endforeach
 				<br/>
+<<<<<<< HEAD
 
+=======
+				
+>>>>>>> ede0df7 (first)
 				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
       				<span itemprop="postalCode">{{ $row->postal_code }}</span>
       				<span itemprop="addressLocality">{{ $row->locality }}</span>,
       				(<span itemprop="addressRegion">{{ $row->administrative_area_level_2_short }}</span>)
+<<<<<<< HEAD
       				<meta itemprop="addressCountry" content="{{ $row->country_short}}" />
     			</div>
 
+=======
+      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" /> 
+    			</div>
+				
+>>>>>>> ede0df7 (first)
 				{{--
 				@include('pub_theme::layouts.partials.item.address',['linked'=>$row->])
 				<ul class="list-inline">
@@ -53,7 +69,11 @@
 					--}}
 					@if(is_array($row->tabs))
 					@foreach($row->tabs as $tab)
+<<<<<<< HEAD
 					{{--
+=======
+					{{--											
+>>>>>>> ede0df7 (first)
 					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.tab.'.$tab)</a>
 					--}}
 					@php
@@ -65,7 +85,11 @@
 					<a href="{{ route('containers.index',$parz,false) }}" class="btn theme-btn-dash">
 						@lang('pub_theme::restaurant.tab.'.$tab)
 					</a>
+<<<<<<< HEAD
 					@endforeach
+=======
+					@endforeach 
+>>>>>>> ede0df7 (first)
 					@endif
 				</div>
 			</div>

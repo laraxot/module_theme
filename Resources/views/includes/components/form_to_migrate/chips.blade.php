@@ -2,7 +2,11 @@
 	{{ Form::label($name,  trans($view.'.field.'.$name), ['class' => 'col-md-4 control-label']) }}
 	<div class="col-md-6">
 		{{ Form::text($name, $value, array_merge(['class' => 'form-control'], $attributes)) }}
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
 		@if ( $errors->has($name) )
 			<span class="help-block">
 				<strong>{{ $errors->first($name) }}</strong>
@@ -14,7 +18,11 @@ value:{{ $value }}
 @php
 //  $val=Form::getValueAttribute($name)->get();
 @endphp
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
 bower install --save bootstrap-tagsinput/bootstrap-tagsinput
 
 GET: retrieve resources
@@ -37,7 +45,11 @@ var chips = new Bloodhound({
 		url: '/api/ingredients',
 		filter: function(list) {
 			return $.map(list, function(cityname) {
+<<<<<<< HEAD
 				return { name: cityname };
+=======
+				return { name: cityname }; 
+>>>>>>> ede0df7 (first)
 			});
 		}
 	}
@@ -55,7 +67,11 @@ elt.tagsinput({
     source: chips.ttAdapter()
   }
 });
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
 @foreach($val as $row)
 elt.tagsinput('add', { "value": {{ $row->post_id }} , "text": "{{ $row->title }}" });
 @endforeach

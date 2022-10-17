@@ -29,6 +29,7 @@ namespace Modules\Theme\View\Components\Alerts;
 
 use Illuminate\View\Component;
 
+<<<<<<< HEAD
 class AlertV1 extends Component {
     public array $attrs = [];
     public string $icon;
@@ -51,6 +52,32 @@ class AlertV1 extends Component {
                 break;
         }
         // $this->type = $type;
+=======
+class AlertV1 extends Component
+{
+    public array $attrs = [];
+    public string $icon;
+    //public $type;
+    public ?string $title;
+    public ?bool $dismissable;
+
+    public function __construct(?string $type = 'info', ?bool $dismissable = false, string $title = 'Alert')
+    {
+        $this->attrs['class'] = 'alert alert-'.$type.' '.($dismissable ? 'alert-dismissible' : '');
+        switch ($type) {
+        case 'info': $this->icon = 'info'; 
+            break;
+        case 'warning': $this->icon = 'exclamation-triangle'; 
+            break;
+        case 'success': $this->icon = 'check'; 
+            break;
+        case 'danger': $this->icon = 'ban'; 
+            break;
+        default: $this->icon = 'exclamation'; 
+            break;
+        }
+        //$this->type = $type;
+>>>>>>> ede0df7 (first)
         $this->title = $title;
         $this->dismissable = $dismissable;
     }
@@ -58,10 +85,15 @@ class AlertV1 extends Component {
     /**
      * Get the view / contents that represent the component.
      */
+<<<<<<< HEAD
     public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.alerts.alertV1';
 
         $view_params = [

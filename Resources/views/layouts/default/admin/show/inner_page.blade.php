@@ -6,7 +6,11 @@
 		$bg='pub_theme::images/bg/'.$show_type.'.jpg';
 	}
 
+<<<<<<< HEAD
 @endphp
+=======
+@endphp 
+>>>>>>> ede0df7 (first)
 <div class="inner-page-hero bg-image" data-image-src="{{ Theme::img_src($bg) }}">
     <div class="container"> </div>
         <!-- end:Container -->

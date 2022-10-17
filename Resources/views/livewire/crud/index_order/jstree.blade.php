@@ -48,7 +48,11 @@
                 var r = confirm("Press a button!");
                 if (!r == true) {
                   location.reload();
+<<<<<<< HEAD
                 }
+=======
+                } 
+>>>>>>> ede0df7 (first)
                 var operation = 'dnd_stop.vakata';
                 var node= $('#jstree').data('node');
                 var node_parent= $('#jstree').data('node_parent');
@@ -60,7 +64,11 @@
                 $('#jstree').data('node',node);
                 $('#jstree').data('node_parent',node_parent);
                 $('#jstree').data('node_position',node_position);
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> ede0df7 (first)
                 check['area-menu']=true;
                 check['menu-menu']=true;
                 check['menu-page']=true;
@@ -82,7 +90,11 @@
                 if(res=='loading'){
                     return false;
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> ede0df7 (first)
                 console.log(check_key);
                 console.log(res);
                 return res;

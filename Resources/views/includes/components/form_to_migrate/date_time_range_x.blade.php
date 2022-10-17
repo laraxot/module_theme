@@ -42,11 +42,19 @@ $name=$start_name.'__'.$end_name;
 
 {{	Theme::addStyle('/theme/bc/bootstrap-daterangepicker/daterangepicker.css') }}
 
+<<<<<<< HEAD
 
+=======
+{{  Theme::addScript('/theme/bc/jquery/dist/jquery.min.js') }}
+>>>>>>> ede0df7 (first)
 {{--	Theme::addScript('/theme/bc/moment/min/moment.min.js') --}}
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{  Theme::addScript('backend::js/bsDateTimeRange.js') }}
 
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}

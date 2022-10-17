@@ -5,7 +5,11 @@
 <div class="sidebar clearfix m-b-20">
 	<div class="main-block">
 		<div class="sidebar-title white-txt">
+<<<<<<< HEAD
 			<h6>@lang($view_default.'.choose_cat')</h6>
+=======
+			<h6>@lang($view_default.'.choose_cat')</h6> 
+>>>>>>> ede0df7 (first)
 			<i class="fa fa-cutlery pull-right"></i>
 		</div>
 		<ul>

@@ -1,7 +1,11 @@
 <div id="menu-settings-column" class="metabox-holder">
 
     <div class="clear"></div>
+<<<<<<< HEAD
     {{--
+=======
+    {{--  
+>>>>>>> ede0df7 (first)
     <form id="nav-menu-meta" action="" class="nav-menu-meta" method="post" enctype="multipart/form-data">
     --}}
         <div id="side-sortables" class="accordion-container">
@@ -48,7 +52,11 @@
 
             </ul>
         </div>
+<<<<<<< HEAD
     {{--
+=======
+    {{--  
+>>>>>>> ede0df7 (first)
     </form>
     --}}
 

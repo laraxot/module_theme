@@ -14,7 +14,11 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Item extends XotBaseComponent {
     public array $attrs;
 
+<<<<<<< HEAD
     public function __construct(string $id, string $operativesystem, string $browser, string $iplocation, string $time) {
+=======
+    public function __construct(string $id = 'users-security-item-0', string $operativesystem, string $browser, string $iplocation, string $time) {
+>>>>>>> ede0df7 (first)
         $this->attrs['id'] = $id;
         $this->attrs['operativesystem'] = $operativesystem;
         $this->attrs['browser'] = $browser;
@@ -23,9 +27,12 @@ class Item extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.users.security.item';
         $view_params = [
             'view' => $view,

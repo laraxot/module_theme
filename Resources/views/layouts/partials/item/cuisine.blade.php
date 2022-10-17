@@ -30,9 +30,15 @@
 					<p> 245 Reviews</p>
 					--}}
 
+<<<<<<< HEAD
 					@foreach($tabs as $tab)
 					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.'.$tab)</a>
 					@endforeach
+=======
+					@foreach($tabs as $tab)											
+					<a href="{{ $row->url }}/{{ $tab }}" class="btn theme-btn-dash">@lang('pub_theme::restaurant.show.'.$tab)</a>
+					@endforeach 
+>>>>>>> ede0df7 (first)
 				</div>
 			</div>
 			<!-- end:right info -->

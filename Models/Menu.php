@@ -4,13 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+=======
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> ede0df7 (first)
 use Modules\Xot\Traits\SushiConfigCrud;
 use Sushi\Sushi;
 
 /**
+<<<<<<< HEAD
  * Modules\Theme\Models\Menu.
  *
  * @property int $id
@@ -23,6 +28,9 @@ use Sushi\Sushi;
  * @method static Builder|Menu whereId($value)
  * @method static Builder|Menu whereName($value)
  * @mixin \Eloquent
+=======
+ * @mixin IdeHelperMenu
+>>>>>>> ede0df7 (first)
  */
 class Menu extends Model {
     use Sushi;
@@ -43,7 +51,11 @@ class Menu extends Model {
 
     public function getRows(): array {
         $rows = config($this->config_name);
+<<<<<<< HEAD
         if (! \is_array($rows)) {
+=======
+        if (! is_array($rows)) {
+>>>>>>> ede0df7 (first)
             return
             [
                 [
@@ -56,6 +68,7 @@ class Menu extends Model {
         return $rows;
     }
 
+<<<<<<< HEAD
     public static function byName(string $name): ?Menu {
         return self::where('name', '=', $name)->first();
     }
@@ -66,6 +79,13 @@ class Menu extends Model {
      * @return HasMany<MenuItem>
      */
     public function items(): HasMany {
+=======
+    public static function byName($name) {
+        return self::where('name', '=', $name)->first();
+    }
+
+    public function items() {
+>>>>>>> ede0df7 (first)
         return $this->hasMany(MenuItem::class, 'menu')
             ->with('child')
             ->where(function ($query) {

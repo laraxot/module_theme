@@ -3,7 +3,11 @@ data-style:
 selectpicker
 primary
 secondary
+<<<<<<< HEAD
 muted
+=======
+muted 
+>>>>>>> ede0df7 (first)
 
 options:
 [value,

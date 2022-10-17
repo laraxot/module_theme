@@ -2,7 +2,11 @@
 	Theme::addSelect2();
 	$action=route('containers.store',array_merge($params,['container1'=>'cuisine','item1'=>$cuisine->guid,'container2'=>'recipe']));
 @endphp
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
 <p style="color:black">
 <br/>store1:{{ $action }}
 <br/>store2:{{ $cuisine->store_url }}
@@ -15,10 +19,17 @@
 	<div class="input-group">
 	--}}
 		<select class="form-control select2ajax" name="title" data-tags="true"
+<<<<<<< HEAD
 		data-placeholder="Aggiungi Piatto"
 		data-allow-clear="true" data-ajax--url="{{ url('/it/recipe')}}" data-ajax--cache="true" ></select>
 		<input type="text" name="subtitle" class="form-control" placeholder="descrizione corta" />
 		<input type="number" name="pivot[price]" class="form-control" placeholder="prezzo" step="0.01" />
+=======
+		data-placeholder="Aggiungi Piatto" 
+		data-allow-clear="true" data-ajax--url="{{ url('/it/recipe')}}" data-ajax--cache="true" ></select>
+		<input type="text" name="subtitle" class="form-control" placeholder="descrizione corta" />
+		<input type="number" name="pivot[price]" class="form-control" placeholder="prezzo" step="0.01" /> 
+>>>>>>> ede0df7 (first)
 		<span class="input-group-btn">
 			<button class="btn btn-primary btn-sm" type="submit">
 				<i class="fa fa-plus"></i>

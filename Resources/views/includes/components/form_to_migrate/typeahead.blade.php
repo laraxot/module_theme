@@ -26,4 +26,8 @@
 	@endslot
 @endcomponent
 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ede0df7 (first)

@@ -13,7 +13,12 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Carbon.
  */
+<<<<<<< HEAD
 class Carbon extends XotBaseComponent {
+=======
+class Carbon extends XotBaseComponent
+{
+>>>>>>> ede0df7 (first)
     public CarbonInterface $date;
 
     public string $format;
@@ -39,10 +44,15 @@ class Carbon extends XotBaseComponent {
         $this->local = $local;
     }
 
+<<<<<<< HEAD
     public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+    public function render(): Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.date-time.carbon';
 
         return view()->make($view);

@@ -13,6 +13,10 @@ class FieldFilter {
     public string $param_name;
     public string $field_name;
     public string $where_method;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ede0df7 (first)
     public array $rules;
 
     /**

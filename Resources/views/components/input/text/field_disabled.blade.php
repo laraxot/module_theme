@@ -8,11 +8,19 @@
     */
 
     /*esempio utilizzo
+<<<<<<< HEAD
     <x-theme::input
         type="text_disabled"
         name="input-text-disabled"
         label="input-text-disabled"
         class="form-control"
+=======
+    <x-theme::input 
+        type="text_disabled" 
+        name="input-text-disabled" 
+        label="input-text-disabled" 
+        class="form-control" 
+>>>>>>> ede0df7 (first)
         id="input-text-disabled"
         value="contenuto disabilitato"
         />

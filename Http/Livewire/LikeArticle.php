@@ -1,13 +1,19 @@
 <?php
+<<<<<<< HEAD
 /**
  * @see https://github.com/laravelio/laravel.io/blob/main/app/Http/Livewire/LikeArticle.php
  */
+=======
+>>>>>>> ede0df7 (first)
 
 declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire;
 
+<<<<<<< HEAD
 use Illuminate\Contracts\Support\Renderable;
+=======
+>>>>>>> ede0df7 (first)
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -15,10 +21,15 @@ use Modules\Theme\Contracts\HasLikeContract;
 use Modules\Theme\Jobs\LikeJob;
 use Modules\Theme\Jobs\UnlikeJob;
 
+<<<<<<< HEAD
 /**
  * Undocumented class.
  */
 final class LikeArticle extends Component {
+=======
+final class LikeArticle extends Component
+{
+>>>>>>> ede0df7 (first)
     use DispatchesJobs;
 
     public HasLikeContract $article;
@@ -32,6 +43,7 @@ final class LikeArticle extends Component {
      */
     protected $listeners = ['likeToggled'];
 
+<<<<<<< HEAD
     public function mount(HasLikeContract $article): void {
         $this->article = $article;
     }
@@ -40,6 +52,17 @@ final class LikeArticle extends Component {
         /**
          * @phpstan-var view-string
          */
+=======
+    public function mount(HasLikeContract $article): void
+    {
+        $this->article = $article;
+    }
+
+    /**
+     */
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.like-article';
 
         $view_params = [
@@ -49,7 +72,12 @@ final class LikeArticle extends Component {
         return view($view, $view_params);
     }
 
+<<<<<<< HEAD
     public function toggleLike(): void {
+=======
+    public function toggleLike(): void
+    {
+>>>>>>> ede0df7 (first)
         if (Auth::guest()) {
             return;
         }
@@ -66,7 +94,12 @@ final class LikeArticle extends Component {
     /**
      * @return \Modules\Theme\Contracts\HasLikeContract
      */
+<<<<<<< HEAD
     public function likeToggled() {
+=======
+    public function likeToggled()
+    {
+>>>>>>> ede0df7 (first)
         return $this->article;
     }
 }

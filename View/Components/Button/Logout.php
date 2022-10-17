@@ -10,6 +10,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Logout.
  */
+<<<<<<< HEAD
 class Logout extends XotBaseComponent {
     public string $action;
     public array $attrs = ['aa' => 'bb'];
@@ -23,6 +24,21 @@ class Logout extends XotBaseComponent {
         /**
          * @phpstan-var view-string
          */
+=======
+class Logout extends XotBaseComponent
+{
+    public string $action;
+    public array $attrs = ['aa' => 'bb'];
+
+    public function __construct(string $action = null)
+    {
+        $this->action = $action ?? route('logout');
+    }
+
+    public function render(): View
+    {
+        //$view = $this->getView();
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.button.logout';
         $view_params = [
             'view' => $view,

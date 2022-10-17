@@ -1,6 +1,10 @@
 @props(['id', 'maxWidth'])
 
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
     https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/modal.blade.php
      --}}
 

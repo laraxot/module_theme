@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 <?php declare(strict_types=1);
 // <!-- array input -->
 $max = isset($field['max']) && (int) $field['max'] > 0 ? $field['max'] : -1;
 $min = isset($field['min']) && (int) $field['min'] > 0 ? $field['min'] : -1;
 $item_name = strtolower(isset($field['entity_singular']) && ! empty($field['entity_singular']) ? $field['entity_singular'] : $field['label']);
+=======
+<?php
+//<!-- array input -->
+$max = isset($field['max']) && (int) $field['max'] > 0 ? $field['max'] : -1;
+$min = isset($field['min']) && (int) $field['min'] > 0 ? $field['min'] : -1;
+$item_name = strtolower(isset($field['entity_singular']) && !empty($field['entity_singular']) ? $field['entity_singular'] : $field['label']);
+>>>>>>> ede0df7 (first)
 
 $items = old(square_brackets_to_dots($field['name'])) ?? ($field['value'] ?? ($field['default'] ?? ''));
 
@@ -14,7 +22,11 @@ if (is_array($items)) {
     } else {
         $items = '[]';
     }
+<<<<<<< HEAD
 } elseif (is_string($items) && ! is_array(json_decode($items))) {
+=======
+} elseif (is_string($items) && !is_array(json_decode($items))) {
+>>>>>>> ede0df7 (first)
     $items = '[]';
 }
 

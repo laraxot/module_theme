@@ -19,7 +19,11 @@
         />
     */
 @endphp
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
     @component($input_component, get_defined_vars())
     @slot('label')
     <label>

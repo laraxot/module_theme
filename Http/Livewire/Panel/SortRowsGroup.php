@@ -7,7 +7,10 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+<<<<<<< HEAD
 use Modules\Xot\Contracts\ModelWithPosContract;
+=======
+>>>>>>> ede0df7 (first)
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Services\PanelService;
 
@@ -17,7 +20,12 @@ use Modules\Xot\Services\PanelService;
  * @property PanelContract $panel
  * @property Collection    $groups
  */
+<<<<<<< HEAD
 class SortRowsGroup extends Component {
+=======
+class SortRowsGroup extends Component
+{
+>>>>>>> ede0df7 (first)
     public array $routeParams = [];
     public array $data = [];
     public Collection $rows;
@@ -26,7 +34,12 @@ class SortRowsGroup extends Component {
     /**
      * Undocumented function.
      */
+<<<<<<< HEAD
     public function mount(string $groupBy): void {
+=======
+    public function mount(string $groupBy): void
+    {
+>>>>>>> ede0df7 (first)
         $this->routeParams = getRouteParameters();
         $this->data = request()->all();
         $this->rows = $this->panel->rows($this->data)
@@ -36,7 +49,12 @@ class SortRowsGroup extends Component {
         $this->group_by = explode(',', $groupBy);
     }
 
+<<<<<<< HEAD
     public function getPanelProperty(): PanelContract {
+=======
+    public function getPanelProperty():PanelContract
+    {
+>>>>>>> ede0df7 (first)
         $panel = PanelService::make()->getByParams($this->routeParams);
 
         return $panel;
@@ -45,7 +63,12 @@ class SortRowsGroup extends Component {
     /**
      * @return \Illuminate\Support\Collection|string
      */
+<<<<<<< HEAD
     public function getGroupsProperty() {
+=======
+    public function getGroupsProperty()
+    {
+>>>>>>> ede0df7 (first)
         $groups = $this->rows
             ->sortBy('pos')
             ->groupBy(
@@ -58,15 +81,24 @@ class SortRowsGroup extends Component {
                     return implode('-', $key);
                 }
             );
+<<<<<<< HEAD
         // dddx($groups->sortBy('items.pos'));
+=======
+        //dddx($groups->sortBy('items.pos'));
+>>>>>>> ede0df7 (first)
 
         return $groups;
     }
 
+<<<<<<< HEAD
     public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+    public function render():Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.panel.sort-rows-group';
 
         $view_params = [
@@ -77,8 +109,14 @@ class SortRowsGroup extends Component {
         return view()->make($view, $view_params);
     }
 
+<<<<<<< HEAD
     public function updateGroupOrder(array $list): void {
         // dddx($list);
+=======
+    public function updateGroupOrder(array $list):void
+    {
+        //dddx($list);
+>>>>>>> ede0df7 (first)
         /*
         2 => array:2 [▼
         "order" => 3
@@ -87,6 +125,7 @@ class SortRowsGroup extends Component {
         */
         $i = 1;
         foreach ($list as $v) {
+<<<<<<< HEAD
             // Cannot call method sortBy() on mixed.
             /**
              * @var Collection<ModelWithPosContract>
@@ -110,12 +149,27 @@ class SortRowsGroup extends Component {
     }
 
     public function updateTaskOrder(array $list): void {
+=======
+            $group = $this->groups->get($v['value'])->sortBy('pos');
+            foreach ($group as $row) {
+                $row->pos = $i++;
+                $row->save();
+            }
+        }
+        session()->flash('message', 'updateGroupOrder successfully ');
+        //$this->redirect('#');
+    }
+
+    public function updateTaskOrder(array $list):void
+    {
+>>>>>>> ede0df7 (first)
         /*
           7 => array:2 [▼
         "order" => 8
         "value" => "4418"
         ]
         */
+<<<<<<< HEAD
         // *
         foreach ($list as $v) {
             /**
@@ -133,5 +187,15 @@ class SortRowsGroup extends Component {
         }
         session()->flash('message', 'updateTaskOrder successfully ');
         // */
+=======
+        //*
+        foreach ($list as $v) {
+            $row = $this->rows->firstWhere('id', $v['value']);
+            $row->pos = $v['order'];
+            $row->save();
+        }
+        session()->flash('message', 'updateTaskOrder successfully ');
+        //*/
+>>>>>>> ede0df7 (first)
     }
 }

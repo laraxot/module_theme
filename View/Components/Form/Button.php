@@ -19,9 +19,12 @@ class Button extends Component {
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.form.button';
         $view_params = [
             'view' => $view,

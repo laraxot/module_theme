@@ -24,9 +24,15 @@
       				<span itemprop="postalCode">{{ $row->postal_code }}</span>
       				<span itemprop="addressLocality">{{ $row->locality }}</span>,
       				(<span itemprop="addressRegion">{{ $row->administrative_area_level_2_short }}</span>)
+<<<<<<< HEAD
       				<meta itemprop="addressCountry" content="{{ $row->country_short}}" />
     			</div>
 
+=======
+      				<meta itemprop="addressCountry" content="{{ $row->country_short}}" /> 
+    			</div>
+				
+>>>>>>> ede0df7 (first)
 				{{--
 				@include('pub_theme::layouts.partials.item.address',['linked'=>$row->linked])
 				<ul class="list-inline">
@@ -53,10 +59,17 @@
 						$parz['item0']=$row->guid;
 						$parz['container1']=$tab;
 					@endphp
+<<<<<<< HEAD
 					<a href="{{ route('containers.index_edit',$parz,false) }}" class="btn theme-btn-dash">
 						@lang('pub_theme::restaurant.tab.'.$tab)
 					</a>
 					@endforeach
+=======
+					<a href="{{ route('containers.index_edit',$parz,false) }}" class="btn theme-btn-dash"> 				
+						@lang('pub_theme::restaurant.tab.'.$tab)
+					</a>
+					@endforeach 
+>>>>>>> ede0df7 (first)
 					@endif
 				</div>
 			</div>

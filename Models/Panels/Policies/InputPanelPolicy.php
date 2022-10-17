@@ -6,5 +6,10 @@ namespace Modules\Theme\Models\Panels\Policies;
 
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
 
+<<<<<<< HEAD
 class InputPanelPolicy extends XotBasePanelPolicy {
+=======
+class InputPanelPolicy extends XotBasePanelPolicy
+{
+>>>>>>> ede0df7 (first)
 }

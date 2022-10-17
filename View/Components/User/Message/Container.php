@@ -19,9 +19,12 @@ class Container extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.users.message.container';
         $view_params = [
             'view' => $view,

@@ -1,5 +1,9 @@
 <div class="card" style="width: 18rem;">
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
   <img class="card-img-top" src="..." alt="Card image cap">
   --}}
   <div class="card-header">

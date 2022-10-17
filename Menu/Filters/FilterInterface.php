@@ -9,7 +9,12 @@ use Modules\Theme\Menu\Builder;
 /**
  * Interface FilterInterface.
  */
+<<<<<<< HEAD
 interface FilterInterface {
+=======
+interface FilterInterface
+{
+>>>>>>> ede0df7 (first)
     /**
      * @return mixed
      */

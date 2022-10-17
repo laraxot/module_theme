@@ -21,11 +21,19 @@
                         $route = route('containers.index_edit', array_merge($params, ['container1' => $tab]));
                         break;
                     case 'containers.edit':
+<<<<<<< HEAD
 
                         $route = '#';
                         break;
                     case 'containers.index_edit':
 
+=======
+                        
+                        $route = '#';
+                        break;
+                    case 'containers.index_edit':
+                     
+>>>>>>> ede0df7 (first)
                         //dddx($row->post);
                         $route = route('containers.index_edit', array_merge($params, ['item2' => $row->post, 'container3' => $tab]));
                         break;
@@ -34,7 +42,11 @@
                         //dddx($routename);
                         break;
                 }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> ede0df7 (first)
             @endphp
             <li class="nav-item">
                 <a class="nav-link btn btn-secondary {{ $tab == $current_tab ? 'active' : '' }}" href="{{ $route }}"

@@ -17,11 +17,14 @@ class Slider extends Component {
     public float $max = 100;
     public array $values = [0, 100];
 
+<<<<<<< HEAD
     /**
      * Undocumented variable.
      *
      * @var array
      */
+=======
+>>>>>>> ede0df7 (first)
     protected $listeners = [
         'setSliderMinMax' => 'setMinMax',
         'setSliderValues' => 'setValues',
@@ -44,9 +47,12 @@ class Slider extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.input.slider.'.$this->driver;
         $view_params = [
             'view' => $view,
@@ -58,7 +64,11 @@ class Slider extends Component {
     /**
      * Set min - max of slider.
      */
+<<<<<<< HEAD
     public function setMinMax(float $min, float $max): void {
+=======
+    public function setMinMax(float $min, float $max) {
+>>>>>>> ede0df7 (first)
         $this->min = $min;
         $this->max = $max;
         $this->dispatchBrowserEvent('setSliderMinMax', ['min' => $min, 'max' => $max]);
@@ -67,21 +77,38 @@ class Slider extends Component {
     /**
      * set values of range.
      */
+<<<<<<< HEAD
     public function setValues(array $values): void {
+=======
+    public function setValues(array $values) {
+>>>>>>> ede0df7 (first)
         $this->values = $values;
         $this->dispatchBrowserEvent('setSliderValues', ['values' => $values]);
     }
 
+<<<<<<< HEAD
     public function updateValues(array $values): void {
+=======
+    public function updateValues(array $values) {
+>>>>>>> ede0df7 (first)
         $this->values = $values;
         $this->emit('updateSliderValues', $values);
         $this->emit('updateSliderValues', $values);
     }
 
+<<<<<<< HEAD
     // * 4 debug
     public function test(): void {
         dddx($this->values);
     }
 
     // */
+=======
+    //* 4 debug
+    public function test() {
+        dddx($this->values);
+    }
+
+    //*/
+>>>>>>> ede0df7 (first)
 }

@@ -19,7 +19,11 @@
 {{--
 http://www.expertphp.in/article/laravel-php-cropping-and-uploading-an-image-with-croppie-plugin-using-jquery-ajax
 https://www.sitepoint.com/10-jquery-file-uploads/
+<<<<<<< HEAD
 http://plugins.krajee.com/file-basic-usage-demo
+=======
+http://plugins.krajee.com/file-basic-usage-demo 
+>>>>>>> ede0df7 (first)
 https://fineuploader.com/demos.html
 https://colorlib.com/wp/jquery-file-upload-scripts/ !!!
 http://www.bestjquery.com/demo/jquery-file-upload/page/2/

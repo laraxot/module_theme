@@ -45,7 +45,11 @@
 
         function changeHighlightColor(type_id, color_id) {
 
+<<<<<<< HEAD
             //tipe=1 è un replace, ovvero un delete e insert se ha lo stesso indice
+=======
+            //tipe=1 è un replace, ovvero un delete e insert se ha lo stesso indice 
+>>>>>>> ede0df7 (first)
             let type_Highlight = color_id;
 
             let note = $(event.target).closest('span.notes');
@@ -192,7 +196,11 @@
 
                     if ($('#text p span[start="' + startTime + '"]').attr("class") != 'highlighted') {
                         $('#text p span[start="' + startTime + '"]').addClass("highlighted");
+<<<<<<< HEAD
                     }
+=======
+                    } 
+>>>>>>> ede0df7 (first)
 
                     /* per togliere la selezione */
                     range.setStart(range.startContainer, 0)

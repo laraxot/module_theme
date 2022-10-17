@@ -62,6 +62,7 @@ public static function tabs(array $params){
         */
 
         //return view('theme::services.tabs',$params)
+<<<<<<< HEAD
         
          @phpstan-var view-string
         
@@ -73,6 +74,10 @@ public static function tabs(array $params){
         /** 
         * @phpstan-var view-string
         */
+=======
+        $view = 'theme::services.tabs';
+        $view = 'pub_theme::includes.partials.tabs';
+>>>>>>> ede0df7 (first)
         $view = 'adm_theme::includes.partials.tabs';
 
         return view($view, $params)

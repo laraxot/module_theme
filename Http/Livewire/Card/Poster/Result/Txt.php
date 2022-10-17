@@ -13,7 +13,10 @@ use Livewire\Component;
  */
 class Txt extends Component {
     public string $txt;
+<<<<<<< HEAD
     public string $url;
+=======
+>>>>>>> ede0df7 (first)
     public string $q;
     public int $pos = 0; // posizione della parola nella stringa
     public int $n = 0; // numero di ricorrenze totali della parola nella stringa
@@ -28,7 +31,11 @@ class Txt extends Component {
             $pos = 0;
         }
         $this->pos = $pos;
+<<<<<<< HEAD
         if ('' !== $q) {
+=======
+        if ('' != $q) {
+>>>>>>> ede0df7 (first)
             $this->n = Str::substrCount(strtolower($this->txt), strtolower($q));
         }
 
@@ -43,13 +50,22 @@ class Txt extends Component {
             $this->i = 1;
         }
         $this->checkToggleButton();
+<<<<<<< HEAD
         $this->pos = (int) $pos;
+=======
+        $this->pos = $pos;
+>>>>>>> ede0df7 (first)
         $this->setUrlQ();
     }
 
     public function goPrev(): void {
+<<<<<<< HEAD
         $offset = -\strlen($this->txt) + $this->pos - 1;
         $this->pos = (int) strripos($this->txt, $this->q, $offset);
+=======
+        $offset = -strlen($this->txt) + $this->pos - 1;
+        $this->pos = strripos($this->txt, $this->q, $offset);
+>>>>>>> ede0df7 (first)
         --$this->i;
         $this->checkToggleButton();
         $this->setUrlQ();
@@ -62,7 +78,11 @@ class Txt extends Component {
 
     public function checkToggleButton(): void {
         switch ($this->i) {
+<<<<<<< HEAD
             case 1 === $this->i:
+=======
+            case 1 == $this->i:
+>>>>>>> ede0df7 (first)
                 $this->isDisabled['prev'] = true;
                 $this->isDisabled['next'] = false;
                 break;
@@ -70,7 +90,11 @@ class Txt extends Component {
                 $this->isDisabled['prev'] = false;
                 $this->isDisabled['next'] = false;
                 break;
+<<<<<<< HEAD
             case $this->n === $this->i:
+=======
+            case $this->n == $this->i:
+>>>>>>> ede0df7 (first)
                 $this->isDisabled['prev'] = false;
                 $this->isDisabled['next'] = true;
                 break;
@@ -81,9 +105,12 @@ class Txt extends Component {
      * Render the component.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.card.poster.result.txt';
 
         $this->setUrlQ();
@@ -92,7 +119,11 @@ class Txt extends Component {
 
         $tmp = '<a href="'.$this->url.'"><b>'.$this->q.'</b></a>';
 
+<<<<<<< HEAD
         // $txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);
+=======
+        //$txt = str_ireplace($this->q, '<b>'.$this->q.'</b>', $txt);
+>>>>>>> ede0df7 (first)
         $txt = str_ireplace($this->q, $tmp, $txt);
 
         $html = '';

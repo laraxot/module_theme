@@ -12,14 +12,24 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class HorMenu.
  */
+<<<<<<< HEAD
 class HorMenu extends Component {
+=======
+class HorMenu extends Component
+{
+>>>>>>> ede0df7 (first)
     /**
      * @param array $all
      * @param int   $id_padre
      *
      * @return array
      */
+<<<<<<< HEAD
     public static function parse($all, $id_padre = 0) {
+=======
+    public static function parse($all, $id_padre = 0)
+    {
+>>>>>>> ede0df7 (first)
         $data = [];
         if (! isset($all[$id_padre])) {
             return $data;
@@ -45,11 +55,19 @@ class HorMenu extends Component {
      */
     /**
      * Render the component.
+<<<<<<< HEAD
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
+=======
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function render():\Illuminate\Contracts\Support\Renderable
+    {
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.hor_menu';
 
         $menu['items'][] = [
@@ -59,6 +77,7 @@ class HorMenu extends Component {
             'new-tab' => false,
         ];
 
+<<<<<<< HEAD
         // dddx($menu);
         $html = self::renderHorMenu($menu);
 
@@ -66,6 +85,15 @@ class HorMenu extends Component {
 
         $view_params = [
             // 'view' => $view,
+=======
+        //dddx($menu);
+        $html = self::renderHorMenu($menu);
+
+        //return $html;
+
+        $view_params = [
+            //'view' => $view,
+>>>>>>> ede0df7 (first)
             'html' => $html,
         ];
 
@@ -79,7 +107,12 @@ class HorMenu extends Component {
      *
      * @return string
      */
+<<<<<<< HEAD
     public static function renderHorMenu($item, $parent = null, $rec = 0) {
+=======
+    public static function renderHorMenu($item, $parent = null, $rec = 0)
+    {
+>>>>>>> ede0df7 (first)
         $html = '';
         MenuService::checkRecursion($rec);
         if (! $item) {
@@ -96,13 +129,21 @@ class HorMenu extends Component {
             if (isset($item['submenu']) && MenuService::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
 
+<<<<<<< HEAD
                 if ('tabs' === @$item['submenu']['type']) {
+=======
+                if ('tabs' == @$item['submenu']['type']) {
+>>>>>>> ede0df7 (first)
                     $item_class .= ' menu-item-active-tab ';
                 }
             } elseif (MenuService::isActiveHorMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-active ';
 
+<<<<<<< HEAD
                 if ('tabs' === @$item['submenu']['type']) {
+=======
+                if ('tabs' == @$item['submenu']['type']) {
+>>>>>>> ede0df7 (first)
                     $item_class .= ' menu-item-active-tab ';
                 }
             }
@@ -110,9 +151,15 @@ class HorMenu extends Component {
             if (isset($item['submenu'])) {
                 $item_class .= ' menu-item-submenu'; // m-menu__item--active
 
+<<<<<<< HEAD
                 if (isset($item['toggle']) && 'click' === $item['toggle']) {
                     $item_attr .= ' data-menu-toggle="click"';
                 } elseif ('tabs' === @$item['submenu']['type']) {
+=======
+                if (isset($item['toggle']) && 'click' == $item['toggle']) {
+                    $item_attr .= ' data-menu-toggle="click"';
+                } elseif ('tabs' == @$item['submenu']['type']) {
+>>>>>>> ede0df7 (first)
                     $item_attr .= ' data-menu-toggle="tab"';
                 } else {
                     $item_attr .= ' data-menu-toggle="hover"';
@@ -129,6 +176,7 @@ class HorMenu extends Component {
                     $item['submenu']['type'] = 'classic';
                     $item['submenu']['alignment'] = 'right';
                 }
+<<<<<<< HEAD
                 if (('classic' === $item['submenu']['type']) && isset($item['root'])) {
                     $item_class .= ' menu-item-rel';
                 }
@@ -138,6 +186,17 @@ class HorMenu extends Component {
                 }
 
                 if ('tabs' === $item['submenu']['type']) {
+=======
+                if (('classic' == $item['submenu']['type']) && isset($item['root'])) {
+                    $item_class .= ' menu-item-rel';
+                }
+
+                if (('mega' == $item['submenu']['type']) && isset($item['root']) && 'center' != @$item['align']) {
+                    $item_class .= ' menu-item-rel';
+                }
+
+                if ('tabs' == $item['submenu']['type']) {
+>>>>>>> ede0df7 (first)
                     $item_class .= ' menu-item-tabs';
                 }
             }
@@ -150,11 +209,19 @@ class HorMenu extends Component {
                 $item_class .= ' '.$item['custom-class'];
             }
 
+<<<<<<< HEAD
             if (true === @$item['icon-only']) {
                 $item_class .= ' menu-item-icon-only';
             }
 
             if (false === isset($item['heading'])) {
+=======
+            if (true == @$item['icon-only']) {
+                $item_class .= ' menu-item-icon-only';
+            }
+
+            if (false == isset($item['heading'])) {
+>>>>>>> ede0df7 (first)
                 $html .= '<li class="menu-item '.$item_class.'" '.$item_attr.' aria-haspopup="true">';
             }
 
@@ -163,7 +230,11 @@ class HorMenu extends Component {
                 $html .= $item['code'];
             } else {
                 // insert title or heading
+<<<<<<< HEAD
                 if (false === isset($item['heading'])) {
+=======
+                if (false == isset($item['heading'])) {
+>>>>>>> ede0df7 (first)
                     $url = '#';
 
                     if (isset($item['page'])) {
@@ -171,7 +242,11 @@ class HorMenu extends Component {
                     }
 
                     $target = '';
+<<<<<<< HEAD
                     if (isset($item['new-tab']) && true === $item['new-tab']) {
+=======
+                    if (isset($item['new-tab']) && true == $item['new-tab']) {
+>>>>>>> ede0df7 (first)
                         $target = 'target="_blank"';
                     }
 
@@ -191,16 +266,28 @@ class HorMenu extends Component {
                     $parent['bullet'] = '';
                 }
 
+<<<<<<< HEAD
                 if ((@$item['heading'] && 'dot' === @$item['bullet']) || 'dot' === @$parent['bullet']) {
                     $bullet = 'dot';
                 } elseif ((@$item['heading'] && 'line' === @$item['bullet']) || 'line' === @$parent['bullet']) {
+=======
+                if ((@$item['heading'] && 'dot' == @$item['bullet']) || 'dot' == @$parent['bullet']) {
+                    $bullet = 'dot';
+                } elseif ((@$item['heading'] && 'line' == @$item['bullet']) || 'line' == @$parent['bullet']) {
+>>>>>>> ede0df7 (first)
                     $bullet = 'line';
                 }
 
                 // Menu icon OR bullet
+<<<<<<< HEAD
                 if ('dot' === $bullet) {
                     $html .= '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
                 } elseif ('line' === $bullet) {
+=======
+                if ('dot' == $bullet) {
+                    $html .= '<i class="menu-bullet menu-bullet-dot"><span></span></i>';
+                } elseif ('line' == $bullet) {
+>>>>>>> ede0df7 (first)
                     $html .= '<i class="menu-bullet menu-bullet-line"><span></span></i>';
                 } elseif (isset($item['icon']) && ! empty($item['icon'])) {
                     $html .= ThemeService::renderIcon($item['icon']);
@@ -212,7 +299,11 @@ class HorMenu extends Component {
                     $html .= '<span class="menu-badge"><span class="label '.$item['label']['type'].'">'.$item['label']['value'].'</span></span>';
                 }
                 // Arrow
+<<<<<<< HEAD
                 if (isset($item['submenu']) && (! isset($item['arrow']) || false !== $item['arrow'])) {
+=======
+                if (isset($item['submenu']) && (! isset($item['arrow']) || false != $item['arrow'])) {
+>>>>>>> ede0df7 (first)
                     // root down arrow
                     if (isset($item['root'])) {
                         // enable/disable root arrow
@@ -227,7 +318,11 @@ class HorMenu extends Component {
                 }
 
                 // closing title or heading
+<<<<<<< HEAD
                 if (false === isset($item['heading'])) {
+=======
+                if (false == isset($item['heading'])) {
+>>>>>>> ede0df7 (first)
                     $html .= '</a>';
                 } else {
                     $html .= '<i class="menu-arrow"></i></h3>';
@@ -235,16 +330,28 @@ class HorMenu extends Component {
 
                 if (isset($item['submenu'])) {
                     $submenu_class = '';
+<<<<<<< HEAD
                     if (\in_array($item['submenu']['type'], ['classic', 'tabs'], true)) {
                         if (isset($item['submenu']['alignment'])) {
                             $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
 
                             if (isset($item['submenu']['pull']) && true === $item['submenu']['pull']) {
+=======
+                    if (in_array($item['submenu']['type'], ['classic', 'tabs'])) {
+                        if (isset($item['submenu']['alignment'])) {
+                            $submenu_class = ' menu-submenu-'.$item['submenu']['alignment'];
+
+                            if (isset($item['submenu']['pull']) && true == $item['submenu']['pull']) {
+>>>>>>> ede0df7 (first)
                                 $submenu_class .= ' menu-submenu-pull';
                             }
                         }
 
+<<<<<<< HEAD
                         if ('tabs' === $item['submenu']['type']) {
+=======
+                        if ('tabs' == $item['submenu']['type']) {
+>>>>>>> ede0df7 (first)
                             $submenu_class .= ' menu-submenu-tabs';
                         }
 
@@ -262,10 +369,17 @@ class HorMenu extends Component {
                         }
                         $html .= '</ul>';
                         $html .= '</div>';
+<<<<<<< HEAD
                     } elseif ('mega' === $item['submenu']['type']) {
                         $submenu_fixed_width = '';
 
                         if ((int) (@$item['submenu']['width']) > 0) {
+=======
+                    } elseif ('mega' == $item['submenu']['type']) {
+                        $submenu_fixed_width = '';
+
+                        if (intval(@$item['submenu']['width']) > 0) {
+>>>>>>> ede0df7 (first)
                             $submenu_class = ' menu-submenu-fixed';
                             $submenu_fixed_width = 'style="width:'.$item['submenu']['width'].'"';
                         } else {
@@ -275,12 +389,20 @@ class HorMenu extends Component {
                         if (isset($item['submenu']['alignment'])) {
                             $submenu_class .= ' menu-submenu-'.$item['submenu']['alignment'];
 
+<<<<<<< HEAD
                             if (isset($item['submenu']['pull']) && true === $item['submenu']['pull']) {
+=======
+                            if (isset($item['submenu']['pull']) && true == $item['submenu']['pull']) {
+>>>>>>> ede0df7 (first)
                                 $submenu_class .= ' menu-submenu-pull';
                             }
                         }
 
+<<<<<<< HEAD
                         $html .= '<div class="menu-submenu '.$submenu_class.'" '.$submenu_fixed_width.'>';
+=======
+                        $html .= '<div class="menu-submenu '.$submenu_class.'" '.($submenu_fixed_width).'>';
+>>>>>>> ede0df7 (first)
 
                         $html .= '<div class="menu-subnav">';
                         $html .= '<ul class="menu-content">';
@@ -309,10 +431,17 @@ class HorMenu extends Component {
                 }
             }
 
+<<<<<<< HEAD
             if (false === isset($item['heading'])) {
                 $html .= '</li>';
             }
         } elseif (\is_array($item)) {
+=======
+            if (false == isset($item['heading'])) {
+                $html .= '</li>';
+            }
+        } elseif (is_array($item)) {
+>>>>>>> ede0df7 (first)
             foreach ($item as $each) {
                 $html .= self::renderHorMenu($each, $parent, $rec++);
             }

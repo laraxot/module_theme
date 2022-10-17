@@ -17,14 +17,21 @@ class Item extends XotBaseComponent {
     public function __construct(string $id, string $title, string $i) {
         $this->attrs['id'] = $id;
         $this->attrs['title'] = $title;
+<<<<<<< HEAD
         // $this->attrs['description'] = $description;
+=======
+        //$this->attrs['description'] = $description;
+>>>>>>> ede0df7 (first)
         $this->attrs['i'] = $i;
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.accordion.item';
         $view_params = [
             'view' => $view,

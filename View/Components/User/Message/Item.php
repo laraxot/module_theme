@@ -14,7 +14,11 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Item extends XotBaseComponent {
     public array $attrs;
 
+<<<<<<< HEAD
     public function __construct(string $id, string $sender, string $avatarpath, string $avataralt, string $roomsnumber, string $receiptdate) {
+=======
+    public function __construct(string $id = 'users-message-item-0', string $sender, string $avatarpath, string $avataralt, string $roomsnumber, string $receiptdate) {
+>>>>>>> ede0df7 (first)
         $this->attrs['id'] = $id;
         $this->attrs['sender'] = $sender;
         $this->attrs['avatarpath'] = $avatarpath;
@@ -24,9 +28,12 @@ class Item extends XotBaseComponent {
     }
 
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.users.message.item';
         $view_params = [
             'view' => $view,

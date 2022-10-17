@@ -17,11 +17,19 @@
         @else
 
             NOT EXISTS {{ $view_index_order }}
+<<<<<<< HEAD
             {{-- @livewire('crud.index_order', ['rows' => $rows]) --}}
             @livewire('crud.index_order', ['rows' => $rows]) {{-- questa riga è sbagliata --}}
         @endif
     @else
         @livewire('crud.index_order', ['rows' => $rows])
+=======
+            {{-- @livewire('formx::crud.index_order', ['rows' => $rows]) --}}
+            @livewire('ewb::crud.index_order', ['rows' => $rows]) {{-- questa riga è sbagliata --}}
+        @endif
+    @else
+        @livewire('formx::crud.index_order', ['rows' => $rows])
+>>>>>>> ede0df7 (first)
     @endif
 
 

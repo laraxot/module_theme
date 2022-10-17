@@ -126,7 +126,11 @@
 
                 @endforeach
             </div>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ede0df7 (first)
         </div>
     </div>
 </div>

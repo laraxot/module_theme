@@ -20,12 +20,21 @@ Theme::add('theme::plugins/switchery/switchery.min.js');
     @endslot
 
     @slot('input')
+<<<<<<< HEAD
         {{-- <input
             name="{{ $name }}"
             id="{{ $name }}"
             type="checkbox"
             class="js-switch"
             value="{{ $value }}"
+=======
+        {{-- <input 
+            name="{{ $name }}" 
+            id="{{ $name }}" 
+            type="checkbox" 
+            class="js-switch" 
+            value="{{ $value }}" 
+>>>>>>> ede0df7 (first)
             {{ $value ? 'checked' : '' }}
             /> --}}
         {{-- Form::bsHidden($name,0) --}} {{-- se non selezionato restituisce 0 al posto di null --}}

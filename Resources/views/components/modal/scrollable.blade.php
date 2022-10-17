@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
 https://getbootstrap.com/docs/4.5/components/modal/#scrolling-long-content
 
 Small	.modal-sm	300px

@@ -6,7 +6,10 @@ namespace Modules\Theme\View\Components\Carousel;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
+<<<<<<< HEAD
 use Illuminate\View\View;
+=======
+>>>>>>> ede0df7 (first)
 
 /**
  * Class Item.
@@ -29,6 +32,7 @@ class Item extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
@@ -51,4 +55,12 @@ class Item extends Component {
         return view($view,$view_params);
     }
     */
+=======
+        $view = 'theme::components.carousel.Item';
+
+        $view_params = [];
+
+        return view($view, $view_params);
+    }
+>>>>>>> ede0df7 (first)
 }

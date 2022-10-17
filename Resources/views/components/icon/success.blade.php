@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
     https://github.com/ascsoftw/livewire-toast/blob/main/resources/views/icons/success.blade.php
     --}}
 <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

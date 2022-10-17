@@ -13,7 +13,11 @@
 </div>
 
 @section('js')
+<<<<<<< HEAD
 @parent
+=======
+@parent 
+>>>>>>> ede0df7 (first)
 <script>
     $('#{{$id}}').daterangepicker({
         ranges: {

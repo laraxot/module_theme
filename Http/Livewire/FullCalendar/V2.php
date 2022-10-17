@@ -10,7 +10,11 @@ namespace Modules\Theme\Http\Livewire\FullCalendar;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+<<<<<<< HEAD
 // use Modules\Customer\Models\Customer;
+=======
+//use Modules\Customer\Models\Customer;
+>>>>>>> ede0df7 (first)
 use Illuminate\Support\Str;
 use Modules\Theme\Contracts\ModelLangContract;
 
@@ -38,12 +42,22 @@ use Modules\Theme\Contracts\ModelLangContract;
  * @property ModelLangContract|null $model
  * @property XotBasePanel           $panel
  */
+<<<<<<< HEAD
 class V2 extends BaseV2 {
+=======
+class V2 extends BaseV2
+{
+>>>>>>> ede0df7 (first)
     private string $model = ''; // = Customer::class;
 
     public array $events;
 
+<<<<<<< HEAD
     public function events(): Collection {
+=======
+    public function events(): Collection
+    {
+>>>>>>> ede0df7 (first)
         $name = 'Barry'; // $request->get('name');
 
         $events = [];
@@ -78,13 +92,23 @@ class V2 extends BaseV2 {
      * @param int $month
      * @param int $day
      */
+<<<<<<< HEAD
     public function onDayClick($year, $month, $day): void {
+=======
+    public function onDayClick($year, $month, $day): void
+    {
+>>>>>>> ede0df7 (first)
     }
 
     /**
      * @param int $eventId
      */
+<<<<<<< HEAD
     public function onEventClick($eventId): void {
+=======
+    public function onEventClick($eventId): void
+    {
+>>>>>>> ede0df7 (first)
     }
 
     /**
@@ -93,7 +117,12 @@ class V2 extends BaseV2 {
      * @param int $month
      * @param int $day
      */
+<<<<<<< HEAD
     public function onEventDropped($eventId, $year, $month, $day): void {
+=======
+    public function onEventDropped($eventId, $year, $month, $day): void
+    {
+>>>>>>> ede0df7 (first)
         $row = app($this->model)->find($eventId);
         $row->date_next_check = $year.'-'.$month.'-'.$day;
         $row->save();

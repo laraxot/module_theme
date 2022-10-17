@@ -78,10 +78,14 @@ class ThemeService {
             $path = str_replace('admin.'.$mod.'.', 'admin.', $path);
             $view = $mod.'::'.$path;
         } else {
+<<<<<<< HEAD
             /** 
         * @phpstan-var view-string
         */
         $view = 'pub_theme::'.$path;
+=======
+            $view = 'pub_theme::'.$path;
+>>>>>>> ede0df7 (first)
         }
         //------------ CASI PARTICOLARI -----------
         if ('pub_theme::translation.index' == $view) {
@@ -147,9 +151,12 @@ class ThemeService {
     }
 
     public static function metatags() {
+<<<<<<< HEAD
         /** 
         * @phpstan-var view-string
         */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::metatags';
 
         return (string) view($view);

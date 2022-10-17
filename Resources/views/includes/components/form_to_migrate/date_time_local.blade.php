@@ -11,15 +11,25 @@
   											// +"timezone": "UTC"
             }
             if($value!==null) $val=$value;
+<<<<<<< HEAD
 
         @endphp
 
+=======
+            
+        @endphp
+        
+>>>>>>> ede0df7 (first)
 		{{ Form::datetimeLocal($name,$val, array_merge(['class' => 'form-control'], $attributes)) }}
 		<span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
         </span>
         </div>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ede0df7 (first)
 		@if ( $errors->has($name) )
 			<span class="help-block">
 				<strong>{{ $errors->first($name) }}</strong>
@@ -31,12 +41,20 @@
 
 {{--	Theme::addStyle('/theme/bc/bootstrap-daterangepicker/daterangepicker.css') --}}
 
+<<<<<<< HEAD
 
+=======
+{{--  Theme::addScript('/theme/bc/jquery/dist/jquery.min.js') --}}
+>>>>>>> ede0df7 (first)
 {{--	Theme::addScript('/theme/bc/moment/min/moment.min.js') --}}
 {{--	Theme::addScript('/theme/bc/bootstrap-daterangepicker/daterangepicker.js') --}}
 {{--  Theme::addScript('backend::js/bsDateTime.js') --}}
 
+<<<<<<< HEAD
 {{--
+=======
+{{-- 
+>>>>>>> ede0df7 (first)
 https://gist.github.com/brunoti/53bd7b3501e3626a9baa
  --}}
 
@@ -58,6 +76,10 @@ webshim.setOptions('forms-ext', {
 
 //start polyfilling
 webshim.polyfill('forms forms-ext');
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
 </script>
 @endpush

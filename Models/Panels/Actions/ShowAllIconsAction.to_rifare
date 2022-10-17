@@ -44,9 +44,12 @@ class ShowAllIconsAction extends XotBasePanelAction {
         return view()->make($view, ['my_html' => $this->html]);
         */
 
+<<<<<<< HEAD
         /** 
         * @phpstan-var view-string
         */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'adm_theme::layouts.default.show.acts.'.$this->getName();
         //dddx($view);
         /*

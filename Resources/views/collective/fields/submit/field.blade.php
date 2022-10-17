@@ -13,7 +13,11 @@ if (isset($options['field'])) {
 extract($attributes);
 $field = transFields(get_defined_vars());
 @endphp
+<<<<<<< HEAD
 {{--
+=======
+{{--  
+>>>>>>> ede0df7 (first)
 @component($blade_component, get_defined_vars())
     @slot('label')
         {{ Form::label($name, $field->label, ['class' => 'control-label']) }}
@@ -23,6 +27,12 @@ $field = transFields(get_defined_vars());
     @endslot
 @endcomponent
 --}}
+<<<<<<< HEAD
 
         {{ Form::submit($name, array_merge(['class' => 'btn btn-success'], $attributes)) }}
 
+=======
+ 
+        {{ Form::submit($name, array_merge(['class' => 'btn btn-success'], $attributes)) }}
+ 
+>>>>>>> ede0df7 (first)

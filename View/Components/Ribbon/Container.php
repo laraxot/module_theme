@@ -18,7 +18,11 @@ class Container extends Component {
      *
      * @return void
      */
+<<<<<<< HEAD
     public function __construct(?string $id = '') {
+=======
+    public function __construct(?string $id) {
+>>>>>>> ede0df7 (first)
         $this->attrs['id'] = $id;
     }
 
@@ -26,9 +30,12 @@ class Container extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::components.ribbon.container';
 
         $view_params = [

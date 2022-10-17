@@ -24,7 +24,11 @@ Theme::add('theme::css/checkbox.css');
 			{{ $label }}
 		</label>
 		<a href="#" data-toggle="modal" data-target="#modal_{{ Str::slug($name1) }}">@lang('pub_theme::txt.read')</a>
+<<<<<<< HEAD
 	<small class="form-text text-muted">{{ $help }} </small>
+=======
+	<small class="form-text text-muted">{{ $help }} </small> 
+>>>>>>> ede0df7 (first)
 	</div>
 	@if ( $errors->has($name) || $errors->has($input_id))
 	<span class="help-block" id="{{$input_id}}_help">

@@ -1,6 +1,10 @@
 @php
     $restaurant_curr=collect($params)->where('type','restaurant')->last();
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> ede0df7 (first)
     $cuisineCats = $restaurant_curr->cuisineCats;
 
 @endphp

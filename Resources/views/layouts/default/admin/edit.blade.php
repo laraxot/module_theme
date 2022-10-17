@@ -20,13 +20,21 @@ $test=route('admin.item.update',$parz);
 */
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ede0df7 (first)
 @endphp
 
 @section('content')
     @component('theme::components.crud', get_defined_vars())
         @slot('content')
+<<<<<<< HEAD
             {{--!! Theme::include('topbar', [], get_defined_vars()) !!--}}
             <x-include-view view="topbar" />
+=======
+            {!! Theme::include('topbar', [], get_defined_vars()) !!}
+>>>>>>> ede0df7 (first)
             <x-theme::alerts.error :errors="$errors" />
             {{-- <x-theme::forms.panel :panel="$_panel" action="update"> --}}
             {!! Form::bsOpenPanel($_panel, 'update') !!}

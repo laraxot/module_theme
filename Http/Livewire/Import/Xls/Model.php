@@ -16,8 +16,11 @@ use SplFileInfo;
 
 /**
  * Class Field.
+<<<<<<< HEAD
  *
  * @property Collection $data
+=======
+>>>>>>> ede0df7 (first)
  */
 class Model extends Component {
     use WithFileUploads;
@@ -29,7 +32,10 @@ class Model extends Component {
 
     public array $fillable;
     public array $fields = [];
+<<<<<<< HEAD
     public array $trans = [];
+=======
+>>>>>>> ede0df7 (first)
     public array $form_data = [];
     public string $modelClass;
 
@@ -43,6 +49,7 @@ class Model extends Component {
     public function mount(string $modelClass, ?array $fields, ?array $trans) {
         $this->modelClass = $modelClass;
         $this->fillable = app($modelClass)->getFillable();
+<<<<<<< HEAD
         $this->fillable = array_combine($this->fillable, $this->fillable);
 
         if (\is_array($fields)) {
@@ -54,6 +61,18 @@ class Model extends Component {
             
         }
         
+=======
+        $this->fillable=array_combine($this->fillable,$this->fillable);
+
+        if (is_array($fields)) {
+            $this->fields = $fields;
+        }
+        if (is_array($trans)) {
+            $this->trans = $trans;
+            $this->fillable=array_merge($this->fillable,$this->trans);
+            //dddx($this->fillable);
+        }
+>>>>>>> ede0df7 (first)
     }
 
     /**
@@ -76,9 +95,12 @@ class Model extends Component {
      * Undocumented function.
      */
     public function render(): Renderable {
+<<<<<<< HEAD
         /**
          * @phpstan-var view-string
          */
+=======
+>>>>>>> ede0df7 (first)
         $view = 'theme::livewire.import.xls.model';
         $view_params = [];
 
@@ -92,6 +114,7 @@ class Model extends Component {
      */
     public function import() {
         $model = app($this->modelClass);
+<<<<<<< HEAD
 
         $rows = $this->data;
 
@@ -113,6 +136,18 @@ class Model extends Component {
                 }
             }
         );
+=======
+        $rows = $this->data;
+
+        //controllo che non vengano erroneamente importati contatti con tutti campi null
+        $rows = $rows->filter(function ($item) {
+            foreach ($item->toArray() as $key => $value) {
+                if (! is_null($value)) {
+                    return $item;
+                }
+            }
+        });
+>>>>>>> ede0df7 (first)
 
         if ($this->is_first_row_head) {
             $rows = $rows->slice(1);
@@ -120,6 +155,7 @@ class Model extends Component {
 
         foreach ($rows as $v) {
             $keys = array_values($this->form_data);
+<<<<<<< HEAD
             // Cannot call method values() on mixed.
             $values = $v->values()->all();
             $data = array_combine($keys, $values);
@@ -130,8 +166,21 @@ class Model extends Component {
                 $data = array_merge($data, $this->fields);
             }
             // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data, 'keys' => $keys]);
+=======
+            $values = $v->values()->all();
+            $data = array_combine($keys, $values);
+
+            if (false !== $data && false !== $this->fields) {
+                $data = array_merge($data, $this->fields);
+            }
+            //dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data]);
+>>>>>>> ede0df7 (first)
             $model->create($data);
         }
         session()->flash('message', 'Import successfully ');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ede0df7 (first)
