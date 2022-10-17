@@ -20,21 +20,7 @@
         cols="25"
         />
   */
-<<<<<<< HEAD
   //meglio usare wysiwyg o similare
 @endphp
 
 <textarea {{ $attributes->merge($attrs) }}></textarea>
-=======
-@endphp
-@component($input_component)
-    @slot('label')
-        <label>
-            {{ $label }}
-        </label>
-    @endslot
-    @slot('input')
-        <textarea {{ $attributes->merge($attrs) }}></textarea>
-    @endslot
-@endcomponent
->>>>>>> ede0df7 (first)

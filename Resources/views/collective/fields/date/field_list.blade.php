@@ -4,13 +4,9 @@
     da utilizzare nel caso si abbia, nel db, un campo stringa che elenca una serie di date
     esempio: 18/8/2004,19/6/2004,19/8/2004,25/8/2004,26/8/2004,28/7/2004,29/7/2004,30/7/2004
 
-<<<<<<< HEAD
     (object)
 [
 
-=======
-    (object) [
->>>>>>> ede0df7 (first)
         'type' => 'DateList',
         'name' => 'listadata',
         'comment' => null,
@@ -23,12 +19,8 @@ $field = transFields(get_defined_vars());
 $date_list = $_panel->getRow()->{$name};
 //dddx($lista_data);
 @endphp
-<<<<<<< HEAD
 {{-- <livewire:calendar.stringlist  :date_list="$date_list" /> --}}
 
-=======
-{{-- <livewire:theme::calendar.stringlist  :date_list="$date_list" /> --}}
->>>>>>> ede0df7 (first)
 
 
 
@@ -37,10 +29,6 @@ $date_list = $_panel->getRow()->{$name};
         {{ Form::label($name, $field->label, ['class' => 'control-label form-label']) }}
     @endslot
     @slot('input')
-<<<<<<< HEAD
         @livewire('calendar.stringlist',['date_list'=>$date_list, 'input_name' => $name])
-=======
-        @livewire('theme::calendar.stringlist',['date_list'=>$date_list, 'input_name' => $name])
->>>>>>> ede0df7 (first)
     @endslot
 @endcomponent

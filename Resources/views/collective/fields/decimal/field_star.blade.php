@@ -13,8 +13,4 @@
         </span>
         </div>
 	@endslot
-<<<<<<< HEAD
 @endcomponent
-=======
-@endcomponent		
->>>>>>> ede0df7 (first)

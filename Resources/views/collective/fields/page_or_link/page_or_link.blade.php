@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 <?php declare(strict_types=1);
 // <!-- PAGE OR LINK field -->
 // <!-- Used in Backpack\MenuCRUD -->
-=======
-<?php
-//<!-- PAGE OR LINK field -->
-//<!-- Used in Backpack\MenuCRUD -->
->>>>>>> ede0df7 (first)
 
 $field['options'] = ['page_link' => trans('backpack::crud.page_link'), 'internal_link' => trans('backpack::crud.internal_link'), 'external_link' => trans('backpack::crud.external_link')];
 $field['allows_null'] = false;
@@ -36,45 +30,27 @@ $active_pages = $page_model::all();
     </div>
     <div class="col-sm-9">
         <!-- external link input -->
-<<<<<<< HEAD
         <div class="page_or_link_value <?php if (! isset($entry) || 'external_link' !== $entry->type) {
             echo 'hidden';
         } ?>" id="page_or_link_external_link">
-=======
-        <div class="page_or_link_value <?php if (!isset($entry) || 'external_link' != $entry->type) {
-    echo 'hidden';
-} ?>" id="page_or_link_external_link">
->>>>>>> ede0df7 (first)
             <input type="url" class="form-control" name="link"
                 placeholder="{{ trans('backpack::crud.page_link_placeholder') }}"
                 @if (!isset($entry) || $entry->type != 'external_link') disabled="disabled" @endif
                 @if (isset($entry) && $entry->type == 'external_link' && isset($entry->link) && $entry->link != '') value="{{ $entry->link }}" @endif>
         </div>
         <!-- internal link input -->
-<<<<<<< HEAD
         <div class="page_or_link_value <?php if (! isset($entry) || 'internal_link' !== $entry->type) {
             echo 'hidden';
         } ?>" id="page_or_link_internal_link">
-=======
-        <div class="page_or_link_value <?php if (!isset($entry) || 'internal_link' != $entry->type) {
-    echo 'hidden';
-} ?>" id="page_or_link_internal_link">
->>>>>>> ede0df7 (first)
             <input type="text" class="form-control" name="link"
                 placeholder="{{ trans('backpack::crud.internal_link_placeholder', ['url',url(config('backpack.base.route_prefix') . '/page')]) }}"
                 @if (!isset($entry) || $entry->type != 'internal_link') disabled="disabled" @endif
                 @if (isset($entry) && $entry->type == 'internal_link' && isset($entry->link) && $entry->link != '') value="{{ $entry->link }}" @endif>
         </div>
         <!-- page slug input -->
-<<<<<<< HEAD
         <div class="page_or_link_value <?php if (isset($entry) && 'page_link' !== $entry->type) {
             echo 'hidden';
         } ?>" id="page_or_link_page">
-=======
-        <div class="page_or_link_value <?php if (isset($entry) && 'page_link' != $entry->type) {
-    echo 'hidden';
-} ?>" id="page_or_link_page">
->>>>>>> ede0df7 (first)
             <select class="form-control" name="page_id">
                 @if (!count($active_pages))
                     <option value="">-</option>

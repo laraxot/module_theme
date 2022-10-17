@@ -12,12 +12,8 @@ $value = Form::getValueAttribute($name);
         {{ Form::label($name, $field->label, ['class' => 'control-label']) }}
     @endslot
     @slot('input')
-<<<<<<< HEAD
         <livewire:input.string-list.color :name="$name" :value="$value" />
 
-=======
-        <livewire:theme::input.string-list.color :name="$name" :value="$value" />
->>>>>>> ede0df7 (first)
         {{-- <input type="text" name="{{ $name }}" />
         <div class="list_color">
             <input type="color">
@@ -27,11 +23,4 @@ $value = Form::getValueAttribute($name);
 @endcomponent
 
 @push('scripts')
-<<<<<<< HEAD
-
-=======
-    <script>
-
-    </script>
->>>>>>> ede0df7 (first)
 @endpush

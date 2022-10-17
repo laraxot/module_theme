@@ -9,17 +9,10 @@
     */
 
     /*esempio di utilizzo
-<<<<<<< HEAD
       <x-theme::input
         type="text_readonly"
         name="input-text-read-only"
         label="input-text-read-only"
-=======
-      <x-theme::input 
-        type="text_readonly" 
-        name="input-text-read-only" 
-        label="input-text-read-only" 
->>>>>>> ede0df7 (first)
         class="form-control" //utilizzare la classe "form-control-plaintext" per la forma stilizzata come testo normale
         id="input-text-read-only"
         value="contenuto di sola lettura"

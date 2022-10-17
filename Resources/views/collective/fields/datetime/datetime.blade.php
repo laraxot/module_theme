@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <?php declare(strict_types=1);
 // <!-- html5 datetime input -->
-=======
-<?php
-//<!-- html5 datetime input -->
->>>>>>> ede0df7 (first)
 // if the column has been cast to Carbon or Date (using attribute casting)
 // get the value as a date string
 if (isset($field['value']) && $field['value'] instanceof \Carbon\CarbonInterface) {

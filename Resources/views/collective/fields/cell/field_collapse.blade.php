@@ -1,20 +1,11 @@
 @php
 	$fields=$attributes['fields'];
-<<<<<<< HEAD
 	$model=Form::getModel();
 	$disabled=isset($attributes['disabled'])?'disabled':'';
 	$fields=collect($fields)->filter(function($item) {
 		if(!isset($item->except)) $item->except=[];
 		return (
 			//!in_array($item->type,['Password']) &&
-=======
-	$model=Form::getModel(); 
-	$disabled=isset($attributes['disabled'])?'disabled':'';
-	$fields=collect($fields)->filter(function($item) {
-		if(!isset($item->except)) $item->except=[];
-		return ( 
-			//!in_array($item->type,['Password']) && 
->>>>>>> ede0df7 (first)
 			   !in_array('edit',$item->except)  //controllare azione route
 			//&& !in_array($item->name,$excepts)
 		);
@@ -34,22 +25,14 @@
   </button>
 </p>
 <div class="collapse collapsed" id="collapseExample">
-<<<<<<< HEAD
     {{--
-=======
-    {{--  
->>>>>>> ede0df7 (first)
         <div class="card card-body">
             --}}
 
     @foreach($fields as $k=>$field)
     	{!! Theme::inputHtml(['row'=>$model,'field'=>$field]) !!}
     @endforeach
-<<<<<<< HEAD
             {{--
-=======
-            {{--  
->>>>>>> ede0df7 (first)
             </div>
             --}}
 </div>
