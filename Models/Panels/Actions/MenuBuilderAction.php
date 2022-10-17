@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels\Actions;
 
-<<<<<<< HEAD
 // -------- services --------
-=======
-//-------- services --------
->>>>>>> ede0df7 (first)
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
 /**

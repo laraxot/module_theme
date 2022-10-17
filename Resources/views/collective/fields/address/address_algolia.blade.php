@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-<?php declare(strict_types=1);
+<?php 
+/**
+ * ---
+ * */
+declare(strict_types=1);
 // <!-- text input -->
-=======
-<?php
-//<!-- text input -->
->>>>>>> ede0df7 (first)
 // the field should work whether or not Laravel attribute casting is used
 if (isset($field['value']) && (is_array($field['value']) || is_object($field['value']))) {
     $field['value'] = json_encode($field['value']);

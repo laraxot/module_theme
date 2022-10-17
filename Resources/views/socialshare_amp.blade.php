@@ -8,19 +8,11 @@
 <amp-social-share type="tumblr" aria-label="Share this on Tumblr" class="share" width="50" height="50"></amp-social-share>
 <amp-social-share type="twitter" aria-label="Share this on Twitter" class="share" width="50" height="50"></amp-social-share>
 <amp-social-share type="whatsapp" aria-label="Share this on Whatsapp" class="share" width="50" height="50"></amp-social-share>
-<<<<<<< HEAD
 <amp-social-share type="sms" aria-label="Share this on Sms" class="share" width="50" height="50"></amp-social-share>
-=======
-<amp-social-share type="sms" aria-label="Share this on Sms" class="share" width="50" height="50"></amp-social-share> 
->>>>>>> ede0df7 (first)
 </div>
 <amp-facebook-like width="90"
   height="30"
   layout="fixed"
   data-layout="button_count"
-<<<<<<< HEAD
   data-href="https://www.facebook.com/test sitenamecom/">
-=======
-  data-href="https://www.facebook.com/foodfriendfindercom/">
->>>>>>> ede0df7 (first)
 </amp-facebook-like>

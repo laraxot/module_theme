@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels\Actions;
 
-<<<<<<< HEAD
 // -------- models -----------
 // -------- services --------
 // -------- bases -----------
-=======
-//-------- models -----------
-//-------- services --------
-//-------- bases -----------
->>>>>>> ede0df7 (first)
 use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
@@ -30,11 +24,7 @@ class TestComponentsAction extends XotBasePanelAction {
      * @return mixed
      */
     public function handle() {
-<<<<<<< HEAD
         $view = ThemeService::getView(); // vew che dovrebbe essere
-=======
-        $view = ThemeService::getView(); //vew che dovrebbe essere
->>>>>>> ede0df7 (first)
         $tests = [
             (object) [
                 'name' => 'alert',
@@ -83,11 +73,7 @@ class TestComponentsAction extends XotBasePanelAction {
             'test' => $test,
         ];
 
-<<<<<<< HEAD
         // return 'rotto tutto ?['.$view.']';
-=======
-        //return 'rotto tutto ?['.$view.']';
->>>>>>> ede0df7 (first)
 
         return view()->make($view, $view_params);
         /*
@@ -116,8 +102,4 @@ class TestComponentsAction extends XotBasePanelAction {
         //return $this->panel->view()->with($view_params);
         */
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ede0df7 (first)

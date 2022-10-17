@@ -7,11 +7,7 @@ TO DO ARRAY FIELD
 		{{ Form::label($name, $field->label , ['class' => 'control-label']) }}
 	@endslot
 	@slot('input')
-<<<<<<< HEAD
 		{{ Form::text($name, $value, $field->attributes) }}
-=======
-		{{ Form::text($name, $value, $field->attributes) }} 
->>>>>>> ede0df7 (first)
 	@endslot
 @endcomponent --}}
 @php

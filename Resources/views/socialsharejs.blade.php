@@ -5,7 +5,6 @@ function loadSocial() {
     jQuery.getScript('//connect.facebook.net/en_US/all.js#xfbml=1', function () {
         FB.init({ appId: 'Your facebook application Id', status: true, cookie: true, xfbml: true });
     });
-<<<<<<< HEAD
 
     // Google Plus button
     $('#hgp').append('<g:plusone size="tall"></g:plusone>');
@@ -19,21 +18,6 @@ function loadSocial() {
     $('#hsu').append('<su:badge layout="5"></su:badge>');
     jQuery.getScript('//platform.stumbleupon.com/1/widgets.js');
 
-=======
-	
-    // Google Plus button
-    $('#hgp').append('<g:plusone size="tall"></g:plusone>');
-    jQuery.getScript('//apis.google.com/js/plusone.js', function () { });
-	
-    // Twitter button
-    $('#htw').append('<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a>');
-    jQuery.getScript('//platform.twitter.com/widgets.js', function () { });
-	
-    // StumbleUpOn badge
-    $('#hsu').append('<su:badge layout="5"></su:badge>');
-    jQuery.getScript('//platform.stumbleupon.com/1/widgets.js');
-	
->>>>>>> ede0df7 (first)
     // Pinterrest: we have to supply the current URL and page's description
     var curURL = encodeURIComponent(location.protocol + '//' + location.host + location.pathname);
     var curDesc = encodeURIComponent(document.title);

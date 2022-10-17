@@ -17,11 +17,6 @@ declare(strict_types=1);
  *
  * @return string
  */
-<<<<<<< HEAD
 function smarty_function_get_ciao($params, $smarty) {
-=======
-function smarty_function_get_ciao($params, $smarty)
-{
->>>>>>> ede0df7 (first)
     return '';
 }

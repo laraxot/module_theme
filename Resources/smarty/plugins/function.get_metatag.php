@@ -19,11 +19,6 @@ use Modules\Theme\Services\ThemeService;
  *
  * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
  */
-<<<<<<< HEAD
 function smarty_function_get_metatag($params, $smarty) {
-=======
-function smarty_function_get_metatag($params, $smarty)
-{
->>>>>>> ede0df7 (first)
     return ThemeService::metatag($params['name']);
 }
