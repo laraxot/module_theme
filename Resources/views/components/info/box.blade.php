@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
     https://github.com/dgvai/laravel-adminlte-components/blob/master/src/resources/components/info-box.blade.php
 --}}
 <div class="info-box {{$background }}">
@@ -20,11 +16,7 @@
         <div class="progress">
             <div class="progress-bar" id="{{!is_null($id) ? $id.'-progress' : null}}" style="width: {{$progress}}%"></div>
         </div>
-<<<<<<< HEAD
         @endif
-=======
-        @endif 
->>>>>>> ede0df7 (first)
 
         @if($comment)
         <span class="progress-description" id="{{!is_null($id) ? $id.'-comment' : null}}">

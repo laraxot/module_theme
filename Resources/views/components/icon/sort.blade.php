@@ -1,9 +1,5 @@
 @props(['sortBy', 'sortAsc', 'sortField'])
-<<<<<<< HEAD
 {{--
-=======
-{{--  
->>>>>>> ede0df7 (first)
     https://github.com/ascsoftw/tall-crud-generator/blob/main/resources/views/components/sort-icon.blade.php
     --}}
 
