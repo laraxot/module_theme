@@ -11,18 +11,13 @@
     <ul class="navbar-nav ms-auto">
         @php
             $menu_items = $_theme->getMenuItemsByName('navbar');
-<<<<<<< HEAD
             
             //dddx($_theme->getMenuItemsByName('navbar'));
             
-=======
-
->>>>>>> ede0df7 (first)
             //dddx(Menu::getByName('navbar'));
             //dddx(get_defined_vars());
             //l'array menus è ancora vuoto, giustamente...
 //fin quando verrà modificato il salvataggio in array su file, utilizziamo Menu::getByName('navbar')???
-<<<<<<< HEAD
             
         @endphp
 
@@ -35,15 +30,6 @@
                     <a class="nav-link" href="{{ $menu_item->link }}">{{ $menu_item->label }}</a>
                 </li>
             @endif
-=======
-
-        @endphp
-
-        @foreach ($menu_items as $menu_item)
-            <li class="nav-item">
-                <a class="nav-link" href="{{ $menu_item->link }}">{{ $menu_item->label }}</a>
-            </li>
->>>>>>> ede0df7 (first)
         @endforeach
         {{-- <li class="nav-item dropdown"><a class="nav-link dropdown-toggle " id="homeDropdownMenuLink" href="index.html"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
