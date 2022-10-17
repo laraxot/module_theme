@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-<<<<<<< HEAD
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
-=======
-use Illuminate\Support\Arr;
->>>>>>> ede0df7 (first)
 use Illuminate\View\Component as ViewComponent;
 use Modules\Xot\Services\FileService;
 
@@ -32,11 +28,7 @@ class Component extends ViewComponent {
     public function __construct(string $type) {
         $this->type = $type;
         $table_class = FileService::config('adm_theme::styles.table.class');
-<<<<<<< HEAD
         if (! \is_string($table_class)) {
-=======
-        if (! is_string($table_class)) {
->>>>>>> ede0df7 (first)
             $table_class = 'table';
         }
         if (null !== $table_class) {
@@ -54,7 +46,6 @@ class Component extends ViewComponent {
         ];
 
         $view = Arr::first(
-<<<<<<< HEAD
             $views,
             function ($item) {
                 // Call to an undefined method Illuminate\Contracts\View\Factory|Illuminate\Contracts\View\View::exists()
@@ -72,16 +63,3 @@ class Component extends ViewComponent {
         return View::make($view, $view_params);
     }
 }
-=======
-            $views, function ($item) {
-                return view()->exists($item);
-            }
-        );
-        if (null == $view) {
-            throw new \Exception('not exists '.$views[0].' or '.$views[1]);
-        }
-
-        return view()->make($view);
-    }
-}
->>>>>>> ede0df7 (first)

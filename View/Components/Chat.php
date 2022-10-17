@@ -2,11 +2,7 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 /* <script src="//app.dev:6001/socket.io/socket.io.js"></script> */
-=======
-/*<script src="//app.dev:6001/socket.io/socket.io.js"></script> */
->>>>>>> ede0df7 (first)
 
 declare(strict_types=1);
 
