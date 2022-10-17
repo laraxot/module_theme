@@ -18,22 +18,13 @@
 			@endif
 		</div>
 		<div class="col-xs-12 col-sm-12 col-lg-4 pull-right item-cart-info">
-<<<<<<< HEAD
 			{{--
 			<span class="price pull-left">€ {{ number_format($row->pivot->price,2) }}</span>
-=======
-			{{-- 
-			<span class="price pull-left">€ {{ number_format($row->pivot->price,2) }}</span> 
->>>>>>> ede0df7 (first)
 			--}}
 			<span class="price pull-left">€ {!! Form::bsInPlaceMoney('pivot[price]') !!} </span>
 			<a href="#" class="btn btn-small btn btn-secondary pull-right" data-toggle="modal" data-target="#order-modal{{ $row->post_id }}">&#43;</a>
 			{{--
-<<<<<<< HEAD
 			{!! Form::bsBtnDetach(['row'=>$row]) !!}
-=======
-			{!! Form::bsBtnDetach(['row'=>$row]) !!}  
->>>>>>> ede0df7 (first)
 			--}}
 		</div>
 	</div>

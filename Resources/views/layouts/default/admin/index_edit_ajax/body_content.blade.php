@@ -27,11 +27,7 @@ if (!\View::exists($item_view) && !\View::exists($item_view_default) /*&& !\View
 {{ $rows->links('pub_theme::layouts.partials.pagination') }}
 
 {{-- dddx($row->linkable) row->linkable solo perche' sono in index_edit --}}
-<<<<<<< HEAD
 {{-- messo in un modalajax
-=======
-{{-- messo in un modalajax 
->>>>>>> ede0df7 (first)
 @can('update-translate', $item0)
 <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle Translations</a>
 <div class="collapse multi-collapse" id="multiCollapseExample1">

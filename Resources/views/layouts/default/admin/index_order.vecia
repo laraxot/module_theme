@@ -16,11 +16,6 @@
 
 </style>
 @php
-<<<<<<< HEAD
-=======
-	Theme::add('theme/bc/jquery-ui/jquery-ui.min.js');
-	Theme::add('theme/bc/jquery-ui/themes/base/jquery-ui.min.css');
->>>>>>> ede0df7 (first)
 	/*
 	https://itsolutionstuff.com/post/jquery-draggable-sortable-table-rows-example-demo-with-bootstrapexample.html
 	*/
