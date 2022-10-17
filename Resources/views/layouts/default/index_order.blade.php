@@ -47,32 +47,18 @@
 @push('scripts')
 <script>
 	$(function() {
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> ede0df7 (first)
 
 		$( "#sortable" ).sortable({
 			placeholder: "ui-state-highlight",
 			update: function (event, ui) {
 				var $list =  $(this).sortable("toArray").join("|");
-<<<<<<< HEAD
 				//var sortable_data = $(this).sortable('serialize');
-=======
-				//var sortable_data = $(this).sortable('serialize'); 
->>>>>>> ede0df7 (first)
 				//alert(sortable_data);
 				$('input[name="order_list"]').val($list);
 				/*
 				 $.ajax({   url: "/persistListOrder.php",
-<<<<<<< HEAD
                                       data: {
                                                   'section':this.id,
-=======
-                                      data: { 
-                                                  'section':this.id,              
->>>>>>> ede0df7 (first)
                                                   'components': list
                                             }
                                   });

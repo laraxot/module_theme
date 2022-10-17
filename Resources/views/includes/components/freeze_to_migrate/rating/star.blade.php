@@ -33,19 +33,11 @@
             @endforeach
             ({{ $val }}) {{ $field->txt ?? '' }} votes
             {{--
-<<<<<<< HEAD
 	       ({{ $rating_avg }}) {{ $rating_count }} votes
-=======
-	       ({{ $rating_avg }}) {{ $rating_count }} votes 
->>>>>>> ede0df7 (first)
 	       @if(isset($row->pivot))
 	      ( {{ Arr::get($row->pivot,$field->name_dot) }} )({{ $field->name_dot }})
 	      @endif
 	       --}}
         </span></a>
     </li>
-<<<<<<< HEAD
 </ul >
-=======
-</ul >	
->>>>>>> ede0df7 (first)

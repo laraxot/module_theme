@@ -3,11 +3,7 @@
 	Theme::add('adm_theme::dist/css/app.css',1);
 	Theme::add('adm_theme::dist/js/manifest.js',1);
 	Theme::add('adm_theme::dist/js/vendor.js',2);
-<<<<<<< HEAD
 	Theme::add('adm_theme::dist/js/app.js',3);
-=======
-	Theme::add('adm_theme::dist/js/app.js',3);	
->>>>>>> ede0df7 (first)
 	*/
 @endphp
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">

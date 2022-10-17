@@ -237,11 +237,7 @@
                     @endforeach
                     <!-- venue item-->
                 </div>
-<<<<<<< HEAD
                 {{--
-=======
-                {{-- 
->>>>>>> ede0df7 (first)
                 <!-- Pagination -->
                 <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-template d-flex justify-content-center">

@@ -1,5 +1,4 @@
 <link rel="import" href="/public_html/bc/vaadin-date-picker/vaadin-date-picker.html">
-<<<<<<< HEAD
 <vaadin-date-picker name="date"
 	required
 	error-message="This field is required"
@@ -7,15 +6,6 @@
 	placeholder="Pick a date"
 	value="1980-08-14"></vaadin-date-picker>
 {{--
-=======
-<vaadin-date-picker name="date" 
-	required 
-	error-message="This field is required" 
-	label="Pick a date" 
-	placeholder="Pick a date" 
-	value="1980-08-14"></vaadin-date-picker>
-{{-- 
->>>>>>> ede0df7 (first)
 min="2017-06-01" max="2017-06-30" initial-position="2017-06-01"
  --}}
 @push('scripts')
