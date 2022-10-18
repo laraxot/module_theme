@@ -8,10 +8,14 @@ namespace Modules\Theme\Http\Livewire\Form;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\View\DynamicComponent;
 use Livewire\Component;
 use ReflectionClass;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\View\Compilers\BladeCompiler;
 
-class Builder extends Component {
+class Builder extends Component
+{
     public string $type;
 
     public $blade_component;
@@ -29,21 +33,23 @@ class Builder extends Component {
      *
      * @return void
      */
-    public function mount(?string $type = 'builder') {
+    public function mount(?string $type = 'builder')
+    {
         $this->type = $type;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
-        $view = 'theme::livewire.form.builder.'.$this->type;
+        $view = 'theme::livewire.form.builder.' . $this->type;
         // laravel\Modules\Theme\Http\Livewire\_components.json
         // laravel\Modules\Theme\View\Components\_components.json
-        $tmp = File::get(realpath(__DIR__.'/../../../View/Components/_components.json'));
+        $tmp = File::get(realpath(__DIR__ . '/../../../View/Components/_components.json'));
 
         $this->blade_components = json_decode($tmp);
 
@@ -53,28 +59,37 @@ class Builder extends Component {
             }
         });
 
+
         $this->blade_components =
             collect($this->blade_components)
             // $this->blade_components
             ->map(function ($item) {
                 $a = new ReflectionClass($item->comp_ns);
+
+                //dddx($a->getMethod('render'));
+                //dddx([$a->getConstructor()->getParameters(),json_encode($a->getConstructor()->getParameters())]);
+
                 $jsonPath = str_replace('.php', '.json', $a->getFileName());
 
-                if (! File::exists($jsonPath)) {
-                    $data = [
-                        ['name' => 'name',
-                            'type' => 'String',
-                            'comment' => '', ],
-                        ['name' => 'label',
-                            'type' => 'String',
-                            'comment' => '', ],
-                        ['name' => 'class',
-                            'type' => 'String',
-                            'comment' => '', ],
-                        ['name' => 'label_class',
-                            'type' => 'String',
-                            'comment' => '', ],
-                    ];
+                if (File::exists($jsonPath)) {
+                    $data = [];
+
+                    if (null !== $a->getConstructor() && null !== $a->getConstructor()->getParameters()) {
+                        foreach ($a->getConstructor()->getParameters() as $param) {
+
+                            $type = (null !== $param->getType() && null !== $param->getType()->getName()) ? (ucfirst($param->getType()->getName())) : '';
+
+                            $data[] = [
+                                'name' => $param->name,
+                                'type' => $type,
+                                'comment' => '',
+                                'value' => '',
+                                'prop_type' => 'constructor'
+                            ];
+                        }
+                    }
+
+                    //dddx(\json_encode($data));
                     File::put($jsonPath, \json_encode($data));
                 }
                 $content = File::get($jsonPath);
@@ -83,7 +98,6 @@ class Builder extends Component {
 
                 return $item;
             });
-        // dddx($this->blade_components);
 
         $view_params = [
             'blade_components' => $this->blade_components,
@@ -96,28 +110,38 @@ class Builder extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function addComponentToForm($key) {
+    public function bladeCompile($value, array $args = array())
+    {
+        $content = \Blade::render($value, []);
+        return $content;
+    }
+
+    public function addComponentToForm($key)
+    {
         $this->form_elements[] = $this->blade_components[$key];
         $this->setDefaultFormElement();
     }
 
-    public function deleteComponentFromForm($k) {
+    public function deleteComponentFromForm($k)
+    {
         unset($this->form_elements[$k]);
         $this->setDefaultFormElement();
     }
 
-    public function setDefaultFormElement() {
-        if (! isset($this->form_elements[0])) {
+    public function setDefaultFormElement()
+    {
+        if (!isset($this->form_elements[0])) {
             $this->selected_element = null;
             $this->index = null;
         }
-        if (! isset($selected_element) && isset($this->form_elements[0])) {
+        if (!isset($selected_element) && isset($this->form_elements[0])) {
             $this->selected_element = &$this->form_elements[0];
             $this->index = 0;
         }
     }
 
-    public function selectElement($k) {
+    public function selectElement($k)
+    {
         $this->index = $k;
         $this->selected_element = &$this->form_elements[$k];
     }

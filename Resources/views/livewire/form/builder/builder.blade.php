@@ -11,16 +11,25 @@
         <div class="col-4 h-100" id='right-defaults' class="container">
 
             @foreach ($form_elements as $k => $element)
-                {{-- <div class="list-group-item list-group-item-info d-inline-block col-md-10"
-                    wire:click="selectElement({{ $k }})" name="{{ $element['class_name'] }}">
-                </div> --}}
+                {{-- @php
+                    $element['props'] = collect($element['props'])
+                        ->pluck('value', 'name')
+                        ->toArray();
+                @endphp --}}
 
                 <div class="row clearfix">
                     <div wire:click="selectElement({{ $k }})" class="d-inline-block col-md-10">
-                        <x-{{ $element['comp_name'] }} name="{{ $element['props'][0]['value'] ?? '' }}"
-                            class="{{ $element['props'][2]['value'] ?? '' }}">
-                            {{ $element['comp_name'] }} {{ $element['props'][1]['value'] ?? '---' }}
-                            </x-{{ $element['comp_name'] }}>
+                        @php
+                            // so che non andrebbe qui la logica ma non so come farla in modo diverso
+                            $component = '<x-' . $element['comp_name'];
+                            foreach ($element['props'] as $prop) {
+                                if ($prop['prop_type'] === 'constructor') {
+                                    $component .= ' ' . $prop['name'] . '="' . $prop['value'] . '" ';
+                                }
+                            }
+                            $component .= '/>';
+                        @endphp
+                        {!! $this->bladeCompile($component) !!}
                     </div>
 
                     <div class="d-inline-block float-right col-md-2 text-center bg-danger list-group-item list-group-item-info"
@@ -42,7 +51,7 @@
                     @endforeach
                     <pre>
                     @php
-                        echo var_export($form_elements, true);
+                        //echo var_export($form_elements, true);
                     @endphp
                 </pre>
                 @endif

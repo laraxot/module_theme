@@ -9,7 +9,6 @@
     'maxlength',
     'labelClass' => ''
 ])
-{{ dddx($attributes->merge(['class' => ''])) }}
 <div class="cmp-text-area {{ $class }} {{ $attributes->class(['cmp-text-area']) }}">
     <div class="form-group">
       <label for="{{$id}}" class="{{ $visible?'d-block':'visually-hidden' }}">{{ $placeholder }}@if($required)*@endif</label>
