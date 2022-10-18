@@ -77,6 +77,8 @@
                     @endphp
                 </pre>
                 @endif
+
+                <button class="btn btn-primary" wire:click="saveForm()">Save Form</button>
             </div>
         </div>
     </div>

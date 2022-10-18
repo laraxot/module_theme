@@ -12,7 +12,9 @@ use Illuminate\View\DynamicComponent;
 use Livewire\Component;
 use ReflectionClass;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\Compilers\BladeCompiler;
+use Modules\Xot\Services\FileService;
 
 class Builder extends Component
 {
@@ -153,5 +155,9 @@ class Builder extends Component
     {
         $this->index = $k;
         $this->selected_element = &$this->form_elements[$k];
+    }
+
+    public function saveForm(){
+        Storage::disk('local')->put('form.json',  json_encode($this->form_elements));
     }
 }
