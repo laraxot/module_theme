@@ -1,0 +1,1 @@
+console.log('Theme/Resources/collective/fields/array/js/boh.js');
