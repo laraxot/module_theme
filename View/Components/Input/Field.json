@@ -1,1 +1,74 @@
-[{"name":"field","type":"StdClass","comment":"","value":"","prop_type":"constructor"},{"name":"name","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"type","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"label","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"placeholder","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"class","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"options","type":"Array","comment":"","value":"","prop_type":"constructor"},{"name":"icon","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"value","type":"","comment":"","value":"","prop_type":"constructor"}]
+[
+    {
+        "name": "field",
+        "type": "StdClass",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "false"
+    },
+    {
+        "name": "name",
+        "type": "String",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "true"
+    },
+    {
+        "name": "type",
+        "type": "String",
+        "comment": "",
+        "value": "text",
+        "prop_type": "constructor",
+        "required": "true"
+    },
+    {
+        "name": "label",
+        "type": "String",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "false"
+    },
+    {
+        "name": "placeholder",
+        "type": "String",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "false"
+    },
+    {
+        "name": "class",
+        "type": "String",
+        "comment": "",
+        "value": "form-control",
+        "prop_type": "constructor",
+        "required": "false"
+    },
+    {
+        "name": "options",
+        "type": "Array",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "false"
+    },
+    {
+        "name": "icon",
+        "type": "String",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "false"
+    },
+    {
+        "name": "value",
+        "type": "",
+        "comment": "",
+        "value": "",
+        "prop_type": "constructor",
+        "required": "false"
+    }
+]

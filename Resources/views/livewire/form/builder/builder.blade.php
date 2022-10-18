@@ -21,13 +21,25 @@
                     <div wire:click="selectElement({{ $k }})" class="d-inline-block col-md-10">
                         @php
                             // so che non andrebbe qui la logica ma non so come farla in modo diverso
+                            // prova input.text e input.search
+                            // e input.field
                             $component = '<x-' . $element['comp_name'];
                             foreach ($element['props'] as $prop) {
-                                if ($prop['prop_type'] === 'constructor') {
-                                    $component .= ' ' . $prop['name'] . '="' . $prop['value'] . '" ';
+                                if ($prop['prop_type'] === 'constructor' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
+                                    $component .= ' ';
+                                    if ($prop['type'] === 'String' && $prop['type'] === '') {
+                                        $component .= ':';
+                                    }
+                                    $component .= $prop['name'] . '="' . $prop['value'] . '" ';
                                 }
                             }
-                            $component .= '/>';
+                            $component .= '>';
+                            foreach ($element['props'] as $prop) {
+                                if ($prop['prop_type'] === 'slot' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
+                                    $component .= '<x-slot name="' . $prop['name'] . '">' . $prop['value'] . '</x-slot>';
+                                }
+                            }
+                            $component .= '</x-' . $element['comp_name'] . '>';
                         @endphp
                         {!! $this->bladeCompile($component) !!}
                     </div>
@@ -39,11 +51,21 @@
                 </div>
             @endforeach
         </div>
-        <div class="col-4 h-100" style="border-left:1px solid darkgrey;">Properties
+        <div class="col-4 h-100" style="border-left:1px solid darkgrey;">
             <div>
                 @if (isset($selected_element))
-                    <h3>{{ $selected_element['comp_name'] }}</h3>
-                    @foreach ($selected_element['props'] as $kp => $prop)
+                    <h1>{{ $selected_element['comp_name'] }}</h1>
+
+                    <h3>Constructor</h3>
+                    @foreach (collect($selected_element['props'])->where('prop_type', 'constructor')->toArray() as $kp => $prop)
+                        <input class="form-control"
+                            wire:model="form_elements.{{ $index }}.props.{{ $kp }}.value"
+                            name="{{ Str::slug($prop['name']) }}"
+                            placeholder="{{ $prop['placeholder'] ?? $prop['name'] }}" type="text">
+                    @endforeach
+
+                    <h3>Slots</h3>
+                    @foreach (collect($selected_element['props'])->where('prop_type', 'slot')->toArray() as $kp => $prop)
                         <input class="form-control"
                             wire:model="form_elements.{{ $index }}.props.{{ $kp }}.value"
                             name="{{ Str::slug($prop['name']) }}"

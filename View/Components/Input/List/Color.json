@@ -1,1 +1,1 @@
-[{"name":"name","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"value","type":"String","comment":"","value":"","prop_type":"constructor"}]
+[{"name":"name","type":"String","comment":"","value":"","prop_type":"constructor","required":"true"},{"name":"value","type":"String","comment":"","value":"","prop_type":"constructor","required":"true"}]

@@ -1,1 +1,24 @@
-[]
+[
+    {
+        "name": "id",
+        "type": "String",
+        "comment": "",
+        "value": "1",
+        "prop_type": "slot",
+        "required": "true"
+    },{
+        "name": "label_text",
+        "type": "String",
+        "comment": "",
+        "value": "label text",
+        "prop_type": "slot",
+        "required": "true"
+    },{
+        "name": "placeholder_text",
+        "type": "String",
+        "comment": "",
+        "value": "placeholder text",
+        "prop_type": "slot",
+        "required": "true"
+    }
+]

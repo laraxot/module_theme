@@ -71,7 +71,7 @@ class Builder extends Component
 
                 $jsonPath = str_replace('.php', '.json', $a->getFileName());
 
-                if (File::exists($jsonPath)) {
+                if (!File::exists($jsonPath)) {
                     $data = [];
 
                     if (null !== $a->getConstructor() && null !== $a->getConstructor()->getParameters()) {
@@ -79,12 +79,21 @@ class Builder extends Component
 
                             $type = (null !== $param->getType() && null !== $param->getType()->getName()) ? (ucfirst($param->getType()->getName())) : '';
 
+                            $value = '';
+
+                            if ($param->name === 'class') {
+                                $value = 'form-control';
+                            }
+                            if($type!=='String'&&$type!==''){
+                                $value = '[]';
+                            }
                             $data[] = [
                                 'name' => $param->name,
                                 'type' => $type,
                                 'comment' => '',
-                                'value' => '',
-                                'prop_type' => 'constructor'
+                                'value' => $value,
+                                'prop_type' => 'constructor',
+                                'required' => 'true'
                             ];
                         }
                     }

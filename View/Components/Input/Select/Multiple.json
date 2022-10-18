@@ -1,1 +1,1 @@
-[{"name":"options","type":"Array","comment":"","value":"","prop_type":"constructor"},{"name":"name","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"class","type":"String","comment":"","value":"","prop_type":"constructor"}]
+[{"name":"options","type":"Array","comment":"","value":"[]","prop_type":"constructor","required":"true"},{"name":"name","type":"String","comment":"","value":"","prop_type":"constructor","required":"true"},{"name":"class","type":"String","comment":"","value":"form-control","prop_type":"constructor","required":"true"}]

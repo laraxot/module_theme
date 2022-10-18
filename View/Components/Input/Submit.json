@@ -1,1 +1,1 @@
-[{"name":"action","type":"String","comment":"","value":"","prop_type":"constructor"},{"name":"formId","type":"String","comment":"","value":"","prop_type":"constructor"}]
+[{"name":"action","type":"String","comment":"","value":"","prop_type":"constructor","required":"true"},{"name":"formId","type":"String","comment":"","value":"","prop_type":"constructor","required":"true"}]
