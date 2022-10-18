@@ -35,6 +35,9 @@ $test=route('admin.item.update',$parz);
                     {!! Theme::inputHtml(['row' => $row, 'field' => $field]) !!}
                 @endforeach
             </div>
+            {{--
+            <x-form.panel :panel="$_panel" type="edit" />
+            --}}
             {{ Form::bsSubmit('Modifica') }}
             {!! Form::close() !!}
             {{-- </x-theme::forms.panel> --}}
