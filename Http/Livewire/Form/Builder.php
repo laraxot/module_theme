@@ -25,6 +25,7 @@ class Builder extends Component
     public $index = null;
     public $selected_element = null;
     public $form_elements = [];
+    public $htmlForm = '';
 
     protected $listeners = [
         'addComponentToForm' => 'addComponentToForm',
@@ -54,22 +55,78 @@ class Builder extends Component
         $tmp = File::get(realpath(__DIR__ . '/../../../View/Components/_components.json'));
 
         $this->blade_components = json_decode($tmp);
+        $files = File::allFiles(realpath(__DIR__ . '/../../../Resources/views/components/input/'));
 
-        $this->blade_components = collect($this->blade_components)->filter(function ($item) {
-            if (Str::contains($item->comp_name, 'input.')) {
+        $f = collect();
+
+        $this->blade_components = collect($files)->filter(function ($item) use ($f) {
+            if ($item->getFilename() === 'field.blade.php') {
+                $f->push(str_replace('/', '.', explode('/', str_replace('/' . $item->getFilename(), '', $item->getRelativePathname()), 2)));
+                return $item;
+            }
+        });
+
+        $b = $this->blade_components->filter(function ($item) {
+            if ($item->getFilename() === 'field.blade.php') {
+                $item->class_name = "Input\Field";
+                $item->comp_name = "input.field";
+                $item->comp_ns = "Modules\Theme\View\Components\Input\Field";
+
+                $a = new ReflectionClass($item->comp_ns);
+                $jsonPath = str_replace('.php', '.json', $a->getFileName());
+                if (!File::exists($jsonPath)) {
+                    $data = [];
+
+                    if (null !== $a->getConstructor() && null !== $a->getConstructor()->getParameters()) {
+                        foreach ($a->getConstructor()->getParameters() as $param) {
+                            $type = (null !== $param->getType() && null !== $param->getType()->getName()) ? (ucfirst($param->getType()->getName())) : '';
+
+                            $value = '';
+
+                            if ($param->name === 'class') {
+                                $value = 'form-control';
+                            }
+
+                            if ($type !== 'String' && $type !== '') {
+                                $value = '[]';
+                            }
+
+                            $data[] = [
+                                'name' => $param->name,
+                                'type' => $type,
+                                'comment' => '',
+                                'value' => $value,
+                                'prop_type' => 'constructor',
+                                'required' => 'true'
+                            ];
+                        }
+                    }
+                    File::put($jsonPath, \json_encode($data));
+                }
+
+                $item->types = str_replace('/', '.', explode('/', str_replace('/' . $item->getFilename(), '', $item->getRelativePathname()), 2));
+
+                $content = File::get($jsonPath);
+                $item->props = \json_decode($content);
+
                 return $item;
             }
         });
 
 
+        
+
+        /*$this->blade_components = collect($this->blade_components)->filter(function ($item) {
+            if (Str::contains($item->comp_name, 'input.')) {
+                return $item;
+            }
+        });*/
+
+        /*
         $this->blade_components =
             collect($this->blade_components)
-            // $this->blade_components
             ->map(function ($item) {
                 $a = new ReflectionClass($item->comp_ns);
-
-                //dddx($a->getMethod('render'));
-                //dddx([$a->getConstructor()->getParameters(),json_encode($a->getConstructor()->getParameters())]);
 
                 $jsonPath = str_replace('.php', '.json', $a->getFileName());
 
@@ -78,7 +135,6 @@ class Builder extends Component
 
                     if (null !== $a->getConstructor() && null !== $a->getConstructor()->getParameters()) {
                         foreach ($a->getConstructor()->getParameters() as $param) {
-
                             $type = (null !== $param->getType() && null !== $param->getType()->getName()) ? (ucfirst($param->getType()->getName())) : '';
 
                             $value = '';
@@ -86,9 +142,11 @@ class Builder extends Component
                             if ($param->name === 'class') {
                                 $value = 'form-control';
                             }
-                            if($type!=='String'&&$type!==''){
+
+                            if ($type !== 'String' && $type !== '') {
                                 $value = '[]';
                             }
+
                             $data[] = [
                                 'name' => $param->name,
                                 'type' => $type,
@@ -108,10 +166,10 @@ class Builder extends Component
                 $item->props = \json_decode($content);
 
                 return $item;
-            });
+            });*/
 
         $view_params = [
-            'blade_components' => $this->blade_components,
+            'blade_components' => $b,
             'form' => $this->form_elements,
             'selected_element' => $this->selected_element,
         ];
@@ -157,7 +215,9 @@ class Builder extends Component
         $this->selected_element = &$this->form_elements[$k];
     }
 
-    public function saveForm(){
-        Storage::disk('local')->put('form.json',  json_encode($this->form_elements));
+    public function saveForm($html)
+    {
+        Storage::disk('local')->put('form.html',  $html);
+        //Storage::disk('local')->put('form.json',  json_encode($this->form_elements));
     }
 }

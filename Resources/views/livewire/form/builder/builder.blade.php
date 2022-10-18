@@ -1,11 +1,9 @@
 <div>
     <div class="row">
         <div class="col-4 h-100" style="border-right:1px solid darkgrey;" id='left-defaults' class="container">
-            @foreach ($blade_components as $k => $component)
-                {{-- @if (strpos($component->comp_name, '.') === false) --}}
+            @foreach (collect($blade_components)->pluck('types.0')->unique() as $k => $component)
                 <div class="list-group-item list-group-item-info" name="{{ $k }}">
-                    {{ $component->comp_name }}</div>
-                {{-- @endif --}}
+                    {{ $component }}</div>
             @endforeach
         </div>
         <div class="col-4 h-100" id='right-defaults' class="container">
@@ -27,7 +25,7 @@
                             foreach ($element['props'] as $prop) {
                                 if ($prop['prop_type'] === 'constructor' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
                                     $component .= ' ';
-                                    if ($prop['type'] === 'String' && $prop['type'] === '') {
+                                    if ($prop['type'] !== 'String' && $prop['type'] !== '') {
                                         $component .= ':';
                                     }
                                     $component .= $prop['name'] . '="' . $prop['value'] . '" ';
@@ -40,6 +38,7 @@
                                 }
                             }
                             $component .= '</x-' . $element['comp_name'] . '>';
+                            dddx($element);
                         @endphp
                         {!! $this->bladeCompile($component) !!}
                     </div>
@@ -73,12 +72,14 @@
                     @endforeach
                     <pre>
                     @php
-                        //echo var_export($form_elements, true);
+                        //echo var_export($htmlForm, true);
                     @endphp
                 </pre>
                 @endif
 
-                <button class="btn btn-primary" wire:click="saveForm()">Save Form</button>
+
+
+                <button class="btn btn-primary" wire:click="saveForm($('#right-defaults').html())">Save Form</button>
             </div>
         </div>
     </div>

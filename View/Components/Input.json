@@ -1,1 +1,26 @@
-[{"name":"name","type":"String","comment":""},{"name":"label","type":"String","comment":""},{"name":"class","type":"String","comment":""},{"name":"label_class","type":"String","comment":""}]
+[
+    {
+        "name": "name",
+        "type": "String",
+        "comment": "",
+        "value":"name_001",
+        "prop_type":"constructor",
+        "required":"true"
+    },
+    {
+        "name": "label",
+        "type": "String",
+        "comment": "",
+        "value":"label_01",
+        "prop_type":"constructor",
+        "required":"true"
+    },
+    {
+        "name": "class",
+        "type": "String",
+        "comment": "",
+        "value":"form-control",
+        "prop_type":"constructor",
+        "required":"true"
+    }
+]
