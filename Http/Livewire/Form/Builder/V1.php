@@ -11,15 +11,7 @@ use Livewire\Component;
 class V1 extends Component {
     public string $type;
 
-    public $blade_component;
-    public $components;
-    public $index = null;
-    public $selected_element = null;
-    public $form_elements = [];
-
-    protected $listeners = [
-        'addComponentToForm' => 'addComponentToForm',
-    ];
+    public array $form_data = [];
 
     /**
      * Undocumented function.
@@ -44,31 +36,5 @@ class V1 extends Component {
         ];
 
         return view($view, $view_params);
-    }
-
-    public function addComponentToForm($key) {
-        $this->form_elements[] = $this->blade_components[$key];
-        $this->setDefaultFormElement();
-    }
-
-    public function deleteComponentFromForm($k) {
-        unset($this->form_elements[$k]);
-        $this->setDefaultFormElement();
-    }
-
-    public function setDefaultFormElement() {
-        if (! isset($this->form_elements[0])) {
-            $this->selected_element = null;
-            $this->index = null;
-        }
-        if (! isset($selected_element) && isset($this->form_elements[0])) {
-            $this->selected_element = &$this->form_elements[0];
-            $this->index = 0;
-        }
-    }
-
-    public function selectElement($k) {
-        $this->index = $k;
-        $this->selected_element = &$this->form_elements[$k];
     }
 }
