@@ -92,11 +92,15 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
         return true;
     }
 
-     public function tryFormBuilder2(UserContract $user, PanelContract $panel): bool {
-         return true;
-     }
+    public function tryFormBuilder2(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 
     public function tryFormBuilder3(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
+
+    public function tryFormBuilder4(UserContract $user, PanelContract $panel): bool {
         return true;
     }
 }
