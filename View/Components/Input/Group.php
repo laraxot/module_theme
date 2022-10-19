@@ -50,6 +50,9 @@ class Group extends Component {
         );
 
         $input_attrs = $attributes;
+        $input_attrs = $input_attrs->merge([
+            'wire:model.lazy' => 'form_data.'.$attributes->get('name'),
+        ]);
 
         $div_class = 'form-group '.$attributes->get('div_class').' col-'.$attributes->get('col_size') ?? '12';
 

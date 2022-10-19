@@ -147,6 +147,13 @@ class V1 extends Component {
                     'type' => 'text',
                 ],
             ];
+
+            if ('select' == $curr['type']) {
+                $tmp[] = [
+                    'name' => 'options',
+                    'type' => 'array',
+                ];
+            }
         }
         // --- per ora non salvo , dobbiamo vendere i campi corretti
 
