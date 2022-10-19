@@ -34,6 +34,8 @@ class _ModulePanel extends XotBasePanel {
             new Actions\TryDateRangeFlatpickrAction(),
             new Actions\TryFormBuilderAction(),
             new Actions\TryFormBuilder1Action(),
+            new Actions\TryFormBuilder2Action(),
+            new Actions\TryFormBuilder3Action(),
             new ManageLangModuleAction('theme'),
         ];
         if (\in_array($act, ['choose_pub_theme', 'activate_pub_theme'], true)) {

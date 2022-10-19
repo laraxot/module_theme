@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Modules\Theme\Http\Livewire\Form;
+namespace Modules\Theme\Http\Livewire\Form\Builder;
 
 // use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use ReflectionClass;
 
-class Builder extends Component {
+class V2 extends Component {
     public string $type;
 
     public $blade_component;
@@ -19,9 +19,6 @@ class Builder extends Component {
     public $index = null;
     public $selected_element = null;
     public $form_elements = [];
-    public $htmlForm = '';
-    public $b;
-    public array $form_data = [];
 
     protected $listeners = [
         'addComponentToForm' => 'addComponentToForm',
@@ -43,32 +40,30 @@ class Builder extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'theme::livewire.form.builder.'.$this->type;
+        $view = 'theme::livewire.form.builder.v2.'.$this->type;
         // laravel\Modules\Theme\Http\Livewire\_components.json
         // laravel\Modules\Theme\View\Components\_components.json
-        $tmp = File::get(realpath(__DIR__.'/../../../View/Components/_components.json'));
+        $tmp = File::get(realpath(__DIR__.'/../../../../View/Components/_components.json'));
 
         $this->blade_components = json_decode($tmp);
-        $files = File::allFiles(realpath(__DIR__.'/../../../Resources/views/components/input/'));
 
-        $f = collect();
-
-        $this->blade_components = collect($files)->filter(function ($item) use ($f) {
-            if ('field.blade.php' === $item->getFilename()) {
-                $f->push(str_replace('/', '.', explode('/', str_replace('/'.$item->getFilename(), '', $item->getRelativePathname()), 2)));
-
+        $this->blade_components = collect($this->blade_components)->filter(function ($item) {
+            if (Str::contains($item->comp_name, 'input.')) {
                 return $item;
             }
         });
 
-        $this->b = $this->blade_components->filter(function ($item) {
-            if ('field.blade.php' === $item->getFilename()) {
-                $item->class_name = "Input\Field";
-                $item->comp_name = 'input.field';
-                $item->comp_ns = "Modules\Theme\View\Components\Input\Field";
-
+        $this->blade_components =
+            collect($this->blade_components)
+            // $this->blade_components
+            ->map(function ($item) {
                 $a = new ReflectionClass($item->comp_ns);
+
+                // dddx($a->getMethod('render'));
+                // dddx([$a->getConstructor()->getParameters(),json_encode($a->getConstructor()->getParameters())]);
+
                 $jsonPath = str_replace('.php', '.json', $a->getFileName());
+
                 if (! File::exists($jsonPath)) {
                     $data = [];
 
@@ -81,41 +76,32 @@ class Builder extends Component {
                             if ('class' === $param->name) {
                                 $value = 'form-control';
                             }
-
                             if ('String' !== $type && '' !== $type) {
                                 $value = '[]';
                             }
-
                             $data[] = [
                                 'name' => $param->name,
                                 'type' => $type,
                                 'comment' => '',
+                                'value' => $value,
                                 'prop_type' => 'constructor',
                                 'required' => 'true',
-                                'value' => $value,
                             ];
                         }
                     }
+
+                    // dddx(\json_encode($data));
                     File::put($jsonPath, \json_encode($data));
                 }
-
-                $item->types = str_replace('/', '.', explode('/', str_replace('/'.$item->getFilename(), '', $item->getRelativePathname()), 2));
-
                 $content = File::get($jsonPath);
+
                 $item->props = \json_decode($content);
 
-                $item->props = collect($item->props);
-
-                $item->props->where('name', 'type')->first()->value = $item->types[1] ?? $item->types[0];
-
-                // dddx($item);
-
                 return $item;
-            }
-        });
+            });
 
         $view_params = [
-            'blade_components' => $this->b,
+            'blade_components' => $this->blade_components,
             'form' => $this->form_elements,
             'selected_element' => $this->selected_element,
         ];
@@ -131,9 +117,8 @@ class Builder extends Component {
         return $content;
     }
 
-    public function addComponentToForm(string $key) {
-        // dddx($this->b);
-        $this->form_elements[] = $this->b[$key];
+    public function addComponentToForm($key) {
+        $this->form_elements[] = $this->blade_components[$key];
         $this->setDefaultFormElement();
     }
 
@@ -156,10 +141,5 @@ class Builder extends Component {
     public function selectElement($k) {
         $this->index = $k;
         $this->selected_element = &$this->form_elements[$k];
-    }
-
-    public function saveForm($html) {
-        Storage::disk('local')->put('form.html', $html);
-        // Storage::disk('local')->put('form.json',  json_encode($this->form_elements));
     }
 }

@@ -1,24 +1,24 @@
 <div>
     <div class="row">
-        <div class="col-4 overflow-auto" style="height:85vh !important;border-right:1px solid darkgrey;" id='left-defaults'
-            class="container">
-            @foreach (collect($blade_components)->unique('types.0') as $k => $component)
-                <div class="card-header ui-sortable-handle mb-2" name="{{ $k }}">
-                    <h3 class="card-title">{{ $component->types[0] }}</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool"
-                            wire:click="addComponentToForm('{{ $k }}')">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
+        <div class="col-4 h-100" style="border-right:1px solid darkgrey;" id='left-defaults' class="container">
+            @foreach ($blade_components as $k => $component)
+                {{-- @if (strpos($component->comp_name, '.') === false) --}}
+                <div class="list-group-item list-group-item-info" name="{{ $k }}">
+                    {{ $component->comp_name }}</div>
+                {{-- @endif --}}
             @endforeach
         </div>
-        <div class="col-4 overflow-auto" style="height:85vh !important;" id='right-defaults' class="container">
+        <div class="col-4 h-100" id='right-defaults' class="container">
 
             @foreach ($form_elements as $k => $element)
+                {{-- @php
+                    $element['props'] = collect($element['props'])
+                        ->pluck('value', 'name')
+                        ->toArray();
+                @endphp --}}
+
                 <div class="row clearfix">
-                    <div class="col-md-10 d-flex align-items-center">
+                    <div wire:click="selectElement({{ $k }})" class="d-inline-block col-md-11">
                         @php
                             // so che non andrebbe qui la logica ma non so come farla in modo diverso
                             // prova input.text e input.search
@@ -27,7 +27,7 @@
                             foreach ($element['props'] as $prop) {
                                 if ($prop['prop_type'] === 'constructor' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
                                     $component .= ' ';
-                                    if ($prop['type'] !== 'String' && $prop['type'] !== '') {
+                                    if ($prop['type'] === 'String' && $prop['type'] === '') {
                                         $component .= ':';
                                     }
                                     $component .= $prop['name'] . '="' . $prop['value'] . '" ';
@@ -40,23 +40,13 @@
                                 }
                             }
                             $component .= '</x-' . $element['comp_name'] . '>';
-                            //dddx($element);
                         @endphp
                         {!! $this->bladeCompile($component) !!}
                     </div>
 
-                    <div class="col-md-1 d-flex align-items-center">
-                        <button type="button" class="btn btn-tool btn-info"
-                            wire:click="selectElement({{ $k }})">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                    </div>
-
-                    <div class="col-md-1 d-flex align-items-center">
-                        <button type="button" class="btn btn-tool btn-danger"
-                            wire:click="deleteComponentFromForm({{ $k }})">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                    <div class="d-inline-block float-right col-md-1 text-center bg-danger rounded-circle p-2"
+                        style="cursor:pointer" wire:click="deleteComponentFromForm({{ $k }})"
+                        name="{{ $element['class_name'] }}">X
                     </div>
                 </div>
             @endforeach
@@ -64,8 +54,7 @@
         <div class="col-4 h-100" style="border-left:1px solid darkgrey;">
             <div>
                 @if (isset($selected_element))
-                    {{-- dddx(collect($selected_element['props'])->where('name','type')) --}}
-                    <h1>{{ collect($selected_element['props'])->where('name', 'type')->first()['value'] }}</h1>
+                    <h1>{{ $selected_element['comp_name'] }}</h1>
 
                     <h3>Constructor</h3>
                     @foreach (collect($selected_element['props'])->where('prop_type', 'constructor')->toArray() as $kp => $prop)
@@ -84,14 +73,10 @@
                     @endforeach
                     <pre>
                     @php
-                        //echo var_export($htmlForm, true);
+                        //echo var_export($form_elements, true);
                     @endphp
                 </pre>
                 @endif
-
-
-
-                <button class="btn btn-primary" wire:click="saveForm($('#right-defaults').html())">Save Form</button>
             </div>
         </div>
     </div>
