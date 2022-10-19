@@ -14,10 +14,11 @@ use Illuminate\View\ComponentAttributeBag;
 class Group extends Component {
     public string $tpl = 'group';
     public array $data = [];
+    public array $options = [];
 
-    // public array $div_attrs = [];
-    // public array $label_attrs = [];
-    // public array $input_attrs = [];
+    public function __construct(?array $options = null) {
+        $this->options = $options ?? [];
+    }
 
     /**
      * Get the view / contents that represents the component.
@@ -65,7 +66,6 @@ class Group extends Component {
             'input_attrs' => $input_attrs,
         ];
         $view_params = array_merge($data, $view_params);
-
         // return View::make($view, $view_params);
         // $data['attributes']['div_attrs'] = $div_attrs;
         // $data['div_attrs'] = $div_attrs;

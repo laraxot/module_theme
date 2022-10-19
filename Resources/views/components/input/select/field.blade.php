@@ -6,13 +6,5 @@
                 {{ $v }}
             </option>
         @endforeach 
-        {{--
-        @foreach ($options as $option)
-        <option value="{{ $option->id }}"
-            {{ $option->id == old('category_id') ? 'selected' : '' }}>
-            {{ $option->title }}
-        </option>
-        @endforeach
-        --}}
     @endif
 </select>

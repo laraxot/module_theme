@@ -1,3 +1,5 @@
+@props(['name'])
+
 <div class="datetime_range_picker" id="{{ Str::slug($name) }}"
     style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%" wire:ignore>
     <i class="fa fa-calendar"></i>&nbsp;
@@ -25,7 +27,6 @@
 
 
             function cb(start, end) {
-                //*
                 $('#{{ Str::slug($name) }} span').html(start.format('D MMM YYYY HH:mm') + ' - ' + end.format(
                     'D MMM YYYY HH:mm'));
                 $('#{{ Str::slug($name) }} [name="date_from"]').val(start.format('yyyy-MM-DDTHH:mm:ss'))
@@ -35,7 +36,6 @@
                     'yyyy-MM-DDTHH:mm:ss'));
                 @this.emit('setFormDataValueEvent', "{{ $name }}_to", end.format('yyyy-MM-DDTHH:mm:ss'));
                 @this.emit('updatedFormDataRowsEvent', @this.form_data);
-
             }
 
 
