@@ -8,13 +8,37 @@
         <button id="getJSON" type="button">Get JSON Data</button>
         <button id="getJS" type="button">Get JS Data</button>
     </div>
-    <div class="build-wrap form-wrapper-div"></div>
+    {{-- <div class="build-wrap form-wrapper-div"></div> --}}
+    <div id="build-wrap"></div>
+    {{-- <div class="render-wrap"></div> --}}
+    {{-- <button id="edit-form">Edit Form</button> --}}
 @endsection
 
 @push('styles')
     <style>
         .form-wrapper-div {
             padding: 20px;
+        }
+
+        .form-rendered #build-wrap {
+            display: none;
+        }
+
+        .render-wrap {
+            display: none;
+        }
+
+        .form-rendered .render-wrap {
+            display: block;
+        }
+
+        #edit-form {
+            display: none;
+            float: right;
+        }
+
+        .form-rendered #edit-form {
+            display: block;
         }
     </style>
 @endpush
@@ -23,12 +47,32 @@
     <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
     <script>
         $(function() {
-            $('.build-wrap').formBuilder();
-        });
-
-        jQuery(function($) {
+            // $('.build-wrap').formBuilder();
             var fbEditor = document.getElementById('build-wrap');
-            var formBuilder = $(fbEditor).formBuilder();
+            var fields = [{
+                label: 'Star Rating',
+                attrs: {
+                    type: 'starRating'
+                },
+                icon: '🌟'
+            }];
+            var templates = {
+                starRating: function(fieldData) {
+                    return {
+                        field: '<span id="' + fieldData.name + '">',
+                        onRender: function() {
+                            $(document.getElementById(fieldData.name)).rateYo({
+                                rating: 3.6
+                            });
+                        }
+                    };
+                }
+            };
+            $(fbEditor).formBuilder({
+                templates,
+                fields
+            });
+            // var formBuilder = $(fbEditor).formBuilder();
 
             document.getElementById('getXML').addEventListener('click', function() {
                 alert(formBuilder.actions.getData('xml'));
@@ -41,9 +85,7 @@
                 console.log(formBuilder.actions.getData());
             });
 
-            document.getElementByClass('.save-template').addEventListener('click', function() {
-                alert(formBuilder.actions.getData('json'));
-            });
+
         });
     </script>
 @endpush
