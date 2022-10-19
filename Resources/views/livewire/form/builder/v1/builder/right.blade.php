@@ -1,5 +1,10 @@
-@foreach($form_data[$edit_k] ?? [] as $k => $field)
-    <x-input.group type="text" name="{{ $edit_k }}.{{$k}}" />
+@foreach($form_edit as $k => $v)
+      
+    <x-input.group.arr :arr="$v" />
+    
+    {{--  
+        <pre>{{ print_r($v,true) }}</pre>
+    --}}
 @endforeach
 
 

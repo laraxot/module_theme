@@ -7,13 +7,17 @@ namespace Modules\Theme\Http\Livewire\Form\Builder;
 // use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
+use Modules\Tenant\Services\TenantService;
 use Modules\Theme\Services\CollectiveService;
+use Modules\Xot\Services\FileService;
 
 class V1 extends Component {
     public string $type;
 
     public array $form_data = [];
+    public array $form_edit = [];
 
     public Collection $comps;
 
@@ -25,6 +29,9 @@ class V1 extends Component {
      * @return void
      */
     public function mount(?string $type = 'builder') {
+        $data = TenantService::config('forms.uno');
+        $this->form_data = $data;
+
         $this->type = $type;
 
         $view_path = realpath(__DIR__.'/../../../../Resources/views/collective/fields');
@@ -66,14 +73,94 @@ class V1 extends Component {
     }
 
     public function add(string $name): void {
+        /*
+        $view = 'theme::collective.fields.'.$name.'.field';
+        $view_file = FileService::viewPath($view);
+        $json_file = str_replace('\field.blade.php', '\data.json', $view_file);
+
+        if (! File::exists($json_file)) {
+            $data = [
+                [
+                    'name' => 'name',
+                    'type' => 'text',
+                ],
+                [
+                    'name' => 'class',
+                    'type' => 'text',
+                ],
+                [
+                    'name' => 'col_size',
+                    'type' => 'int',
+                ],
+                [
+                    'name' => 'label',
+                    'type' => 'text',
+                ],
+                [
+                    'name' => 'label_class',
+                    'type' => 'text',
+                ],
+            ];
+        }
+        $this->form_data[] = $data;
+        */
+        // *
         $this->form_data[] = [
             'type' => $name,
             'name' => $name.'_'.count($this->form_data),
             'id' => $name.'_'.count($this->form_data),
         ];
+        // */
     }
 
     public function edit(int $k): void {
         $this->edit_k = $k;
+        $curr = $this->form_data[$k];
+
+        $view = 'theme::collective.fields.'.$curr['type'].'.field';
+        $view_file = FileService::viewPath($view);
+        $json_file = str_replace('\field.blade.php', '\data.json', $view_file);
+
+        if (! File::exists($json_file)) {
+            $tmp = [
+                [
+                    'name' => 'name',
+                    'type' => 'text',
+                ],
+                [
+                    'name' => 'class',
+                    'type' => 'text',
+                ],
+                [
+                    'name' => 'col_size',
+                    'type' => 'int',
+                ],
+                [
+                    'name' => 'label',
+                    'type' => 'text',
+                ],
+                [
+                    'name' => 'label_class',
+                    'type' => 'text',
+                ],
+            ];
+        }
+        // --- per ora non salvo , dobbiamo vendere i campi corretti
+
+        $tmp = collect($tmp)->map(function ($item) {
+            $item['name'] = $this->edit_k.'.'.$item['name'];
+
+            return $item;
+        })->all();
+
+        $this->form_edit = $tmp;
+    }
+
+    public function updateInputOrder(array $orders) {
+        $tmp = [];
+        foreach ($orders as $order) {
+            $tmp[] = $this->form_data[$order['value']];
+        }
+        $this->form_data = $tmp;
     }
 }

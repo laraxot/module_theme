@@ -4,54 +4,66 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Input;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
-use stdClass;
+use Modules\Xot\Services\PanelService;
 
 /**
  * Undocumented class.
  */
 class Label extends Component {
-    public ?stdClass $field = null;
-    public ?string $label = null;
-    public string $for;
-    public ?string $name = null;
-    public ?string $type = null;
     public array $attrs = [];
-    public bool $isRequired = false;
+    public string $type;
+    public string $tradKey;
 
     /**
      * Undocumented function.
      */
-    public function __construct(?stdClass $field = null, ?string $label = null, ?string $name = null, ?string $type = null) {
-        if (\is_object($field) && isset($field->name)) {
-            $this->field = $field;
-            $this->name = $field->name;
-            $this->label = $field->label;
-        }
-        if (isset($label)) {
-            $this->label = $label;
-        }
-        if (isset($name)) {
-            $this->name = $name;
-        }
-        if (isset($type)) {
-            $this->type = $type;
-        }
+    public function __construct(?string $type = 'label') {
+        $this->type = $type;
         /*
-        if (null == $this->label) {
-            $this->label = $this->name;
-        }
-        */
         $this->attrs['name'] = $this->name;
-        $this->attrs['class'] = 'form-label';
+
         $this->for = 'form_data.'.$this->name;
+        */
+        $this->attrs['class'] = 'form-label';
+
+        $panel = PanelService::make()->getRequestPanel();
+        $this->tradKey = 'pub_theme::txt';
+        if (null !== $panel) {
+            $this->tradKey = $panel->getTradMod();
+        }
     }
 
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): Renderable {
+        /*
+        return function (array &$data) {
+            return $this->renderData($data);
+        };
+        */
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.input.label.label';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
+    }
+
+    public function renderData(array $data) {
+        extract($data);
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.input.label.'.$this->type;
+
+        /*
         $theme = inAdmin() ? 'adm_theme' : 'pub_theme';
         FileService::viewCopy('theme::components.input.label', $theme.'::components.input.label');
 
@@ -62,12 +74,12 @@ class Label extends Component {
                 'type' => $this->type,
             ];
         }
-
+        */
         $view_params = [
             'view' => $view,
-            'field' => (object) $this->field,
         ];
+        $view_params = array_merge($data, $view_params);
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params)->render();
     }
 }
