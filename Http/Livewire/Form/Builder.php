@@ -14,6 +14,7 @@ use ReflectionClass;
 class Builder extends Component {
     public string $type;
 
+    public array $form_data = [];
     public $blade_component;
     public $components;
     public $index = null;
@@ -21,7 +22,7 @@ class Builder extends Component {
     public $form_elements = [];
     public $htmlForm = '';
     public $b;
-    public array $form_data = [];
+    public string $form_name = 'form';
 
     protected $listeners = [
         'addComponentToForm' => 'addComponentToForm',
@@ -158,8 +159,14 @@ class Builder extends Component {
         $this->selected_element = &$this->form_elements[$k];
     }
 
-    public function saveForm($html) {
-        Storage::disk('local')->put('form.html', $html);
-        // Storage::disk('local')->put('form.json',  json_encode($this->form_elements));
+    public function saveForm() {
+        // Storage::disk('local')->put('form.html', $html);
+        if (empty($this->form_name) || 'form' === $this->form_name) {
+            session()->flash('error', 'please specify a valid form name');
+
+            return;
+        }
+        Storage::disk('local')->put($this->form_name.'.json', json_encode($this->form_elements));
+        session()->flash('message', 'form salvato');
     }
 }

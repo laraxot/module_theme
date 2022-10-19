@@ -89,9 +89,18 @@
                 </pre>
                 @endif
 
-
-
-                <button class="btn btn-primary" wire:click="saveForm($('#right-defaults').html())">Save Form</button>
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+                @if (session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+                <input type="text" class="form-control" name="form_name" wire:model.lazy="form_name">
+                <button class="btn btn-primary" wire:click="saveForm()">Save Form</button>
             </div>
         </div>
     </div>
@@ -109,7 +118,7 @@
         });
 
         drake.on('drop', (el, target, source, sibling) => {
-            console.log($(el).attr('name'))
+            //console.log($(el).attr('name'))
             Livewire.emit('addComponentToForm', $(el).attr('name'))
         })
     </script>
