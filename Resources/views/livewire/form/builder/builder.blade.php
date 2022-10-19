@@ -99,7 +99,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <input type="text" class="form-control" name="form_name" wire:model.lazy="form_name">
+                <input type="text" class="form-control mb-3" name="form_name" wire:model.lazy="form_name">
                 <button class="btn btn-primary" wire:click="saveForm()">Save Form</button>
             </div>
         </div>
