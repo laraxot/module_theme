@@ -30,6 +30,9 @@ class V1 extends Component {
      */
     public function mount(?string $type = 'builder') {
         $data = TenantService::config('forms.uno');
+        if (! is_array($data)) {
+            $data = [];
+        }
         $this->form_data = $data;
 
         $this->type = $type;

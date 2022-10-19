@@ -1,0 +1,1 @@
+<input type="number" {{ $attributes->merge($attrs)}} step="0.01" />

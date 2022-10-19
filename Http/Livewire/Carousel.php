@@ -19,9 +19,10 @@ class Carousel extends Component {
     /**
      * Undocumented function.
      */
-    public function mount(array $items, ?bool $showBtnLink = true): void {
+    public function mount(array $items, ?bool $showBtnLink = true, ?string $type = 'carousel'): void {
         $this->items = $items;
         $this->showBtnLink = $showBtnLink;
+        $this->type = $type;
     }
 
     /**

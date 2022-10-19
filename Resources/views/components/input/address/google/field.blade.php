@@ -1,8 +1,11 @@
-        <input type="hidden" {{ $attributes->merge($attrs) }} />
-        <div wire:ignore>
-            <input type="text" data-google-address="{&quot;field&quot;: &quot;{{ $name }}&quot;}" class="form-control"
-                autocomplete="off" wire:model.lazy="form_data.{{ $name }}_value" />
-        </div>
+@props([
+    'name',
+])
+<input type="hidden" {{ $attributes->merge($attrs) }} />
+<div wire:ignore>
+    <input type="text" data-google-address="{&quot;field&quot;: &quot;{{ $name }}&quot;}" class="form-control"
+        autocomplete="off" wire:model.lazy="form_data.{{ $name }}_value" />
+</div>
 @push('styles')
     <style>
         .ap-input-icon.ap-icon-pin {
