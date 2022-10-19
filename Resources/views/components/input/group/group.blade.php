@@ -6,19 +6,19 @@
     //'error' => false,
     //'helpText' => false,
     //'optional' => false,
-    'name'=>null,
-    'label'=>null,
+    'name' => null,
+    'label' => null,
 ])
-{{--
-<br/>[attributes]: {{ $attributes }} ]
-<br/>[div]: {{ $div_attrs }}]
-<br/>[label]: {{ $label_attrs }} ]
-<br/>[input]: {{ $input_attrs }} ]
---}}
+
+{{-- <br />[attributes]: {{ $attributes }} ]
+<br />[div]: {{ $div_attrs }}]
+<br />[label]: {{ $label_attrs }} ]
+<br />[input]: {{ $input_attrs }} ] --}}
+
 <div {{ $div_attrs }}>
     <x-input.label {{ $label_attrs }} />
     <x-input {{ $input_attrs }} />
     @error($name)
-    <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 </div>
