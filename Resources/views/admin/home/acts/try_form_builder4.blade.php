@@ -1,3 +1,8 @@
+@php
+    // raggruppamento di componenti
+    // https://formbuilder.online/docs/formBuilder/options/inputSets/
+@endphp
+
 @extends('adm_theme::layouts.app')
 @section('content')
     <h3>Form Builder </h3>
@@ -8,8 +13,8 @@
         <button id="getJSON" type="button">Get JSON Data</button>
         <button id="getJS" type="button">Get JS Data</button>
     </div>
-    {{-- <div class="build-wrap form-wrapper-div"></div> --}}
-    <div id="build-wrap"></div>
+    <div class="build-wrap form-wrapper-div" id="build-wrap"></div>
+    {{-- <div id="build-wrap"></div> --}}
     {{-- <div class="render-wrap"></div> --}}
     {{-- <button id="edit-form">Edit Form</button> --}}
 @endsection
@@ -47,15 +52,17 @@
     <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
     <script>
         $(function() {
-            // $('.build-wrap').formBuilder();
+            // $('.build-wrap').formBuilder(); // funzione .formBuilder renderizza il formbuilder
             var fbEditor = document.getElementById('build-wrap');
+
+            // aggiungo un componente starRating
             var fields = [{
                 label: 'Star Rating',
                 attrs: {
                     type: 'starRating'
                 },
                 icon: '🌟'
-            }];
+            }, ];
             var templates = {
                 starRating: function(fieldData) {
                     return {
@@ -68,12 +75,16 @@
                     };
                 }
             };
+
+
+            // funzione .formBuilder renderizza il formbuilder
             $(fbEditor).formBuilder({
                 templates,
                 fields
             });
-            // var formBuilder = $(fbEditor).formBuilder();
+            // var formBuilder = $(fbEditor).formBuilder(); // funzione .formBuilder renderizza il formbuilder
 
+            // bottoni per visualizzare il risultato
             document.getElementById('getXML').addEventListener('click', function() {
                 alert(formBuilder.actions.getData('xml'));
             });
