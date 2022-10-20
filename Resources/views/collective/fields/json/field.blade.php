@@ -6,7 +6,11 @@
 		{{ Form::label($name, $field->label , ['class' => 'control-label']) }}
 	@endslot
 	@slot('input')
-		{{ Form::text($name, $value, $field->attributes) }}
+		@php
+			$val1 = Form::getValueAttribute($name);	
+			//dddx($val1);
+		@endphp
+		<livewire:input.arr type="text" :name="$name" :value="$val1" label="" modelId="1"></livewire:input.arr>
 	@endslot
 @endcomponent
 
