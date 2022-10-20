@@ -25,7 +25,7 @@ dddx([
 //Theme::add($comp_ns.'/css/boh.css');
 $val = Form::getValueAttribute($name);
 @endphp
-<pre>{{ print_r($val,true) }} </pre>
 {{ dddx($field->options) }}
+
 
 

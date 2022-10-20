@@ -24,6 +24,14 @@ class V1 extends Component {
     public int $edit_k = -1;
 
     /**
+     * @var array
+     */
+    protected $listeners = [
+        // 'updateDataFromModal' => 'updateDataFromModal',
+        'updatedFormDataEvent' => 'updateFormDataEvent',
+    ];
+
+    /**
      * Undocumented function.
      *
      * @return void
@@ -180,5 +188,9 @@ class V1 extends Component {
             $tmp[] = $this->form_data[$order['value']];
         }
         $this->form_data = $tmp;
+    }
+
+    public function updateFormDataEvent(array $data) {
+        dddx(['data' => $data]);
     }
 }
