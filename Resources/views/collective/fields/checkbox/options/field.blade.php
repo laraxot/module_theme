@@ -1,6 +1,7 @@
 @php
 $field = transFields(get_defined_vars());
 $val = Form::getValueAttribute($name);
+$options=$field->options;
 @endphp
 <fieldset class="border p-2">
     <legend>{{ $field->label }}</legend>
@@ -14,3 +15,4 @@ $val = Form::getValueAttribute($name);
         </div>
     @endforeach
 </fieldset>
+

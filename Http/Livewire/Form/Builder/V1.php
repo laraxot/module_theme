@@ -122,7 +122,7 @@ class V1 extends Component {
 
         $view = 'theme::collective.fields.'.$curr['type'].'.field';
         $view_file = FileService::viewPath($view);
-        $json_file = str_replace('\field.blade.php', '\data.json', $view_file);
+        $json_file = str_replace(DIRECTORY_SEPARATOR.'field.blade.php', DIRECTORY_SEPARATOR.'data.json', $view_file);
 
         if (! File::exists($json_file)) {
             $tmp = [
@@ -154,6 +154,14 @@ class V1 extends Component {
                     'type' => 'array',
                 ];
             }
+        } else {
+            $content = File::get($json_file);
+            dddx([
+                'message' => '------------------  WIP   ---------------',
+                'view_file' => $view_file,
+                'json_file' => $json_file,
+                'content' => $content,
+            ]);
         }
         // --- per ora non salvo , dobbiamo vendere i campi corretti
 
