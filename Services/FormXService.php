@@ -175,7 +175,7 @@ class FormXService {
                     ),
                 ]); //Select2Sides
 
-                return view()->make('theme::collective.fields.error.err1', ['msg' => '['.$view.']['.$view1.'] NOT EXISTS !!']);
+                return view()->make('theme::components.alert.error', ['msg' => '['.$view.']['.$view1.'] NOT EXISTS !!']);
             }
 
             $view = $view1;
@@ -195,12 +195,12 @@ class FormXService {
         if (null == $comp_field) {
             $msg = 'not registered component [bs'.$field->type.']';
 
-            return view()->make('theme::collective.fields.error.err1', ['msg' => $msg]);
+            return view()->make('theme::components.alert.error', ['msg' => $msg]);
         }
 
         $view = Str::beforeLast((string) $comp_field->view, '.field').'.freeze';
         if (! View::exists($view)) {
-            return view()->make('theme::collective.fields.error.err1', ['msg' => '['.$view.'] NOT EXISTS !!']);
+            return view()->make('theme::components.alert.error', ['msg' => '['.$view.'] NOT EXISTS !!']);
         }
 
         $view_params = $params;
