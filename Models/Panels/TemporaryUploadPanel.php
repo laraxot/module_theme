@@ -98,7 +98,7 @@ class TemporaryUploadPanel extends XotBasePanel {
                 'comment' => null,
             ],
             2 => (object) [
-                'type' => 'Datetime',
+                'type' => 'DateDateTime',
                 'name' => 'created_at',
                 'comment' => null,
             ],
@@ -108,7 +108,7 @@ class TemporaryUploadPanel extends XotBasePanel {
                 'comment' => null,
             ],
             4 => (object) [
-                'type' => 'Datetime',
+                'type' => 'DateDateTime',
                 'name' => 'updated_at',
                 'comment' => null,
             ],

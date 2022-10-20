@@ -103,7 +103,7 @@ class DashboardTilePanel extends XotBasePanel {
                 'comment' => null,
             ],
             3 => (object) [
-                'type' => 'Datetime',
+                'type' => 'DateDateTime',
                 'name' => 'created_at',
                 'comment' => null,
             ],
@@ -113,7 +113,7 @@ class DashboardTilePanel extends XotBasePanel {
                 'comment' => null,
             ],
             5 => (object) [
-                'type' => 'Datetime',
+                'type' => 'DateDateTime',
                 'name' => 'updated_at',
                 'comment' => null,
             ],
