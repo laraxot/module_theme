@@ -1,3 +1,6 @@
+{{--
+<x-input.group type="select" name="test" :options="['a'=>'label a','b'=>'label b']" />
+--}}
 <div wire:sortable="updateInputOrder">
 @foreach($form_data as $k=>$row)
 <div class="card-header ui-sortable-handle mb-2 {{ $edit_k == $k?'bg-info':'' }}" wire:sortable.item="{{ $k }}" wire:key="input-{{ $k }}">
@@ -30,12 +33,12 @@
         {{-- 
         <pre>{{ print_r($row,true) }}</pre>
         --}}
-          
+        {{--
         <x-input.group {{ $attributes->merge($row) }} />
-        
-        {{--  
-        <x-input.group.arr :arr="$row" />
         --}}
+        
+        <x-input.group.arr :arr="$row" />
+        
         
     </div>
     

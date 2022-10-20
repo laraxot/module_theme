@@ -193,4 +193,8 @@ class V1 extends Component {
     public function updateFormDataEvent(array $data) {
         dddx(['data' => $data]);
     }
+
+    public function addArr() {
+        $this->form_data[0]['options'][] = ['a' => 'test'];
+    }
 }

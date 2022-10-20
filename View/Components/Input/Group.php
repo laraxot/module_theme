@@ -13,10 +13,21 @@ use Illuminate\View\ComponentAttributeBag;
  */
 class Group extends Component {
     public string $tpl = 'group';
+    // public string $name;
+    // public string $type;
     public array $data = [];
     public array $options = [];
 
+    /*
+    public function __construct(string $name, string $type, ?array $options = null) {
+        $this->name = $name;
+        $this->type = $type;
+        $this->options = $options ?? [];
+    }
+    */
     public function __construct(?array $options = null) {
+        // $this->name = $name;
+        // $this->type = $type;
         $this->options = $options ?? [];
     }
 
@@ -51,7 +62,8 @@ class Group extends Component {
 
         $input_attrs = $attributes;
         $input_attrs = $input_attrs->merge([
-            'wire:model.lazy' => 'form_data.'.$attributes->get('name'),
+            // 'wire:model.lazy' => 'form_data.'.$attributes->get('name'),
+            // 'options' => json_encode($this->options),
         ]);
 
         $div_class = 'form-group '.$attributes->get('div_class').' col-'.$attributes->get('col_size') ?? '12';

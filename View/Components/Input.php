@@ -15,16 +15,21 @@ use Illuminate\View\Component;
 class Input extends Component {
     public array $attrs = [];
     public string $type;
+    public string $name;
+    public array $options;
 
     /**
      * ---.
      *
      * @param mixed|null $value
      */
-    public function __construct(string $type) {
+    public function __construct(string $name, string $type, ?array $options = []) {
+        $this->name = $name;
         $this->type = Str::snake($type);
-
+        $this->options = $options;
+        $this->attrs['name'] = $this->name;
         $this->attrs['class'] = 'form-control';
+        $this->attrs['wire:model.lazy'] = 'form_data.'.$name;
 
         switch ($this->type) {
             case 'checkbox':
