@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-4 overflow-auto" style="height:85vh !important;border-right:1px solid darkgrey;" id='left-defaults'
             class="container">
-            @foreach (collect($blade_components)->unique('types.0') as $k => $component)
+            @foreach ($leftSide as $k => $component)
                 <div class="card-header ui-sortable-handle mb-2" name="{{ $k }}">
                     <h3 class="card-title">{{ $component->types[0] }}</h3>
                     <div class="card-tools">
@@ -15,34 +15,11 @@
             @endforeach
         </div>
         <div class="col-4 overflow-auto" style="height:85vh !important;" id='right-defaults' class="container">
-
-            @foreach ($form_elements as $k => $element)
+            @foreach ($this->form_elements as $k => $element)
+                {{-- dddx($element) --}}
                 <div class="row clearfix">
                     <div class="col-md-10 d-flex align-items-center">
-                        @php
-                            // so che non andrebbe qui la logica ma non so come farla in modo diverso
-                            // prova input.text e input.search
-                            // e input.field
-                            $component = '<x-' . $element['comp_name'];
-                            foreach ($element['props'] as $prop) {
-                                if ($prop['prop_type'] === 'constructor' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
-                                    $component .= ' ';
-                                    if ($prop['type'] !== 'String' && $prop['type'] !== '') {
-                                        $component .= ':';
-                                    }
-                                    $component .= $prop['name'] . '="' . $prop['value'] . '" ';
-                                }
-                            }
-                            $component .= '>';
-                            foreach ($element['props'] as $prop) {
-                                if ($prop['prop_type'] === 'slot' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
-                                    $component .= '<x-slot name="' . $prop['name'] . '">' . $prop['value'] . '</x-slot>';
-                                }
-                            }
-                            $component .= '</x-' . $element['comp_name'] . '>';
-                            //dddx($element);
-                        @endphp
-                        {!! $this->bladeCompile($component) !!}
+                        {!! $element['renderedView'] !!}
                     </div>
 
                     <div class="col-md-1 d-flex align-items-center">
