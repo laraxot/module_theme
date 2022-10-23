@@ -37,6 +37,7 @@ class _ModulePanel extends XotBasePanel {
             new Actions\TryFormBuilder2Action(),
             new Actions\TryFormBuilder3Action(),
             new Actions\TryFormBuilder4Action(),
+            new Actions\TryGetFormAction(),
             new ManageLangModuleAction('theme'),
         ];
         if (\in_array($act, ['choose_pub_theme', 'activate_pub_theme'], true)) {
