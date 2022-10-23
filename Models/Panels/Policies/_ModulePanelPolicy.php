@@ -103,4 +103,8 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
     public function tryFormBuilder4(UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function tryGetForm(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }
