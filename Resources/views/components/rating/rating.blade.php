@@ -1,3 +1,6 @@
+@props([
+  'public_template' => false
+])
 <div class="cmp-rating pt-lg-80 pb-lg-80" id="{{$id_title ?? 'aaa'}}">
     <div class="card shadow card-wrapper" data-element="feedback">
       <div class="cmp-rating__card-first">
@@ -172,3 +175,8 @@
       </div>
     </div>
   </div>
+
+
+@push('scripts')
+  {{Theme::add('theme::views/components/rating/rating.js')}}
+@endpush
