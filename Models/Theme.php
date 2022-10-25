@@ -12,18 +12,17 @@ use Sushi\Sushi;
 /**
  * Modules\Theme\Models\Theme.
  *
- * @property int         $id
+ * @property int $id
  * @property string|null $name
  * @property string|null $type
  * @property string|null $description
  * @property string|null $keywords
- * @property float|null  $active
- * @property float|null  $order
+ * @property float|null $active
+ * @property float|null $order
  * @property string|null $aliases
  * @property string|null $files
  * @property string|null $requires
  * @property string|null $path
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Theme query()
@@ -38,7 +37,6 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Theme wherePath($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereRequires($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereType($value)
- *
  * @mixin \Eloquent
  */
 
