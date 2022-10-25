@@ -7,7 +7,10 @@
 	@endslot
 	@slot('input')
 		@php
-			$val1 = Form::getValueAttribute($name);
+			$val1 = Form::getValueAttribute($name);	
+			if(is_null($val1)){
+				$val1 = [];
+			}
 			//dddx($val1);
 		@endphp
 		<livewire:input.arr type="text" :name="$name" :value="$val1" label="" modelId="1"></livewire:input.arr>
