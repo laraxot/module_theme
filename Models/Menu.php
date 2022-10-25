@@ -13,15 +13,17 @@ use Sushi\Sushi;
 /**
  * Modules\Theme\Models\Menu.
  *
- * @property int $id
- * @property string|null $name
- * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\MenuItem[] $items
- * @property-read int|null $items_count
+ * @property int                                                                       $id
+ * @property string|null                                                               $name
+ * @property \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\MenuItem[] $items
+ * @property int|null                                                                  $items_count
+ *
  * @method static Builder|Menu newModelQuery()
  * @method static Builder|Menu newQuery()
  * @method static Builder|Menu query()
  * @method static Builder|Menu whereId($value)
  * @method static Builder|Menu whereName($value)
+ *
  * @mixin \Eloquent
  */
 class Menu extends Model {

@@ -220,10 +220,10 @@ abstract class BaseV2 extends Component {
     }
 
     /**
-     * @return mixed
-     * @return mixed
-     *
      * @throws Exception
+     *
+     * @return mixed
+     * @return mixed
      */
     public function monthGrid() {
         $firstDayOfGrid = $this->gridStartsAt;

@@ -7,7 +7,7 @@
 	@endslot
 	@slot('input')
 		@php
-			$val1 = Form::getValueAttribute($name);	
+			$val1 = Form::getValueAttribute($name);
 			if(is_null($val1)){
 				$val1 = [];
 			}

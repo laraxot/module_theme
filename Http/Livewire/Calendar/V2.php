@@ -309,9 +309,9 @@ class V2 extends Component {
     /**
      * Render the component.
      *
-     * @return \Illuminate\Contracts\View\View
-     *
      * @throws Exception
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
         $events = $this->events();

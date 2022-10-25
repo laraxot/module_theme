@@ -56,9 +56,9 @@ class FullCalendar extends Component {
     }
 
     /**
-     * @return array
-     *
      * @throws \Exception
+     *
+     * @return array
      */
     public function getEvents() {
         // dddx('preso');
