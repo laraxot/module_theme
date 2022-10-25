@@ -198,6 +198,13 @@ class ApiTokenManager extends Component {
      * @return \Illuminate\View\View
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('api.api-token-manager');
+        /**
+* @phpstan-var view-string
+*/
+$view='api.api-token-manager';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

@@ -32,6 +32,13 @@ class Row extends Component {
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('formx::livewire.test.row');
+        /**
+* @phpstan-var view-string
+*/
+$view='formx::livewire.test.row';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

@@ -24,7 +24,14 @@ class Cron extends XotBaseComponent
 
     public function render(): View
     {
-        return view('theme::components.support.cron');
+        /**
+* @phpstan-var view-string
+*/
+$view='theme::components.support.cron';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 
     public function translate(): string

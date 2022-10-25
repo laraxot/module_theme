@@ -71,6 +71,13 @@ class DeleteUserForm extends Component {
      * @return \Illuminate\View\View
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('profile.delete-user-form');
+        /**
+* @phpstan-var view-string
+*/
+$view='profile.delete-user-form';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

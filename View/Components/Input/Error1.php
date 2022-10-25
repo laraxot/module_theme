@@ -19,7 +19,15 @@ class Error1 extends Component {
     }
 
     public function render(): View {
-        return view('theme::components.input.error1');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.input.error1';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 
     public function messages(ViewErrorBag $errors): array {

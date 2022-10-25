@@ -71,6 +71,13 @@ class UpdateTeamNameForm extends Component {
      * @return \Illuminate\View\View
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('teams.update-team-name-form');
+        /**
+* @phpstan-var view-string
+*/
+$view='teams.update-team-name-form';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

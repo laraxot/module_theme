@@ -99,6 +99,14 @@ class Simple extends Component {
     }
 
     public function render(): View {
-        return view('theme::livewire.modal.simple');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::livewire.modal.simple';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

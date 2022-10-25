@@ -21,6 +21,14 @@ class Container extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        return view('theme::components.nav.tabs.container');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.nav.tabs.container';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

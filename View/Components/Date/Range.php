@@ -56,6 +56,14 @@ class Range extends Component {
     }
 
     public function render(): Renderable {
-        return view('theme::components.date.range');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.date.range';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

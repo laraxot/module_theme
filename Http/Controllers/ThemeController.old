@@ -13,7 +13,14 @@ class ThemeController extends Controller {
      * @return Response
      */
     public function index() {
-        return view('theme::index');
+        /**
+* @phpstan-var view-string
+*/
+$view='theme::index';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 
     /**
@@ -22,7 +29,14 @@ class ThemeController extends Controller {
      * @return Response
      */
     public function create() {
-        return view('theme::create');
+        /**
+* @phpstan-var view-string
+*/
+$view='theme::create';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 
     /**
@@ -41,7 +55,14 @@ class ThemeController extends Controller {
      * @return Response
      */
     public function show($id) {
-        return view('theme::show');
+        /**
+* @phpstan-var view-string
+*/
+$view='theme::show';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 
     /**
@@ -52,7 +73,14 @@ class ThemeController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        return view('theme::edit');
+        /**
+* @phpstan-var view-string
+*/
+$view='theme::edit';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 
     /**

@@ -68,6 +68,14 @@ class FormArray extends Component {
     }
 
     public function render(): View {
-        return view('theme::livewire.modal.form.array');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::livewire.modal.form.array';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

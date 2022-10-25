@@ -53,6 +53,14 @@ class Meta extends Component {
      * Undocumented function.
      */
     public function render(): View {
-        return view('theme::components.meta');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.meta';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

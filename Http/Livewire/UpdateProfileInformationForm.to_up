@@ -90,6 +90,13 @@ class UpdateProfileInformationForm extends Component {
      * @return \Illuminate\View\View
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('profile.update-profile-information-form');
+        /**
+* @phpstan-var view-string
+*/
+$view='profile.update-profile-information-form';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

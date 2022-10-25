@@ -35,7 +35,15 @@ class Alert extends Component {
     }
 
     public function render(): View {
-        return view('theme::components.alert');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.alert';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 
     public function icon(): string {

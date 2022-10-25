@@ -52,6 +52,13 @@ class CreateTeamForm extends Component {
      * @return \Illuminate\View\View
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('teams.create-team-form');
+        /**
+* @phpstan-var view-string
+*/
+$view='teams.create-team-form';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

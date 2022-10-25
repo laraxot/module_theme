@@ -21,6 +21,14 @@ class Errors extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
-        return view('theme::components.input.errors');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.input.errors';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

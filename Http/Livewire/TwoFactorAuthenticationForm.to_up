@@ -115,6 +115,13 @@ class TwoFactorAuthenticationForm extends Component {
      * @return \Illuminate\View\View
      */
     public function render():\Illuminate\Contracts\Support\Renderable {
-        return view('profile.two-factor-authentication-form');
+        /**
+* @phpstan-var view-string
+*/
+$view='profile.two-factor-authentication-form';
+$view_params=[
+   'view'=>$view,
+];
+return view($view,$view_params);
     }
 }

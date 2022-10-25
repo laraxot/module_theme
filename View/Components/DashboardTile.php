@@ -36,7 +36,15 @@ class DashboardTile extends Component {
     }
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        return view('theme::components.dashboard-tile');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.dashboard-tile';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 
     protected function convertToGridArea(string $position): string {

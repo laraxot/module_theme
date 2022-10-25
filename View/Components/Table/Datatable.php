@@ -59,6 +59,14 @@ class Datatable extends Component {
     }
 
     public function render(): Renderable {
-        return view('theme::components.table.datatable');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'theme::components.table.datatable';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }

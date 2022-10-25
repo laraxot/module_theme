@@ -11,6 +11,14 @@ class AppLayout extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): \Illuminate\Contracts\Support\Renderable {
-        return view('pub_theme::layouts.app');
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'pub_theme::layouts.app';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }
