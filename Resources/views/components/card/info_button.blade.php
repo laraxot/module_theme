@@ -41,7 +41,7 @@
             data-bs-target="#{{$modalId}}">{{$btnLabel}}</button>
       @endif
 
-      
+
       @if(isset($show_more_anagrafica))
       <x-accordion.rows type="anagrafica" :rows="collect([])"></x-accordion.rows>
       @endif
@@ -51,7 +51,7 @@
       <x-slot name="acc_open">acc-open</x-slot>
       </x-accordion.rows>
       @endif
-    
+
       @if(isset($show_more_anagrafica_3))
       <x-accordion.rows type="anagrafica" :rows="collect([])"></x-accordion.rows>
       @endif
@@ -80,7 +80,7 @@
       <x-accordion.rows type="anagrafica" :rows="collect([])">
       </x-accordion.rows>
       @endif
-    
+
     </div>
   </div>
 </div>

@@ -39,7 +39,7 @@ class Rows extends Component {
 
     public function updateRowOrder(array $order) {
         $new_order = collect($order)->pluck('value')->all();
-        $class = get_class($this->rows[0]);
+        $class = \get_class($this->rows[0]);
 
         $res = $class::setNewOrder($new_order);
         $this->rows = $class::whereIn('id', $new_order)->ordered()->get();
@@ -47,13 +47,13 @@ class Rows extends Component {
 
     public function moveUp(int $id) {
         $row = $this->rows->firstWhere('id', $id)->moveOrderUp();
-        $class = get_class($this->rows[0]);
+        $class = \get_class($this->rows[0]);
         $this->rows = $class::whereIn('id', $this->model_keys)->ordered()->get();
     }
 
     public function moveDown(int $id) {
         $row = $this->rows->firstWhere('id', $id)->moveOrderDown();
-        $class = get_class($this->rows[0]);
+        $class = \get_class($this->rows[0]);
         $this->rows = $class::whereIn('id', $this->model_keys)->ordered()->get();
     }
 }

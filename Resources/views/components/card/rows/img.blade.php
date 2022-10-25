@@ -11,7 +11,7 @@
 		<!--start card-->
 		<div class="card-wrapper shadow-sm rounded cmp-list-card-img">
 			<div class="card card-img no-after rounded">
-                
+
 				<div class="img-responsive-wrapper {{$img_path?'cmp-list-card-img__wrapper':''}}">
 					<div class="img-responsive img-responsive-panoramic h-100 {{$imgClass}}">
 						@if($img_path)
@@ -20,7 +20,7 @@
 								title="titolo immagine" alt="descrizione immagine">
 						</figure>
 						@endif
-                       
+
 						@if(isset($card->tag) && $card->tag)
 						<div class="card-calendar d-flex flex-column justify-content-center">
 							<span class="card-date">{{$card->date}}</span>
@@ -29,7 +29,7 @@
 						@endif
 					</div>
 				</div>
-                
+
 				<div class="card-body ">
 					<div class="category-top cmp-list-card-img__body">
 						<a class="text-decoration-none fw-bold cmp-list-card-img__body-heading-title" href="#">{{$card->category}}</a>
@@ -47,7 +47,7 @@
 						</svg>
 					</a>
 				</div>
-                
+
 			</div>
 		</div>
 	</div>

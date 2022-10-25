@@ -1,11 +1,11 @@
 @props([
-	'bg_grey'=>false, 
-	'title', 
-	'header_m0', 
-	'h2_class', 
-	'subtitle', 
-	'select' => true, 
-	'margin_class', 
+	'bg_grey'=>false,
+	'title',
+	'header_m0',
+	'h2_class',
+	'subtitle',
+	'select' => true,
+	'margin_class',
 	'required_icon' => false,
 	])
 
@@ -17,7 +17,7 @@
 			<div class="d-flex">
 
 				@if (isset($title))
-					{{--  
+					{{--
                     @if (isset($h3_title))
                         <h3 class="subtitle-large {{ $h3_class }} @if (isset($required_icon)) icon-required @endif "
                     @if (isset($id_title)) id="{{ $id_title }}" @endif>{{ $title }}
@@ -40,12 +40,12 @@
 				<p {{ $subtitle->attributes->class(['subtitle-small mb-0']) }}>{{ $subtitle }}</p>
 			@endif
 
-			@if (isset($toggle)) 
+			@if (isset($toggle))
                 <x-toggle>
                     <x-slot name="label">C'è un coobbligato</x-slot>
                 </x-toggle>
 			@endif
-			@if (isset($select)) 
+			@if (isset($select))
                 {{-- <x-select :options="$_theme->getSelectOptionList()"> --}}
 				{{-- <x-input type="address.google" name="address">
                     <x-slot name="id">select-id</x-slot>
@@ -58,7 +58,7 @@
 		</div>
 		@endif
 		<div class="card-body p-0">
-			{!! $slot !!} 
+			{!! $slot !!}
 		</div>
 	</div>
 </div>

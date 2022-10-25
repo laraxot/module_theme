@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use ReflectionClass;
 
-class Get extends Component
-{
+class Get extends Component {
     public string $form_name;
 
     public array $form_data = [];
@@ -32,16 +31,14 @@ class Get extends Component
      *
      * @return void
      */
-    public function mount(string $form_name)
-    {
+    public function mount(string $form_name) {
         $this->form_name = $form_name;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /*$tmp = File::get(realpath(__DIR__ . '/../../../../View/Components/_components.json'));
 
         $this->blade_components = json_decode($tmp);
@@ -108,7 +105,7 @@ class Get extends Component
             }
         });*/
 
-        $this->form_elements = json_decode(Storage::disk('local')->get($this->form_name . '.json'));
+        $this->form_elements = json_decode(Storage::disk('local')->get($this->form_name.'.json'));
 
         $this->centerSide();
         /**
@@ -123,47 +120,42 @@ class Get extends Component
         return view()->make($view, $view_params);
     }
 
-    public function centerSide()
-    {
+    public function centerSide() {
         $view = '';
-        $this->form_elements=(array)$this->form_elements;
+        $this->form_elements = (array) $this->form_elements;
 
         foreach ($this->form_elements as $k => $element) {
+            $element = (array) $element;
 
-            $element=(array)$element;
-
-            $component = '<x-' . $element['comp_name'];
+            $component = '<x-'.$element['comp_name'];
 
             foreach ($element['props'] as $prop) {
+                $prop = (array) $prop;
 
-                $prop=(array)$prop;
-
-                if ($prop['prop_type'] === 'constructor' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
+                if ('constructor' === $prop['prop_type'] && ('' !== $prop['value'] || 'true' === $prop['required'])) {
                     $component .= ' ';
-                    if ($prop['type'] !== 'String' && $prop['type'] !== '') {
+                    if ('String' !== $prop['type'] && '' !== $prop['type']) {
                         $component .= ':';
                     }
-                    $component .= $prop['name'] . '="' . $prop['value'] . '" ';
+                    $component .= $prop['name'].'="'.$prop['value'].'" ';
                 }
             }
             $component .= '>';
             foreach ($element['props'] as $prop) {
+                $prop = (array) $prop;
 
-                $prop=(array)$prop;
-                
-                if ($prop['prop_type'] === 'slot' && ($prop['value'] !== '' || $prop['required'] === 'true')) {
-                    $component .= '<x-slot name="' . $prop['name'] . '">' . $prop['value'] . '</x-slot>';
+                if ('slot' === $prop['prop_type'] && ('' !== $prop['value'] || 'true' === $prop['required'])) {
+                    $component .= '<x-slot name="'.$prop['name'].'">'.$prop['value'].'</x-slot>';
                 }
             }
-            $component .= '</x-' . $element['comp_name'] . '>';
+            $component .= '</x-'.$element['comp_name'].'>';
 
-            $this->form_elements[$k]=(array)$this->form_elements[$k];
+            $this->form_elements[$k] = (array) $this->form_elements[$k];
             $this->form_elements[$k]['renderedView'] = $this->bladeCompile($component);
         }
     }
 
-    public function bladeCompile($value, array $args = [])
-    {
+    public function bladeCompile($value, array $args = []) {
         $content = \Blade::render($value, []);
 
         return $content;

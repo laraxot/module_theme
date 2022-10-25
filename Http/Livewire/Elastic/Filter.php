@@ -38,9 +38,9 @@ class Filter extends Component {
         // $data = request()->all();
         // dddx($data);
 
-        if (null != $row) {
+        if (null !== $row) {
             $this->model_id = $row->getKey();
-            $this->model_class = get_class($row);
+            $this->model_class = \get_class($row);
             $tmp = $row->toArray();
             $value = [];
             $value['filter'] = [];

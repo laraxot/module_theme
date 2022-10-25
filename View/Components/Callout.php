@@ -25,7 +25,7 @@ class Callout extends Component {
          */
         $view = 'theme::components.callout';
 
-        if ('info' != $this->type) {
+        if ('info' !== $this->type) {
             $view = 'theme::components.callout.'.$this->type;
         }
 

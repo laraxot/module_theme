@@ -17,7 +17,7 @@
                 <span class="text-button-sm t-primary">Salva Richiesta</span>
             </button>
 
-            
+
             <button wire:click="save()" type="button"
                 class="btn btn-outline-primary bg-white btn-sm steppers-btn-save d-block d-lg-none saveBtn center">
                 <span class="text-button-sm t-primary">Salva</span>

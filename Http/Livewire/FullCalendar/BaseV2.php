@@ -220,10 +220,10 @@ abstract class BaseV2 extends Component {
     }
 
     /**
-     * @throws Exception
+     * @return mixed
+     * @return mixed
      *
-     * @return mixed
-     * @return mixed
+     * @throws Exception
      */
     public function monthGrid() {
         $firstDayOfGrid = $this->gridStartsAt;
@@ -281,7 +281,7 @@ abstract class BaseV2 extends Component {
                 function ($event) use ($day) {
                     // Cannot access offset 'date' on mixed.
                     $date = $event['date'];
-                    if (! is_string($date)) {
+                    if (! \is_string($date)) {
                         throw new Exception('['.__LINE__.']['.__FILE__.']');
                     }
 

@@ -26,7 +26,7 @@ class Single extends Component {
     public function mount(Model $model, array $options) {
         $this->model = $model;
 
-        $this->modelClass = get_class($model);
+        $this->modelClass = \get_class($model);
         $this->modelId = $model->getKey();
 
         $this->options = $options;
@@ -36,17 +36,17 @@ class Single extends Component {
     }
 
     public function changeStatus(): void {
-        if ('' != $this->status) {
-            if (! is_null($this->model->status())) {
+        if ('' !== $this->status) {
+            if (null !== $this->model->status()) {
                 $this->model->status()->delete();
             }
             $this->model->setStatus($this->status);
             session()->flash('message', 'Status Changed');
         }
 
-        if ('' == $this->status) {
+        if ('' === $this->status) {
             $status = $this->model->status();
-            if (null != $status) {
+            if (null !== $status) {
                 $status->delete(); // returns the latest instance of `Spatie\ModelStatus\Status`
             }
             session()->flash('message', 'Status Removed');

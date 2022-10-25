@@ -1,7 +1,7 @@
 <div class="cmp-breadcrumbs {{$class ?? ''}}" role="navigation">
 	<nav class="breadcrumb-container">
 		<ol class="breadcrumb p-0" data-element="breadcrumb">
-			{{--         
+			{{--
 			{{#if link1}}
 			<li class="breadcrumb-item"><a href="#">{{link1}}</a><span class="separator">/</span></li>
 			{{/if}}

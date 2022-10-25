@@ -1,10 +1,10 @@
 @props(['header_class' => '', 'info' => false])
 <div class="cmp-info-summary bg-white {{$attributes->class([])}}">
     <div class="card">
-  
+
       <div
-        class="card-header border-bottom border-light p-0 mb-0 {{$header_class}} 
-            @if(isset($title)) d-flex justify-content-between @endif 
+        class="card-header border-bottom border-light p-0 mb-0 {{$header_class}}
+            @if(isset($title)) d-flex justify-content-between @endif
             @if(isset($rows))d-flex justify-content-end @endif">
         @if(isset($title))
         <h4 class="title-large-semi-bold mb-3">{{$title}}</h4>
@@ -24,7 +24,7 @@
               @endif
               @if(isset($info->warning))
                 @if(isset($info->txt))
-                  <p class="data-text 
+                  <p class="data-text
                   @if(isset($info->summary)) summary-inline @endif">
                   {{$info->txt}}</p>
                 @endif
@@ -46,7 +46,7 @@
                       @endif
                     </p>
                   @endif
-        
+
                   @if(isset($description_image))
                     <div class="d-lg-flex gap-2 mt-3">
                       <div>
@@ -60,8 +60,8 @@
                       </div>
                     </div>
                   @endif
-        
-        
+
+
                   @if(isset($info->success))
                     <p class="fw-semibold pb-2 pt-2 data-text description-success d-flex align-items-center">
                       <span class="d-flex align-items-center">

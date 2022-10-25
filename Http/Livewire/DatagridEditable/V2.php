@@ -48,7 +48,7 @@ class V2 extends Component {
         $this->in_admin = inAdmin();
         $this->route_params['in_admin'] = $this->in_admin;
         $this->total = $this->query()->count();
-        $page = intval(request()->input('page', 1));
+        $page = (int) (request()->input('page', 1));
         $this->page = $page;
         $offset = ($this->page - 1) * $this->per_page;
         $rows = $this->query()->offset((int) $offset)->limit($this->per_page)->get();

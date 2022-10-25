@@ -3,9 +3,9 @@
     <div class="col-lg-8">
       @if(isset($h2))
         <h2 class="title-xxxlarge {{$title_class ?? ''}}">{{$title}}</h2>
-       @else 
+       @else
         <h1 class="title-xxxlarge {{$title_class ?? ''}}" data-element="service-title">{{$title}}</h1>
-       @endif 
+       @endif
 
       @if(isset($label_tag_up))
         <div class="d-flex flex-wrap cmp-heading__tag">
@@ -13,15 +13,15 @@
             <span class="cmp-tag__tag title-xsmall" data-element="service-status">Servizio attivo</span>
           </div>
         </div>
-       @endif 
+       @endif
 
       @if(isset($subTitle))
         <p class="subtitle-small {{$pClass}}">{{$subTitle}}</p>
-       @endif 
+       @endif
 
       @if(isset($description))
         <p class="subtitle-small {{$desClass}}" data-element="service-description">{{$description}}</p>
-       @endif 
+       @endif
 
       @if(isset($button))
       {{-- <x-button>
@@ -30,7 +30,7 @@
       <x-button type="advanced" class="fw-bold">
           <x-slot name="label">Segnalazione disservizio</x-slot>
       </x-button>
-       @endif 
+       @endif
 
       @if(isset($double_button))
         <div class="d-lg-flex gap-30 mb-2">
@@ -44,7 +44,7 @@
               <x-slot name="aria_label">{{$second_aria_label ?? ''}}</x-slot>
             </x-button>
         </div>
-       @endif 
+       @endif
     </div>
     <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
       <div class="dropdown">

@@ -136,7 +136,7 @@ class FieldService extends BaseFieldService {
                 return \View::exists($view_check);
             }
         );
-        if (false == $view) {
+        if (false === $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',
@@ -170,10 +170,10 @@ class FieldService extends BaseFieldService {
     }
 
     public function html(array $form_data = [], ?Model $row = null): Renderable {
-        /*
+        /**
          * @XOT //$form_data non dovrebbe servire
          *
-        * @phpstan-var view-string
+         * @phpstan-var view-string
 
         $view = 'theme::livewire.fields.'.$this->type.'.field';
          */

@@ -36,7 +36,7 @@ class V4 extends Component {
             $tmp = explode('.', $item->view);
             $name = collect($tmp)->slice(2, -1)->implode('.');
             $parent = null;
-            if ('field' != $tmp[3]) {
+            if ('field' !== $tmp[3]) {
                 $parent = $tmp[2];
             }
 
@@ -68,8 +68,8 @@ class V4 extends Component {
     public function add(string $name): void {
         $this->form_data[] = [
             'type' => $name,
-            'name' => $name.'_'.count($this->form_data),
-            'id' => $name.'_'.count($this->form_data),
+            'name' => $name.'_'.\count($this->form_data),
+            'id' => $name.'_'.\count($this->form_data),
         ];
     }
 

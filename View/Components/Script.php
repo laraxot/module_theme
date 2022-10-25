@@ -19,7 +19,7 @@ class Script extends Component {
      */
     public function __construct(?string $src = null) {
         // $this->attrs['src']=$src;
-        if (null != $src) {
+        if (null !== $src) {
             ThemeService::add($src);
         }
     }

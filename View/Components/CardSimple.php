@@ -16,7 +16,7 @@ class CardSimple extends Component {
     }
 
     public function render() {
-        /*
+        /**
          * @phpstan-var view-string
          */
         $view = 'theme::components.card-simple.'.$this->type;

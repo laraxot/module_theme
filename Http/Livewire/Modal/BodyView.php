@@ -65,7 +65,7 @@ class BodyView extends Component {
     public function sendData(?string $event = null): void {
         // dddx($this);
         // dddx($this->form_data);
-        if (is_null($event)) {
+        if (null === $event) {
             $event = 'updateDataFromModal';
         }
         // dddx([$event, $this->modal_id, $this->form_data]);

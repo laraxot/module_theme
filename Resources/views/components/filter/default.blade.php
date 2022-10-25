@@ -16,7 +16,7 @@
         <x-slot name="label">Ordina</x-slot>
         <x-slot name="id">id-dropdown</x-slot>
       </x-dropdown>
-      
+
     </div>
   </div>
 

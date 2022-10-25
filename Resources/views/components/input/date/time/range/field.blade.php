@@ -16,7 +16,7 @@
     <script>
         $(function() {
             moment.locale('it');
-           
+
            var start = moment($('#{{ Str::slug($name) }} [name="date_from"]').val());
            if (!start.isValid()) {
                start = moment().subtract(29, 'days').set('hour', 0).set('minute', 0).set('second', 0);

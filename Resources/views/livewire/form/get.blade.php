@@ -1,5 +1,5 @@
 <div>
-  
+
         @foreach ($this->form_elements as $k => $element)
             {{-- dddx($element) --}}
             <div class="row clearfix">
@@ -8,5 +8,5 @@
                 </div>
             </div>
         @endforeach
-        
+
 </div>

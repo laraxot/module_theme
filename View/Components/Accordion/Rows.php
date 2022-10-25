@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Accordion;
 
-use Illuminate\View\Component;
-use Illuminate\Support\Collection;
-use Modules\Theme\Services\ThemeService;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Collection;
+use Illuminate\View\Component;
+use Modules\Theme\Services\ThemeService;
 
 /**
  * Class Rows.
@@ -16,7 +16,6 @@ class Rows extends Component {
     public string $type = 'rows';
     public Collection $rows;
 
-
     /**
      * Create a new component instance.
      *
@@ -24,7 +23,7 @@ class Rows extends Component {
      */
     public function __construct(Collection $rows) {
         $this->rows = $rows;
-        //ThemeService::make()->add('theme::View/Components/Accordion/rows.scss');
+        // ThemeService::make()->add('theme::View/Components/Accordion/rows.scss');
     }
 
     /**

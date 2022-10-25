@@ -7,17 +7,17 @@
       {{ isset($step->completed)?'completed':'' }} {{ isset($step->active)?'step-active':'' }}">
       <div class="info-progress-body d-flex justify-content-between align-self-end align-items-end  w-100 py-3">
         <span class="d-block h-100 title-medium text-uppercase">{{$step->title}}</span>
-  
+
         @if(isset($step->completed))
         <svg class="d-block icon icon-primary icon-sm" aria-hidden="true">
           <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-check"></use>
         </svg>
         @endif
-  
+
       </div>
     </div>
     @endforeach
-  
+
     <!-- Mobile -->
     <div class="iscrizioni-header d-lg-none w-100">
       <h4 class="step-title d-flex align-items-center justify-content-between drop-shadow">

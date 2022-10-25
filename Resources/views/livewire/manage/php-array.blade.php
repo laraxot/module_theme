@@ -1,5 +1,5 @@
 <div class="form-group row">
-    
+
 
     <div class="col-md" style="margin-left:50px;">
         @foreach($data as $k=>$v)
@@ -12,13 +12,13 @@
             @endif
             </div>
         @endforeach
-        
+
         @if($prefix=='')
         <button class="btn btn-primary" wire:click="save()">
             Save
         </button>
         @endif
-        
+
     </div>
-    
+
 </div>

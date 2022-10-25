@@ -26,7 +26,7 @@
             </svg><span>Prenota appuntamento</span></a></li>
       </ul>
 
-      
+
       @if(isset($city_problems))
         <h2 class="title-medium-2-semi-bold mt-4">Problemi in città</h2>
         <ul class="contact-list p-0">

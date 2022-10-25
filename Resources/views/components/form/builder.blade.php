@@ -7,7 +7,7 @@
         </div>
     @endif
     @if (count($errors) > 0)
-    
+
         @if(!Session::has('error'))
         <div class="alert alert-danger alert-dismissable">
             <i class="fas fa-ban"></i>
@@ -24,7 +24,7 @@
 
     @foreach($form->inputs as $input)
         <x-input.group :field="$input" ></x-input.group>
-    @endforeach 
+    @endforeach
 
     <div class="col-md-12 form-group">
         {!! Form::submit(Lang::get('ticket::txt.submit'),['class'=>'btn btn-info float-right', 'onclick' => 'this.disabled=true;this.value="Sending, please wait...";this.form.submit();'])!!}

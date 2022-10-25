@@ -10,6 +10,6 @@
             <option value="{{ $k }}" {!! $k == $value ? 'selected' : '' !!}>
                 {{ $v }}
             </option>
-        @endforeach 
+        @endforeach
     @endif
 </select>

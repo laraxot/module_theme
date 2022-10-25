@@ -56,9 +56,9 @@ class V1 extends XotBaseComponent {
     /**
      * @param string|null $info
      *
-     * @throws \Exception
-     *
      * @return array
+     *
+     * @throws \Exception
      */
     public function getEvents($info) {
         // dddx($info);

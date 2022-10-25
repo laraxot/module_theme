@@ -20,7 +20,7 @@
           <button class="btn btn-primary" type="button" id="button-3">Invio</button>
         </div>
       @endif
-      
+
       <span class="autocomplete-icon" aria-hidden="true">
         <svg class="icon icon-sm {{$icon_class ?? ''}}">
           <use href="../assets/bootstrap-italia/dist/svg/sprites.svg#it-search"></use>

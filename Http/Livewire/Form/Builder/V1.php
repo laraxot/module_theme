@@ -38,7 +38,7 @@ class V1 extends Component {
      */
     public function mount(?string $type = 'builder') {
         $data = TenantService::config('forms.uno');
-        if (! is_array($data)) {
+        if (! \is_array($data)) {
             $data = [];
         }
         $this->form_data = $data;
@@ -54,7 +54,7 @@ class V1 extends Component {
             $tmp = explode('.', $item->view);
             $name = collect($tmp)->slice(2, -1)->implode('.');
             $parent = null;
-            if ('field' != $tmp[3]) {
+            if ('field' !== $tmp[3]) {
                 $parent = $tmp[2];
             }
 
@@ -118,8 +118,8 @@ class V1 extends Component {
         // *
         $this->form_data[] = [
             'type' => $name,
-            'name' => $name.'_'.count($this->form_data),
-            'id' => $name.'_'.count($this->form_data),
+            'name' => $name.'_'.\count($this->form_data),
+            'id' => $name.'_'.\count($this->form_data),
         ];
         // */
     }
@@ -130,7 +130,7 @@ class V1 extends Component {
 
         $view = 'theme::collective.fields.'.$curr['type'].'.field';
         $view_file = FileService::viewPath($view);
-        $json_file = str_replace(DIRECTORY_SEPARATOR.'field.blade.php', DIRECTORY_SEPARATOR.'data.json', $view_file);
+        $json_file = str_replace(\DIRECTORY_SEPARATOR.'field.blade.php', \DIRECTORY_SEPARATOR.'data.json', $view_file);
 
         if (! File::exists($json_file)) {
             $tmp = [
@@ -156,7 +156,7 @@ class V1 extends Component {
                 ],
             ];
 
-            if ('select' == $curr['type']) {
+            if ('select' === $curr['type']) {
                 $tmp[] = [
                     'name' => 'options',
                     'type' => 'array',

@@ -26,7 +26,7 @@ class Editor extends Component {
 
     public function render(): \Illuminate\Contracts\Support\Renderable {
         $body = old('body', $this->body);
-        if (is_string($body)) {
+        if (\is_string($body)) {
             $this->body = $body;
         }
         /**

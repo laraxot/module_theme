@@ -1,12 +1,12 @@
 {{-- print_r($attributes->merge($arr)) --}}
-{{--  
+{{--
 dddx([
     'attributes'=>$attributes,
     'attributes_string'=>(string)$attributes->merge($arr),
     'arr'=>$arr,
-    ]) 
+    ])
 --}}
-{{--  
+{{--
 @if(is_array($arr))
 <x-input.group {{ $attributes->merge($arr) }} ></x-input.group>
 @else

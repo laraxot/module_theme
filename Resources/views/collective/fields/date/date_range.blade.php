@@ -4,9 +4,6 @@
 // get the value as a date string
 if (! function_exists('formatDate')) {
     /**
-     * @param $entry
-     * @param $dateFieldName
-     *
      * @return bool|string|null
      */
     function formatDate($entry, $dateFieldName) {

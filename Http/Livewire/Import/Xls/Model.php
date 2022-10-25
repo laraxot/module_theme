@@ -124,7 +124,7 @@ class Model extends Component {
             // dddx([$keys, $data, $values]);
             // Result of && is always true.
             // if (false !== $data && false !== $this->fields) {
-            if (false != $data && false != $this->fields) {
+            if (false !== $data && false !== $this->fields) {
                 $data = array_merge($data, $this->fields);
             }
             // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data, 'keys' => $keys]);

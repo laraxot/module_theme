@@ -1,8 +1,8 @@
 @props([
-  'no_bg' => false, 
-  'id', 
-  'label_hidden' => false, 
-  'label_class' => '', 
+  'no_bg' => false,
+  'id',
+  'label_hidden' => false,
+  'label_class' => '',
   'required' => false,
   'selectClass',
   'placeholder',

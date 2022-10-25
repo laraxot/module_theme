@@ -11,7 +11,7 @@
     </div>
 
 
-    {{-- 
+    {{--
     <div class="card-img-overlay-top text-end">
         <livewire:favorite :model="$model" />
     </div>

@@ -91,11 +91,11 @@ class V2 extends Component {
                     }
 
                     // dddx(\json_encode($data));
-                    File::put($jsonPath, \json_encode($data));
+                    File::put($jsonPath, json_encode($data));
                 }
                 $content = File::get($jsonPath);
 
-                $item->props = \json_decode($content);
+                $item->props = json_decode($content);
 
                 return $item;
             });

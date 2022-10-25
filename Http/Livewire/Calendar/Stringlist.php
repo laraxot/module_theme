@@ -234,7 +234,7 @@ class Stringlist extends Component {
         $collect = collect($arr);
         $date = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
         $i = $collect->search($date);
-        if (is_string($i) or is_int($i)) {
+        if (\is_string($i) || \is_int($i)) {
             $collect = $collect->forget($i);
         } else {
             $collect = $collect->merge([$date]);

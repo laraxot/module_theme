@@ -18,7 +18,7 @@ class Arr extends Component {
      * @param mixed $arr
      */
     public function __construct($arr) {
-        if (! is_array($arr)) {
+        if (! \is_array($arr)) {
             dddx($arr);
         }
         $this->arr = $arr;

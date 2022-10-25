@@ -9,7 +9,7 @@
         <option value="{{$item->value}}">{{$item->value}}</option>
     @endforeach --}}
   </select>
-  
+
   @if(isset($text))
   <div class="d-flex {{$text->class}}">
     <span class="form-text cmp-input__text">

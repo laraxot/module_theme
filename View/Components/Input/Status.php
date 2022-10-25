@@ -34,7 +34,7 @@ class Status extends Component {
         $statuses = collect($statuses->toArray())->map(function ($item) use ($status) {
             $item['label'] = $item['name'];
             $item['color'] = $this->getColor($item['name']);
-            $item['active'] = ($status == $item['name']);
+            $item['active'] = ($status === $item['name']);
 
             return $item;
         })->all();

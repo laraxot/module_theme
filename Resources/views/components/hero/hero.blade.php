@@ -15,7 +15,7 @@
         @else
           <h1 class="text-black hero-title" data-element="page-name">{{{$title}}}</h1>
         @endif
-  
+
         @if(isset($txt))
           <div class="hero-text">
             <p>{{$txt}}</p>

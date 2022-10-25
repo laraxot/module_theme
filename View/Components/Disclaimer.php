@@ -11,9 +11,7 @@ use Illuminate\View\Component;
  * Undocumented class.
  */
 class Disclaimer extends Component {
-
     public function __construct() {
-       
     }
 
     public function render(): Renderable {

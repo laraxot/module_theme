@@ -56,7 +56,7 @@ class Component extends ViewComponent {
             throw new Exception('not exists '.$views[0].' or '.$views[1]);
         }
         $view_params = [];
-        if (! is_string($view)) {
+        if (! \is_string($view)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         // return view()->make($view);

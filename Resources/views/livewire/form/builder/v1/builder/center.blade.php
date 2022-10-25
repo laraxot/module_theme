@@ -18,8 +18,8 @@
         </div>
     </div>
     <div class="card-body" >
-        {{--  
-        <x-input.group type="{{ $row['type'] }}" name="{{ $row['name'] }}" /> 
+        {{--
+        <x-input.group type="{{ $row['type'] }}" name="{{ $row['name'] }}" />
         --}}
         @php
             $attributes=app(\Illuminate\View\ComponentAttributeBag::class);
@@ -30,18 +30,18 @@
                 return $item;
             })->all();
         @endphp
-        {{-- 
+        {{--
         <pre>{{ print_r($row,true) }}</pre>
         --}}
         {{--
         <x-input.group {{ $attributes->merge($row) }} />
         --}}
-        
+
         <x-input.group.arr :arr="$row" />
-        
-        
+
+
     </div>
-    
+
 </div>
 @endforeach
 </div>

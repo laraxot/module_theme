@@ -8,10 +8,10 @@ use Tests\TestCase;
 
 class SvgServiceTest extends TestCase {
     public function testIsSVG() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testGetSVG() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 }

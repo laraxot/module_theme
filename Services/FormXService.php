@@ -143,11 +143,11 @@ class FormXService {
 
         $tmp = Str::snake($field->type);
 
-        /*
-        * @phpstan-var view-string
+        /**
+         * @phpstan-var view-string
 
         $view = 'theme::includes.components.input.'.$tmp.'.freeze';
-        */
+         */
         /*
         /*
 
@@ -192,7 +192,7 @@ class FormXService {
                 return $item->name === 'bs'.$field->type;
             }
         );
-        if (null == $comp_field) {
+        if (null === $comp_field) {
             $msg = 'not registered component [bs'.$field->type.']';
 
             return view()->make('theme::components.alert.error', ['msg' => $msg]);
@@ -260,7 +260,7 @@ class FormXService {
                 // dddx($rows);
                 $pivot_class = $rows->getPivotClass();
                 if (! Str::startsWith($pivot_class, 'Modules\\')) {
-                    $pivot1 = implode('\\', array_slice(explode('\\', get_class($rows->getRelated())), 0, -1)).'\\';
+                    $pivot1 = implode('\\', \array_slice(explode('\\', \get_class($rows->getRelated())), 0, -1)).'\\';
                     $pivot1 .= Str::studly(Str::singular($rows->getTable()));
 
                     if (! class_exists($pivot1)) {

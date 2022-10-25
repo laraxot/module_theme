@@ -1,8 +1,8 @@
 @props([
     'type',
-    'class', 
-    'placeholder' => '', 
-    'name', 
+    'class',
+    'placeholder' => '',
+    'name',
     'formClass',
     'id',
     'required' => false,

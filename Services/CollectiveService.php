@@ -123,7 +123,7 @@ class CollectiveService {
     public static function registerMacros(string $macros_dir): void {
         // $macros_dir = __DIR__.'/../Macros';
         $files = glob($macros_dir.'/*.php');
-        if (false == $files) {
+        if (false === $files) {
             $files = [];
         }
         Collection::make($files)

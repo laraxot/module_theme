@@ -52,7 +52,7 @@ class TryFormBuilder4Action extends XotBasePanelAction {
             $tmp = explode('.', $item->view);
             $name = collect($tmp)->slice(2, -1)->implode('.');
             $parent = null;
-            if ('field' != $tmp[3]) {
+            if ('field' !== $tmp[3]) {
                 $parent = $tmp[2];
             }
 

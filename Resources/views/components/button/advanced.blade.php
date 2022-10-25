@@ -19,7 +19,7 @@
 	{{$label}}
 </a>
 @else
-<button type="button" @if(isset($modalId)) data-bs-toggle="modal" data-bs-target="#{{$modalId}}" 
+<button type="button" @if(isset($modalId)) data-bs-toggle="modal" data-bs-target="#{{$modalId}}"
 @endif
 @if(isset($aria_label)) aria-label="{{$aria_label}} @if(isset($btn_label_text)) documento @endif"@endif
 class="btn

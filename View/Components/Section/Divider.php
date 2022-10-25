@@ -18,8 +18,8 @@ class Divider extends Component {
     public string $link;
 
     public function __construct(
-        ?string $section_class = 'py-7 position-relative dark-overlay',
-        ?string $div_class = 'overlay-content text-white py-lg-5',
+        ?string $section_class,
+        ?string $div_class,
         string $img,
         string $title,
         string $subTitle,

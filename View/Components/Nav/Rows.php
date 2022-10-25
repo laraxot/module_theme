@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Nav;
 
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\View\Component;
 use Illuminate\Support\Collection;
+use Illuminate\View\Component;
 
 /**
  * Class Rows.

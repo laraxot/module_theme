@@ -39,7 +39,7 @@ class Avatar extends Component {
 
     public function message(): string {
         $res = Arr::first($this->messages());
-        if (! is_string($res)) {
+        if (! \is_string($res)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 

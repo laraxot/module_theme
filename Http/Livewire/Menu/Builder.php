@@ -92,7 +92,7 @@ class Builder extends Component {
 
     public function deleteMenuItem(int $id): void {
         $menuitem = MenuItem::find($id);
-        if (null != $menuitem) {
+        if (null !== $menuitem) {
             $menuitem->delete();
         }
         $this->menuItemSelected = null;
@@ -101,11 +101,11 @@ class Builder extends Component {
 
     public function updateMenuItem(): void {
         // $menuitem = MenuItem::findOrFail($this->menuItemSelected['id']);
-        if (null == $this->menuItemSelected) {
+        if (null === $this->menuItemSelected) {
             return;
         }
         $menuitem = MenuItem::where('id', $this->menuItemSelected['id'])->first();
-        if (null == $menuitem) {
+        if (null === $menuitem) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $up = [
@@ -131,7 +131,7 @@ class Builder extends Component {
 
     public function selectMenuItem(int $id): void {
         $item = MenuItem::find($id);
-        if (null != $item) {
+        if (null !== $item) {
             if (null === $this->menuItemSelected || $this->menuItemSelected['id'] !== $item['id']) {
                 $this->menuItemSelected = $item;
                 $this->menuItemLabel = $item->label ?? '';
@@ -154,7 +154,7 @@ class Builder extends Component {
             foreach ($data as $value) {
                 // $menuitem = MenuItem::find($value['id']);
                 $menuitem = MenuItem::where('id', $value['id'])->first();
-                if (null == $menuitem) {
+                if (null === $menuitem) {
                     throw new Exception('['.__LINE__.']['.__FILE__.']');
                 }
                 $menuitem->parent = $value['parent'];
@@ -180,7 +180,7 @@ class Builder extends Component {
             $roots = $menu_list->where('menu', (int) $this->selectedMenu);
             $this->menuItems = self::tree($roots, $menu_list);
             $menu = Menu::find($this->selectedMenu);
-            if (null != $menu) {
+            if (null !== $menu) {
                 $this->menuName = $menu->name ?? '';
             }
         } else {
@@ -218,7 +218,7 @@ class Builder extends Component {
 
     public function changeOrder(string $id, string $dir): void {
         $item = MenuItem::find($id);
-        if (null == $item) {
+        if (null === $item) {
             return;
         }
         switch ($dir) {
@@ -227,7 +227,7 @@ class Builder extends Component {
                     ->where('menu', $item->menu)
                     ->orderBy('sort', 'desc')
                     ->first();
-                if (null != $prevElem) {
+                if (null !== $prevElem) {
                     $prevElem->sort = $prevElem->sort + 1;
                     $prevElem->save();
                 }
@@ -240,7 +240,7 @@ class Builder extends Component {
                     ->where('menu', $item->menu)
                     ->orderBy('sort')
                     ->first();
-                if (null != $nextElem) {
+                if (null !== $nextElem) {
                     $nextElem->sort = $nextElem->sort - 1;
                     $nextElem->save();
                 }

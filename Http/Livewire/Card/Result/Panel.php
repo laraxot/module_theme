@@ -34,7 +34,7 @@ class Panel extends Component {
          * @var BaseModelLang
          */
         $row = $panel->row;
-        if (null == $row) {
+        if (null === $row) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->txt = $row->txt ?? '';

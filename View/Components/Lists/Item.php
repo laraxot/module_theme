@@ -11,7 +11,7 @@ use Illuminate\View\Component;
  * Class Item.
  */
 class Item extends Component {
-    //public array $attrs = [];
+    // public array $attrs = [];
     public ?string $li_class;
     public ?string $li_attribute;
     public Model $row;

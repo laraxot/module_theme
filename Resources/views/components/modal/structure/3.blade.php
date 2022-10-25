@@ -6,7 +6,7 @@
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
             </button>
             <div class="cmp-modal__header mt-30 mt-lg-50">
-              
+
               @if(isset($date))
                   <date class="date-regular w-100 ">{{$date}}</date>
               @endif

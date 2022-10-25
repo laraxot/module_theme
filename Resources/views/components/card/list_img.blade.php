@@ -29,7 +29,7 @@
               </div>
               <h3 class="cmp-list-card-img__body-title "><a href="#" class="text-decoration-none">{{$card->title}}</a></h3>
               <p class="cmp-list-card-img__body-description">{{$card->txt}}</p>
-    
+
               <a class="read-more t-primary text-uppercase cmp-list-card-img__body-link " href="#" aria-label="Leggi di più sulla pagina di {{$card->title}}">
                 <span class="text">{{$card->link}}</span>
                 <span class="visually-hidden">su Lorem ipsum dolor sit amet, consectetur adipiscing elit…</span>
@@ -43,13 +43,12 @@
       </div>
     @endforeach
       <!--end card-->
-    
+
       @if(isset($buttonNext))
       <div class="d-flex justify-content-end">
         <x-button class="px-5 py-3 full-mb" primary="true"></x-button>
         {{-- {{>partials/button/button  primary="true" class="px-5 py-3 full-mb" aria-label=aria-label }} --}}
       </div>
       @endif
-    
+
     </div>
-    

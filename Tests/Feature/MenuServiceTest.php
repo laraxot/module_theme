@@ -8,34 +8,34 @@ use Tests\TestCase;
 
 class MenuServiceTest extends TestCase {
     public function testGet() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testRenderVerMenu() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testRenderHorMenu() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testCheckRecursion() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testIsActiveVerMenuItem() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testIsActiveHorMenuItem() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testRenderIcon() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testRenderIconName() {
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 }

@@ -99,7 +99,7 @@ class Crud extends Component {
     public function edit(int $id) {
         $this->updateMode = true;
         $user = User::where('id', $id)->first();
-        if (null == $user) {
+        if (null === $user) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->user_id = $id;
@@ -130,7 +130,7 @@ class Crud extends Component {
 
         if ($this->user_id) {
             $user = User::find($this->user_id);
-            if (null != $user) {
+            if (null !== $user) {
                 $user->update([
                     'name' => $this->name,
                     'email' => $this->email,

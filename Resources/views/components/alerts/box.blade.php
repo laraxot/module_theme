@@ -24,7 +24,7 @@
     <p class="description description-warning {{$description_class}}">{{$message}}</p>
   </div>
 
-  
+
   @if(isset($alert_link_list))
   <ul>
     @foreach($alert_link_list as $list)

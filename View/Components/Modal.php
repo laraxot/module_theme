@@ -20,8 +20,8 @@ class Modal extends Component {
         string $title,
         ?string $size,
         string $id,
-        bool $centered = true,
-        int $index = 1,
+        bool $centered,
+        int $index,
         ?string $type
     ) {
         $this->id = $id;

@@ -6,12 +6,12 @@
           time
         </label>
     </div>
-    
+
     <div class="input-group mb-3">
         <input type="text" name="time_from" class="form-control  form-control-lg flatpickr-time" />
         <input type="text" name="time_to" class="form-control  form-control-lg flatpickr-time" />
     </div>
-    
+
 </div>
 @push('scripts')
 <script>

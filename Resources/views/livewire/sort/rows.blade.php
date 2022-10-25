@@ -4,14 +4,14 @@
             <li wire:sortable.item="{{ $row->id }}" wire:key="row-{{ $row->id }}">
                 {{--
                 <span wire:sortable.handle>{{ $row->name }} [{{$row->order_column }}] </span>
-                
+
                 <button wire:click="removeRow({{ $row->id }})">Remove</button>
                 --}}
                 <div class="input-group mb-3">
                     <button class="btn btn-outline-secondary" type="button"  wire:sortable.handle>
                         <i class="fas fa-arrows-alt-v"></i>
                     </button>
-                    
+
                     <button class="btn btn-outline-secondary" type="button" wire:click="moveUp({{ $row->id }})" {{ $row->isFirstInOrder()?'disabled':'' }}>
                         <i class="fas fa-sort-up"></i>
                     </button>

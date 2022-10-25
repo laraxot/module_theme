@@ -97,13 +97,13 @@ class Builder extends Component {
                             ];
                         }
                     }
-                    File::put($jsonPath, \json_encode($data));
+                    File::put($jsonPath, json_encode($data));
                 }
 
                 $item->types = str_replace('/', '.', explode('/', str_replace('/'.$item->getFilename(), '', $item->getRelativePathname()), 2));
 
                 $content = File::get($jsonPath);
-                $item->props = \json_decode($content);
+                $item->props = json_decode($content);
 
                 $item->props = collect($item->props);
 

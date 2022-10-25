@@ -22,7 +22,7 @@ class Link extends Component {
         $this->attrs['rel'] = $rel;
         $this->attrs['type'] = $type;
         $this->attrs['href'] = $href;
-        if (null != $href) {
+        if (null !== $href) {
             ThemeService::add($href);
         }
     }

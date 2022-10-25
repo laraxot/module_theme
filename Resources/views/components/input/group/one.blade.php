@@ -1,6 +1,6 @@
 <div class="mb-3">
     <label class="text-gray-600 small" for="$field->name">{{ $field->label }}</label>
-    {{--  
+    {{--
     <input class="form-control form-control-solid" type="text" placeholder="{{ $field->placeholder }}"
         aria-label="Email Address" aria-describedby="emailExample" />
     --}}

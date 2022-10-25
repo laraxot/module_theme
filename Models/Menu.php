@@ -58,7 +58,7 @@ class Menu extends Model {
         return $rows;
     }
 
-    public static function byName(string $name): ?Menu {
+    public static function byName(string $name): ?self {
         return self::where('name', '=', $name)->first();
     }
 

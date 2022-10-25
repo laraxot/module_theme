@@ -21,7 +21,7 @@
         @endif
     @endif
 
-  
+
 
 @if(isset($label_tag_up))
   <div class="d-flex flex-wrap cmp-heading__tag">
@@ -40,9 +40,9 @@
   <p class="subtitle-small @if(isset($pClass)) {{ $pClass }} @endif">{{{$subTitle}}}</p>
 @endif
 
-  
 
-  
+
+
   @if(isset($label_tag))
   <div class="d-flex flex-wrap gap-2 cmp-heading__tag">
     {{-- <x-partials.tag.tag>
@@ -62,7 +62,7 @@
   </p>
   @endif
 
-  
+
 @if(isset($description))
   <p class="subtitle-small {{$desClass}}">{{$description}}</p>
 @endif
@@ -78,7 +78,7 @@
     {{-- {{>partials/button/button class="fw-bold"}} --}}
   @endif
 
-  
+
 @if(isset($double_button))
   <div class="d-lg-flex gap-30 mb-2">
     {{-- <x-partials.button.button>
@@ -103,7 +103,7 @@
       <x-slot name="label">second-label</x-slot>
       <x-slot name="aria_label">second-ariaLabel</x-slot>
     </x-button>
-    
+
   </div>
   @endif
 </div>

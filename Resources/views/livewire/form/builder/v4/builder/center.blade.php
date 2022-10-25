@@ -12,11 +12,11 @@
         </div>
     </div>
     <div class="card-body" >
-        <x-input.group type="{{ $row['type'] }}" name="{{ $row['name'] }}" /> 
+        <x-input.group type="{{ $row['type'] }}" name="{{ $row['name'] }}" />
     </div>
-    
+
 </div>
-    
-    
+
+
 
 @endforeach

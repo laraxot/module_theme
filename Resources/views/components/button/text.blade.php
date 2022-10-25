@@ -14,10 +14,9 @@
      <div class="button-wrapper {{$class}}">
         {!! $slot !!}
      </div>
-  
+
 
      @if($linkLabel)
       <a class="{{$classLink}} simple-link" href="#">{{$linkLabel}} <span class="visually-hidden">{{$linkLabel}}</span></a>
   @endif
 </div> --}}
-  

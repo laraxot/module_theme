@@ -78,7 +78,7 @@ class Calendar extends Component {
         $days = [];
 
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->startOfMonth()->isoWeekday();
-        if (! is_int($startOfMonthDay)) {
+        if (! \is_int($startOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 
@@ -87,7 +87,7 @@ class Calendar extends Component {
         }
 
         $daysInMonth = Carbon::createFromDate($this->currentYear, $this->currentMonth)->daysInMonth;
-        if (! is_int($daysInMonth)) {
+        if (! \is_int($daysInMonth)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 
@@ -96,7 +96,7 @@ class Calendar extends Component {
         }
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
-        if (! is_int($endOfMonthDay)) {
+        if (! \is_int($endOfMonthDay)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 

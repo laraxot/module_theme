@@ -11,14 +11,14 @@
     <ul class="navbar-nav ms-auto">
         @php
             $menu_items = $_theme->getMenuItemsByName('navbar');
-            
+
             //dddx($_theme->getMenuItemsByName('navbar'));
-            
+
             //dddx(Menu::getByName('navbar'));
             //dddx(get_defined_vars());
             //l'array menus è ancora vuoto, giustamente...
 //fin quando verrà modificato il salvataggio in array su file, utilizziamo Menu::getByName('navbar')???
-            
+
         @endphp
 
         @foreach ($menu_items as $menu_item)

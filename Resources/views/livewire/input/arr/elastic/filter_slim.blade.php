@@ -20,7 +20,7 @@
                 <span class="dropdown-item" href="#">Deve contenere</span>
                 <span class="dropdown-item" href="#">Non deve contenere</span>
                 <span class="dropdown-item" href="#">Potrebbe conterere</span>
-                
+
             </div>
         </div>
         --}}
@@ -70,7 +70,7 @@
         </select>
     </div>
     --}}
-    
+
 </div>
 
 @php
@@ -86,7 +86,7 @@ $max_search_days = $profile->getProfile()->max_search_days ?? 365;
 
 {{-- @push('scripts')
     <script>
-        
+
         Date.prototype.daysAgo = (function(max_search_days) {
             var local = new Date(this);
             local.setDate(this.getDate() - max_search_days);
@@ -109,7 +109,7 @@ $max_search_days = $profile->getProfile()->max_search_days ?? 365;
         }else{
             document.getElementById('dateTo').value = "{{$dateTo}}";
         }
-        
+
     </script>
 @endpush
 --}}
