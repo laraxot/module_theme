@@ -18,16 +18,14 @@ use Modules\Xot\Services\PanelService;
  *
  * @property XotBasePanel $panel
  */
-class Edit extends XotBaseFormComponent
-{
+class Edit extends XotBaseFormComponent {
     public array $index_fields = [];
 
     public array $route_params = [];
 
     public array $data = [];
 
-    public function mount(?Model $model = null): void
-    {
+    public function mount(?Model $model = null): void {
         $this->route_params = getRouteParameters();
         $this->data = request()->all();
         $this->setFormProperties($this->panel->getRow());
@@ -36,8 +34,7 @@ class Edit extends XotBaseFormComponent
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Response|mixed|null
      */
-    public function getPanelProperty()
-    {
+    public function getPanelProperty() {
         return PanelService::make()->getByParams($this->route_params);
     }
 
@@ -46,13 +43,11 @@ class Edit extends XotBaseFormComponent
      *
      * @return array
      */
-    public function rules($param = false)
-    {
+    public function rules($param = false) {
         return [];
     }
 
-    public function fields(): array
-    {
+    public function fields(): array {
         /**
          * @var Collection<FieldContract>
          */

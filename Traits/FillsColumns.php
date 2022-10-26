@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Trait FillsColumns.
  */
-trait FillsColumns
-{
+trait FillsColumns {
     /**
      * @return array
      */
-    public function getFillable()
-    {
+    public function getFillable() {
         return Schema::getColumnListing($this->getTable());
     }
 }

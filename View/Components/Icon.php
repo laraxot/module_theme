@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Info.
  */
-class Icon extends Component
-{
+class Icon extends Component {
     public string $type;
 
     /**
@@ -19,16 +18,14 @@ class Icon extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = 'info')
-    {
+    public function __construct(?string $type = 'info') {
         $this->type = $type;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.icon.'.$this->type;
         $view_params = [
             'view' => $view,

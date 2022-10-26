@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Select.
  */
-class Select extends Component
-{
+class Select extends Component {
     public array $attrs = [];
     public array $options = [];
 
@@ -20,8 +19,7 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         // $this->options = $options;
         // $this->attrs['name'] = $name;
         // $this->attrs['id'] = 'form_'.$name;
@@ -31,8 +29,7 @@ class Select extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

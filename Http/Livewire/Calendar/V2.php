@@ -38,8 +38,7 @@ use Modules\Xot\Services\PanelService;
  * @property bool   $dayClickEnabled
  * @property bool   $eventClickEnabled
  */
-class V2 extends Component
-{
+class V2 extends Component {
     public Carbon $startsAt;
     public Carbon $endsAt;
 
@@ -137,8 +136,7 @@ class V2 extends Component
     /**
      * @param array $extras
      */
-    public function afterMount($extras = []): void
-    {
+    public function afterMount($extras = []): void {
     }
 
     /**
@@ -165,44 +163,38 @@ class V2 extends Component
      * @param mixed $pollMillis
      * @param mixed $pollAction
      */
-    public function setupPoll($pollMillis, $pollAction): void
-    {
+    public function setupPoll($pollMillis, $pollAction): void {
         $this->pollMillis = $pollMillis;
         $this->pollAction = $pollAction;
     }
 
-    public function goToPreviousMonth(): void
-    {
+    public function goToPreviousMonth(): void {
         $this->startsAt->subMonthNoOverflow();
         $this->endsAt->subMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToNextMonth(): void
-    {
+    public function goToNextMonth(): void {
         $this->startsAt->addMonthNoOverflow();
         $this->endsAt->addMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToCurrentMonth(): void
-    {
+    public function goToCurrentMonth(): void {
         $this->startsAt = Carbon::today()->startOfMonth()->startOfDay();
         $this->endsAt = $this->startsAt->clone()->endOfMonth()->startOfDay();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function calculateGridStartsEnds(): void
-    {
+    public function calculateGridStartsEnds(): void {
         $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt);
         $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt);
     }
 
-    public function monthGrid(): Collection
-    {
+    public function monthGrid(): Collection {
         $firstDayOfGrid = $this->gridStartsAt;
         $lastDayOfGrid = $this->gridEndsAt;
 
@@ -232,8 +224,7 @@ class V2 extends Component
         return $monthGrid;
     }
 
-    public function events(): Collection
-    {
+    public function events(): Collection {
         $this->model = 'Modules\Blog\Models\Event';
         $events = app($this->model)->with('post')
             ->whereDate('date_start', '>=', $this->gridStartsAt)
@@ -258,8 +249,7 @@ class V2 extends Component
         // return collect();
     }
 
-    public function getEventsForDay(mixed $day, Collection $events): Collection
-    {
+    public function getEventsForDay(mixed $day, Collection $events): Collection {
         return $events
             ->filter(
                 function ($event) use ($day) {
@@ -271,8 +261,7 @@ class V2 extends Component
     /*public function onDayClick($year, $month, $day): void {
     }*/
 
-    public function onEventClick(int $eventId): void
-    {
+    public function onEventClick(int $eventId): void {
         $this->event_id = $eventId;
         $row = app($this->model)->find($eventId);
         $panel = PanelService::make()->get($row);
@@ -305,15 +294,13 @@ class V2 extends Component
         // dddx($this->form_data);
     }
 
-    public function update(): void
-    {
+    public function update(): void {
         $row = app($this->model)->find($this->event_id);
         $panel = PanelService::make()->get($row);
         $panel->update($this->form_data);
     }
 
-    public function cancel(): void
-    {
+    public function cancel(): void {
     }
 
     /*public function onEventDropped($eventId, $year, $month, $day): void {
@@ -326,8 +313,7 @@ class V2 extends Component
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $events = $this->events();
         $view = $this->calendarView;
         $view_params = [

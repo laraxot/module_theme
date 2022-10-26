@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Scroll.
  */
-class Scroll extends Component
-{
+class Scroll extends Component {
     public string $type = 'scroll';
     public array $link_list;
 
@@ -20,16 +19,14 @@ class Scroll extends Component
      *
      * @return void
      */
-    public function __construct(array $linkList)
-    {
+    public function __construct(array $linkList) {
         $this->link_list = $linkList;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.nav.'.$this->type;
         $view_params = [
             'view' => $view,

@@ -10,8 +10,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Mapbox.
  */
-class Mapbox extends XotBaseComponent
-{
+class Mapbox extends XotBaseComponent {
     public string $id;
 
     public string $theme;
@@ -37,13 +36,11 @@ class Mapbox extends XotBaseComponent
         $this->markers = $markers;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make('theme::components.maps.mapbox');
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge(
             [
                 'container' => $this->id,

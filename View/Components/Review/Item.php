@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Item.
  */
-class Item extends Component
-{
+class Item extends Component {
     public ?string $avatar;
     public ?string $name;
     public ?string $stars;
@@ -38,8 +37,7 @@ class Item extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

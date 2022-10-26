@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Heading.
  */
-class Heading extends Component
-{
+class Heading extends Component {
     public string $type;
 
     /**
@@ -19,16 +18,14 @@ class Heading extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = 'heading')
-    {
+    public function __construct(?string $type = 'heading') {
         $this->type = $type;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.heading.'.$this->type;
         $view_params = [
             'view' => $view,

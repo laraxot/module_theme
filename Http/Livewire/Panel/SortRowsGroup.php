@@ -17,8 +17,7 @@ use Modules\Xot\Services\PanelService;
  * @property PanelContract $panel
  * @property Collection    $groups
  */
-class SortRowsGroup extends Component
-{
+class SortRowsGroup extends Component {
     public array $routeParams = [];
     public array $data = [];
     public Collection $rows;
@@ -27,8 +26,7 @@ class SortRowsGroup extends Component
     /**
      * Undocumented function.
      */
-    public function mount(string $groupBy): void
-    {
+    public function mount(string $groupBy): void {
         $this->routeParams = getRouteParameters();
         $this->data = request()->all();
         $this->rows = $this->panel->rows($this->data)
@@ -38,8 +36,7 @@ class SortRowsGroup extends Component
         $this->group_by = explode(',', $groupBy);
     }
 
-    public function getPanelProperty(): PanelContract
-    {
+    public function getPanelProperty(): PanelContract {
         $panel = PanelService::make()->getByParams($this->routeParams);
 
         return $panel;
@@ -48,8 +45,7 @@ class SortRowsGroup extends Component
     /**
      * @return \Illuminate\Support\Collection|string
      */
-    public function getGroupsProperty()
-    {
+    public function getGroupsProperty() {
         $groups = $this->rows
             ->sortBy('pos')
             ->groupBy(
@@ -67,8 +63,7 @@ class SortRowsGroup extends Component
         return $groups;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -82,8 +77,7 @@ class SortRowsGroup extends Component
         return view()->make($view, $view_params);
     }
 
-    public function updateGroupOrder(array $list): void
-    {
+    public function updateGroupOrder(array $list): void {
         // dddx($list);
         /*
         2 => array:2 [▼
@@ -115,8 +109,7 @@ class SortRowsGroup extends Component
         // $this->redirect('#');
     }
 
-    public function updateTaskOrder(array $list): void
-    {
+    public function updateTaskOrder(array $list): void {
         /*
           7 => array:2 [▼
         "order" => 8

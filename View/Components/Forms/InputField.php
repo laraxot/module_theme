@@ -11,16 +11,14 @@ use stdClass;
 /**
  * Undocumented class.
  */
-class InputField extends Component
-{
+class InputField extends Component {
     public array $attrs = [];
     public stdClass $field;
 
     /**
      * Undocumented function.
      */
-    public function __construct(stdClass $field)
-    {
+    public function __construct(stdClass $field) {
         $this->field = $field;
         $this->attrs['name'] = $field->name;
         $this->attrs['wire:model'] = 'form_data.'.$field->name;
@@ -30,8 +28,7 @@ class InputField extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $type = $this->field->type;
         $type = Str::snake($type);
         /**

@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Item.
  */
-class Item extends Component
-{
+class Item extends Component {
     public array $attrs;
 
     /**
@@ -19,8 +18,7 @@ class Item extends Component
      *
      * @return void
      */
-    public function __construct(?string $class = ' h-auto px-2', ?string $style = null)
-    {
+    public function __construct(?string $class = ' h-auto px-2', ?string $style = null) {
         $this->attrs['slide_class'] = $class;
         $this->attrs['slide_style'] = $style;
     }
@@ -28,8 +26,7 @@ class Item extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

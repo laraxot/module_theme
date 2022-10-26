@@ -13,8 +13,7 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Meta extends Component
-{
+class Meta extends Component {
     public string $title;
     public string $description;
     public string $author;
@@ -53,8 +52,7 @@ class Meta extends Component
     /**
      * Undocumented function.
      */
-    public function render(): View
-    {
+    public function render(): View {
         /**
          * @phpstan-var view-string
          */

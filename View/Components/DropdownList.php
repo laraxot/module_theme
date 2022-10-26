@@ -12,16 +12,14 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class DropdownList extends Component
-{
+class DropdownList extends Component {
     // public array $attrs = [];
     public array $menus = [];
     public ?string $title = null;
 
     public string $menu_name;
 
-    public function __construct(string $menuName, ?string $title = null)
-    {
+    public function __construct(string $menuName, ?string $title = null) {
         // $this->menus = Menu::getByName($menuName);
         $this->menu_name = $menuName;
         $this->menus = [];
@@ -43,8 +41,7 @@ class DropdownList extends Component
         */
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

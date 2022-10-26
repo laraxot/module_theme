@@ -11,8 +11,7 @@ use Illuminate\View\Component;
 /**
  * Class Divider.
  */
-class Divider extends Component
-{
+class Divider extends Component {
     public array $attrs;
     public string $title;
     public string $sub_title;
@@ -34,8 +33,7 @@ class Divider extends Component
         $this->link = $link;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

@@ -11,14 +11,12 @@ use Illuminate\Support\Str;
 /**
  * Class ActiveChecker.
  */
-class ActiveChecker
-{
+class ActiveChecker {
     private Request $request;
 
     private UrlGenerator $url;
 
-    public function __construct(Request $request, UrlGenerator $url)
-    {
+    public function __construct(Request $request, UrlGenerator $url) {
         $this->request = $request;
         $this->url = $url;
     }
@@ -28,8 +26,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    public function isActive($item)
-    {
+    public function isActive($item) {
         if (isset($item['active'])) {
             return $this->isExplicitActive($item['active']);
         }
@@ -55,8 +52,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    protected function checkExactOrSub($url)
-    {
+    protected function checkExactOrSub($url) {
         return $this->checkExact($url) || $this->checkSub($url);
     }
 
@@ -65,8 +61,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    protected function checkExact($url)
-    {
+    protected function checkExact($url) {
         return $this->checkPattern($url);
     }
 
@@ -75,8 +70,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    protected function checkSub($url)
-    {
+    protected function checkSub($url) {
         return $this->checkPattern($url.'/*') || $this->checkPattern($url.'?*');
     }
 
@@ -85,8 +79,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    protected function checkPattern($pattern)
-    {
+    protected function checkPattern($pattern) {
         $fullUrlPattern = $this->url->to($pattern);
 
         $fullUrl = $this->request->fullUrl();
@@ -99,8 +92,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    protected function containsActive($items)
-    {
+    protected function containsActive($items) {
         foreach ($items as $item) {
             if ($this->isActive($item)) {
                 return true;
@@ -115,8 +107,7 @@ class ActiveChecker
      *
      * @return bool
      */
-    private function isExplicitActive($active)
-    {
+    private function isExplicitActive($active) {
         foreach ($active as $url) {
             if ($this->checkExact($url)) {
                 return true;

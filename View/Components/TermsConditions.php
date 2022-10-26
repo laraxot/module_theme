@@ -9,22 +9,19 @@ use Illuminate\View\Component;
 /**
  * Class TermsConditions.
  */
-class TermsConditions extends Component
-{
+class TermsConditions extends Component {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         return view()->make('pub_theme::components.terms_conditions');
     }
 }

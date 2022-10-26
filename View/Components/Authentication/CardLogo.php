@@ -11,10 +11,8 @@ use Illuminate\View\Component;
 /**
  * Class Field.
  */
-class CardLogo extends Component
-{
-    public function render()
-    {
+class CardLogo extends Component {
+    public function render() {
         /**
          * @phpstan-var view-string
          */

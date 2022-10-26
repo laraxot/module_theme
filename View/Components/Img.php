@@ -11,23 +11,20 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Undocumented class.
  */
-class Img extends Component
-{
+class Img extends Component {
     public array $attrs = [];
 
     /**
      * Undocumented function.
      */
-    public function __construct(?string $src = null)
-    {
+    public function __construct(?string $src = null) {
         $this->attrs['src'] = ThemeService::asset($src);
     }
 
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.img';
         $view_params = [
             'view' => $view,

@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Modules\Cybersecurity\Mail\MyTestMail;
 
-class Phonecall extends Component
-{
+class Phonecall extends Component {
     public string $title;
     public bool $show = false;
     public string $body_view;
@@ -29,8 +28,7 @@ class Phonecall extends Component
      */
     protected $listeners = ['doSend' => 'doSend'];
 
-    public function mount(string $title = '', string $popup_title = 'Titolo Modal', string $popup_subtitle = 'Sotto-titolo Modal', string $popup_button = 'Invia', string $color = '#007bff'): void
-    {
+    public function mount(string $title = '', string $popup_title = 'Titolo Modal', string $popup_subtitle = 'Sotto-titolo Modal', string $popup_button = 'Invia', string $color = '#007bff'): void {
         $this->title = $title;
         $this->popup_subtitle = $popup_subtitle;
         $this->popup_title = $popup_title;
@@ -39,23 +37,19 @@ class Phonecall extends Component
         $this->show = false;
     }
 
-    public function showModal(string $id): void
-    {
+    public function showModal(string $id): void {
         $this->emitTo('theme::modal.body-view', 'showModal', $id);
     }
 
-    public function doShow(): void
-    {
+    public function doShow(): void {
         $this->show = true;
     }
 
-    public function doClose(): void
-    {
+    public function doClose(): void {
         $this->show = false;
     }
 
-    public function doSend(array $form_data): void
-    {
+    public function doSend(array $form_data): void {
         if (empty($form_data['business_name'])) {
             $this->emitTo('theme::modal.body-view', 'sendMessage', 'Compila il campo Azienda');
 
@@ -96,8 +90,7 @@ class Phonecall extends Component
         // $this->emitTo('theme::modal.body-view', 'doClose');
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

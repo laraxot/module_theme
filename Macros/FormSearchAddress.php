@@ -7,13 +7,11 @@ namespace Modules\Theme\Macros;
 /**
  * Class FormSearchAddress.
  */
-class FormSearchAddress
-{
+class FormSearchAddress {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function (array $params = []) {
             $view_comp_dir = 'theme::includes.components.form_complete.search.address';
 

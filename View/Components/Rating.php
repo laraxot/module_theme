@@ -11,8 +11,7 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class Rating.
  */
-class Rating extends Component
-{
+class Rating extends Component {
     public string $type;
 
     /**
@@ -20,8 +19,7 @@ class Rating extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = 'rating')
-    {
+    public function __construct(?string $type = 'rating') {
         $this->type = $type;
         // ThemeService::make()->add('theme::View/Components/Card/rows.scss');
     }
@@ -29,8 +27,7 @@ class Rating extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.rating.'.$this->type;
         $view_params = [
             'view' => $view,

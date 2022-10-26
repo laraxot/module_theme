@@ -22,8 +22,7 @@ use Modules\Theme\Traits\UploadsFiles;
 /**
  * Class XotBaseFormComponent.
  */
-abstract class XotBaseFormComponent extends Component
-{
+abstract class XotBaseFormComponent extends Component {
     use FollowsRules;
     use HandlesArrays;
     use UploadsFiles;
@@ -55,16 +54,14 @@ abstract class XotBaseFormComponent extends Component
     /**
      * Undocumented function.
      */
-    public function mount(?Model $model = null): void
-    {
+    public function mount(?Model $model = null): void {
         $this->setFormProperties($model);
         $this->setDaynames();
     }
 
     // */
 
-    public function setDaynames(): void
-    {
+    public function setDaynames(): void {
         $this->daynames = [
             trans('theme::txt.day_names.sun'),
             trans('theme::txt.day_names.mon'),
@@ -76,8 +73,7 @@ abstract class XotBaseFormComponent extends Component
         ];
     }
 
-    public function setFormProperties(?Model $model = null): void
-    {
+    public function setFormProperties(?Model $model = null): void {
         $this->model = $model;
         if ($model) {
             $this->form_data = $model->toArray();
@@ -107,16 +103,14 @@ abstract class XotBaseFormComponent extends Component
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         return $this->formView();
     }
 
     /**
      * @return \Illuminate\Contracts\View\View
      */
-    public function formView()
-    {
+    public function formView() {
         /**
          * @phpstan-var view-string
          */
@@ -129,8 +123,7 @@ abstract class XotBaseFormComponent extends Component
         return view()->make($view, $view_params);
     }
 
-    public function fields(): array
-    {
+    public function fields(): array {
         return [
             /*
             FieldService::make('Name')->input()->rules(['required', 'string', 'max:255']),
@@ -146,13 +139,11 @@ abstract class XotBaseFormComponent extends Component
      *
      * @return void
      */
-    public function updated($field)
-    {
+    public function updated($field) {
         // $this->validateOnly($field, $this->rules(true));
     }
 
-    public function submit(): void
-    {
+    public function submit(): void {
         // $this->validate($this->rules());
         dddx(['form_data' => $this->form_data]);
         $field_names = [];
@@ -169,20 +160,17 @@ abstract class XotBaseFormComponent extends Component
      *
      * @return string|string[]
      */
-    public function errorMessage($message)
-    {
+    public function errorMessage($message) {
         return str_replace('form data.', '', $message);
     }
 
-    public function success(): void
-    {
+    public function success(): void {
         // $this->form_data['password'] = bcrypt($this->form_data['password']);
         // \App\User::create($this->form_data);
         dddx($this->form_data);
     }
 
-    public function saveAndStay(): void
-    {
+    public function saveAndStay(): void {
         $this->submit();
         $this->saveAndStayResponse();
     }
@@ -190,13 +178,11 @@ abstract class XotBaseFormComponent extends Component
     /**
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function saveAndStayResponse()
-    {
+    public function saveAndStayResponse() {
         return redirect()->route('users.create');
     }
 
-    public function saveAndGoBack(): void
-    {
+    public function saveAndGoBack(): void {
         $this->submit();
         $this->saveAndGoBackResponse();
     }
@@ -204,8 +190,7 @@ abstract class XotBaseFormComponent extends Component
     /**
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function saveAndGoBackResponse()
-    {
+    public function saveAndGoBackResponse() {
         return redirect()->route('users.index');
     }
 }

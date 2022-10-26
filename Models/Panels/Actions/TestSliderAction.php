@@ -16,16 +16,14 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class TestAction.
  */
-class TestSliderAction extends XotBasePanelAction
-{
+class TestSliderAction extends XotBasePanelAction {
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $drivers = [
             'ion',
             'bootstrap',

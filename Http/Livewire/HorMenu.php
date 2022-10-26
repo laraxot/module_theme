@@ -12,16 +12,14 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class HorMenu.
  */
-class HorMenu extends Component
-{
+class HorMenu extends Component {
     /**
      * @param array $all
      * @param int   $id_padre
      *
      * @return array
      */
-    public static function parse($all, $id_padre = 0)
-    {
+    public static function parse($all, $id_padre = 0) {
         $data = [];
         if (! isset($all[$id_padre])) {
             return $data;
@@ -48,8 +46,7 @@ class HorMenu extends Component
     /**
      * Render the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -82,8 +79,7 @@ class HorMenu extends Component
      *
      * @return string
      */
-    public static function renderHorMenu($item, $parent = null, $rec = 0)
-    {
+    public static function renderHorMenu($item, $parent = null, $rec = 0) {
         $html = '';
         MenuService::checkRecursion($rec);
         if (! $item) {

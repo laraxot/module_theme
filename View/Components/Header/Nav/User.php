@@ -11,8 +11,7 @@ use Illuminate\View\Component;
 /**
  * Class Nav.
  */
-class User extends Component
-{
+class User extends Component {
     public array $attrs = [];
     public string $view;
 
@@ -21,16 +20,14 @@ class User extends Component
      *
      * @return void
      */
-    public function __construct(?string $view = 'theme::components.header.nav.user_')
-    {
+    public function __construct(?string $view = 'theme::components.header.nav.user_') {
         $this->view = $view;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

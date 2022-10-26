@@ -11,8 +11,7 @@ use Illuminate\View\Component;
 /**
  * Class Results.
  */
-class Results extends Component
-{
+class Results extends Component {
     public Collection $rows;
     public string $title;
 
@@ -21,8 +20,7 @@ class Results extends Component
      *
      * @return void
      */
-    public function __construct(Collection $rows, string $title)
-    {
+    public function __construct(Collection $rows, string $title) {
         $this->rows = $rows;
         $this->title = $title;
     }
@@ -30,8 +28,7 @@ class Results extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

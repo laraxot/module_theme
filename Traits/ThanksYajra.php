@@ -16,15 +16,13 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 /**
  * Trait ThanksYajra.
  */
-trait ThanksYajra
-{
+trait ThanksYajra {
     /**
      * @param string $attribute
      *
      * @return object
      */
-    public function relationship($attribute)
-    {
+    public function relationship($attribute) {
         $parts = explode('.', $attribute);
 
         return (object) [
@@ -39,8 +37,7 @@ trait ThanksYajra
      *
      * @return string
      */
-    public function attribute(Builder $query, $relationships, $attribute)
-    {
+    public function attribute(Builder $query, $relationships, $attribute) {
         $table = '';
         $last_query = $query;
 

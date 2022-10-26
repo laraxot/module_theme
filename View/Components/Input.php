@@ -12,8 +12,7 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Input extends Component
-{
+class Input extends Component {
     public array $attrs = [];
     public string $type;
     public string $name;
@@ -24,8 +23,7 @@ class Input extends Component
      *
      * @param mixed|null $value
      */
-    public function __construct(string $name, string $type, ?array $options = [])
-    {
+    public function __construct(string $name, string $type, ?array $options = []) {
         $this->name = $name;
         $this->type = Str::snake($type);
         $this->options = $options;
@@ -51,8 +49,7 @@ class Input extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

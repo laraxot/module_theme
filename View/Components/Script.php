@@ -11,15 +11,13 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Undocumented class.
  */
-class Script extends Component
-{
+class Script extends Component {
     public array $attrs = [];
 
     /**
      * Undocumented function.
      */
-    public function __construct(?string $src = null)
-    {
+    public function __construct(?string $src = null) {
         // $this->attrs['src']=$src;
         if (null !== $src) {
             ThemeService::add($src);
@@ -29,8 +27,7 @@ class Script extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.empty';
         $view_params = [
             'view' => $view,

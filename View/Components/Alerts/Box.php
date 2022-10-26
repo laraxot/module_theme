@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Box.
  */
-class Box extends Component
-{
+class Box extends Component {
     public string $type = 'box';
 
     /**
@@ -19,15 +18,13 @@ class Box extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.alerts'.$this->type;
         $view_params = [
             'view' => $view,

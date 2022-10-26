@@ -6,8 +6,7 @@ namespace Modules\Theme\View\Components\Dashboard;
 
 use Illuminate\View\Component;
 
-class Header extends Component
-{
+class Header extends Component {
     public string $view;
     public string $title;
     public string $subtitle;
@@ -32,8 +31,7 @@ class Header extends Component
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function render()
-    {
+    public function render() {
         $view = $this->view;
         $view_params = [
             'view' => $this->view,

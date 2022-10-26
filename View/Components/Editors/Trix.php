@@ -10,8 +10,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Trix.
  */
-class Trix extends XotBaseComponent
-{
+class Trix extends XotBaseComponent {
     /**
      * @var string
      */
@@ -26,15 +25,13 @@ class Trix extends XotBaseComponent
      */
     protected static array $assets = ['trix'];
 
-    public function __construct(string $name, string $id = null, string $styling = 'trix-content')
-    {
+    public function __construct(string $name, string $id = null, string $styling = 'trix-content') {
         $this->name = $name;
         $this->id = $id ?? $name;
         $this->styling = $styling;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make('theme::components.editors.trix');
     }
 }

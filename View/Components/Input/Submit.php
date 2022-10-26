@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
-class Submit extends Component
-{
+class Submit extends Component {
     /**
      * Attribute specifies where to send
      * the form-data when a form is submitted.
@@ -22,14 +21,12 @@ class Submit extends Component
      */
     public string $formId;
 
-    public function __construct(string $action, string $formId = null)
-    {
+    public function __construct(string $action, string $formId = null) {
         $this->action = Route::has($action) ? route($action) : $action;
         $this->formId = $formId ?? (string) Str::uuid();
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         /**
          * @phpstan-var view-string
          */

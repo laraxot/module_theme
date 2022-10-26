@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Nav.
  */
-class Nav extends Component
-{
+class Nav extends Component {
     public string $type;
 
     /**
@@ -19,16 +18,14 @@ class Nav extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = 'nav')
-    {
+    public function __construct(?string $type = 'nav') {
         $this->type = $type;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.nav.'.$this->type;
         $view_params = [
             'view' => $view,

@@ -11,8 +11,7 @@ use Illuminate\View\Component;
 /**
  * Class Collapse.
  */
-class Collapse extends Component
-{
+class Collapse extends Component {
     public array $attrs = [];
     public array $menus = [];
 
@@ -23,8 +22,7 @@ class Collapse extends Component
      *
      * @return void
      */
-    public function __construct(string $menuName)
-    {
+    public function __construct(string $menuName) {
         // $this->menus = Menu::getByName($menuName);
         $this->menu_name = $menuName;
         $this->menus = [];
@@ -33,8 +31,7 @@ class Collapse extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

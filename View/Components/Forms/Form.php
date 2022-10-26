@@ -10,23 +10,20 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Form.
  */
-class Form extends XotBaseComponent
-{
+class Form extends XotBaseComponent {
     public string $action;
 
     public string $method;
 
     public bool $hasFiles;
 
-    public function __construct(string $action, string $method = 'POST', bool $hasFiles = false)
-    {
+    public function __construct(string $action, string $method = 'POST', bool $hasFiles = false) {
         $this->action = $action;
         $this->method = strtoupper($method);
         $this->hasFiles = $hasFiles;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
