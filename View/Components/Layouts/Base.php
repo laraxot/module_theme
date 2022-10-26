@@ -24,12 +24,8 @@ class Base extends Component {
         /**
          * @phan-var view-string
          */
-<<<<<<< HEAD
-        // $view = 'theme::components.layouts.base.'.$this->type;
-        $view = 'adm_theme::components.layouts.base';
-=======
         $view = 'theme::components.layouts.base.'.$this->type;
->>>>>>> 7203e36 (up)
+
         $view_params = [
         ];
 

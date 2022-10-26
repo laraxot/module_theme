@@ -4,12 +4,6 @@
 // get the value as a date string
 if (! function_exists('formatDate')) {
     /**
-<<<<<<< HEAD
-     * @param mixed $entry
-     * @param mixed $dateFieldName
-     *
-=======
->>>>>>> 7203e36 (up)
      * @return bool|string|null
      */
     function formatDate($entry, $dateFieldName) {

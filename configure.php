@@ -196,12 +196,7 @@ $files = (str_starts_with(strtoupper(PHP_OS), 'WIN') ? replaceForWindows() : rep
 
 foreach ($files as $file) {
     replace_in_file(
-<<<<<<< HEAD
-        $file,
-        [
-=======
         $file, [
->>>>>>> 7203e36 (up)
             ':author_name' => $authorName,
             ':author_username' => $authorUsername,
             'author@domain.com' => $authorEmail,
