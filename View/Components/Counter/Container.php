@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Container.
  */
-class Container extends Component
-{
+class Container extends Component {
     public ?string $img;
 
     /**
@@ -19,16 +18,14 @@ class Container extends Component
      *
      * @return void
      */
-    public function __construct(?string $img = 'pub_theme::img/src/banner-2.jpg')
-    {
+    public function __construct(?string $img = 'pub_theme::img/src/banner-2.jpg') {
         $this->img = $img;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

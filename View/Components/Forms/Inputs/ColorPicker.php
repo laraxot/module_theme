@@ -9,8 +9,7 @@ use Illuminate\Contracts\Support\Renderable;
 /**
  * Class ColorPicker.
  */
-class ColorPicker extends Input
-{
+class ColorPicker extends Input {
     public array $options;
 
     /**
@@ -18,22 +17,19 @@ class ColorPicker extends Input
      */
     protected static array $assets = ['alpine', 'pickr'];
 
-    public function __construct(string $name, string $id = null, ?string $value = '', array $options = [])
-    {
+    public function __construct(string $name, string $id = null, ?string $value = '', array $options = []) {
         parent::__construct($name, $id, 'hidden', $value);
 
         $this->options = $options;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.forms.inputs.color-picker';
 
         return view()->make($view);
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge(
             [
                 'el' => '#'.$this->id,
@@ -54,8 +50,7 @@ class ColorPicker extends Input
         );
     }
 
-    protected function swatches(): array
-    {
+    protected function swatches(): array {
         return [
             '000000',
             'A0AEC0',

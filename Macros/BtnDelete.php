@@ -9,13 +9,11 @@ use Exception;
 /**
  * Class BtnDelete.
  */
-class BtnDelete extends BaseFormBtnMacro
-{
+class BtnDelete extends BaseFormBtnMacro {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra) {
             $class = __CLASS__;
             $vars = $class::before($extra);

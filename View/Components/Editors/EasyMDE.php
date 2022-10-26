@@ -10,8 +10,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class EasyMDE.
  */
-class EasyMDE extends XotBaseComponent
-{
+class EasyMDE extends XotBaseComponent {
     /**
      * @var string
      */
@@ -26,15 +25,13 @@ class EasyMDE extends XotBaseComponent
      */
     protected static array $assets = ['alpine', 'easy-mde'];
 
-    public function __construct(string $name, string $id = null, array $options = [])
-    {
+    public function __construct(string $name, string $id = null, array $options = []) {
         $this->name = $name;
         $this->id = $id ?? $name;
         $this->options = $options;
     }
 
-    public function options(): array
-    {
+    public function options(): array {
         return array_merge(
             [
                 'forceSync' => true,
@@ -43,8 +40,7 @@ class EasyMDE extends XotBaseComponent
         );
     }
 
-    public function jsonOptions(): string
-    {
+    public function jsonOptions(): string {
         if (empty($this->options())) {
             return '';
         }
@@ -52,8 +48,7 @@ class EasyMDE extends XotBaseComponent
         return ', ...'.json_encode((object) $this->options());
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make('theme::components.editors.easy-mde');
     }
 }

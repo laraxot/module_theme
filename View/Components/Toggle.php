@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Toggle.
  */
-class Toggle extends Component
-{
+class Toggle extends Component {
     public string $type = 'toggle';
 
     /**
@@ -19,15 +18,13 @@ class Toggle extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.'.$this->type;
         $view_params = [
             'view' => $view,

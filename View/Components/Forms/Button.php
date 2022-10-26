@@ -11,17 +11,14 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Button.
  */
-class Button extends XotBaseComponent
-{
+class Button extends XotBaseComponent {
     public array $attrs = [];
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->attrs['class'] = FileService::config('pub_theme::css.forms.button');
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

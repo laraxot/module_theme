@@ -15,22 +15,19 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class Body.
  */
-class Body extends Component
-{
+class Body extends Component {
     public string $modelClass;
     public Model $model;
     public string $action;
 
-    public function __construct(string $action, string $modelClass)
-    {
+    public function __construct(string $action, string $modelClass) {
         $this->action = $action;
         $this->modelClass = $modelClass;
         // $this->model = new $this->modelClass();
         $this->model = app($modelClass);
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

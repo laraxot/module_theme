@@ -11,8 +11,7 @@ use Illuminate\View\Component;
 /**
  * Class Item.
  */
-class Item extends Component
-{
+class Item extends Component {
     // public array $attrs = [];
     public ?string $li_class;
     public ?string $li_attribute;
@@ -23,8 +22,7 @@ class Item extends Component
      *
      * @return void
      */
-    public function __construct(Model $row, ?string $li_class = '', ?string $li_attribute = '')
-    {
+    public function __construct(Model $row, ?string $li_class = '', ?string $li_attribute = '') {
         $this->li_class = $li_class;
         $this->li_attribute = $li_attribute;
         $this->row = $row;
@@ -33,8 +31,7 @@ class Item extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

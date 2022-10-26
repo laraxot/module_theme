@@ -7,21 +7,18 @@ namespace Modules\Theme\View\Components\Button;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class DarkCta extends Component
-{
+class DarkCta extends Component {
     /**
      * Create the component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         // $this->type = $type;
         // $this->message = $message;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

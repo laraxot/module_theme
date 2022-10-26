@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Pagination.
  */
-class Pagination extends Component
-{
+class Pagination extends Component {
     // public \Illuminate\Pagination\LengthAwarePaginator $rows;
     public LengthAwarePaginator $rows;
 
@@ -20,16 +19,14 @@ class Pagination extends Component
      *
      * @return void
      */
-    public function __construct(LengthAwarePaginator $rows)
-    {
+    public function __construct(LengthAwarePaginator $rows) {
         $this->rows = $rows;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */

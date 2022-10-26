@@ -43,8 +43,7 @@ use Sushi\Sushi;
  */
 
 // mixin \IdeHelperTheme
-class Theme extends Model
-{
+class Theme extends Model {
     use Sushi;
 
     protected $connection = 'theme'; // this will use the specified database connection
@@ -83,8 +82,7 @@ class Theme extends Model
     ];
     */
 
-    public function getRows(): array
-    {
+    public function getRows(): array {
         /*
         $dir = base_path('Themes');
         $themes_dirs = File::directories($dir);

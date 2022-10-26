@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Container.
  */
-class Container extends Component
-{
+class Container extends Component {
     public ?string $ul_class;
 
     /**
@@ -19,16 +18,14 @@ class Container extends Component
      *
      * @return void
      */
-    public function __construct(string $ul_class = null)
-    {
+    public function __construct(string $ul_class = null) {
         $this->ul_class = $ul_class;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

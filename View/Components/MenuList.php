@@ -12,8 +12,7 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class MenuList extends Component
-{
+class MenuList extends Component {
     // public array $attrs = [];
     public array $menus = [];
     public ?string $title = null;
@@ -21,8 +20,7 @@ class MenuList extends Component
 
     public string $menu_name;
 
-    public function __construct(string $menuName, ?string $title = null, ?string $titleClass = null, ?string $ulClass = null, ?string $aliClass = null)
-    {
+    public function __construct(string $menuName, ?string $title = null, ?string $titleClass = null, ?string $ulClass = null, ?string $aliClass = null) {
         // $this->menus = Menu::getByName($menuName);
         $this->menu_name = $menuName;
         $this->menus = [];
@@ -56,8 +54,7 @@ class MenuList extends Component
         }
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

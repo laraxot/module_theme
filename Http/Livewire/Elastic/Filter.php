@@ -11,8 +11,7 @@ use Modules\Mediamonitor\Models\Alert as AlertModel;
 /**
  * Class Filter.
  */
-class Filter extends Component
-{
+class Filter extends Component {
     public string $type = 'v3';
     public array $form_data = [];
     public array $value = [];
@@ -35,8 +34,7 @@ class Filter extends Component
      *
      * @return void
      */
-    public function mount(?AlertModel $row = null)
-    {
+    public function mount(?AlertModel $row = null) {
         // $data = request()->all();
         // dddx($data);
 
@@ -68,8 +66,7 @@ class Filter extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

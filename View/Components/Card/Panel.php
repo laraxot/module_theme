@@ -13,23 +13,20 @@ use Modules\Xot\Contracts\PanelContract;
 /**
  * Class Field.
  */
-class Panel extends Component
-{
+class Panel extends Component {
     public PanelContract $panel;
 
     /**
      * --.
      */
-    public function __construct(PanelContract $panel)
-    {
+    public function __construct(PanelContract $panel) {
         $this->panel = $panel;
     }
 
     /**
      * --.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -41,8 +38,7 @@ class Panel extends Component
         return view()->make($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return true;
     }
 }

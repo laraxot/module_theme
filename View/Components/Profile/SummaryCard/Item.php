@@ -11,14 +11,11 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Item.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class Item extends XotBaseComponent
-{
-    public function __construct()
-    {
+class Item extends XotBaseComponent {
+    public function __construct() {
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

@@ -11,22 +11,19 @@ use Illuminate\View\View;
 /**
  * Class Sub.
  */
-class Errors extends Component
-{
+class Errors extends Component {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): ViewContract
-    {
+    public function render(): ViewContract {
         /**
          * @phpstan-var view-string
          */

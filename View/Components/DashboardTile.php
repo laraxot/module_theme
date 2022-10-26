@@ -6,8 +6,7 @@ namespace Modules\Theme\View\Components;
 
 use Illuminate\View\Component;
 
-class DashboardTile extends Component
-{
+class DashboardTile extends Component {
     public string $gridArea;
 
     public ?int $refreshIntervalInSeconds;
@@ -36,8 +35,7 @@ class DashboardTile extends Component
         $this->show = $show;
     }
 
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -49,8 +47,7 @@ class DashboardTile extends Component
         return view($view, $view_params);
     }
 
-    protected function convertToGridArea(string $position): string
-    {
+    protected function convertToGridArea(string $position): string {
         $parts = explode(':', $position);
 
         $from = $parts[0];
@@ -74,8 +71,7 @@ class DashboardTile extends Component
         return "{$areaFrom} / {$toStart} / {$toEnd}";
     }
 
-    private function indexInAlphabet(string $character): int
-    {
+    private function indexInAlphabet(string $character): int {
         $alphabet = range('a', 'z');
 
         $index = array_search(strtolower($character), $alphabet, true);

@@ -16,8 +16,7 @@ use Livewire\Component;
 /**
  * Class FullCalendar.
  */
-class FullCalendar extends Component
-{
+class FullCalendar extends Component {
     /**
      * @var string
      */
@@ -27,8 +26,7 @@ class FullCalendar extends Component
 
     public array $form_data = [];
 
-    public function mount(): void
-    {
+    public function mount(): void {
         /*$name = 'Barry';
         $events = [];
         foreach (range(0, 6) as $i) {
@@ -42,16 +40,14 @@ class FullCalendar extends Component
         */
     }
 
-    public function updatedName(): void
-    {
+    public function updatedName(): void {
         $this->emit('refreshCalendar');
     }
 
     /**
      * @return string[]
      */
-    public function getNamesProperty()
-    {
+    public function getNamesProperty() {
         return [
             'Barry',
             'Taylor',
@@ -64,8 +60,7 @@ class FullCalendar extends Component
      *
      * @return array
      */
-    public function getEvents()
-    {
+    public function getEvents() {
         // dddx('preso');
         $name = 'Barry'; // $request->get('name');
 
@@ -84,8 +79,7 @@ class FullCalendar extends Component
     /**
      * @return array|string[]
      */
-    public function getTasksProperty()
-    {
+    public function getTasksProperty() {
         switch ($this->name) {
             case 'Barry':
                 return ['Debugbar', 'IDE Helper'];
@@ -98,13 +92,11 @@ class FullCalendar extends Component
         return [];
     }
 
-    public function eventReceive(array $event): void
-    {
+    public function eventReceive(array $event): void {
         $this->events[] = 'eventReceive: '.print_r($event, true);
     }
 
-    public function eventDrop(array $event, array $oldEvent): void
-    {
+    public function eventDrop(array $event, array $oldEvent): void {
         $this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
     }
 
@@ -114,13 +106,11 @@ class FullCalendar extends Component
     /**
      * Render the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         return view()->make('theme::livewire.full_calendar');
     }
 
-    public function edit(array $calEvent): void
-    {
+    public function edit(array $calEvent): void {
         /*dddx($calEvent['event']);
          array:4 [▼
         "title" => "IDE Helper"
@@ -135,20 +125,17 @@ class FullCalendar extends Component
         // $this->form_data['end'] = Carbon::parse($this->form_data['end'])->format('Y-m-d\TH:i');
     }
 
-    public function update(): void
-    {
+    public function update(): void {
         session()->flash('message', 'Updated Successfully.');
         $this->resetInputFields();
     }
 
-    public function cancel(): void
-    {
+    public function cancel(): void {
         // $this->updateMode = false;
         $this->resetInputFields();
     }
 
-    private function resetInputFields(): void
-    {
+    private function resetInputFields(): void {
         $this->form_data = [];
     }
 }

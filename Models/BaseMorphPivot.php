@@ -10,8 +10,7 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends MorphPivot
-{
+abstract class BaseMorphPivot extends MorphPivot {
     use Updater;
     /**
      * Indicates whether attributes are snake cased on arrays.

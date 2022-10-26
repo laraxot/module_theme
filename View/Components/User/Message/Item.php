@@ -11,12 +11,10 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Item.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class Item extends XotBaseComponent
-{
+class Item extends XotBaseComponent {
     public array $attrs;
 
-    public function __construct(string $id, string $sender, string $avatarpath, string $avataralt, string $roomsnumber, string $receiptdate)
-    {
+    public function __construct(string $id, string $sender, string $avatarpath, string $avataralt, string $roomsnumber, string $receiptdate) {
         $this->attrs['id'] = $id;
         $this->attrs['sender'] = $sender;
         $this->attrs['avatarpath'] = $avatarpath;
@@ -25,8 +23,7 @@ class Item extends XotBaseComponent
         $this->attrs['receiptdate'] = $receiptdate;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

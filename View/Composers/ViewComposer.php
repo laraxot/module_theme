@@ -10,21 +10,18 @@ use Modules\Theme\Models\Menu;
 /**
  * --.
  */
-abstract class ViewComposer
-{
+abstract class ViewComposer {
     /**
      * --. fa riferimento a modelli di theme, e per mostrare una cosa nel tema.
      */
-    public function getMenuByName(string $name): ?Menu
-    {
+    public function getMenuByName(string $name): ?Menu {
         return Menu::firstWhere('name', $name);
     }
 
     /**
      * --.
      */
-    public function getMenuItemsByName(string $name): Collection
-    {
+    public function getMenuItemsByName(string $name): Collection {
         $menu = Menu::firstWhere('name', $name);
         if (null === $menu) {
             return collect([]);

@@ -12,20 +12,17 @@ use Illuminate\View\Component;
 /**
  * Class Field.
  */
-class Poster extends Component
-{
+class Poster extends Component {
     /**
      * --.
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * --.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -37,8 +34,7 @@ class Poster extends Component
         return view()->make($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return true;
     }
 }

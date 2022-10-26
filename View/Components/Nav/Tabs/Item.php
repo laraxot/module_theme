@@ -10,14 +10,12 @@ use Illuminate\View\Component;
 /**
  * Item.
  */
-class Item extends Component
-{
+class Item extends Component {
     public bool $active = false;
     public string $url;
     public string $title;
 
-    public function __construct(string $url, string $title, bool $active = false)
-    {
+    public function __construct(string $url, string $title, bool $active = false) {
         $this->url = $url;
         $this->active = $active;
         $this->title = $title;
@@ -26,8 +24,7 @@ class Item extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

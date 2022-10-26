@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Trending.
  */
-class Trending extends Component
-{
+class Trending extends Component {
     public array $attrs = [];
     public ?string $title = null;
     public ?string $subtitle = null;
@@ -22,8 +21,7 @@ class Trending extends Component
      *
      * @return void
      */
-    public function __construct(?string $title, ?string $subtitle, Collection $rows)
-    {
+    public function __construct(?string $title, ?string $subtitle, Collection $rows) {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->rows = $rows;
@@ -35,8 +33,7 @@ class Trending extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         return view()->make('theme::components.trending');
     }
 }

@@ -11,8 +11,7 @@ use Illuminate\View\Component;
 /**
  * Class Select.
  */
-class Select extends Component
-{
+class Select extends Component {
     public string $type = 'select';
     // public Collection $options;
 
@@ -21,16 +20,14 @@ class Select extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         // $this->options = $options;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.'.$this->type;
         $view_params = [
             'view' => $view,

@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Slider.
  */
-class Slider extends Component
-{
+class Slider extends Component {
     public string $driver;
     public string $errorKey = '?'; // phpstan
     public string $name = '?'; // phpstan
@@ -30,8 +29,7 @@ class Slider extends Component
      *
      * @return void
      */
-    public function __construct(?string $driver = null)
-    {
+    public function __construct(?string $driver = null) {
         if (null === $driver) {
             $driver = 'noui';
         }
@@ -43,8 +41,7 @@ class Slider extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -61,8 +58,7 @@ class Slider extends Component
      *
      * @return string
      */
-    public function makeItemClass()
-    {
+    public function makeItemClass() {
         $classes = ['form-control'];
 
         if ($this->isInvalid() && ! isset($this->disableFeedback)) {
@@ -86,8 +82,7 @@ class Slider extends Component
      *
      * @return bool
      */
-    public function isInvalid()
-    {
+    public function isInvalid() {
         // Get the errors bag from session. The errors bag will be an instance
         // of the Illuminate\Support\MessageBag class.
         // Cannot call method get() on mixed.
@@ -108,8 +103,7 @@ class Slider extends Component
      *
      * @return array|string|null
      */
-    protected function makeErrorKey()
-    {
+    protected function makeErrorKey() {
         $errKey = preg_replace('@\[\]$@', '', $this->name);
         if (null === $errKey) {
             return $this->name;

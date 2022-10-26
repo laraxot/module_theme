@@ -12,8 +12,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Unsplash.
  */
-class Unsplash extends XotBaseComponent
-{
+class Unsplash extends XotBaseComponent {
     protected string $photo;
 
     protected string $query;
@@ -46,8 +45,7 @@ class Unsplash extends XotBaseComponent
         $this->ttl = $ttl;
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         return view()->make(
             'theme::components.support.unsplash',
             [
@@ -56,8 +54,7 @@ class Unsplash extends XotBaseComponent
         );
     }
 
-    protected function fetchPhoto(): string
-    {
+    protected function fetchPhoto(): string {
         if (! $accessKey = config('services.unsplash.access_key')) {
             return '';
         }

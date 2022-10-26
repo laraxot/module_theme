@@ -10,12 +10,10 @@ use Modules\Theme\Menu\Builder;
 /**
  * Class HrefFilter.
  */
-class HrefFilter implements FilterInterface
-{
+class HrefFilter implements FilterInterface {
     protected UrlGenerator $urlGenerator;
 
-    public function __construct(UrlGenerator $urlGenerator)
-    {
+    public function __construct(UrlGenerator $urlGenerator) {
         $this->urlGenerator = $urlGenerator;
     }
 
@@ -24,8 +22,7 @@ class HrefFilter implements FilterInterface
      *
      * @return mixed
      */
-    public function transform($item, Builder $builder)
-    {
+    public function transform($item, Builder $builder) {
         if (! isset($item['header'])) {
             $item['href'] = $this->makeHref($item);
             if (isset($item['dropdown'])) {
@@ -56,8 +53,7 @@ class HrefFilter implements FilterInterface
      *
      * @return string
      */
-    protected function makeHref($item)
-    {
+    protected function makeHref($item) {
         if (isset($item['url'])) {
             return $this->urlGenerator->to($item['url']);
         }

@@ -10,8 +10,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class ChooseAdmThemeAction.
  */
-class ChooseAdmThemeAction extends XotBasePanelAction
-{
+class ChooseAdmThemeAction extends XotBasePanelAction {
     public bool $onItem = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
@@ -19,8 +18,7 @@ class ChooseAdmThemeAction extends XotBasePanelAction
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $themes = ThemeService::getThemes();
         $view_params = [
             'themes' => $themes,

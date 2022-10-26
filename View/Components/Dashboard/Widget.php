@@ -13,20 +13,17 @@ use Illuminate\View\Component;
 /**
  * Class Widget.
  */
-class Widget extends Component
-{
+class Widget extends Component {
     public Model $area;
 
-    public function __construct(Model $area)
-    {
+    public function __construct(Model $area) {
         $this->area = $area;
     }
 
     /**
      * --.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /*
         $componentClass = '\Modules\\'.$this->area->getAttributeValue('area_define_name').'\View\Components\Dashboard\Item';
 
@@ -40,8 +37,7 @@ class Widget extends Component
         return View::make('theme::components.empty');
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return false;
     }
 }

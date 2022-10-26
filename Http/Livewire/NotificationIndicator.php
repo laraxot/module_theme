@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
 
-final class NotificationIndicator extends Component
-{
+final class NotificationIndicator extends Component {
     public bool $hasNotification;
 
     /**
@@ -21,8 +20,7 @@ final class NotificationIndicator extends Component
         'NotificationMarkedAsRead' => 'setHasNotification',
     ];
 
-    public function render(): View
-    {
+    public function render(): View {
         if (null !== Auth::user()) {
             $this->hasNotification = (bool) $this->setHasNotification(
                 Auth::user()->unreadNotifications()->count()
@@ -39,8 +37,7 @@ final class NotificationIndicator extends Component
         );
     }
 
-    public function setHasNotification(int $count): bool
-    {
+    public function setHasNotification(int $count): bool {
         return $count > 0;
     }
 }

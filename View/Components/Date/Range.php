@@ -8,8 +8,7 @@ use Closure;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class Range extends Component
-{
+class Range extends Component {
     public string $topclass;
     public string $inputclass;
     public string $title;
@@ -36,8 +35,7 @@ class Range extends Component
         $this->callback = $callback;
     }
 
-    public function initiator(): string
-    {
+    public function initiator(): string {
         $s = '';
         switch ($this->init) {
             case 0: $s = 'startDate: moment(), endDate: moment()';
@@ -57,8 +55,7 @@ class Range extends Component
         return $s;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

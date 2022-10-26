@@ -18,8 +18,7 @@ use Modules\Xot\Http\Livewire\XotBaseComponent;
 /**
  * Modules\Theme\Http\Livewire\FullCalendar\V1.
  */
-class V1 extends XotBaseComponent
-{
+class V1 extends XotBaseComponent {
     private string $model = '?';
 
     public ?string $name = 'Barry';
@@ -28,8 +27,7 @@ class V1 extends XotBaseComponent
 
     public array $form_data = [];
 
-    public function mount(): void
-    {
+    public function mount(): void {
         /*$name = 'Barry';
         $events = [];
         foreach (range(0, 6) as $i) {
@@ -43,13 +41,11 @@ class V1 extends XotBaseComponent
         */
     }
 
-    public function updatedName(): void
-    {
+    public function updatedName(): void {
         $this->emit('refreshCalendar');
     }
 
-    public function getNamesProperty(): array
-    {
+    public function getNamesProperty(): array {
         return [
             'Barry',
             'Taylor',
@@ -64,8 +60,7 @@ class V1 extends XotBaseComponent
      *
      * @return array
      */
-    public function getEvents($info)
-    {
+    public function getEvents($info) {
         // dddx($info);
         /*
         "start" => "2020-11-28T23:00:00.000Z"
@@ -110,8 +105,7 @@ class V1 extends XotBaseComponent
     /**
      * @return array|string[]
      */
-    public function getTasksProperty()
-    {
+    public function getTasksProperty() {
         switch ($this->name) {
             case 'Barry':
                 return ['Debugbar', 'IDE Helper'];
@@ -124,13 +118,11 @@ class V1 extends XotBaseComponent
         return [];
     }
 
-    public function eventReceive(array $event): void
-    {
+    public function eventReceive(array $event): void {
         $this->events[] = 'eventReceive: '.print_r($event, true);
     }
 
-    public function eventDrop(array $event, array $oldEvent): void
-    {
+    public function eventDrop(array $event, array $oldEvent): void {
         // $this->events[] = 'eventDrop: '.print_r($oldEvent, true).' -> '.print_r($event, true);
         session()->flash('message', '['.$event['id'].'] '.$event['title'].' spostato da '.$oldEvent['start'].' a '.$event['start']);
         $row = app($this->model)->find($event['id']);
@@ -141,8 +133,7 @@ class V1 extends XotBaseComponent
     /**
      * Render the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = $this->getView();
         $view_params = [
             'view' => $view,
@@ -154,25 +145,21 @@ class V1 extends XotBaseComponent
     /**
      * @param array $calEvent
      */
-    public function edit($calEvent): void
-    {
+    public function edit($calEvent): void {
         $this->form_data = $calEvent['event'];
     }
 
-    public function update(): void
-    {
+    public function update(): void {
         session()->flash('message', 'Users Updated Successfully.');
         $this->resetInputFields();
     }
 
-    public function cancel(): void
-    {
+    public function cancel(): void {
         // $this->updateMode = false;
         $this->resetInputFields();
     }
 
-    private function resetInputFields(): void
-    {
+    private function resetInputFields(): void {
         $this->form_data = [];
     }
 }

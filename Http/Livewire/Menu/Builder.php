@@ -13,8 +13,7 @@ use Livewire\Component;
 use Modules\Theme\Models\Menu;
 use Modules\Theme\Models\MenuItem;
 
-class Builder extends Component
-{
+class Builder extends Component {
     public array $menulist = [];
     public array $menuItems = [];
     public ?int $selectedMenu = null;
@@ -40,8 +39,7 @@ class Builder extends Component
      */
     protected $listeners = ['change-tree' => 'changeTree'];
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $this->getMenus();
         /**
          * @var string
@@ -70,16 +68,14 @@ class Builder extends Component
         return view($view);
     }
 
-    public function getMenus(): array
-    {
+    public function getMenus(): array {
         $menu = new Menu();
         $this->menulist = $menu->select(['id', 'name'])->get()->pluck('name', 'id')->prepend('Select menu', 0)->all();
 
         return $this->menulist;
     }
 
-    public function deleteMenu(int $id): void
-    {
+    public function deleteMenu(int $id): void {
         $menus = new MenuItem();
         $getall = $menus->getall($id);
         if (0 === \count($getall)) {
@@ -94,8 +90,7 @@ class Builder extends Component
         }
     }
 
-    public function deleteMenuItem(int $id): void
-    {
+    public function deleteMenuItem(int $id): void {
         $menuitem = MenuItem::find($id);
         if (null !== $menuitem) {
             $menuitem->delete();
@@ -104,8 +99,7 @@ class Builder extends Component
         $this->chooseMenu();
     }
 
-    public function updateMenuItem(): void
-    {
+    public function updateMenuItem(): void {
         // $menuitem = MenuItem::findOrFail($this->menuItemSelected['id']);
         if (null === $this->menuItemSelected) {
             return;
@@ -135,8 +129,7 @@ class Builder extends Component
         $this->chooseMenu();
     }
 
-    public function selectMenuItem(int $id): void
-    {
+    public function selectMenuItem(int $id): void {
         $item = MenuItem::find($id);
         if (null !== $item) {
             if (null === $this->menuItemSelected || $this->menuItemSelected['id'] !== $item['id']) {
@@ -156,8 +149,7 @@ class Builder extends Component
      *
      * @param array|null $data
      */
-    public function changeTree($data): void
-    {
+    public function changeTree($data): void {
         if (\is_array($data)) {
             foreach ($data as $value) {
                 // $menuitem = MenuItem::find($value['id']);
@@ -175,15 +167,13 @@ class Builder extends Component
         }
     }
 
-    public function createNewMenu(): void
-    {
+    public function createNewMenu(): void {
         $this->selectedMenu = null;
         $this->menuItems = [];
         $this->menuName = '';
     }
 
-    public function chooseMenu(): void
-    {
+    public function chooseMenu(): void {
         if ($this->selectedMenu) {
             $menuItem = new MenuItem();
             $menu_list = $menuItem->getall($this->selectedMenu);
@@ -199,8 +189,7 @@ class Builder extends Component
 //        dd($this->menuItems);
     }
 
-    public function addMenuItem(): void
-    {
+    public function addMenuItem(): void {
         $menuitem = new MenuItem();
         $menuitem->label = $this->label;
         $menuitem->link = $this->url;
@@ -215,8 +204,7 @@ class Builder extends Component
         $this->url = '';
     }
 
-    public function updateMenu(): void
-    {
+    public function updateMenu(): void {
         if ('' === $this->menuName) {
             $this->error = 'Enter menu name!';
         } else {
@@ -228,8 +216,7 @@ class Builder extends Component
         }
     }
 
-    public function changeOrder(string $id, string $dir): void
-    {
+    public function changeOrder(string $id, string $dir): void {
         $item = MenuItem::find($id);
         if (null === $item) {
             return;
@@ -277,8 +264,7 @@ class Builder extends Component
         $this->menuItemSelected = null;
     }
 
-    public function createMenu(): void
-    {
+    public function createMenu(): void {
         if ('' === $this->menuName) {
             $this->error = 'Enter menu name!';
         } else {
@@ -299,8 +285,7 @@ class Builder extends Component
      * @param Collection<MenuItem> $items
      * @param Collection<MenuItem> $all_items
      */
-    private static function tree(Collection $items, Collection $all_items): array
-    {
+    private static function tree(Collection $items, Collection $all_items): array {
         $data_arr = [];
         $i = 0;
         foreach ($items as $item) {

@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Carousel.
  */
-class Carousel extends Component
-{
+class Carousel extends Component {
     public string $type;
     /*
     public array $attrs = [];
@@ -42,8 +41,7 @@ class Carousel extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         return view()->make('theme::components.carousel.'.$this->type);
     }
 }

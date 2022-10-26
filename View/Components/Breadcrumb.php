@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Breadcrumb.
  */
-class Breadcrumb extends Component
-{
+class Breadcrumb extends Component {
     public string $type;
 
     /**
@@ -19,16 +18,14 @@ class Breadcrumb extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = 'breadcrumb')
-    {
+    public function __construct(?string $type = 'breadcrumb') {
         $this->type = $type;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.breadcrumb.'.$this->type;
         $view_params = [
             'view' => $view,

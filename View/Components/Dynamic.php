@@ -12,8 +12,7 @@ use Illuminate\View\DynamicComponent;
 /**
  * Class Faq.
  */
-class Dynamic extends DynamicComponent
-{
+class Dynamic extends DynamicComponent {
     public array $attrs = [];
 
     /**
@@ -21,8 +20,7 @@ class Dynamic extends DynamicComponent
      *
      * @return void
      */
-    public function __construct(string $component, array $attrs = [])
-    {
+    public function __construct(string $component, array $attrs = []) {
         $this->component = $component;
         $this->attrs = $attrs;
     }
@@ -32,8 +30,7 @@ class Dynamic extends DynamicComponent
      *
      * @return Renderable|Closure
      */
-    public function render()
-    {
+    public function render() {
         $template = <<<'EOF'
         <?php extract(collect($attributes->merge($attrs)->getAttributes())->mapWithKeys(function ($value, $key) { return [Illuminate\Support\Str::camel(str_replace([':', '.'], ' ', $key)) => $value]; })->all(), EXTR_SKIP); ?>
 {{ props }}

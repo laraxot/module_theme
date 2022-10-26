@@ -9,8 +9,7 @@ use Illuminate\View\Component;
 use Modules\Blog\Models\Status as StatusModel;
 use Modules\Xot\Services\ModelService;
 
-class Status extends Component
-{
+class Status extends Component {
     public string $type = 'radio';
     public $model;
     public array $statuses = [];
@@ -20,8 +19,7 @@ class Status extends Component
      *
      * @param mixed $model
      */
-    public function __construct($model)
-    {
+    public function __construct($model) {
         $this->model = $model;
         $model_type = ModelService::make()->setModel($model)->getPostType();
         $where = [
@@ -45,8 +43,7 @@ class Status extends Component
         $this->statuses = $statuses;
     }
 
-    private function getColor(string $name): string
-    {
+    private function getColor(string $name): string {
         $color = 'blue';
         switch ($name) {
             case 'draft': return 'yellow';
@@ -60,8 +57,7 @@ class Status extends Component
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.input.status.'.$this->type.'.field';
         $view_params = [
             'view' => $view,

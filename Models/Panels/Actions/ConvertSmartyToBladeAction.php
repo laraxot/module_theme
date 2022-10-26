@@ -12,8 +12,7 @@ use Modules\Xot\Services\SmartyService;
 /**
  * Class TestAction.
  */
-class ConvertSmartyToBladeAction extends XotBasePanelAction
-{
+class ConvertSmartyToBladeAction extends XotBasePanelAction {
     public bool $onContainer = true;
 
     public string $icon = '<i class="fas fa-exchange-alt"></i>';
@@ -21,8 +20,7 @@ class ConvertSmartyToBladeAction extends XotBasePanelAction
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $directory = FileService::getViewNameSpacePath('pub_theme');
 
         if (null === $directory) {

@@ -7,8 +7,7 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 
-class Progressbar extends Component
-{
+class Progressbar extends Component {
     public int $perc = 0;
     public int $loop_index = 0;
     public int $loop_max = 100;
@@ -21,8 +20,7 @@ class Progressbar extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::livewire.progressbar.v1';
         $view_params = [
             'view' => $view,
@@ -34,8 +32,7 @@ class Progressbar extends Component
     /**
      * --.
      */
-    public function start(): void
-    {
+    public function start(): void {
         if ($this->loop_index < $this->loop_max) {
             $this->perc = (int) ($this->loop_index * 100 / $this->loop_max);
             $this->handle();
@@ -46,8 +43,7 @@ class Progressbar extends Component
         }
     }
 
-    public function handle(): void
-    {
+    public function handle(): void {
         ++$this->loop_index;
     }
 }

@@ -12,8 +12,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class TestAction.
  */
-class TestAction extends XotBasePanelAction
-{
+class TestAction extends XotBasePanelAction {
     public bool $onContainer = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
@@ -21,8 +20,7 @@ class TestAction extends XotBasePanelAction
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         // return $this->panel->view();
         /*
         $smarty = new SmartyService();

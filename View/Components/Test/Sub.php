@@ -11,22 +11,19 @@ use Illuminate\View\View;
 /**
  * Class Sub.
  */
-class Sub extends Component
-{
+class Sub extends Component {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): ViewContract
-    {
+    public function render(): ViewContract {
         return view()->make('components.forms.input');
     }
 }

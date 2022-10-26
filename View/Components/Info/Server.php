@@ -12,8 +12,7 @@ namespace Modules\Theme\View\Components\Info;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
 
-class Server extends Component
-{
+class Server extends Component {
     public array $attrs = [];
     // public $type;
     // public $title;
@@ -21,15 +20,13 @@ class Server extends Component
     /**
      * Undocumented function.
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /*
         $free = shell_exec('free'); //return null ..
         $free = (string) trim((string) $free);
@@ -109,8 +106,7 @@ class Server extends Component
     /**
      * @return array|null
      */
-    public function getServerMemoryUsage()
-    {
+    public function getServerMemoryUsage() {
         $memoryTotal = null;
         $memoryFree = null;
 

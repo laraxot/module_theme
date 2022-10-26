@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Heading.
  */
-class Footer extends Component
-{
+class Footer extends Component {
     public string $type = 'default';
 
     /**
@@ -19,15 +18,13 @@ class Footer extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.footer.'.$this->type;
         $view_params = [
             'view' => $view,

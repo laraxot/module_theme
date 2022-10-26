@@ -10,18 +10,15 @@ use Illuminate\View\Component;
 /**
  * Class Button.
  */
-class Button extends Component
-{
+class Button extends Component {
     public array $attrs = [];
 
-    public function __construct(?string $class = 'btn btn-primary', ?string $type = 'submit')
-    {
+    public function __construct(?string $class = 'btn btn-primary', ?string $type = 'submit') {
         $this->attrs['class'] = $class;
         $this->attrs['type'] = $type;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

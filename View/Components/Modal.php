@@ -7,8 +7,7 @@ namespace Modules\Theme\View\Components;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class Modal extends Component
-{
+class Modal extends Component {
     public string $id;
     public string $title;
     public ?string $size;
@@ -36,18 +35,15 @@ class Modal extends Component
         $this->attrs['style'] = 'z-index: '.$this->zindex();
     }
 
-    public function modalsize(): string
-    {
+    public function modalsize(): string {
         return null !== $this->size ? 'modal-'.$this->size : '';
     }
 
-    public function zindex(): int
-    {
+    public function zindex(): int {
         return $this->index * 1050;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.modal';
         if (! empty($this->type)) {
             $view .= '.'.$this->type;

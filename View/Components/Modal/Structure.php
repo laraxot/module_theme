@@ -11,8 +11,7 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class Structure.
  */
-class Structure extends Component
-{
+class Structure extends Component {
     public string $type;
 
     /**
@@ -20,8 +19,7 @@ class Structure extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = 'default')
-    {
+    public function __construct(?string $type = 'default') {
         $this->type = $type;
         // ThemeService::make()->add('theme::View/Components/Accordion/rows.scss');
     }
@@ -29,8 +27,7 @@ class Structure extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $view = 'theme::components.modal.structure.'.$this->type;
         $view_params = [
             'view' => $view,

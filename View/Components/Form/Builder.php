@@ -10,17 +10,14 @@ use Illuminate\View\Component;
 /**
  * Class Builder.
  */
-class Builder extends Component
-{
+class Builder extends Component {
     public int $form_id;
 
-    public function __construct(int $id)
-    {
+    public function __construct(int $id) {
         $this->form_id = $id;
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         $form = (object) [
             'inputs' => [
                 /*

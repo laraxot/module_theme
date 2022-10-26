@@ -10,8 +10,7 @@ use Illuminate\View\Component;
 /**
  * Class Avatar.
  */
-class Badge extends Component
-{
+class Badge extends Component {
     /**
      * Undocumented variable.
      */
@@ -20,15 +19,13 @@ class Badge extends Component
     /**
      * Undocumented function.
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): View
-    {
+    public function render(): View {
         /**
          * @phpstan-var view-string
          */

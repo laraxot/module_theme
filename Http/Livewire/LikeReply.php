@@ -11,19 +11,16 @@ use Modules\Theme\Contracts\HasLikeContract;
 use Modules\Theme\Jobs\LikeJob;
 use Modules\Theme\Jobs\UnlikeJob;
 
-final class LikeReply extends Component
-{
+final class LikeReply extends Component {
     use DispatchesJobs;
 
     public HasLikeContract $reply;
 
-    public function mount(HasLikeContract $reply): void
-    {
+    public function mount(HasLikeContract $reply): void {
         $this->reply = $reply;
     }
 
-    public function toggleLike(): void
-    {
+    public function toggleLike(): void {
         if (Auth::guest()) {
             return;
         }
