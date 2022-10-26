@@ -84,4 +84,8 @@ class Arr extends Component
             $this->emit('updatedFormDataEvent', $this->form_data);
         }
     }
+
+    public function set(string $value, $key) {
+        $this->form_data[$key] = $value;
+    }
 }

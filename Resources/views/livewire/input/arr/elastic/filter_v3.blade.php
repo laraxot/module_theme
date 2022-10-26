@@ -77,18 +77,24 @@
                                         $i = 0;
                                     @endphp
 
-                                    @foreach ($profile->channels()->where('type', 'Nazionali')->get() as $channel)
+                                    @foreach ($profile->channels()->where('type', 'Nazionali')->get()->unique('name') as $channel)
                                         {{-- dddx($channel->name) --}}
                                         @if ($i % 3 === 0)
                                             <div class="row">
                                         @endif
                                         <div class="col-4 py-8">
-                                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+
+                                            <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                                wire:click="set('{{ $channel->name }}','true')" href="#"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
                                                     height="50" width="65"></a>
                                         </div>
-                                        {{-- $i % 3 --}}
-                                        @if ($i > 0 && $i % 3 === 2)
+                                        @if ($i > 0 &&
+                                            ($i % 3 === 2 ||
+                                                $profile->channels()->where('type', 'Nazionali')->get()->unique('name')->count() -
+                                                    1 ===
+                                                    $i))
                                 </div>
                                 @endif
 
@@ -97,122 +103,183 @@
                                 @endphp
                                 @endforeach
 
+
                             </div>
                         </div>
+                        <!--/.modal-content -->
                     </div>
-                    <!--/.modal-content -->
+                    <!--/.modal-body -->
                 </div>
-                <!--/.modal-body -->
+                <!--/.modal-dialog -->
             </div>
-            <!--/.modal-dialog -->
+            <!--/.modal -->
         </div>
-        <!--/.modal -->
     </div>
-</div>
-<div class="form-select-wrapper mb-4 col-md-3 col-sm-6">
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
-        <a href="#" class="btn btn-outline-primary btn-sm  rounded-pill">TV
-            Regionali</a>
+    <div class="form-select-wrapper mb-4 col-md-3 col-sm-6">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked>
+            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" data-bs-toggle="modal"
+                data-bs-target="#modal-01">TV Regionali</a>
+            <div class="modal" id="modal-01" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content text-center">
+                        <div class="modal-body">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            <h4>Clicca sui singoli canali per disabilitarli o abilitarli
+                            </h4>
+                            <div class="container">
+
+                                @php
+                                    $i = 0;
+                                @endphp
+
+                                @foreach ($profile->channels()->where('type', '!=', 'Internazionali')->where('type', '!=', 'Nazionali')->where('type', '!=', 'NazionaliRadio')->get()->unique('name') as $channel)
+                                    {{-- dddx($channel->name) --}}
+                                    @if ($i % 3 === 0)
+                                        <div class="row">
+                                    @endif
+                                    <div class="col-4 py-8">
+                                        <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                            wire:click="set('{{ $channel->name }}','true')" href="#"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
+                                                height="50" width="65"></a>
+                                    </div>
+                                    {{-- $i % 3 --}}
+                                    @if ($i > 0 &&
+                                        ($i % 3 === 2 ||
+                                            $profile->channels()->where('type', '!=', 'Internazionali')->where('type', '!=', 'Nazionali')->where('type', '!=', 'NazionaliRadio')->get()->unique('name')->count() -
+                                                1 ===
+                                                $i))
+                            </div>
+                            @endif
+
+                            @php
+                                $i++;
+                            @endphp
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.modal-content -->
+        </div>
     </div>
 </div>
 <div class="form-select-wrapper mb-4 col-md-3 col-sm-6">
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked>
         <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" data-bs-toggle="modal"
-                    data-bs-target="#modal-02">Radio Nazionali</a>
-            <div class="modal" id="modal-02" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content text-center">
-                        <div class="modal-body">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            <h4>Clicca sui singoli canali per disabilitarli o abilitarli
-                            </h4>
-                            <div class="container">
-
-                                @php
-                                    $i = 0;
-                                @endphp
-
-                                @foreach ($profile->channels()->where('type', 'NazionaliRadio')->get() as $channel)
-                                    {{-- dddx($channel->name) --}}
-                                    @if ($i % 3 === 0)
-                                        <div class="row">
-                                    @endif
-                                    <div class="col-4 py-8">
-                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
-                                                height="50" width="65"></a>
-                                    </div>
-                                    {{-- $i % 3 --}}
-                                    @if ($i > 0 && $i % 3 === 2)
-                            </div>
-                            @endif
+            data-bs-target="#modal-02">Radio Nazionali</a>
+        <div class="modal" id="modal-02" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        <h4>Clicca sui singoli canali per disabilitarli o abilitarli
+                        </h4>
+                        <div class="container">
 
                             @php
-                                $i++;
+                                $i = 0;
                             @endphp
-                            @endforeach
 
+                            @foreach ($profile->channels()->where('type', 'NazionaliRadio')->get()->unique('name') as $channel)
+                                {{-- dddx($channel->name) --}}
+                                @if ($i % 3 === 0)
+                                    <div class="row">
+                                @endif
+                                <div class="col-4 py-8">
+                                    <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                        wire:click="set('{{ $channel->name }}','true')" href="#"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="{{ $channel->name }}"><img src="{{ $channel->logo }}" height="50"
+                                            width="65"></a>
+                                </div>
+                                {{-- $i % 3 --}}
+                                @if ($i > 0 &&
+                                    ($i % 3 === 2 ||
+                                        $profile->channels()->where('type', 'NazionaliRadio')->get()->unique('name')->count() -
+                                            1 ===
+                                            $i))
                         </div>
-                        </div>
+                        @endif
+
+                        @php
+                            $i++;
+                        @endphp
+                        @endforeach
+
+
                     </div>
                 </div>
-                <!--/.modal-content -->
             </div>
-            <!--/.modal-body -->
+            <!--/.modal-content -->
         </div>
+        <!--/.modal-body -->
     </div>
+</div>
 </div>
 <div class="form-select-wrapper mb-4 col-md-3 col-sm-6">
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked>
         <a href="#" class="btn btn-outline-primary btn-sm rounded-pill" data-bs-toggle="modal"
-                    data-bs-target="#modal-03">Internazionali</a>
-            <div class="modal" id="modal-03" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content text-center">
-                        <div class="modal-body">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            <h4>Clicca sui singoli canali per disabilitarli o abilitarli
-                            </h4>
-                            <div class="container">
-
-                                @php
-                                    $i = 0;
-                                @endphp
-
-                                @foreach ($profile->channels()->where('type', 'Internazionali')->get() as $channel)
-                                    {{-- dddx($channel->name) --}}
-                                    @if ($i % 3 === 0)
-                                        <div class="row">
-                                    @endif
-                                    <div class="col-4 py-8">
-                                        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
-                                                height="50" width="65"></a>
-                                    </div>
-                                    {{-- $i % 3 --}}
-                                    @if ($i > 0 && $i % 3 === 2)
-                            </div>
-                            @endif
+            data-bs-target="#modal-03">Internazionali</a>
+        {{-- così è aperto --}}
+        {{-- <div class="modal show" id="modal-03" tabindex="-1" style="display: block; padding-left: 0px;" aria-modal="true" role="dialog"> --}}
+        <div class="modal {{-- show --}}" id="modal-03" tabindex="-1"
+            style="display: none; padding-left: 0px;" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        <h4>Clicca sui singoli canali per disabilitarli o abilitarli
+                        </h4>
+                        <div class="container">
 
                             @php
-                                $i++;
+                                $i = 0;
                             @endphp
-                            @endforeach
 
+                            @foreach ($profile->channels()->where('type', 'Internazionali')->get()->unique('name') as $channel)
+                                {{-- dddx($channel->name) --}}
+                                @if ($i % 3 === 0)
+                                    <div class="row">
+                                @endif
+                                <div class="col-4 py-8">
+                                    <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                        wire:click="set('{{ $channel->name }}','true')" href="#"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="{{ $channel->name }}"><img src="{{ $channel->logo }}" height="50"
+                                            width="65"></a>
+                                </div>
+                                {{-- $i % 3 --}}
+                                @if ($i > 0 &&
+                                    ($i % 3 === 2 ||
+                                        $profile->channels()->where('type', 'Internazionali')->get()->unique('name')->count() -
+                                            1 ===
+                                            $i))
                         </div>
-                        </div>
+                        @endif
+
+                        @php
+                            $i++;
+                        @endphp
+                        @endforeach
+
+
                     </div>
                 </div>
-                <!--/.modal-content -->
             </div>
-            <!--/.modal-body -->
+            <!--/.modal-content -->
         </div>
+        <!--/.modal-body -->
     </div>
+</div>
 </div>
 </div>
 <div class="col-12 my-5">
