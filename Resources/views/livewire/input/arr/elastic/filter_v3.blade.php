@@ -77,24 +77,25 @@
                                         $i = 0;
                                     @endphp
 
-                                    @foreach ($profile->channels()->where('type', 'Nazionali')->get()->unique('name') as $channel)
-                                        {{-- dddx($channel->name) --}}
-                                        @if ($i % 3 === 0)
-                                            <div class="row">
-                                        @endif
-                                        <div class="col-4 py-8">
+                                    @if (\Auth::check())
+                                        @foreach ($profile->channels()->where('type', 'Nazionali')->get()->unique('name') as $channel)
+                                            {{-- dddx($channel->name) --}}
+                                            @if ($i % 3 === 0)
+                                                <div class="row">
+                                            @endif
+                                            <div class="col-4 py-8">
 
-                                            <a @if (isset($form_data[$name])) class="opacity-50" @endif
-                                                wire:click="set('{{ $channel->name }}','true')" href="#"
-                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
-                                                    height="50" width="65"></a>
-                                        </div>
-                                        @if ($i > 0 &&
-                                            ($i % 3 === 2 ||
-                                                $profile->channels()->where('type', 'Nazionali')->get()->unique('name')->count() -
-                                                    1 ===
-                                                    $i))
+                                                <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                                    wire:click="set('{{ $channel->name }}','true')" href="#"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
+                                                        height="50" width="65"></a>
+                                            </div>
+                                            @if ($i > 0 &&
+                                                ($i % 3 === 2 ||
+                                                    $profile->channels()->where('type', 'Nazionali')->get()->unique('name')->count() -
+                                                        1 ===
+                                                        $i))
                                 </div>
                                 @endif
 
@@ -102,6 +103,7 @@
                                     $i++;
                                 @endphp
                                 @endforeach
+                                @endif
 
 
                             </div>
@@ -134,24 +136,25 @@
                                     $i = 0;
                                 @endphp
 
-                                @foreach ($profile->channels()->where('type', '!=', 'Internazionali')->where('type', '!=', 'Nazionali')->where('type', '!=', 'NazionaliRadio')->get()->unique('name') as $channel)
-                                    {{-- dddx($channel->name) --}}
-                                    @if ($i % 3 === 0)
-                                        <div class="row">
-                                    @endif
-                                    <div class="col-4 py-8">
-                                        <a @if (isset($form_data[$name])) class="opacity-50" @endif
-                                            wire:click="set('{{ $channel->name }}','true')" href="#"
-                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
-                                                height="50" width="65"></a>
-                                    </div>
-                                    {{-- $i % 3 --}}
-                                    @if ($i > 0 &&
-                                        ($i % 3 === 2 ||
-                                            $profile->channels()->where('type', '!=', 'Internazionali')->where('type', '!=', 'Nazionali')->where('type', '!=', 'NazionaliRadio')->get()->unique('name')->count() -
-                                                1 ===
-                                                $i))
+                                @if (\Auth::check())
+                                    @foreach ($profile->channels()->where('type', '!=', 'Internazionali')->where('type', '!=', 'Nazionali')->where('type', '!=', 'NazionaliRadio')->get()->unique('name') as $channel)
+                                        {{-- dddx($channel->name) --}}
+                                        @if ($i % 3 === 0)
+                                            <div class="row">
+                                        @endif
+                                        <div class="col-4 py-8">
+                                            <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                                wire:click="set('{{ $channel->name }}','true')" href="#"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
+                                                    height="50" width="65"></a>
+                                        </div>
+                                        {{-- $i % 3 --}}
+                                        @if ($i > 0 &&
+                                            ($i % 3 === 2 ||
+                                                $profile->channels()->where('type', '!=', 'Internazionali')->where('type', '!=', 'Nazionali')->where('type', '!=', 'NazionaliRadio')->get()->unique('name')->count() -
+                                                    1 ===
+                                                    $i))
                             </div>
                             @endif
 
@@ -159,7 +162,7 @@
                                 $i++;
                             @endphp
                             @endforeach
-
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -187,24 +190,25 @@
                                 $i = 0;
                             @endphp
 
-                            @foreach ($profile->channels()->where('type', 'NazionaliRadio')->get()->unique('name') as $channel)
-                                {{-- dddx($channel->name) --}}
-                                @if ($i % 3 === 0)
-                                    <div class="row">
-                                @endif
-                                <div class="col-4 py-8">
-                                    <a @if (isset($form_data[$name])) class="opacity-50" @endif
-                                        wire:click="set('{{ $channel->name }}','true')" href="#"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="{{ $channel->name }}"><img src="{{ $channel->logo }}" height="50"
-                                            width="65"></a>
-                                </div>
-                                {{-- $i % 3 --}}
-                                @if ($i > 0 &&
-                                    ($i % 3 === 2 ||
-                                        $profile->channels()->where('type', 'NazionaliRadio')->get()->unique('name')->count() -
-                                            1 ===
-                                            $i))
+                            @if (\Auth::check())
+                                @foreach ($profile->channels()->where('type', 'NazionaliRadio')->get()->unique('name') as $channel)
+                                    {{-- dddx($channel->name) --}}
+                                    @if ($i % 3 === 0)
+                                        <div class="row">
+                                    @endif
+                                    <div class="col-4 py-8">
+                                        <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                            wire:click="set('{{ $channel->name }}','true')" href="#"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
+                                                height="50" width="65"></a>
+                                    </div>
+                                    {{-- $i % 3 --}}
+                                    @if ($i > 0 &&
+                                        ($i % 3 === 2 ||
+                                            $profile->channels()->where('type', 'NazionaliRadio')->get()->unique('name')->count() -
+                                                1 ===
+                                                $i))
                         </div>
                         @endif
 
@@ -212,7 +216,7 @@
                             $i++;
                         @endphp
                         @endforeach
-
+                        @endif
 
                     </div>
                 </div>
@@ -245,24 +249,25 @@
                                 $i = 0;
                             @endphp
 
-                            @foreach ($profile->channels()->where('type', 'Internazionali')->get()->unique('name') as $channel)
-                                {{-- dddx($channel->name) --}}
-                                @if ($i % 3 === 0)
-                                    <div class="row">
-                                @endif
-                                <div class="col-4 py-8">
-                                    <a @if (isset($form_data[$name])) class="opacity-50" @endif
-                                        wire:click="set('{{ $channel->name }}','true')" href="#"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="{{ $channel->name }}"><img src="{{ $channel->logo }}" height="50"
-                                            width="65"></a>
-                                </div>
-                                {{-- $i % 3 --}}
-                                @if ($i > 0 &&
-                                    ($i % 3 === 2 ||
-                                        $profile->channels()->where('type', 'Internazionali')->get()->unique('name')->count() -
-                                            1 ===
-                                            $i))
+                            @if (\Auth::check())
+                                @foreach ($profile->channels()->where('type', 'Internazionali')->get()->unique('name') as $channel)
+                                    {{-- dddx($channel->name) --}}
+                                    @if ($i % 3 === 0)
+                                        <div class="row">
+                                    @endif
+                                    <div class="col-4 py-8">
+                                        <a @if (isset($form_data[$name])) class="opacity-50" @endif
+                                            wire:click="set('{{ $channel->name }}','true')" href="#"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="{{ $channel->name }}"><img src="{{ $channel->logo }}"
+                                                height="50" width="65"></a>
+                                    </div>
+                                    {{-- $i % 3 --}}
+                                    @if ($i > 0 &&
+                                        ($i % 3 === 2 ||
+                                            $profile->channels()->where('type', 'Internazionali')->get()->unique('name')->count() -
+                                                1 ===
+                                                $i))
                         </div>
                         @endif
 
@@ -270,7 +275,7 @@
                             $i++;
                         @endphp
                         @endforeach
-
+                        @endif
 
                     </div>
                 </div>
