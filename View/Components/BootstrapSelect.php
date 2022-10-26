@@ -11,14 +11,16 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class BootstrapSelect.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class BootstrapSelect extends XotBaseComponent {
+class BootstrapSelect extends XotBaseComponent
+{
     public string $id;
     public string $type = 'bootstrap_select';
     public array $attrs = [];
     public array $options;
     public string $datastyle;
 
-    public function __construct(string $id, array $options, string $datastyle) {
+    public function __construct(string $id, array $options, string $datastyle)
+    {
         $this->id = $id;
         $this->datastyle = $datastyle;
         $this->options = $options;
@@ -26,7 +28,8 @@ class BootstrapSelect extends XotBaseComponent {
         // $this->attrs['class'] = 'col-lg-4 col-6 px-1 mb-2';
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

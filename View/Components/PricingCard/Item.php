@@ -11,15 +11,18 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Container.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class Item extends XotBaseComponent {
+class Item extends XotBaseComponent
+{
     public array $attrs;
 
-    public function __construct(string $id, string $checked = 'true') {
+    public function __construct(string $id, string $checked = 'true')
+    {
         $this->attrs['id'] = $id;
         $this->attrs['checked'] = $checked;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

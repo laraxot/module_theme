@@ -11,7 +11,8 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Gallery.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class Gallery extends XotBaseComponent {
+class Gallery extends XotBaseComponent
+{
     public string $id;
     public string $title;
     public string $desc;
@@ -22,7 +23,8 @@ class Gallery extends XotBaseComponent {
     /**
      * Undocumented function.
      */
-    public function __construct(string $id, ?string $title = '', ?string $desc = ''/* , array $gallery */) {
+    public function __construct(string $id, ?string $title = '', ?string $desc = ''/* , array $gallery */)
+    {
         $this->id = $id;
         if (null !== $title) {
             $this->title = $title;
@@ -37,7 +39,8 @@ class Gallery extends XotBaseComponent {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

@@ -12,13 +12,15 @@ namespace Modules\Theme\Traits;
 /**
  * Trait HandlesArrays.
  */
-trait HandlesArrays {
+trait HandlesArrays
+{
     /**
      * @param string $field_name
      *
      * @return void
      */
-    public function arrayAdd($field_name) {
+    public function arrayAdd($field_name)
+    {
         $array_fields = [];
 
         foreach ($this->fields() as $field) {
@@ -41,7 +43,8 @@ trait HandlesArrays {
      *
      * @return void
      */
-    public function arrayMoveUp($field_name, $key) {
+    public function arrayMoveUp($field_name, $key)
+    {
         if ($key > 0) {
             $prev = $this->form_data[$field_name][$key - 1];
             $this->form_data[$field_name][$key - 1] = $this->form_data[$field_name][$key];
@@ -55,7 +58,8 @@ trait HandlesArrays {
      *
      * @return void
      */
-    public function arrayMoveDown($field_name, $key) {
+    public function arrayMoveDown($field_name, $key)
+    {
         if (($key + 1) < \count($this->form_data[$field_name])) {
             $next = $this->form_data[$field_name][$key + 1];
             $this->form_data[$field_name][$key + 1] = $this->form_data[$field_name][$key];
@@ -69,7 +73,8 @@ trait HandlesArrays {
      *
      * @return void
      */
-    public function arrayRemove($field_name, $key) {
+    public function arrayRemove($field_name, $key)
+    {
         unset($this->form_data[$field_name][$key]);
         $this->form_data[$field_name] = array_values($this->form_data[$field_name]);
     }

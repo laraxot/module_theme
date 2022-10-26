@@ -10,11 +10,14 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Disclaimer extends Component {
-    public function __construct() {
+class Disclaimer extends Component
+{
+    public function __construct()
+    {
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

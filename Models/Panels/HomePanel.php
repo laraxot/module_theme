@@ -12,7 +12,8 @@ use Modules\Xot\Models\Panels\XotBasePanel;
 /**
  * Class HomePanel.
  */
-class HomePanel extends XotBasePanel {
+class HomePanel extends XotBasePanel
+{
     /**
      * The model the resource corresponds to.
      */
@@ -23,7 +24,8 @@ class HomePanel extends XotBasePanel {
      */
     public static string $title = 'title';
 
-    public function fields(): array {
+    public function fields(): array
+    {
         return [
         ];
     }
@@ -31,7 +33,8 @@ class HomePanel extends XotBasePanel {
     /**
      * Get the tabs available.
      */
-    public function tabs(): array {
+    public function tabs(): array
+    {
         $tabs_name = ['widget'];
 
         return $tabs_name;
@@ -40,7 +43,8 @@ class HomePanel extends XotBasePanel {
     /**
      * Get the actions available for the resource.
      */
-    public function actions(Request $request = null): array {
+    public function actions(Request $request = null): array
+    {
         // $cmd = (string) request()->input('cmd');
         /**
          * @var string

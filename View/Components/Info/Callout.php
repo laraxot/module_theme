@@ -29,12 +29,14 @@ namespace Modules\Theme\View\Components\Info;
 
 use Illuminate\View\Component;
 
-class Callout extends Component {
+class Callout extends Component
+{
     public array $attrs = [];
 
     public string $title;
 
-    public function __construct(string $type, string $title) {
+    public function __construct(string $type, string $title)
+    {
         $this->attrs['class'] = 'callout callout-'.$type;
         // $this->type = $type;
         $this->title = $title;
@@ -43,7 +45,8 @@ class Callout extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): \Illuminate\Contracts\Support\Renderable
+    {
         /**
          * @phpstan-var view-string
          */

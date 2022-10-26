@@ -11,7 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class FormArray extends Component {
+class FormArray extends Component
+{
     public bool $show = false;
     public array $data;
     public string $body_view;
@@ -29,45 +30,53 @@ class FormArray extends Component {
         'editModalArray' => 'editModal',
     ];
 
-    public function mount(array $data, string $bodyView): void {
+    public function mount(array $data, string $bodyView): void
+    {
         $this->data = $data;
         $this->show = false;
         $this->form_data['id'] = 777;
         $this->body_view = $bodyView;
     }
 
-    public function editModal(array $form_data): void {
+    public function editModal(array $form_data): void
+    {
         $this->form_data = $form_data;
         $this->doShow();
     }
 
-    public function showModal(array $data): void {
+    public function showModal(array $data): void
+    {
         // $this->form_data = $data;
 
         $this->doShow();
     }
 
-    public function doShow(): void {
+    public function doShow(): void
+    {
         $this->show = true;
     }
 
-    public function doClose(): void {
+    public function doClose(): void
+    {
         $this->show = false;
     }
 
-    public function doSomething(): void {
+    public function doSomething(): void
+    {
         // Do Something With Your Modal
 
         // Close Modal After Logic
         $this->doClose();
     }
 
-    public function doSave(): void {
+    public function doSave(): void
+    {
         $this->emitUp('updateArray', $this->form_data);
         session()->flash('message', 'Post successfully updated.');
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */

@@ -12,7 +12,8 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class Rows.
  */
-class Rows extends Component {
+class Rows extends Component
+{
     public string $type = 'rows';
     public Collection $rows;
 
@@ -21,7 +22,8 @@ class Rows extends Component {
      *
      * @return void
      */
-    public function __construct(Collection $rows) {
+    public function __construct(Collection $rows)
+    {
         $this->rows = $rows;
         // ThemeService::make()->add('theme::View/Components/Accordion/rows.scss');
     }
@@ -29,7 +31,8 @@ class Rows extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.accordion.'.$this->type;
         $view_params = [
             'view' => $view,

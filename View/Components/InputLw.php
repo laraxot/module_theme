@@ -7,7 +7,8 @@ namespace Modules\Theme\View\Components;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
-class InputLw extends Component {
+class InputLw extends Component
+{
     /* è oggetto o array, probabilmente */
     public array $props;
     public array $attrs = [];
@@ -29,7 +30,8 @@ class InputLw extends Component {
     $converted = Str::camel('foo_bar'); // fooBar
     */
 
-    public function __construct(array $props) {
+    public function __construct(array $props)
+    {
         /*if (is_object($props)) {
             $props = get_object_vars($props);
         }*/
@@ -48,7 +50,8 @@ class InputLw extends Component {
     /**
      * @return \Illuminate\Contracts\Support\Renderable|string
      */
-    public function render() {
+    public function render()
+    {
         // return '<div>'.print_r($this->props, true).'</div>';
         $view = Str::snake($this->props['type'], '.');
         $this->comp_ns = 'theme::components.fields.'.$view;

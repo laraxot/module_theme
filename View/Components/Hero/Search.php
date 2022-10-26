@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Search.
  */
-class Search extends Component {
+class Search extends Component
+{
     public array $attrs = [];
     public ?string $type = null;
     public ?string $action = null;
@@ -20,7 +21,8 @@ class Search extends Component {
      *
      * @return void
      */
-    public function __construct(?string $type = null, ?string $action = null) {
+    public function __construct(?string $type = null, ?string $action = null)
+    {
         $this->type = isset($type) ? $type : 'default';
         $this->action = $action;
     }
@@ -28,7 +30,8 @@ class Search extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

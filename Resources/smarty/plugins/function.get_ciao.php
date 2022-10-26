@@ -17,6 +17,7 @@ declare(strict_types=1);
  *
  * @return string
  */
-function smarty_function_get_ciao($params, $smarty) {
+function smarty_function_get_ciao($params, $smarty)
+{
     return '';
 }

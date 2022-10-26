@@ -13,7 +13,8 @@ use Illuminate\View\Component;
 /**
  * ---.
  */
-class Datatable extends Component {
+class Datatable extends Component
+{
     public bool $beautify;
     public bool $buttons;
     public int $id;
@@ -46,19 +47,23 @@ class Datatable extends Component {
         $this->buttons = $buttons;
     }
 
-    public function border(): ?string {
+    public function border(): ?string
+    {
         return ($this->bordered) ? 'table-bordered' : null;
     }
 
-    public function hover(): ?string {
+    public function hover(): ?string
+    {
         return ($this->hoverable) ? 'table-hover' : null;
     }
 
-    public function condense(): ?string {
+    public function condense(): ?string
+    {
         return ($this->condensed) ? 'table-condensed' : null;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

@@ -13,12 +13,14 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class SyncInputs.
  */
-class SortAction extends XotBasePanelAction {
+class SortAction extends XotBasePanelAction
+{
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sort"></i>';
 
-    public function handle() {
+    public function handle()
+    {
         // $view = ThemeService::getView();
 
         // return $view;

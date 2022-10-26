@@ -15,14 +15,16 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
  * per ora salva su tabella in db,
  * in futuro salverà su un file in config/array
  */
-class MenuBuilderAction extends XotBasePanelAction {
+class MenuBuilderAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-plus-circle"></i>';
 
     public array $html = [];
 
-    public function handle() {
+    public function handle()
+    {
         return $this->panel->out();
     }
 }

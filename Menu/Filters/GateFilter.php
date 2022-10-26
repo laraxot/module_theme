@@ -10,10 +10,12 @@ use Modules\Theme\Menu\Builder;
 /**
  * Class GateFilter.
  */
-class GateFilter implements FilterInterface {
+class GateFilter implements FilterInterface
+{
     protected Gate $gate;
 
-    public function __construct(Gate $gate) {
+    public function __construct(Gate $gate)
+    {
         $this->gate = $gate;
     }
 
@@ -22,7 +24,8 @@ class GateFilter implements FilterInterface {
      *
      * @return array|bool
      */
-    public function transform($item, Builder $builder) {
+    public function transform($item, Builder $builder)
+    {
         if (! $this->isVisible($item)) {
             return false;
         }
@@ -61,7 +64,8 @@ class GateFilter implements FilterInterface {
      *
      * @return bool
      */
-    protected function isVisible($item) {
+    protected function isVisible($item)
+    {
         if (! isset($item['can'])) {
             return true;
         }

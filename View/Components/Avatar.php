@@ -12,20 +12,23 @@ use Illuminate\View\Component;
 /**
  * Class Avatar.
  */
-class Avatar extends Component {
+class Avatar extends Component
+{
     public string $type;
 
     public string $img_src;
 
     public string $size;
 
-    public function __construct(string $type = 'circle', string $img_src = '', string $size = '') {
+    public function __construct(string $type = 'circle', string $img_src = '', string $size = '')
+    {
         $this->type = $type;
         $this->img_src = $img_src;
         $this->size = $size;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */
@@ -37,7 +40,8 @@ class Avatar extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function message(): string {
+    public function message(): string
+    {
         $res = Arr::first($this->messages());
         if (! \is_string($res)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
@@ -46,12 +50,14 @@ class Avatar extends Component {
         return $res;
     }
 
-    public function messages(): array {
+    public function messages(): array
+    {
         // return (array) session()->get($this->type);
         return []; // ////------------ to fix ------------
     }
 
-    public function exists(): bool {
+    public function exists(): bool
+    {
         // return session()->has($this->type) && ! empty($this->messages());
         return false; // ------------- to fix -----------
     }

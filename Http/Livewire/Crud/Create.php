@@ -15,7 +15,8 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class Create.
  */
-class Create extends Component {
+class Create extends Component
+{
     public Model $model;
     public Collection  $fields;
     public array $form_data = [];
@@ -26,7 +27,8 @@ class Create extends Component {
      *
      * @return void
      */
-    public function mount(string $modelName) {
+    public function mount(string $modelName)
+    {
         $this->model = xotModel($modelName);
         $panel = PanelService::make()->get($this->model);
         $this->fields = $panel->getFields(['act' => 'create']);
@@ -42,7 +44,8 @@ class Create extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -58,7 +61,8 @@ class Create extends Component {
     /**
      * @return void
      */
-    public function saveAndStay() {
+    public function saveAndStay()
+    {
         $this->submit();
 
         // $this->saveAndStayResponse();
@@ -67,14 +71,16 @@ class Create extends Component {
     /**
      * @return void
      */
-    public function saveAndStayResponse() {
+    public function saveAndStayResponse()
+    {
         // return redirect()->route('users.create');
     }
 
     /**
      * @return void
      */
-    public function saveAndGoBack() {
+    public function saveAndGoBack()
+    {
         $this->submit();
         // $this->saveAndGoBackResponse();
     }
@@ -82,14 +88,16 @@ class Create extends Component {
     /**
      * @return void
      */
-    public function saveAndGoBackResponse() {
+    public function saveAndGoBackResponse()
+    {
         // return redirect()->route('users.index');
     }
 
     /**
      * @return void
      */
-    public function submit() {
+    public function submit()
+    {
         $validatedData = $this->validate($this->rules);
         // dddx($validatedData);
         /*

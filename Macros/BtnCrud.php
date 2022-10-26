@@ -13,11 +13,13 @@ use Collective\Html\FormFacade as Form;
 /**
  * Class BtnCrud.
  */
-class BtnCrud {
+class BtnCrud
+{
     /**
      * @return \Closure
      */
-    public function __invoke() {
+    public function __invoke()
+    {
         return function ($extra, array $params = []) {
             extract($params);
 

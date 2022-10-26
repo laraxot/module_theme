@@ -10,21 +10,24 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class ActivatePubThemeAction.
  */
-class ActivatePubThemeAction extends XotBasePanelAction {
+class ActivatePubThemeAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
 
     public ?string $theme;
 
-    public function __construct(?string $theme) {
+    public function __construct(?string $theme)
+    {
         $this->theme = $theme;
     }
 
     /**
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $parz = [
             'name' => 'xra',
             'data' => [

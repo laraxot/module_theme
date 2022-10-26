@@ -7,7 +7,8 @@ namespace Modules\Theme\Menu;
 /**
  * Class Builder.
  */
-class Builder {
+class Builder
+{
     public array $menu = [];
 
     public array $slim_header_menu = [];
@@ -20,14 +21,16 @@ class Builder {
 
     private array $filters;
 
-    public function __construct(array $filters = []) {
+    public function __construct(array $filters = [])
+    {
         $this->filters = $filters;
     }
 
     /**
      * @param array $menu
      */
-    public function add_slim_header($menu): void {
+    public function add_slim_header($menu): void
+    {
         // $items = $this->transformItems(func_get_args());
         $items = $this->transformItems($menu);
         // dddx(['items' => $items]);
@@ -45,7 +48,8 @@ class Builder {
     /**
      * @param array $menu
      */
-    public function add_header($menu): void {
+    public function add_header($menu): void
+    {
         /*
         $items = $this->transformItems(func_get_args());
         */
@@ -58,7 +62,8 @@ class Builder {
     /**
      * @param array $menu
      */
-    public function add_footer($menu): void {
+    public function add_footer($menu): void
+    {
         /*
         $items = $this->transformItems(func_get_args());
         */
@@ -71,7 +76,8 @@ class Builder {
     /**
      * @param array $menu
      */
-    public function add_footer_bar($menu): void {
+    public function add_footer_bar($menu): void
+    {
         /*
         $items = $this->transformItems(func_get_args());
         */
@@ -86,7 +92,8 @@ class Builder {
      *
      * @return array
      */
-    public function transformItems($items) {
+    public function transformItems($items)
+    {
         $res = array_filter(array_map([$this, 'applyFilters'], $items));
         // dddx(['items' => $items, 'res' => $res]);
 
@@ -98,7 +105,8 @@ class Builder {
      *
      * @return mixed|string
      */
-    protected function applyFilters($item) {
+    protected function applyFilters($item)
+    {
         if (\is_string($item)) {
             return $item;
         }

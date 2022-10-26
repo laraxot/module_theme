@@ -15,7 +15,8 @@ use stdClass;
 /**
  * Undocumented .
  */
-class Field extends Component {
+class Field extends Component
+{
     public stdClass $field;
     // public ?string $label = null;
     // public string $for;
@@ -74,7 +75,8 @@ class Field extends Component {
         }
     }
 
-    public function setField(stdClass $field): self {
+    public function setField(stdClass $field): self
+    {
         $this->field = $field;
 
         if (isset($field->name)) {
@@ -84,7 +86,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setClass(?string $class = null): self {
+    public function setClass(?string $class = null): self
+    {
         if (null !== $class) {
             $this->attrs['class'] = $class;
 
@@ -116,7 +119,8 @@ class Field extends Component {
      *
      * @param mixed $value
      */
-    public function setValue($value): self {
+    public function setValue($value): self
+    {
         // if($value==null){
         //    $value=request($this->field->name) ?? old($this->field->name);
         // }
@@ -128,7 +132,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setIcon(?string $icon = null): self {
+    public function setIcon(?string $icon = null): self
+    {
         if (null === $icon) {
             return $this;
         }
@@ -140,7 +145,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setName(?string $name = null): self {
+    public function setName(?string $name = null): self
+    {
         if (null === $name) {
             return $this;
         }
@@ -153,7 +159,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setType(?string $type = null): self {
+    public function setType(?string $type = null): self
+    {
         if (null === $type) {
             return $this;
         }
@@ -165,7 +172,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setLabel(?string $label = null): self {
+    public function setLabel(?string $label = null): self
+    {
         if (null === $label) {
             if (null !== $this->field) {
                 $label = trans($this->tradKey.'.'.$this->field->name.'.label');
@@ -180,7 +188,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setPlaceholder(?string $placeholder = null): self {
+    public function setPlaceholder(?string $placeholder = null): self
+    {
         if (null === $placeholder) {
             if (null !== $this->field) {
                 $placeholder = trans($this->tradKey.'.'.$this->field->name.'.placeholder');
@@ -196,7 +205,8 @@ class Field extends Component {
         return $this;
     }
 
-    public function setOptions(?array $options = null): self {
+    public function setOptions(?array $options = null): self
+    {
         if (null === $options) {
             return $this;
         }
@@ -210,7 +220,8 @@ class Field extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         // Strict comparison using === between null and stdClass will always evaluate to false.
         // if (null === $this->field) {
         //    throw new \Exception('this->field is null');

@@ -11,20 +11,23 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Crud.
  */
-class Crud extends XotBaseComponent {
+class Crud extends XotBaseComponent
+{
     public PanelContract $panel;
 
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel) {
+    public function __construct(PanelContract $panel)
+    {
         $this->panel = $panel;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */

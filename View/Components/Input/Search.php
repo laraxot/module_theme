@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Search.
  */
-class Search extends Component {
+class Search extends Component
+{
     public string $type;
 
     /**
@@ -18,14 +19,16 @@ class Search extends Component {
      *
      * @return void
      */
-    public function __construct(?string $type = 'search') {
+    public function __construct(?string $type = 'search')
+    {
         $this->type = $type;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.input.'.$this->type;
         $view_params = [
             'view' => $view,

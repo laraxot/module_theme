@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class CounterItem extends Component {
+class CounterItem extends Component
+{
     public int $counter;
 
     /**
@@ -18,7 +19,8 @@ class CounterItem extends Component {
      *
      * @return void
      */
-    public function __construct(int $counter) {
+    public function __construct(int $counter)
+    {
         $this->counter = $counter;
     }
 
@@ -27,7 +29,8 @@ class CounterItem extends Component {
      *
      * @return \Illuminate\Contracts\View\View|string
      */
-    public function render() {
+    public function render()
+    {
         return view()->make('theme::components.promo.counter-item');
     }
 }

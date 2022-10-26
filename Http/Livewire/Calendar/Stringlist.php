@@ -19,7 +19,8 @@ use Livewire\Component;
 /**
  * Modules\Theme\Http\Livewire\Calendar\V1.
  */
-class Stringlist extends Component {
+class Stringlist extends Component
+{
     public ?string $minDate;
 
     public ?string $maxDate;
@@ -38,7 +39,8 @@ class Stringlist extends Component {
 
     public string $input_name;
 
-    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null, string $date_list = null, string $input_name): void {
+    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null, string $date_list = null, string $input_name): void
+    {
         // dddx($date_list);
         if (null !== $date_list) {
             $first_date = collect(explode(',', $date_list))->filter(
@@ -78,7 +80,8 @@ class Stringlist extends Component {
         $this->setDate();
     }
 
-    private function setDate(): void {
+    private function setDate(): void
+    {
         /**
          * @var int
          */
@@ -99,7 +102,8 @@ class Stringlist extends Component {
         $this->selectedYear = $this->currentYear = $year;
     }
 
-    public function calendar(): array {
+    public function calendar(): array
+    {
         $days = [];
 
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)
@@ -141,7 +145,8 @@ class Stringlist extends Component {
         return array_chunk($daysArray, 7);
     }
 
-    private function isCurrentDay(int $day = null): bool {
+    private function isCurrentDay(int $day = null): bool
+    {
         if ($day !== session('calendar.now')->day) {
             return false;
         }
@@ -158,7 +163,8 @@ class Stringlist extends Component {
     }
 
     // mi evidenzia i giorni
-    private function isDaySelected(int $day = null): bool {
+    private function isDaySelected(int $day = null): bool
+    {
         $date_selected = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
 
         return \in_array($date_selected, explode(',', $this->date_list), true);
@@ -179,7 +185,8 @@ class Stringlist extends Component {
         */
     }
 
-    private function isDayDisabled(int $day = null): bool {
+    private function isDayDisabled(int $day = null): bool
+    {
         if (null === $day) {
             return true;
         }
@@ -201,7 +208,8 @@ class Stringlist extends Component {
         return false;
     }
 
-    public function setByMonth(int $month): void {
+    public function setByMonth(int $month): void
+    {
         if ($month > 12) {
             $this->currentYear = $this->currentYear + 1;
 
@@ -221,7 +229,8 @@ class Stringlist extends Component {
         $this->currentMonth = $month;
     }
 
-    public function setByDay(int $day = null): void {
+    public function setByDay(int $day = null): void
+    {
         if (null === $day) {
             return;
         }
@@ -247,7 +256,8 @@ class Stringlist extends Component {
         $this->date_list = $collect->implode(',');
     }
 
-    public function showPreviousArrow(): bool {
+    public function showPreviousArrow(): bool
+    {
         if (! $this->minDate) {
             return true;
         }
@@ -261,7 +271,8 @@ class Stringlist extends Component {
         return true;
     }
 
-    public function showNextArrow(): bool {
+    public function showNextArrow(): bool
+    {
         if (! $this->maxDate) {
             return true;
         }
@@ -275,7 +286,8 @@ class Stringlist extends Component {
         return true;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

@@ -24,7 +24,8 @@ use Illuminate\View\Component;
  * Class Multiple.
  * meglio utilizzare input.php.
  */
-class Multiple extends Component {
+class Multiple extends Component
+{
     public array $attrs = [];
     public array $options = [];
 
@@ -33,7 +34,8 @@ class Multiple extends Component {
      *
      * @return void
      */
-    public function __construct(array $options, string $name, string $class = null) {
+    public function __construct(array $options, string $name, string $class = null)
+    {
         $this->options = $options;
         $this->attrs['name'] = $name;
         $this->attrs['id'] = 'form_'.$name;
@@ -43,7 +45,8 @@ class Multiple extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         return view()->make('theme::components.input.select.multiple');
     }
 }

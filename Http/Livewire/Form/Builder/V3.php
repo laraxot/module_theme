@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use ReflectionClass;
 
-class V3 extends Component {
+class V3 extends Component
+{
     public string $type;
 
     public array $form_data = [];
@@ -33,14 +34,16 @@ class V3 extends Component {
      *
      * @return void
      */
-    public function mount(?string $type = 'builder') {
+    public function mount(?string $type = 'builder')
+    {
         $this->type = $type;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $tmp = File::get(realpath(__DIR__.'/../../../../View/Components/_components.json'));
 
         $this->blade_components = json_decode($tmp);
@@ -124,7 +127,8 @@ class V3 extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function centerSide() {
+    public function centerSide()
+    {
         $view = '';
         foreach ($this->form_elements as $k => $element) {
             $component = '<x-'.$element['comp_name'];
@@ -150,24 +154,28 @@ class V3 extends Component {
         }
     }
 
-    public function bladeCompile($value, array $args = []) {
+    public function bladeCompile($value, array $args = [])
+    {
         $content = \Blade::render($value, []);
 
         return $content;
     }
 
-    public function addComponentToForm(string $key) {
+    public function addComponentToForm(string $key)
+    {
         // dddx($this->b);
         $this->form_elements[] = $this->b[$key];
         $this->setDefaultFormElement();
     }
 
-    public function deleteComponentFromForm($k) {
+    public function deleteComponentFromForm($k)
+    {
         unset($this->form_elements[$k]);
         $this->setDefaultFormElement();
     }
 
-    public function setDefaultFormElement() {
+    public function setDefaultFormElement()
+    {
         if (! isset($this->form_elements[0])) {
             $this->selected_element = null;
             $this->index = null;
@@ -178,12 +186,14 @@ class V3 extends Component {
         }
     }
 
-    public function selectElement($k) {
+    public function selectElement($k)
+    {
         $this->index = $k;
         $this->selected_element = &$this->form_elements[$k];
     }
 
-    public function saveForm() {
+    public function saveForm()
+    {
         // Storage::disk('local')->put('form.html', $html);
         if (empty($this->form_name) || 'form' === $this->form_name) {
             session()->flash('error', 'please specify a valid form name');

@@ -18,7 +18,8 @@ use Modules\Xot\Contracts\PanelContract;
  * https://github.com/asantibanez/livewire-calendar
  * https://github.com/stijnvanouplines/livewire-calendar/blob/master/app/Http/Livewire/Calendar.php.
  */
-class Datagrid extends Component {
+class Datagrid extends Component
+{
     use WithPagination;
 
     protected string $paginationTheme = 'bootstrap';
@@ -38,7 +39,8 @@ class Datagrid extends Component {
      *
      * @return void
      */
-    public function mount($_panel) {
+    public function mount($_panel)
+    {
         $this->model_class = \get_class($_panel->getRow());
         $index_fields = $_panel->getFields(['act' => 'index']);
         $this->index_fields = $index_fields;
@@ -87,7 +89,8 @@ class Datagrid extends Component {
     }
     */
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -134,7 +137,8 @@ class Datagrid extends Component {
     /**
      * @return string
      */
-    public function getView() {
+    public function getView()
+    {
         // no di themeservice, perche' livewire
         $mod_name = Str::between(__CLASS__, 'Modules\\', '\\Http\\');
         $mod_name_low = strtolower($mod_name);

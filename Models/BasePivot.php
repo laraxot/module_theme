@@ -13,7 +13,8 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BasePivot.
  */
-abstract class BasePivot extends Pivot {
+abstract class BasePivot extends Pivot
+{
     // use Searchable;
     use HasFactory;
     use Updater;
@@ -55,7 +56,8 @@ abstract class BasePivot extends Pivot {
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    protected static function newFactory() {
+    protected static function newFactory()
+    {
         return FactoryService::newFactory(static::class);
     }
 }

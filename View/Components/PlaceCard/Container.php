@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Container.
  */
-class Container extends Component {
+class Container extends Component
+{
     public ?string $title;
 
     /**
@@ -18,14 +19,16 @@ class Container extends Component {
      *
      * @return void
      */
-    public function __construct(?string $title = 'Add Your Place') {
+    public function __construct(?string $title = 'Add Your Place')
+    {
         $this->title = $title;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

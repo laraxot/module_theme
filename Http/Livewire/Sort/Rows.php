@@ -8,7 +8,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 
-class Rows extends Component {
+class Rows extends Component
+{
     public Collection $rows;
     public array $model_keys = [];
 
@@ -19,7 +20,8 @@ class Rows extends Component {
      *
      * @return void
      */
-    public function mount(Collection $rows) {
+    public function mount(Collection $rows)
+    {
         $this->rows = $rows;
         $this->model_keys = $rows->modelKeys();
     }
@@ -27,7 +29,8 @@ class Rows extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -37,7 +40,8 @@ class Rows extends Component {
         return view($view, $view_params);
     }
 
-    public function updateRowOrder(array $order) {
+    public function updateRowOrder(array $order)
+    {
         $new_order = collect($order)->pluck('value')->all();
         $class = \get_class($this->rows[0]);
 
@@ -45,13 +49,15 @@ class Rows extends Component {
         $this->rows = $class::whereIn('id', $new_order)->ordered()->get();
     }
 
-    public function moveUp(int $id) {
+    public function moveUp(int $id)
+    {
         $row = $this->rows->firstWhere('id', $id)->moveOrderUp();
         $class = \get_class($this->rows[0]);
         $this->rows = $class::whereIn('id', $this->model_keys)->ordered()->get();
     }
 
-    public function moveDown(int $id) {
+    public function moveDown(int $id)
+    {
         $row = $this->rows->firstWhere('id', $id)->moveOrderDown();
         $class = \get_class($this->rows[0]);
         $this->rows = $class::whereIn('id', $this->model_keys)->ordered()->get();

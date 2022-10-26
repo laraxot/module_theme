@@ -8,17 +8,20 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Component;
 
-class Error1 extends Component {
+class Error1 extends Component
+{
     public string $field;
 
     public string $bag;
 
-    public function __construct(string $field, string $bag = 'default') {
+    public function __construct(string $field, string $bag = 'default')
+    {
         $this->field = $field;
         $this->bag = $bag;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */
@@ -30,7 +33,8 @@ class Error1 extends Component {
         return view($view, $view_params);
     }
 
-    public function messages(ViewErrorBag $errors): array {
+    public function messages(ViewErrorBag $errors): array
+    {
         $bag = $errors->getBag($this->bag);
 
         return $bag->has($this->field) ? $bag->get($this->field) : [];

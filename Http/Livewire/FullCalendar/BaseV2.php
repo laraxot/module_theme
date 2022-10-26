@@ -38,7 +38,8 @@ use Livewire\Component;
  * @property bool   $dayClickEnabled
  * @property bool   $eventClickEnabled
  */
-abstract class BaseV2 extends Component {
+abstract class BaseV2 extends Component
+{
     public Carbon $startsAt;
 
     public Carbon $endsAt;
@@ -151,7 +152,8 @@ abstract class BaseV2 extends Component {
     /**
      * @param array $extras
      */
-    public function afterMount($extras = []): void {
+    public function afterMount($extras = []): void
+    {
     }
 
     /**
@@ -188,33 +190,38 @@ abstract class BaseV2 extends Component {
      * @param int|null $pollMillis
      * @param string   $pollAction
      */
-    public function setupPoll($pollMillis, $pollAction): void {
+    public function setupPoll($pollMillis, $pollAction): void
+    {
         $this->pollMillis = $pollMillis;
         $this->pollAction = $pollAction;
     }
 
-    public function goToPreviousMonth(): void {
+    public function goToPreviousMonth(): void
+    {
         $this->startsAt->subMonthNoOverflow();
         $this->endsAt->subMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToNextMonth(): void {
+    public function goToNextMonth(): void
+    {
         $this->startsAt->addMonthNoOverflow();
         $this->endsAt->addMonthNoOverflow();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function goToCurrentMonth(): void {
+    public function goToCurrentMonth(): void
+    {
         $this->startsAt = Carbon::today()->startOfMonth()->startOfDay();
         $this->endsAt = $this->startsAt->clone()->endOfMonth()->startOfDay();
 
         $this->calculateGridStartsEnds();
     }
 
-    public function calculateGridStartsEnds(): void {
+    public function calculateGridStartsEnds(): void
+    {
         $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt);
         $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt);
     }
@@ -225,7 +232,8 @@ abstract class BaseV2 extends Component {
      * @return mixed
      * @return mixed
      */
-    public function monthGrid() {
+    public function monthGrid()
+    {
         $firstDayOfGrid = $this->gridStartsAt;
         $lastDayOfGrid = $this->gridEndsAt;
 
@@ -255,7 +263,8 @@ abstract class BaseV2 extends Component {
         return $monthGrid;
     }
 
-    public function events(): Collection {
+    public function events(): Collection
+    {
         // return collect();
         return collect(
             [
@@ -275,7 +284,8 @@ abstract class BaseV2 extends Component {
         );
     }
 
-    public function getEventsForDay(int $day, Collection $events): Collection {
+    public function getEventsForDay(int $day, Collection $events): Collection
+    {
         return $events
             ->filter(
                 function ($event) use ($day) {
@@ -295,16 +305,19 @@ abstract class BaseV2 extends Component {
      * @param int $month
      * @param int $day
      */
-    public function onDayClick($year, $month, $day): void {
+    public function onDayClick($year, $month, $day): void
+    {
     }
 
     /**
      * @param int $eventId
      */
-    public function onEventClick($eventId): void {
+    public function onEventClick($eventId): void
+    {
     }
 
-    public function onEventDropped(int $eventId, int $year, int $month, int $day): void {
+    public function onEventDropped(int $eventId, int $year, int $month, int $day): void
+    {
     }
 
     /**
@@ -312,7 +325,8 @@ abstract class BaseV2 extends Component {
      *
      * return Factory|View
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $events = $this->events();
 
         if (null === $this->calendarView) {

@@ -12,7 +12,8 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Unsplash.
  */
-class Unsplash extends XotBaseComponent {
+class Unsplash extends XotBaseComponent
+{
     protected string $photo;
 
     protected string $query;
@@ -45,23 +46,29 @@ class Unsplash extends XotBaseComponent {
         $this->ttl = $ttl;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         return view()->make(
-            'theme::components.support.unsplash', [
+            'theme::components.support.unsplash',
+            [
                 'url' => $this->fetchPhoto(),
             ]
         );
     }
 
-    protected function fetchPhoto(): string {
+    protected function fetchPhoto(): string
+    {
         if (! $accessKey = config('services.unsplash.access_key')) {
             return '';
         }
 
         $tmp1 = Cache::remember(
-            'unsplash.'.$this->photo, $this->ttl, function () use ($accessKey) {
+            'unsplash.'.$this->photo,
+            $this->ttl,
+            function () use ($accessKey) {
                 $tmp = Http::get(
-                    "https://api.unsplash.com/photos/{$this->photo}", array_filter(
+                    "https://api.unsplash.com/photos/{$this->photo}",
+                    array_filter(
                         [
                             'client_id' => $accessKey,
                             'query' => $this->query,

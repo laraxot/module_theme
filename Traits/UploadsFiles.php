@@ -13,11 +13,13 @@ namespace Modules\Theme\Traits;
 /**
  * Trait UploadsFiles.
  */
-trait UploadsFiles {
+trait UploadsFiles
+{
     /**
      * @return array
      */
-    public static function fileUpload() {
+    public static function fileUpload()
+    {
         /**
          * @var string
          */
@@ -43,7 +45,8 @@ trait UploadsFiles {
         return ['field_name' => request()->input('field_name'), 'uploaded_files' => $files];
     }
 
-    public function fileUpdate(string $field_name, array $uploaded_files): void {
+    public function fileUpdate(string $field_name, array $uploaded_files): void
+    {
         foreach ($this->fields() as $field) {
             if ($field->name === $field_name) {
                 $value = $field->file_multiple ? array_merge($this->form_data[$field_name], $uploaded_files) : $uploaded_files;
@@ -55,7 +58,8 @@ trait UploadsFiles {
         $this->updated('form_data.'.$field_name);
     }
 
-    public function fileIcon(string $mime_type): string {
+    public function fileIcon(string $mime_type): string
+    {
         $icons = [
             'image' => 'fa-file-image',
             'audio' => 'fa-file-audio',

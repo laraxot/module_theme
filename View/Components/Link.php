@@ -11,14 +11,16 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Undocumented class.
  */
-class Link extends Component {
+class Link extends Component
+{
     public array $attrs = [];
     public string $type = 'empty';
 
     /**
      * Undocumented function.
      */
-    public function __construct(?string $rel = null, ?string $type = null, ?string $href = null) {
+    public function __construct(?string $rel = null, ?string $type = null, ?string $href = null)
+    {
         $this->attrs['rel'] = $rel;
         $this->attrs['type'] = $type;
         $this->attrs['href'] = $href;
@@ -30,7 +32,8 @@ class Link extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.link.'.$this->type;
         $view_params = [
             'view' => $view,

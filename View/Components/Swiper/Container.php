@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Container.
  */
-class Container extends Component {
+class Container extends Component
+{
     public array $attrs;
 
     /**
@@ -31,7 +32,8 @@ class Container extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

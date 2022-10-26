@@ -11,7 +11,8 @@ use Livewire\Component;
 /**
  * Class Sort/Collection.
  */
-class Coll extends Component {
+class Coll extends Component
+{
     public Collection $data;
 
     /**
@@ -21,14 +22,16 @@ class Coll extends Component {
      *
      * @return void
      */
-    public function mount($data) {
+    public function mount($data)
+    {
         $this->data = $data;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

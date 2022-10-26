@@ -12,11 +12,13 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class Open.
  */
-class Open {
+class Open
+{
     /**
      * @return \Closure
      */
-    public function __invoke() {
+    public function __invoke()
+    {
         return function ($model, $from, $to = '', $params = null, $formName = 'theForm') {
             if (null === $params) {
                 // $params = optional(\Route::current())->parameters();

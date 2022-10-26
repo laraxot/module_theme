@@ -12,7 +12,8 @@ use Illuminate\View\Component;
  * Class Container.
  * html preso da DirectoryBs5, verificare se funziona anche con altri temi.
  */
-class Container extends Component {
+class Container extends Component
+{
     public array $data;
 
     /**
@@ -20,14 +21,16 @@ class Container extends Component {
      *
      * @return void
      */
-    public function __construct(array $data) {
+    public function __construct(array $data)
+    {
         $this->data = $data;
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

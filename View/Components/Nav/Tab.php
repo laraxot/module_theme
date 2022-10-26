@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Tab.
  */
-class Tab extends Component {
+class Tab extends Component
+{
     public string $type = 'tab';
 
     /**
@@ -18,13 +19,15 @@ class Tab extends Component {
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.nav.'.$this->type;
         $view_params = [
             'view' => $view,

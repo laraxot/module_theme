@@ -10,7 +10,8 @@ use Livewire\Component;
 /**
  * Class Arr // Array is reserved.
  */
-class Arr extends Component {
+class Arr extends Component
+{
     public string $type;
     public string $name;
     public string $label;
@@ -23,7 +24,8 @@ class Arr extends Component {
      *
      * @return void
      */
-    public function mount(string $type, string $name, ?string $label, ?array $value, ?int $modelId = null) {
+    public function mount(string $type, string $name, ?string $label, ?array $value, ?int $modelId = null)
+    {
         $this->type = $type;
         $this->name = $name;
         $this->label = $label;
@@ -47,7 +49,8 @@ class Arr extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -60,11 +63,13 @@ class Arr extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function addArr(): void {
+    public function addArr(): void
+    {
         $this->form_data[$this->name][] = null;
     }
 
-    public function subArr(int $id): void {
+    public function subArr(int $id): void
+    {
         unset($this->form_data[$this->name][$id]);
         if (isset($this->model_id)) {
             $this->form_data['model_id'] = $this->model_id;
@@ -72,7 +77,8 @@ class Arr extends Component {
         }
     }
 
-    public function updatedFormData(string $value, string $key) {
+    public function updatedFormData(string $value, string $key)
+    {
         if (isset($this->model_id)) {
             $this->form_data['model_id'] = $this->model_id;
             $this->emit('updatedFormDataEvent', $this->form_data);

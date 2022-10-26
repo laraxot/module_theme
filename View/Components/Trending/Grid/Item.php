@@ -12,7 +12,8 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class Item.
  */
-class Item extends Component {
+class Item extends Component
+{
     public array $attrs = [];
     public ?string $name = null;
     public string $image = '';
@@ -24,7 +25,8 @@ class Item extends Component {
      *
      * @return void
      */
-    public function __construct(?string $name = null, ?string $image = null, ?string $class = null, ?object $row = null) {
+    public function __construct(?string $name = null, ?string $image = null, ?string $class = null, ?object $row = null)
+    {
         $this->name = $name;
         if (isset($image)) {
             $this->image = $image;
@@ -49,7 +51,8 @@ class Item extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

@@ -11,7 +11,8 @@ use Illuminate\View\Component;
 /**
  * Class Divider.
  */
-class Divider extends Component {
+class Divider extends Component
+{
     public array $attrs;
     public string $title;
     public string $sub_title;
@@ -24,7 +25,7 @@ class Divider extends Component {
         string $title,
         string $subTitle,
         ?string $link = '#'
-        ) {
+    ) {
         $this->attrs['section_class'] = $section_class;
         $this->attrs['div_class'] = $div_class;
         $this->attrs['img'] = $img;
@@ -33,7 +34,8 @@ class Divider extends Component {
         $this->link = $link;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
