@@ -85,7 +85,8 @@ class Arr extends Component
         }
     }
 
-    public function set(string $value, $key) {
+    public function set(string $value, $key)
+    {
         $this->form_data[$key] = $value;
     }
 }
