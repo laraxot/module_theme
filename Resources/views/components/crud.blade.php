@@ -1,6 +1,11 @@
 <div class="content">
     <div class="clearfix"></div>
     @include('theme::includes.flash')
+    {{-- dddx([
+        'panel' => $_panel,
+        'parent' => $_panel->getParent()->getRow(),
+        'test' => \Modules\IntelliNet\Models\Report::all(),
+    ]) --}}
     <div class="card">
         <div class="card-header">
             <ul class="nav nav-tabs align-items-end card-header-tabs w-100">
