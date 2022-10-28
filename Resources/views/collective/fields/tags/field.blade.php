@@ -14,6 +14,7 @@ $row = $_panel->row;
 //-- per popolare velocemente
 //$tagA = \Modules\Tag\Models\Tag::findOrCreate('staging1', 'domains');
 //$tagA = \Modules\Tag\Models\Tag::findOrCreate('camera', 'domains');
+
 @endphp
 @foreach ($opts as $opt)
     <fieldset class="form-group border p-3">
@@ -22,7 +23,19 @@ $row = $_panel->row;
             @php
                 $tags = \Modules\Tag\Models\Tag::getWithType($opt);
                 $values = $row->tagsWithType($opt);
-                $values_ids = $values->pluck('id')->all();
+                $values_ids = $values->pluck('id')->all();    
+                if($values->count()<1){
+                    $config_tags=config('tag.'.$opt);
+                    if(!is_array($config_tags)){
+                        throw new \Exception('put array on config [tag.'.$opt.']');
+                    }
+                    foreach($config_tags as $v){
+                        \Modules\Tag\Models\Tag::findOrCreate($v['name'], $opt);
+                    }
+                }
+                           
+
+
             @endphp
             {{-- se nessun checkbox e' settato non viene inviato valore --}}
             <input type="hidden" name="tags[]" />
