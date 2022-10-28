@@ -7,5 +7,7 @@
 <div role="group" aria-label="Actions" class="btn-group btn-group-sm">
     <x-button.edit :panel="$panel" />
     <x-button.delete :panel="$panel" />
+    <x-button.detach :panel="$panel" />
     <x-button.show :panel="$panel" />
+
 </div>

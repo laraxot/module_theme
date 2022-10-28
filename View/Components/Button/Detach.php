@@ -5,36 +5,41 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Button;
 
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\View\Component;
 use Modules\Xot\Contracts\PanelContract;
-use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Crud.
+ * Class Detach.
  */
-class Crud extends XotBaseComponent {
+class Detach extends Component {
     public PanelContract $panel;
-    // public bool $has_pivot;
+    public string $method = 'delete';
 
     /**
      * Undocumented function.
      */
     public function __construct(PanelContract $panel) {
         $this->panel = $panel;
-        // $this->has_pivot = isset($panel->getRow()->pivot);
     }
 
-    /**
-     * Undocumented function.
-     */
     public function render(): View {
         /**
          * @phpstan-var view-string
          */
-        $view = 'theme::components.button.crud';
+        $view = 'theme::components.button.detach';
         $view_params = [
             'view' => $view,
         ];
 
         return view()->make($view, $view_params);
+    }
+
+    public function shouldRender(): bool {
+        if (! isset($this->panel->getRow()->pivot)) {
+            return false;
+        }
+
+        return Gate::allows($this->method, $this->panel);
     }
 }
