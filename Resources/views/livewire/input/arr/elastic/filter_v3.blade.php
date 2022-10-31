@@ -59,8 +59,6 @@
         <i class="uil uil-info-circle"></i>
         Clicca sui bottoni per selezionare i singoli canali
     </p>
-
-
         <livewire:channel.choose />
 
         {{--
