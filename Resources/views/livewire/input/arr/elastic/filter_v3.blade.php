@@ -4,10 +4,6 @@
                 class="uil uil-plus"></i></a>
     </h3>
 
-    @php
-    dddx($form_data[$name]);
-    @endphp
-    
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
             $input_name = $name . '[' . $k . ']';
@@ -59,16 +55,19 @@
         </div>
     </div>
     <h3>Canali</h3>
-    <p><i class="uil uil-info-circle"></i> Clicca sui bottoni per selezionare i singoli
-        canali</p>
+    <p>
+        <i class="uil uil-info-circle"></i>
+        Clicca sui bottoni per selezionare i singoli canali
+    </p>
 
 
         <livewire:channel.choose />
 
-
+        {{--
     <div class="col-12 my-5">
         <button class="btn btn-primary align-content-center col-lg-12 col-12">Cerca</button>
     </div>
+    --}}
 </div>
 
 {{-- dddx($profile->channels()->take(1)->get()) --}}
