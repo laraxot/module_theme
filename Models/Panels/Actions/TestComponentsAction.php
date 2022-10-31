@@ -13,8 +13,7 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class TestComponentAction.
  */
-class TestComponentsAction extends XotBasePanelAction
-{
+class TestComponentsAction extends XotBasePanelAction {
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-campground"></i>';
@@ -24,8 +23,7 @@ class TestComponentsAction extends XotBasePanelAction
      *
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         $view = ThemeService::getView(); // vew che dovrebbe essere
         $tests = [
             (object) [

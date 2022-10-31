@@ -9,8 +9,7 @@ use Modules\Theme\Menu\Builder;
 /**
  * Interface FilterInterface.
  */
-interface FilterInterface
-{
+interface FilterInterface {
     /**
      * @return mixed
      */

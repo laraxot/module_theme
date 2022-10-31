@@ -9,16 +9,14 @@ use Livewire\Component;
 /**
  * Class Test.
  */
-class Test extends Component
-{
+class Test extends Component {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     /**
      * Render the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */

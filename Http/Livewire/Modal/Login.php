@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Login extends Component
-{
+class Login extends Component {
     public string $username = '';
     public string $password = '';
     public string $currentPath = '';
@@ -25,14 +24,12 @@ class Login extends Component
         'password' => 'required|string',
     ];
 
-    public function mount(): void
-    {
+    public function mount(): void {
         // $this->currentPath = request()->path();
         $this->currentPath = request()->getRequestUri();
     }
 
-    public function render(): View
-    {
+    public function render(): View {
         /**
          * @phpstan-var view-string
          */
@@ -47,8 +44,7 @@ class Login extends Component
     /**
      * @return \Illuminate\Http\RedirectResponse|void
      */
-    public function login(Request $request)
-    {
+    public function login(Request $request) {
         $this->validate();
 
         if ($this->attemptLogin()) {
@@ -64,8 +60,7 @@ class Login extends Component
         return;
     }
 
-    protected function attemptLogin(): bool
-    {
+    protected function attemptLogin(): bool {
         return $this->guard()->attempt(
             ['email' => $this->username, 'password' => $this->password]
         );
@@ -76,8 +71,7 @@ class Login extends Component
      *
      * @return \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
      */
-    protected function guard()
-    {
+    protected function guard() {
         return Auth::guard();
     }
 }

@@ -13,18 +13,15 @@ use Modules\Xot\Services\FileService;
 /**
  * CollectiveService. was on Xot module.
  */
-class CollectiveService
-{
+class CollectiveService {
     private static ?self $instance = null;
 
-    public function __construct()
-    {
+    public function __construct() {
         // ---
         // include_once __DIR__.'/vendor/autoload.php';
     }
 
-    public static function getInstance(): self
-    {
+    public static function getInstance(): self {
         if (null === self::$instance) {
             self::$instance = new self();
         }
@@ -32,16 +29,14 @@ class CollectiveService
         return self::$instance;
     }
 
-    public static function make(): self
-    {
+    public static function make(): self {
         return static::getInstance();
     }
 
     /**
      * Undocumented function.
      */
-    public static function getComponents(string $view_path, string $namespace, string $prefix, bool $force_recreate = false): array
-    {
+    public static function getComponents(string $view_path, string $namespace, string $prefix, bool $force_recreate = false): array {
         // $view_path = realpath(__DIR__.'/../Resources/views/collective/fields');
 
         $components_json = $view_path.'/_components.json';
@@ -91,8 +86,7 @@ class CollectiveService
         return $comps;
     }
 
-    public static function registerComponents(string $path = '', string $namespace = '', string $prefix = ''): void
-    {
+    public static function registerComponents(string $path = '', string $namespace = '', string $prefix = ''): void {
         $comps = self::getComponents($path, $namespace, $prefix, false);
         /*
         $blade_component = 'components.blade.input';
@@ -126,8 +120,7 @@ class CollectiveService
 
     // end function
 
-    public static function registerMacros(string $macros_dir): void
-    {
+    public static function registerMacros(string $macros_dir): void {
         // $macros_dir = __DIR__.'/../Macros';
         $files = glob($macros_dir.'/*.php');
         if (false === $files) {

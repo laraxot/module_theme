@@ -6,45 +6,36 @@ namespace Modules\Theme\Tests\Feature;
 
 use Tests\TestCase;
 
-class MenuServiceTest extends TestCase
-{
-    public function testGet()
-    {
+class MenuServiceTest extends TestCase {
+    public function testGet() {
         static::assertTrue(true);
     }
 
-    public function testRenderVerMenu()
-    {
+    public function testRenderVerMenu() {
         static::assertTrue(true);
     }
 
-    public function testRenderHorMenu()
-    {
+    public function testRenderHorMenu() {
         static::assertTrue(true);
     }
 
-    public function testCheckRecursion()
-    {
+    public function testCheckRecursion() {
         static::assertTrue(true);
     }
 
-    public function testIsActiveVerMenuItem()
-    {
+    public function testIsActiveVerMenuItem() {
         static::assertTrue(true);
     }
 
-    public function testIsActiveHorMenuItem()
-    {
+    public function testIsActiveHorMenuItem() {
         static::assertTrue(true);
     }
 
-    public function testRenderIcon()
-    {
+    public function testRenderIcon() {
         static::assertTrue(true);
     }
 
-    public function testRenderIconName()
-    {
+    public function testRenderIconName() {
         static::assertTrue(true);
     }
 }

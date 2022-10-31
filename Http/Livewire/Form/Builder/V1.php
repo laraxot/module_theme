@@ -13,8 +13,7 @@ use Modules\Tenant\Services\TenantService;
 use Modules\Theme\Services\CollectiveService;
 use Modules\Xot\Services\FileService;
 
-class V1 extends Component
-{
+class V1 extends Component {
     public string $type;
 
     public array $form_data = [];
@@ -37,8 +36,7 @@ class V1 extends Component
      *
      * @return void
      */
-    public function mount(?string $type = 'builder')
-    {
+    public function mount(?string $type = 'builder') {
         $data = TenantService::config('forms.uno');
         if (! \is_array($data)) {
             $data = [];
@@ -72,8 +70,7 @@ class V1 extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -86,8 +83,7 @@ class V1 extends Component
         return view($view, $view_params);
     }
 
-    public function add(string $name): void
-    {
+    public function add(string $name): void {
         /*
         $view = 'theme::collective.fields.'.$name.'.field';
         $view_file = FileService::viewPath($view);
@@ -128,8 +124,7 @@ class V1 extends Component
         // */
     }
 
-    public function edit(int $k): void
-    {
+    public function edit(int $k): void {
         $this->edit_k = $k;
         $curr = $this->form_data[$k];
 
@@ -187,8 +182,7 @@ class V1 extends Component
         $this->form_edit = $tmp;
     }
 
-    public function updateInputOrder(array $orders)
-    {
+    public function updateInputOrder(array $orders) {
         $tmp = [];
         foreach ($orders as $order) {
             $tmp[] = $this->form_data[$order['value']];
@@ -196,13 +190,11 @@ class V1 extends Component
         $this->form_data = $tmp;
     }
 
-    public function updateFormDataEvent(array $data)
-    {
+    public function updateFormDataEvent(array $data) {
         dddx(['data' => $data]);
     }
 
-    public function addArr()
-    {
+    public function addArr() {
         $this->form_data[0]['options'][] = ['a' => 'test'];
     }
 }

@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use ReflectionClass;
 
-class Get extends Component
-{
+class Get extends Component {
     public string $form_name;
 
     public array $form_data = [];
@@ -32,16 +31,14 @@ class Get extends Component
      *
      * @return void
      */
-    public function mount(string $form_name)
-    {
+    public function mount(string $form_name) {
         $this->form_name = $form_name;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /*$tmp = File::get(realpath(__DIR__ . '/../../../../View/Components/_components.json'));
 
         $this->blade_components = json_decode($tmp);
@@ -123,8 +120,7 @@ class Get extends Component
         return view()->make($view, $view_params);
     }
 
-    public function centerSide()
-    {
+    public function centerSide() {
         $view = '';
         $this->form_elements = (array) $this->form_elements;
 
@@ -159,8 +155,7 @@ class Get extends Component
         }
     }
 
-    public function bladeCompile($value, array $args = [])
-    {
+    public function bladeCompile($value, array $args = []) {
         $content = \Blade::render($value, []);
 
         return $content;

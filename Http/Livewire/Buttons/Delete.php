@@ -9,10 +9,8 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class Delete extends Component
-{
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+class Delete extends Component {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */

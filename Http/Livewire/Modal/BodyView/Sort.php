@@ -10,10 +10,8 @@ use Modules\Theme\Http\Livewire\Modal\BodyView as BaseComponent;
 /**
  * Class Sort/Collection.
  */
-class Sort extends BaseComponent
-{
-    public function updateTaskOrder(array $list): void
-    {
+class Sort extends BaseComponent {
+    public function updateTaskOrder(array $list): void {
         dddx($list);
     }
 }

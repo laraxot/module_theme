@@ -11,8 +11,7 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use ReflectionClass;
 
-class V2 extends Component
-{
+class V2 extends Component {
     public string $type;
 
     public $blade_component;
@@ -30,16 +29,14 @@ class V2 extends Component
      *
      * @return void
      */
-    public function mount(?string $type = 'builder')
-    {
+    public function mount(?string $type = 'builder') {
         $this->type = $type;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -114,27 +111,23 @@ class V2 extends Component
         return view()->make($view, $view_params);
     }
 
-    public function bladeCompile($value, array $args = [])
-    {
+    public function bladeCompile($value, array $args = []) {
         $content = \Blade::render($value, []);
 
         return $content;
     }
 
-    public function addComponentToForm($key)
-    {
+    public function addComponentToForm($key) {
         $this->form_elements[] = $this->blade_components[$key];
         $this->setDefaultFormElement();
     }
 
-    public function deleteComponentFromForm($k)
-    {
+    public function deleteComponentFromForm($k) {
         unset($this->form_elements[$k]);
         $this->setDefaultFormElement();
     }
 
-    public function setDefaultFormElement()
-    {
+    public function setDefaultFormElement() {
         if (! isset($this->form_elements[0])) {
             $this->selected_element = null;
             $this->index = null;
@@ -145,8 +138,7 @@ class V2 extends Component
         }
     }
 
-    public function selectElement($k)
-    {
+    public function selectElement($k) {
         $this->index = $k;
         $this->selected_element = &$this->form_elements[$k];
     }

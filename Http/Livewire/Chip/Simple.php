@@ -6,8 +6,7 @@ namespace Modules\Theme\Http\Livewire\Chip;
 
 use Livewire\Component;
 
-class Simple extends Component
-{
+class Simple extends Component {
     /* public $row; */
     public mixed $elements;
     public string $tag = 'test';
@@ -22,8 +21,7 @@ class Simple extends Component
     /**
      * Render the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -37,8 +35,7 @@ class Simple extends Component
         return view()->make($view, $view_params);
     }
 
-    public function add(): void
-    {
+    public function add(): void {
         dddx(['preso']);
     }
 }

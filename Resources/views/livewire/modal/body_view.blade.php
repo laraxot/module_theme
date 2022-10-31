@@ -8,7 +8,6 @@
 
                     <h4 class="modal-title">{{ $title }}
                         @if (isset($subtitle))
-                            <br>
                             <small>{{ $subtitle }}</small>
                         @endif
                     </h4>
@@ -29,6 +28,10 @@
                     @include($body_view)
 
                 </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto mb-4">
+                    <button class="btn btn-primary rounded-pill" type="button" wire:click.prevent="doClose()">Conferma</button>
+                  </div>
 
             </div>
         </div>

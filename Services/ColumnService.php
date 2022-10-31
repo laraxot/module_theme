@@ -21,8 +21,7 @@ use Illuminate\Support\Str;
  * @property callable $sortCallback
  * @property string   $view
  */
-class ColumnService
-{
+class ColumnService {
     protected string $heading;
 
     protected string $attribute;
@@ -51,8 +50,7 @@ class ColumnService
      * @param string $heading
      * @param string $attribute
      */
-    public function __construct($heading, $attribute)
-    {
+    public function __construct($heading, $attribute) {
         $this->heading = $heading;
         // 54     Variable $attribute on left side of ?? always exists and is not nullable.
         $this->attribute = $attribute; // ?? Str::snake(Str::lower($heading));
@@ -63,8 +61,7 @@ class ColumnService
      *
      * @return mixed
      */
-    public function __get($property)
-    {
+    public function __get($property) {
         return $this->$property;
     }
 
@@ -79,37 +76,32 @@ class ColumnService
      *
      * @return ColumnService
      */
-    public static function make($heading = '', $attribute = '')
-    {
+    public static function make($heading = '', $attribute = '') {
         return new self($heading, $attribute);
     }
 
     /**
      * @param string $type
      */
-    public function type($type): self
-    {
+    public function type($type): self {
         $this->type = $type;
 
         return $this;
     }
 
-    public function searchable(): self
-    {
+    public function searchable(): self {
         $this->searchable = true;
 
         return $this;
     }
 
-    public function sortable(): self
-    {
+    public function sortable(): self {
         $this->sortable = true;
 
         return $this;
     }
 
-    public function sortUsing(callable $callback): self
-    {
+    public function sortUsing(callable $callback): self {
         $this->sortCallback = $callback;
 
         return $this;
@@ -120,8 +112,7 @@ class ColumnService
      *
      * @return $this
      */
-    public function view($view)
-    {
+    public function view($view) {
         $this->view = $view;
 
         return $this;
@@ -130,8 +121,7 @@ class ColumnService
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function freeze(Model $model)
-    {
+    public function freeze(Model $model) {
         $value = Arr::get($model->toArray(), $this->attribute);
         $type = Str::snake($this->type);
         $start = 'theme::livewire.fields.';

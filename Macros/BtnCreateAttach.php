@@ -15,13 +15,11 @@ use Collective\Html\FormFacade as Form;
 /**
  * Class BtnCreateAttach.
  */
-class BtnCreateAttach
-{
+class BtnCreateAttach {
     /**
      * @return \Closure
      */
-    public function __invoke()
-    {
+    public function __invoke() {
         return function ($extra) {
             $btns = '';
             $btns .= Form::bsBtnCreate($extra);

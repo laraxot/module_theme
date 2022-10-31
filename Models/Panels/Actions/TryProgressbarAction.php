@@ -15,16 +15,14 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class TryProgressbarAction.
  */
-class TryProgressbarAction extends XotBasePanelAction
-{
+class TryProgressbarAction extends XotBasePanelAction {
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         return $this->panel->view();
     }
 }

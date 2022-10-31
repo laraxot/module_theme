@@ -10,8 +10,7 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class Carousel extends Component
-{
+class Carousel extends Component {
     public string $type = 'carousel';
     public array $items;
     public int $i = 0;
@@ -20,8 +19,7 @@ class Carousel extends Component
     /**
      * Undocumented function.
      */
-    public function mount(array $items, ?bool $showBtnLink = true, ?string $type = 'carousel'): void
-    {
+    public function mount(array $items, ?bool $showBtnLink = true, ?string $type = 'carousel'): void {
         $this->items = $items;
         $this->showBtnLink = $showBtnLink;
         $this->type = $type;
@@ -30,8 +28,7 @@ class Carousel extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -44,13 +41,11 @@ class Carousel extends Component
         return view()->make($view, $view_params);
     }
 
-    public function next()
-    {
+    public function next() {
         ++$this->i;
     }
 
-    public function prev()
-    {
+    public function prev() {
         --$this->i;
     }
 }

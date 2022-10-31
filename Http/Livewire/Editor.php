@@ -9,8 +9,7 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class Editor extends Component
-{
+class Editor extends Component {
     public string $label;
 
     public string $placeholder = 'Write a reply...';
@@ -25,8 +24,7 @@ class Editor extends Component
 
     public string $buttonIcon;
 
-    public function render(): \Illuminate\Contracts\Support\Renderable
-    {
+    public function render(): \Illuminate\Contracts\Support\Renderable {
         $body = old('body', $this->body);
         if (\is_string($body)) {
             $this->body = $body;
@@ -40,8 +38,7 @@ class Editor extends Component
         return view($view, $view_params);
     }
 
-    public function getPreviewProperty(): string
-    {
+    public function getPreviewProperty(): string {
         $ret = '';
 
         $html = md_to_html($this->body ?: '');
@@ -53,8 +50,7 @@ class Editor extends Component
         return replace_links($ret);
     }
 
-    public function preview(): void
-    {
+    public function preview(): void {
         $this->emit('previewRequested');
     }
 }

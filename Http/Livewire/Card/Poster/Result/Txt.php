@@ -11,8 +11,7 @@ use Livewire\Component;
 /**
  * Class Txt.
  */
-class Txt extends Component
-{
+class Txt extends Component {
     public string $txt;
     public string $url;
     public string $q;
@@ -21,8 +20,7 @@ class Txt extends Component
     public int $i = 1; // attuale posizione della ricorrenza su n della parola nella stringa
     public array $isDisabled = ['prev' => true, 'next' => false];
 
-    public function mount(string $q, string $txt, string $url): void
-    {
+    public function mount(string $q, string $txt, string $url): void {
         $this->q = $q;
         $this->txt = $txt;
         $pos = stripos($this->txt, $this->q);
@@ -37,8 +35,7 @@ class Txt extends Component
         $this->url = $url.'?q='.$this->q;
     }
 
-    public function goNext(): void
-    {
+    public function goNext(): void {
         $pos = stripos($this->txt, $this->q, $this->pos + 1);
         ++$this->i;
         if (false === $pos) {
@@ -50,8 +47,7 @@ class Txt extends Component
         $this->setUrlQ();
     }
 
-    public function goPrev(): void
-    {
+    public function goPrev(): void {
         $offset = -\strlen($this->txt) + $this->pos - 1;
         $this->pos = (int) strripos($this->txt, $this->q, $offset);
         --$this->i;
@@ -59,14 +55,12 @@ class Txt extends Component
         $this->setUrlQ();
     }
 
-    public function setUrlQ(): void
-    {
+    public function setUrlQ(): void {
         $this->url = Str::before($this->url, '?q=');
         $this->url = $this->url.'?q='.$this->q.'&n='.$this->i;
     }
 
-    public function checkToggleButton(): void
-    {
+    public function checkToggleButton(): void {
         switch ($this->i) {
             case 1 === $this->i:
                 $this->isDisabled['prev'] = true;
@@ -86,8 +80,7 @@ class Txt extends Component
     /**
      * Render the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

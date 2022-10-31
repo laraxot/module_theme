@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Input;
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -52,8 +53,11 @@ class Group extends Component {
 
         $div_attrs = app(ComponentAttributeBag::class);
         $label_attrs = app(ComponentAttributeBag::class);
+        $id = $attributes->get('id') ?? Str::slug($attributes->get('name'));
+
         $label_attrs = $label_attrs->merge(
             [
+                'id' => $id,
                 'name' => $attributes->get('name'),
                 'label' => $attributes->get('label'),
                 'class' => $attributes->get('label_class'),
@@ -67,6 +71,9 @@ class Group extends Component {
         ]);
 
         $div_class = 'form-group '.$attributes->get('div_class').' col-'.$attributes->get('col_size') ?? '12';
+        if ('checkbox' == $attributes->get('type')) {
+            $div_class = 'form-check';
+        }
 
         $div_attrs = $div_attrs->merge(
             [
