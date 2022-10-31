@@ -3,4 +3,4 @@
     'name' => 'no-name',
     'id' => null,
 ])
-<label for="{{ $id }}">{{ $label ?? trans($tradKey . '.' . $name . '.label') }}</label>
+<label {{ $attributes->merge(['for'=>$id]) }} >{{ $label ?? trans($tradKey . '.' . $name . '.label') }}</label>

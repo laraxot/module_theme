@@ -43,15 +43,13 @@
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
             <h3>Calendario</h3>
-            <x-input class="quellochevuoi" type="date.datetime.range" label="test" name="rows.{{ $model_id }}.date"></x-input>
+            {{--<x-input class="quellochevuoi" type="date.datetime.range" label="test" name="rows.{{ $model_id }}.date"></x-input>--}}
+            <x-input.group type="date.datetime.range" name="calendar" id="calendar" label_class="h3" />
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
             <h3>Genere di fonti</h3>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Audio e video</option>
-                <option value="1">Video</option>
-                <option value="2">Audio</option>
-            </select>
+            <x-input.group type="select" name="type" :options="$_theme->getMediaTypeList()" label_class="h3"
+                id="media_type" />
         </div>
     </div>
     {{--
