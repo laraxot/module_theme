@@ -18,6 +18,8 @@ class Arr extends Component {
     public array $value = [];
     public ?int $model_id;
 
+    protected $listeners = ['addArr' => 'addArr'];
+
     /**
      * Undocumented function.
      *
