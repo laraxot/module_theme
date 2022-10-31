@@ -4,6 +4,10 @@
                 class="uil uil-plus"></i></a>
     </h3>
 
+    @php
+    dddx($form_data[$name]);
+    @endphp
+    
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
             $input_name = $name . '[' . $k . ']';
