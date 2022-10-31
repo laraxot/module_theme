@@ -35,21 +35,13 @@
 
     <div class="row">
         <div class="form-select-wrapper mb-4 col-md-4">
-            <h3>Ordine di ricerca</h3>
-            <select class="form-control" name="sort" wire:model.lazy="form_data.rows.{{ $model_id }}.sort">
-                <option value="desc">Discendente</option>
-                <option value="asc">Ascendente</option>
-            </select>
+                <x-input.group type="select" name="order_by" :options="['desc' => 'Discendente', 'asc' => 'Ascendente']" label_class="h3" id="order_by" />
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
-            <h3>Calendario</h3>
-            {{--<x-input class="quellochevuoi" type="date.datetime.range" label="test" name="rows.{{ $model_id }}.date"></x-input>--}}
             <x-input.group type="date.datetime.range" name="calendar" id="calendar" label_class="h3" />
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
-            <h3>Genere di fonti</h3>
-            <x-input.group type="select" name="type" :options="$_theme->getMediaTypeList()" label_class="h3"
-                id="media_type" />
+            <x-input.group type="select" name="type" :options="$_theme->getMediaTypeList()" label_class="h3" id="media_type" />
         </div>
     </div>
     {{--
@@ -60,7 +52,7 @@
     </p>
         <livewire:channel.choose />
     --}}
-        {{--
+    {{--
     <div class="col-12 my-5">
         <button class="btn btn-primary align-content-center col-lg-12 col-12">Cerca</button>
     </div>
