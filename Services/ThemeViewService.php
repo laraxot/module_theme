@@ -10,7 +10,8 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class ThemeViewService.
  */
-class ThemeViewService {
+class ThemeViewService
+{
     protected array $menu = [];
     protected array $filters = [];
     protected array $events;
@@ -45,7 +46,8 @@ class ThemeViewService {
     //         .implode(', ', $arguments)."\n";
     // }
 
-    public function url(): string {
+    public function url(): string
+    {
         return '['.__FILE__.']['.__LINE__.']';
     }
 
@@ -59,7 +61,8 @@ class ThemeViewService {
     }
     */
 
-    protected function buildMenu(): array {
+    protected function buildMenu(): array
+    {
         $builder = new Builder($this->buildFilters());
         // dddx($builder);
         $menu = (array) config('bootstrap-italia.menu');
@@ -85,7 +88,8 @@ class ThemeViewService {
         ];
     }
 
-    protected function buildFilters(): array {
+    protected function buildFilters(): array
+    {
         if (! $this->filters) {
             $this->filters = (array) config('bootstrap-italia.filters');
         }
@@ -101,7 +105,8 @@ class ThemeViewService {
         )->all();
     }
 
-    public function isInternalPage(): bool {
+    public function isInternalPage(): bool
+    {
         /*
         $home_panel = PanelService::make()->getHomePanel();
 

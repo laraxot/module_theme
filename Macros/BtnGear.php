@@ -12,11 +12,13 @@ use Illuminate\View\View;
 /**
  * Class BtnGear.
  */
-class BtnGear extends BaseFormBtnMacro {
+class BtnGear extends BaseFormBtnMacro
+{
     /**
      * @return \Closure
      */
-    public function __invoke() {
+    public function __invoke()
+    {
         return function ($extra): ViewContract {
             $class = __CLASS__;
             $extra['generate_btn'] = 0;

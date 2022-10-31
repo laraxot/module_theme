@@ -11,7 +11,8 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class ActivateAdmThemeAction.
  */
-class ChooseIconsAction extends XotBasePanelAction {
+class ChooseIconsAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fa fa-edit"></i>';
@@ -19,7 +20,8 @@ class ChooseIconsAction extends XotBasePanelAction {
     /**
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $view = ThemeService::getView();
         /**
          * @var array
@@ -36,7 +38,8 @@ class ChooseIconsAction extends XotBasePanelAction {
     /**
      * @return mixed
      */
-    public function postHandle() {
+    public function postHandle()
+    {
         // dddx(request()->all());
 
         $adm_theme = config('xra.adm_theme');

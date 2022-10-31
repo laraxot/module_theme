@@ -12,7 +12,8 @@ use Modules\Xot\Models\Panels\XotBasePanel;
 /**
  * Class InputPanel.
  */
-class InputPanel extends XotBasePanel {
+class InputPanel extends XotBasePanel
+{
     /**
      * The model the resource corresponds to.
      */
@@ -26,7 +27,8 @@ class InputPanel extends XotBasePanel {
     /**
      * @return object[]
      */
-    public function fields(): array {
+    public function fields(): array
+    {
         return [
             (object) [
                 'type' => 'Id',
@@ -49,7 +51,8 @@ class InputPanel extends XotBasePanel {
     /**
      * Get the actions available for the resource.
      */
-    public function actions(Request $request = null): array {
+    public function actions(Request $request = null): array
+    {
         return [
             new Actions\SyncInputs(),
         ];

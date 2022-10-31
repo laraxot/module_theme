@@ -7,13 +7,15 @@ namespace Modules\Theme\Http\Livewire\Test;
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 
-class Progressbar extends Component {
+class Progressbar extends Component
+{
     public int $perc = 0;
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::livewire.test.progressbar';
         $view_params = [
             'view' => $view,
@@ -25,7 +27,8 @@ class Progressbar extends Component {
     /**
      * --.
      */
-    public function start(): void {
+    public function start(): void
+    {
         if ($this->perc < 100) {
             $this->handle();
             $this->emit('updateProgress', $this->perc);
@@ -34,7 +37,8 @@ class Progressbar extends Component {
         }
     }
 
-    public function handle(): void {
+    public function handle(): void
+    {
         ++$this->perc;
     }
 }

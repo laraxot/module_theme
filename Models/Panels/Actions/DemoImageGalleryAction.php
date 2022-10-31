@@ -16,14 +16,16 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class ImageGalleryAction.
  */
-class DemoImageGalleryAction extends XotBasePanelAction {
+class DemoImageGalleryAction extends XotBasePanelAction
+{
     public bool $onContainer = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $view = ThemeService::getView();
 
         $view_params = [

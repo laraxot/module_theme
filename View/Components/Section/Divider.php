@@ -24,7 +24,7 @@ class Divider extends Component {
         string $title,
         string $subTitle,
         ?string $link = '#'
-    ) {
+        ) {
         $this->attrs['section_class'] = $section_class;
         $this->attrs['div_class'] = $div_class;
         $this->attrs['img'] = $img;

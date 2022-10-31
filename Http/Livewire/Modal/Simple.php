@@ -13,7 +13,8 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Xot\Services\PanelService;
 
-class Simple extends Component {
+class Simple extends Component
+{
     public bool $show = false;
     public array $data;
     public string $body_view;
@@ -34,7 +35,8 @@ class Simple extends Component {
 
     public array $form_data = [];
 
-    public function mount(array $data, string $bodyView, string $model): void {
+    public function mount(array $data, string $bodyView, string $model): void
+    {
         $this->data = $data;
         $this->show = false;
         $this->form_data['id'] = 5;
@@ -58,7 +60,8 @@ class Simple extends Component {
     //    return $this->rules;
     // }
 
-    public function editModal(string $model_class, string $id): void {
+    public function editModal(string $model_class, string $id): void
+    {
         $this->row = app($model_class)->find($id);
         // $panel = PanelService::make()->get($row);
         // $this->edit_fields = $panel->getFields(['act' => 'edit']);
@@ -68,27 +71,32 @@ class Simple extends Component {
         $this->doShow();
     }
 
-    public function showModal(array $data): void {
+    public function showModal(array $data): void
+    {
         $this->form_data = $data;
         $this->doShow();
     }
 
-    public function doShow(): void {
+    public function doShow(): void
+    {
         $this->show = true;
     }
 
-    public function doClose(): void {
+    public function doClose(): void
+    {
         $this->show = false;
     }
 
-    public function doSomething(): void {
+    public function doSomething(): void
+    {
         // Do Something With Your Modal
 
         // Close Modal After Logic
         $this->doClose();
     }
 
-    public function doSave(): void {
+    public function doSave(): void
+    {
         // dddx($this->form_data);
         $panel = PanelService::make()->get($this->row);
         $panel->update($this->form_data);
@@ -98,7 +106,8 @@ class Simple extends Component {
         session()->flash('message', 'Post successfully updated.');
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */

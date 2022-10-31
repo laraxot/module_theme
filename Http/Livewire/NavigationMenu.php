@@ -7,7 +7,8 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 
-class NavigationMenu extends Component {
+class NavigationMenu extends Component
+{
     /**
      * The component's listeners.
      *
@@ -17,7 +18,8 @@ class NavigationMenu extends Component {
         'refresh-navigation-menu' => '$refresh',
     ];
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         return view()->make('theme::navigation-menu');
     }
 }

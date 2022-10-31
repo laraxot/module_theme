@@ -8,7 +8,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-final class NotificationCount extends Component {
+final class NotificationCount extends Component
+{
     public int $count;
 
     /**
@@ -20,7 +21,8 @@ final class NotificationCount extends Component {
         'NotificationMarkedAsRead' => 'updateCount',
     ];
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         if (null !== Auth::user()) {
             $this->count = Auth::user()->unreadNotifications()->count();
         } else {
@@ -37,7 +39,8 @@ final class NotificationCount extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function updateCount(int $count): int {
+    public function updateCount(int $count): int
+    {
         return $count;
     }
 }

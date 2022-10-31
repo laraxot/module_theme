@@ -1,6 +1,5 @@
 @props([
-    'label' => null,
-    'name' => 'no-name',
-    'id' => null,
+    'label'=>null,
+    'name'=>'no-name',
 ])
-<label for="{{ $id }}">{{ $label ?? trans($tradKey . '.' . $name . '.label') }}</label>
+<label for="{{ $name }}">{{ $label ?? trans($tradKey.'.'.$name.'.label') }}</label>

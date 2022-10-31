@@ -7,11 +7,13 @@ namespace Modules\Theme\Macros;
 /**
  * Class MonthYearNav.
  */
-class MonthYearNav {
+class MonthYearNav
+{
     /**
      * @return \Closure
      */
-    public function __invoke() {
+    public function __invoke()
+    {
         return function ($paramz) {
             /**
              * @var string

@@ -6,12 +6,15 @@ namespace Modules\Theme\Tests\Feature;
 
 use Tests\TestCase;
 
-class SvgServiceTest extends TestCase {
-    public function testIsSVG() {
+class SvgServiceTest extends TestCase
+{
+    public function testIsSVG()
+    {
         static::assertTrue(true);
     }
 
-    public function testGetSVG() {
+    public function testGetSVG()
+    {
         static::assertTrue(true);
     }
 }

@@ -14,7 +14,8 @@ use Modules\Xot\Contracts\PanelContract;
 /**
  * Class Crud.
  */
-class Crud extends Component {
+class Crud extends Component
+{
     public Collection $fields;
     public Collection $rows;
     public array $rules;
@@ -28,7 +29,8 @@ class Crud extends Component {
     /**
      * Undocumented function.
      */
-    public function mount(PanelContract $panel): void {
+    public function mount(PanelContract $panel): void
+    {
         $this->rules = $panel->rules();
         $this->fields = $panel->getFields();
         $this->rows = $panel->rows()->get();
@@ -37,7 +39,8 @@ class Crud extends Component {
     /**
      * Undocumented function.
      */
-    protected function rules(): array {
+    protected function rules(): array
+    {
         return $this->rules;
     }
 
@@ -48,7 +51,8 @@ class Crud extends Component {
     /**
      * Render the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -66,7 +70,8 @@ class Crud extends Component {
      *
      * @return void
      */
-    private function resetInputFields() {
+    private function resetInputFields()
+    {
         $this->name = '';
         $this->email = '';
     }
@@ -76,7 +81,8 @@ class Crud extends Component {
      *
      * @return void
      */
-    public function store() {
+    public function store()
+    {
         $validatedDate = $this->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -96,7 +102,8 @@ class Crud extends Component {
      *
      * @return void
      */
-    public function edit(int $id) {
+    public function edit(int $id)
+    {
         $this->updateMode = true;
         $user = User::where('id', $id)->first();
         if (null === $user) {
@@ -112,7 +119,8 @@ class Crud extends Component {
      *
      * @return void
      */
-    public function cancel() {
+    public function cancel()
+    {
         $this->updateMode = false;
         $this->resetInputFields();
     }
@@ -122,7 +130,8 @@ class Crud extends Component {
      *
      * @return void
      */
-    public function update() {
+    public function update()
+    {
         $validatedDate = $this->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -149,7 +158,8 @@ class Crud extends Component {
      *
      * @return void
      */
-    public function delete($id) {
+    public function delete($id)
+    {
         if ($id) {
             User::where('id', $id)->delete();
             session()->flash('message', 'Users Deleted Successfully.');

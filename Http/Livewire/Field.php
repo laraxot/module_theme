@@ -11,7 +11,8 @@ use Modules\Theme\Services\FieldService;
 /**
  * Class Field.
  */
-class Field extends Component {
+class Field extends Component
+{
     public array $field_arr;
 
     public array $form_data = [];
@@ -26,18 +27,21 @@ class Field extends Component {
     /**
      * @param \Illuminate\Database\Eloquent\Collection $field
      */
-    public function mount($field): void {
+    public function mount($field): void
+    {
         // $this->field = FieldService::make($field->name)->type($field->type);
         // $this->field_arr = (array) $field;
         $this->field_arr = $field->toArray();
     }
 
-    public function setFormData(/* $formData */): void {
+    public function setFormData(/* $formData */): void
+    {
         // $this->form_data = $form_data;
         dddx($this->form_data);
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

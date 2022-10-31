@@ -11,7 +11,8 @@ use Livewire\Component;
 /**
  * Class Field.
  */
-class ToggleBool extends Component {
+class ToggleBool extends Component
+{
     public Model $model;
     public string $field;
     public bool $isActive;
@@ -21,7 +22,8 @@ class ToggleBool extends Component {
      *
      * @return void
      */
-    public function mount() {
+    public function mount()
+    {
         // $this->model = $model;
         // $this->field = $field;
         $this->isActive = (bool) $this->model->getAttribute($this->field);
@@ -30,7 +32,8 @@ class ToggleBool extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::livewire.inputs.toggle-date';
         $view_params = [
             'view' => $view,
@@ -44,7 +47,8 @@ class ToggleBool extends Component {
      *
      * @return void
      */
-    public function updating(string $field, mixed $value) {
+    public function updating(string $field, mixed $value)
+    {
         $this->model->setAttribute($this->field, $value)->save();
         $this->emit('updateField', $this->model->getKey(), $this->field, $value);
     }

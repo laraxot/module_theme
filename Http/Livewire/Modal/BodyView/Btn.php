@@ -11,8 +11,10 @@ use Modules\Theme\Http\Livewire\Modal\BodyView as BaseComponent;
 /**
  * Class Sort/Collection.
  */
-class Btn extends BaseComponent {
-    public function render(): Renderable {
+class Btn extends BaseComponent
+{
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

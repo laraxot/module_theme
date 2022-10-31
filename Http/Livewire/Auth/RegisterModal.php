@@ -21,7 +21,8 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class RegisterModal extends Component {
+class RegisterModal extends Component
+{
     public string $username = '';
     public string $email = '';
     public string $password = '';
@@ -29,7 +30,8 @@ class RegisterModal extends Component {
 
     public string $currentPath = '';
 
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): \Illuminate\Contracts\Support\Renderable
+    {
         $views = [
             'pub_theme::livewire.auth.register-modal',
             'theme::livewire.auth.register-modal',
@@ -41,7 +43,8 @@ class RegisterModal extends Component {
     /**
      * @return void
      */
-    public function mount() {
+    public function mount()
+    {
         $this->currentPath = request()->path();
     }
 
@@ -62,7 +65,8 @@ class RegisterModal extends Component {
     /**
      * @return \Illuminate\Http\Response|void|\Illuminate\Http\RedirectResponse
      */
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $data = $this->validate();
 
         $data['password'] = Hash::make($data['password']);

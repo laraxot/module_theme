@@ -27,7 +27,8 @@ use Modules\Xot\Services\PanelService;
  *
  * @property XotBasePanel $panel
  */
-class V1 extends Component {
+class V1 extends Component
+{
     use WithFileUploads;
 
     // use UploadsFiles;
@@ -47,7 +48,8 @@ class V1 extends Component {
 
     public Collection $rows;
 
-    public function mount(): void {
+    public function mount(): void
+    {
         $this->route_params = getRouteParameters();
         $this->data = request()->all();
         $this->in_admin = inAdmin();
@@ -63,7 +65,8 @@ class V1 extends Component {
         // dddx($this->rows);
     }
 
-    public function rules(): array {
+    public function rules(): array
+    {
         $tmp = $this->panel->rules(['act' => 'update']);
         $rules = [];
         foreach ($tmp as $k => $v) {
@@ -74,15 +77,18 @@ class V1 extends Component {
         return $rules;
     }
 
-    public function getPanelProperty(): PanelContract {
+    public function getPanelProperty(): PanelContract
+    {
         return PanelService::make()->getByParams($this->route_params);
     }
 
-    public function query(): RowsContract {
+    public function query(): RowsContract
+    {
         return $this->panel->rows($this->data)->with('post');
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -96,19 +102,22 @@ class V1 extends Component {
         return view()->make($view, $view_params);
     }
 
-    public static function makeField(string $field_name, string $field_type): FieldService {
+    public static function makeField(string $field_name, string $field_type): FieldService
+    {
         return FieldService::make()->setName($field_name)
             ->setType($field_type)
             ->setInputComponent('nolabel');
     }
 
-    public static function errorMessage(string $err): string {
+    public static function errorMessage(string $err): string
+    {
         session()->flash('error_message', $err);
 
         return $err;
     }
 
-    public function rowsUpdate(): void {
+    public function rowsUpdate(): void
+    {
         $data = $this->validate();
         $data = $data['rows'];
 
@@ -123,7 +132,8 @@ class V1 extends Component {
         session()->flash('message', 'Post successfully updated.');
     }
 
-    public function carica(string $index, string $file_name, string $file_type, array $data): void {
+    public function carica(string $index, string $file_name, string $file_type, array $data): void
+    {
         // dddx(['index' => $index, 'file_name' => $file_name, 'file_type' => $file_type]);
         // dddx('funzione carica di row');
         // $this->set($index, $file_name);

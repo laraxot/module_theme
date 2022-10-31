@@ -17,14 +17,16 @@ use Modules\Xot\Services\PanelService;
  * @property PanelContract $panel
  * @property Collection    $rows
  */
-class Sort extends Component {
+class Sort extends Component
+{
     public array $routeParams = [];
     public array $data = [];
 
     /**
      * Undocumented function.
      */
-    public function mount(): void {
+    public function mount(): void
+    {
         $this->routeParams = getRouteParameters();
         $this->data = request()->all();
     }
@@ -32,19 +34,22 @@ class Sort extends Component {
     /**
      * Undocumented function.
      */
-    public function getPanelProperty(): PanelContract {
+    public function getPanelProperty(): PanelContract
+    {
         $panel = PanelService::make()->getByParams($this->routeParams);
 
         return $panel;
     }
 
-    public function getRowsProperty(): Collection {
+    public function getRowsProperty(): Collection
+    {
         return $this->panel->rows($this->data)
             ->orderBy('pos')
             ->get();
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -56,7 +61,8 @@ class Sort extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function updateTaskOrder(array $list): void {
+    public function updateTaskOrder(array $list): void
+    {
         // dddx([$a]);
         /*
           7 => array:2 [▼

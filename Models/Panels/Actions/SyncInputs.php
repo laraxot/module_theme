@@ -12,7 +12,8 @@ use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class SyncInputs.
  */
-class SyncInputs extends XotBasePanelAction {
+class SyncInputs extends XotBasePanelAction
+{
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sync"></i>';
@@ -21,7 +22,8 @@ class SyncInputs extends XotBasePanelAction {
      */
     public ?string $name = 'sync_inputs';
 
-    public function handle() {
+    public function handle()
+    {
         return 'preso';
     }
 }

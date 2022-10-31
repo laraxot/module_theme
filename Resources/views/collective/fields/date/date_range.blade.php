@@ -4,9 +4,13 @@
 // get the value as a date string
 if (! function_exists('formatDate')) {
     /**
+     * @param mixed $entry
+     * @param mixed $dateFieldName
+     *
      * @return bool|string|null
      */
-    function formatDate($entry, $dateFieldName) {
+    function formatDate($entry, $dateFieldName)
+    {
         $formattedDate = null;
         if (isset($entry) && ! empty($entry->{$dateFieldName})) {
             $dateField = $entry->{$dateFieldName};

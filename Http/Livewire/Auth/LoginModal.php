@@ -11,12 +11,14 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class LoginModal extends Component {
+class LoginModal extends Component
+{
     public string $username = '';
     public string $password = '';
     public string $currentPath = '';
 
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): \Illuminate\Contracts\Support\Renderable
+    {
         $views = [
             'pub_theme::livewire.auth.login-modal',
             'theme::livewire.auth.login-modal',
@@ -30,7 +32,8 @@ class LoginModal extends Component {
      *
      * @return void
      */
-    public function mount() {
+    public function mount()
+    {
         // dddx([request()->path(), request()->fullUrl()]);
         // dddx([request(), get_class_methods(request())]);
         // dddx(request()->getRequestUri());
@@ -46,7 +49,8 @@ class LoginModal extends Component {
     /**
      * @return \Illuminate\Http\Response|void|\Illuminate\Http\RedirectResponse
      */
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $this->validate();
 
         if ($this->attemptLogin()) {
@@ -67,7 +71,8 @@ class LoginModal extends Component {
      *
      * @return bool
      */
-    protected function attemptLogin() {
+    protected function attemptLogin()
+    {
         return $this->guard()->attempt(
             ['email' => $this->username, 'password' => $this->password]
         );
@@ -78,7 +83,8 @@ class LoginModal extends Component {
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
-    protected function guard() {
+    protected function guard()
+    {
         return Auth::guard();
     }
 }

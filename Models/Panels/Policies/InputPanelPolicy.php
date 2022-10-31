@@ -6,5 +6,6 @@ namespace Modules\Theme\Models\Panels\Policies;
 
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
 
-class InputPanelPolicy extends XotBasePanelPolicy {
+class InputPanelPolicy extends XotBasePanelPolicy
+{
 }
