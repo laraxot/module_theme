@@ -1,7 +1,7 @@
 @props(['name'])
 
-<div class="datetime_range_picker" id="{{ Str::slug($name) }}"
-    style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%" wire:ignore>
+<div class="datetime_range_picker form-control" id="{{ Str::slug($name) }}"
+     wire:ignore>
     <i class="fa fa-calendar"></i>&nbsp;
     <span></span> <i class="fa fa-caret-down"></i>
 
@@ -54,8 +54,6 @@
                        'month').endOf('month')]
                }
            }, cb);
-
-           console.log(res);
 
            cb(start, end);
         });
