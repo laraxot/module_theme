@@ -43,7 +43,7 @@
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
             <h3>Calendario</h3>
-            <x-input type="date.time.range" label="test" name="rows.{{ $model_id }}.date"></x-input>
+            <x-input type="date.datetime.range" label="test" name="rows.{{ $model_id }}.date"></x-input>
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
             <h3>Genere di fonti</h3>
