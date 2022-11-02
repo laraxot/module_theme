@@ -1,9 +1,11 @@
 @php
-if (isset($options['field'])) {
-    $options = $options['field']->options;
-}
-extract($attributes);
-$field = transFields(get_defined_vars());
+    extract($attributes);
+    $field = transFields(get_defined_vars());
+    if (isset($options['field'])) {
+        $options = $options['field']->options;
+    }
+    // extract($attributes);
+    // $field = transFields(get_defined_vars());
 @endphp
 
 @component($blade_component, get_defined_vars())

@@ -1,10 +1,16 @@
 @php
-if (isset($options['field'])) {
-    $options = $options['field']->options;
-}
-extract($attributes);
-$field = transFields(get_defined_vars());
-$field->attributes['class'] .= ' select2';
+    // dddx(get_defined_vars());
+    extract($attributes);
+    $field = transFields(get_defined_vars());
+    $field->attributes['class'] .= ' select2';
+    if (isset($options['field'])) {
+        $options = $options['field']->options;
+    }
+    // extract($attributes);
+    // $field = transFields(get_defined_vars());
+    // $field->attributes['class'] .= ' select2';
+    // dddx($field->attributes);
+    // dddx($field->col_size);
 @endphp
 
 @component($blade_component, get_defined_vars())
@@ -20,7 +26,7 @@ $field->attributes['class'] .= ' select2';
 @push('scripts')
     <script>
         $(".select2").select2({
-            //   theme: "bootstrap"
+            theme: "bootstrap"
         });
     </script>
 @endpush
