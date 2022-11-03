@@ -3,11 +3,14 @@
     <h3>{{ $label ?? 'Criteri di Ricerca' }} <a href="#" wire:click="addArr()"
             class="btn btn-circle btn-primary btn-sm"><i class="uil uil-plus"></i></a>
     </h3>
+   
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
+        //es. filter bool
             $input_name = $name . '[' . $k . ']';
             $wire_name = 'form_data.' . $name . '.' . $k;
         @endphp
+        {{-- <pre>{{ print_r($form_data[$name] ) }}</pre> --}}
         <div class="row">
             <div class="form-select-wrapper mb-4 col-10">
                 <div class="input-group">
