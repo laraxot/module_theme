@@ -1,25 +1,24 @@
 <div>
+
+    <div class="row">
+        <div class="form-floating mb-4 border-ash col-10">
+            <input type="hidden" name="filter[0][criteria]" value="query_string_query">
+            <input name="filter[0][q]" value="{{ $normal_search_data }}" id="TextInputRicerca" type="text"
+                class="form-control" placeholder="Ricerca nella trascrizione">
+            <label for="TextInputRiceca">
+                <i class="uil uil-search">
+                </i> Ricerca nella trascrizione
+            </label>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary col-12">Cerca</button>
+        </div>
+    </div>
+
     <h3>{{ $label ?? 'Criteri di Ricerca' }} <a href="#" wire:click="addArr()"
             class="btn btn-circle btn-primary btn-sm"><i class="uil uil-plus"></i></a>
     </h3>
 
-    <div class="row">
-        <form method="GET">
-            <div class="form-floating mb-4 border-ash col-10">
-                <input type="hidden" name="filter[0][criteria]" value="query_string_query">
-                <input name="filter[0][q]" value="" id="TextInputRicerca" type="text" class="form-control"
-                    placeholder="Ricerca nella trascrizione">
-                <label for="TextInputRiceca">
-                    <i class="uil uil-search">
-                    </i> Ricerca nella trascrizione
-                </label>
-            </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-primary col-12">Cerca</button>
-            </div>
-        </form>
-    </div>
-    
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
             //es. filter bool
@@ -52,8 +51,8 @@
         </div>
         <div class="row">
             <div class=" mb-4">
-                <input type="text" placeholder="Ricerca parola" class="form-control" name="{{ $input_name }}[q]"
-                    wire:model.lazy="{{ $wire_name }}.q">
+                <input type="text" placeholder="Ricerca nella trascrizione" class="form-control"
+                    name="{{ $input_name }}[q]" wire:model.lazy="{{ $wire_name }}.q">
 
                 @if (isset($form_data[$name][$k]['criteria']) && $form_data[$name][$k]['criteria'] != 'query_string_query')
                     <div class="input-group-text my-2">
