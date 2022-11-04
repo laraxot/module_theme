@@ -17,7 +17,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         wire:click.prevent="doClose()"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body pt-0">
                     @if (session()->has('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}

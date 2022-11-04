@@ -10,7 +10,7 @@
                 </i> Ricerca nella trascrizione
             </label>
         </div>
-        <div class="col-2">
+        <div class="col-sm-2">
             <button type="submit" class="btn btn-primary col-12">Cerca</button>
         </div>
     </div>
