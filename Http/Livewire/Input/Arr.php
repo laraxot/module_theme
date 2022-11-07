@@ -65,6 +65,7 @@ class Arr extends Component {
     }
 
     public function addArr(): void {
+        // dddx($this->form_data);
         $this->form_data[$this->name][] = null;
     }
 

@@ -5,8 +5,8 @@
     <span></span> <i class="fa fa-caret-down"></i>
 
     <div style="display:block">
-        <input type="hidden" name="date_from" wire:model.lazy="form_data.{{ $name }}_from">
-        <input type="hidden" name="date_to" wire:model.lazy="form_data.{{ $name }}_to">
+        <input type="hidden" name="date_from" value="{{ request('date_from') }}" {{-- wire:model.lazy="form_data.{{ $name }}_from" --}}>
+        <input type="hidden" name="date_to" value="{{ request('date_to') }}" {{-- wire:model.lazy="form_data.{{ $name }}_to" --}}>
     </div>
 
 </div>
@@ -18,7 +18,7 @@
 
             var start = moment($('#{{ Str::slug($name) }} [name="date_from"]').val());
             if (!start.isValid()) {
-                start = moment().subtract(29, 'days').set('hour', 0).set('minute', 0).set('second', 0);
+                start = moment().subtract(1, 'month').set('hour', 0).set('minute', 0).set('second', 0);
                 $('#{{ Str::slug($name) }} [name="date_from"]').val(start.format('yyyy-MM-DDTHH:mm:ss'));
             }
             var end = moment($('#{{ Str::slug($name) }} [name="date_to"]').val());
@@ -35,9 +35,6 @@
                     'D MMM YYYY HH:mm'));
                 $('#{{ Str::slug($name) }} [name="date_from"]').val(start.format('yyyy-MM-DDTHH:mm:ss'));
                 $('#{{ Str::slug($name) }} [name="date_to"]').val(end.format('yyyy-MM-DDTHH:mm:ss'));
-                //@this.emit('setFormDataValueEvent', "{{ $name }}_from", start.format('yyyy-MM-DDTHH:mm:ss'));
-                // @this.emit('setFormDataValueEvent', "{{ $name }}_to", end.format('yyyy-MM-DDTHH:mm:ss'));
-                // @this.emit('updatedFormDataRowsEvent', @this.form_data);
             }
 
 

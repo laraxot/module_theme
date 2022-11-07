@@ -11,6 +11,9 @@
 			if(is_null($val1)){
 				$val1 = [];
 			}
+			if(isJson($val1)){
+				$val1 = json_decode($val1,true);
+			}
 			//dddx($val1);
 		@endphp
 		<livewire:input.arr type="text" :name="$name" :value="$val1" label="" modelId="1"></livewire:input.arr>
