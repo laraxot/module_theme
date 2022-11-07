@@ -47,3 +47,12 @@ $(document).ready(function(){
         </ul>
     </div>
 @endif
+
+@push('scripts')
+<script>
+window.addEventListener('swal', event => {
+    //alert('Name updated to: ' + event.detail.title);
+    Swal.fire(event.detail);
+});
+</script>
+@endpush
