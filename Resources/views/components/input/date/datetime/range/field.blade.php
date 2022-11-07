@@ -5,8 +5,8 @@
     <span></span> <i class="fa fa-caret-down"></i>
 
     <div style="display:block">
-        <input type="hidden" name="date_from" value="{{ request('date_from') }}" {{-- wire:model.lazy="form_data.{{ $name }}_from" --}}>
-        <input type="hidden" name="date_to" value="{{ request('date_to') }}" {{-- wire:model.lazy="form_data.{{ $name }}_to" --}}>
+        <input type="hidden" name="date_from" value="{{ request('date_from',null) }}" {{-- wire:model.lazy="form_data.{{ $name }}_from" --}}>
+        <input type="hidden" name="date_to" value="{{ request('date_to',null) }}" {{-- wire:model.lazy="form_data.{{ $name }}_to" --}}>
     </div>
 
 </div>
