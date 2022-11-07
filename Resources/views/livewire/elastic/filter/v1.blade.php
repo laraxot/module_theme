@@ -8,15 +8,15 @@
     <livewire:input.arr type="text" label="Parola simile a: " name="fuzzy" :value="$fuzzy" :modelId="$model_id" />
     <div class="form-group">
         <h4>From</h4>
-        <input class="form-control" type="date" id="dateFrom" name="dateFrom">
+        <input class="form-control" type="date" id="date_from" name="date_from">
     </div>
     <div class="form-group">
         <h4>To</h4>
-        <input class="form-control" type="date" id="dateTo" name="dateTo">
+        <input class="form-control" type="date" id="date_to" name="date_to">
     </div>
     <div class="form-group">
         <h4>Order</h4>
-        <select class="form-control" name="orderBy">
+        <select class="form-control" name="order_by">
             <option value="desc">DESC</option>
             <option value="asc">ASC</option>
         </select>
@@ -29,13 +29,13 @@
             local.setFullYear(this.getFullYear() - 1);
             return local.toJSON().slice(0, 10);
         });
-        document.getElementById('dateFrom').value = new Date().oneYearAgo();
+        document.getElementById('date_from').value = new Date().oneYearAgo();
 
         Date.prototype.toDateInputValue = (function() {
             var local = new Date(this);
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
             return local.toJSON().slice(0, 10);
         });
-        document.getElementById('dateTo').value = new Date().toDateInputValue();
+        document.getElementById('date_to').value = new Date().toDateInputValue();
     </script>
 @endpush

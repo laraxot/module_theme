@@ -75,8 +75,8 @@
 
 @php
 $request = request()->all();
-$dateFrom = $request['dateFrom'] ?? '0';
-$dateTo = $request['dateTo'] ?? '0';
+$dateFrom = $request['date_from'] ?? '0';
+$dateTo = $request['date_to'] ?? '0';
 $max_search_days = $profile->getProfile()->max_search_days ?? 365;
 
 //dddx([$dateFrom,$dateTo,$max_search_days]);
@@ -94,9 +94,9 @@ $max_search_days = $profile->getProfile()->max_search_days ?? 365;
         });
 
         if({{$dateFrom}}=="0"){
-            document.getElementById('dateFrom').value = new Date().daysAgo({{$max_search_days}});
+            document.getElementById('date_from').value = new Date().daysAgo({{$max_search_days}});
         }else{
-            document.getElementById('dateFrom').value = "{{$dateFrom}}"
+            document.getElementById('date_from').value = "{{$dateFrom}}"
         }
 
         Date.prototype.toDateInputValue = (function() {
@@ -105,9 +105,9 @@ $max_search_days = $profile->getProfile()->max_search_days ?? 365;
             return local.toJSON().slice(0, 10);
         });
         if({{$dateTo}}=="0"){
-            document.getElementById('dateTo').value = new Date().toDateInputValue();
+            document.getElementById('date_to').value = new Date().toDateInputValue();
         }else{
-            document.getElementById('dateTo').value = "{{$dateTo}}";
+            document.getElementById('date_to').value = "{{$dateTo}}";
         }
 
     </script>

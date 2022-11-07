@@ -61,13 +61,13 @@
         {{--
             2022-02-02T00:00:00.000000Z
         --}}
-        <input class="form-control" type="date" id="dateFrom" name="date_from" wire:model.lazy="form_data.date_from">
-        <input class="form-control" type="date" id="dateTo" name="date_to"  wire:model.lazy="form_data.date_to">
+        <input class="form-control" type="date" id="date_from" name="date_from" wire:model.lazy="form_data.date_from">
+        <input class="form-control" type="date" id="date_to" name="date_to"  wire:model.lazy="form_data.date_to">
     </div>
 
     <div class="form-group">
         <h4>Order</h4>
-        <select class="form-control" name="orderBy" wire:model.lazy="form_data.sort">
+        <select class="form-control" name="order_by" wire:model.lazy="form_data.sort">
             <option value="desc">DESC</option>
             <option value="asc">ASC</option>
         </select>
@@ -76,8 +76,8 @@
 
 @php
 $request=request()->all();
-$dateFrom=$request['dateFrom'] ?? "0";
-$dateTo=$request['dateTo'] ?? "0";
+$dateFrom=$request['date_from'] ?? "0";
+$dateTo=$request['date_to'] ?? "0";
 $max_search_days= $profile->getProfile()->max_search_days ?? 365;
 
 //dddx([$dateFrom,$dateTo,$max_search_days]);
@@ -94,9 +94,9 @@ $max_search_days= $profile->getProfile()->max_search_days ?? 365;
         });
 
         if({{$dateFrom}}=="0"){
-            document.getElementById('dateFrom').value = new Date().daysAgo({{$max_search_days}});
+            document.getElementById('date_from').value = new Date().daysAgo({{$max_search_days}});
         }else{
-            document.getElementById('dateFrom').value = "{{$dateFrom}}"
+            document.getElementById('date_from').value = "{{$dateFrom}}"
         }
 
         Date.prototype.toDateInputValue = (function() {
@@ -105,9 +105,9 @@ $max_search_days= $profile->getProfile()->max_search_days ?? 365;
             return local.toJSON().slice(0, 10);
         });
         if({{$dateTo}}=="0"){
-            document.getElementById('dateTo').value = new Date().toDateInputValue();
+            document.getElementById('date_to').value = new Date().toDateInputValue();
         }else{
-            document.getElementById('dateTo').value = "{{$dateTo}}";
+            document.getElementById('date_to').value = "{{$dateTo}}";
         }
 
     </script>

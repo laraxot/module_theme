@@ -14,9 +14,9 @@
                         @php
                             $max_search_days = $profile->getProfile()->max_search_days ?? 365;
                         @endphp
-                        <input type="hidden" name="dateFrom" value="{{ date('Y-m-d', strtotime('-'.$max_search_days.' days')) }}">
-                        <input type="hidden" name="dateTo" value="{{ date('Y-m-d') }}">
-                        <input type="hidden" name="orderBy" value="desc">
+                        <input type="hidden" name="date_from" value="{{ date('Y-m-d', strtotime('-'.$max_search_days.' days')) }}">
+                        <input type="hidden" name="date_to" value="{{ date('Y-m-d') }}">
+                        <input type="hidden" name="order_by" value="desc">
                         <input class="form-control form-control-sm border-0 shadow-0 bg-gray-200" id="search_search"
                             placeholder="Search" aria-label="Search" type="search" name="filter[0][q]" />
                     </div>
@@ -25,7 +25,7 @@
                 @if ($adv === true)
                     {{--<button class="btn btn-info"
                         onclick="Livewire.emit('showModal','elastic_advanced_search',[])">{{ $text }}</button>--}}
-                        <a href="/it/presses?filter[0][criteria]=query_string_query&dateFrom=&dateTo=&orderBy=desc&filter[0][q]=" class="btn btn-primary">{{ $text }}</a>
+                        <a href="/it/presses?filter[0][criteria]=query_string_query&date_from=&date_to=&order_by=desc&filter[0][q]=" class="btn btn-primary">{{ $text }}</a>
                 @endif
             </div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
