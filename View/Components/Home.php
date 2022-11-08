@@ -27,15 +27,15 @@ class Home extends Component {
     public function render(): Renderable {
         // if (View::exists(config('xra.main_module').'::home')) {
         /*
-        if (View::exists('mediamonitor::DirectoryBs5.home')) {
+        if (View::exists('pfed::DirectoryBs5.home')) {
             dddx('aaa');
 
-            return view()->make('mediamonitor::DirectoryBs5.home');
+            return view()->make('pfed::DirectoryBs5.home');
         } else {
             return view()->make('pub_theme::home.02');
         }
         */
 
-        return view()->make('mediamonitor::DirectoryBs5.home');
+        return view()->make('pfed::DirectoryBs5.home');
     }
 }
