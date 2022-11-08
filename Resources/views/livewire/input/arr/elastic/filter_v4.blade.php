@@ -1,7 +1,7 @@
 <div>
 
     <div class="row">
-        <div class="form-floating mb-4 border-ash col-10">
+        <div class="form-floating mb-4 border-ash col-sm-10">
             <input type="hidden" name="filter[0][criteria]" value="query_string_query">
             <input name="filter[0][q]" value="{{ $normal_search_data }}" id="TextInputRicerca" type="text"
                 class="form-control" placeholder="Ricerca nella trascrizione">
