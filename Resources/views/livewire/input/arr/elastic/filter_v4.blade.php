@@ -1,10 +1,10 @@
 <div>
 
     <div class="row">
-        <div class="form-floating mb-4 border-ash col-sm-10">
+        <div class="form-floating mb-4 col-sm-10">
             <input type="hidden" name="filter[0][criteria]" value="query_string_query">
             <input name="filter[0][q]" value="{{ $normal_search_data }}" id="TextInputRicerca" type="text"
-                class="form-control" placeholder="Ricerca nella trascrizione">
+                class="form-control shadow-lg border-soft-grape" placeholder="Ricerca nella trascrizione">
             <label for="TextInputRiceca">
                 <i class="uil uil-search">
                 </i> Ricerca nella trascrizione
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <h3>{{ $label ?? 'Criteri di Ricerca' }} <a href="#" wire:click="addArr()"
+    <h3 class="mb-4">{{ $label ?? 'Criteri di Ricerca' }} <a href="#" wire:click="addArr()"
             class="btn btn-circle btn-primary btn-sm"><i class="uil uil-plus"></i></a>
     </h3>
 
@@ -64,6 +64,12 @@
             </div>
         </div>
     @endforeach
+    {{-- dddx(count($form_data['filter'])) --}}
+    @if (isset($form_data['filter']) && count($form_data['filter']) > 0)
+        <div class="col-12 mb-4">
+            <button type="submit" class="btn btn-primary col-12">Cerca</button>
+        </div>
+    @endif
     @push('scripts')
         <script>
             function addTilde(element) {
