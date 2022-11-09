@@ -1,8 +1,8 @@
 @extends('adm_theme::layouts.app')
 @section('content')
     @php
-    $fields = $_panel->fields();
-    //dddx(get_defined_vars());
+        $fields = $_panel->fields();
+        dddx(get_defined_vars());
     @endphp
     <table>
         @foreach ($fields as $k => $v)
@@ -19,6 +19,4 @@
     <a class="btn btn-primary" href="{!! $_panel->url('edit') !!}">
         <i class="far fa-edit"></i> Modifica
     </a>
-
-
 @endsection

@@ -1,10 +1,7 @@
-@php
-//dddx(get_defined_vars());
-@endphp
 @extends('pub_theme::layouts.app')
 @section('content')
     @php
-    $fields = $_panel->fields();
+        $fields = $_panel->fields();
     @endphp
     <table>
 
