@@ -6,35 +6,50 @@
             </div>
         @endif
     </div>
-    <h1>{{$title}}</h1>
+    <h1>{{ $title }}</h1>
     <div>
-    {{$loop_index}}/{{$loop_max}}
+        {{ $loop_index }}/{{ $loop_max }}
     </div>
     <x-progress.bar value="{{ $perc }}" />
-    <br/>
+    <br />
     <div class="btn-group" role="group" aria-label="Basic example">
-        <a class="btn btn-primary" href="{{ $url }}" role="button">
-            <i class="fas fa-backward"></i>
-        </a>
-        <button wire:click="start()" class="btn btn-success">Start</button>
-        @if($perc==100 && $onComplete!='')
-        <button wire:click="{{ $onComplete }}()" class="btn btn-success btn-lg">{{ $onComplete }}</button>
+
+        @if ($autostart === 'true')
+            @push('scripts')
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        @this.start();
+                    });
+                </script>
+            @endpush
+        @else
+            <a class="btn btn-primary" href="{{ $url }}" role="button">
+                <i class="fas fa-backward"></i>
+            </a>
+            <button wire:click="start()" class="btn btn-success">Start</button>
+        @endif
+
+        @if ($perc == 100 && $onComplete != '')
+            @if ($autostart === 'true')
+                <script>
+                    @this.{{ $onComplete }}();
+                </script>
+            @else
+                <button wire:click="{{ $onComplete }}()" class="btn btn-success btn-lg">{{ $onComplete }}</button>
+            @endif
         @endif
     </div>
 
-
-    @foreach($errors as $error)
+    @foreach ($errors as $error)
         {!! $error !!}
     @endforeach
     <div>{!! $message !!}</div>
 
-
-
     @push('scripts')
-    <script>
-        Livewire.on('updateProgress', perc => {
-            @this.start();
-        });
-    </script>
+        <script>
+            Livewire.on('updateProgress', perc => {
+                @this.start();
+            });
+        </script>
     @endpush
 </div>

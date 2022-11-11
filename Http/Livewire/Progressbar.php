@@ -9,6 +9,7 @@ use Livewire\Component;
 
 class Progressbar extends Component {
     public int $perc = 0;
+    public string $autostart = 'false';
     public int $loop_index = 0;
     public int $loop_max = 100;
     public array $errors = [];
