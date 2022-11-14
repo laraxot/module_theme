@@ -24,7 +24,6 @@
                         </div>
                     @endif
 
-
                     @include($body_view)
 
                 </div>
