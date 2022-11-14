@@ -403,6 +403,10 @@ export default {
     .video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-item.vjs-selected {
         background-color: #2483d5
     }
+
+    .video-js {
+        border-radius: 15px;
+    }
     
     .video-js .vjs-big-play-button {
         background-color: #605dba;
