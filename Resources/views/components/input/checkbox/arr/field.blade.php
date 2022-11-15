@@ -1,8 +1,10 @@
 @props([
     'options'=>[],
+    'arr'=>[],
     'value'=>null,
     ])
 @php
+    //dddx($arr);
     if(!Arr::isAssoc($options)){
         $options=array_combine($options,$options);
     }

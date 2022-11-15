@@ -65,10 +65,14 @@ class Group extends Component {
         );
 
         $input_attrs = $attributes;
-        $input_attrs = $input_attrs->merge([
-            // 'wire:model.lazy' => 'form_data.'.$attributes->get('name'),
-            // 'options' => json_encode($this->options),
-        ]);
+        $tmp = [];
+        foreach ($input_attrs->getAttributes() as $k => $v) {
+            if (is_array($v)) {
+                $v = json_encode($v);
+            }
+            $tmp[$k] = $v;
+        }
+        $input_attrs->setAttributes($tmp);
 
         $div_class = 'form-group '.$attributes->get('div_class').' col-'.$attributes->get('col_size') ?? '12';
         if ('checkbox' == $attributes->get('type')) {

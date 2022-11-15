@@ -14,9 +14,9 @@ use Illuminate\View\Component;
  */
 class Input extends Component {
     public array $attrs = [];
-    public string $type;
-    public string $name;
-    public array $options;
+    public string $type = 'text';
+    public string $name = 'empty-name';
+    public array $options = [];
 
     /**
      * ---.
