@@ -45,6 +45,6 @@ class Checkboxes extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::checkboxes');
+        return view('theme::livewire.form.builder.v5.checkboxes');
     }
 }

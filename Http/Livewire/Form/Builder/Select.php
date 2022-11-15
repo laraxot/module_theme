@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\Http\Livewire\Form\Builder;
 
 use Illuminate\View\Component;
+use Modules\Theme\Traits\Form\Builder\WithDisabled;
 use Modules\Theme\Traits\Form\Builder\WithHelp;
 use Modules\Theme\Traits\Form\Builder\WithModel;
 use Modules\Theme\Traits\Form\Builder\WithOptions;
@@ -51,6 +52,6 @@ class Select extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::select');
+        return view('theme::livewire.form.builder.v5.select');
     }
 }

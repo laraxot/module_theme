@@ -21,6 +21,6 @@ class View extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::view');
+        return view('theme::livewire.form.builder.v5.view');
     }
 }

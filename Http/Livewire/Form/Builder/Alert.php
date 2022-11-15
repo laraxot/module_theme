@@ -28,6 +28,6 @@ class Alert extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::alert');
+        return view('theme::livewire.form.builder.v5.alert');
     }
 }

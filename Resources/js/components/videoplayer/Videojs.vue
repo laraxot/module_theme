@@ -1,5 +1,5 @@
 <template>
-    <video :id="id" controls preload="auto" ref="video-player" class="video-js vjs-big-play-centered">
+    <video :id="id" controls preload="none" ref="video-player" class="video-js vjs-big-play-centered">
         <source :src="src" type="video/mp4" />
     </video>
 </template>

@@ -23,6 +23,6 @@ class DynamicComponent extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::dynamic-component');
+        return view('theme::livewire.form.builder.v5.dynamic-component');
     }
 }

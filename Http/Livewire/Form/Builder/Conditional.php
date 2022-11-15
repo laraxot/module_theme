@@ -32,6 +32,6 @@ class Conditional extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::conditional');
+        return view('theme::livewire.form.builder.v5.conditional');
     }
 }

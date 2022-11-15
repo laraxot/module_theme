@@ -49,6 +49,6 @@ class File extends Component {
     }
 
     public function render() {
-        return view('laravel-livewire-forms::file');
+        return view('theme::livewire.form.builder.v5.file');
     }
 }
