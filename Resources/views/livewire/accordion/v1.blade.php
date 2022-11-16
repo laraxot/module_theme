@@ -18,10 +18,18 @@
                         <livewire:input.arr type="elastic.footer_filter_v3" name="filter" :value="[]"
                             label="" modelId="0" />
                         <h3>Canali</h3>
-                        <p>
+                        <span class="badge bg-soft-primary text-grape badge-lg rounded-pill mb-3">
+                            <i class="uil uil-toggle-on"></i>
+                            Utilizza i toggle per selezionare i gruppi dei canali
+                        </span>
+
+                        <div class="col-12">
+                        <span class="badge bg-soft-primary text-grape badge-lg rounded-pill mb-3">
                             <i class="uil uil-info-circle"></i>
                             Clicca sui bottoni per selezionare i singoli canali
-                        </p>
+                        </span>
+                        </div>
+                        
                         <livewire:channel.choose />
                         <div class="col-12 my-5">
                             <button class="btn btn-primary col-lg-12 col-12" type="submit">Applica criteri</button>
