@@ -32,7 +32,7 @@
                         
                         <livewire:channel.choose />
                         <div class="col-12 my-5">
-                            <button class="btn btn-primary col-lg-12 col-12" type="submit">Ricerca Avanzata</button>
+                            <button class="btn btn-primary col-lg-12 col-12" style="height: 51px" type="submit">Ricerca Avanzata</button>
                         </div>
                     </form>
                 </div>
