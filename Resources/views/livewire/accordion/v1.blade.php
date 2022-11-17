@@ -1,6 +1,6 @@
 <div>
     <div class="accordion accordion-wrapper py-4" id="accordionIconExample">
-        <div class="card accordion-item icon">
+        <div class="card accordion-item icon bg-soft-primary shadow-lg">
             <div class="card-header" id="headingIconOne">
                 <button class="accordion-button" wire:click="toggle()">
                     <span>
@@ -11,20 +11,20 @@
             <!--/.card-header -->
             <div id="collapseIconOne" class="accordion-collapse collapse {{ $show }}"
                 aria-labelledby="headingIconOne">
-                <div class="card-body">
+                <div class="card-body bg-soft-primary pt-4" style="border-radius: 8px">
                     <form action="/it/presses" method="GET">
                         <livewire:input.arr type="elastic.filter_v3" name="filter" :value="[]"
-                            label="Ricerca Avanzata" modelId="0" />
+                            label="Criteri di ricerca" modelId="0" />
                         <livewire:input.arr type="elastic.footer_filter_v3" name="filter" :value="[]"
                             label="" modelId="0" />
                         <h3>Canali</h3>
-                        <span class="badge bg-soft-primary text-grape badge-lg rounded-pill mb-3">
+                        <span class="badge bg-pale-primary text-grape badge-lg rounded-pill mb-3">
                             <i class="uil uil-toggle-on"></i>
                             Utilizza i toggle per selezionare i gruppi dei canali
                         </span>
 
                         <div class="col-12">
-                        <span class="badge bg-soft-primary text-grape badge-lg rounded-pill mb-3">
+                        <span class="badge bg-pale-primary text-grape badge-lg rounded-pill mb-3">
                             <i class="uil uil-info-circle"></i>
                             Clicca sui bottoni per selezionare i singoli canali
                         </span>
