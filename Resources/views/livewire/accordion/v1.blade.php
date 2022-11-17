@@ -20,7 +20,7 @@
                         <h3>Canali</h3>
                         <span class="badge bg-pale-primary text-grape badge-lg rounded-pill mb-3">
                             <i class="uil uil-toggle-on"></i>
-                            Utilizza i toggle per selezionare i gruppi dei canali
+                            Utilizza gli interruttori per selezionare tutti i canali del gruppo
                         </span>
 
                         <div class="col-12">
