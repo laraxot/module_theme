@@ -40,111 +40,124 @@ export default {
         //console.log('videojs '+window.Livewire);
         //console.log('videojs '+window.livewire);
         //document.addEventListener('livewire:load', event => {
-            console.log('videojs livewire:load');
-            const element = this.$refs['video-player'];
-            //console.log(this.markers);
-            //var markers= JSON.parse(this.markers);
-            //console.log(markers);
-            this.player = videojs(element, {
-                fluid: true,
-                controls: true,
-                autoplay: false,
-                controlBar: {
-                    playToggle: true,
-                    liveDisplay: false,
-                    pictureInPictureToggle: true,
-                    muteToggle: false,
-                    seekToLive: false
-                }
-
-            });
-            var myPlayer = this.player;
-            //console.log(this.markers);
-            //load the marker plugin
-            if (Array.isArray(this.markers)) {
-                myPlayer.markers({
-                    markerStyle: {
-                        'width': '8px',
-                        'border-radius': '30%',
-                        'background-color': 'yellow'
-                    },
-                    markers: this.markers,
-                    markerTip: {
-                        display: true,
-                        text: function (marker) {
-                            return marker.text + ': ' + marker.time
-                        },
-                        //time: function(marker) {
-                        //return marker.time;
-                        //    return null;
-                        //}
-                    },
-                    onMarkerReached: function (marker) {
-                        //console.log("marker reached: " + marker.text )
-                    },
-                });
+        console.log('videojs livewire:load');
+        const element = this.$refs['video-player'];
+        //console.log(this.markers);
+        //var markers= JSON.parse(this.markers);
+        //console.log(markers);
+        this.player = videojs(element, {
+            fluid: true,
+            controls: true,
+            autoplay: false,
+            controlBar: {
+                playToggle: true,
+                liveDisplay: false,
+                pictureInPictureToggle: true,
+                muteToggle: false,
+                seekToLive: false
             }
 
-            myPlayer.ready(function () {
-                console.log('myPlayer.ready');
-                myPlayer.controlBar.show();
-                myPlayer.controlBar.removeClass('vjs-fade-out');
+        });
+        var myPlayer = this.player;
+        //console.log(this.markers);
+        //load the marker plugin
+        if (Array.isArray(this.markers)) {
+            myPlayer.markers({
+                markerStyle: {
+                    'width': '8px',
+                    'border-radius': '30%',
+                    'background-color': 'yellow'
+                },
+                markers: this.markers,
+                markerTip: {
+                    display: true,
+                    text: function (marker) {
+                        return marker.text + ': ' + marker.time
+                    },
+                    //time: function(marker) {
+                    //return marker.time;
+                    //    return null;
+                    //}
+                },
+                onMarkerReached: function (marker) {
+                    //console.log("marker reached: " + marker.text )
+                },
+            });
+        }
 
-                myPlayer.userActive(true);
+        myPlayer.ready(function () {
+            console.log('myPlayer.ready');
+            myPlayer.controlBar.show();
+            myPlayer.controlBar.removeClass('vjs-fade-out');
 
-                $('.subitem').on('click', function (e) {
-                    var time = this.getAttribute('data-start');
-                    myPlayer.currentTime(time);
-                    console.log('videojs set time ',time);
-                });
+            myPlayer.userActive(true);
 
-                let anchor_id = $(location).attr('hash');
-                console.log('anchor id',anchor_id);
-                if (anchor_id !== '') {
-                    anchor_id = anchor_id.substr(1);
-                    let target = $('[name="' + anchor_id + '"]').next('span')[0];
-                    let data_start = target.getAttribute('data-start');
-                    console.log('anchor start time', data_start);
-                    myPlayer.currentTime(data_start);
+            $('.subitem').on('click', function (e) {
+                var time = this.getAttribute('data-start');
+                myPlayer.currentTime(time);
+                console.log('videojs set time ', time);
+            });
+
+            anchorator();
+
+
+        });
+
+        Livewire.on('setNewMark', function () { anchorator() });
+
+        function anchorator(event) {
+           $('.subitem').removeClass('highlight').removeClass('text-white').removeClass('bg-primary').removeClass('fw-bolder');
+
+            // deve farlo anche quando chiami l'url dalle citazioni
+            let anchor_id = $(location).attr('hash');
+
+            console.log('anchor id', anchor_id);
+            if (anchor_id !== '') {
+                anchor_id = anchor_id.substr(1);
+                let target = $('[name="' + anchor_id + '"]').next('span')[0];
+                let data_start = target.getAttribute('data-start');
+                $('[data-start="' + data_start + '"]').addClass('highlight').addClass('text-white').addClass('bg-primary').addClass('fw-bolder');
+                console.log('anchor start time', data_start);
+                myPlayer.currentTime(data_start);
+                $(target).click();
+            }
+        }
+
+        Livewire.on('setVideoMarkers', ($markers) => {
+            //console.log('---------------setVideoMarkers--------------');
+            //console.log($markers);
+            if (Array.isArray($markers)) {
+                myPlayer.markers.reset($markers);
+            }
+        });
+        /*
+        myPlayer.on('playing', function() {
+            console.log('playing');
+            console.log(this.currentTime());
+        });
+        */
+
+        myPlayer.on("loadedmetadata", function () {
+            //console.log('loadedmetadata');
+            //console.log(myPlayer.duration());
+            Livewire.emit('setSliderMinMax', 0, myPlayer.duration());
+
+        });
+        myPlayer.on('timeupdate', function () {
+            console.log('timeupdate');
+            var time = this.currentTime();
+            Livewire.emit('setVideoCurrentTime', time);
+            $('.subitem').each(function () {
+                var start = $(this).data('start') * 0.9999;
+                var end = $(this).data('end') * 1.0001;
+                var find = _.inRange(time, start, end);
+                if (find) {
+                    $(this).addClass(" highlight text-white bg-primary fw-bolder");
+                } else {
+                    $(this).removeClass(" highlight text-white bg-primary fw-bolder");
                 }
-
             });
-
-            Livewire.on('setVideoMarkers', ($markers) => {
-                //console.log('---------------setVideoMarkers--------------');
-                //console.log($markers);
-                if (Array.isArray($markers)) {
-                    myPlayer.markers.reset($markers);
-                }
-            });
-            /*
-            myPlayer.on('playing', function() {
-                console.log('playing');
-                console.log(this.currentTime());
-            });
-            */
-
-            myPlayer.on("loadedmetadata", function () {
-                //console.log('loadedmetadata');
-                //console.log(myPlayer.duration());
-                Livewire.emit('setSliderMinMax', 0, myPlayer.duration());
-
-            });
-            myPlayer.on('timeupdate', function () {
-                console.log('timeupdate');
-                var time = this.currentTime();
-                Livewire.emit('setVideoCurrentTime', time);
-                $('.subitem').each(function () {
-                    var start = $(this).data('start') * 0.9999;
-                    var end = $(this).data('end') * 1.0001;
-                    var find = _.inRange(time, start, end);
-                    if (find) {
-                        $(this).addClass(" highlight text-white bg-primary fw-bolder");
-                    } else {
-                        $(this).removeClass(" highlight text-white bg-primary fw-bolder");
-                    }
-                });
-            });
+        });
         //});
     }
 };
