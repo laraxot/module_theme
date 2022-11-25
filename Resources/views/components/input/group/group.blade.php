@@ -17,6 +17,7 @@
 
 <div {{ $div_attrs }} >
     <x-input.label {{ $label_attrs }} />
+    {{--dddx($input_attrs)--}}
     <x-input {{ $input_attrs }} :options="$options" />
     @error($name)
         <div class="alert alert-danger">{{ $message }}</div>

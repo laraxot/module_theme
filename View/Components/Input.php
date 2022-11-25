@@ -24,6 +24,7 @@ class Input extends Component {
      * @param mixed|null $value
      */
     public function __construct(string $name, string $type, ?array $options = []) {
+        // dddx(['type' => $type, 'options' => $options]);
         $this->name = $name;
         $this->type = Str::snake($type);
         $this->options = $options;
@@ -53,6 +54,7 @@ class Input extends Component {
      * Get the view / contents that represents the component.
      */
     public function render(): Renderable {
+        // esempio Modules/Theme/Resources/views/components/input/select/field.blade.php
         /**
          * @phpstan-var view-string
          */

@@ -46,6 +46,10 @@ class Group extends Component {
      */
     public function renderData(array &$data) {
         extract($data);
+
+        // attributes type è il tipo di input (es. select)
+        // dddx(get_defined_vars());
+
         /**
          * @phpstan-var view-string
          */
