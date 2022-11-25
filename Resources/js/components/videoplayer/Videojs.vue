@@ -15,6 +15,7 @@ import videojs from "video.js";
 import 'videojs-markers-plugin';
 import $ from "jquery";
 import _ from "lodash";
+//import 'livewire-vue';
 
 export default {
     name: 'VideoJs',
@@ -34,7 +35,12 @@ export default {
         };
     },
     mounted() {
-        document.addEventListener('livewire:load', event => {
+        //console.log('videojs mounted');
+        //console.log('videojs '+Livewire);
+        //console.log('videojs '+window.Livewire);
+        //console.log('videojs '+window.livewire);
+        //document.addEventListener('livewire:load', event => {
+            console.log('videojs livewire:load');
             const element = this.$refs['video-player'];
             //console.log(this.markers);
             //var markers= JSON.parse(this.markers);
@@ -80,6 +86,7 @@ export default {
             }
 
             myPlayer.ready(function () {
+                console.log('myPlayer.ready');
                 myPlayer.controlBar.show();
                 myPlayer.controlBar.removeClass('vjs-fade-out');
 
@@ -88,6 +95,7 @@ export default {
                 $('.subitem').on('click', function (e) {
                     var time = this.getAttribute('data-start');
                     myPlayer.currentTime(time);
+                    console.log('videojs set time ',time);
                 });
 
                 let anchor_id = $(location).attr('hash');
@@ -123,7 +131,7 @@ export default {
 
             });
             myPlayer.on('timeupdate', function () {
-                //console.log('timeupdate');
+                console.log('timeupdate');
                 var time = this.currentTime();
                 Livewire.emit('setVideoCurrentTime', time);
                 $('.subitem').each(function () {
@@ -137,7 +145,7 @@ export default {
                     }
                 });
             });
-        });
+        //});
     }
 };
 </script>

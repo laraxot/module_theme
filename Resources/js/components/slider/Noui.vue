@@ -10,8 +10,11 @@
 import noUiSlider from "nouislider";
 import $ from "jquery";
 import _ from "lodash";
+//import 'livewire-vue';
+
 
 export default {
+    name: 'Noui',
     props: ["id"],
     data() {
         return {
@@ -22,7 +25,10 @@ export default {
         };
     },
     mounted() {
-        
+        //console.log('noui mounted');
+        //console.log(Livewire);
+        //console.log(window.Livewire);
+        //console.log(window.livewire);
         const range = this.$refs['slider'];
         //console.log('slider');
         //console.log(this.options);
@@ -38,8 +44,8 @@ export default {
         });
         
 
-        document.addEventListener('livewire:load',  event => {
-            
+        //document.addEventListener('livewire:load',  event => {
+            //console.log('noui livewire:load');
             //console.log(Livewire);
             this.slider.on('change', function(values, handle) {
                 //@this.updateValues(values);
@@ -84,7 +90,7 @@ export default {
                 });
             });
             */
-        });
+        //});
         
 
 
@@ -94,4 +100,41 @@ export default {
 
 <style>
    @import "nouislider/dist/nouislider.css";
+
+   .noUi-connect {
+    background: #605dba;
+}
+
+.noUi-tooltip {
+    display: none;
+}
+
+.noUi-target {
+    background: #f2f2f2;
+    border-radius: 50px;
+    border: none;
+    box-shadow: none;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+    content: "";
+    display: none;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    top: -4px;
+}
+
+.noUi-handle {
+    border: 1px solid #f2f2f2;
+    border-radius: 65px;
+    background: #FFF;
+    cursor: default;
+    box-shadow: 0 3px 6px -3px #BBB;
+}
+
+
 </style>
