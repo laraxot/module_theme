@@ -9,7 +9,7 @@
             </x-input.group>
         </div>
         <div class="form-select-wrapper mb-4 col-md-4">
-            <x-input.group type="select" class="form-select" name="type" :options="$_theme->getMediaTypeList()" label_class="h3"
+            <x-input.group type="select" class="form-select" name="type" remove_first_empty_option="true" :options="$_theme->getMediaTypeList()" label_class="h3"
                 id="media_type"></x-input.group>
         </div>
     </div>
