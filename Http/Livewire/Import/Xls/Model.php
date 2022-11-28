@@ -127,6 +127,8 @@ class Model extends Component {
             if (false !== $data && false !== $this->fields) {
                 $data = array_merge($data, $this->fields);
             }
+            $data['mobile_phone'] = strval($data['mobile_phone']);
+            // dddx($data['mobile_phone']);
             // dddx(['data' => $data, 'v' => $v, 'form_data' => $this->form_data, 'keys' => $keys]);
             $model->create($data);
         }
