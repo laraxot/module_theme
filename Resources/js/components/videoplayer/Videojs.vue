@@ -106,7 +106,7 @@ export default {
         Livewire.on('setNewMark', function () { anchorator() });
 
         function anchorator(event) {
-           $('.subitem').removeClass('highlight').removeClass('text-white').removeClass('bg-primary').removeClass('fw-bolder');
+           $('.subitem')./*removeClass('highlight').*/removeClass('text-white').removeClass('bg-primary').removeClass('fw-bolder');
 
             // deve farlo anche quando chiami l'url dalle citazioni
             let anchor_id = $(location).attr('hash');
@@ -116,7 +116,7 @@ export default {
                 anchor_id = anchor_id.substr(1);
                 let target = $('[name="' + anchor_id + '"]').next('span')[0];
                 let data_start = target.getAttribute('data-start');
-                $('[data-start="' + data_start + '"]').addClass('highlight').addClass('text-white').addClass('bg-primary').addClass('fw-bolder');
+                $('[data-start="' + data_start + '"]')./*addClass('highlight').*/addClass('text-white').addClass('bg-primary').addClass('fw-bolder');
                 console.log('anchor start time', data_start);
                 myPlayer.currentTime(data_start);
                 $(target).click();
