@@ -7,7 +7,7 @@
 	<div class="container">
 		<div class="navbar-translate">
 			<a class="navbar-brand" href="https://www.creative-tim.com">
-			<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/foodtribu8.png') }}" alt="logo" height="40">
+			<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/test.png') }}" alt="logo" height="40">
 			</a>
 			<button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-bar"></span>
@@ -42,13 +42,13 @@
 
 
 {{--<a class="navbar-brand" href="{{ url('/'.$lang) }}">
-		<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/foodtribu8.png') }}" alt="logo" height="40">
+		<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/test.png') }}" alt="logo" height="40">
 	</a>--}}
 
 <a class="navbar-brand" href="{{ url('/'.$lang) }}">
 	<div itemscope itemtype="http://schema.org/Service">
-			<h1 style="display:none;"><span itemprop="name">FoodTribù</span></h1>
-			<img itemprop="logo" class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/foodtribu8.png') }}" alt="foodtribù logo" height="40"/>
+			<h1 style="display:none;"><span itemprop="name">test</span></h1>
+			<img itemprop="logo" class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/test.png') }}" alt="test logo" height="40"/>
 			<span itemprop="description" style="display:none;">La migliore app di cibo d'asporto</span>
 	</div>
 </a>
@@ -68,7 +68,7 @@
 			</li>
 			@include('pub_theme::auth.links')
   		@include('pub_theme::layouts.partials.headernav.lang')
-			@include('pub_theme::layouts.partials.headernav.add_restaurant')
+			
 		</ul>
 		{{-- </ul> --}}
 	</div>
@@ -80,7 +80,7 @@
 <header id="header" class="{{ isset($header_class)?$header_class:"header-scroll top-header headrom" }}">
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   	<a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
-  		<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/foodtribu8.png') }}" alt="logo" height="40">
+  		<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/test.png') }}" alt="logo" height="40">
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -111,7 +111,7 @@
 <header id="header" class="{{ isset($header_class)?$header_class:"header-scroll top-header headrom" }}">
 <nav class="navbar navbar-dark">
 	<a class="navbar-brand" href="{{ url($lang) }}">
-	<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/foodtribu8.png') }}" alt="logo" height="40">
+	<img class="img-rounded" src="{{ Theme::url('/theme/pub/images/logos/test.png') }}" alt="logo" height="40">
 	</a>
 	<button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>

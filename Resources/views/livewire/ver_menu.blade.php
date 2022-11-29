@@ -2,7 +2,7 @@
 
 
     <li class="menu-item  menu-item-active" aria-haspopup="true">
-        <a href="http://localhost/food_tribu_project/mecronic_one_laravel/public" class="menu-link ">
+        <a href="http://localhost//mecronic_one_laravel/public" class="menu-link ">
             <span class="svg-icon menu-icon">
                 <!--begin::Svg Icon | path:media/svg/icons/Design/Layers.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -59,12 +59,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/test" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Default</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/user/list-datatable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Datatable</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/user/list-columns-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/user/list-columns-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/user/add-user" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Add User</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/user/edit-user" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Edit User</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/test" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Default</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/user/list-datatable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Datatable</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/user/list-columns-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/user/list-columns-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/user/add-user" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Add User</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/user/edit-user" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Edit User</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -78,17 +78,17 @@
 										<div class="menu-submenu ">
 											<span class="menu-arrow"></span>
 											<ul class="menu-subnav">
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-1/overview" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Overview</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-1/personal-information" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Personal Information</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-1/account-information" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Account Information</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-1/change-password" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Change Password</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-1/email-settings" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Email Settings</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-1/overview" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Overview</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-1/personal-information" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Personal Information</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-1/account-information" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Account Information</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-1/change-password" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Change Password</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-1/email-settings" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Email Settings</span></a></li>
 											</ul>
 										</div>
 									</li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Profile 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Profile 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/profile/profile-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Profile 4</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Profile 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Profile 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/profile/profile-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Profile 4</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -97,11 +97,11 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/contacts/list-columns" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/contacts/list-datatable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Datatable</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/contacts/view-contact" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">View Contact</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/contacts/add-contact" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Add Contact</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/contacts/edit-contact" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Edit Contact</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/contacts/list-columns" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/contacts/list-datatable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Datatable</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/contacts/view-contact" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">View Contact</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/contacts/add-contact" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Add Contact</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/contacts/edit-contact" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Edit Contact</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -110,14 +110,14 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/list-columns-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/list-columns-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/list-columns-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/list-columns-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 4</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/list-datatable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Datatable</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/view-project" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">View Project</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/add-project" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Add Project</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/projects/edit-project" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Edit Project</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/list-columns-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/list-columns-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/list-columns-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/list-columns-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Columns 4</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/list-datatable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List - Datatable</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/view-project" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">View Project</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/add-project" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Add Project</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/projects/edit-project" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Edit Project</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -126,13 +126,13 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/home-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Home 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/home-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Home 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/faq-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">FAQ 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/faq-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">FAQ 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/faq-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">FAQ 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/feedback" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Feedback</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/support-center/license" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">License</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/home-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Home 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/home-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Home 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/faq-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">FAQ 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/faq-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">FAQ 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/faq-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">FAQ 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/feedback" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Feedback</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/support-center/license" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">License</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -141,9 +141,9 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/chat/private" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Private</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/chat/group" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Group</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/chat/popup" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Popup</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/chat/private" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Private</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/chat/group" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Group</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/chat/popup" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Popup</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -152,13 +152,13 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/todo/tasks" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tasks</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/todo/docs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Docs</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/todo/files" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Files</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/todo/tasks" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tasks</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/todo/docs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Docs</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/todo/files" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Files</span></a></li>
 								</ul>
 							</div>
 						</li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/apps/inbox" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Inbox</span><span class="menu-badge"><span class="label label-danger label-inline">new</span></span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/apps/inbox" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">Inbox</span><span class="menu-badge"><span class="label label-danger label-inline">new</span></span></a></li>
 					</ul>
                 </div> --}}
     </li>
@@ -186,10 +186,10 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/wizard/wizard-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/wizard/wizard-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/wizard/wizard-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/wizard/wizard-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 4</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/wizard/wizard-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/wizard/wizard-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/wizard/wizard-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/wizard/wizard-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Wizard 4</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -198,10 +198,10 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/pricing/pricing-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/pricing/pricing-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/pricing/pricing-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/pricing/pricing-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 4</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/pricing/pricing-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/pricing/pricing-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/pricing/pricing-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/pricing/pricing-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pricing Tables 4</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -210,8 +210,8 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/invoices/invoice-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Invoice 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/invoices/invoice-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Invoice 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/invoices/invoice-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Invoice 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/custom/pages/invoices/invoice-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Invoice 2</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -220,12 +220,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/users/login-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/users/login-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/users/login-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/users/login-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 4</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/users/login-5" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 5</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/users/login-6" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 6</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/users/login-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/users/login-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/users/login-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/users/login-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 4</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/users/login-5" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 5</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/users/login-6" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Login 6</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -234,12 +234,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/errors/error-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 1</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/errors/error-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/errors/error-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 3</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/errors/error-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 4</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/errors/error-5" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 5</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost/food_tribu_project/mecronic_one_laravel/public/custom/pages/errors/error-6" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 6</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/errors/error-1" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 1</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/errors/error-2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/errors/error-3" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 3</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/errors/error-4" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 4</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/errors/error-5" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 5</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a target="_blank" href="http://localhost//mecronic_one_laravel/public/custom/pages/errors/error-6" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Error 6</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -269,8 +269,8 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Themes</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/themes/aside-light" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Light Aside</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/themes/header-dark" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Dark Header</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/themes/aside-light" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Light Aside</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/themes/header-dark" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Dark Header</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -293,11 +293,11 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Subheaders</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/subheader/toolbar" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Toolbar Nav</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/subheader/actions" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Actions Buttons</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/subheader/tabbed" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tabbed Nav</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/subheader/classic" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Classic</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/subheader/none" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">None</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/subheader/toolbar" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Toolbar Nav</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/subheader/actions" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Actions Buttons</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/subheader/tabbed" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tabbed Nav</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/subheader/classic" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Classic</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/subheader/none" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">None</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -320,17 +320,17 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">General</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/general/fixed-content" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Fixed Content</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/general/minimized-aside" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Minimized Aside</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/general/no-aside" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">No Aside</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/general/empty-page" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Empty Page</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/general/fixed-footer" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Fixed Footer</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/layout/general/no-header-menu" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">No Header Menu</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/general/fixed-content" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Fixed Content</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/general/minimized-aside" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Minimized Aside</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/general/no-aside" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">No Aside</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/general/empty-page" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Empty Page</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/general/fixed-footer" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Fixed Footer</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/layout/general/no-header-menu" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">No Header Menu</span></a></li>
 					</ul>
 				</div>
 			</li>
 			<li class="menu-item " aria-haspopup="true">
-				<a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/builder" class="menu-link ">
+				<a href="http://localhost//mecronic_one_laravel/public/builder" class="menu-link ">
 					<span class="svg-icon menu-icon">
 						<!--begin::Svg Icon | path:media/svg/icons/Home/Library.svg-->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -373,12 +373,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/controls/base" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Base Inputs</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/controls/input-group" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Input Groups</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/controls/checkbox" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Checkbox</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/controls/radio" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Radio</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/controls/switch" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Switch</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/controls/option" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Mega Options</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/controls/base" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Base Inputs</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/controls/input-group" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Input Groups</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/controls/checkbox" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Checkbox</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/controls/radio" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Radio</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/controls/switch" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Switch</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/controls/option" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Mega Options</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -387,25 +387,25 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-datepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Datepicker</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-datetimepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Datetimepicker</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-timepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Timepicker</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-daterangepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daterangepicker</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/tagify" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tagify</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-touchspin" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Touchspin</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-maxlength" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Maxlength</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-switch" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Switch</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-multipleselectsplitter" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Multiple Select Splitter</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/bootstrap-select" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Bootstrap Select</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/select2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Select2</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/typeahead" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Typeahead</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/nouislider" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">noUiSlider</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/form-repeater" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Form Repeater</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/ion-range-slider" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ion Range Slider</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/input-mask" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Input Masks</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/autosize" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Autosize</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/clipboard" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Clipboard</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/widgets/recaptcha" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google reCaptcha</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-datepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Datepicker</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-datetimepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Datetimepicker</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-timepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Timepicker</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-daterangepicker" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Daterangepicker</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/tagify" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tagify</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-touchspin" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Touchspin</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-maxlength" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Maxlength</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-switch" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Switch</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-multipleselectsplitter" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Multiple Select Splitter</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/bootstrap-select" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Bootstrap Select</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/select2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Select2</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/typeahead" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Typeahead</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/nouislider" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">noUiSlider</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/form-repeater" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Form Repeater</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/ion-range-slider" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ion Range Slider</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/input-mask" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Input Masks</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/autosize" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Autosize</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/clipboard" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Clipboard</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/widgets/recaptcha" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google reCaptcha</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -414,23 +414,23 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/tinymce" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">TinyMCE</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/tinymce" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">TinyMCE</span></a></li>
 									<li class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 										<a href="#" class="menu-link menu-toggle"><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">CKEditor</span><i class="menu-arrow"></i></a>
 										<div class="menu-submenu ">
 											<span class="menu-arrow"></span>
 											<ul class="menu-subnav">
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/ckeditor-classic" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Classic</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/ckeditor-inline" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Inline</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/ckeditor-balloon" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Balloon</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/ckeditor-balloon-block" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Balloon Block</span></a></li>
-												<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/ckeditor-document" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Document</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/ckeditor-classic" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Classic</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/ckeditor-inline" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Inline</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/ckeditor-balloon" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Balloon</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/ckeditor-balloon-block" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Balloon Block</span></a></li>
+												<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/ckeditor-document" class="menu-link "><i class="menu-bullet menu-bullet-line"><span></span></i><span class="menu-text">CKEditor Document</span></a></li>
 											</ul>
 										</div>
 									</li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/quill" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Quill Text Editor</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/summernote" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Summernote WYSIWYG</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/editors/bootstrap-markdown" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Markdown Editor</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/quill" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Quill Text Editor</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/summernote" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Summernote WYSIWYG</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/editors/bootstrap-markdown" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Markdown Editor</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -439,10 +439,10 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/layouts/default-forms" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Default Forms</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/layouts/multi-column-forms" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Multi Column Forms</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/layouts/action-bars" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Basic Action Bars</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/layouts/sticky-action-bar" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Sticky Action Bar</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/layouts/default-forms" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Default Forms</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/layouts/multi-column-forms" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Multi Column Forms</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/layouts/action-bars" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Basic Action Bars</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/layouts/sticky-action-bar" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Sticky Action Bar</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -451,9 +451,9 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/validation/states" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Validation States</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/validation/form-controls" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Form Controls</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/forms/validation/form-widgets" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Form Widgets</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/validation/states" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Validation States</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/validation/form-controls" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Form Controls</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/forms/validation/form-widgets" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Form Widgets</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -484,12 +484,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/base/data-local" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Local Data</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/base/data-json" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">JSON Data</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/base/data-ajax" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ajax Data</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/base/html-table" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">HTML Table</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/base/local-sort" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Local Sort</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/base/translation" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Translation</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/base/data-local" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Local Data</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/base/data-json" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">JSON Data</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/base/data-ajax" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ajax Data</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/base/html-table" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">HTML Table</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/base/local-sort" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Local Sort</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/base/translation" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Translation</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -498,12 +498,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/advanced/record-selection" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Record Selection</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/advanced/row-details" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Row Details</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/advanced/modal" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Modal Examples</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/advanced/column-rendering" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Rendering</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/advanced/column-width" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Width</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/advanced/vertical" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Vertical Scrolling</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/advanced/record-selection" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Record Selection</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/advanced/row-details" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Row Details</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/advanced/modal" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Modal Examples</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/advanced/column-rendering" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Rendering</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/advanced/column-width" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Width</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/advanced/vertical" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Vertical Scrolling</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -512,8 +512,8 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/child/data-local" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Local Data</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/child/data-ajax" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Remote Data</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/child/data-local" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Local Data</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/child/data-ajax" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Remote Data</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -522,8 +522,8 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/api/methods" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">API Methods</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/ktdatatable/api/events" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Events</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/api/methods" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">API Methods</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/ktdatatable/api/events" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Events</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -554,10 +554,10 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/basic/basic" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Basic Tables</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/basic/scrollable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Scrollable Tables</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/basic/headers" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Complex Headers</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/basic/paginations" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pagination Options</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/basic/basic" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Basic Tables</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/basic/scrollable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Scrollable Tables</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/basic/headers" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Complex Headers</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/basic/paginations" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pagination Options</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -566,12 +566,12 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/advanced/column-rendering" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Rendering</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/advanced/multiple-controls" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Multiple Controls</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/advanced/column-visibility" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Visibility</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/advanced/row-callback" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Row Callback</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/advanced/row-grouping" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Row Grouping</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/advanced/footer-callback" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Footer Callback</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/advanced/column-rendering" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Rendering</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/advanced/multiple-controls" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Multiple Controls</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/advanced/column-visibility" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Visibility</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/advanced/row-callback" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Row Callback</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/advanced/row-grouping" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Row Grouping</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/advanced/footer-callback" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Footer Callback</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -580,10 +580,10 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/data-sources/html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">HTML</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/data-sources/javascript" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Javascript</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/data-sources/ajax-client-side" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ajax Client-side</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/data-sources/ajax-server-side" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ajax Server-side</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/data-sources/html" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">HTML</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/data-sources/javascript" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Javascript</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/data-sources/ajax-client-side" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ajax Client-side</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/data-sources/ajax-server-side" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ajax Server-side</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -592,8 +592,8 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/search-options/column-search" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Search</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/search-options/advanced-search" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Advanced Search</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/search-options/column-search" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Column Search</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/search-options/advanced-search" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Advanced Search</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -602,14 +602,14 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/buttons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Buttons</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/colreorder" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">ColReorder</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/keytable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">KeyTable</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/responsive" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Responsive</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/rowgroup" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">RowGroup</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/rowreorder" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">RowReorder</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/scroller" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Scroller</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/datatables/extensions/select" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Select</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/buttons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Buttons</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/colreorder" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">ColReorder</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/keytable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">KeyTable</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/responsive" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Responsive</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/rowgroup" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">RowGroup</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/rowreorder" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">RowReorder</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/scroller" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Scroller</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/datatables/extensions/select" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Select</span></a></li>
 								</ul>
 							</div>
 						</li>
@@ -635,9 +635,9 @@
 				<div class="menu-submenu ">
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/file-upload/image-input" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Image Input</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/file-upload/dropzonejs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">DropzoneJS</span><span class="menu-badge"><span class="label label-danger label-inline">new</span></span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/crud/file-upload/uppy" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Uppy</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/file-upload/image-input" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Image Input</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/file-upload/dropzonejs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">DropzoneJS</span><span class="menu-badge"><span class="label label-danger label-inline">new</span></span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/crud/file-upload/uppy" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Uppy</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -664,17 +664,17 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Bootstrap</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/typography" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Typography</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/buttons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Buttons</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/button-group" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Button Group</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/dropdown" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Dropdown</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/navs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Navs</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/tables" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tables</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/progress" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Progress</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/modal" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Modal</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/alerts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Alerts</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/popover" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Popover</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/bootstrap/tooltip" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tooltip</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/typography" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Typography</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/buttons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Buttons</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/button-group" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Button Group</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/dropdown" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Dropdown</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/navs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Navs</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/tables" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tables</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/progress" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Progress</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/modal" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Modal</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/alerts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Alerts</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/popover" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Popover</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/bootstrap/tooltip" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tooltip</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -699,19 +699,19 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Custom</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/utilities" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Utilities</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/label" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Labels</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/line-tabs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Line Tabs</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/advance-navs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Advance Navs</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/timeline" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Timeline</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/pagination" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pagination</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/symbol" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Symbol</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/overlay" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Overlay</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/spinners" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Spinners</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/iconbox" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Iconbox</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/callout" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Callout</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/ribbons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ribbons</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/custom/accordions" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Accordions</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/utilities" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Utilities</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/label" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Labels</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/line-tabs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Line Tabs</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/advance-navs" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Advance Navs</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/timeline" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Timeline</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/pagination" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Pagination</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/symbol" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Symbol</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/overlay" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Overlay</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/spinners" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Spinners</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/iconbox" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Iconbox</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/callout" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Callout</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/ribbons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Ribbons</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/custom/accordions" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Accordions</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -734,13 +734,13 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Cards</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/general" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">General Cards</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/stacked" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Stacked Cards</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/tabbed" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tabbed Cards</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/draggable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Draggable Cards</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/tools" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Cards Tools</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/sticky" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Sticky Cards</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/cards/stretched" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Stretched Cards</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/general" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">General Cards</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/stacked" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Stacked Cards</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/tabbed" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tabbed Cards</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/draggable" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Draggable Cards</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/tools" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Cards Tools</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/sticky" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Sticky Cards</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/cards/stretched" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Stretched Cards</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -764,15 +764,15 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Widgets</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/lists" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Lists</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/stats" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Stats</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Charts</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/mixed" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Mixed</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/tiles" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tiles</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/engage" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Engage</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/base-tables" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Base Tables</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/advance-tables" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Advance Tables</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/widgets/forms" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Forms</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/lists" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Lists</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/stats" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Stats</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Charts</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/mixed" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Mixed</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/tiles" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tiles</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/engage" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Engage</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/base-tables" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Base Tables</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/advance-tables" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Advance Tables</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/widgets/forms" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Forms</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -796,11 +796,11 @@
 				<div class="menu-submenu ">
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/icons/svg" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">SVG Icons</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/icons/flaticon" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Flaticon</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/icons/fontawesome5" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Fontawesome 5</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/icons/lineawesome" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Lineawesome</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/icons/socicons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Socicons</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/icons/svg" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">SVG Icons</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/icons/flaticon" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Flaticon</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/icons/fontawesome5" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Fontawesome 5</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/icons/lineawesome" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Lineawesome</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/icons/socicons" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Socicons</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -823,11 +823,11 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Calendar</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/calendar/basic" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Basic Calendar</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/calendar/list-view" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List Views</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/calendar/google" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google Calendar</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/calendar/external-events" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">External Events</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/calendar/background-events" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Background Events</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/calendar/basic" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Basic Calendar</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/calendar/list-view" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">List Views</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/calendar/google" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google Calendar</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/calendar/external-events" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">External Events</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/calendar/background-events" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Background Events</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -857,15 +857,15 @@
 							<div class="menu-submenu ">
 								<span class="menu-arrow"></span>
 								<ul class="menu-subnav">
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/charts/amcharts/charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">amCharts Charts</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/charts/amcharts/stock-charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">amCharts Stock Charts</span></a></li>
-									<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/charts/amcharts/maps" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">amCharts Maps</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/charts/amcharts/charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">amCharts Charts</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/charts/amcharts/stock-charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">amCharts Stock Charts</span></a></li>
+									<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/charts/amcharts/maps" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">amCharts Maps</span></a></li>
 								</ul>
 							</div>
 						</li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/charts/flotcharts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Flot Charts</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/charts/google-charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google Charts</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/charts/morris-charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Morris Charts</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/charts/flotcharts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Flot Charts</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/charts/google-charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google Charts</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/charts/morris-charts" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Morris Charts</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -888,8 +888,8 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Maps</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/maps/google-maps" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google Maps</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/maps/jqvmap" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">JQVMap</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/maps/google-maps" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Google Maps</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/maps/jqvmap" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">JQVMap</span></a></li>
 					</ul>
 				</div>
 			</li>
@@ -912,17 +912,17 @@
 					<span class="menu-arrow"></span>
 					<ul class="menu-subnav">
 						<li class="menu-item  menu-item-parent" aria-haspopup="true"><span class="menu-link"><span class="menu-text">Miscellaneous</span></span></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/kanban-board" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Kanban Board</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/sticky-panels" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Sticky Panels</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/blockui" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Block UI</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/perfect-scrollbar" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Perfect Scrollbar</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/treeview" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tree View</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/bootstrap-notify" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Bootstrap Notify</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/toastr" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Toastr</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/sweetalert2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">SweetAlert2</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/dual-listbox" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Dual Listbox</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/session-timeout" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Session Timeout</span></a></li>
-						<li class="menu-item " aria-haspopup="true"><a href="http://localhost/food_tribu_project/mecronic_one_laravel/public/features/miscellaneous/idle-timer" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Idle Timer</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/kanban-board" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Kanban Board</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/sticky-panels" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Sticky Panels</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/blockui" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Block UI</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/perfect-scrollbar" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Perfect Scrollbar</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/treeview" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Tree View</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/bootstrap-notify" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Bootstrap Notify</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/toastr" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Toastr</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/sweetalert2" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">SweetAlert2</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/dual-listbox" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Dual Listbox</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/session-timeout" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Session Timeout</span></a></li>
+						<li class="menu-item " aria-haspopup="true"><a href="http://localhost//mecronic_one_laravel/public/features/miscellaneous/idle-timer" class="menu-link "><i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Idle Timer</span></a></li>
 					</ul>
 				</div> --}}
     </li>
