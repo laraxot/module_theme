@@ -152,9 +152,9 @@ export default {
                 var end = $(this).data('end') * 1.0001;
                 var find = _.inRange(time, start, end);
                 if (find) {
-                    $(this).addClass(" highlight text-white bg-primary fw-bolder");
+                    $(this).addClass(" highlight text-white bg-primary fw-bolder py-1 px-1 rounded");
                 } else {
-                    $(this).removeClass(" highlight text-white bg-primary fw-bolder");
+                    $(this).removeClass(" highlight text-white bg-primary fw-bolder py-1 px-1 rounded");
                 }
             });
         });
