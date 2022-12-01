@@ -37,6 +37,7 @@ class _ModulePanel extends XotBasePanel {
             new Actions\TryFormBuilder2Action(),
             new Actions\TryFormBuilder3Action(),
             new Actions\TryFormBuilder4Action(),
+            new Actions\TryFormBuilder5Action(),
             new Actions\TryFormBuilderArrAction(),
             new Actions\TryGetFormAction(),
             new ManageLangModuleAction('theme'),
