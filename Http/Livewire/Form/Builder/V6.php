@@ -23,6 +23,7 @@ class V6 extends Component {
             'text' => 'text',
             'number' => 'number',
             'email' => 'email',
+            'select' => 'select',
         ];
     }
 
@@ -52,7 +53,6 @@ class V6 extends Component {
             $this->form_data = [];
             $this->form_data['name_attribute'] = $tmp;
         }
-        // dddx($this->form_data);
     }
 
     public function add() {
@@ -60,6 +60,20 @@ class V6 extends Component {
         unset($this->form_data['name_attribute']);
         $this->form[$tmp][] = $this->form_data;
         $this->display_create_input = 'display: none';
-        // dddx($this->form_data);
+        $this->fillData($tmp);
+    }
+
+    public function fillData($name_attribute) {
+        foreach ($this->form[$name_attribute] as $key => $arr) {
+            if (! isset($this->form[$name_attribute][$key]['style'])) {
+                $this->form[$name_attribute][$key]['style'] = '';
+            }
+            if (! isset($this->form[$name_attribute][$key]['class'])) {
+                $this->form[$name_attribute][$key]['class'] = '';
+            }
+            if (! isset($this->form[$name_attribute][$key]['id'])) {
+                $this->form[$name_attribute][$key]['id'] = '';
+            }
+        }
     }
 }
