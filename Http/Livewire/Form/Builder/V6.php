@@ -56,11 +56,15 @@ class V6 extends Component {
     }
 
     public function add() {
-        $tmp = $this->form_data['name_attribute'];
+        $name_attribute = $this->form_data['name_attribute'];
         unset($this->form_data['name_attribute']);
-        $this->form[$tmp][] = $this->form_data;
+        $this->form[$name_attribute][] = $this->form_data;
+
+        // $this->form[$name_attribute]['options']
+        // $this->form_data[$name_attribute]['options'][$this->form_data['value']] = $this->form_data['value_label'];
+
         $this->display_create_input = 'display: none';
-        $this->fillData($tmp);
+        $this->fillData($name_attribute);
     }
 
     public function fillData($name_attribute) {
@@ -74,6 +78,14 @@ class V6 extends Component {
             if (! isset($this->form[$name_attribute][$key]['id'])) {
                 $this->form[$name_attribute][$key]['id'] = '';
             }
+            if (! isset($this->form[$name_attribute][$key]['options'])) {
+                $this->form[$name_attribute][$key]['options'] = [];
+            }
         }
+    }
+
+    public function addOption($form_data_key) {
+        dddx($form_data_key);
+        // $this->form_data[$form_data_key]['options'][$this->form_data['value']] = $this->form_data['value_label'];
     }
 }

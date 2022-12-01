@@ -20,11 +20,20 @@
                 </div>
 
 
-                @if (isset($form_data['type']) && $form_data['type'] == 'select')
+                {{-- @if (isset($form_data['type']) && $form_data['type'] == 'select')
                     <div>
                         options qui
+                        <div class="col-8">
+                            value
+                            <x-input name="value" type="text" class="mb-3"></x-input>
+                        </div>
+                        <div class="col-8">
+                            value_label
+                            <x-input name="value_label" type="text" class="mb-3"></x-input>
+                        </div>
+                        <button wire:click="addOption('{{ $form_data['name_attribute'] }}')">add option</button>
                     </div>
-                @endif
+                @endif --}}
 
                 <div>
                     class
