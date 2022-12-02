@@ -1,6 +1,17 @@
 <div>
     <x-input.group type="select" name="disk" :options="['json' => 'json', 'cache' => 'cache']"></x-input.group>
+    @error('form_data.disk')
+        <span class="alert-danger">{{ $message }}</span>
+    @enderror
     <x-input.group type="text" name="filename"></x-input.group>
+    @error('form_data.filename')
+        <span class="alert-danger">{{ $message }}</span>
+    @enderror
+
+
+    {{-- <x-input.group type="select" name="menus" :options="$menus"></x-input.group> --}}
+
+
 
 
     <div class="setDataWrap" wire:ignore>
@@ -65,7 +76,7 @@
                 // funzione .formBuilder renderizza il formbuilder
                 var formBuilder = $(fbEditor).formBuilder({
                     templates,
-                    // fields
+                    fields
                 });
 
 

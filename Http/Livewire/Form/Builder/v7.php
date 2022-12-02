@@ -13,7 +13,9 @@ class V7 extends Component {
 
     protected $listener = ['saveData' => 'saveData'];
 
-    public $data;
+    public json $data;
+
+    public array $menus;
 
     /**
      * Undocumented function.
@@ -21,7 +23,20 @@ class V7 extends Component {
      * @return void
      */
     public function mount() {
-        $this->data = Storage::disk('cache')->get('paperino');
+        $this->menus = Storage::disk('cache')->files();
+        // $this->data = Storage::disk('cache')->get('paperino');
+    }
+
+    protected $messages = [
+        'form_data.disk' => 'Devi selezionare il disk',
+        'form_data.filename' => 'Devi inserire un filename',
+    ];
+
+    protected function rules() {
+        return [
+            'form_data.disk' => 'required',
+            'form_data.filename' => 'required',
+        ];
     }
 
     /**
@@ -40,6 +55,7 @@ class V7 extends Component {
     }
 
     public function saveData($data) {
+        $this->validate();
         Storage::disk($this->form_data['disk'])->put($this->form_data['filename'].'.json', json_encode($data));
     }
 
