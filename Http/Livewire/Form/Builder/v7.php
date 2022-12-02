@@ -45,7 +45,8 @@ class V7 extends Component {
 
     public function getData() {
         // Storage::disk($this->form_data['disk'])->put($this->form_data['filename'].'.json', json_encode($data));
-        $json = Storage::disk('cache')->get('paperino');
+        $json = Storage::disk('cache')->get('paperino.json');
+        // dddx($json);
 
         return $json;
     }

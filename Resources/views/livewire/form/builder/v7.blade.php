@@ -10,6 +10,18 @@
         <button id="saveData" type="button">External Save Button</button>
         <button id="loadData" type="button">Load Data</button>
     </div>
+
+
+    {{-- <h2>Set Data</h2>
+    <select name="formTemplates" id="formTemplates" class="form-control">
+        <option value="user">User Form</option>
+        <option value="terms">Terms Agreement Form</option>
+        <option value="issue">Submit Issue Form</option>
+        <option value="paperino">paperino</option>
+    </select> --}}
+
+
+
     <div class="build-wrap form-wrapper-div" id="build-wrap" wire:ignore></div>
     {{-- <div id="build-wrap"></div> --}}
     {{-- <div class="render-wrap"></div> --}}
@@ -24,7 +36,7 @@
         <script>
             $(function() {
                 var fbEditor = document.getElementById('build-wrap');
-
+                const templateSelect = document.getElementById("formTemplates");
 
                 // aggiungo un componente starRating
                 var fields = [{
@@ -34,7 +46,8 @@
                     },
                     icon: '🌟'
                 }, ];
-                var templates = {
+
+                const templates = {
                     starRating: function(fieldData) {
                         return {
                             field: '<span id="' + fieldData.name + '">',
@@ -45,13 +58,14 @@
                             }
                         };
                     }
+
                 };
 
 
                 // funzione .formBuilder renderizza il formbuilder
                 var formBuilder = $(fbEditor).formBuilder({
                     templates,
-                    fields
+                    // fields
                 });
 
 
@@ -72,7 +86,6 @@
                 document.getElementById("saveData").addEventListener("click", () => {
                     console.log('livewire');
                     console.log(Livewire);
-                    // console.log("external save clicked");
                     const result = formBuilder.actions.save();
                     @this.call('saveData', result);
 
@@ -80,13 +93,23 @@
 
                 document.getElementById("loadData").addEventListener("click", () => {
                     console.log('loadData');
-                    //console.log(@this.call('getData'));
-                    // $(container).formRender('setData', templates[e.target.value]);
-                    //formBuilder.actions.setData(@this.call('getData'));
-                    // formBuilder.actions.setData({{ $data }});
+                    const data = @this.call('getData');
+                    console.log(data);
+
+                    var form_data = data.then(value => {
+                        formBuilder.actions.setData(value);
+                        console.log(value);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+
+                    // con queste 2 righe funziona
+                    // var formData =
+                    //     '[{"type":"text","label":"Full Name","subtype":"text","className":"form-control","name":"text-1476748004559"},{"type":"select","label":"Occupation","className":"form-control","name":"select-1476748006618","values":[{"label":"Street Sweeper","value":"option-1","selected":true},{"label":"Moth Man","value":"option-2"},{"label":"Chemist","value":"option-3"}]},{"type":"textarea","label":"Short Bio","rows":"5","className":"form-control","name":"textarea-1476748007461"}]';
+                    // formBuilder.actions.setData(formData);
+
+
                 });
-
-
             });
         </script>
     @endpush
