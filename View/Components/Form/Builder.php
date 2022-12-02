@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Form;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\Component;
 
 /**
  * Class Builder.
  */
 class Builder extends Component {
-    public int $form_id;
+    public array $data;
 
-    public function __construct(int $id) {
-        $this->form_id = $id;
+    public function __construct(string $disk, string $filename) {
+        $this->data = json_decode(Storage::disk($disk)->get($filename));
     }
 
     public function render(): Renderable {
@@ -79,7 +80,8 @@ class Builder extends Component {
         $view = 'theme::components.form.builder';
         $view_params = [
             'view' => $view,
-            'form' => $form,
+            // 'form' => $form,
+            'form' => $this->data,
         ];
 
         return view()->make($view, $view_params);
