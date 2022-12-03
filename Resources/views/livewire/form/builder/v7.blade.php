@@ -1,4 +1,8 @@
 <div>
+    @php
+        // raggruppamento di componenti
+        // https://formbuilder.online/docs/formBuilder/options/inputSets/
+    @endphp
     <x-input.group type="select" name="disk" :options="['json' => 'json', 'cache' => 'cache']"></x-input.group>
     @error('form_data.disk')
         <span class="alert-danger">{{ $message }}</span>
@@ -20,6 +24,7 @@
         <button id="getJS" type="button">Get JS Data</button>
         <button id="saveData" type="button">External Save Button</button>
         <button id="loadData" type="button">Load Data</button>
+        <button id="clear-all-fields" type="button">Clear Fields</button>
     </div>
 
 
@@ -31,8 +36,22 @@
         <option value="paperino">paperino</option>
     </select> --}}
 
+    <x-input.group type="select"
+            class="mb-0"
+            name="menu"
+            id="menu"
+            label="menu disponibili"
+            :options="$menus">
+    </x-input.group>
+    @error('form_data.menu')
+        <span class="alert-danger">{{ $message }}</span>
+    @enderror
+
+
     @if (!is_null($menu_loaded))
         <div>menu caricato {{ $menu_loaded }}</div>
+    @else
+        <div> nessun menu caricato </div>
     @endif
 
     <div class="build-wrap form-wrapper-div" id="build-wrap" wire:ignore></div>
@@ -123,6 +142,11 @@
 
 
                 });
+
+                document.getElementById('clear-all-fields').onclick = function() {
+                    formBuilder.actions.clearFields();
+                    @this.call('clearFields')
+                };
             });
         </script>
     @endpush
