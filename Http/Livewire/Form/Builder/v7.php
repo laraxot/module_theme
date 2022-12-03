@@ -14,8 +14,9 @@ class V7 extends Component {
     protected $listener = ['saveData' => 'saveData'];
 
     public json $data;
+    public ?string $menu_loaded = null;
 
-    public array $menus;
+    // public array $menus;
 
     /**
      * Undocumented function.
@@ -23,7 +24,7 @@ class V7 extends Component {
      * @return void
      */
     public function mount() {
-        $this->menus = Storage::disk('cache')->files();
+        // $this->menus = Storage::disk('cache')->files();
         // $this->data = Storage::disk('cache')->get('paperino');
     }
 
@@ -55,13 +56,18 @@ class V7 extends Component {
     }
 
     public function saveData($data) {
-        $this->validate();
-        Storage::disk($this->form_data['disk'])->put($this->form_data['filename'].'.json', json_encode($data));
+        if (! is_null($this->menu_loaded)) {
+            Storage::disk('cache')->put($this->menu_loaded, json_encode($data));
+        } else {
+            $this->validate();
+            Storage::disk($this->form_data['disk'])->put($this->form_data['filename'].'.json', json_encode($data));
+        }
     }
 
     public function getData() {
         // Storage::disk($this->form_data['disk'])->put($this->form_data['filename'].'.json', json_encode($data));
         $json = Storage::disk('cache')->get('paperino.json');
+        $this->menu_loaded = 'paperino.json';
         // dddx($json);
 
         return $json;

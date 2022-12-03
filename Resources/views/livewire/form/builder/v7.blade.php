@@ -31,7 +31,9 @@
         <option value="paperino">paperino</option>
     </select> --}}
 
-
+    @if (!is_null($menu_loaded))
+        <div>menu caricato {{ $menu_loaded }}</div>
+    @endif
 
     <div class="build-wrap form-wrapper-div" id="build-wrap" wire:ignore></div>
     {{-- <div id="build-wrap"></div> --}}
