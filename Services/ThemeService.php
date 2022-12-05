@@ -1418,7 +1418,7 @@ class ThemeService {
     public static function getThemes(): Collection {
         $themes_dir = base_path('Themes');
         if (! File::exists($themes_dir)) {
-            throw new Exception('Themes directory do not exits ['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('Themes directory do not exits ['.$themes_dir.']['.__LINE__.']['.__FILE__.']');
         }
         $themes = File::directories($themes_dir);
         $default_data = [
@@ -1492,7 +1492,7 @@ class ThemeService {
         $theme = $themes->firstWhere('type', $type);
 
         if (null === $theme /* || $theme->isEmpty() */) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         return $theme['name'];
