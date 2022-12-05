@@ -52,8 +52,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         }
         $this->xot = $xot;
 
-        $this->registerNamespaces('adm_theme');
-        $this->registerNamespaces('pub_theme');
+        // $this->registerNamespaces('adm_theme');
+        // $this->registerNamespaces('pub_theme');
 
         $this->commands(
             [
@@ -124,17 +124,11 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
          */
         $xot = $this->getXot();
 
-        /*
-        $xot = TenantService::config('xra');
-        if (! is_array($xot)) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
-        }
-        */
         if (! isset($xot[$theme_type])) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             // TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
         }
-        // */
+
         $theme = $xot[$theme_type];
 
         $resource_path = 'Themes/'.$theme.'/Resources';
@@ -142,16 +136,6 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         $lang_dir = FileService::fixPath($lang_dir);
         $theme_dir = base_path($resource_path.'/views');
         $theme_dir = FileService::fixPath($theme_dir);
-        // 120    Cannot access offset 'view' on Illuminate\Contracts\Foundation\Application.
-        /*
-        dddx([
-            '$this->app[view]' => $this->app['view'], //Illuminate\View\Factory
-            'test' => app('view'),
-        ]
-        );
-
-        $this->app['view']->addNamespace($theme_type, $theme_dir);
-        */
         app('view')->addNamespace($theme_type, $theme_dir);
         $this->loadTranslationsFrom($lang_dir, $theme_type);
     }
