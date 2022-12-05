@@ -70,7 +70,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         // $this->registerThemeConfig('adm_theme');
         // $this->registerThemeConfig('pub_theme');
 
-        $this->registerViewComposers(); // era in registercallback
+        // $this->registerViewComposers(); // era in registercallback
 
         Paginator::useBootstrap();
     }
