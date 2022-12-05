@@ -7,4 +7,5 @@ section: content
 
 # Componenti Input Group {#components-input-group}
 
-This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.
+Componenti blade che renderizzano diversi tag input html in base al type indicato,
+con possibilità di specificare classe css, id ed eventualmente altri parametri che il tag richiede.
