@@ -6,18 +6,9 @@
         "email": "marco.sottana@gmail.com"
     }],
     "require": {
-        "laraxot/module_xot": "dev-master",
-        "calebporzio/sushi": "^2.3",
-        "laravelcollective/html": "^6.2",
-        "livewire/livewire": "^2.4",
-        "doctrine/dbal": "^3.1",
-        "harimayco/laravel-menu": "^1.4"
+        "laraxot/module_xot": "dev-master"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.10",
-        "orchestra/testbench": "^6.20",
-        "nunomaduro/larastan": "^0.7.12",
-        "fakerphp/faker": "^1.9.1"
     },
     "extra": {
         "laravel": {
