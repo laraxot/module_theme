@@ -61,7 +61,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             ]
         );
 
-        $this->bootThemeProvider('pub_theme');
+        // $this->bootThemeProvider('pub_theme');
 
         BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Theme');
 
