@@ -1,7 +1,7 @@
 <div>
 
     <div class="row">
-        <div class="form-floating mb-4 col-sm-10">
+        <div class="form-floating mb-2 col-sm-10">
             <input type="hidden" name="filter[0][criteria]" value="query_string_query">
             <input name="filter[0][q]" value="{{ $normal_search_data }}" id="TextInputRicerca" type="text"
                 class="form-control shadow-lg border-soft-grape" placeholder="Ricerca nella trascrizione">
@@ -15,9 +15,11 @@
         </div>
     </div>
 
-    <h3 class="mb-4">{{ $label ?? 'Criteri di Ricerca' }} <a href="#" wire:click="addArr()"
+    <div class="d-inline-flex mb-4">
+    <h5 class="bg-pale-grape text-grape py-2 px-2 rounded">{{ $label ?? 'Criteri di Ricerca' }} <a href="#" wire:click="addArr()"
             class="btn btn-circle btn-primary btn-sm"><i class="uil uil-plus"></i></a>
-    </h3>
+    </h5>
+</div>
 
     @foreach ($form_data[$name] ?? [] as $k => $v)
         @php
