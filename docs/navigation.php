@@ -36,6 +36,14 @@ return [
             'Select' => 'docs/components/select',
             'Checkbox' => 'docs/components/checkbox',
             'Radio' => 'docs/components/radio',
+            'Email' => 'docs/components/email',
+            'Password' => 'docs/components/password',
+        ],
+    ],
+    'Altri Componenti' => [
+        'url' => 'docs/others-components',
+        'children' => [
+            'Progress Bar' => 'docs/others_components/progress_bar',
         ],
     ],
 ];
