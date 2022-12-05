@@ -27,10 +27,15 @@ return [
     'Utilizzo base' => [
         'url' => 'docs/basic-usage',
     ],
-    'Componenti' => [
-        'url' => 'docs/components',
+    'Componenti Input Group' => [
+        'url' => 'docs/components-input-group',
         'children' => [
-            'Componenti input' => 'docs/components/input',
+            'Text' => 'docs/components/text',
+            'Textarea' => 'docs/components/textarea',
+            'Integer' => 'docs/components/integer',
+            'Select' => 'docs/components/select',
+            'Checkbox' => 'docs/components/checkbox',
+            'Radio' => 'docs/components/radio',
         ],
     ],
 ];
