@@ -30,7 +30,7 @@
       <x-button type="advanced" class="fw-bold">
           <x-slot name="label">Segnalazione disservizio</x-slot>
       </x-button>
-       @endif
+      @endif
 
       @if(isset($double_button))
         <div class="d-lg-flex gap-30 mb-2">

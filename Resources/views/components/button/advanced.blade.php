@@ -1,6 +1,6 @@
-@props(['aria_label', 'class', 'primary', 'label'])
+@props(['aria_label', 'class', 'primary', 'label', 'link'])
 
-@if(isset($label))
+@if(isset($link))
 <a href="#" class=" ps-0
 	@if(isset($primary))btn-primary @endif
 	@if(isset($secondary))btn-secondary @endif
