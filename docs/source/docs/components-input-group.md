@@ -1,10 +1,10 @@
 ---
-title: Componenti
-description: Componenti
+title: Componenti Input Group
+description: Componenti Input Group
 extends: _layouts.documentation
 section: content
 ---
 
-# Componenti {#components}
+# Componenti Input Group {#components-input-group}
 
 This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.
