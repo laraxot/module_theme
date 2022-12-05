@@ -67,8 +67,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
         $this->registerCollective();
 
-        $this->registerThemeConfig('adm_theme');
-        $this->registerThemeConfig('pub_theme');
+        // $this->registerThemeConfig('adm_theme');
+        // $this->registerThemeConfig('pub_theme');
 
         $this->registerViewComposers(); // era in registercallback
 
