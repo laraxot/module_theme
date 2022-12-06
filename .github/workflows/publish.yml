@@ -18,19 +18,19 @@ jobs:
       uses: actions/checkout@master
 
     - name: Validate composer.json and composer.lock
-      run: composer validate
+      run: cd docs && composer validate
 
     - name: Composer
-      run: composer install --no-progress --no-suggest
+      run: cd docs && composer install --no-progress --no-suggest
 
     - name: Node
-      run: npm install
+      run: cd docs && npm install
       
     - name: Production
-      run: npm run prod
+      run: cd docs && npm run prod
       
     - name: CNAME
-      run: echo "laravel-news.it" > ./build_production/CNAME
+      run: cd docs && echo "laravel-news.it" > ./build_production/CNAME
 
     - name: gh-pages
       uses: JamesIves/github-pages-deploy-action@v4.3.3
