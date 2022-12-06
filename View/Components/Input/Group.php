@@ -50,9 +50,10 @@ class Group extends Component {
         // attributes type è il tipo di input (es. select)
         // dddx(get_defined_vars());
 
-        /**
+        /*
          * @phpstan-var view-string
          */
+
         $view = 'theme::components.input.group.'.$this->tpl;
 
         $div_attrs = app(ComponentAttributeBag::class);
