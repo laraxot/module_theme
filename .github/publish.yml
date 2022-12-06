@@ -1,0 +1,41 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: 
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: go to folder
+      run: cd docs
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Composer
+      run: composer install --no-progress --no-suggest
+
+    - name: Node
+      run: npm install
+      
+    - name: Production
+      run: npm run prod
+      
+    - name: CNAME
+      run: echo "laravel-news.it" > ./build_production/CNAME
+
+    - name: gh-pages
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        branch: gh-pages
+        folder: build_production
