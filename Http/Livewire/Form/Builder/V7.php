@@ -63,6 +63,7 @@ class V7 extends Component {
             $this->validate();
             Storage::disk($this->form_data['disk'])->put($this->form_data['filename'].'.json', json_encode($data));
         }
+        session()->flash('saved', 'menu salvato');
     }
 
     public function getData() {
