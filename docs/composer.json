@@ -2,6 +2,16 @@
     "name": "laraxot/module_theme_docs",
     "description": "module theme docs",
     "homepage": "https://geekpiu.com",
+    "support": {
+        "issues": "https://github.com/laraxot/module_theme/issues",
+        "source": "https://github.com/laraxot/module_theme/"
+    },
+    "authors": [
+        {
+            "name": "Marco Sottana",
+            "email": "marco.sottana@gmail.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "tightenco/jigsaw": "^1.6",
