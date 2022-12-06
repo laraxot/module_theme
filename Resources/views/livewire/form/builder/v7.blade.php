@@ -46,7 +46,11 @@
     @error('form_data.menu')
         <span class="alert-danger">{{ $message }}</span>
     @enderror
-
+    @if (session()->has('saved'))
+        <div class="alert alert-success">
+            {{ session('saved') }}
+        </div>
+    @endif
 
     @if (!is_null($menu_loaded))
         <div>menu caricato {{ $menu_loaded }}</div>
@@ -58,9 +62,6 @@
     {{-- <div id="build-wrap"></div> --}}
     {{-- <div class="render-wrap"></div> --}}
     {{-- <button id="edit-form">Edit Form</button> --}}
-
-
-
 
     @push('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

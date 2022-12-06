@@ -1,4 +1,5 @@
-
-@foreach($form as $input)
+{{-- @foreach($form as $input)
     <x-input.group.arr :arr="$input" />
-@endforeach
+@endforeach --}}
+
+<x-input.group.arr :arr="$form" />
