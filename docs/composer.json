@@ -1,4 +1,8 @@
 {
+    "name": "laraxot/module_theme_docs",
+    "description": "module theme docs",
+    "homepage": "https://geekpiu.com",
+    "license": "MIT",
     "require": {
         "tightenco/jigsaw": "^1.6",
         "tightenco/jigsaw-docs-template": "^1.1",
@@ -8,5 +12,21 @@
         "psr-4": {
             "App\\Listeners\\": "listeners/"
         }
+    },
+    "scripts": {
+        "build": [
+            "./vendor/bin/jigsaw build"
+        ],
+        "serve": [
+            "./vendor/bin/jigsaw serve"
+        ],
+        "watch": [
+            "npm run watch"
+        ]
+    },
+    "scripts-descriptions": {
+        "build": "Run jitsaw build.",
+        "serve": "Serve jitsaw preview.",
+        "watch": "Previewing with Browsersync."
     }
 }
