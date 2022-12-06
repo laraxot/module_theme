@@ -6,7 +6,7 @@
 
 @if (session()->has('message'))
     <div class="alert alert-success alert-icon alert-dismissible fade show" role="alert"><i class="uil uil-check-circle"></i>
-        {{ session('message') }} <a href="#clip_container" class="alert-link hover">Visualizza</a>
+        {{ session('message') }}{{--  <a href="#clip_container" class="alert-link hover">Visualizza</a> --}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
