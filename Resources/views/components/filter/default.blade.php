@@ -3,12 +3,9 @@
     <h2 class="cmp-filter__title title-xxlarge" @if(isset($id_title)) id="{{$id_title}}" @endif >{{$title}}</h2>
     <div class="filter-wrapper d-flex align-items-center">
 
-      <x-button type="advanced">
+      <x-button type="advanced" class="p-0 pe-2" iconBtn="it-funnel" :xs="true"
+      class_icon="me-1">
           <x-slot name="label">Filtra</x-slot>
-          <x-slot name="iconBtn">it-funnel</x-slot>
-          <x-slot name="class">p-0 pe-2</x-slot>
-          <x-slot name="xs">true</x-slot>
-          <x-slot name="class_icon">me-1</x-slot>
       </x-button>
 
 
@@ -20,10 +17,8 @@
     </div>
   </div>
 
-  <x-input.search>
-    <x-slot name="id">id-input</x-slot>
-    <x-slot name="label_text">Cerca nel sito</x-slot>
-    <x-slot name="placeholder_text">Cerca</x-slot>
+  <x-input.search id="id-input" placeholder="Cerca" label="Cerca nel sito">
+    <x-slot name="wrapper"></x-slot>
   </x-input.search>
 
 </div>

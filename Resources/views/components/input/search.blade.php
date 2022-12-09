@@ -1,6 +1,6 @@
 @props([
   'id' => '',
-  'wrapper' => '',
+  'wrapper',
   'label' => '',
   'placeholder' => '',
   'btnSearch' => true
