@@ -11,7 +11,8 @@
             <div class="icon-wrapper">
               <img class="icon-folder @if(isset($warning_icon))icon-warning @endif" src="../assets/images/{{$item->icon}}"
                 alt="folder {{$item->icon_label}}" role="img">
-              <span class="{{$item->color}}">{{$item->icon_label}}</span>
+              <span 
+              class="{{$item->color ?? ''}}">{{$item->icon_label}}</span>
             </div>
         </button>
         @if(isset($item->date))
@@ -46,10 +47,10 @@
             @endif
 
 
-            <x-list.rows :icon_lists="collect([])">
-                <x-slot name="title">{{false}}</x-slot>
-                <x-slot name="class">mt-3 p-0</x-slot>
-            </x-list>
+            <x-list.rows :icon_lists="collect([])" type="icon" :title="false" class="mt-3 p-0">
+                {{-- <x-slot name="title">{{false}}</x-slot> --}}
+                {{-- <x-slot name="class">mt-3 p-0</x-slot> --}}
+            </x-list.rows>
 
             {{-- {{>cmp-icon-list/cmp-icon-list
             title=false
