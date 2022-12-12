@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Theme\Http\Livewire\Elastic;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
-use Modules\Mediamonitor\Models\Alert as AlertModel;
 
 /**
  * Class Filter.
@@ -34,7 +34,7 @@ class Filter extends Component {
      *
      * @return void
      */
-    public function mount(?AlertModel $row = null) {
+    public function mount(?Model $row = null) {
         // $data = request()->all();
         // dddx($data);
 
