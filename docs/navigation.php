@@ -27,6 +27,11 @@ return [
     'Utilizzo base' => [
         'url' => 'docs/basic-usage',
     ],
+
+    'Input Group vs Input' => [
+        'url' => 'docs/input_group_vs_input',
+    ],
+
     'Componenti Input Group' => [
         'url' => 'docs/components-input-group',
         'children' => [

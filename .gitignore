@@ -19,3 +19,4 @@ error_log
 *.lock
 *.stackdump
 *.cache
+cache

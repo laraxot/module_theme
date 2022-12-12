@@ -7,5 +7,9 @@ section: content
 
 # Componenti Input Group {#components-input-group}
 
-Componenti blade che renderizzano diversi tag input html in base al type indicato,
+La classe estende la classe Component e definisce diverse proprietà, tra cui tpl, data e options, nonché alcuni metodi, tra cui __construct, render e shouldRender. 
+
+Diversi componenti blade vengono renderizzati in input html in base al type indicato,
 con possibilità di specificare classe css, id ed eventualmente altri parametri che il tag richiede.
+
+Il metodo shouldRender restituisce un valore booleano che indica se il componente deve essere renderizzato o meno.
