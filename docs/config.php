@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => '/docs/getting-started',
+    'baseUrl' => '',
     'production' => false,
     'siteName' => 'Modulo Theme',
     'siteDescription' => 'Beautiful docs powered by Jigsaw',

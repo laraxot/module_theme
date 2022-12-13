@@ -18,10 +18,10 @@ Copy code
 use Laraxot\ModuleUI\Facades\ModuleUI;
 Per utilizzare i componenti del modulo, è possibile utilizzare i blade components di Laravel. Ad esempio, per utilizzare il componente pulsante, è possibile utilizzare il seguente codice nella vista blade:
 
-Copy code
+```
 <x-module-ui-button>Pulsante</x-module-ui-button>
 Per ulteriori informazioni su come utilizzare il modulo e sui componenti disponibili, consultare la documentazione disponibile nel repository su GitHub.
-
+```
 
 Il modulo "module_uikit" è un pacchetto per Laravel che fornisce l'accesso al framework front-end UIkit. UIkit è un framework CSS, HTML e JavaScript per lo sviluppo di interfacce utente responsive e moderne.
 
