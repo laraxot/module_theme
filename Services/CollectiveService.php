@@ -102,6 +102,9 @@ class CollectiveService {
         } else {
             $blade_component = 'pub_theme::'.$blade_component_piece;
         }
+
+       //dddx(config('xra.pub_theme'));
+    
         FileService::viewCopy('theme::'.$blade_component_piece, $blade_component);
 
         foreach ($comps as $comp) {
