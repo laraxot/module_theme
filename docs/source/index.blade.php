@@ -9,6 +9,18 @@
             <h2 id="intro-powered-by-jigsaw" class="font-light mt-4">{{ $page->siteDescription }}</h2>
 
             <p class="text-lg">Give your documentation a boost with Jigsaw. <br class="hidden sm:block">Generate elegant, static docs quickly and easily.</p>
+            ----------------
+            <br/>Url: {{ url('/') }}
+            @foreach ($docs  as $doc)            
+                <h2><a href="{{ url($doc->getPath()) }}">{{ $doc->title }}</a>
+                    {{--  
+                    <br/>getPath: {{ $doc->getPath()  }}
+                    <br/>url getPath: {{ url($doc->getPath()) }}
+                    <br/>doc url: {{ $doc->url('/') }}
+                    --}}
+                </h2>
+            @endforeach
+            ------------------
 
             <div class="flex my-10">
                 <a href="/docs/getting-started" title="{{ $page->siteName }} getting started" class="bg-blue-500 hover:bg-blue-600 font-normal text-white hover:text-white rounded mr-4 py-2 px-6">Get Started</a>
