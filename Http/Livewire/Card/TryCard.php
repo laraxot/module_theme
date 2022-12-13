@@ -45,7 +45,19 @@ class TryCard extends Component {
     public function getImgSrcProperty() {
         $sec = $this->i * 10 + 2;
 
-        $res = app(GetVideoFrameContentAction::class)->execute('cache', 'test.mp4', $sec);
+        $res = app(GetVideoFrameContentAction::class)
+            ->onQueue()
+            ->execute('cache', 'test.mp4', $sec)
+            // ->then(function ($batch) {
+                // All jobs completed successfully...
+            //    dddx('oo');
+            // })
+        ;
+
+        // /Call to undefined method Spatie\QueueableAction\ActionJob::then()
+        // https://laracasts.com/discuss/channels/laravel/dispatch-and-wait-for-jobs-to-complete
+        // ->afterResponse();
+        // dddx(get_class_methods($res));
         $res = 'data:image/png;base64, '.base64_encode($res);
 
         return $res;
