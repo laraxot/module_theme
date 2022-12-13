@@ -5,10 +5,24 @@ declare(strict_types=1);
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => '/docs/getting-started',
+    'baseUrl' => '',
     'production' => false,
     'siteName' => 'Modulo Theme',
     'siteDescription' => 'Beautiful docs powered by Jigsaw',
+    'lang'=>'it',
+
+    'collections' => [
+        'posts'=>[
+            'path'=>function ($page) {
+                return $page->lang.'/posts/' . Str::slug($page->getFilename());
+            },
+        ],
+        'docs'=>[
+            'path'=>function ($page) {
+                return $page->lang.'/docs/' . Str::slug($page->getFilename());
+            },
+        ]
+    ],
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => env('DOCSEARCH_KEY'),
@@ -29,6 +43,10 @@ return [
         }
     },
     'url' => function ($page, $path) {
-        return Str::startsWith($path, 'http') ? $path : '/'.trimPath($path);
+        if (Str::startsWith($path, 'http')) {
+            return $path;
+        }
+        //return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
+        return url('/'.$page->lang.'/'.trimPath($path));
     },
 ];
