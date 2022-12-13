@@ -7,4 +7,11 @@ section: content
 
 # Checkbox {#checkbox}
 
-This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.
+Esempio di input tipo checkbox da inserire nel proprio form
+solitamente da utilizzare dentro un foreach 
+
+```php
+@foreach($options as $k=>$v)
+    <x-input.group type="checkbox" :name="$name.'.'.$loop->index" label="{{ $v }}" value="{{ $k }}" checked />
+@endforeach
+```

@@ -29,7 +29,7 @@ return [
     ],
 
     'Input Group vs Input' => [
-        'url' => 'docs/input_group_vs_input',
+        'url' => 'docs/input-group-vs-input',
     ],
 
     'Componenti Input Group' => [
@@ -45,10 +45,19 @@ return [
             'Password' => 'docs/components/password',
         ],
     ],
-    'Altri Componenti' => [
-        'url' => 'docs/others-components',
+    'Componenti Blade' => [
+        'url' => 'docs/blade-components',
         'children' => [
-            'Progress Bar' => 'docs/others_components/progress_bar',
+            'Card' => 'docs/blade_components/card',
+            'Button' => 'docs/blade_components/button',
+            'Breadcrumb' => 'docs/blade_components/breadcrumb',
+        ],
+    ],
+    'Componenti Livewire' => [
+        'url' => 'docs/livewire-components',
+        'children' => [
+            'Progress Bar' => 'docs/livewire_components/progress_bar',
+            'Form Builder' => 'docs/livewire_components/form_builder',
         ],
     ],
 ];
