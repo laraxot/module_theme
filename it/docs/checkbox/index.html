@@ -97,7 +97,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://laraxot.github.io/module_theme/it/docs/input_group_vs_input"
+        <a href="https://laraxot.github.io/module_theme/it/docs/input-group-vs-input"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Input Group vs Input
@@ -190,20 +190,68 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://laraxot.github.io/module_theme/it/docs/others-components"
+        <a href="https://laraxot.github.io/module_theme/it/docs/blade-components"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
-            Altri Componenti
+            Componenti Blade
         </a>
     
             
         <ul class="my-0">
             <li class="pl-4">
             
-        <a href="https://laraxot.github.io/module_theme/it/docs/others_components/progress_bar"
+        <a href="https://laraxot.github.io/module_theme/it/docs/blade_components/card"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Card
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/blade_components/button"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Button
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/blade_components/breadcrumb"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Breadcrumb
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire-components"
+            class="lvl0   nav-menu__item hover:text-blue-500"
+        >
+            Componenti Livewire
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/progress_bar"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Progress Bar
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/form_builder"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Form Builder
         </a>
     
     </li>
@@ -215,7 +263,13 @@
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1 id="checkbox">Checkbox</h1>
 
-<p>This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.</p>
+<p>Esempio di input tipo checkbox da inserire nel proprio form
+solitamente da utilizzare dentro un foreach</p>
+
+<pre><code class="language-php">@foreach($options as $k=&gt;$v)
+    &lt;x-input.group type="checkbox" :name="$name.'.'.$loop-&gt;index" label="{{ $v }}" value="{{ $k }}" checked /&gt;
+@endforeach
+</code></pre>
         </div>
     </div>
 </section>

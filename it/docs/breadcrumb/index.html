@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Text">
+        <meta name="description" content="Breadcrumb">
 
         <meta property="og:site_name" content="Modulo Theme" />
-        <meta property="og:title" content="Text | Modulo Theme" />
-        <meta property="og:description" content="Text" />
-        <meta property="og:url" content="https://laraxot.github.io/module_theme/it/docs/text" />
+        <meta property="og:title" content="Breadcrumb | Modulo Theme" />
+        <meta property="og:description" content="Breadcrumb" />
+        <meta property="og:url" content="https://laraxot.github.io/module_theme/it/docs/breadcrumb" />
         <meta property="og:image" content="https://laraxot.github.io/module_theme/assets/img/logo.png" />
         <meta property="og:type" content="website" />
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>Modulo Theme | Text</title>
+        <title>Modulo Theme | Breadcrumb</title>
 
         <link rel="home" href="https://laraxot.github.io/module_theme">
         <link rel="icon" href="https://laraxot.github.io/module_theme/favicon.ico">
@@ -261,11 +261,13 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1 id="text">Text</h1>
+            <h1 id="breadcrumb">Breadcrumb</h1>
 
-<p>Esempio di input tipo text da inserire nel proprio form</p>
+<pre><code class="language-php">&lt;x-breadcrumb.rows :rows="collezione"&gt;
+&lt;/x-breadcrumb.rows&gt;
+</code></pre>
 
-<pre><code class="language-php">&lt;x-input.group type="text" name="firstname" /&gt;
+<pre><code class="language-php">&lt;x-breadcrumb.rows :rows="$_theme-&gt;getBreads()" /&gt;
 </code></pre>
         </div>
     </div>
