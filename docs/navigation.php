@@ -67,13 +67,24 @@ return [
                 ],
             ],
             'Card' => [
+                'url' => '#',
                 'children' => [
-                    'poster' => ['children' => [
+                    'poster' => [
+                        'url' => '#',
+                        'children' => [
+                            'result' => [
+                                'url' => '#',
+                                'children' => [
+                                    'txt' => 'docs/livewire_components/poster/result/txt',
+                                ],
+                            ],
+                        ],
                     ],
-                    ],
-                    'result' => ['children' => [
-                        'panel' => 'docs/livewire_components/calendar/v2',
-                    ],
+                    'result' => [
+                        'url' => '#',
+                        'children' => [
+                            'panel' => 'docs/livewire_components/result/panel',
+                        ],
                     ],
                 ],
             ],
