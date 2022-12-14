@@ -59,11 +59,24 @@ return [
         ],
     ],
     'Componenti Livewire' => [
-        'url' => 'docs/livewire-components',
+        'url' => 'docs/livewire_components',
         'children' => [
-            'Progress Bar' => 'docs/livewire_components/progress_bar',
-            'Menu Builder' => 'docs/livewire_components/menu_builder',
-            'Form Builder' => 'docs/livewire_components/form_builder',
+            'Calendar' => [
+                'children' => [
+                    'V2' => 'docs/livewire_components/calendar/v2',
+                ],
+            ],
+            'Card' => [
+                'children' => [
+                    'poster' => ['children' => [
+                    ],
+                    ],
+                    'result' => ['children' => [
+                        'panel' => 'docs/livewire_components/calendar/v2',
+                    ],
+                    ],
+                ],
+            ],
         ],
     ],
 ];
