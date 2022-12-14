@@ -11,10 +11,10 @@ Componente livewire utilizzato per creare un menu o una raccolta di menu.
 
 Ad ogni salvataggio o modifica di un menu, verranno salvati 2 file nella cartella di configurazione utilizzato del progetto:
 
-1. laravel\config\it\mediamonitor\staging\menu_builder.php
+1. laravel\config\it\dominio\sottodominio\menu_builder.php
 memorizza in un array i menu salvati
 
-2. laravel\config\it\mediamonitor\staging\menu_builder_item.php
+2. laravel\config\it\dominio\sottodominio\menu_builder_item.php
 memorizza in un array tutti gli elementi/url/voci dei singoli menu salvati
 
 ```php
