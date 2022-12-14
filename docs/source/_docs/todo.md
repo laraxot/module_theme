@@ -13,3 +13,4 @@ section: content
 4. laravel\Themes\LaravelIo\View\Components\Ads\Cta.php probabilmente vecchio, non serve più?
 5. laravel\Modules\Theme\Resources\views\components\alert, componenti di bsitalia, non proprio generici
 6. laravel\Modules\Theme\View\Components\Alerts\Alert.php vecchio, controllare anche le blade
+7. laravel\Modules\Theme\Resources\views\components\api, altre blade vecchie?
