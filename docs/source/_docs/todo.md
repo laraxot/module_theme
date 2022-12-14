@@ -1,6 +1,6 @@
 ---
 title: To Do
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+description: Cose da fare
 extends: _layouts.documentation
 section: content
 ---
@@ -9,3 +9,4 @@ section: content
 
 1. cambiare/spostare x-card-simple a x-card type="simple"
 2. convertire tutti i temi in starter kit
+3. controllare le blade dentro Theme\Resources\views\components\action, sono vecchie? vengono utilizzate?
