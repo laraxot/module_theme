@@ -48,6 +48,7 @@ return [
     'Componenti Blade' => [
         'url' => 'docs/blade-components',
         'children' => [
+            'Accordion' => 'docs/blade_components/accordion',
             'Card' => 'docs/blade_components/card',
             'Button' => 'docs/blade_components/button',
             'Breadcrumb' => 'docs/blade_components/breadcrumb',
@@ -57,6 +58,7 @@ return [
         'url' => 'docs/livewire-components',
         'children' => [
             'Progress Bar' => 'docs/livewire_components/progress_bar',
+            'Menu Builder' => 'docs/livewire_components/menu_builder',
             'Form Builder' => 'docs/livewire_components/form_builder',
         ],
     ],

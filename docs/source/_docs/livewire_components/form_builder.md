@@ -7,4 +7,4 @@ section: content
 
 # Form Builder {#form-builder}
 
-wip
+Componente in costruzione
