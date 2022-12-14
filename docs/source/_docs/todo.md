@@ -11,3 +11,5 @@ section: content
 2. convertire tutti i temi in starter kit
 3. controllare le blade dentro Theme\Resources\views\components\action, sono vecchie? vengono utilizzate?
 4. laravel\Themes\LaravelIo\View\Components\Ads\Cta.php probabilmente vecchio, non serve più?
+5. laravel\Modules\Theme\Resources\views\components\alert, componenti di bsitalia, non proprio generici
+6. laravel\Modules\Theme\View\Components\Alerts\Alert.php vecchio, controllare anche le blade
