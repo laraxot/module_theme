@@ -21,8 +21,12 @@ return [
     'Introduction' => [
         'url' => 'docs/introduction',
     ],
-    'Installation' => [
+    'Getting Started' => [
         'url' => 'docs/installation',
+        'children' => [
+            'Installation' => 'docs/installation',
+            'Basic Theme Installation' => 'docs/basic-theme-installation',
+        ],
     ],
     'Utilizzo base' => [
         'url' => 'docs/basic-usage',
