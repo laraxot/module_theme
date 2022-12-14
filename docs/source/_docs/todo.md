@@ -14,3 +14,6 @@ section: content
 5. laravel\Modules\Theme\Resources\views\components\alert, componenti di bsitalia, non proprio generici
 6. laravel\Modules\Theme\View\Components\Alerts\Alert.php vecchio, controllare anche le blade
 7. laravel\Modules\Theme\Resources\views\components\api, altre blade vecchie?
+8. laravel\Modules\Theme\View\Components\Authentication\Card.php da aggiustare mettendo i parametri
+9. laravel\Modules\Theme\View\Components\Authentication\CardLogo.php è un singolo logo di un tema (quale?), non è riutilizzabile
+10. laravel\Modules\Theme\View\Components\Button\ArrowButton.php da aggiustare
