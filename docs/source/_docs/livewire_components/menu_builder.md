@@ -21,9 +21,9 @@ memorizza in un array tutti gli elementi/url/voci dei singoli menu salvati
 <livewire:menu.builder />
 ```
 
-## Funzione getMenuItemsByName (#funzione-get-menu-items-by-name)
+## Funzione getMenuItemsByName
 
-Funzione di Theme\View\Composers\ThemeComposer con cui si potrà recuperare tutte le voci di un menu salvato. Esempio di utilizzo
+Funzione di Theme\View\Composers\ThemeComposer con cui si potrà recuperare tutte le voci di un menu salvato. Esempio di utilizzo:
 
 ```php
 <!-- Side Nav START -->
