@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\DateTime;
 
-use DateInterval;
-use DateTimeInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Modules\Xot\View\Components\XotBaseComponent;
@@ -16,14 +14,14 @@ use Modules\Xot\View\Components\XotBaseComponent;
 class Countdown extends XotBaseComponent {
     public string $id;
 
-    public DateTimeInterface $expires;
+    public \DateTimeInterface $expires;
 
     /**
      * @var string[]
      */
     protected static array $assets = ['alpine'];
 
-    public function __construct(DateTimeInterface $expires) {
+    public function __construct(\DateTimeInterface $expires) {
         $this->id = 'timer-'.Str::random(6);
         $this->expires = $expires;
     }
@@ -48,7 +46,7 @@ class Countdown extends XotBaseComponent {
         return sprintf('%02d', $this->difference()->s);
     }
 
-    public function difference(): DateInterval {
+    public function difference(): \DateInterval {
         return $this->expires->diff(now());
     }
 }

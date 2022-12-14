@@ -10,7 +10,7 @@ use Livewire\Component;
 use Modules\Media\Actions\GetVideoFrameContentAction;
 
 /**
- * Undocumented class
+ * Undocumented class.
  */
 class TryCard extends Component {
     public int $i = 1;

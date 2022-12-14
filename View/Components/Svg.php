@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Exception;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
@@ -64,16 +63,16 @@ class Svg extends Component {
         */
         $xml = simplexml_load_string($svg_content);
         if (null === $xml) {
-            throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
+            throw new \Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
         // Strict comparison using === between false and SimpleXMLElement|null will always evaluate to false.
         // if (false == $xml || false === $xml->attributes()) {
         if (null === $xml || null === $xml->attributes()) {
-            throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
+            throw new \Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
         $str = @json_encode($xml->attributes());
         if (false === $str) {
-            throw new Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
+            throw new \Exception('simplexml_load_string ['.$svg_path.']['.__LINE__.']['.class_basename(__FILE__).']');
         }
         $tmp = @json_decode($str, true);
         if (\is_array($tmp)) {

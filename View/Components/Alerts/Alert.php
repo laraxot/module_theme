@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Alerts;
 
-use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Modules\Xot\View\Components\XotBaseComponent;
@@ -28,7 +27,7 @@ class Alert extends XotBaseComponent {
     public function message(): string {
         $res = Arr::first($this->messages());
         if (! \is_string($res)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         return $res;

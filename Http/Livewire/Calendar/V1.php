@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Calendar;
 
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Session\SessionManager;
 /*
@@ -58,7 +57,7 @@ class V1 extends Component {
             ->startOfMonth()
             ->isoWeekday();
         if (! \is_int($startOfMonthDay)) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         for ($i = 1; $i < (int) $startOfMonthDay; ++$i) {
@@ -72,7 +71,7 @@ class V1 extends Component {
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
         if (! \is_int($endOfMonthDay)) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         for ($i = 7; $i > $endOfMonthDay; --$i) {

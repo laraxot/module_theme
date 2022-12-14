@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Theme\Models;
 
 use Carbon\Carbon;
-use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
@@ -48,7 +47,7 @@ class TemporaryUpload extends Model implements HasMedia {
 
     protected $guarded = [];
 
-    public static ?Closure $manipulatePreview = null;
+    public static ?\Closure $manipulatePreview = null;
 
     public static ?string $disk = null;
 
@@ -70,11 +69,11 @@ class TemporaryUpload extends Model implements HasMedia {
         $previewManipulation($conversion);
     }
 
-    public static function previewManipulation(Closure $closure): void {
+    public static function previewManipulation(\Closure $closure): void {
         static::$manipulatePreview = $closure;
     }
 
-    protected function getPreviewManipulation(): Closure {
+    protected function getPreviewManipulation(): \Closure {
         return static::$manipulatePreview ?? function (Conversion $conversion) {
             $conversion->fit(Manipulations::FIT_CROP, 300, 300);
         };

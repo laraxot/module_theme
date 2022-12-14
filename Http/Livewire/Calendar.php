@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire;
 
-use Exception;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
@@ -79,7 +78,7 @@ class Calendar extends Component {
 
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->startOfMonth()->isoWeekday();
         if (! \is_int($startOfMonthDay)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         for ($i = 1; $i < $startOfMonthDay; ++$i) {
@@ -88,7 +87,7 @@ class Calendar extends Component {
 
         $daysInMonth = Carbon::createFromDate($this->currentYear, $this->currentMonth)->daysInMonth;
         if (! \is_int($daysInMonth)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         for ($i = 1; $i <= $daysInMonth; ++$i) {
@@ -97,7 +96,7 @@ class Calendar extends Component {
 
         $endOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->endOfMonth()->isoWeekday();
         if (! \is_int($endOfMonthDay)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         for ($i = 7; $i > $endOfMonthDay; --$i) {

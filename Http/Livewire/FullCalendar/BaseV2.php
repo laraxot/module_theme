@@ -9,7 +9,6 @@ namespace Modules\Theme\Http\Livewire\FullCalendar;
  */
 
 use Carbon\Carbon;
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Collection;
@@ -220,7 +219,7 @@ abstract class BaseV2 extends Component {
     }
 
     /**
-     * @throws Exception
+     * @throws \Exception
      *
      * @return mixed
      * @return mixed
@@ -233,7 +232,7 @@ abstract class BaseV2 extends Component {
         $days = $lastDayOfGrid->diffInDays($firstDayOfGrid) + 1;
 
         if (0 !== $days % 7) {
-            throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
+            throw new \Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
         // Unable to resolve the template type TKey in call to function collect
@@ -249,7 +248,7 @@ abstract class BaseV2 extends Component {
 
         $monthGrid = $monthGrid->chunk(7);
         if ($numbersOfWeeks !== $monthGrid->count()) {
-            throw new Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
+            throw new \Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
         }
 
         return $monthGrid;
@@ -282,7 +281,7 @@ abstract class BaseV2 extends Component {
                     // Cannot access offset 'date' on mixed.
                     $date = $event['date'];
                     if (! \is_string($date)) {
-                        throw new Exception('['.__LINE__.']['.__FILE__.']');
+                        throw new \Exception('['.__LINE__.']['.__FILE__.']');
                     }
 
                     return Carbon::parse()->isSameDay((string) $day);
@@ -308,7 +307,7 @@ abstract class BaseV2 extends Component {
     }
 
     /**
-     * @throws Exception
+     * @throws \Exception
      *
      * return Factory|View
      */

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Macros;
 
-use Exception;
-
 /**
  * Class BtnAttach.
  */
@@ -19,7 +17,7 @@ class BtnAttach extends BaseFormBtnMacro {
             $vars = $class::before($extra);
 
             if (! \is_array($vars)) {
-                throw new Exception('vars is not an array');
+                throw new \Exception('vars is not an array');
             }
 
             if ($vars['error']) {

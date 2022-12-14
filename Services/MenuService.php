@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
-use Exception;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Modules\Tenant\Services\TenantService;
@@ -577,7 +576,7 @@ class MenuService {
         $icon = TenantService::config($icon_key);
         // dddx(['icon' => $icon, 'name' => 'icon_key'.$icon_key]);
         if (! \is_string($icon)) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         return self::renderIcon($icon);

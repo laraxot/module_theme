@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Component as ViewComponent;
@@ -53,11 +52,11 @@ class Component extends ViewComponent {
             }
         );
         if (null === $view) {
-            throw new Exception('not exists '.$views[0].' or '.$views[1]);
+            throw new \Exception('not exists '.$views[0].' or '.$views[1]);
         }
         $view_params = [];
         if (! \is_string($view)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         // return view()->make($view);
         return View::make($view, $view_params);

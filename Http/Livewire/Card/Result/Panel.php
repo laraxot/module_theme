@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Card\Result;
 
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -35,7 +34,7 @@ class Panel extends Component {
          */
         $row = $panel->row;
         if (null === $row) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->txt = $row->txt ?? '';
         $this->pos = (int) stripos($this->txt, $this->q);

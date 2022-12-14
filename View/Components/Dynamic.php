@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Closure;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Illuminate\View\DynamicComponent;
@@ -28,7 +27,7 @@ class Dynamic extends DynamicComponent {
     /**
      * Undocumented function.
      *
-     * @return Renderable|Closure
+     * @return Renderable|\Closure
      */
     public function render() {
         $template = <<<'EOF'

@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Xot\Services\PanelService;
-use ReflectionMethod;
 use stdClass;
 
 /**
  * Undocumented .
  */
 class Field extends Component {
-    public stdClass $field;
+    public \stdClass $field;
     // public ?string $label = null;
     // public string $for;
     // public ?string $name = null;
@@ -33,7 +32,7 @@ class Field extends Component {
      * @param mixed|null $value
      */
     public function __construct(
-        ?stdClass $field = null,
+        ?\stdClass $field = null,
         ?string $name = null,
         ?string $type = null, // select.multiple, checkbox ecc.
         ?string $label = null,
@@ -55,7 +54,7 @@ class Field extends Component {
         }
         // --- Setting
         $this->field = (object) [];
-        $refFunction = new ReflectionMethod(__CLASS__, __FUNCTION__);
+        $refFunction = new \ReflectionMethod(__CLASS__, __FUNCTION__);
         $parameters = $refFunction->getParameters();
 
         $args = \func_get_args();
@@ -74,7 +73,7 @@ class Field extends Component {
         }
     }
 
-    public function setField(stdClass $field): self {
+    public function setField(\stdClass $field): self {
         $this->field = $field;
 
         if (isset($field->name)) {

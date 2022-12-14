@@ -99,7 +99,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         if (! File::exists(base_path('Themes/'.$theme))) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
-            throw new Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         $provider = 'Themes\\'.$theme.'\Providers\\'.$theme.'ServiceProvider';
         if (! class_exists($provider)) {
@@ -158,7 +158,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
             $name = $file->getFilenameWithoutExtension();
             $real_path = $file->getRealPath();
             if (false === $real_path) {
-                throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+                throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
             $data = File::getRequire($real_path);
             Config::set($theme_type.'::'.$name, $data);
@@ -186,7 +186,7 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
 
         $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
         if (null === $theme) {
-            throw new Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         $custom_composer = '\Themes\\'.$theme.'\View\Composers\ThemeComposer';

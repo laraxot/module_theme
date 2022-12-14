@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Forms\Inputs;
 
 use Illuminate\View\Component;
-use stdClass;
 
 /**
  * Undocumented class.
  */
 class Group extends Component {
-    public stdClass $field;
+    public \stdClass $field;
     public string $label;
     public string $for;
     public array $attrs = [];
@@ -19,7 +18,7 @@ class Group extends Component {
     /**
      * Undocumented function.
      */
-    public function __construct(stdClass $field) {
+    public function __construct(\stdClass $field) {
         // $this->field = get_object_vars($field);
         $this->field = $field;
         $this->attrs['name'] = $field->name;

@@ -12,7 +12,6 @@ use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Modules\Xot\Services\XLSService;
-use SplFileInfo;
 
 /**
  * Class Field.
@@ -23,7 +22,7 @@ class Model extends Component {
     use WithFileUploads;
 
     /**
-     * @var SplFileInfo
+     * @var \SplFileInfo
      */
     public $myfile;
 

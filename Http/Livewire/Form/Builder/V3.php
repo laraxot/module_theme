@@ -9,7 +9,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use ReflectionClass;
 
 class V3 extends Component {
     public string $type;
@@ -62,7 +61,7 @@ class V3 extends Component {
                 $item->comp_name = 'input.field';
                 $item->comp_ns = "Modules\Theme\View\Components\Input\Field";
 
-                $a = new ReflectionClass($item->comp_ns);
+                $a = new \ReflectionClass($item->comp_ns);
                 $jsonPath = str_replace('.php', '.json', $a->getFileName());
                 if (! File::exists($jsonPath)) {
                     $data = [];

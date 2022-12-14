@@ -29,10 +29,9 @@ class Builder extends Component {
                 $data[$key]['class'] = $data[$key]['className'];
                 unset($data[$key]['className']);
             }
-            if ($input['type'] == 'number') {
+            if ('number' == $input['type']) {
                 $data[$key]['type'] = 'integer';
             }
-
 
             // options da finire per la select
             if (array_key_exists('values', $input)) {

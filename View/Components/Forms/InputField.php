@@ -6,19 +6,18 @@ namespace Modules\Theme\View\Components\Forms;
 
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
-use stdClass;
 
 /**
  * Undocumented class.
  */
 class InputField extends Component {
     public array $attrs = [];
-    public stdClass $field;
+    public \stdClass $field;
 
     /**
      * Undocumented function.
      */
-    public function __construct(stdClass $field) {
+    public function __construct(\stdClass $field) {
         $this->field = $field;
         $this->attrs['name'] = $field->name;
         $this->attrs['wire:model'] = 'form_data.'.$field->name;

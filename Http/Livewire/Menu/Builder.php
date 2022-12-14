@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Menu;
 
-use Exception;
 // use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -106,7 +105,7 @@ class Builder extends Component {
         }
         $menuitem = MenuItem::where('id', $this->menuItemSelected['id'])->first();
         if (null === $menuitem) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $up = [
             'label' => $this->menuItemLabel,
@@ -155,7 +154,7 @@ class Builder extends Component {
                 // $menuitem = MenuItem::find($value['id']);
                 $menuitem = MenuItem::where('id', $value['id'])->first();
                 if (null === $menuitem) {
-                    throw new Exception('['.__LINE__.']['.__FILE__.']');
+                    throw new \Exception('['.__LINE__.']['.__FILE__.']');
                 }
                 $menuitem->parent = $value['parent'];
                 $menuitem->sort = $value['sort'];

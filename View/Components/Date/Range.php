@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Date;
 
-use Closure;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
@@ -15,7 +14,7 @@ class Range extends Component {
     public string $icon;
     public string $id;
     public int $init;
-    public Closure $callback;
+    public \Closure $callback;
 
     public function __construct(
         string $id,
@@ -23,7 +22,7 @@ class Range extends Component {
         string $title,
         string $icon,
         int $init,
-        Closure $callback,
+        \Closure $callback,
         string $inputclass = ''
     ) {
         $this->id = $id;

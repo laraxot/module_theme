@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Http\Livewire\Panel;
 
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -100,7 +99,7 @@ class Crud extends Component {
         $this->updateMode = true;
         $user = User::where('id', $id)->first();
         if (null === $user) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->user_id = $id;
         $this->name = $user->first_name ?? '';

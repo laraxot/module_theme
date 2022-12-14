@@ -9,7 +9,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use ReflectionClass;
 
 class V2 extends Component {
     public string $type;
@@ -57,7 +56,7 @@ class V2 extends Component {
             collect($this->blade_components)
             // $this->blade_components
             ->map(function ($item) {
-                $a = new ReflectionClass($item->comp_ns);
+                $a = new \ReflectionClass($item->comp_ns);
 
                 // dddx($a->getMethod('render'));
                 // dddx([$a->getConstructor()->getParameters(),json_encode($a->getConstructor()->getParameters())]);

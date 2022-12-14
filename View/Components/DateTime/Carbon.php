@@ -6,7 +6,6 @@ namespace Modules\Theme\View\Components\DateTime;
 
 use Carbon\Carbon as CarbonAlias;
 use Carbon\CarbonInterface;
-use DateTimeInterface;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Xot\View\Components\XotBaseComponent;
 
@@ -28,7 +27,7 @@ class Carbon extends XotBaseComponent {
     protected static array $assets = ['moment'];
 
     public function __construct(
-        DateTimeInterface $date,
+        \DateTimeInterface $date,
         string $format = 'Y-m-d H:i:s',
         bool $human = false,
         string $local = ''

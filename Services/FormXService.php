@@ -409,16 +409,16 @@ class FormXService {
         $tooltip = null;
         extract($params);
         if (! isset($panel)) {
-            throw new Exception('panel is missing');
+            throw new \Exception('panel is missing');
         }
         if (! isset($method)) {
-            throw new Exception('method is missing');
+            throw new \Exception('method is missing');
         }
         if (! isset($act)) {
-            throw new Exception('act is missing');
+            throw new \Exception('act is missing');
         }
         if (! isset($url)) {
-            throw new Exception('url is missing');
+            throw new \Exception('url is missing');
         }
 
         if (null === $data_title) {

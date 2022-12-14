@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components;
 
-use Exception;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
@@ -64,7 +63,7 @@ class Alert extends Component {
     public function message(): string {
         $res = Arr::first($this->messages());
         if (! \is_string($res)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         return $res;

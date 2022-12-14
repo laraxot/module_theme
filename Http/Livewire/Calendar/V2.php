@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Modules\Theme\Http\Livewire\Calendar;
 
 use Carbon\Carbon;
-use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -202,7 +201,7 @@ class V2 extends Component {
         $days = $lastDayOfGrid->diffInDays($firstDayOfGrid) + 1;
 
         if (0 !== $days % 7) {
-            throw new Exception('Livewire Calendar not correctly configured. Check initial inputs.');
+            throw new \Exception('Livewire Calendar not correctly configured. Check initial inputs.');
         }
 
         /**
@@ -218,7 +217,7 @@ class V2 extends Component {
 
         $monthGrid = $monthGrid->chunk(7);
         if ($numbersOfWeeks !== $monthGrid->count()) {
-            throw new Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
+            throw new \Exception('Livewire Calendar calculated wrong number of weeks. Sorry :(');
         }
 
         return $monthGrid;
@@ -309,7 +308,7 @@ class V2 extends Component {
     /**
      * Render the component.
      *
-     * @throws Exception
+     * @throws \Exception
      *
      * @return \Illuminate\Contracts\View\View
      */
