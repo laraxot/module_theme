@@ -1,12 +1,12 @@
 ---
-title: Card Poster Txt
-description: Card Poster Txt
+title: Card Poster Result Txt
+description: Card Poster Result Txt
 extends: _layouts.documentation
 section: content
 path: it/docs/livewire_components/card/poster/result
 ---
 
-# Card Poster Txt {#card-poster-txt}
+# Card Poster Result Txt {#card-poster-txt}
 
 Serve per creare una barra per spostarsi tra le "citazioni".
 

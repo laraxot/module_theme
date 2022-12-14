@@ -62,6 +62,7 @@ return [
         'url' => 'docs/livewire_components',
         'children' => [
             'Calendar' => [
+                'url' => '#',
                 'children' => [
                     'V2' => 'docs/livewire_components/calendar/v2',
                 ],
@@ -75,7 +76,7 @@ return [
                             'result' => [
                                 'url' => '#',
                                 'children' => [
-                                    'txt' => 'docs/livewire_components/poster/result/txt',
+                                    'txt' => 'docs/livewire_components/card/poster/result/txt',
                                 ],
                             ],
                         ],
@@ -83,9 +84,25 @@ return [
                     'result' => [
                         'url' => '#',
                         'children' => [
-                            'panel' => 'docs/livewire_components/result/panel',
+                            'panel' => 'docs/livewire_components/card/result/panel',
                         ],
                     ],
+                ],
+            ],
+            'Crud' => [
+                'url' => '#',
+                'children' => [
+                    'Create' => 'docs/livewire_components/crud/create',
+                ],
+            ],
+            'Datagrid' => [
+                'url' => '#',
+                'children' => [
+                    'Intro' => 'docs/livewire_components/datagrid/intro',
+                    'Head' => 'docs/livewire_components/datagrid/head',
+                    'Row' => 'docs/livewire_components/datagrid/row',
+                    'V1' => 'docs/livewire_components/datagrid/v1',
+                    'V2' => 'docs/livewire_components/datagrid/v2',
                 ],
             ],
         ],
