@@ -26,7 +26,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="https://laraxot.github.io/module_theme/assets/build/css/main.css?id=14334e6bd26073f42891899e4abe86a7">
+        <link rel="stylesheet" href="https://laraxot.github.io/module_theme/assets/build/css/main.css?id=4e3d9aa3cf4103642a000c482e429621">
 
             </head>
 
@@ -82,9 +82,30 @@
         <a href="https://laraxot.github.io/module_theme/it/docs/installation"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
+            Getting Started
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/installation"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
             Installation
         </a>
     
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/basic-theme-installation"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Basic Theme Installation
+        </a>
+    
+    </li>
+    </ul>
     </li>
             <li class="pl-4">
             
@@ -238,7 +259,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://laraxot.github.io/module_theme/it/docs/livewire-components"
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Componenti Livewire
@@ -248,30 +269,86 @@
         <ul class="my-0">
             <li class="pl-4">
             
-        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/progress_bar"
-            class="lvl1   nav-menu__item hover:text-blue-500"
+        <p class="nav-menu__item text-gray-600">Calendar</p>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/calendar/v2"
+            class="lvl2   nav-menu__item hover:text-blue-500"
         >
-            Progress Bar
+            V2
         </a>
     
     </li>
-            <li class="pl-4">
-            
-        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/menu_builder"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Menu Builder
-        </a>
-    
+    </ul>
     </li>
             <li class="pl-4">
             
-        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/form_builder"
+        <a href="https://laraxot.github.io/module_theme/it/#"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
-            Form Builder
+            Card
         </a>
     
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/#"
+            class="lvl2   nav-menu__item hover:text-blue-500"
+        >
+            poster
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/#"
+            class="lvl3   nav-menu__item hover:text-blue-500"
+        >
+            result
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/poster/result/txt"
+            class="lvl4   nav-menu__item hover:text-blue-500"
+        >
+            txt
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/#"
+            class="lvl2   nav-menu__item hover:text-blue-500"
+        >
+            result
+        </a>
+    
+            
+        <ul class="my-0">
+            <li class="pl-4">
+            
+        <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/result/panel"
+            class="lvl3   nav-menu__item hover:text-blue-500"
+        >
+            panel
+        </a>
+    
+    </li>
+    </ul>
+    </li>
+    </ul>
     </li>
     </ul>
     </li>
@@ -283,11 +360,18 @@
 
 <p>Rappresenta un componente Accordion.</p>
 
-<p>Il componente verrà renderizzato utilizzando una vista Blade, che sarà determinata dalla proprietà $type, che di default richiamerà la blade <strong>theme::components.accordion.rows</strong></p>
+<p>Il componente verrà renderizzato utilizzando una vista Blade, che sarà determinata dalla proprietà $type, che di default richiamerà la blade <strong>theme::components.accordion.rows.v1</strong></p>
 
 <p>Il componente verrà inizializzato con una collection di dati, che sarà disponibile come proprietà $rows.</p>
 
-<pre><code class="language-php">&lt;x-accordion.rows :rows="collection"&gt;&lt;/x-accordion.rows&gt;
+<pre><code class="language-php">&lt;x-accordion.container id="accordion-0"&gt;
+    &lt;x-accordion.item id="accordion-item-0" title="titolo" i="0"&gt;
+        descrizione
+    &lt;/x-accordion.item&gt;
+    &lt;x-accordion.item id="accordion-item-1" title="titolo 1" i="1"&gt;
+        descrizione 1
+    &lt;/x-accordion.item&gt;
+&lt;/x-accordion.container&gt;
 </code></pre>
         </div>
     </div>
