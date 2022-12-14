@@ -13,7 +13,7 @@ use Modules\Theme\Services\ThemeService;
  * Class Rows.
  */
 class Rows extends Component {
-    public string $type = 'rows';
+    public string $type = 'v1';
     public Collection $rows;
 
     /**
@@ -30,7 +30,7 @@ class Rows extends Component {
      * Get the view / contents that represent the component.
      */
     public function render(): Renderable {
-        $view = 'theme::components.accordion.'.$this->type;
+        $view = 'theme::components.accordion.rows.'.$this->type;
         $view_params = [
             'view' => $view,
         ];
