@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Input Group vs Input">
+        <meta name="description" content="Input Slider">
 
         <meta property="og:site_name" content="Modulo Theme" />
-        <meta property="og:title" content="Input Group vs Input | Modulo Theme" />
-        <meta property="og:description" content="Input Group vs Input" />
-        <meta property="og:url" content="https://laraxot.github.io/module_theme/it/docs/input-group-vs-input" />
+        <meta property="og:title" content="Input Slider | Modulo Theme" />
+        <meta property="og:description" content="Input Slider" />
+        <meta property="og:url" content="https://laraxot.github.io/module_theme/it/docs/livewire_components/input/slider" />
         <meta property="og:image" content="https://laraxot.github.io/module_theme/assets/img/logo.png" />
         <meta property="og:type" content="website" />
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>Modulo Theme | Input Group vs Input</title>
+        <title>Modulo Theme | Input Slider</title>
 
         <link rel="home" href="https://laraxot.github.io/module_theme">
         <link rel="icon" href="https://laraxot.github.io/module_theme/favicon.ico">
@@ -119,7 +119,7 @@
             <li class="pl-4">
             
         <a href="https://laraxot.github.io/module_theme/it/docs/input-group-vs-input"
-            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Input Group vs Input
         </a>
@@ -661,7 +661,7 @@
             <li class="pl-4">
             
         <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/input/slider"
-            class="lvl2   nav-menu__item hover:text-blue-500"
+            class="lvl2  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             Slider
         </a>
@@ -675,17 +675,36 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1 id="input-group-vs-input">Input Group vs Input</h1>
+            <h1 id="input-slider">Input Slider</h1>
 
-<p>La classe Input.php estende la classe Component e definisce diverse proprietà, tra cui <strong>attrs</strong>, <strong>type</strong>, <strong>name</strong> e <strong>options</strong>, oltre a un metodo chiamato __construct.</p>
+<p>Mostra uno slider con un valore minimo e massimo.</p>
 
-<p>La classe Input crea un elemento di input del modulo, con il metodo __construct utilizzato per impostare le varie proprietà dell'input in base agli argomenti forniti.</p>
+<p><strong><em>NB: Per aggiungere Nouislider in Laravel, è necessario prima installare l'estensione 'nouislider-bootstrap'</em></strong></p>
 
-<p>Il metodo render viene utilizzato per generare l'HTML per l'elemento di input in base alle proprietà e alle opzioni impostate nel metodo __construct.</p>
+<p>Nome Componente:</p>
 
-<p>La classe Input ha anche una logica per impostare attributi e classi specifici per diversi tipi di input, come select, checkbox o radio.</p>
+<pre><code class="language-php">livewire:input.slider
+</code></pre>
 
-<p>La classe Input/Group.php definisce una classe chiamata Group che estende la classe Component. Questa classe Group ha lo scopo di richiamare un gruppo di elementi di un form, come un gruppo di radio o checkbox, input testo, texarea ecc, con tanto di label</p>
+<p>Listeners:</p>
+
+<pre><code class="language-php">'setSliderMinMax' =&gt; 'setMinMax',
+'setSliderValues' =&gt; 'setValues',
+</code></pre>
+
+<p>Parametri</p>
+
+<pre><code class="language-php">//identificativo univoco dello slider
+string $id
+//driver (nome della view in pub_theme::livewire/input/slider)
+//al momento c'è solo noui cioè la view di nouislider
+?string $driver = null
+</code></pre>
+
+<p>Esempio:</p>
+
+<pre><code class="language-php">&lt;livewire:input.slider id="slider01" driver="noui" /&gt;
+</code></pre>
         </div>
     </div>
 </section>
