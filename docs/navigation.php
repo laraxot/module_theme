@@ -166,6 +166,13 @@ return [
                     'Arr' => 'docs/livewire_components/input/arr',
                     'ArrTwo' => 'docs/livewire_components/input/arr_two',
                     'Slider' => 'docs/livewire_components/input/slider',
+                    'ToggleDate' => 'docs/livewire_components/input/toggle-date',
+                ],
+            ],
+            'Menu' => [
+                'url' => '#',
+                'children' => [
+                    'Builder' => 'docs/livewire_components/menu/builder',
                 ],
             ],
         ],

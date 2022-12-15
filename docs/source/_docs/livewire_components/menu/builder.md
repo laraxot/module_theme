@@ -3,6 +3,7 @@ title: Menu Builder
 description: Menu Builder
 extends: _layouts.documentation
 section: content
+path: it/docs/livewire_components/menu
 ---
 
 # Menu Builder {#menu-builder}
