@@ -35,6 +35,9 @@ return [
     'isActive' => function ($page, $path) {
         return Str::endsWith(trimPath($page->getPath()), trimPath($path));
     },
+    'isItemActive' => function ($page, $item) {
+        return Str::endsWith(trimPath($page->getPath()), trimPath($item->getPath()));
+    },
     'isActiveParent' => function ($page, $menuItem) {
         if (is_object($menuItem) && $menuItem->children) {
             return $menuItem->children->contains(function ($child) use ($page) {
@@ -48,5 +51,9 @@ return [
         }
         // return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
         return url('/'.$page->lang.'/'.trimPath($path));
+    },
+
+    'children' => function ($page, $docs) {
+        return $docs->where('parent_id', $page->id);
     },
 ];
