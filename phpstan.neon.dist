@@ -1,37 +1,14 @@
 includes:
     - phpstan-baseline.neon
-    
 
 parameters:
-    level: 4
+    level: 1
     paths:
         - .
-    ignoreErrors:
-    #    - '#Unsafe usage of new static#'
 
     excludePaths:
-        - ./*/*/FileToBeExcluded.php
-        - ./build/phpstan/*
         - ./vendor/*
-        - ./vendor/*/*
-        - ./vendor/*/*/*
-        - ./vendor/*/*/*/*
-        - ./vendor/*/*/*/*/*
-        - ./vendor/*/*/*/*/*/*
-        - ./vendor/*/*/*/*/*/*/*
-        - ./vendor/*/*/*/*/*/*/*/*
+        - ./docs/*
 
-    # tmpDir: build/phpstan
-     #checkModelProperties: true
     checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
 
-    bootstrapFiles:
-    #    - ./Modules/Xot/Services/vendor/autoload.php
-        - ./../../vendor/autoload.php
-
-    scanFiles:
-    #    - ./Modules/Xot/Helpers/Helper.php
-
-    tmpDir: build/phpstan
-    checkMissingIterableValueType: false

@@ -40,10 +40,7 @@
     "autoload": {
         "psr-4": {
             "Modules\\Theme\\": ""
-        },
-        "files": [
-            "Modules/Xot/Helpers/Helper.php"
-        ]
+        }
     },
     "scripts" : {
         "analyse" : "vendor/bin/phpstan analyse",
