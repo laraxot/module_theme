@@ -10,7 +10,7 @@ path: it/docs/livewire_components/input
 
 Mostra uno slider con un valore minimo e massimo.
 
-NB ***Per aggiungere Nouislider in Laravel, è necessario prima installare l'estensione nouislider-bootstrap***
+***NB: Per aggiungere Nouislider in Laravel, è necessario prima installare l'estensione 'nouislider-bootstrap'***
 
 Nome Componente:
 
