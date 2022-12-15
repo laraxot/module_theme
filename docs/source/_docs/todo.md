@@ -18,5 +18,6 @@ section: content
 9. laravel\Modules\Theme\View\Components\Authentication\CardLogo.php è un singolo logo di un tema (quale?), non è riutilizzabile
 10. laravel\Modules\Theme\View\Components\Button\ArrowButton.php da aggiustare
 11. laravel\Modules\Theme\View\Components\Button\DarkCta.php se non ha href mi lascia un bottone che non fa niente
-12. aggiustare laravel\Modules\Theme\View\Components\Button\FormButton.php
-13. sistemare i modelli di laraxot/module_theme, php artisan migrate da problemi
+12. laravel\Modules\Theme\View\Components\Button\PrimaryCta.php se non ha href mi lascia un bottone che non fa niente
+13. aggiustare laravel\Modules\Theme\View\Components\Button\FormButton.php
+14. sistemare i modelli di laraxot/module_theme, php artisan migrate da problemi

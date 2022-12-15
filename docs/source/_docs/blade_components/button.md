@@ -68,7 +68,7 @@ L'esempio riproduce:
 E' possibile aggiungere anche l'attributo style.
 
 ## Form Button {#form-button}
-Crea il bottone del logout 
+Crea il bottone del logout:
 
 ```php
 <x-button.logout class="btn btn-primary"></x-button.logout>
