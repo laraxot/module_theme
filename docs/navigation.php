@@ -102,7 +102,59 @@ return [
                     'Head' => 'docs/livewire_components/datagrid/head',
                     'Row' => 'docs/livewire_components/datagrid/row',
                     'V1' => 'docs/livewire_components/datagrid/v1',
-                    'V2' => 'docs/livewire_components/datagrid/v2',
+                ],
+            ],
+            'Elastic' => [
+                'url' => '#',
+                'children' => [
+                    'Filter' => 'docs/livewire_components/elastic/filter',
+                ],
+            ],
+            'Form' => [
+                'url' => '#',
+                'children' => [
+                    'Builder' => 'docs/livewire_components/form/builder',
+                    'Get' => 'docs/livewire_components/form/get',
+                ],
+            ],
+            'FullCalendar' => [
+                'url' => '#',
+                'children' => [
+                    'BaseV2' => 'docs/livewire_components/full_calendar/base_v2',
+                    'Event' => 'docs/livewire_components/full_calendar/event',
+                    'V1' => 'docs/livewire_components/full_calendar/v1',
+                    'V2' => 'docs/livewire_components/full_calendar/v2',
+                ],
+            ],
+            'Import' => [
+                'url' => '#',
+                'children' => [
+                    'Xls' => [
+                        'url' => '#',
+                        'children' => [
+                            'Model' => 'docs/livewire_components/import/xls/model',
+                        ],
+                    ],
+                ],
+            ],
+            'Input' => [
+                'url' => '#',
+                'children' => [
+                    'Group' => [
+                        'children' => [
+                            'Arr' => 'docs/livewire_components/input/group/arr',
+                        ],
+                    ],
+                    'Status' => [
+                        'children' => [
+                            'Select' => [
+                                'children' => [
+                                    'Single' => 'docs/livewire_components/input/status/select/single',
+                                ],
+                            ],
+                        ],
+                    ],
+                    'Arr' => 'docs/livewire_components/input/arr',
                 ],
             ],
         ],

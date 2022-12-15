@@ -13,7 +13,7 @@ Mostra la riga di un modello (row) in una tabella (tr) con un tasto per modifica
 Nome Componente:
 
 ```php
-livewire:datagrid.row
+livewire:datagrid-editable.row
 ```
 
 Parametri
@@ -29,9 +29,9 @@ Esempio:
 
 ```php
 @php
-$user_class = \App\Models\User::make();
+$user = \App\Models\User::make();
 @endphp
 
-<livewire:datagrid-editable.row :row="$user_class" index=0 />
+<livewire:datagrid-editable.row :row="$user" index=0 />
 ```
 

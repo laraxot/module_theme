@@ -13,7 +13,7 @@ Ritorna l'intestazione della tabella (th) in base ai campi di un modello.
 Nome Componente:
 
 ```php
-livewire:datagrid.head
+livewire:datagrid-editable.head
 ```
 
 Parametri
@@ -29,9 +29,9 @@ Esempio:
 
 ```php
 @php
-$user_class = \App\Models\User::make();
+$user = \App\Models\User::make();
 @endphp
 
-<livewire:datagrid-editable.head :row="$user_class" index=0 />
+<livewire:datagrid-editable.head :row="$user" index=0 />
 ```
 
