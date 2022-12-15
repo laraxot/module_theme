@@ -23,3 +23,5 @@ section: content
 14. sistemare i modelli di laraxot/module_theme, php artisan migrate da problemi
 15. collaudare componenti laravel\Modules\Blog\View\Components\Card\Article.php e laravel\Modules\Blog\View\Components\Card\Event.php
 16. laravel\Modules\Theme\View\Components\Card\Poster.php da cancellare? sostituito con x-card type="poster"?
+17. laravel\Modules\Theme\View\Components\Card\Model.php da cancellare, richiama una blade statica
+18. laravel\Modules\Theme\View\Components\Card\Rows.php sembra non utilizzata da nessuna parte
