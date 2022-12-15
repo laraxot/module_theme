@@ -3,6 +3,9 @@ title: Email
 description: Email
 extends: _layouts.documentation
 section: content
+lang: it
+id: 51
+parent_id: 5
 ---
 
 # Email {#email}

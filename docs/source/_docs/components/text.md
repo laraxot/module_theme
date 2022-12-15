@@ -3,6 +3,9 @@ title: Text
 description: Text
 extends: _layouts.documentation
 section: content
+lang: it
+id: 56
+parent_id: 5
 ---
 
 # Text {#text}

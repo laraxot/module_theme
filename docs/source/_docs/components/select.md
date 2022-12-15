@@ -3,6 +3,9 @@ title: Select
 description: Select
 extends: _layouts.documentation
 section: content
+lang: it
+id: 55
+parent_id: 5
 ---
 
 # Select {#select}

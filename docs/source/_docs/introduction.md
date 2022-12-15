@@ -3,6 +3,9 @@ title: Introduction
 description: Introduzione al modulo Theme.
 extends: _layouts.documentation
 section: content
+lang: it
+id: 12
+parent_id: 0
 ---
 
 # Introduction {#Introduction}

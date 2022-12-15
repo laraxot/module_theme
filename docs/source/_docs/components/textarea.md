@@ -3,6 +3,9 @@ title: Textarea
 description: Textarea
 extends: _layouts.documentation
 section: content
+lang: it
+id: 57
+parent_id: 5
 ---
 
 # Textarea {#textarea}

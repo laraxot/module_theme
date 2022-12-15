@@ -3,6 +3,9 @@ title: Basic Theme Installation
 description: Basic Theme Installation
 extends: _layouts.documentation
 section: content
+lang: it
+id: 3
+parent_id: 0
 ---
 
 # Basic Theme Installation {#basic-theme-installation}

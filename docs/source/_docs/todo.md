@@ -3,6 +3,9 @@ title: To Do
 description: Cose da fare
 extends: _layouts.documentation
 section: content
+lang: it
+id: 18
+parent_id: 0
 ---
 
 # To Do {#to-do}

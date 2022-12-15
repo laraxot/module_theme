@@ -3,6 +3,9 @@ title: Utilizzo Base
 description: Utilizzo Base
 extends: _layouts.documentation
 section: content
+lang: it
+id: 4
+parent_id: 0
 ---
 
 # Utilizzo Base {#basic-usage}

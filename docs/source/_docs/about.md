@@ -3,6 +3,9 @@ title: Modulo Theme
 description: Modulo Theme
 extends: _layouts.documentation
 section: content
+lang: it
+id: 1
+parent_id: 0
 ---
 
 # Modulo Theme {#modulo-theme}

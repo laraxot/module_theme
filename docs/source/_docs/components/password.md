@@ -3,6 +3,9 @@ title: Password
 description: Password
 extends: _layouts.documentation
 section: content
+lang: it
+id: 53
+parent_id: 5
 ---
 
 # Password {#password}

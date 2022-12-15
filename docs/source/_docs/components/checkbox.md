@@ -3,6 +3,9 @@ title: Checkbox
 description: Checkbox
 extends: _layouts.documentation
 section: content
+lang: it
+id: 50
+parent_id: 5
 ---
 
 # Checkbox {#checkbox}

@@ -3,6 +3,9 @@ title: Radio
 description: Radio
 extends: _layouts.documentation
 section: content
+lang: it
+id: 54
+parent_id: 5
 ---
 
 # Radio {#radio}

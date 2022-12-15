@@ -3,6 +3,9 @@ title: Installazione
 description: Installazione
 extends: _layouts.documentation
 section: content
+lang: it
+id: 11
+parent_id: 0
 ---
 
 # Installation {#installation}

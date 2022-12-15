@@ -3,6 +3,9 @@ title: Integer
 description: Integer
 extends: _layouts.documentation
 section: content
+lang: it
+id: 52
+parent_id: 5
 ---
 
 # Integer {#integer}

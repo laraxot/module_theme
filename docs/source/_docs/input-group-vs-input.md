@@ -3,6 +3,9 @@ title: Input Group vs Input
 description: Input Group vs Input
 extends: _layouts.documentation
 section: content
+lang: it
+id: 10
+parent_id: 0
 ---
 
 # Input Group vs Input {#input-group-vs-input}

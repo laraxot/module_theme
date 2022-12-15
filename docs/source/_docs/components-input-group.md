@@ -3,6 +3,9 @@ title: Componenti Input Group
 description: Componenti Input Group
 extends: _layouts.documentation
 section: content
+lang: it
+id: 6
+parent_id: 0
 ---
 
 # Componenti Input Group {#components-input-group}
