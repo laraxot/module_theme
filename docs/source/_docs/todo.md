@@ -19,7 +19,6 @@ parent_id: 0
 7. laravel\Modules\Theme\Resources\views\components\api, altre blade vecchie?
 8. laravel\Modules\Theme\View\Components\Authentication\Card.php da aggiustare mettendo i parametri
 9. laravel\Modules\Theme\View\Components\Authentication\CardLogo.php è un singolo logo di un tema (quale?), non è riutilizzabile
-<<<<<<< HEAD
 10. laravel\Modules\Theme\View\Components\Button\ArrowButton.php da aggiustare
 11. laravel\Modules\Theme\View\Components\Button\DarkCta.php se non ha href mi lascia un bottone che non fa niente
 12. laravel\Modules\Theme\View\Components\Button\PrimaryCta.php se non ha href mi lascia un bottone che non fa niente
@@ -29,6 +28,3 @@ parent_id: 0
 16. laravel\Modules\Theme\View\Components\Card\Poster.php da cancellare? sostituito con x-card type="poster"?
 17. laravel\Modules\Theme\View\Components\Card\Model.php da cancellare, richiama una blade statica
 18. laravel\Modules\Theme\View\Components\Card\Rows.php sembra non utilizzata da nessuna parte
-=======
-10. laravel\Modules\Theme\View\Components\Button\ArrowButton.php da aggiustare
->>>>>>> 1692428a (up)
