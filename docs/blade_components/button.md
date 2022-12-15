@@ -24,7 +24,6 @@ section: content
     <x-slot name="label">Avanti</x-slot>
 </x-button>
 ```
-<<<<<<< HEAD
 
 ## Button Crud {#button-crud}
 
@@ -74,5 +73,3 @@ Crea il bottone del logout:
 ```php
 <x-button.logout class="btn btn-primary"></x-button.logout>
 ```
-=======
->>>>>>> 1692428a (up)
