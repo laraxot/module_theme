@@ -1418,7 +1418,8 @@ class ThemeService {
     public static function getThemes(): Collection {
         $themes_dir = base_path('Themes');
         if (! File::exists($themes_dir)) {
-            throw new \Exception('Themes directory do not exits ['.$themes_dir.']['.__LINE__.']['.__FILE__.']');
+            // throw new \Exception('Themes directory do not exits ['.$themes_dir.']['.__LINE__.']['.__FILE__.']');
+            return collect([]);
         }
         $themes = File::directories($themes_dir);
         $default_data = [
