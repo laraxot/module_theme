@@ -16,7 +16,7 @@ Nome Componente:
 livewire:input.toggle-date
 ```
 
-Proprietà del componente
+Proprietà pubbliche del componente
 
 ```php
 public Model $model;
@@ -27,7 +27,5 @@ public bool $isActive;
 Esempio:
 
 ```php
-@livewire('theme.input.toggle-date', ['model' => $myModel, 'field' => 'my_field'])
-//oppure
 <livewire:theme.input.toggle-date model="$myModel" field="my_field" />
 ```
