@@ -658,6 +658,35 @@ Come parametro riceve un pannello di un modello istanza.</p>
 &lt;x-button.detach :panel="$panel" /&gt;
 &lt;x-button.show :panel="$panel" /&gt;
 </code></pre>
+
+<h2 id="form-button">Form Button</h2>
+
+<p>Bottone che crea l'html di un form:</p>
+
+<pre><code class="language-php">    &lt;x-button.form-button class="btn btn-primary" action="/" method="GET" label="submit"&gt;
+        &lt;x-input.group type="text" name="firstname" /&gt;
+    &lt;/x-button.form-button&gt;
+</code></pre>
+
+<p>L'esempio riproduce:</p>
+
+<pre><code class="language-php">&lt;form method="GET" action="/"&gt;
+    &lt;input type="hidden" name="_token" value="uGcpv0e4tV3SHfz8xwdOVTKcrhpXA0BQ0qyXL6CM"&gt; 
+    &lt;input type="hidden" name="_method" value="GET"&gt; &lt;div class="form-group col-"&gt;
+    &lt;label for="firstname"&gt;xot::home.firstname.label&lt;/label&gt;
+    &lt;input type="text" name="firstname" class="form-control" wire:model.lazy="form_data.firstname"&gt;&lt;/div&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt; submit &lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>E' possibile aggiungere anche l'attributo style.</p>
+
+<h2 id="form-button">Form Button</h2>
+
+<p>Crea il bottone del logout</p>
+
+<pre><code class="language-php">&lt;x-button.logout class="btn btn-primary"&gt;&lt;/x-button.logout&gt;
+</code></pre>
         </div>
     </div>
 </section>
