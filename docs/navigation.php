@@ -141,20 +141,31 @@ return [
                 'url' => '#',
                 'children' => [
                     'Group' => [
+                        'url' => '#',
                         'children' => [
                             'Arr' => 'docs/livewire_components/input/group/arr',
                         ],
                     ],
                     'Status' => [
+                        'url' => '#',
                         'children' => [
                             'Select' => [
+                                'url' => '#',
                                 'children' => [
                                     'Single' => 'docs/livewire_components/input/status/select/single',
                                 ],
                             ],
                         ],
                     ],
+                    'StringList' => [
+                        'url' => '#',
+                        'children' => [
+                            'Color' => 'docs/livewire_components/string_list/color',
+                        ],
+                    ],
                     'Arr' => 'docs/livewire_components/input/arr',
+                    'ArrTwo' => 'docs/livewire_components/input/arr_two',
+                    'Slider' => 'docs/livewire_components/input/slider',
                 ],
             ],
         ],
