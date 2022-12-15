@@ -454,6 +454,24 @@
     &lt;x-slot name="label"&gt;Avanti&lt;/x-slot&gt;
 &lt;/x-button&gt;
 </code></pre>
+
+<h2 id="button-crud">Button Crud</h2>
+
+<p>Visualizza i tre bottoni crud (edit, show e delete) di un modello/istanza.
+Come parametro riceve un pannello di un modello istanza.</p>
+
+<p>Può anche visualizzare i tasti relativi alle tabs del pannello. Esempio:</p>
+
+<pre><code class="language-php">&lt;x-button.crud :panel="Panel::make()-&gt;get(Auth::user())"&gt;&lt;/x-button.crud&gt;
+</code></pre>
+
+<p>Questo componente utilizza componenti che creano il singolo bottone di un azione crud:</p>
+
+<pre><code class="language-php">&lt;x-button.edit :panel="$panel" /&gt;
+&lt;x-button.delete :panel="$panel" /&gt;
+&lt;x-button.detach :panel="$panel" /&gt;
+&lt;x-button.show :panel="$panel" /&gt;
+</code></pre>
         </div>
     </div>
 </section>
