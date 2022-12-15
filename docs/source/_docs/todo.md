@@ -21,3 +21,4 @@ section: content
 12. laravel\Modules\Theme\View\Components\Button\PrimaryCta.php se non ha href mi lascia un bottone che non fa niente
 13. aggiustare laravel\Modules\Theme\View\Components\Button\FormButton.php
 14. sistemare i modelli di laraxot/module_theme, php artisan migrate da problemi
+15. collaudare componenti laravel\Modules\Blog\View\Components\Card\Article.php e laravel\Modules\Blog\View\Components\Card\Event.php
