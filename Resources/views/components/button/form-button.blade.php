@@ -2,7 +2,7 @@
     @csrf
     @method($method)
 
-    <button type="submit" {{ $attributes }}>
+    <button type="submit" {{ $class }}>
         {{ $slot }}
     </button>
 </form>

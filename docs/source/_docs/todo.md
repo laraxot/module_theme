@@ -17,3 +17,5 @@ section: content
 8. laravel\Modules\Theme\View\Components\Authentication\Card.php da aggiustare mettendo i parametri
 9. laravel\Modules\Theme\View\Components\Authentication\CardLogo.php è un singolo logo di un tema (quale?), non è riutilizzabile
 10. laravel\Modules\Theme\View\Components\Button\ArrowButton.php da aggiustare
+11. laravel\Modules\Theme\View\Components\Button\DarkCta.php se non ha href mi lascia un bottone che non fa niente
+12. aggiustare laravel\Modules\Theme\View\Components\Button\FormButton.php

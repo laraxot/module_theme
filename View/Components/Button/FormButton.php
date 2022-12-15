@@ -15,9 +15,12 @@ class FormButton extends XotBaseComponent {
 
     public string $method;
 
-    public function __construct(string $action, string $method = 'POST') {
+    public string $class;
+
+    public function __construct(string $action, string $method, string $class) {
         $this->action = $action;
         $this->method = strtoupper($method);
+        $this->class = $class;
     }
 
     public function render(): View {
