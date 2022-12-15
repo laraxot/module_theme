@@ -1,0 +1,2 @@
+providers:
+  - Modules\Theme\Providers\ThemeServiceProvider
