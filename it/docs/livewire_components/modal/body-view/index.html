@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Toggle Date">
+        <meta name="description" content="Modal Body View">
 
         <meta property="og:site_name" content="Modulo Theme" />
-        <meta property="og:title" content="Toggle Date | Modulo Theme" />
-        <meta property="og:description" content="Toggle Date" />
-        <meta property="og:url" content="https://laraxot.github.io/module_theme/it/docs/livewire_components/input/toggle-date" />
+        <meta property="og:title" content="Modal Body View | Modulo Theme" />
+        <meta property="og:description" content="Modal Body View" />
+        <meta property="og:url" content="https://laraxot.github.io/module_theme/it/docs/livewire_components/modal/body-view" />
         <meta property="og:image" content="https://laraxot.github.io/module_theme/assets/img/logo.png" />
         <meta property="og:type" content="website" />
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>Modulo Theme | Toggle Date</title>
+        <title>Modulo Theme | Modal Body View</title>
 
         <link rel="home" href="https://laraxot.github.io/module_theme">
         <link rel="icon" href="https://laraxot.github.io/module_theme/favicon.ico">
@@ -670,7 +670,7 @@
             <li class="pl-4">
             
         <a href="https://laraxot.github.io/module_theme/it/docs/livewire_components/input/toggle-date"
-            class="lvl2  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl2   nav-menu__item hover:text-blue-500"
         >
             ToggleDate
         </a>
@@ -705,26 +705,62 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1 id="toggle-date">Toggle Date</h1>
+            <h1 id="modal-body-view">Modal Body View</h1>
 
-<p>Mostra un checkbox con uno stile più carino, simil swipe.</p>
+<p>Serve per creare la pagina di un modal</p>
 
 <p>Nome Componente:</p>
 
-<pre><code class="language-php">livewire:input.toggle-date
+<pre><code class="language-php">livewire:modal.body-view
 </code></pre>
 
 <p>Proprietà pubbliche del componente</p>
 
-<pre><code class="language-php">public Model $model;
-public string $field;
-public bool $isActive;
+<pre><code class="language-php">//indica se il modal è visibile oppure no
+public bool $show = false;
+public string $body_view;
+public string $modal_id;
+public string $title;
+public ?string $subtitle;
+</code></pre>
+
+<p>Proprietà del <strong><em>costruttore</em></strong></p>
+
+<pre><code class="language-php">//identificativo univoco del modal
+string $id
+//titolo da scrivere del modal
+string $title
+//sottotitolo da scrivere nel modal
+string $subtitle = null
+//percorso della view interna al "contorno" del modal (es. pub_theme::modal.profile_edit)
+string $bodyView
+</code></pre>
+
+<p>Listeners</p>
+
+<pre><code class="language-php">//mostra il modal
+'showModal' =&gt; 'showModal',
+//chiude il modal
+'doClose' =&gt; 'doClose',
+//invia un session()-&gt;flash('message', $msg)
+'sendMessage' =&gt; 'sendMessage',
+</code></pre>
+
+<p>Metodi pubblici</p>
+
+<pre><code class="language-php">//invia un evento di nome $event con modal_id e form_data, che verrà catturato da altri componenti
+//se $event non è specificato il nome dell'evento sarà updateDataFromModal
+public function sendData(?string $event = null)
 </code></pre>
 
 <p>Esempio:</p>
 
-<pre><code class="language-php">&lt;livewire:theme.input.toggle-date model="$myModel" field="my_field" /&gt;
+<pre><code class="language-php">&lt;livewire:modal.body-view show="$show" id="profile_edit" title="Edit Profile" subtitle=""
+    bodyView="lu:modal.profile.edit"&gt;
+&lt;/livewire:modal.body-view&gt;
 </code></pre>
+
+<p>NB A sua volta, <strong><em>la view interna può contenere altri componenti</em></strong>, quindi avere la sua <strong><em>logica</em></strong> e <strong><em>view</em></strong></p>
         </div>
     </div>
 </section>
