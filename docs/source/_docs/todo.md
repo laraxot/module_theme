@@ -19,3 +19,4 @@ section: content
 10. laravel\Modules\Theme\View\Components\Button\ArrowButton.php da aggiustare
 11. laravel\Modules\Theme\View\Components\Button\DarkCta.php se non ha href mi lascia un bottone che non fa niente
 12. aggiustare laravel\Modules\Theme\View\Components\Button\FormButton.php
+13. sistemare i modelli di laraxot/module_theme, php artisan migrate da problemi

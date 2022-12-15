@@ -1,8 +1,8 @@
-<form method="POST" action="{{ $action }}">
+<form method="{{ $method }}" action="{{ $action }}">
     @csrf
     @method($method)
-
-    <button type="submit" {{ $class }}>
-        {{ $slot }}
+    {{ $slot }}
+    <button type="submit" class="{{ $class }}" style="{{ $style }}">
+        {{ $label }}
     </button>
 </form>
