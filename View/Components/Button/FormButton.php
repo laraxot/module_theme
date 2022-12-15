@@ -15,6 +15,7 @@ class FormButton extends XotBaseComponent {
 
     public string $method;
 
+<<<<<<< HEAD
     public ?string $class;
     public ?string $style;
     public ?string $label;
@@ -25,6 +26,11 @@ class FormButton extends XotBaseComponent {
         $this->class = $class;
         $this->style = $style;
         $this->label = $label;
+=======
+    public function __construct(string $action, string $method = 'POST') {
+        $this->action = $action;
+        $this->method = strtoupper($method);
+>>>>>>> 1692428a (up)
     }
 
     public function render(): View {
