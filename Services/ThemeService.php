@@ -1484,6 +1484,9 @@ class ThemeService {
     }
 
     public static function firstThemeName(string $theme_type): string {
+        if ($this->app->runningInConsole()) {
+            return '';
+        }
         $themes = self::getThemes();
 
         $type = Str::before($theme_type, '_theme');
