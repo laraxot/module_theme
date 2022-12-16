@@ -8,25 +8,31 @@ id: 87
 parent_id: 5
 ---
 
-# Card {#card}
+# Card Press {#card}
+
+Crea una card con il video player e le citazioni della ricerca restituite con gli Highlights di Elasticsearch.
+
+Per funzionare bisogna che il modello $press utilizzi il seguente Trait:
 
 ```php
-<x-card-simple>
-    <x-slot name="title">Card Press</x-slot>
-    <x-slot name="txt">
-        <x-input.group type="select" name="conn" :options="['sync' => 'sync', 'database' => 'database']" />
-    </x-slot>
-    <x-slot name="footer">
-        <button class="btn btn-secondary" wire:click="dummyAction()">1000 Dummy Action</button>
-    </x-slot>
-</x-card-simple>
+use Elastic\ScoutDriverPlus\Searchable;
 ```
 
+Il modello deve avere un video con queste proprietà:
+
 ```php
-<x-card>
-    <x-slot name="title">titolo</x-slot>
-    <x-slot name="txt">
-        txt
-    </x-slot>
-</x-card>
+//nome del disco in filesystem.php
+$this->press->disk
+//path del file nel disco
+$this->press->file_mp4
+//path dello screenshot, ma può essere anche di uno spinner di caricamento
+$this->press->poster_path
+//citazioni di elastic (per questo DEVE essere collegato ad Elastic con ScoutDriverPlus!)
+$press->highlights
+```
+
+**Esempio di utilizzo:**
+
+```php
+<x-card.press :press="$press" type="v3"> </x-card.press>
 ```
