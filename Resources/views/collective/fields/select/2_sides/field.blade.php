@@ -10,7 +10,12 @@ $field = transFields(get_defined_vars());
 Theme::addScript('theme::js/multiselect.js');
 
 //dddx(get_defined_vars());
-$field_options = $options['field']->options;
+if(isset($options['field'])){
+    $field_options = $options['field']->options;
+}else{
+    $field_options = [];
+    
+}
 
 $model = Form::getModel();
 $rows = $model->$name();
