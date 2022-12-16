@@ -2,7 +2,6 @@
 @section('content')
     @php
         $fields = $_panel->fields();
-        dddx(get_defined_vars());
     @endphp
     <table>
         @foreach ($fields as $k => $v)
