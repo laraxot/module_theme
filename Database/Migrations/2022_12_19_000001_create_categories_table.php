@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateFormBuilderV8DataTable extends XotBaseMigration {
+class CreateCategoriesTable extends XotBaseMigration {
     /**
      * Run the migrations.
      *
@@ -17,11 +17,6 @@ class CreateFormBuilderV8DataTable extends XotBaseMigration {
             function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
-                $table->string('validator')->nullable();
-                $table->string('default_value')->nullable();
-                $table->bool('mandatory');
-                $table->string('type');
-                $table->integer('category_id');
                 $table->timestamps();
             }
         );

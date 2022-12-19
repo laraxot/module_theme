@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Xot\Database\Migrations\XotBaseMigration;
 
-class CreateFormBuilderV8DataTable extends XotBaseMigration {
+class CreateDataBaseDataTable extends XotBaseMigration {
     /**
      * Run the migrations.
      *
