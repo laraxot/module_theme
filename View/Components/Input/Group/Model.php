@@ -19,6 +19,7 @@ class Model extends Component {
      */
     public function __construct(EloquentModel $model) {
         $this->model = $model;
+
         $this->attrs = [
             'name' => $model->name,
             'type' => $model->type,
