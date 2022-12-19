@@ -11,6 +11,7 @@ class DataBaseDatum extends Model {
         'id',
         'data_id',
         'base_id',
+        'order',
     ];
 
     protected $dates = ['created_at', 'updated_at'];

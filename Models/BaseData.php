@@ -13,4 +13,12 @@ class BaseData extends Model {
     ];
 
     protected $dates = ['created_at', 'updated_at'];
+
+    public function categories() {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function datas() {
+        return $this->belongsToMany(Data::class);
+    }
 }

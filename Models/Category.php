@@ -13,4 +13,12 @@ class Category extends Model {
     ];
 
     protected $dates = ['created_at', 'updated_at'];
+
+    public function baseDatas() {
+        return $this->hasMany(BaseData::class);
+    }
+
+    public function datas() {
+        return $this->hasMany(Data::class);
+    }
 }
