@@ -5,18 +5,43 @@ declare(strict_types=1);
 namespace Modules\Theme\Http\Livewire\Form\Builder;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class V8 extends Component {
     public array $form_data = [];
+    public array $opened_category = [];
+    public string $disk = 'local';
+    public string $file_name = 'form_builder_v8.json';
 
-    // dati di base
-    public array $base_data = [
-        [
-            'name' => 'blood_group',
-            'translations' => ['italian', 'english'],
-        ],
-    ];
+    /*
+    tabella base_data (dato di base)
+    name = nome del dato "di base" es: Codice Fiscale
+    checkProcedure = procedura per validare il dato es: codicefiscale
+    defaultValues = valori di default con traduzioni ({"A+":{"it":"A Rh D positivo (A+)","gb":"A+"},"A-"...) nel caso di Gruppo Sanguigno
+    mandatory = obbligatorio o no (bool 0/1)
+    type = tipo di campo (input, checkbox, radio - SOLO QUESTI 3)
+    category_id = relazione belongsTo con la CATEGORIA COLLEGATA
+    translations = traduzioni del nome del campo del base_data es: {"gb":"Fiscal Code","it":"Codice fiscale"}
+    timestamps
+
+    tabella categories
+    name = nome della categoria es: Personal Data
+    translations = traduzioni del nome della categoria es: {"gb":"Personal data","it":"Dati personali"}
+
+    tabella data = dati strutturati (raggruppati da base_data)
+    HA RELAZIONE ManyToMany con base_data, e la tabella data_pivot ha data_id,base_data_id e order
+    name = full_name
+    checkProcedure = procedura di validazione (sempre a NULL). serve sui dati strutturati?
+    mandatory = obbligatorio o no (1/0 bool)
+    systemField = dato principale o no (bool)
+    editable = modificabile o no
+    cardinality = quante volte può essere presente il campo nella stessa categoria (se puoi fare + o è singolo)
+    category_id = RELAZIONE belongsTo alle categorie
+    translations = traduzioni del nome del dato strutturato es: {"gb":"Full Name","it":"Nome Completo"}
+    order = ordinamento tra campi
+
+    */
 
     // protected $listener = ['saveData' => 'saveData'];
 
@@ -41,5 +66,93 @@ class V8 extends Component {
         ];
 
         return view()->make($view, $view_params);
+    }
+
+    public function openJsonFile() {
+        // DA CANCELLARE
+        Storage::disk($this->disk)->delete($this->file_name);
+
+        if (! Storage::disk($this->disk)->exists($this->file_name)) {
+            $this->form_data =
+            [
+                'categories' => [
+                    [
+                        'id' => 0,
+                        'name' => 'Example',
+                        'translations' => [
+                            'gb' => 'Example',
+                            'it' => 'Esempio',
+                        ],
+                    ],
+                ],
+                /*name = nome del dato "di base" es: Codice Fiscale
+                checkProcedure = procedura per validare il dato es: codicefiscale
+                defaultValues = valori di default con traduzioni ({"A+":{"it":"A Rh D positivo (A+)","gb":"A+"},"A-"...) nel caso di Gruppo Sanguigno
+                mandatory = obbligatorio o no (bool 0/1)
+                type = tipo di campo (input, checkbox, radio - SOLO QUESTI 3)
+                category_id = relazione belongsTo con la CATEGORIA COLLEGATA
+                translations = traduzioni del nome del campo del base_data es: {"gb":"Fiscal Code","it":"Codice fiscale"}
+                timestamps*/
+                'base_data' => [
+                    [
+                        'id' => 0,
+                        'name' => 'First Name',
+                        'checkProcedure' => 'String',
+                        'defaultValues' => ['it' => '', 'gb' => ''],
+                        'mandatory' => true,
+                        'type' => 'input',
+                        'category_id' => 0,
+                        'translations' => [
+                            'gb' => 'Fiscal Code',
+                            'it' => 'Codice fiscale',
+                        ],
+                    ],
+                ],
+                /* HA RELAZIONE ManyToMany con base_data, e la tabella data_pivot ha data_id,base_data_id e order
+                    name = full_name
+                    checkProcedure = procedura di validazione (sempre a NULL). serve sui dati strutturati?
+                    mandatory = obbligatorio o no (1/0 bool)
+                    systemField = dato principale o no (bool)
+                    editable = modificabile o no
+                    cardinality = quante volte può essere presente il campo nella stessa categoria (se puoi fare + o è singolo)
+                    category_id = RELAZIONE belongsTo alle categorie
+                    translations = traduzioni del nome del dato strutturato es: {"gb":"Full Name","it":"Nome Completo"}
+                    order = ordinamento tra campi
+                    */
+                'data' => [
+                    [
+                        'id' => 0,
+                        'name' => 'Full Name',
+                        'checkProcedure' => null,
+                        'mandatory' => true,
+                        'systemField' => true,
+                        'editable' => true,
+                        'cardinality' => 1,
+                        'category_id' => 0,
+                        'translations' => [
+                            'gb' => 'Fiscal Code',
+                            'it' => 'Codice fiscale',
+                        ],
+                        'order' => 0,
+                    ],
+                ],
+                'data_pivot' => [
+                    [
+                        'id' => 0,
+                        'data_id' => 0,
+                        'base_data_id' => 0,
+                        'order' => 0,
+                    ],
+                ],
+            ];
+            $json = json_encode($this->form_data);
+            Storage::disk($this->disk)->put($this->file_name, $json);
+        }
+        $json = Storage::disk($this->disk)->get($this->file_name);
+        $this->form_data = json_decode($json, true);
+    }
+
+    public function openCategory($id) {
+        $this->opened_category = collect($this->form_data['categories'])->where('id', $id)->first();
     }
 }
