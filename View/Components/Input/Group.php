@@ -49,8 +49,8 @@ class Group extends Component {
 
         // attributes type è il tipo di input (es. select)
         // dddx(get_defined_vars());
-        if($attributes->get('tpl')!=null){
-            $this->tpl= $attributes->get('tpl');
+        if (null != $attributes->get('tpl')) {
+            $this->tpl = $attributes->get('tpl');
         }
 
         /*
