@@ -49,6 +49,9 @@ class Group extends Component {
 
         // attributes type è il tipo di input (es. select)
         // dddx(get_defined_vars());
+        if($attributes->get('tpl')!=null){
+            $this->tpl= $attributes->get('tpl');
+        }
 
         /*
          * @phpstan-var view-string
