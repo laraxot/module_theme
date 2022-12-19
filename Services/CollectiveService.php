@@ -103,10 +103,9 @@ class CollectiveService {
             $blade_component = 'pub_theme::'.$blade_component_piece;
         }
 
-//dddx(['blade_component_piece'=>'theme::'.$blade_component_piece, 'blade_component'=>$blade_component]);
+        // dddx(['blade_component_piece'=>'theme::'.$blade_component_piece, 'blade_component'=>$blade_component]);
 
         FileService::viewCopy('theme::'.$blade_component_piece, $blade_component);
-
 
         foreach ($comps as $comp) {
             Form::component(

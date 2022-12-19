@@ -5,23 +5,20 @@ declare(strict_types=1);
 namespace Modules\Theme\Http\Livewire\Form\Builder;
 
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class V8 extends Component {
     public array $form_data = [];
 
-    //dati di base
-    public array $base_data=[
+    // dati di base
+    public array $base_data = [
         [
-            'name'=>'blood_group',
-            'translations'=>['italian','english'],
-
-        ]
+            'name' => 'blood_group',
+            'translations' => ['italian', 'english'],
+        ],
     ];
 
-
-   // protected $listener = ['saveData' => 'saveData'];
+    // protected $listener = ['saveData' => 'saveData'];
 
     /**
      * Undocumented function.
@@ -29,7 +26,6 @@ class V8 extends Component {
      * @return void
      */
     public function mount() {
-       
     }
 
     /**
@@ -46,5 +42,4 @@ class V8 extends Component {
 
         return view()->make($view, $view_params);
     }
-
 }
