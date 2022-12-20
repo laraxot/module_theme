@@ -8,7 +8,7 @@ namespace Modules\Theme\Models\Panels\Actions;
 use Illuminate\Support\Facades\File;
 use Modules\Tenant\Services\TenantService;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /*
 Voglio visualizzare tutte le icone (svg) del tema perchè così, chi di dovere, se lo sceglie

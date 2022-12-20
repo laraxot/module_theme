@@ -9,7 +9,7 @@ namespace Modules\Theme\Models\Panels\Actions;
 // -------- bases -----------
 use Illuminate\Support\Collection;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Class TryFormBuilderAction.

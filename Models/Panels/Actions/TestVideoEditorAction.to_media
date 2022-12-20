@@ -11,7 +11,7 @@ namespace Modules\Theme\Models\Panels\Actions;
 use FFMpeg\Coordinate\Dimension;
 use FFMpeg\Coordinate\TimeCode;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 //che cazzo è?
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 

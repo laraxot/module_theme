@@ -9,7 +9,7 @@ namespace Modules\Theme\Models\Panels\Actions;
 // -------- bases -----------
 use Modules\Theme\Http\Livewire\Form\Builder\Button;
 use Modules\Theme\Http\Livewire\Form\Builder\Input;
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Class TryFormBuilderAction.

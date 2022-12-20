@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\Models\Panels\Actions;
 
 // -------- services --------
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Undocumented class.

@@ -7,7 +7,7 @@ namespace Modules\Theme\Models\Panels\Actions;
 // -------- models -----------
 // -------- services --------
 // -------- bases -----------
-use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Class TryFormBuilderAction.
