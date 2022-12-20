@@ -17,7 +17,7 @@ use Modules\Xot\Contracts\RowsContract;
 use Illuminate\Contracts\Support\Renderable;
 
 
-use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Cms\Models\Panels\XotBasePanel;
 >>>>>>> 6c0fd484 (.)
 
 class DataBaseDatumPanel extends XotBasePanel {
@@ -180,26 +180,26 @@ class DataBaseDatumPanel extends XotBasePanel {
      */
     public function fields(): array {
         return array (
-  0 => 
+  0 =>
   (object) array(
      'type' => 'Id',
      'name' => 'id',
      'comment' => NULL,
   ),
-  1 => 
+  1 =>
   (object) array(
      'type' => 'Integer',
      'name' => 'data_id',
      'rules' => 'required',
      'comment' => NULL,
   ),
-  2 => 
+  2 =>
   (object) array(
      'type' => 'Text',
      'name' => 'base_id',
      'comment' => 'not in Doctrine',
   ),
-  3 => 
+  3 =>
   (object) array(
      'type' => 'Integer',
      'name' => 'order',

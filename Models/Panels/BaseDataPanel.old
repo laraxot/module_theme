@@ -17,7 +17,7 @@ use Modules\Xot\Contracts\RowsContract;
 use Illuminate\Contracts\Support\Renderable;
 
 
-use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Cms\Models\Panels\XotBasePanel;
 >>>>>>> 6c0fd484 (.)
 
 class BaseDataPanel extends XotBasePanel {
@@ -171,13 +171,13 @@ class BaseDataPanel extends XotBasePanel {
      */
     public function fields(): array {
         return array (
-  0 => 
+  0 =>
   (object) array(
      'type' => 'Id',
      'name' => 'id',
      'comment' => NULL,
   ),
-  1 => 
+  1 =>
   (object) array(
      'type' => 'String',
      'name' => 'name',
