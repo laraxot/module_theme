@@ -25,6 +25,9 @@ class Builder extends Component {
         $data = json_decode(json_encode($tmp), true);
 
         foreach ($data as $key => $input) {
+            if (! array_key_exists('id', $input)) {
+                $data[$key]['id'] = $data[$key]['name'];
+            }
             if (array_key_exists('className', $input)) {
                 $data[$key]['class'] = $data[$key]['className'];
                 unset($data[$key]['className']);
@@ -33,17 +36,22 @@ class Builder extends Component {
                 $data[$key]['type'] = 'integer';
             }
 
+            if ('radio-group' == $input['type']) {
+                $data[$key]['type'] = 'radio';
+            }
             // options da finire per la select
             if (array_key_exists('values', $input)) {
+                // dddx($input['values']);
                 $mapped = Arr::map($input['values'], function ($value, $key) {
-                    return [$value['label'] => $value['value']];
+                    return [$value['value'] => $value['label']];
                 });
-                // $data[$key]['options'] = Arr::collapse($mapped);
-                $data[$key]['options'] = "['aaa' => 'aaa', 'bbb' => 'bbb']";
+                $data[$key]['options'] = Arr::collapse($mapped);
+                // dddx($data[$key]['options']);
+                // $data[$key]['options'] = "['aaa' => 'aaa', 'bbb' => 'bbb']";
                 unset($data[$key]['values']);
             }
         }
-        // dddx($data);
+        // dddx([$data, $input]);
 
         return $data;
     }

@@ -15,7 +15,7 @@ class Arr extends Component {
     /**
      * Undocumented function.
      *
-     * @param mixed $arr
+     * @param array $arr
      */
     public function __construct($arr) {
         if (! \is_array($arr)) {
