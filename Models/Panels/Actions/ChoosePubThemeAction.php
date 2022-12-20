@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels\Actions;
 
-use Modules\Theme\Services\ThemeService;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Theme\Services\ThemeService;
 
 /**
  * Class ChoosePubThemeAction.
