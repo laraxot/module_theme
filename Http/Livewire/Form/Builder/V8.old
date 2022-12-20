@@ -7,6 +7,7 @@ namespace Modules\Theme\Http\Livewire\Form\Builder;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Modules\Theme\Models\Category;
 
 class V8 extends Component {
     public array $form_data = [];
@@ -51,6 +52,7 @@ class V8 extends Component {
      * @return void
      */
     public function mount() {
+        $this->openJsonFile();
     }
 
     /**
@@ -71,6 +73,15 @@ class V8 extends Component {
     public function openJsonFile() {
         // DA CANCELLARE
         Storage::disk($this->disk)->delete($this->file_name);
+
+        Category::firstOrCreate(
+            [
+                // 'id' => 0,
+                'name' => 'Example',
+            ]
+        );
+
+        dddx('alt');
 
         if (! Storage::disk($this->disk)->exists($this->file_name)) {
             $this->form_data =

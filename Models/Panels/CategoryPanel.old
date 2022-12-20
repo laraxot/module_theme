@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 namespace Modules\Theme\Models\Panels;
@@ -8,15 +9,37 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Xot\Contracts\RowsContract;
+=======
+namespace Modules\Theme\Models\Panels;
 
-class BaseDataPanel extends XotBasePanel {
+use Illuminate\Http\Request;
+use Modules\Xot\Contracts\RowsContract;
+use Illuminate\Contracts\Support\Renderable;
+
+
+use Modules\Xot\Models\Panels\XotBasePanel;
+>>>>>>> 6c0fd484 (.)
+
+class CategoryPanel extends XotBasePanel {
     /**
      * The model the resource corresponds to.
+<<<<<<< HEAD
      */
-    public static string $model = 'BaseData';
+    public static string $model = 'Category';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
+=======
+     *
+     * @var string
+     */
+    public static string $model = 'Modules\Theme\Models\Category';
+
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+>>>>>>> 6c0fd484 (.)
      */
     public static string $title = 'title';
 
@@ -25,6 +48,7 @@ class BaseDataPanel extends XotBasePanel {
      *
      * @var array
      */
+<<<<<<< HEAD
     public static $search = [
     ];
 
@@ -36,16 +60,39 @@ class BaseDataPanel extends XotBasePanel {
     }
 
     public function search(): array {
+=======
+    public static $search = array (
+);
+
+    /**
+     * The relationships that should be eager loaded on index queries.
+     *
+     */
+    public function with():array {
+        return [];
+    }
+
+    public function search() :array {
+
+>>>>>>> 6c0fd484 (.)
         return [];
     }
 
     /**
+<<<<<<< HEAD
      * on select the option id.
+=======
+     * on select the option id
+>>>>>>> 6c0fd484 (.)
      *
      * quando aggiungi un campo select, è il numero della chiave
      * che viene messo come valore su value="id"
      *
-     * @param BaseData $row
+<<<<<<< HEAD
+     * @param Category $row
+=======
+     * @param Modules\Theme\Models\Category $row
+>>>>>>> 6c0fd484 (.)
      *
      * @return int|string|null
      */
@@ -56,8 +103,13 @@ class BaseDataPanel extends XotBasePanel {
     /**
      * on select the option label.
      */
+<<<<<<< HEAD
     public function optionLabel($row): string {
         return (string) $row->title;
+=======
+    public function optionLabel($row):string {
+        return (string)$row->title;
+>>>>>>> 6c0fd484 (.)
     }
 
     /**
@@ -74,6 +126,7 @@ class BaseDataPanel extends XotBasePanel {
      *
      * @return RowsContract
      */
+<<<<<<< HEAD
     public static function indexQuery(array $data, $query) {
         // return $query->where('user_id', $request->user()->id);
         return $query;
@@ -97,12 +150,55 @@ class BaseDataPanel extends XotBasePanel {
                 'comment' => null,
             ],
         ];
+=======
+    public static function indexQuery(array $data, $query)
+    {
+        //return $query->where('user_id', $request->user()->id);
+        return $query;
+    }
+
+
+
+    /**
+     * Get the fields displayed by the resource.
+     *
+     * @return array
+        'col_size' => 6,
+        'sortable' => 1,
+        'rules' => 'required',
+        'rules_messages' => ['it'=>['required'=>'Nome Obbligatorio']],
+        'value'=>'..',
+     */
+    public function fields(): array {
+        return array (
+  0 => 
+  (object) array(
+     'type' => 'Id',
+     'name' => 'id',
+     'comment' => NULL,
+  ),
+  1 => 
+  (object) array(
+     'type' => 'Json',
+     'name' => 'name',
+     'rules' => 'required',
+     'comment' => NULL,
+  ),
+);
+>>>>>>> 6c0fd484 (.)
     }
 
     /**
      * Get the tabs available.
+<<<<<<< HEAD
      */
     public function tabs(): array {
+=======
+     *
+     * @return array
+     */
+    public function tabs():array {
+>>>>>>> 6c0fd484 (.)
         $tabs_name = [];
 
         return $tabs_name;
@@ -110,8 +206,15 @@ class BaseDataPanel extends XotBasePanel {
 
     /**
      * Get the cards available for the request.
+<<<<<<< HEAD
      */
     public function cards(Request $request): array {
+=======
+     *
+     * @return array
+     */
+    public function cards(Request $request):array {
+>>>>>>> 6c0fd484 (.)
         return [];
     }
 
@@ -119,22 +222,43 @@ class BaseDataPanel extends XotBasePanel {
      * Get the filters available for the resource.
      *
      * @param \Illuminate\Http\Request $request
+<<<<<<< HEAD
      */
     public function filters(Request $request = null): array {
+=======
+     *
+     * @return array
+     */
+    public function filters(Request $request = null):array {
+>>>>>>> 6c0fd484 (.)
         return [];
     }
 
     /**
      * Get the lenses available for the resource.
+<<<<<<< HEAD
      */
     public function lenses(Request $request): array {
+=======
+     *
+     * @return array
+     */
+    public function lenses(Request $request):array {
+>>>>>>> 6c0fd484 (.)
         return [];
     }
 
     /**
      * Get the actions available for the resource.
+<<<<<<< HEAD
      */
     public function actions(): array {
+=======
+     *
+     * @return array
+     */
+    public function actions():array {
+>>>>>>> 6c0fd484 (.)
         return [];
     }
 }
