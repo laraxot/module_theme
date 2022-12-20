@@ -13,12 +13,12 @@ use Intervention\Image\Facades\Image;
 use Livewire\WithFileUploads;
 // use Modules\Theme\Traits\UploadsFiles;
 
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 use Modules\Theme\Traits\HandlesArrays;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
-use Modules\Cms\Models\Panels\XotBasePanel;
-use Modules\Cms\Services\PanelService;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Row.

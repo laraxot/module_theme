@@ -16,6 +16,7 @@ use Spatie\Dashboard\Models\Tile as BaseTile;
  * @property string|null                     $created_by
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null                     $updated_by
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile query()
@@ -26,6 +27,7 @@ use Spatie\Dashboard\Models\Tile as BaseTile;
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|DashboardTile whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class DashboardTile extends BaseTile {

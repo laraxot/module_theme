@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
-use Modules\Theme\Menu\Builder;
 use Modules\Cms\Services\PanelService;
+use Modules\Theme\Menu\Builder;
 
 /**
  * Class ThemeViewService.

@@ -9,13 +9,13 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Modules\Theme\Services\FieldService;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Xot\Contracts\RowsContract;
-// use Modules\Theme\Traits\HandlesArrays;
-// use Modules\Theme\Traits\UploadsFiles;
 use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Cms\Services\PanelService;
+// use Modules\Theme\Traits\HandlesArrays;
+// use Modules\Theme\Traits\UploadsFiles;
+use Modules\Theme\Services\FieldService;
+use Modules\Xot\Contracts\RowsContract;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\V2.

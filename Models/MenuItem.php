@@ -26,6 +26,7 @@ use Sushi\Sushi;
  * @property Collection|MenuItem[]           $child
  * @property int|null                        $child_count
  * @property \Modules\Theme\Models\Menu|null $parent_menu
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem query()
@@ -38,6 +39,7 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereParent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereRoleId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MenuItem whereSort($value)
+ *
  * @mixin \Eloquent
  */
 class MenuItem extends Model {

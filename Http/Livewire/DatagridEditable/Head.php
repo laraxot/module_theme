@@ -12,11 +12,11 @@ use Illuminate\Support\Collection;
 // use Modules\Theme\Traits\UploadsFiles;
 
 use Illuminate\Support\Str;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
-use Modules\Cms\Models\Panels\XotBasePanel;
-use Modules\Cms\Services\PanelService;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Head.

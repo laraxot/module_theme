@@ -7,8 +7,8 @@ namespace Modules\Theme\Http\Livewire\Card\Result;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use Modules\Theme\Models\BaseModelLang;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Theme\Models\BaseModelLang;
 
 /**
  * Class Panel.

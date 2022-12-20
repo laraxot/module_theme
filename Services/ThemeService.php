@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Services\PanelService;
 use Modules\Cms\Services\RouteService;
 use Modules\Tenant\Services\TenantService;
-use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\Services\ArtisanService;
 use Modules\Xot\Services\FileService;
-use Modules\Cms\Services\PanelService;
 use Modules\Xot\Services\StubService;
 use Modules\Xot\Traits\Getter;
 

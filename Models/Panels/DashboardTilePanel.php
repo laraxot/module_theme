@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Theme\Models\Panels;
 
 use Illuminate\Http\Request;
-use Modules\Xot\Contracts\RowsContract;
+use Modules\Cms\Models\Panels\XotBasePanel;
 // --- Services --
 
-use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Xot\Contracts\RowsContract;
 
 class DashboardTilePanel extends XotBasePanel {
     /**

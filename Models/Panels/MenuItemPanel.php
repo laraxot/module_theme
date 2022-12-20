@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Theme\Models\Panels;
 
 use Illuminate\Http\Request;
-use Modules\Theme\Models\MenuItem;
+use Modules\Cms\Models\Panels\XotBasePanel;
 // --- Services --
 
-use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Theme\Models\MenuItem;
 
 class MenuItemPanel extends XotBasePanel {
     /**
