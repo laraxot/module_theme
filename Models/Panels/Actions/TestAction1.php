@@ -7,8 +7,8 @@ namespace Modules\Theme\Models\Panels\Actions;
 // -------- models -----------
 // -------- services --------
 // -------- bases -----------
-use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 use Modules\Theme\Services\ThemeService;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Class TestAction.

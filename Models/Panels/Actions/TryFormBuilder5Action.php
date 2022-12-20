@@ -8,8 +8,8 @@ namespace Modules\Theme\Models\Panels\Actions;
 // -------- services --------
 // -------- bases -----------
 use Illuminate\Support\Collection;
-use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 use Modules\Theme\Services\ThemeService;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Class TryFormBuilderAction.
