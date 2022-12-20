@@ -8,7 +8,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Modules\Theme\Models\BaseModelLang;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 
 /**
  * Class Panel.

@@ -11,7 +11,7 @@ use Livewire\Component;
 use Modules\Theme\Services\MenuService;
 use Modules\Theme\Services\SvgService;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 use Modules\LU\Services\ProfileService;
 
 /**
@@ -92,7 +92,7 @@ class VerMenu extends Component {
             if (null == $user) {
                 throw new \Exception('$user is null');
             }
-            // 86     Parameter #1 $model of static method Modules\Xot\Services\PanelService::make()->get() expects
+            // 86     Parameter #1 $model of static method Modules\Cms\Services\PanelService::make()->get() expects
             //Illuminate\Database\Eloquent\Model, Illuminate\Contracts\Auth\Authenticatable given.
 
             $panel = PanelService::make()->get($user);

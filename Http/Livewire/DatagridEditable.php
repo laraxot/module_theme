@@ -8,12 +8,12 @@ use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Modules\Theme\Services\FieldService;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\Contracts\RowsContract;
 // use Modules\Theme\Traits\HandlesArrays;
 // use Modules\Theme\Traits\UploadsFiles;
-use Modules\Xot\Models\Panels\XotBasePanel;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable.

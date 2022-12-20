@@ -24,7 +24,7 @@ use Carbon\Carbon;
 // use Modules\Customer\Models\Customer;
 use Illuminate\Contracts\Support\Renderable;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Modules\Theme\Http\Livewire\FullCalendar\V1.

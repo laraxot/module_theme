@@ -7,9 +7,9 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\Jobs\PanelCrud\StoreJob;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Class Create.

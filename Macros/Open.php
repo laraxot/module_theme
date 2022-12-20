@@ -7,7 +7,7 @@ namespace Modules\Theme\Macros;
 // use Illuminate\Http\Request;
 use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Str;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Class Open.

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\Models\Panels;
 
 use Illuminate\Http\Request;
-use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Cms\Models\Panels\XotBasePanel;
 
 // --- Services --
 

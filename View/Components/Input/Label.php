@@ -7,7 +7,7 @@ namespace Modules\Theme\View\Components\Input;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Modules\Xot\Services\FileService;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Undocumented class.

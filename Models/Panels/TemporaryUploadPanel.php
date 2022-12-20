@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Modules\Xot\Contracts\RowsContract;
 // --- Services --
 
-use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Cms\Models\Panels\XotBasePanel;
 
 class TemporaryUploadPanel extends XotBasePanel {
     /**

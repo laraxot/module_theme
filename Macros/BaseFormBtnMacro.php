@@ -8,7 +8,7 @@ namespace Modules\Theme\Macros;
 use Exception;
 // ----- services -----
 use Illuminate\Support\Str;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 use Modules\Xot\Services\StubService;
 
 /**

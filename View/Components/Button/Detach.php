@@ -7,7 +7,7 @@ namespace Modules\Theme\View\Components\Button;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\Component;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 
 /**
  * Class Detach.

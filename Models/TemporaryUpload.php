@@ -27,7 +27,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string|null                                                                      $updated_by
  * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|Media[] $media
  * @property int|null                                                                         $media_count
- *
  * @method static Builder|TemporaryUpload newModelQuery()
  * @method static Builder|TemporaryUpload newQuery()
  * @method static Builder|TemporaryUpload old()
@@ -38,7 +37,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static Builder|TemporaryUpload whereSessionId($value)
  * @method static Builder|TemporaryUpload whereUpdatedAt($value)
  * @method static Builder|TemporaryUpload whereUpdatedBy($value)
- *
  * @mixin \Eloquent
  */
 class TemporaryUpload extends Model implements HasMedia {

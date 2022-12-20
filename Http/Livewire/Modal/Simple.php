@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 class Simple extends Component {
     public bool $show = false;

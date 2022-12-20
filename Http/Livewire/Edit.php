@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
-use Modules\Xot\Models\Panels\XotBasePanel;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
 
 // use Illuminate\Support\Carbon;
 

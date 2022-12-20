@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\View\Components\Button;
 
 use Illuminate\Contracts\View\View;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\View\Components\XotBaseComponent;
 
 /**

@@ -7,7 +7,7 @@ namespace Modules\Theme\Models\Panels;
 // --- Services --
 
 use Illuminate\Http\Request;
-use Modules\Xot\Models\Panels\XotBasePanel;
+use Modules\Cms\Models\Panels\XotBasePanel;
 
 /**
  * Class ThemePanel.

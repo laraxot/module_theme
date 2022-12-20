@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\Services;
 
 use Modules\Theme\Menu\Builder;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Class ThemeViewService.

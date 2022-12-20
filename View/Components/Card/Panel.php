@@ -6,7 +6,7 @@ namespace Modules\Theme\View\Components\Card;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 
 // use Modules\Xot\View\Components\XotBaseComponent;
 

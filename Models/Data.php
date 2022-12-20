@@ -6,6 +6,17 @@ namespace Modules\Theme\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modules\Theme\Models\Data
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\BaseData[] $baseDatas
+ * @property-read int|null $base_datas_count
+ * @property-read \Modules\Theme\Models\Category|null $categories
+ * @method static \Illuminate\Database\Eloquent\Builder|Data newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Data newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Data query()
+ * @mixin \Eloquent
+ */
 class Data extends Model {
     protected $fillable = [
         'id',

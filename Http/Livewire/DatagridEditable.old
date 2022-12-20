@@ -8,8 +8,8 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Modules\FormX\Traits\HandlesArrays;
 use Modules\FormX\Traits\UploadsFiles;
-use Modules\Xot\Models\Panels\XotBasePanel;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
 
 class DatagridEditable extends Component {
     use WithFileUploads;

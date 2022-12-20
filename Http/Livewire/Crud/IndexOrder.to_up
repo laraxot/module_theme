@@ -13,9 +13,9 @@ use Modules\Ew\Models\NotiziaCat;
 use Modules\Ew\Models\PhotoCat;
 use Modules\Tenant\Services\TenantService;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Contracts\PanelContract;
-use Modules\Xot\Models\Panels\XotBasePanel;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
 
 /**
  *  Modules\Theme\Http\Livewire\Crud\IndexOrder.
