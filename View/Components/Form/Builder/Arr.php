@@ -13,6 +13,9 @@ class Arr extends Component {
     public array $arr;
     public array $btn;
 
+    public array $fields;
+    public array $buttons;
+
     public function __construct(array $arr, array $btn) {
         $this->arr = $arr;
         $this->btn = $btn;

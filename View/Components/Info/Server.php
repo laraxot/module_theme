@@ -131,7 +131,7 @@ class Server extends Component {
                 // Find free value
                 foreach ($outputFreePhysicalMemory as $line) {
                     if ($line && preg_match('/^[0-9]+$/', $line)) {
-                        $memoryFree = $line;
+                        $memoryFree = (int)$line;
                         $memoryFree *= 1024;  // convert from kibibytes to bytes
                         break;
                     }

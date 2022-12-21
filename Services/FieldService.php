@@ -136,7 +136,7 @@ class FieldService extends BaseFieldService {
                 return \View::exists($view_check);
             }
         );
-        if (false === $view) {
+        if (false == $view) {
             $ddd_msg =
                 [
                     'err' => 'Not Exists ..',

@@ -21,7 +21,7 @@ class Input extends Component {
     /**
      * ---.
      *
-     * @param mixed|null $value
+
      */
     public function __construct(string $name, string $type, ?array $options = []) {
         // dddx(['type' => $type, 'options' => $options]);
