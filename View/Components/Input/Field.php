@@ -32,7 +32,7 @@ class Field extends Component {
      * @param mixed|null $value
      */
     public function __construct(
-        ?\stdClass $field = null,
+        ?stdClass $field = null,
         ?string $name = null,
         ?string $type = null, // select.multiple, checkbox ecc.
         ?string $label = null,
@@ -73,7 +73,7 @@ class Field extends Component {
         }
     }
 
-    public function setField(\stdClass $field): self {
+    public function setField(stdClass $field): self {
         $this->field = $field;
 
         if (isset($field->name)) {
