@@ -1,15 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-declare(strict_types=1);
-
-namespace Modules\Theme\Models\Panels;
-
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
-use Modules\Cms\Models\Panels\XotBasePanel;
-use Modules\Xot\Contracts\RowsContract;
-=======
 namespace Modules\Theme\Models\Panels;
 
 use Illuminate\Http\Request;
@@ -18,18 +8,10 @@ use Illuminate\Contracts\Support\Renderable;
 
 
 use Modules\Cms\Models\Panels\XotBasePanel;
->>>>>>> 6c0fd484 (.)
 
 class DataBaseDatumPanel extends XotBasePanel {
     /**
      * The model the resource corresponds to.
-<<<<<<< HEAD
-     */
-    public static string $model = 'DataBaseDatum';
-
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-=======
      *
      * @var string
      */
@@ -39,7 +21,6 @@ class DataBaseDatumPanel extends XotBasePanel {
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
->>>>>>> 6c0fd484 (.)
      */
     public static string $title = 'title';
 
@@ -48,19 +29,6 @@ class DataBaseDatumPanel extends XotBasePanel {
      *
      * @var array
      */
-<<<<<<< HEAD
-    public static $search = [
-    ];
-
-    /**
-     * The relationships that should be eager loaded on index queries.
-     */
-    public function with(): array {
-        return [];
-    }
-
-    public function search(): array {
-=======
     public static $search = array (
 );
 
@@ -74,25 +42,16 @@ class DataBaseDatumPanel extends XotBasePanel {
 
     public function search() :array {
 
->>>>>>> 6c0fd484 (.)
         return [];
     }
 
     /**
-<<<<<<< HEAD
-     * on select the option id.
-=======
      * on select the option id
->>>>>>> 6c0fd484 (.)
      *
      * quando aggiungi un campo select, è il numero della chiave
      * che viene messo come valore su value="id"
      *
-<<<<<<< HEAD
-     * @param DataBaseDatum $row
-=======
      * @param Modules\Theme\Models\DataBaseDatum $row
->>>>>>> 6c0fd484 (.)
      *
      * @return int|string|null
      */
@@ -103,13 +62,8 @@ class DataBaseDatumPanel extends XotBasePanel {
     /**
      * on select the option label.
      */
-<<<<<<< HEAD
-    public function optionLabel($row): string {
-        return (string) $row->title;
-=======
     public function optionLabel($row):string {
         return (string)$row->title;
->>>>>>> 6c0fd484 (.)
     }
 
     /**
@@ -126,40 +80,6 @@ class DataBaseDatumPanel extends XotBasePanel {
      *
      * @return RowsContract
      */
-<<<<<<< HEAD
-    public static function indexQuery(array $data, $query) {
-        // return $query->where('user_id', $request->user()->id);
-        return $query;
-    }
-
-    /**
-     * Get the fields displayed by the resource.
-        'value'=>'..',
-     */
-    public function fields(): array {
-        return [
-            0 => (object) [
-                'type' => 'Text',
-                'name' => 'id',
-                'comment' => 'not in Doctrine',
-            ],
-            1 => (object) [
-                'type' => 'Text',
-                'name' => 'data_id',
-                'comment' => 'not in Doctrine',
-            ],
-            2 => (object) [
-                'type' => 'Text',
-                'name' => 'base_id',
-                'comment' => 'not in Doctrine',
-            ],
-            3 => (object) [
-                'type' => 'Text',
-                'name' => 'order',
-                'comment' => 'not in Doctrine',
-            ],
-        ];
-=======
     public static function indexQuery(array $data, $query)
     {
         //return $query->where('user_id', $request->user()->id);
@@ -207,20 +127,14 @@ class DataBaseDatumPanel extends XotBasePanel {
      'comment' => NULL,
   ),
 );
->>>>>>> 6c0fd484 (.)
     }
 
     /**
      * Get the tabs available.
-<<<<<<< HEAD
-     */
-    public function tabs(): array {
-=======
      *
      * @return array
      */
     public function tabs():array {
->>>>>>> 6c0fd484 (.)
         $tabs_name = [];
 
         return $tabs_name;
@@ -228,15 +142,10 @@ class DataBaseDatumPanel extends XotBasePanel {
 
     /**
      * Get the cards available for the request.
-<<<<<<< HEAD
-     */
-    public function cards(Request $request): array {
-=======
      *
      * @return array
      */
     public function cards(Request $request):array {
->>>>>>> 6c0fd484 (.)
         return [];
     }
 
@@ -244,43 +153,28 @@ class DataBaseDatumPanel extends XotBasePanel {
      * Get the filters available for the resource.
      *
      * @param \Illuminate\Http\Request $request
-<<<<<<< HEAD
-     */
-    public function filters(Request $request = null): array {
-=======
      *
      * @return array
      */
     public function filters(Request $request = null):array {
->>>>>>> 6c0fd484 (.)
         return [];
     }
 
     /**
      * Get the lenses available for the resource.
-<<<<<<< HEAD
-     */
-    public function lenses(Request $request): array {
-=======
      *
      * @return array
      */
     public function lenses(Request $request):array {
->>>>>>> 6c0fd484 (.)
         return [];
     }
 
     /**
      * Get the actions available for the resource.
-<<<<<<< HEAD
-     */
-    public function actions(): array {
-=======
      *
      * @return array
      */
     public function actions():array {
->>>>>>> 6c0fd484 (.)
         return [];
     }
 }
