@@ -1,10 +1,10 @@
 {!! Form::bsOpen($row,'store',"",null,"createRestaurantForm") !!}
 <div class="row">
     <div class="form-group col-sm-6">
-        {{ Form::bsText('firstname') }}
+        {{ Form::bsText('first_name') }}
     </div>
     <div class="form-group col-sm-6">
-        {{ Form::bsText('surname') }}
+        {{ Form::bsText('last_name') }}
     </div>
     <div class="form-group col-sm-6">
         {{ Form::bsText('email') }}
