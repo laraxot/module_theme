@@ -20,8 +20,6 @@ class Input extends Component {
 
     /**
      * ---.
-     *
-
      */
     public function __construct(string $name, string $type, ?array $options = []) {
         // dddx(['type' => $type, 'options' => $options]);

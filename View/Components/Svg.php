@@ -101,10 +101,10 @@ class Svg extends Component {
 $pattern = '/<svg[^>]*>\s*(<defs.*?>.*?<\ /defs>)\s*<\ /svg>/';
         preg_match($pattern, $svg_content, $m);
         */
-        /*
-        $xml = simplexml_load_string($svg_content);
-        $tmp = @json_decode(@json_encode($xml->attributes()), true);
-        $tmp = $tmp['@attributes'];
-        $this->attrs = $xml->text();
-        */
-        // $this->attrs = $m;
+/*
+$xml = simplexml_load_string($svg_content);
+$tmp = @json_decode(@json_encode($xml->attributes()), true);
+$tmp = $tmp['@attributes'];
+$this->attrs = $xml->text();
+*/
+// $this->attrs = $m;

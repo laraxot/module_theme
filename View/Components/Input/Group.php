@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Input;
 
-use Exception;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
-use Illuminate\Support\Facades\View;
 use Illuminate\View\ComponentAttributeBag;
 
 /**
@@ -47,8 +46,8 @@ class Group extends Component {
      */
     public function renderData(array &$data) {
         extract($data);
-        if(!isset($attributes)){
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        if (! isset($attributes)) {
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         // attributes type è il tipo di input (es. select)
