@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Theme\Models\Panels;
 
 use Modules\Cms\Models\Panels\XotBasePanel;
-use Modules\Xot\Models\Panels\Actions\ManageLangModuleAction;
+use Modules\Cms\Models\Panels\Actions\ManageLangModuleAction;
 
 /**
  * Class _ModulePanel.
