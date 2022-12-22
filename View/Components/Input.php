@@ -28,7 +28,7 @@ class Input extends Component {
         $this->attrs['name'] = $this->name;
         $this->attrs['class'] = 'form-control';
         $this->attrs['wire:model.lazy'] = 'form_data.'.$name;
-        
+
         switch ($this->type) {
             case 'checkbox.arr':
             case 'checkbox':
@@ -46,9 +46,6 @@ class Input extends Component {
                 $this->attrs['data-none-selected-text'] = '';
                 break;
         }
-
-        
-        
     }
 
     /**

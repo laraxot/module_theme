@@ -38,7 +38,6 @@ class Filter extends Component {
         // $data = request()->all();
         // dddx($data);
 
-       
         if (null !== $row) {
             $this->model_id = $row->getKey();
             $this->model_class = \get_class($row);
