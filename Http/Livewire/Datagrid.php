@@ -10,10 +10,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Theme\Services\ThemeService;
-<<<<<<< HEAD
-=======
 use Modules\Cms\Contracts\PanelContract;
->>>>>>> fc07af93 (.)
 
 // use Modules\Cart\Models\BookingItem;
 

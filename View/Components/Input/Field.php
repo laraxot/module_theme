@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Cms\Services\PanelService;
-<<<<<<< HEAD
-=======
 use ReflectionMethod;
->>>>>>> fc07af93 (.)
 use stdClass;
 
 /**

@@ -9,10 +9,7 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Theme\Models\BaseModelLang;
-<<<<<<< HEAD
-=======
 use Modules\Cms\Contracts\PanelContract;
->>>>>>> fc07af93 (.)
 
 /**
  * Class Panel.
