@@ -34,10 +34,11 @@ class Filter extends Component {
      *
      * @return void
      */
-    public function mount(?Model $row = null) {
+    public function mount($row = null) {
         // $data = request()->all();
         // dddx($data);
 
+       
         if (null !== $row) {
             $this->model_id = $row->getKey();
             $this->model_class = \get_class($row);

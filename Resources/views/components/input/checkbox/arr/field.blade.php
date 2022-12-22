@@ -1,26 +1,25 @@
 @props([
-    'options'=>[],
-    'arr'=>[],
-    'value'=>null,
-    ])
+    'options' => [],
+    'arr' => [],
+    'value' => null,
+])
+
 @php
-    //dddx($arr);
-    if(!Arr::isAssoc($options)){
-        $options=array_combine($options,$options);
+    if (!Arr::isAssoc($options)) {
+        $options = array_combine($options, $options);
     }
-    if(is_string($value)){
-        $value=str_replace('&quot;','"',$value);
+    if (is_string($value)) {
+        $value = htmlspecialchars_decode($value);
     }
-    if(isJson($value)){
-        $value=json_decode($value);
+    if (isJson($value)) {
+        $value = json_decode($value);
     }
-   
 @endphp
 
-@foreach($options as $k=>$v)
-    [{{ $name.'.'.$loop->index}}]
-    <x-input.group type="checkbox" :name="$name.'.'.$loop->index" label="{{ $v }}" value="{{ $k }}" checked />
-@endforeach
-{{--
-<pre>{{ print_r($form_data,true)}}</pre>
---}}
+<div class="form-check">
+    @foreach ($options as $key => $option)
+        <input type="checkbox" {{ $attributes->merge($attrs) }} value="{{ $key }}"
+            @if (\array_search($option, $value) !== false) checked @endif)>
+        <label for="{{ $attrs['name'] }}"> {{ $option }}</label><br>
+    @endforeach
+</div>

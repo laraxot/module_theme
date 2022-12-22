@@ -22,15 +22,15 @@ class Input extends Component {
      * ---.
      */
     public function __construct(string $name, string $type, ?array $options = []) {
-        // dddx(['type' => $type, 'options' => $options]);
         $this->name = $name;
         $this->type = Str::snake($type);
         $this->options = $options;
         $this->attrs['name'] = $this->name;
         $this->attrs['class'] = 'form-control';
         $this->attrs['wire:model.lazy'] = 'form_data.'.$name;
-
+        
         switch ($this->type) {
+            case 'checkbox.arr':
             case 'checkbox':
                 $this->attrs['class'] = 'form-check-input';
                 break;
@@ -46,6 +46,9 @@ class Input extends Component {
                 $this->attrs['data-none-selected-text'] = '';
                 break;
         }
+
+        
+        
     }
 
     /**
