@@ -31,6 +31,8 @@ class Input extends Component {
 
         switch ($this->type) {
             case 'checkbox.arr':
+                $this->attrs['class'] = 'form-check-input';
+                break;
             case 'checkbox':
                 $this->attrs['class'] = 'form-check-input';
                 break;
@@ -39,7 +41,6 @@ class Input extends Component {
                 break;
             case 'radio.arr':
                 $this->attrs['class'] = 'form-check-input';
-
                 break;
             case 'select.multiple':
                 $this->attrs['class'] = 'selectpicker form-control';

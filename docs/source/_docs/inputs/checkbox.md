@@ -59,3 +59,6 @@ $value=[3,5];
 
 ```
 
+La differenza tra <x-input.group.arr type="checkbox" /> e <x-input.group type="checkbox" /> è nella quantita delle opzioni.
+L'aggiunta di arr indica che esiste più di una opzione nel checkbox o radio.
+
