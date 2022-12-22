@@ -8,8 +8,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Cms\Contracts\PanelContract;
-use Modules\Cms\Services\PanelService;
 use Modules\Cms\Services\PanelService;
 use Modules\Xot\Contracts\ModelWithPosContract;
 

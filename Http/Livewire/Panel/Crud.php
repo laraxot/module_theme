@@ -7,7 +7,7 @@ namespace Modules\Theme\Http\Livewire\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Livewire\Component;
-use Modules\Cms\Contracts\PanelContract;
+
 use Modules\Cms\Contracts\PanelContract;
 use Modules\LU\Models\User;
 

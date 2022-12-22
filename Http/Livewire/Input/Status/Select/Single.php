@@ -18,6 +18,8 @@ class Single extends Component {
     public array $options;
     public string $status = '';
 
+    public Model $model;
+
     /**
      * Undocumented function.
      *

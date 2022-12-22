@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
-use Modules\Xot\Jobs\PanelCrud\StoreJob;
+//use Modules\Xot\Jobs\PanelCrud\StoreJob;
 
 /**
  * Class Create.
@@ -62,7 +62,7 @@ class Create extends Component {
 
         // dddx($this->form_data);
 
-        $r = dispatch(new StoreJob($this->form_data, PanelService::make()->get(xotModel($this->model_name))));
+        // $r = dispatch(new StoreJob($this->form_data, PanelService::make()->get(xotModel($this->model_name))));
 
         // dddx($r);
 
