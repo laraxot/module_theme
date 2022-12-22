@@ -7,15 +7,11 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use Modules\Cms\Contracts\PanelContract;
-
 // use Modules\Theme\Traits\HandlesArrays;
 // use Modules\Theme\Traits\UploadsFiles;
 use Modules\Cms\Models\Panels\XotBasePanel;
-
 use Modules\Cms\Services\PanelService;
-
 use Modules\Theme\Services\FieldService;
 // use Modules\Theme\Traits\HandlesArrays;
 // use Modules\Theme\Traits\UploadsFiles;

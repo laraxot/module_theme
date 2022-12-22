@@ -1484,7 +1484,7 @@ class ThemeService {
     }
 
     public static function firstThemeName(string $theme_type): string {
-        //1487   Undefined variable: $this
+        // 1487   Undefined variable: $this
         /*
         if ($this->app->runningInConsole()) {
             return '';
