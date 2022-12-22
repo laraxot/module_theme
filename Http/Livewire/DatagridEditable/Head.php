@@ -13,21 +13,10 @@ use Illuminate\Support\Collection;
 
 use Illuminate\Support\Str;
 use Modules\Cms\Models\Panels\XotBasePanel;
-<<<<<<< HEAD
 use Modules\Cms\Services\PanelService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
-=======
-use Modules\Theme\Contracts\FieldContract;
-use Modules\Theme\Services\FieldService;
-use Modules\Xot\Http\Livewire\XotBaseComponent;
-<<<<<<< HEAD
-use Modules\Xot\Services\PanelService;
->>>>>>> a909dfc0 (up)
-=======
-use Modules\Cms\Services\PanelService;
->>>>>>> fc07af93 (.)
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Head.

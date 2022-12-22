@@ -14,22 +14,11 @@ use Livewire\WithFileUploads;
 // use Modules\Theme\Traits\UploadsFiles;
 
 use Modules\Cms\Models\Panels\XotBasePanel;
-<<<<<<< HEAD
 use Modules\Cms\Services\PanelService;
-=======
->>>>>>> a909dfc0 (up)
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 use Modules\Theme\Traits\HandlesArrays;
 use Modules\Xot\Http\Livewire\XotBaseComponent;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-use Modules\Xot\Services\PanelService;
->>>>>>> a909dfc0 (up)
-=======
-use Modules\Cms\Services\PanelService;
->>>>>>> fc07af93 (.)
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable\Row.

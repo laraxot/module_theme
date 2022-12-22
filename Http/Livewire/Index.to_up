@@ -8,15 +8,7 @@ use Modules\Theme\Services\ColumnService;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\Contracts\RowsContract;
 use Modules\Cms\Models\Panels\XotBasePanel;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Cms\Services\PanelService;
-=======
-use Modules\Xot\Services\PanelService;
->>>>>>> a909dfc0 (up)
-=======
-use Modules\Cms\Services\PanelService;
->>>>>>> fc07af93 (.)
 
 //use Illuminate\Support\Carbon;
 
