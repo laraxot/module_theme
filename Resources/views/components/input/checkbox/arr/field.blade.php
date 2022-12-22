@@ -18,7 +18,7 @@
 
 <div class="form-check">
     @foreach ($options as $key => $option)
-        <input type="checkbox" {{ $attributes->merge($attrs) }} value="{{ $key }}"
+        <input  :name="$name.'.'.$loop->index" type="checkbox" {{ $attributes->merge($attrs) }} value="{{ $key }}"
             @if (\array_search($option, $value) !== false) checked @endif)>
         <label for="{{ $attrs['name'] }}"> {{ $option }}</label><br>
     @endforeach
