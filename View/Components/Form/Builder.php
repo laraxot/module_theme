@@ -36,9 +36,12 @@ class Builder extends Component {
                 $data[$key]['type'] = 'integer';
             }
 
+<<<<<<< HEAD
             if ('radio-group' == $input['type']) {
                 $data[$key]['type'] = 'radio';
             }
+=======
+>>>>>>> a909dfc0 (up)
             // options da finire per la select
             if (array_key_exists('values', $input)) {
                 // dddx($input['values']);

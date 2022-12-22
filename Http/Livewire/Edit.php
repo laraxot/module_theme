@@ -7,9 +7,15 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Modules\Cms\Models\Panels\XotBasePanel;
+<<<<<<< HEAD
 use Modules\Cms\Services\PanelService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
+=======
+use Modules\Theme\Contracts\FieldContract;
+use Modules\Theme\Services\FieldService;
+use Modules\Xot\Services\PanelService;
+>>>>>>> a909dfc0 (up)
 
 // use Illuminate\Support\Carbon;
 
