@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Services;
 
-
 use Modules\Cms\Services\PanelService;
 use Modules\Theme\Menu\Builder;
 
