@@ -9,15 +9,7 @@ use Livewire\WithFileUploads;
 use Modules\FormX\Traits\HandlesArrays;
 use Modules\FormX\Traits\UploadsFiles;
 use Modules\Cms\Models\Panels\XotBasePanel;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Modules\Cms\Services\PanelService;
-=======
-use Modules\Xot\Services\PanelService;
->>>>>>> a909dfc0 (up)
-=======
-use Modules\Cms\Services\PanelService;
->>>>>>> fc07af93 (.)
 
 class DatagridEditable extends Component {
     use WithFileUploads;
@@ -67,7 +59,7 @@ class DatagridEditable extends Component {
     }
 
     public function render(): View {
-        /** 
+        /**
         * @phpstan-var view-string
         */
         $view = 'formx::livewire.datagrid_editable';

@@ -10,11 +10,8 @@ use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
 use Modules\Xot\Contracts\ModelWithPosContract;
-<<<<<<< HEAD
-=======
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
->>>>>>> fc07af93 (.)
 
 /**
  * Class Sort.

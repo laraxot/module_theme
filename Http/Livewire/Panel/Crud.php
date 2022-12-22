@@ -9,10 +9,7 @@ use Illuminate\Support\Collection;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\LU\Models\User;
-<<<<<<< HEAD
-=======
 use Modules\Cms\Contracts\PanelContract;
->>>>>>> fc07af93 (.)
 
 /**
  * Class Crud.

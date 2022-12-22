@@ -7,7 +7,7 @@ namespace Modules\Theme\Http\Livewire;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-<<<<<<< HEAD
+
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Cms\Services\PanelService;
@@ -15,19 +15,15 @@ use Modules\Cms\Services\PanelService;
 // use Modules\Theme\Traits\UploadsFiles;
 use Modules\Theme\Services\FieldService;
 use Modules\Xot\Contracts\RowsContract;
-=======
+
 use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Theme\Services\FieldService;
 use Modules\Cms\Contracts\PanelContract;
 // use Modules\Theme\Traits\HandlesArrays;
 // use Modules\Theme\Traits\UploadsFiles;
 use Modules\Xot\Contracts\RowsContract;
-<<<<<<< HEAD
-use Modules\Xot\Services\PanelService;
->>>>>>> a909dfc0 (up)
-=======
+
 use Modules\Cms\Services\PanelService;
->>>>>>> fc07af93 (.)
 
 /**
  * Modules\Theme\Http\Livewire\DatagridEditable.
