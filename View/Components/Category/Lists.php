@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Theme\View\Components\Category;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class Lists.

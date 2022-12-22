@@ -36,6 +36,7 @@ class Arr extends Component {
         $r = [];
 
         foreach ($this->arr as $item) {
+            $type = $item['type'];
             switch ($item['type']) {
                 case 'String':
                     $type = 'text';
