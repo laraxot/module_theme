@@ -17,6 +17,8 @@ class WithTimeframes extends Component {
     public int $i = 0;
     public bool $showBtnLink;
 
+    public string $component_id;
+
     /**
      * Undocumented function.
      */
