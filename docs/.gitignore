@@ -4,3 +4,6 @@
 /source/assets/build/
 .env
 npm-debug.log
+*.lock
+*.log
+
