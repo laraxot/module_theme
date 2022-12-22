@@ -1,25 +1,7 @@
-@props([
-    'options' => [],
-    'arr' => [],
-    'value' => null,
-])
-
-@php
-    if (!Arr::isAssoc($options)) {
-        $options = array_combine($options, $options);
-    }
-    if (is_string($value)) {
-        $value = htmlspecialchars_decode($value);
-    }
-    if (isJson($value)) {
-        $value = json_decode($value);
-    }
-@endphp
-
 <div class="form-check">
+    {{-- dddx([get_defined_vars(),$attributes->merge($attrs)]) --}}
     @foreach ($options as $key => $option)
-        <input  :name="$name.'.'.$loop->index" type="checkbox" {{ $attributes->merge($attrs) }} value="{{ $key }}"
-            @if (\array_search($option, $value) !== false) checked @endif)>
+        <input type="checkbox" {{ $attributes->merge($attrs) }} value="{{ $key }}">
         <label for="{{ $attrs['name'] }}"> {{ $option }}</label><br>
     @endforeach
 </div>
