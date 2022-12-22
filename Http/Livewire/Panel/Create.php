@@ -8,8 +8,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Xot\Jobs\PanelCrud\StoreJob;
 use Modules\Cms\Services\PanelService;
+use Modules\Xot\Jobs\PanelCrud\StoreJob;
 
 /**
  * Class Create.

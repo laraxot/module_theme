@@ -11,7 +11,6 @@ use Modules\Cms\Services\PanelService;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 
-
 /**
  * Modules\Theme\Http\Livewire\Edit.
  *
