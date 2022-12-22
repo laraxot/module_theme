@@ -561,12 +561,51 @@
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
             <h1 id="checkbox">Checkbox</h1>
 
+<p>se si e' dentro livewire il valore e' dentro la variabile del componente livewire form_data.<$name></p>
+
+<p>se no si passa dentro "value"</p>
+
+<hr />
+
+<p>se è checkbox.arr :arr="$arr" :value="$value"</p>
+
+<p>$arr è un array di tutti i valori possibili
+$value è un array delle chiavi selezionate</p>
+
+<hr />
+
+<p>se è checkbox.rows :rows="$rows" :value="$value"</p>
+
+<p>$rows è una eloquent collection con tutti i valori</p>
+
+<p>$value è un array delle chiavi selezionate</p>
+
+<hr />
+
 <p>Esempio di input tipo checkbox da inserire nel proprio form
 solitamente da utilizzare dentro un foreach</p>
 
-<pre><code class="language-php">@foreach($options as $k=&gt;$v)
-    &lt;x-input.group type="checkbox" :name="$name.'.'.$loop-&gt;index" label="{{ $v }}" value="{{ $k }}" checked /&gt;
+<pre><code class="language-php">@php
+$name="test";
+$value=[3,5];
+@endphp
+@foreach($options as $k=&gt;$v)
+    &lt;x-input.group type="checkbox" 
+        :name="$name.'.'.$loop-&gt;index" 
+        label="{{ $v }}" value="{{ $k }}" 
+        {{ in_array($k,$value)?'checked':'' }} 
+    /&gt;
 @endforeach
+</code></pre>
+
+<p>questo deve equivalere a</p>
+
+<pre><code class="language-php">@php
+$name="test";
+$value=[3,5];
+@endphp
+&lt;x-input.group.arr type="checkbox" :arr="$options" :name="$name" /&gt;
+
 </code></pre>
         </div>
     </div>
