@@ -19,8 +19,15 @@ use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
 use Modules\Cms\Services\RouteService;
 use Modules\Tenant\Services\TenantService;
+<<<<<<< HEAD
 use Modules\Xot\Services\ArtisanService;
 use Modules\Xot\Services\FileService;
+=======
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Xot\Services\ArtisanService;
+use Modules\Xot\Services\FileService;
+use Modules\Cms\Services\PanelService;
+>>>>>>> fc07af93 (.)
 use Modules\Xot\Services\StubService;
 use Modules\Xot\Traits\Getter;
 

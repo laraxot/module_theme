@@ -8,8 +8,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
+<<<<<<< HEAD
 use Modules\Cms\Services\PanelService;
 use Modules\Xot\Jobs\PanelCrud\StoreJob;
+=======
+use Modules\Xot\Jobs\PanelCrud\StoreJob;
+use Modules\Cms\Services\PanelService;
+>>>>>>> fc07af93 (.)
 
 /**
  * Class Create.

@@ -8,6 +8,10 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Modules\Cms\Services\PanelService;
 use Modules\Xot\Services\FileService;
+<<<<<<< HEAD
+=======
+use Modules\Cms\Services\PanelService;
+>>>>>>> fc07af93 (.)
 
 /**
  * Undocumented class.

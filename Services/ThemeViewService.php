@@ -6,6 +6,10 @@ namespace Modules\Theme\Services;
 
 use Modules\Cms\Services\PanelService;
 use Modules\Theme\Menu\Builder;
+<<<<<<< HEAD
+=======
+use Modules\Cms\Services\PanelService;
+>>>>>>> fc07af93 (.)
 
 /**
  * Class ThemeViewService.

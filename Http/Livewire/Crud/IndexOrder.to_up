@@ -14,6 +14,7 @@ use Modules\Ew\Models\PhotoCat;
 use Modules\Tenant\Services\TenantService;
 use Modules\Theme\Services\ThemeService;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Cms\Services\PanelService;
@@ -22,6 +23,11 @@ use Modules\Xot\Contracts\PanelContract;
 use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Xot\Services\PanelService;
 >>>>>>> a909dfc0 (up)
+=======
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Modules\Cms\Services\PanelService;
+>>>>>>> fc07af93 (.)
 
 /**
  *  Modules\Theme\Http\Livewire\Crud\IndexOrder.
