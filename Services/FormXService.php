@@ -192,7 +192,7 @@ class FormXService {
                 return $item->name === 'bs'.$field->type;
             }
         );
-        if (null === $comp_field) {
+        if (null == $comp_field) {
             $msg = 'not registered component [bs'.$field->type.']';
 
             return view()->make('theme::components.alert.error', ['msg' => $msg]);

@@ -16,6 +16,7 @@ class Model extends Component {
 
     /**
      * Undocumented function.
+     * 
      */
     public function __construct(EloquentModel $model) {
         $this->model = $model;

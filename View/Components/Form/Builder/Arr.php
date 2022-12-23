@@ -48,6 +48,7 @@ class Arr extends Component {
         return $r;
     }
 
+    /*
     public function buttons() {
         $r = [];
 
@@ -57,4 +58,5 @@ class Arr extends Component {
 
         return $r;
     }
+    */
 }

@@ -84,8 +84,8 @@ class Group extends Component {
             $tmp[$k] = $v;
         }
         $input_attrs->setAttributes($tmp);
-
-        $div_class = 'form-group '.$attributes->get('div_class').' col-'.$attributes->get('col_size') ?? '12';
+        $col_size=$attributes->get('col_size') ?? '12';
+        $div_class = 'form-group '.$attributes->get('div_class').' col-'.$col_size;
         if ('checkbox' == $attributes->get('type')) {
             $div_class = 'form-check';
         }

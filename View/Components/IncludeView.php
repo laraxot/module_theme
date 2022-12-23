@@ -38,7 +38,7 @@ class IncludeView extends Component {
 
         if (null === $view_work) {
             if (\in_array($view_tpl, ['topbar', 'bottombar', 'inner_page'], true)) {
-                return null;
+                return view('theme::empty');
                 // throw new \Exception('$view_work is null');
             }
 
