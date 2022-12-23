@@ -1,13 +1,27 @@
+@props([
+    'options'=>[],
+    'arr'=>[],
+    'value'=>null,
+    ])
+@php
+    if(!Arr::isAssoc($options)){
+        $options=array_combine($options,$options);
+    }
+    if(is_string($value)){
+        $value=str_replace('&quot;','"',$value);
+    }
+    if(isJson($value)){
+        $value=json_decode($value);
+    }
+   
+@endphp
 <div class="form-check">
-    {{-- dddx([get_defined_vars(),$attributes->merge($attrs)]) --}}
     @foreach ($options as $key => $option)
         @php
-            // dddx([$key, $option]);
-            $attrs['wire:model.lazy'] = 'form_data.' . $name . '.' . $key;
+            $attrs['wire:model.lazy'] = 'form_data.' . $name . '.' . $loop->index;
         @endphp
+       
         <input type="checkbox" {{ $attributes->merge($attrs) }} value="{{ $key }}">
         <label for="{{ $attrs['name'] }}"> {{ $option }}</label><br>
     @endforeach
-
-
 </div>
