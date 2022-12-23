@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Theme\Models\Policies;
 
-use Modules\Xot\Models\Policies\XotBasePolicy;
+use Modules\Cms\Models\Panels\Policies\XotBasePanelPolicy;
 
 /**
  * Class ThemePolicy.
