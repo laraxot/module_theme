@@ -13,7 +13,7 @@ use Modules\Theme\Services\ThemeService;
  * Class Rows.
  */
 class Rows extends Component {
-    public string $type;
+    public ?string $type;
     public Collection $rows;
 
     /**

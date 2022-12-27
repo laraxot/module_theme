@@ -11,7 +11,7 @@ use Illuminate\View\Component;
  * Class Info.
  */
 class Icon extends Component {
-    public string $type;
+    public ?string $type;
 
     /**
      * Create a new component instance.

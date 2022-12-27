@@ -29,8 +29,13 @@ class Modal extends Component {
     */
 
     public function render(): Renderable {
+        /**
+         * @phpstan-var view-string
+         */
         $view = 'theme::components.modal.'.$this->type;
-        $view_params = [];
+        $view_params = [
+            'view' => $view,
+        ];
 
         return view($view, $view_params);
     }

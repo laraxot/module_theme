@@ -11,7 +11,7 @@ use Illuminate\View\Component;
  * Class Heading.
  */
 class Heading extends Component {
-    public string $type;
+    public ?string $type;
 
     /**
      * Create a new component instance.

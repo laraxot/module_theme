@@ -12,7 +12,7 @@ use Illuminate\View\Component;
  * Undocumented class.
  */
 class Group1 extends Component {
-    public string $tpl = 'v1';
+    public ?string $tpl = 'v1';
 
     public function __costruct(?string $tpl = 'v1'): void {
         $this->tpl = $tpl;

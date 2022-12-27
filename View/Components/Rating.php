@@ -12,7 +12,7 @@ use Modules\Theme\Services\ThemeService;
  * Class Rating.
  */
 class Rating extends Component {
-    public string $type;
+    public ?string $type;
 
     /**
      * Create a new component instance.

@@ -12,7 +12,7 @@ use Modules\Theme\Services\ThemeService;
  * Class Message.
  */
 class Message extends Component {
-    public string $type;
+    public ?string $type;
 
     /**
      * Create a new component instance.

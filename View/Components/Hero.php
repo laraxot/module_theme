@@ -12,7 +12,7 @@ use Modules\Theme\Services\ThemeService;
  * Class Hero.
  */
 class Hero extends Component {
-    public string $type;
+    public ?string $type;
 
     /**
      * Create a new component instance.

@@ -8,7 +8,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
 class V2 extends Component {
-    public string $type;
+    public ?string $type;
 
     public array $attrs = [];
 

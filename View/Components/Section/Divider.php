@@ -15,7 +15,7 @@ class Divider extends Component {
     public array $attrs;
     public string $title;
     public string $sub_title;
-    public string $link;
+    public ?string $link;
 
     public function __construct(
         ?string $section_class,

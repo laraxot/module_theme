@@ -23,7 +23,7 @@ class Input extends XotBaseComponent {
     /**
      * @var string
      */
-    public $value;
+    public ?string $value;
 
     public function __construct(string $name, string $id = null, string $type = 'text', ?string $value = '') {
         $this->name = $name;

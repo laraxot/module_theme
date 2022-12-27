@@ -44,7 +44,7 @@ class Group extends Component {
     /**
      * @see https:// stackoverflow.com/questions/65334221/laravel-accessing-attributes-slots-within-component-classes
      */
-    public function renderData(array &$data) {
+    public function renderData(array &$data): string {
         extract($data);
         if (! isset($attributes)) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');

@@ -12,7 +12,7 @@ use Modules\Theme\Services\ThemeService;
  * Class Structure.
  */
 class Structure extends Component {
-    public string $type;
+    public ?string $type;
 
     /**
      * Create a new component instance.

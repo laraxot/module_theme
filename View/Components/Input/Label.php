@@ -14,7 +14,7 @@ use Modules\Xot\Services\FileService;
  */
 class Label extends Component {
     public array $attrs = [];
-    public string $type;
+    public ?string $type;
     public string $tradKey;
 
     /**
@@ -56,7 +56,7 @@ class Label extends Component {
         return view($view, $view_params);
     }
 
-    public function renderData(array $data) {
+    public function renderData(array $data): string {
         extract($data);
         /**
          * @phpstan-var view-string

@@ -13,7 +13,7 @@ use Illuminate\View\Component;
  */
 class User extends Component {
     public array $attrs = [];
-    public string $view;
+    public ?string $view;
 
     /**
      * Create a new component instance.
