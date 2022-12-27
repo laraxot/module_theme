@@ -23,7 +23,7 @@ class Related extends Component {
 
     public function render(): Renderable {
         /**
-         * @phan-var view-string
+         * @phpstan-var view-string
          */
         $view = 'theme::components.service.related.'.$this->type;
         $view_params = [
