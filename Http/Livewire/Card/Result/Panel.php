@@ -8,7 +8,6 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Cms\Contracts\PanelContract;
 use Modules\Theme\Models\BaseModelLang;
 
 /**
