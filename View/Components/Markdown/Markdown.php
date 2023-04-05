@@ -14,7 +14,8 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Markdown.
  */
-class Markdown extends XotBaseComponent {
+class Markdown extends XotBaseComponent
+{
     protected string $flavor;
 
     protected string $htmlInput;
@@ -41,11 +42,13 @@ class Markdown extends XotBaseComponent {
         $this->anchors = $anchors;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         return view()->make('theme::components.markdown.markdown');
     }
 
-    public function toHtml(string $markdown): string {
+    public function toHtml(string $markdown): string
+    {
         if ($this->anchors) {
             $markdown = $this->generateAnchors($markdown);
         }
@@ -53,7 +56,8 @@ class Markdown extends XotBaseComponent {
         return (string) $this->converter()->convertToHtml($markdown);
     }
 
-    protected function converter(): MarkdownConverterInterface {
+    protected function converter(): MarkdownConverterInterface
+    {
         $options = array_merge(
             $this->options,
             [
@@ -69,7 +73,8 @@ class Markdown extends XotBaseComponent {
         return new CommonMarkConverter($options);
     }
 
-    protected function generateAnchors(string $markdown): string {
+    protected function generateAnchors(string $markdown): string
+    {
         preg_match_all('(```[a-z]*\n[\s\S]*?\n```)', $markdown, $matches);
         /**
          * @var array

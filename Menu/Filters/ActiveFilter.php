@@ -10,10 +10,12 @@ use Modules\Theme\Menu\Builder;
 /**
  * Class ActiveFilter.
  */
-class ActiveFilter implements FilterInterface {
+class ActiveFilter implements FilterInterface
+{
     private ActiveChecker $activeChecker;
 
-    public function __construct(ActiveChecker $activeChecker) {
+    public function __construct(ActiveChecker $activeChecker)
+    {
         $this->activeChecker = $activeChecker;
     }
 
@@ -22,7 +24,8 @@ class ActiveFilter implements FilterInterface {
      *
      * @return mixed
      */
-    public function transform($item, Builder $builder) {
+    public function transform($item, Builder $builder)
+    {
         if (! isset($item['header'])) {
             $item['active'] = $this->activeChecker->isActive($item);
         }

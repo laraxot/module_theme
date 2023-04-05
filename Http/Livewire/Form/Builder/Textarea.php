@@ -13,7 +13,8 @@ use Modules\Theme\Traits\Form\Builder\WithPrefix;
 use Modules\Theme\Traits\Form\Builder\WithReadonly;
 use Modules\Theme\Traits\Form\Builder\WithSizing;
 
-class Textarea extends Component {
+class Textarea extends Component
+{
     use WithPrefix;
     use WithSizing;
     use WithHelp;
@@ -25,7 +26,8 @@ class Textarea extends Component {
     public $props = [];
     public $attrs = [];
 
-    public static function make($name, $label = null) {
+    public static function make($name, $label = null)
+    {
         $component = new static();
 
         $component->props = [
@@ -47,13 +49,15 @@ class Textarea extends Component {
         return $component;
     }
 
-    public function rows($rows = 3) {
+    public function rows($rows = 3)
+    {
         $this->attrs['rows'] = $rows;
 
         return $this;
     }
 
-    public function render() {
+    public function render()
+    {
         return view('theme::livewire.form.builder.v5.textarea');
     }
 }

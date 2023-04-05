@@ -10,14 +10,16 @@ use Illuminate\View\Component;
 
 // Arr because Array is reserved
 
-class Model extends Component {
+class Model extends Component
+{
     public EloquentModel $model;
     public array $attrs = [];
 
     /**
      * Undocumented function.
      */
-    public function __construct(EloquentModel $model) {
+    public function __construct(EloquentModel $model)
+    {
         $this->model = $model;
 
         $this->attrs = [
@@ -33,7 +35,8 @@ class Model extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

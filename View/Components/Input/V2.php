@@ -7,7 +7,8 @@ namespace Modules\Theme\View\Components\Input;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class V2 extends Component {
+class V2 extends Component
+{
     public ?string $type;
 
     public array $attrs = [];
@@ -17,14 +18,16 @@ class V2 extends Component {
      *
      * @return void
      */
-    public function __construct(?string $type = 'input') {
+    public function __construct(?string $type = 'input')
+    {
         $this->type = $type;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

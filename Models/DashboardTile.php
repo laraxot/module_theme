@@ -30,6 +30,7 @@ use Spatie\Dashboard\Models\Tile as BaseTile;
  *
  * @mixin \Eloquent
  */
-class DashboardTile extends BaseTile {
+class DashboardTile extends BaseTile
+{
     protected $fillable = ['id', 'name', 'data', 'created_at', 'created_by', 'updated_at', 'updated_by'];
 }

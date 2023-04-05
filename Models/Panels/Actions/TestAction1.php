@@ -13,12 +13,14 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class TestAction.
  */
-class TestAction1 extends XotBasePanelAction {
+class TestAction1 extends XotBasePanelAction
+{
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-campground"></i>';
 
-    public function handle() {
+    public function handle()
+    {
         $input = request()->input('input');
         $existings = [
             'calendar.v1', 'calendar.v2',

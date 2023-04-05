@@ -9,7 +9,8 @@ use Illuminate\View\Component;
 /**
  * Class Faq.
  */
-class SelectionHighlight extends Component {
+class SelectionHighlight extends Component
+{
     public string $txt;
     public string $driver;
 
@@ -18,7 +19,8 @@ class SelectionHighlight extends Component {
      *
      * @return void
      */
-    public function __construct(string $driver, string $txt) {
+    public function __construct(string $driver, string $txt)
+    {
         $this->driver = $driver;
         $this->txt = $txt;
     }
@@ -26,7 +28,8 @@ class SelectionHighlight extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): \Illuminate\Contracts\Support\Renderable
+    {
         /**
          * @phpstan-var view-string
          */

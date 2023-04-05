@@ -17,20 +17,23 @@ use Modules\Xot\Services\FileService;
 /**
  * Class Area.
  */
-class Area extends Component {
+class Area extends Component
+{
     public ModelArea $area;
 
     /**
      * Undocumented function.
      */
-    public function __construct(ModelArea $area) {
+    public function __construct(ModelArea $area)
+    {
         $this->area = $area;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /*
         try {
             $module = Module::find($this->area->area_define_name);
@@ -53,7 +56,8 @@ class Area extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         return true;
     }
 }

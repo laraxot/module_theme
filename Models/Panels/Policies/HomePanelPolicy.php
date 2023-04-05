@@ -11,12 +11,15 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Class HomePanelPolicy.
  */
-class HomePanelPolicy extends XotBasePanelPolicy {
-    public function test(UserContract $user, PanelContract $panel): bool {
+class HomePanelPolicy extends XotBasePanelPolicy
+{
+    public function test(UserContract $user, PanelContract $panel): bool
+    {
         return true;
     }
 
-    public function ConvertSmartyToBlade(UserContract $user, PanelContract $panel): bool {
+    public function ConvertSmartyToBlade(UserContract $user, PanelContract $panel): bool
+    {
         return true;
     }
 }

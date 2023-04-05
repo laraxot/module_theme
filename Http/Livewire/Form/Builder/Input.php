@@ -13,7 +13,8 @@ use Modules\Theme\Traits\Form\Builder\WithPrefix;
 use Modules\Theme\Traits\Form\Builder\WithReadonly;
 use Modules\Theme\Traits\Form\Builder\WithSizing;
 
-class Input extends Component {
+class Input extends Component
+{
     use WithPrefix;
     use WithSizing;
     use WithHelp;
@@ -25,7 +26,8 @@ class Input extends Component {
     public $props = [];
     public $attrs = [];
 
-    public static function make($name, $label = null) {
+    public static function make($name, $label = null)
+    {
         $component = new static();
 
         $component->props = [
@@ -51,7 +53,8 @@ class Input extends Component {
         return $component;
     }
 
-    public function type($type) {
+    public function type($type)
+    {
         $this->attrs['type'] = $type;
 
         if ('text' == $type) {
@@ -71,26 +74,30 @@ class Input extends Component {
         return $this;
     }
 
-    public function append($append) {
+    public function append($append)
+    {
         $this->props['append'] = $append;
 
         return $this;
     }
 
-    public function prepend($prepend) {
+    public function prepend($prepend)
+    {
         $this->props['prepend'] = $prepend;
 
         return $this;
     }
 
-    public function plaintext($plaintext = true) {
+    public function plaintext($plaintext = true)
+    {
         $this->props['plaintext'] = $plaintext;
         $this->attrs['readonly'] = $plaintext;
 
         return $this;
     }
 
-    public function render() {
+    public function render()
+    {
         return view('theme::livewire.form.builder.v5.input');
     }
 }

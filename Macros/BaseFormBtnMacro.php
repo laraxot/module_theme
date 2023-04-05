@@ -14,11 +14,13 @@ use Modules\Xot\Services\StubService;
 /**
  * Class BaseFormBtnMacro.
  */
-abstract class BaseFormBtnMacro {
+abstract class BaseFormBtnMacro
+{
     /**
      * @return array|void
      */
-    public static function before(array $params) {
+    public static function before(array $params)
+    {
         $generate_btn = 1;
         $user = \Auth::user();
         if (null === $user) {

@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Item.
  */
-class Item extends Component {
+class Item extends Component
+{
     public array $attrs;
 
     /**
@@ -18,14 +19,16 @@ class Item extends Component {
      *
      * @return void
      */
-    public function __construct(?string $class = 'primary') {
+    public function __construct(?string $class = 'primary')
+    {
         $this->attrs['class'] = $class;
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

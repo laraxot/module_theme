@@ -10,7 +10,8 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class WithTimeframes extends Component {
+class WithTimeframes extends Component
+{
     public int $press_id;
     public string $type = 'v1';
     public array $items;
@@ -22,7 +23,8 @@ class WithTimeframes extends Component {
     /**
      * Undocumented function.
      */
-    public function mount(string $component_id, array $items, ?bool $showBtnLink = true, ?string $type = 'v1'): void {
+    public function mount(string $component_id, array $items, ?bool $showBtnLink = true, ?string $type = 'v1'): void
+    {
         $this->items = $items;
         $this->showBtnLink = $showBtnLink;
         $this->type = $type;
@@ -34,7 +36,8 @@ class WithTimeframes extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -47,12 +50,14 @@ class WithTimeframes extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function next() {
+    public function next()
+    {
         ++$this->i;
         // $this->emit('getFrameSecond', $this->component_id, $this->items[$this->i]['start']);
     }
 
-    public function prev() {
+    public function prev()
+    {
         --$this->i;
         // $this->emit('getFrameSecond', $this->component_id, $this->items[$this->i]['start']);
     }

@@ -13,12 +13,14 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class SyncInputs.
  */
-class SortRowsGroupAction extends XotBasePanelAction {
+class SortRowsGroupAction extends XotBasePanelAction
+{
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sort"></i>';
 
-    public function handle() {
+    public function handle()
+    {
         // $view = ThemeService::getView();
 
         // return $view;

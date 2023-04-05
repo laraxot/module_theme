@@ -38,12 +38,14 @@ use Modules\Theme\Contracts\ModelLangContract;
  * @property ModelLangContract|null $model
  * @property XotBasePanel           $panel
  */
-class V2 extends BaseV2 {
+class V2 extends BaseV2
+{
     private string $model = ''; // = Customer::class;
 
     public array $events;
 
-    public function events(): Collection {
+    public function events(): Collection
+    {
         $name = 'Barry'; // $request->get('name');
 
         $events = [];
@@ -78,13 +80,15 @@ class V2 extends BaseV2 {
      * @param int $month
      * @param int $day
      */
-    public function onDayClick($year, $month, $day): void {
+    public function onDayClick($year, $month, $day): void
+    {
     }
 
     /**
      * @param int $eventId
      */
-    public function onEventClick($eventId): void {
+    public function onEventClick($eventId): void
+    {
     }
 
     /**
@@ -93,7 +97,8 @@ class V2 extends BaseV2 {
      * @param int $month
      * @param int $day
      */
-    public function onEventDropped($eventId, $year, $month, $day): void {
+    public function onEventDropped($eventId, $year, $month, $day): void
+    {
         $row = app($this->model)->find($eventId);
         $row->date_next_check = $year.'-'.$month.'-'.$day;
         $row->save();

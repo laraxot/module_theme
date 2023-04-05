@@ -11,17 +11,20 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Group1 extends Component {
+class Group1 extends Component
+{
     public ?string $tpl = 'v1';
 
-    public function __costruct(?string $tpl = 'v1'): void {
+    public function __costruct(?string $tpl = 'v1'): void
+    {
         $this->tpl = $tpl;
     }
 
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -35,7 +38,8 @@ class Group1 extends Component {
         return View::make($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         return true;
     }
 }

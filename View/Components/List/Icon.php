@@ -12,7 +12,8 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class Icon.
  */
-class Icon extends Component {
+class Icon extends Component
+{
     public string $type = 'icon';
     public Collection $rows;
 
@@ -21,7 +22,8 @@ class Icon extends Component {
      *
      * @return void
      */
-    public function __construct(Collection $rows) {
+    public function __construct(Collection $rows)
+    {
         $this->rows = $rows;
         // ThemeService::make()->add('theme::View/Components/Card/rows.scss');
     }
@@ -29,7 +31,8 @@ class Icon extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.lists.'.$this->type;
         $view_params = [
             'view' => $view,

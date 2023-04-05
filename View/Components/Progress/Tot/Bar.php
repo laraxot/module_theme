@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Bar.
  */
-class Bar extends Component {
+class Bar extends Component
+{
     public float $value;
     public float $tot;
 
@@ -19,7 +20,8 @@ class Bar extends Component {
      *
      * @return void
      */
-    public function __construct(float $value, float $tot) {
+    public function __construct(float $value, float $tot)
+    {
         $this->value = $value;
         $this->tot = $tot;
     }
@@ -27,7 +29,8 @@ class Bar extends Component {
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /*
         * @phpstan-var view-string
         */

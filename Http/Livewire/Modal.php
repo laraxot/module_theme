@@ -13,7 +13,8 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class Modal extends Component {
+class Modal extends Component
+{
     public bool $show = false;
     public string $body_view;
     public string $modal_id;
@@ -37,11 +38,13 @@ class Modal extends Component {
      *
      * @return void
      */
-    public function sendMessage(string $msg) {
+    public function sendMessage(string $msg)
+    {
         session()->flash('message', $msg);
     }
 
-    public function showModal(string $id, array $data): void {
+    public function showModal(string $id, array $data): void
+    {
         $this->form_data = [];
         if ($id === $this->modal_id) {
             $this->doShow();
@@ -51,7 +54,8 @@ class Modal extends Component {
         // dddx($this->form_data); // qui controllo cosa arriva al modal
     }
 
-    public function sendData(?string $event = null): void {
+    public function sendData(?string $event = null): void
+    {
         // dddx($this);
         // dddx($this->form_data);
         if (null === $event) {
@@ -62,19 +66,23 @@ class Modal extends Component {
         // session()->flash('message', 'Saved !');
     }
 
-    public function doShow(): void {
+    public function doShow(): void
+    {
         $this->show = true;
     }
 
-    public function doClose(): void {
+    public function doClose(): void
+    {
         $this->show = false;
     }
 
-    public function doSomething(): void {
+    public function doSomething(): void
+    {
         $this->doClose();
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

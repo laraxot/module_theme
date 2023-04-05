@@ -11,14 +11,17 @@ use Modules\Xot\View\Components\XotBaseComponent;
  * Class Gallery.
  * nb: funziona in directorybs5 ma non in adminlte.
  */
-class Grapejs extends XotBaseComponent {
-    public function __construct() {
+class Grapejs extends XotBaseComponent
+{
+    public function __construct()
+    {
     }
 
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

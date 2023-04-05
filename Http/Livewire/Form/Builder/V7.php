@@ -8,7 +8,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
-class V7 extends Component {
+class V7 extends Component
+{
     public array $form_data = [];
 
     protected $listener = ['saveData' => 'saveData'];
@@ -23,7 +24,8 @@ class V7 extends Component {
      *
      * @return void
      */
-    public function mount() {
+    public function mount()
+    {
         $this->menus = $this->getAllFiles();
     }
 
@@ -33,7 +35,8 @@ class V7 extends Component {
         'form_data.menu' => 'Devi prima selezionare un menu',
     ];
 
-    protected function rules() {
+    protected function rules()
+    {
         return [
             'form_data.disk' => 'required',
             'form_data.filename' => 'required',
@@ -44,7 +47,8 @@ class V7 extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -56,7 +60,8 @@ class V7 extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function saveData($data) {
+    public function saveData($data)
+    {
         if (! is_null($this->menu_loaded)) {
             Storage::disk('cache')->put($this->menu_loaded, json_encode($data));
         } else {
@@ -66,7 +71,8 @@ class V7 extends Component {
         session()->flash('saved', 'menu salvato');
     }
 
-    public function getData() {
+    public function getData()
+    {
         $validatedData = $this->validate([
             'form_data.menu' => 'required',
         ]);
@@ -78,7 +84,8 @@ class V7 extends Component {
         return $json;
     }
 
-    public function getAllFiles() {
+    public function getAllFiles()
+    {
         $files = Storage::disk('cache')->files();
         $tmp = [];
         foreach ($files as $file) {
@@ -88,7 +95,8 @@ class V7 extends Component {
         return $tmp;
     }
 
-    public function clearFields() {
+    public function clearFields()
+    {
         $this->menu_loaded = null;
         $this->form_data['menu'] = $this->getAllFiles();
     }

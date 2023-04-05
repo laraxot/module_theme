@@ -7,11 +7,13 @@ namespace Modules\Theme\Macros;
 /**
  * Class BtnDetach.  maybe to component.
  */
-class BtnDetach extends BaseFormBtnMacro {
+class BtnDetach extends BaseFormBtnMacro
+{
     /**
      * @return \Closure
      */
-    public function __invoke() {
+    public function __invoke()
+    {
         return function ($extra) {
             $class = __CLASS__;
             $vars = $class::before($extra);

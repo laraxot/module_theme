@@ -12,7 +12,8 @@ use Modules\Theme\Traits\Form\Builder\WithOptions;
 use Modules\Theme\Traits\Form\Builder\WithPrefix;
 use Modules\Theme\Traits\Form\Builder\WithSwitch;
 
-class Radio extends Component {
+class Radio extends Component
+{
     use WithPrefix;
     use WithOptions;
     use WithSwitch;
@@ -23,7 +24,8 @@ class Radio extends Component {
     public $props = [];
     public $attrs = [];
 
-    public static function make($name, $label = null) {
+    public static function make($name, $label = null)
+    {
         $component = new static();
 
         $component->props = [
@@ -44,7 +46,8 @@ class Radio extends Component {
         return $component;
     }
 
-    public function render() {
+    public function render()
+    {
         return view('theme::livewire.form.builder.v5.radio');
     }
 }

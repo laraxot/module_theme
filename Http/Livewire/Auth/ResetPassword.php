@@ -10,13 +10,15 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
-class ResetPassword extends Component {
+class ResetPassword extends Component
+{
     public string $password;
 
     /**
      * @return void
      */
-    public function mount() {
+    public function mount()
+    {
     }
 
     protected array $rules = [
@@ -26,7 +28,8 @@ class ResetPassword extends Component {
     /**
      * @return \Illuminate\Http\Response|void|\Illuminate\Http\RedirectResponse
      */
-    public function changePassword() {
+    public function changePassword()
+    {
         $data = $this->validate();
 
         /**
@@ -56,7 +59,8 @@ class ResetPassword extends Component {
         // return 'wip';
     }
 
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): \Illuminate\Contracts\Support\Renderable
+    {
         $views = [
             'pub_theme::livewire.auth.reset-password',
             'theme::livewire.auth.reset-password',

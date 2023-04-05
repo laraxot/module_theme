@@ -8,7 +8,8 @@ use Illuminate\View\Component;
 use Modules\Theme\Traits\Form\Builder\WithDisabled;
 use Modules\Theme\Traits\Form\Builder\WithPrefix;
 
-class File extends Component {
+class File extends Component
+{
     use WithPrefix;
     use WithHelp;
     use WithDisabled;
@@ -16,7 +17,8 @@ class File extends Component {
     public $props = [];
     public $attrs = [];
 
-    public static function make($name, $label = null) {
+    public static function make($name, $label = null)
+    {
         $component = new static();
 
         $component->props = [
@@ -36,19 +38,22 @@ class File extends Component {
         return $component;
     }
 
-    public function disk($disk) {
+    public function disk($disk)
+    {
         $this->props['disk'] = $disk;
 
         return $this;
     }
 
-    public function multiple() {
+    public function multiple()
+    {
         $this->attrs['multiple'] = true;
 
         return $this;
     }
 
-    public function render() {
+    public function render()
+    {
         return view('theme::livewire.form.builder.v5.file');
     }
 }

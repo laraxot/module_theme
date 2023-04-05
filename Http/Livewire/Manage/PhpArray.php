@@ -14,7 +14,8 @@ use Modules\Xot\Services\ArrayService;
 /**
  * Undocumented class.
  */
-class PhpArray extends Component {
+class PhpArray extends Component
+{
     use HandlesArrays;
 
     public string $filename;
@@ -25,7 +26,8 @@ class PhpArray extends Component {
     /**
      * Undocumented function.
      */
-    public function mount(string $filename): void {
+    public function mount(string $filename): void
+    {
         $this->filename = $filename;
         /**
          * @var array
@@ -35,7 +37,8 @@ class PhpArray extends Component {
         $this->form_data = $contents;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -49,7 +52,8 @@ class PhpArray extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function save(): void {
+    public function save(): void
+    {
         $data = $this->form_data;
 
         ArrayService::save(['filename' => $this->filename, 'data' => $data]);

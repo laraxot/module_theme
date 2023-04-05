@@ -10,7 +10,8 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class FormButton.
  */
-class FormButton extends XotBaseComponent {
+class FormButton extends XotBaseComponent
+{
     public string $action;
 
     public string $method;
@@ -19,7 +20,8 @@ class FormButton extends XotBaseComponent {
     public ?string $style;
     public ?string $label;
 
-    public function __construct(string $action, string $method, ?string $class = '', ?string $style = '', ?string $label = 'aggiungere label') {
+    public function __construct(string $action, string $method, ?string $class = '', ?string $style = '', ?string $label = 'aggiungere label')
+    {
         $this->action = $action;
         $this->method = strtoupper($method);
         $this->class = $class;
@@ -27,7 +29,8 @@ class FormButton extends XotBaseComponent {
         $this->label = $label;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         return view()->make('theme::components.button.form-button');
     }
 }

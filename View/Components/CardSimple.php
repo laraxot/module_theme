@@ -7,15 +7,18 @@ namespace Modules\Theme\View\Components;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Component;
 
-class CardSimple extends Component {
+class CardSimple extends Component
+{
     public array $attrs = [];
     public string $type;
 
-    public function __construct(?string $type = null) {
+    public function __construct(?string $type = null)
+    {
         $this->type = $type ?? 'default';
     }
 
-    public function render() {
+    public function render()
+    {
         /**
          * @phpstan-var view-string
          */

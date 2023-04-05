@@ -18,7 +18,8 @@ use Modules\Xot\Services\XLSService;
  *
  * @property Collection $data
  */
-class Model extends Component {
+class Model extends Component
+{
     use WithFileUploads;
 
     /**
@@ -39,7 +40,8 @@ class Model extends Component {
      *
      * @return void
      */
-    public function mount(string $modelClass, ?array $fields, ?array $trans) {
+    public function mount(string $modelClass, ?array $fields, ?array $trans)
+    {
         $this->modelClass = $modelClass;
         $this->fillable = app($modelClass)->getFillable();
         $this->fillable = array_combine($this->fillable, $this->fillable);
@@ -56,7 +58,8 @@ class Model extends Component {
     /**
      * Undocumented function.
      */
-    public function getDataProperty(): Collection {
+    public function getDataProperty(): Collection
+    {
         $path = $this->myfile->getRealPath();
 
         if (false !== $path) {
@@ -72,7 +75,8 @@ class Model extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -87,7 +91,8 @@ class Model extends Component {
      *
      * @return void
      */
-    public function import() {
+    public function import()
+    {
         $model = app($this->modelClass);
 
         $rows = $this->data;

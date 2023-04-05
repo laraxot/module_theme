@@ -14,14 +14,17 @@ use Illuminate\View\Component;
 /**
  * Class Html.
  */
-class Related extends Component {
+class Related extends Component
+{
     protected string $type;
     protected string $title;
 
-    public function __construct() {
+    public function __construct()
+    {
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

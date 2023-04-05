@@ -12,7 +12,8 @@ use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class FullcalendarAction.
  */
-class FullcalendarAction extends XotBasePanelAction {
+class FullcalendarAction extends XotBasePanelAction
+{
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sync"></i>';
@@ -20,7 +21,8 @@ class FullcalendarAction extends XotBasePanelAction {
     /**
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         return $this->panel->view();
     }
 }

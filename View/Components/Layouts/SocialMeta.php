@@ -10,7 +10,8 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class SocialMeta.
  */
-class SocialMeta extends XotBaseComponent {
+class SocialMeta extends XotBaseComponent
+{
     public string $title;
 
     public string $description;
@@ -39,7 +40,8 @@ class SocialMeta extends XotBaseComponent {
         $this->url = $url ?: url()->current();
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         return view()->make('theme::components.layouts.social-meta');
     }
 }

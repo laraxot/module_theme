@@ -10,7 +10,8 @@ use Illuminate\Support\Collection;
 use Livewire\Component;
 use Modules\Theme\Services\CollectiveService;
 
-class V4 extends Component {
+class V4 extends Component
+{
     public string $type;
 
     public array $form_data = [];
@@ -24,7 +25,8 @@ class V4 extends Component {
      *
      * @return void
      */
-    public function mount(?string $type = 'builder') {
+    public function mount(?string $type = 'builder')
+    {
         $this->type = $type;
 
         $view_path = realpath(__DIR__.'/../../../../Resources/views/collective/fields');
@@ -52,7 +54,8 @@ class V4 extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -65,7 +68,8 @@ class V4 extends Component {
         return view($view, $view_params);
     }
 
-    public function add(string $name): void {
+    public function add(string $name): void
+    {
         $this->form_data[] = [
             'type' => $name,
             'name' => $name.'_'.\count($this->form_data),
@@ -73,11 +77,13 @@ class V4 extends Component {
         ];
     }
 
-    public function edit(int $k): void {
+    public function edit(int $k): void
+    {
         $this->edit_k = $k;
     }
 
-    public function delete(int $k): void {
+    public function delete(int $k): void
+    {
         unset($this->form_data[$k]);
     }
 }

@@ -25,7 +25,8 @@ use Modules\Xot\Http\Livewire\XotBaseComponent;
  *
  * @property XotBasePanel $panel
  */
-class Row extends XotBaseComponent {
+class Row extends XotBaseComponent
+{
     use HandlesArrays;
     // use UploadsFiles;
     use WithFileUploads;
@@ -50,7 +51,8 @@ class Row extends XotBaseComponent {
      * @param \Illuminate\Database\Eloquent\Model|null $row
      * @param string                                   $index
      */
-    public function mount($row, $index): void {
+    public function mount($row, $index): void
+    {
         $this->route_params = getRouteParameters();
         $this->data = request()->all();
         $this->in_admin = inAdmin();
@@ -62,7 +64,8 @@ class Row extends XotBaseComponent {
         $this->setFormProperties($row);
     }
 
-    public function rules(): array {
+    public function rules(): array
+    {
         $tmp = $this->panel->rules(['act' => 'update']);
         $rules = [];
         foreach ($tmp as $k => $v) {
@@ -76,13 +79,15 @@ class Row extends XotBaseComponent {
     /**
      * @param string $err
      */
-    public static function errorMessage($err): string {
+    public static function errorMessage($err): string
+    {
         session()->flash('error_message', $err);
 
         return $err;
     }
 
-    public function fields(): array {
+    public function fields(): array
+    {
         /**
          * @var Collection<FieldContract>
          */
@@ -104,13 +109,15 @@ class Row extends XotBaseComponent {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Response|mixed|null
      */
-    public function getPanelProperty() {
+    public function getPanelProperty()
+    {
         return PanelService::make()->getByParams($this->route_params);
     }
 
     // *
 
-    public function setFormProperties(?Model $model = null): void {
+    public function setFormProperties(?Model $model = null): void
+    {
         // $this->model = $model;
         if ($model) {
             $this->form_data = $model->toArray();
@@ -137,7 +144,8 @@ class Row extends XotBaseComponent {
 
     // */
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = $this->getView();
         $view_params = [
             'view' => $view,
@@ -149,7 +157,8 @@ class Row extends XotBaseComponent {
         return view()->make($view, $view_params);
     }
 
-    public function rowUpdate(): void {
+    public function rowUpdate(): void
+    {
         $data = $this->validate();
         $data = $data['form_data'];
         $func = '\Modules\Xot\Jobs\PanelCrud\UpdateJob';
@@ -164,7 +173,8 @@ class Row extends XotBaseComponent {
      * @param string $file_type
      * @param array  $data
      */
-    public function carica($index, $file_name, $file_type, $data): void {
+    public function carica($index, $file_name, $file_type, $data): void
+    {
         // dddx('funzione carica di row');
 
         // dddx($this->form_data['tmp']);
@@ -178,7 +188,8 @@ class Row extends XotBaseComponent {
     /**
      * @param mixed $a
      */
-    public function updated($a): void {
+    public function updated($a): void
+    {
         dddx($a);
     }
 }

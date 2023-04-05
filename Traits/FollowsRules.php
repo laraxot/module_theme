@@ -12,13 +12,15 @@ use Modules\Theme\Services\FieldService;
 /**
  * Trait FollowsRules.
  */
-trait FollowsRules {
+trait FollowsRules
+{
     /**
      * @param bool $realtime
      *
      * @return array
      */
-    public function rules($realtime = false) {
+    public function rules($realtime = false)
+    {
         $rules = [];
         $rules_ignore = $realtime ? $this->rulesIgnoreRealtime() : [];
 
@@ -46,7 +48,8 @@ trait FollowsRules {
      *
      * @return array|bool|string[]
      */
-    public function fieldRules($field, $rules_ignore) {
+    public function fieldRules($field, $rules_ignore)
+    {
         // $field_rules = is_array($field->rules) ? $field->rules : explode('|', $field->rules);
         $field_rules = $field->rules;
         // 51     Else branch is unreachable because ternary operator condition is always true.
@@ -69,7 +72,8 @@ trait FollowsRules {
     /**
      * @return array
      */
-    public function rulesIgnoreRealtime() {
+    public function rulesIgnoreRealtime()
+    {
         return [];
     }
 }

@@ -7,11 +7,13 @@ namespace Modules\Theme\Macros;
 /**
  * Class BtnCreate.
  */
-class BtnCreate extends BaseFormBtnMacro {
+class BtnCreate extends BaseFormBtnMacro
+{
     /**
      * @return \Closure
      */
-    public function __invoke() {
+    public function __invoke()
+    {
         return function ($extra) {
             $class = __CLASS__;
             $vars = $class::before($extra);

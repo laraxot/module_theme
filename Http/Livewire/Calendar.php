@@ -15,7 +15,8 @@ use Livewire\Component;
  * https://github.com/asantibanez/livewire-calendar
  * https://github.com/stijnvanouplines/livewire-calendar/blob/master/app/Http/Livewire/Calendar.php.
  */
-class Calendar extends Component {
+class Calendar extends Component
+{
     public ?string $minDate;
 
     public ?string $maxDate;
@@ -47,7 +48,8 @@ class Calendar extends Component {
 
     public mixed $opening_hours;
 
-    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null): void {
+    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null): void
+    {
         $session->put('calendar.now', now());
 
         $this->minDate = $minDate;
@@ -62,7 +64,8 @@ class Calendar extends Component {
         $this->selectedTime = null;
     }
 
-    private function setDate(): void {
+    private function setDate(): void
+    {
         /*
         $this->selectedDay = session('calendar.now')->day;
         $this->selectedMonth = $this->currentMonth = session('calendar.now')->month;
@@ -73,7 +76,8 @@ class Calendar extends Component {
         $this->setByDay(session('calendar.now')->day);
     }
 
-    public function calendar(): array {
+    public function calendar(): array
+    {
         $days = [];
 
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)->startOfMonth()->isoWeekday();
@@ -118,7 +122,8 @@ class Calendar extends Component {
         return array_chunk($daysArray, 7);
     }
 
-    private function isCurrentDay(int $day = null): bool {
+    private function isCurrentDay(int $day = null): bool
+    {
         if ($day !== session('calendar.now')->day) {
             return false;
         }
@@ -134,7 +139,8 @@ class Calendar extends Component {
         return true;
     }
 
-    private function isDaySelected(int $day = null): bool {
+    private function isDaySelected(int $day = null): bool
+    {
         if ($day !== $this->selectedDay) {
             return false;
         }
@@ -150,7 +156,8 @@ class Calendar extends Component {
         return true;
     }
 
-    private function isDayDisabled(int $day = null): bool {
+    private function isDayDisabled(int $day = null): bool
+    {
         if (null === $day) {
             return true;
         }
@@ -172,7 +179,8 @@ class Calendar extends Component {
         return false;
     }
 
-    public function setByMonth(int $month): void {
+    public function setByMonth(int $month): void
+    {
         if ($month > 12) {
             $this->currentYear = $this->currentYear + 1;
 
@@ -192,7 +200,8 @@ class Calendar extends Component {
         $this->currentMonth = $month;
     }
 
-    public function setByDay(int $day = null): void {
+    public function setByDay(int $day = null): void
+    {
         if (null === $day) {
             return;
         }
@@ -214,7 +223,8 @@ class Calendar extends Component {
     /**
      * @param string $time
      */
-    public function setByTime($time = null): void {
+    public function setByTime($time = null): void
+    {
         /*if (is_null($time)) {
             return;
         }
@@ -222,7 +232,8 @@ class Calendar extends Component {
         $this->selectedTime = $time;
     }
 
-    public function showPreviousArrow(): bool {
+    public function showPreviousArrow(): bool
+    {
         if (! $this->minDate) {
             return true;
         }
@@ -236,7 +247,8 @@ class Calendar extends Component {
         return true;
     }
 
-    public function showNextArrow(): bool {
+    public function showNextArrow(): bool
+    {
         if (! $this->maxDate) {
             return true;
         }
@@ -253,7 +265,8 @@ class Calendar extends Component {
     /**
      * @return array
      */
-    public function bookingTimes() {
+    public function bookingTimes()
+    {
         $guest_num = (int) $this->guest_num;
         $this->selectedDate = Carbon::create($this->selectedYear, $this->selectedMonth, $this->selectedDay);
         $this->opening_hours = $this->shop->openingHours()->where('day_of_week', $this->weekDay)->get();
@@ -299,7 +312,8 @@ class Calendar extends Component {
     /**
      * Render the component.
      */
-    public function render(): \Illuminate\Contracts\Support\Renderable {
+    public function render(): \Illuminate\Contracts\Support\Renderable
+    {
         $guest_num = (int) $this->guest_num;
         // -- da vedere come passare i parametri
         $this->items = $this->shop->bookingItems()->whereRaw($guest_num.' between min_capacity and max_capacity')->get();

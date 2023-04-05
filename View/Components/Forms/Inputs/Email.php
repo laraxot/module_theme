@@ -9,12 +9,15 @@ use Illuminate\Contracts\Support\Renderable;
 /**
  * Class Email.
  */
-class Email extends Input {
-    public function __construct(string $name = 'email', string $id = null, ?string $value = '') {
+class Email extends Input
+{
+    public function __construct(string $name = 'email', string $id = null, ?string $value = '')
+    {
         parent::__construct($name, $id, 'email', $value);
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.forms.inputs.email';
 
         return view()->make($view);

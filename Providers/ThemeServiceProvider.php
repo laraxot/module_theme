@@ -23,7 +23,8 @@ use Modules\Xot\Services\FileService;
 /**
  * Class ThemeServiceProvider.
  */
-class ThemeServiceProvider extends XotBaseServiceProvider {
+class ThemeServiceProvider extends XotBaseServiceProvider
+{
     protected string $module_dir = __DIR__;
 
     protected string $module_ns = __NAMESPACE__;
@@ -35,14 +36,16 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     /**
      * Undocumented function.
      */
-    public function getXot(): array {
+    public function getXot(): array
+    {
         return $this->xot;
     }
 
     /**
      * Undocumented function.
      */
-    public function bootCallback(): void {
+    public function bootCallback(): void
+    {
         $xot = config('xra');
 
         // $xot = TenantService::config('xra');
@@ -75,7 +78,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         Paginator::useBootstrap();
     }
 
-    public function registerCollective(): void {
+    public function registerCollective(): void
+    {
         CollectiveService::registerComponents(
             $this->module_dir.'/../Resources/views/collective/fields',
             '',
@@ -90,7 +94,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
      *
      * @return void
      */
-    public function bootThemeProvider(string $theme_type) {
+    public function bootThemeProvider(string $theme_type)
+    {
         $xot = $this->getXot();
         if (! isset($xot[$theme_type])) {
             return;
@@ -118,7 +123,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
      *
      * @return void
      */
-    public function registerNamespaces(string $theme_type) {
+    public function registerNamespaces(string $theme_type)
+    {
         /**
          * @var array
          */
@@ -140,7 +146,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         $this->loadTranslationsFrom($lang_dir, $theme_type);
     }
 
-    public function registerThemeConfig(string $theme_type): void {
+    public function registerThemeConfig(string $theme_type): void
+    {
         $xot = $this->getXot();
 
         if (! isset($xot[$theme_type])) {
@@ -165,7 +172,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
         }
     }
 
-    public function registerCallback(): void {
+    public function registerCallback(): void
+    {
         $loader = AliasLoader::getInstance();
         $loader->alias('Theme', 'Modules\Theme\Services\ThemeService');
 
@@ -175,7 +183,8 @@ class ThemeServiceProvider extends XotBaseServiceProvider {
     /**
      * Undocumented function.
      */
-    private function registerViewComposers(): void {
+    private function registerViewComposers(): void
+    {
         $xot = $this->getXot();
         if (! isset($xot['pub_theme'])) {
             $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');

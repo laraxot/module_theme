@@ -6,8 +6,10 @@ namespace Modules\Theme\Traits\Form\Builder;
 
 use Illuminate\Support\Arr;
 
-trait WithOptions {
-    public function options($options) {
+trait WithOptions
+{
+    public function options($options)
+    {
         if (Arr::isAssoc($options)) {
             $this->props['options'] = $options;
         } else {

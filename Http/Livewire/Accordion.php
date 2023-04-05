@@ -10,14 +10,16 @@ use Livewire\Component;
 /**
  * Undocumented class.
  */
-class Accordion extends Component {
+class Accordion extends Component
+{
     public string $show;
     public string $type;
 
     /**
      * Undocumented function.
      */
-    public function mount(?string $type = 'v1'): void {
+    public function mount(?string $type = 'v1'): void
+    {
         $this->show = '';
         $this->type = $type;
     }
@@ -25,7 +27,8 @@ class Accordion extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -38,7 +41,8 @@ class Accordion extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function toggle() {
+    public function toggle()
+    {
         if ('' === $this->show) {
             $this->show = 'show';
         } else {

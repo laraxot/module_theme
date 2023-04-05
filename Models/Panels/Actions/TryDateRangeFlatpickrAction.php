@@ -15,14 +15,16 @@ use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class TryDateRangeFlatpickrAction.
  */
-class TryDateRangeFlatpickrAction extends XotBasePanelAction {
+class TryDateRangeFlatpickrAction extends XotBasePanelAction
+{
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         return $this->panel->view();
     }
 }

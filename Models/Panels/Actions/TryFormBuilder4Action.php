@@ -15,7 +15,8 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class TryFormBuilderAction.
  */
-class TryFormBuilder4Action extends XotBasePanelAction {
+class TryFormBuilder4Action extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-campground"></i>4';
@@ -27,7 +28,8 @@ class TryFormBuilder4Action extends XotBasePanelAction {
      *
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $this->components = $this->getComponents();
         // dddx($this->components->first());
 
@@ -42,7 +44,8 @@ class TryFormBuilder4Action extends XotBasePanelAction {
         // return $this->panel->view();
     }
 
-    public function getComponents() {
+    public function getComponents()
+    {
         $view_path = realpath(__DIR__.'/../../../Resources/views/collective/fields');
         $namespace = '';
         $prefix = 'theme::';

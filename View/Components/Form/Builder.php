@@ -12,15 +12,18 @@ use Illuminate\View\Component;
 /**
  * Class Builder.
  */
-class Builder extends Component {
+class Builder extends Component
+{
     public array $data;
 
-    public function __construct(string $disk, string $filename) {
+    public function __construct(string $disk, string $filename)
+    {
         // $this->data = json_decode(Storage::disk($disk)->get($filename));
         $this->data = $this->makeData($disk, $filename);
     }
 
-    public function makeData(string $disk, string $filename) {
+    public function makeData(string $disk, string $filename)
+    {
         $tmp = json_decode(Storage::disk($disk)->get($filename));
         $data = json_decode(json_encode($tmp), true);
 
@@ -56,7 +59,8 @@ class Builder extends Component {
         return $data;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $form = (object) [
             'inputs' => [
                 /*

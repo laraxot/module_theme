@@ -9,7 +9,8 @@ use Illuminate\View\Component;
 
 // Arr because Array is reserved
 
-class Arr extends Component {
+class Arr extends Component
+{
     public array $arr = [];
 
     /**
@@ -17,7 +18,8 @@ class Arr extends Component {
      *
      * @param array $arr
      */
-    public function __construct($arr) {
+    public function __construct($arr)
+    {
         if (! \is_array($arr)) {
             dddx($arr);
         }
@@ -27,7 +29,8 @@ class Arr extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.input.group.arr';
         $view_params = [
             'view' => $view,

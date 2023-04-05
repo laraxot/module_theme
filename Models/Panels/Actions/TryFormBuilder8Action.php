@@ -14,7 +14,8 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class TryFormBuilderAction.
  */
-class TryFormBuilder8Action extends XotBasePanelAction {
+class TryFormBuilder8Action extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = 'Form Builder 8';
@@ -26,7 +27,8 @@ class TryFormBuilder8Action extends XotBasePanelAction {
      *
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $view = ThemeService::getView();
 
         $view_params = [

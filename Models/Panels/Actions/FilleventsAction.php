@@ -13,12 +13,14 @@ use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class SyncInputs.
  */
-class FilleventsAction extends XotBasePanelAction {
+class FilleventsAction extends XotBasePanelAction
+{
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sync"></i>';
 
-    public function handle() {
+    public function handle()
+    {
         $count = 0;
 
         if (class_exists('\Modules\Blog\Models\Event')) {

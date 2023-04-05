@@ -10,14 +10,16 @@ use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Undocumented class.
  */
-class GrapeJsAction extends XotBasePanelAction {
+class GrapeJsAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-dice-d20"></i>';
 
     public array $html = [];
 
-    public function handle() {
+    public function handle()
+    {
         return $this->panel->out();
     }
 }

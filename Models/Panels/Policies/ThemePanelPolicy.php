@@ -11,8 +11,10 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Class ThemePanelPolicy.
  */
-class ThemePanelPolicy extends XotBasePanelPolicy {
-    public function demoImageGallery(?UserContract $user, PanelContract $panel): bool {
+class ThemePanelPolicy extends XotBasePanelPolicy
+{
+    public function demoImageGallery(?UserContract $user, PanelContract $panel): bool
+    {
         return true;
     }
 }

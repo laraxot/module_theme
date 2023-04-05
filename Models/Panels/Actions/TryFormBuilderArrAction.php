@@ -14,7 +14,8 @@ use Modules\Theme\Http\Livewire\Form\Builder\Input;
 /**
  * Class TryFormBuilderAction.
  */
-class TryFormBuilderArrAction extends XotBasePanelAction {
+class TryFormBuilderArrAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-campground"></i>';
@@ -24,7 +25,8 @@ class TryFormBuilderArrAction extends XotBasePanelAction {
      *
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $view = 'theme::admin.home.acts.try_form_builder_arr';
         $view_params = [
             'view' => $view,

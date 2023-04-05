@@ -17,7 +17,8 @@ use Livewire\Component;
 /**
  * Modules\Theme\Http\Livewire\Calendar\V1.
  */
-class V1 extends Component {
+class V1 extends Component
+{
     public ?string $minDate;
 
     public ?string $maxDate;
@@ -32,7 +33,8 @@ class V1 extends Component {
 
     public mixed $currentYear;
 
-    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null): void {
+    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null): void
+    {
         $session->put('calendar.now', now());
 
         $this->minDate = $minDate;
@@ -41,7 +43,8 @@ class V1 extends Component {
         $this->setDate();
     }
 
-    private function setDate(): void {
+    private function setDate(): void
+    {
         $day = session('calendar.now')->day;
         $month = session('calendar.now')->month;
         $year = session('calendar.now')->year;
@@ -50,7 +53,8 @@ class V1 extends Component {
         $this->selectedYear = $this->currentYear = $year;
     }
 
-    public function calendar(): array {
+    public function calendar(): array
+    {
         $days = [];
 
         $startOfMonthDay = Carbon::createFromDate($this->currentYear, $this->currentMonth)
@@ -93,7 +97,8 @@ class V1 extends Component {
         return array_chunk($daysArray, 7);
     }
 
-    private function isCurrentDay(int $day = null): bool {
+    private function isCurrentDay(int $day = null): bool
+    {
         if ($day !== session('calendar.now')->day) {
             return false;
         }
@@ -109,7 +114,8 @@ class V1 extends Component {
         return true;
     }
 
-    private function isDaySelected(int $day = null): bool {
+    private function isDaySelected(int $day = null): bool
+    {
         if ($day !== $this->selectedDay) {
             return false;
         }
@@ -125,7 +131,8 @@ class V1 extends Component {
         return true;
     }
 
-    private function isDayDisabled(int $day = null): bool {
+    private function isDayDisabled(int $day = null): bool
+    {
         if (null === $day) {
             return true;
         }
@@ -147,7 +154,8 @@ class V1 extends Component {
         return false;
     }
 
-    public function setByMonth(int $month): void {
+    public function setByMonth(int $month): void
+    {
         if ($month > 12) {
             $this->currentYear = $this->currentYear + 1;
 
@@ -167,7 +175,8 @@ class V1 extends Component {
         $this->currentMonth = $month;
     }
 
-    public function setByDay(int $day = null): void {
+    public function setByDay(int $day = null): void
+    {
         if (null === $day) {
             return;
         }
@@ -177,7 +186,8 @@ class V1 extends Component {
         $this->selectedDay = $day;
     }
 
-    public function showPreviousArrow(): bool {
+    public function showPreviousArrow(): bool
+    {
         if (! $this->minDate) {
             return true;
         }
@@ -191,7 +201,8 @@ class V1 extends Component {
         return true;
     }
 
-    public function showNextArrow(): bool {
+    public function showNextArrow(): bool
+    {
         if (! $this->maxDate) {
             return true;
         }
@@ -205,7 +216,8 @@ class V1 extends Component {
         return true;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

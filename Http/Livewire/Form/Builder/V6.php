@@ -7,7 +7,8 @@ namespace Modules\Theme\Http\Livewire\Form\Builder;
 use Illuminate\Contracts\Support\Renderable;
 use Livewire\Component;
 
-class V6 extends Component {
+class V6 extends Component
+{
     public array $form_data = [];
     public array $input_types;
     public string $display_create_input = 'display: none';
@@ -18,7 +19,8 @@ class V6 extends Component {
      *
      * @return void
      */
-    public function mount() {
+    public function mount()
+    {
         $this->input_types = [
             'text' => 'text',
             'number' => 'number',
@@ -30,7 +32,8 @@ class V6 extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -42,7 +45,8 @@ class V6 extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function create() {
+    public function create()
+    {
         $this->display_create_input = '';
         if (! isset($this->form[$this->form_data['name_attribute']])) {
             $this->form[$this->form_data['name_attribute']] = [];
@@ -55,7 +59,8 @@ class V6 extends Component {
         }
     }
 
-    public function add() {
+    public function add()
+    {
         $name_attribute = $this->form_data['name_attribute'];
         unset($this->form_data['name_attribute']);
         $this->form[$name_attribute][] = $this->form_data;
@@ -67,7 +72,8 @@ class V6 extends Component {
         $this->fillData($name_attribute);
     }
 
-    public function fillData($name_attribute) {
+    public function fillData($name_attribute)
+    {
         foreach ($this->form[$name_attribute] as $key => $arr) {
             if (! isset($this->form[$name_attribute][$key]['style'])) {
                 $this->form[$name_attribute][$key]['style'] = '';
@@ -84,7 +90,8 @@ class V6 extends Component {
         }
     }
 
-    public function addOption($form_data_key) {
+    public function addOption($form_data_key)
+    {
         dddx($form_data_key);
         // $this->form_data[$form_data_key]['options'][$this->form_data['value']] = $this->form_data['value_label'];
     }

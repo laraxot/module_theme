@@ -14,14 +14,16 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class TestSelectHighlightAction.
  */
-class TestSelectHighlightAction extends XotBasePanelAction {
+class TestSelectHighlightAction extends XotBasePanelAction
+{
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $drivers = [
             // https://css-tricks.com/how-to-create-actions-for-selected-text-with-the-selection-api/
             'web_api',

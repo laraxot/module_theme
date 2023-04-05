@@ -15,7 +15,8 @@ use Illuminate\View\Component;
 /**
  * Undocumented class.
  */
-class Alert extends Component {
+class Alert extends Component
+{
     public string $type;
 
     public ?string $title;
@@ -26,14 +27,16 @@ class Alert extends Component {
      */
     protected $session;
 
-    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, ?string $title = null) {
+    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, ?string $title = null)
+    {
         $this->session = $session;
         $this->type = $type;
         $this->title = $title;
         $this->dismissable = $dismissable;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */
@@ -45,7 +48,8 @@ class Alert extends Component {
         return view($view, $view_params);
     }
 
-    public function icon(): string {
+    public function icon(): string
+    {
         switch ($this->type) {
             case 'info':
                 return 'info';
@@ -60,7 +64,8 @@ class Alert extends Component {
         }
     }
 
-    public function message(): string {
+    public function message(): string
+    {
         $res = Arr::first($this->messages());
         if (! \is_string($res)) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
@@ -69,7 +74,8 @@ class Alert extends Component {
         return $res;
     }
 
-    public function messages(): array {
+    public function messages(): array
+    {
         // Cannot call method get() on mixed.
         // return (array) session()->get($this->type);
         // return (array) Session::get($this->type);

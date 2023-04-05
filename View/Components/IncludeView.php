@@ -11,14 +11,17 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Undocumented class.
  */
-class IncludeView extends Component {
+class IncludeView extends Component
+{
     public string $view;
 
-    public function __construct(string $view) {
+    public function __construct(string $view)
+    {
         $this->view = $view;
     }
 
-    public function render() {
+    public function render()
+    {
         $views = ThemeService::getDefaultViewArray();
 
         $view_tpl = $this->view;

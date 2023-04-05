@@ -18,7 +18,8 @@ use Modules\Theme\Jobs\UnlikeJob;
 /**
  * Undocumented class.
  */
-final class LikeArticle extends Component {
+final class LikeArticle extends Component
+{
     use DispatchesJobs;
 
     public HasLikeContract $article;
@@ -32,11 +33,13 @@ final class LikeArticle extends Component {
      */
     protected $listeners = ['likeToggled'];
 
-    public function mount(HasLikeContract $article): void {
+    public function mount(HasLikeContract $article): void
+    {
         $this->article = $article;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -49,7 +52,8 @@ final class LikeArticle extends Component {
         return view($view, $view_params);
     }
 
-    public function toggleLike(): void {
+    public function toggleLike(): void
+    {
         if (Auth::guest()) {
             return;
         }
@@ -66,7 +70,8 @@ final class LikeArticle extends Component {
     /**
      * @return \Modules\Theme\Contracts\HasLikeContract
      */
-    public function likeToggled() {
+    public function likeToggled()
+    {
         return $this->article;
     }
 }

@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Dropdown.
  */
-class Dropdown extends Component {
+class Dropdown extends Component
+{
     public string $type = 'default';
 
     /**
@@ -18,13 +19,15 @@ class Dropdown extends Component {
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
     }
 
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.dropdown.'.$this->type;
         $view_params = [
             'view' => $view,

@@ -9,21 +9,24 @@ use Illuminate\View\Component;
 use Modules\Theme\Http\Livewire\Form\Builder\Button;
 use Modules\Theme\Http\Livewire\Form\Builder\Input;
 
-class Arr extends Component {
+class Arr extends Component
+{
     public array $arr;
     public array $btn;
 
     public array $fields;
     public array $buttons;
 
-    public function __construct(array $arr, array $btn) {
+    public function __construct(array $arr, array $btn)
+    {
         $this->arr = $arr;
         $this->btn = $btn;
         $this->fields = $this->fields();
         $this->buttons = $this->buttons();
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = 'theme::components.form.builder.arr';
         $view_params = [
             'view' => $view,
@@ -32,7 +35,8 @@ class Arr extends Component {
         return view()->make($view, $view_params);
     }
 
-    public function fields() {
+    public function fields()
+    {
         $r = [];
 
         foreach ($this->arr as $item) {

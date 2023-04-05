@@ -12,11 +12,13 @@ use Modules\Media\Actions\GetVideoFrameContentAction;
 /**
  * Undocumented class.
  */
-class TryCard extends Component {
+class TryCard extends Component
+{
     public int $i = 1;
     public int $n = 10;
 
-    public function mount(?string $type = 'v1'): void {
+    public function mount(?string $type = 'v1'): void
+    {
         $this->type = $type;
     }
 
@@ -25,7 +27,8 @@ class TryCard extends Component {
      *
      * @return void
      */
-    public function goNext() {
+    public function goNext()
+    {
         if ($this->i < $this->n) {
             ++$this->i;
         }
@@ -36,13 +39,15 @@ class TryCard extends Component {
      *
      * @return void
      */
-    public function goPrev() {
+    public function goPrev()
+    {
         if ($this->i > 1) {
             --$this->i;
         }
     }
 
-    public function getImgSrcProperty() {
+    public function getImgSrcProperty()
+    {
         $sec = $this->i * 10 + 2;
 
         $res = app(GetVideoFrameContentAction::class)
@@ -71,7 +76,8 @@ class TryCard extends Component {
     /**
      * Render the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

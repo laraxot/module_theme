@@ -7,7 +7,8 @@ namespace Modules\Theme\View\Components;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 
-class Modal extends Component {
+class Modal extends Component
+{
     public ?string $type;
     public array $attrs = [];
 
@@ -28,7 +29,8 @@ class Modal extends Component {
     }
     */
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

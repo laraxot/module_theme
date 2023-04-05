@@ -7,7 +7,8 @@ namespace Modules\Theme\Jobs;
 use Modules\LU\Models\User;
 use Modules\Theme\Contracts\HasLikeContract;
 
-final class UnlikeJob {
+final class UnlikeJob
+{
     public HasLikeContract $model;
     public ?User $user;
 
@@ -19,7 +20,8 @@ final class UnlikeJob {
         $this->user = $user;
     }
 
-    public function handle(): void {
+    public function handle(): void
+    {
         $this->model->dislikedBy($this->user);
     }
 }

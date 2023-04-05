@@ -29,7 +29,8 @@ use Modules\Xot\Services\PolicyService;
 /**
  * Class FormXService.
  */
-class FormXService {
+class FormXService
+{
     /**
      * ora selectRelationshipOne
      * da select/field_relationship_one.blade.php
@@ -47,7 +48,8 @@ class FormXService {
     /**
      * retrocompatibilita.
      */
-    public static function getComponents(): array {
+    public static function getComponents(): array
+    {
         $view_path = __DIR__.'/../Resources/views/collective/fields';
         $namespace = '';
         $prefix = 'theme::';
@@ -58,7 +60,8 @@ class FormXService {
     /**
      * @param BelongsTo|HasManyThrough|HasOneOrMany|BelongsToMany|MorphOneOrMany|MorphPivot|MorphTo|MorphToMany $rows
      */
-    public static function fieldsExcludeRows($rows): array {
+    public static function fieldsExcludeRows($rows): array
+    {
         $fields_exclude = [];
 
         $fields_exclude[] = 'id';
@@ -109,7 +112,8 @@ class FormXService {
 
     // ret \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|string|void
 
-    public static function inputFreeze(array $params): Renderable {
+    public static function inputFreeze(array $params): Renderable
+    {
         extract($params);
         if (! isset($field)) {
             throw new \Exception('field is missing');
@@ -325,7 +329,8 @@ class FormXService {
      *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Support\HtmlString
      */
-    public static function inputHtml(array $params) {
+    public static function inputHtml(array $params)
+    {
         extract($params);
         if (! isset($field)) {
             throw new \Exception('field is missing');
@@ -398,7 +403,8 @@ class FormXService {
         // */
     }
 
-    public static function btnHtml(array $params): string {
+    public static function btnHtml(array $params): string
+    {
         $class = 'btn btn-primary mb-2';
         $icon = null;       // icona a sx del titolo
         $label = null;

@@ -13,7 +13,8 @@ use Modules\Theme\Models\BaseModelLang;
 /**
  * Class Panel.
  */
-class Panel extends Component {
+class Panel extends Component
+{
     //   public PanelContract $panel;
     public string $q;
     public int $pos = 0;
@@ -24,7 +25,8 @@ class Panel extends Component {
 
     // public string $txt_field='txt';
 
-    public function mount(PanelContract $panel, string $q): void {
+    public function mount(PanelContract $panel, string $q): void
+    {
         // $this->panel = $panel;
         $this->q = $q;
         // Access to an undefined property Illuminate\Database\Eloquent\Model::$txt
@@ -46,7 +48,8 @@ class Panel extends Component {
      *
      * @return void
      */
-    public function goNext() {
+    public function goNext()
+    {
         $pos = stripos($this->txt, $this->q, $this->pos + 1);
         ++$this->i;
         if (false === $pos) {
@@ -61,7 +64,8 @@ class Panel extends Component {
      *
      * @return void
      */
-    public function goPrev() {
+    public function goPrev()
+    {
         // $offset=-$this->pos;
         $offset = -\strlen($this->txt) + $this->pos - 1;
         $this->pos = (int) strripos($this->txt, $this->q, $offset);
@@ -71,7 +75,8 @@ class Panel extends Component {
     /**
      * Render the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

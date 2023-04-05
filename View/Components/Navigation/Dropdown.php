@@ -10,13 +10,15 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Dropdown.
  */
-class Dropdown extends XotBaseComponent {
+class Dropdown extends XotBaseComponent
+{
     /**
      * @var string[]
      */
     protected static array $assets = ['alpine'];
 
-    public function render(): View {
+    public function render(): View
+    {
         return view()->make('theme::components.navigation.dropdown');
     }
 }

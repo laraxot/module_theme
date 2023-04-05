@@ -12,18 +12,21 @@ use Modules\Theme\Models\MenuItem;
 /**
  * --.
  */
-abstract class XotBaseComposer {
+abstract class XotBaseComposer
+{
     /**
      * --.
      */
-    public function getMenuByName(string $name): ?Menu {
+    public function getMenuByName(string $name): ?Menu
+    {
         return Menu::firstWhere('name', $name);
     }
 
     /**
      * --.
      */
-    public function getMenuItemsByName(string $name): Collection {
+    public function getMenuItemsByName(string $name): Collection
+    {
         $menu = Menu::firstWhere('name', $name);
         if (null === $menu) {
             return collect([]);

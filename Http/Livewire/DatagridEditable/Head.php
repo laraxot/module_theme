@@ -23,7 +23,8 @@ use Modules\Xot\Http\Livewire\XotBaseComponent;
  *
  * @property XotBasePanel $panel
  */
-class Head extends XotBaseComponent {
+class Head extends XotBaseComponent
+{
     //  use WithFileUploads;
     //  use UploadsFiles;
     //  use HandlesArrays;
@@ -44,14 +45,16 @@ class Head extends XotBaseComponent {
      * @param \Illuminate\Database\Eloquent\Model|null $row
      * @param string                                   $index
      */
-    public function mount($row, $index): void {
+    public function mount($row, $index): void
+    {
         $this->row = $row;
         $this->index = $index;
 
         $this->setFormProperties($row);
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $view = $this->getView();
         $view_params = [
             'view' => $view,
@@ -62,7 +65,8 @@ class Head extends XotBaseComponent {
         return view()->make($view, $view_params);
     }
 
-    public function fields(): array {
+    public function fields(): array
+    {
         /**
          * @var Collection<FieldContract>
          */
@@ -82,7 +86,8 @@ class Head extends XotBaseComponent {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|mixed|null
      */
-    public function getPanelProperty() {
+    public function getPanelProperty()
+    {
         /**
          * @var \Illuminate\Database\Eloquent\Model
          */
@@ -91,7 +96,8 @@ class Head extends XotBaseComponent {
         return PanelService::make()->get($row);
     }
 
-    public function setFormProperties(?Model $model = null): void {
+    public function setFormProperties(?Model $model = null): void
+    {
         // $this->model = $model;
         if ($model) {
             $this->form_data = $model->toArray();

@@ -14,7 +14,8 @@ use Modules\Theme\Services\ThemeService;
 /**
  * Class TryFormBuilderAction.
  */
-class TryFormBuilder5Action extends XotBasePanelAction {
+class TryFormBuilder5Action extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-campground"></i>5';
@@ -26,7 +27,8 @@ class TryFormBuilder5Action extends XotBasePanelAction {
      *
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         $view = ThemeService::getView();
 
         $view_params = [

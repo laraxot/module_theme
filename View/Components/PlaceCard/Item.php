@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 /**
  * Class Item.
  */
-class Item extends Component {
+class Item extends Component
+{
     public ?string $imgurl;
     public ?string $title;
     public ?string $price;
@@ -22,7 +23,8 @@ class Item extends Component {
      *
      * @return void
      */
-    public function __construct(?string $imgurl = 'pub_theme::img/src/plan-1.jpg', ?string $title = 'Add Your Place', ?string $price = '3.99 mo', ?string $width = '370', ?string $height = '205') {
+    public function __construct(?string $imgurl = 'pub_theme::img/src/plan-1.jpg', ?string $title = 'Add Your Place', ?string $price = '3.99 mo', ?string $width = '370', ?string $height = '205')
+    {
         /* ?string $imgurl = 'pub_theme::img/src/plan-1.jpg', ?string $title = 'Add Your Place', ?string $price = '3.99 /mo', ?string $width = '370', ?string $height = '205' */
         $this->imgurl = $imgurl;
         $this->title = $title;
@@ -34,7 +36,8 @@ class Item extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

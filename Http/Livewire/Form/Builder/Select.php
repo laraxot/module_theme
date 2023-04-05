@@ -12,7 +12,8 @@ use Modules\Theme\Traits\Form\Builder\WithOptions;
 use Modules\Theme\Traits\Form\Builder\WithPrefix;
 use Modules\Theme\Traits\Form\Builder\WithSizing;
 
-class Select extends Component {
+class Select extends Component
+{
     use WithPrefix;
     use WithOptions;
     use WithSizing;
@@ -23,7 +24,8 @@ class Select extends Component {
     public $props = [];
     public $attrs = [];
 
-    public static function make($name, $label = null) {
+    public static function make($name, $label = null)
+    {
         $component = new static();
 
         $component->props = [
@@ -45,13 +47,15 @@ class Select extends Component {
         return $component;
     }
 
-    public function placeholder($placeholder) {
+    public function placeholder($placeholder)
+    {
         $this->props['placeholder'] = $placeholder;
 
         return $this;
     }
 
-    public function render() {
+    public function render()
+    {
         return view('theme::livewire.form.builder.v5.select');
     }
 }

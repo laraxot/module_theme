@@ -11,13 +11,15 @@ use Modules\Xot\Services\FileService;
 /**
  * Undocumented class.
  */
-class Text extends Component {
+class Text extends Component
+{
     public array $attrs = [];
 
     /**
      * Undocumented function.
      */
-    public function __construct(?string $class, string $placeholder, string $name, ?string $style = '') {
+    public function __construct(?string $class, string $placeholder, string $name, ?string $style = '')
+    {
         $this->attrs['class'] = $class;
         $this->attrs['style'] = $style;
         $this->attrs['placeholder'] = $placeholder;
@@ -27,7 +29,8 @@ class Text extends Component {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $theme = inAdmin() ? 'adm_theme' : 'pub_theme';
         FileService::viewCopy('theme::components.input.text', $theme.'::components.input.text');
 

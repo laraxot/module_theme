@@ -6,11 +6,13 @@ namespace Modules\Theme\Http\Livewire\Form\Builder;
 
 use Illuminate\View\Component;
 
-class DynamicComponent extends Component {
+class DynamicComponent extends Component
+{
     public $props = [];
     public $attrs = [];
 
-    public static function make($name, $attrs = []) {
+    public static function make($name, $attrs = [])
+    {
         $component = new static();
 
         $component->props = [
@@ -22,7 +24,8 @@ class DynamicComponent extends Component {
         return $component;
     }
 
-    public function render() {
+    public function render()
+    {
         return view('theme::livewire.form.builder.v5.dynamic-component');
     }
 }

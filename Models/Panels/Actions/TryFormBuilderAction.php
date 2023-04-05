@@ -12,7 +12,8 @@ use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class TryFormBuilderAction.
  */
-class TryFormBuilderAction extends XotBasePanelAction {
+class TryFormBuilderAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-campground"></i>';
@@ -22,7 +23,8 @@ class TryFormBuilderAction extends XotBasePanelAction {
      *
      * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         return $this->panel->view();
     }
 }
