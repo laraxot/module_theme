@@ -1,12 +1,12 @@
 {
     "private": true,
     "scripts": {
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "production": "mix --production"
-}
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "production": "mix --production"
+    },
     "devDependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
         "@fortawesome/fontawesome-free-solid": "^5.0.13",
