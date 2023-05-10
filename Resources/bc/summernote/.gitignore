@@ -9,6 +9,10 @@
 
 # node modules
 npm-debug.log
+*.cache
+*.phar
+*.lock
+package-lock.json
 node_modules
 bower_components
 # node lock file
