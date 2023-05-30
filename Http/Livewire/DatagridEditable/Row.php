@@ -116,7 +116,7 @@ class Row extends XotBaseComponent
 
     // *
 
-    public function setFormProperties(?Model $model = null): void
+    public function setFormProperties(Model $model = null): void
     {
         // $this->model = $model;
         if ($model) {
@@ -185,9 +185,6 @@ class Row extends XotBaseComponent
         $img->save($path, 75); // 75 quality
     }
 
-    /**
-     * @param mixed $a
-     */
     public function updated($a): void
     {
         dddx($a);

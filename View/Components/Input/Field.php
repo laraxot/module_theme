@@ -33,14 +33,14 @@ class Field extends Component
      * @param mixed|null $value
      */
     public function __construct(
-        ?\stdClass $field = null,
-        ?string $name = null,
-        ?string $type = null, // select.multiple, checkbox ecc.
-        ?string $label = null,
-        ?string $placeholder = null,
-        ?string $class = null,
-        ?array $options = null,
-        ?string $icon = null,
+        \stdClass $field = null,
+        string $name = null,
+        string $type = null, // select.multiple, checkbox ecc.
+        string $label = null,
+        string $placeholder = null,
+        string $class = null,
+        array $options = null,
+        string $icon = null,
         $value = null
     ) {
         try {
@@ -85,7 +85,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setClass(?string $class = null): self
+    public function setClass(string $class = null): self
     {
         if (null !== $class) {
             $this->attrs['class'] = $class;
@@ -115,8 +115,6 @@ class Field extends Component
 
     /**
      * Undocumented function.
-     *
-     * @param mixed $value
      */
     public function setValue($value): self
     {
@@ -131,7 +129,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setIcon(?string $icon = null): self
+    public function setIcon(string $icon = null): self
     {
         if (null === $icon) {
             return $this;
@@ -144,7 +142,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setName(?string $name = null): self
+    public function setName(string $name = null): self
     {
         if (null === $name) {
             return $this;
@@ -158,7 +156,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setType(?string $type = null): self
+    public function setType(string $type = null): self
     {
         if (null === $type) {
             return $this;
@@ -171,7 +169,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setLabel(?string $label = null): self
+    public function setLabel(string $label = null): self
     {
         if (null === $label) {
             if (null !== $this->field) {
@@ -187,7 +185,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setPlaceholder(?string $placeholder = null): self
+    public function setPlaceholder(string $placeholder = null): self
     {
         if (null === $placeholder) {
             if (null !== $this->field) {
@@ -204,7 +202,7 @@ class Field extends Component
         return $this;
     }
 
-    public function setOptions(?array $options = null): self
+    public function setOptions(array $options = null): self
     {
         if (null === $options) {
             return $this;

@@ -20,9 +20,6 @@ class TryDateRangeFlatpickrAction extends XotBasePanelAction
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         return $this->panel->view();

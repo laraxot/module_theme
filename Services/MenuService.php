@@ -245,7 +245,7 @@ class MenuService
     /**
      * @return string|void
      */
-    public static function renderHorMenu(array $item, ?array $parent = null, int $rec = 0)
+    public static function renderHorMenu(array $item, array $parent = null, int $rec = 0)
     {
         self::checkRecursion($rec);
         if (! $item) {

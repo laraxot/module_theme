@@ -96,7 +96,7 @@ class Head extends XotBaseComponent
         return PanelService::make()->get($row);
     }
 
-    public function setFormProperties(?Model $model = null): void
+    public function setFormProperties(Model $model = null): void
     {
         // $this->model = $model;
         if ($model) {

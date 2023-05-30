@@ -227,9 +227,6 @@ abstract class BaseV2 extends Component
 
     /**
      * @throws \Exception
-     *
-     * @return mixed
-     * @return mixed
      */
     public function monthGrid()
     {

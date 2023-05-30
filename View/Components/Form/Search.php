@@ -19,7 +19,7 @@ class Search extends Component
     /**
      * Undocumented function.
      */
-    public function __construct(?string $type = null, ?string $action = '#', ?string $icon = 'fa fa-search')
+    public function __construct(string $type = null, ?string $action = '#', ?string $icon = 'fa fa-search')
     {
         $this->type = $type;
         $this->attrs['action'] = $action;

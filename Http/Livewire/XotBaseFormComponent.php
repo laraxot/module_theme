@@ -55,7 +55,7 @@ abstract class XotBaseFormComponent extends Component
     /**
      * Undocumented function.
      */
-    public function mount(?Model $model = null): void
+    public function mount(Model $model = null): void
     {
         $this->setFormProperties($model);
         $this->setDaynames();
@@ -76,7 +76,7 @@ abstract class XotBaseFormComponent extends Component
         ];
     }
 
-    public function setFormProperties(?Model $model = null): void
+    public function setFormProperties(Model $model = null): void
     {
         $this->model = $model;
         if ($model) {

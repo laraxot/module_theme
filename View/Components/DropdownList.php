@@ -20,7 +20,7 @@ class DropdownList extends Component
 
     public string $menu_name;
 
-    public function __construct(string $menuName, ?string $title = null)
+    public function __construct(string $menuName, string $title = null)
     {
         // $this->menus = Menu::getByName($menuName);
         $this->menu_name = $menuName;

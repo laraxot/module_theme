@@ -16,8 +16,6 @@ class Rows extends Component
     /**
      * Undocumented function.
      *
-     * @param Collection $data
-     *
      * @return void
      */
     public function mount(Collection $rows)

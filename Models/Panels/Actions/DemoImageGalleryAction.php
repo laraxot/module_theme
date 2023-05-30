@@ -21,9 +21,6 @@ class DemoImageGalleryAction extends XotBasePanelAction
     public bool $onContainer = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         $view = ThemeService::getView();

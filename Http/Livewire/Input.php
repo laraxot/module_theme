@@ -25,11 +25,11 @@ class Input extends Component
     public function mount(
         string $type,
         string $name,
-        ?string $label = null,
-        ?string $class = null,
-        ?string $id = null,
-        ?string $value = null,
-        ?string $placeholder = null
+        string $label = null,
+        string $class = null,
+        string $id = null,
+        string $value = null,
+        string $placeholder = null
     ): void {
         $this->type = $type;
         $this->name = $name;

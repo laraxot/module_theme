@@ -13,7 +13,6 @@ declare(strict_types=1);
  */
 /**
  * @param array $params
- * @param mixed $smarty
  *
  * @return string
  */

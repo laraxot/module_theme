@@ -18,9 +18,6 @@ class FullcalendarAction extends XotBasePanelAction
 
     public string $icon = '<i class="fas fa-sync"></i>';
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         return $this->panel->view();

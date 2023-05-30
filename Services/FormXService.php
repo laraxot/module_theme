@@ -149,8 +149,8 @@ class FormXService
 
         /**
          * @phpstan-var view-string
-
-        $view = 'theme::includes.components.input.'.$tmp.'.freeze';
+         *
+         * $view = 'theme::includes.components.input.'.$tmp.'.freeze';
          */
         /*
         /*

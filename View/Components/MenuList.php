@@ -21,7 +21,7 @@ class MenuList extends Component
 
     public string $menu_name;
 
-    public function __construct(string $menuName, ?string $title = null, ?string $titleClass = null, ?string $ulClass = null, ?string $aliClass = null)
+    public function __construct(string $menuName, string $title = null, string $titleClass = null, string $ulClass = null, string $aliClass = null)
     {
         // $this->menus = Menu::getByName($menuName);
         $this->menu_name = $menuName;

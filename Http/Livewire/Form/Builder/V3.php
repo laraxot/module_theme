@@ -17,8 +17,8 @@ class V3 extends Component
     public array $form_data = [];
     public $blade_component;
     public $components;
-    public $index = null;
-    public $selected_element = null;
+    public $index;
+    public $selected_element;
     public $form_elements = [];
     public $htmlForm = '';
     public $b;

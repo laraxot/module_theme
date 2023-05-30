@@ -30,7 +30,7 @@ class Slider extends Component
      *
      * @return void
      */
-    public function __construct(?string $driver = null)
+    public function __construct(string $driver = null)
     {
         if (null === $driver) {
             $driver = 'noui';

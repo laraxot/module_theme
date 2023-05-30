@@ -16,9 +16,6 @@ class ChoosePubThemeAction extends XotBasePanelAction
 
     public string $icon = '<i class="fa fa-edit"></i>';
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         $themes = ThemeService::getThemes();

@@ -60,8 +60,6 @@ class DashboardTilePanel extends XotBasePanel
 
     /**
      * on select the option label.
-     *
-     * @param mixed $row
      */
     public function optionLabel($row): string
     {
@@ -91,7 +89,7 @@ class DashboardTilePanel extends XotBasePanel
 
     /**
      * Get the fields displayed by the resource.
-        'value'=>'..',
+     * 'value'=>'..',.
      */
     public function fields(): array
     {

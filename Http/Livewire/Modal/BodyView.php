@@ -66,7 +66,7 @@ class BodyView extends Component
         // dddx($this->form_data); // qui controllo cosa arriva al modal
     }
 
-    public function sendData(?string $event = null): void
+    public function sendData(string $event = null): void
     {
         // dddx($this);
         // dddx($this->form_data);

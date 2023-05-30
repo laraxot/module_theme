@@ -34,8 +34,6 @@ class PageObject
 
     /**
      * @param string $str
-     *
-     * @return mixed
      */
     public function url($str)
     {

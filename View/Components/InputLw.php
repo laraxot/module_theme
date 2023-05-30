@@ -18,9 +18,6 @@ class InputLw extends Component
     public string $comp_view = '';
     public string $comp_ns = '';
 
-    /**
-     * @var mixed
-     */
     public $value;
 
     /*

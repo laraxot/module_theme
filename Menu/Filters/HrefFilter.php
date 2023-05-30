@@ -21,8 +21,6 @@ class HrefFilter implements FilterInterface
 
     /**
      * @param array $item
-     *
-     * @return mixed
      */
     public function transform($item, Builder $builder)
     {

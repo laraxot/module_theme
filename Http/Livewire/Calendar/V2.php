@@ -160,10 +160,6 @@ class V2 extends Component
         $this->afterCalendarView = $afterCalendarView ?? null;
     }
 
-    /**
-     * @param mixed $pollMillis
-     * @param mixed $pollAction
-     */
     public function setupPoll($pollMillis, $pollAction): void
     {
         $this->pollMillis = $pollMillis;

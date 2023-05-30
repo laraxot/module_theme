@@ -12,7 +12,7 @@ class Logout extends Component
 {
     public ?string $class;
 
-    public function mount(?string $class = null): void
+    public function mount(string $class = null): void
     {
         if (null !== $class) {
             $this->class = $class;

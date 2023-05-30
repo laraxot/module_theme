@@ -16,7 +16,7 @@ class Base extends Component
     protected string $type;
     protected string $title;
 
-    public function __construct(?string $title = null, ?string $type = null)
+    public function __construct(string $title = null, string $type = null)
     {
         $this->title = $title ?? '';
         $this->type = $type ?? 'base';

@@ -16,8 +16,8 @@ class V2 extends Component
 
     public $blade_component;
     public $components;
-    public $index = null;
-    public $selected_element = null;
+    public $index;
+    public $selected_element;
     public $form_elements = [];
 
     protected $listeners = [

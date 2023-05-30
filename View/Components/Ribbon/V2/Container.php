@@ -19,7 +19,7 @@ class Container extends Component
      *
      * @return void
      */
-    public function __construct(?string $class = null)
+    public function __construct(string $class = null)
     {
         $this->attrs['class'] = $class ?? 'card bg-gray-100 w-100 position-relative py-6 border-0 shadow';
     }

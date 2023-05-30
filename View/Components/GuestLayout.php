@@ -16,8 +16,8 @@ class GuestLayout extends Component
     {
         /**
          * @phpstan-var view-string
-
-        $view = 'pub_theme::components.layouts.guest';
+         *
+         * $view = 'pub_theme::components.layouts.guest';
          */
 
         /**

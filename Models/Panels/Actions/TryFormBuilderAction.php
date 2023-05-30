@@ -20,8 +20,6 @@ class TryFormBuilderAction extends XotBasePanelAction
 
     /**
      * Undocumented function.
-     *
-     * @return mixed
      */
     public function handle()
     {

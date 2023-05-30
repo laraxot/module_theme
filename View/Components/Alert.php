@@ -27,7 +27,7 @@ class Alert extends Component
      */
     protected $session;
 
-    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, ?string $title = null)
+    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, string $title = null)
     {
         $this->session = $session;
         $this->type = $type;

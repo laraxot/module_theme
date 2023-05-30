@@ -186,14 +186,14 @@ class FieldService extends BaseFieldService
         return view()->make($view, $view_params);
     }
 
-    public function html(array $form_data = [], ?Model $row = null): Renderable
+    public function html(array $form_data = [], Model $row = null): Renderable
     {
         /**
          * @XOT //$form_data non dovrebbe servire
          *
          * @phpstan-var view-string
-
-        $view = 'theme::livewire.fields.'.$this->type.'.field';
+         *
+         * $view = 'theme::livewire.fields.'.$this->type.'.field';
          */
         $type = Str::snake($this->type);
         $start = 'theme::livewire.fields.';

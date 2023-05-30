@@ -12,7 +12,7 @@ class CardSimple extends Component
     public array $attrs = [];
     public string $type;
 
-    public function __construct(?string $type = null)
+    public function __construct(string $type = null)
     {
         $this->type = $type ?? 'default';
     }

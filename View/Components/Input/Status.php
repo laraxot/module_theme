@@ -17,8 +17,6 @@ class Status extends Component
 
     /**
      * Undocumented function.
-     *
-     * @param mixed $model
      */
     public function __construct($model)
     {

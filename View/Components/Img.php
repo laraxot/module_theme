@@ -18,7 +18,7 @@ class Img extends Component
     /**
      * Undocumented function.
      */
-    public function __construct(?string $src = null)
+    public function __construct(string $src = null)
     {
         $this->attrs['src'] = ThemeService::asset($src);
     }

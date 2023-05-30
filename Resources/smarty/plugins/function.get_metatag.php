@@ -15,7 +15,6 @@ use Modules\Theme\Services\ThemeService;
 
 /**
  * @param array $params
- * @param mixed $smarty
  *
  * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
  */

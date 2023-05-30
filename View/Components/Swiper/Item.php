@@ -19,7 +19,7 @@ class Item extends Component
      *
      * @return void
      */
-    public function __construct(?string $class = ' h-auto px-2', ?string $style = null)
+    public function __construct(?string $class = ' h-auto px-2', string $style = null)
     {
         $this->attrs['slide_class'] = $class;
         $this->attrs['slide_style'] = $style;

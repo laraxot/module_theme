@@ -17,9 +17,6 @@ class ChooseIconsAction extends XotBasePanelAction
 
     public string $icon = '<i class="fa fa-edit"></i>';
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         $view = ThemeService::getView();
@@ -35,9 +32,6 @@ class ChooseIconsAction extends XotBasePanelAction
         return view()->make($view, $view_params);
     }
 
-    /**
-     * @return mixed
-     */
     public function postHandle()
     {
         // dddx(request()->all());

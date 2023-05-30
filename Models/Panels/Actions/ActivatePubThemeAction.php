@@ -23,9 +23,6 @@ class ActivatePubThemeAction extends XotBasePanelAction
         $this->theme = $theme;
     }
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         $parz = [

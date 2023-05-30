@@ -18,9 +18,6 @@ class ConvertSmartyToBladeAction extends XotBasePanelAction
 
     public string $icon = '<i class="fas fa-exchange-alt"></i>';
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         $directory = FileService::getViewNameSpacePath('pub_theme');

@@ -14,7 +14,7 @@ class Card extends Component
 
     public array $attrs = [];
 
-    public function __construct(?string $type = null)
+    public function __construct(string $type = null)
     {
         $this->type = $type ?? 'card';
     }

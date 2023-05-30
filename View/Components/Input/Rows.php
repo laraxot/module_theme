@@ -24,7 +24,7 @@ class Rows extends Component
      *
      * @return void
      */
-    public function __construct(string $type, string $name, Collection $rows, ?string $label = null, ?Collection $value = null)
+    public function __construct(string $type, string $name, Collection $rows, string $label = null, Collection $value = null)
     {
         $this->type = $type;
         $this->name = $name;

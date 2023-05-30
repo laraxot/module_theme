@@ -18,7 +18,7 @@ class Script extends Component
     /**
      * Undocumented function.
      */
-    public function __construct(?string $src = null)
+    public function __construct(string $src = null)
     {
         // $this->attrs['src']=$src;
         if (null !== $src) {

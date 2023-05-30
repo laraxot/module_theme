@@ -58,11 +58,6 @@ class ColumnService
         $this->attribute = $attribute; // ?? Str::snake(Str::lower($heading));
     }
 
-    /**
-     * @param mixed $property
-     *
-     * @return mixed
-     */
     public function __get($property)
     {
         return $this->$property;

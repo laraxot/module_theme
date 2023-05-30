@@ -27,7 +27,7 @@ class Group extends Component
         $this->options = $options ?? [];
     }
     */
-    public function __construct(?array $options = null)
+    public function __construct(array $options = null)
     {
         // $this->name = $name;
         // $this->type = $type;

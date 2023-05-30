@@ -25,7 +25,7 @@ class Item extends Component
      *
      * @return void
      */
-    public function __construct(?string $name = null, ?string $image = null, ?string $class = null, ?object $row = null)
+    public function __construct(string $name = null, string $image = null, string $class = null, object $row = null)
     {
         $this->name = $name;
         if (isset($image)) {

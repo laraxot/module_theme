@@ -11,8 +11,5 @@ use Modules\Theme\Menu\Builder;
  */
 interface FilterInterface
 {
-    /**
-     * @return mixed
-     */
     public function transform(array $item, Builder $builder);
 }

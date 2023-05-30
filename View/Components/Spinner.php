@@ -19,7 +19,7 @@ class Spinner extends Component
      *
      * @return void
      */
-    public function __construct(?string $type = null)
+    public function __construct(string $type = null)
     {
         if (null === $type) {
             $type = 'default';

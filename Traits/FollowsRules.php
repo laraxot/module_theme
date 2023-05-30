@@ -1,7 +1,7 @@
 <?php
 /**
-* @see https://github.com/kdion4891/laravel-livewire-forms/blob/master/src/Traits/FollowsRules.php
-*/
+ * @see https://github.com/kdion4891/laravel-livewire-forms/blob/master/src/Traits/FollowsRules.php
+ */
 
 declare(strict_types=1);
 

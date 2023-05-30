@@ -118,7 +118,7 @@ class ThemeService
         return $locale['regional'];
     }
 
-    public static function add(string $file, ?int $position = null): void
+    public static function add(string $file, int $position = null): void
     {
         $path_parts = pathinfo($file);
 
@@ -149,7 +149,7 @@ class ThemeService
         // return;
     }
 
-    public static function addStyle(string $style, ?int $position = null): void
+    public static function addStyle(string $style, int $position = null): void
     {
         if (null === $position) {
             /**
@@ -162,7 +162,7 @@ class ThemeService
         $styles = self::__merge('styles', [$style]);
     }
 
-    public static function addScript(string $script, ?int $position = null): void
+    public static function addScript(string $script, int $position = null): void
     {
         if (null === $position) {
             /**
@@ -577,8 +577,6 @@ class ThemeService
 
     /**
      * { item_description }.
-     *
-     * @return mixed
      */
     public static function route(array $params = [])
     {
@@ -927,10 +925,6 @@ class ThemeService
     }
 
     /**
-     * @param mixed $view
-     * @param mixed $data
-     * @param mixed $mergeData
-     *
      * @return \Illuminate\Http\RedirectResponse|void
      */
     /* deprecated
@@ -1139,8 +1133,6 @@ class ThemeService
 
     /**
      * @param string $name
-     *
-     * @return mixed
      */
     public static function xotModelEager($name)
     {
@@ -1257,7 +1249,6 @@ class ThemeService
     /**
      * @param string $scope
      * @param string $name
-     * @param mixed  $value
      */
     public static function addAttr($scope, $name, $value): void
     {

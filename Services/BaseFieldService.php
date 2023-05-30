@@ -28,14 +28,9 @@ class BaseFieldService
 
     /**
      * Undocumented variable.
-     *
-     * @var mixed
      */
     protected $default;
 
-    /**
-     * @var mixed
-     */
     protected $autocomplete;
 
     protected string $placeholder = '';
@@ -49,11 +44,6 @@ class BaseFieldService
      */
     protected string $view;
 
-    /**
-     * @param mixed $property
-     *
-     * @return mixed
-     */
     public function __get($property)
     {
         return $this->$property;
@@ -144,8 +134,6 @@ class BaseFieldService
 
     /**
      * Undocumented function.
-     *
-     * @param mixed $default
      */
     public function default($default): self
     {
@@ -155,8 +143,6 @@ class BaseFieldService
     }
 
     /**
-     * @param mixed $autocomplete
-     *
      * @return $this
      */
     public function autocomplete($autocomplete)

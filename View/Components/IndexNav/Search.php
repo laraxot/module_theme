@@ -23,7 +23,7 @@ class Search extends Component
      *
      * @return void
      */
-    public function __construct(/* ?string $type = null, */ ?string $action = null)
+    public function __construct(/* ?string $type = null, */ string $action = null)
     {
         // $this->type = isset($type) ? $type : 'default';
         $this->action = $action;

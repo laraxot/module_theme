@@ -34,7 +34,7 @@ class Slider extends Component
      *
      * @return void
      */
-    public function mount(string $id, ?string $driver = null)
+    public function mount(string $id, string $driver = null)
     {
         if (null !== $driver) {
             $this->driver = $driver;

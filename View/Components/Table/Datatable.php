@@ -1,6 +1,6 @@
 <?php
 /**
-https://github.com/dgvai/laravel-adminlte-components#datatable
+ * https://github.com/dgvai/laravel-adminlte-components#datatable.
  */
 
 declare(strict_types=1);
