@@ -1,0 +1,26 @@
+
+-------------------------------------------------------
+https://github.com/moonbaselabs/blade-components
+
+------------------------------------------------------
+https://laravel-bootstrap-components.com/  !!!!!
+
+------------------------------------------------------------
+https://cagilo.github.io/docs/installation/
+https://github.com/cagilo/cagilo   !!!
+
+-----------------------------------------------------------
+https://laravel-themes-manager.netlify.app/1.10/usage/components.html  !!!!!!!
+
+-------------------------
+https://blade-ui-kit.com/
+
+------------------------------
+https://github.com/roots/acorn
+--------------------------------
+https://orchid.software/en/docs/custom-template/
+
+
+
+---------v TUTORIALS ----------------
+https://www.twilio.com/blog/dont-repeat-yourself-html-laravel-7-blade-components-php

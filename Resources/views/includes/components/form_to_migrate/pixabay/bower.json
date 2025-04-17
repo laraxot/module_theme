@@ -1,0 +1,21 @@
+{
+  "name": "pixabay",
+  "homepage": "https://github.com/laraxot/package_extend",
+  "authors": [
+    "marco xot <marco.sottana@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./bc",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery-autoComplete": "https://github.com/Pixabay/jQuery-autoComplete"
+  }
+}

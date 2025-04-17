@@ -1,0 +1,29 @@
+$(document).ready(function() {
+
+  $('#myModal').on('show.bs.modal', function() {
+    $('#select2-sample').select2();
+  })
+  
+  $('#myModal').on('hidden.bs.modal', function() {
+    $('#select2-sample').select2('destroy');
+  })
+});
+
+
+---------------------------------------------------
+
+.select2-container {
+    width: 100% !important;
+    padding: 0;
+}
+
+------------------------------------------------------
+https://preview.keenthemes.com/ceres-html-free/dark/documentation/forms/select2.html  !!!!
+
+<select class="form-select form-select-white" data-control="select2" data-placeholder="Select an option">
+    <option></option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+</select>
+
+---------------------------------------------------------

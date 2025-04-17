@@ -1,0 +1,21 @@
+{
+  "name": "weareoutman",
+  "authors": [
+    "marco xot <marco.sottana@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./bc",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clockpicker": "weareoutman/clockpicker#^0.0.7"
+  }
+}

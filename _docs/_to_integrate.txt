@@ -1,0 +1,5 @@
+https://github.com/z-song/laravel-admin/blob/master/src/Form/Field/BelongsTo.php
+
+
+link al vscode
+vscode://file/F%3A%5Cvar%5Cwww%5C_bases%5Cbase_ptvx%5Claravel%5CModules%5CSigma%5CModels%5CTraits%5CFunctionTrait.php:434

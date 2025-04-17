@@ -1,0 +1,1 @@
+qui raccolgo label + input 

@@ -1,0 +1,38 @@
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css/app_blue.css', {
+        data: '$theme-bg-primary: #1450d9;'
+    })
+    .sass('resources/sass/app.scss', 'public/css/app_red.css', {
+        data: '$theme-bg-primary: #ba0000;'
+    });
+
+
+
+//---------------
+https://github.com/mishterk/wp-laravel-mix-theme-boilerplate
+
+
+https://northcreation.agency/laravel-mix-with-silverstripe/
+
+//---------------------------------------
+https://github.com/siQuang/siqtheme
+
+
+
+https://laravel-news.com/laravel-themer-package-add-multi-theme-support-for-laravel-application
+
+
+https://github.com/terence55/themes-switch
+
+
+https://js.devexpress.com/Documentation/Guide/Themes_and_Styles/ThemeBuilder/
+
+
+
+https://github.com/material-components/material-components-web
+
+
+
+https://github.com/utopigstudio/october-webpack-theme-boilerplate
+
+

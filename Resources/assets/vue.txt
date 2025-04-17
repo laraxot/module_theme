@@ -1,0 +1,17 @@
+https://vegibit.com/vuejs-form-example/
+
+https://vegibit.com/axios-powered-vuejs-form-component/
+
+https://vegibit.com/building-a-vue-front-end-for-a-laravel-api/
+
+https://auralinna.blog/post/2018/how-to-build-a-complete-form-with-vue-js
+
+https://blog.logrocket.com/an-imperative-guide-to-forms-in-vue-js-2/
+
+https://alligator.io/vuejs/vue-form-handling/
+
+//-- formdata native vs formserialize to import
+https://stackoverflow.com/questions/44759208/axios-post-entire-from-vue-js
+
+
+https://laracasts.com/series/learning-vue-step-by-step/episodes/16

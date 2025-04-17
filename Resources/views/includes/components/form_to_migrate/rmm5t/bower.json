@@ -1,0 +1,22 @@
+{
+  "name": "rmm5t",
+  "homepage": "https://github.com/laraxot/package_extend",
+  "authors": [
+    "marco xot <marco.sottana@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./bc",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-flexselect": "https://github.com/rmm5t/jquery-flexselect",
+    "liquidmetal": "rmm5t/liquidmetal#^1.3.0"
+  }
+}

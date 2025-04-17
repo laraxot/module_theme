@@ -1,0 +1,135 @@
+// roba deprecata
+
+
+
+ public static function tag($html) {
+        $count = 0;
+        \preg_match_all('/##([a-z]*)_([a-z]*)_([0-9]{1,30})##/i', $html, $matches);
+
+        $count += \count($matches);
+        $tmp = [];
+        foreach ($matches[0] as $km => $vm) {
+            $obj = new \stdclass();
+            $obj->obj = $obj->act = $matches[1][$km];
+            $obj->act = $matches[2][$km];
+
+            $obj->id = $matches[3][$km];
+            $obj->str = $matches[0][$km];
+            $tmp[] = $obj;
+        }
+
+        $params = optional(\Route::current())->parameters();
+
+        $params['html'] = $html;
+        $params['azioniTags'] = $tmp;
+        $html = self::do_mySpecialTags($params);
+
+        \preg_match_all('/##([a-z]*)_([0-9]*)_([a-z]{1,30})##/i', $html, $matches);
+
+        $count += \count($matches);
+        $tmp = [];
+        foreach ($matches[0] as $km => $vm) {
+            $obj = new \stdclass();
+            $obj->obj = $obj->act = $matches[1][$km];
+            $obj->act = $matches[3][$km];
+            $obj->id = $matches[2][$km];
+            $obj->str = $matches[0][$km];
+            $tmp[] = $obj;
+        }
+
+        $params = optional(\Route::current())->parameters();
+
+        $params['html'] = $html;
+        $params['azioniTags'] = $tmp;
+        $html = self::do_mySpecialTags($params);
+
+        \preg_match_all('/##([a-z]*)_([0-9]{1,30})##/i', $html, $matches);
+
+        $count += \count($matches);
+        $tmp = [];
+        foreach ($matches[0] as $km => $vm) {
+            $obj = new \stdclass();
+            $obj->obj = $obj->act = $matches[1][$km];
+            if ('albumran' == $obj->obj) {
+                $obj->obj = 'album';
+            }
+            $obj->act = 'get';
+            if ('albumran' == $obj->obj) {
+                $obj->obj = 'album';
+            }
+            $obj->id = $matches[2][$km];
+            $obj->str = $matches[0][$km];
+            $tmp[] = $obj;
+        }
+
+        $html = self::do_mySpecialTags(['html' => $html, 'azioniTags' => $tmp]);
+
+        \preg_match_all('/##([a-z]*)_([a-z]*)##/i', $html, $matches);
+
+        $count += \count($matches);
+        $tmp = [];
+        foreach ($matches[0] as $km => $vm) {
+            $obj = new \stdclass();
+            $obj->obj = $obj->act = $matches[1][$km];
+            $obj->act = $matches[2][$km];
+
+            $obj->str = $matches[0][$km];
+            $tmp[] = $obj;
+        }
+
+        $html = self::do_mySpecialTags(['html' => $html, 'azioniTags' => $tmp]);
+
+        \preg_match_all('/##([a-z]*)##/i', $html, $matches);
+
+        $count += \count($matches);
+        $tmp = [];
+        foreach ($matches[0] as $km => $vm) {
+            $obj = new \stdclass();
+            $obj->obj = $obj->act = $matches[1][$km];
+            $obj->act = $matches[1][$km];
+
+            $obj->str = $matches[0][$km];
+            $tmp[] = $obj;
+        }
+
+        $html = self::do_mySpecialTags(['html' => $html, 'azioniTags' => $tmp]);
+
+        return $html;
+    }
+
+    public static function do_mySpecialTags(array $params){
+        \extract($params);
+        \reset($azioniTags);
+
+        $params = optional(\Route::current())->parameters();
+
+        foreach ($azioniTags as $kt => $vt) {
+            $obj = $vt->obj;
+            if ('form' == $obj) {
+                $obj .= 'tpl';
+            }
+            $act = $vt->act.'HTML';
+
+            $params['html'] = '';
+
+            $params = \array_merge($params, \get_object_vars($vt));
+
+            $controller_name = '\App\Http\Controllers\\'.\ucwords($obj).'Controller';
+
+            $out = app($controller_name)->$act($params);
+            if (! \is_string($out)) {
+                $out = $out->__toString();
+            }
+
+            $html = \str_replace($vt->str, $out, $html);
+        }
+
+        return $html;
+    }
+
+    public static function getBladeInclude($obj, $act, $id) {
+        $controller_name = '\App\Http\Controllers\\'.\ucwords($obj).'Controller';
+        $act = $act.'BladeInclude';
+
+        return app($controller_name)->$act($id);
+    }

@@ -1,0 +1,31 @@
+{
+  "name": "algolia-autocomplete.js",
+  "main": "dist/autocomplete.js",
+  "version": "0.36.0",
+  "homepage": "https://github.com/algolia/autocomplete.js",
+  "authors": [
+    "Algolia Team <support@algolia.com>"
+  ],
+  "description": "Fast and fully-featured autocomplete library",
+  "keywords": [
+    "autocomplete",
+    "typeahead"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "_release": "0.36.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.36.0",
+    "commit": "93c21b7167f32012588eb4b74147a5ed90c7db0a"
+  },
+  "_source": "https://github.com/algolia/autocomplete.js.git",
+  "_target": "^0.36.0",
+  "_originalSource": "algolia-autocomplete.js",
+  "_direct": true
+}

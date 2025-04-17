@@ -1,0 +1,7 @@
+//--- blog molto pulito
+https://devdojo.com/tnylea/animations-with-alpine
+
+
+
+Beginner's Guide to Organizing Blade Templates in Laravel
+https://dev.to/ubahthebuilder/a-beginners-guide-to-organizing-blade-templates-in-laravel-2e3b

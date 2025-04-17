@@ -1,0 +1,2 @@
+https://fly.io/laravel-bytes/reusable-dynamic-tables-with-laravel-livewire/
+

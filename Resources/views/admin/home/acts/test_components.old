@@ -1,0 +1,48 @@
+@extends('adm_theme::layouts.app')
+@section('content')
+    {{--  
+    <x-navbar>
+          
+        @foreach($tests as $k=>$v)
+            <x-navbar.item href="{!! Request::fullUrlWithQuery(['i' => $k]) !!}"
+                active="{{ $test==$v?'active':'' }}">
+                {{ $v }}
+            </x-navbar.item>
+        @endforeach
+        
+    </x-navbar>
+    --}}
+
+
+    @if(isset($test))
+    <x-col size="12">
+       
+        @php
+        /*
+           $attrs_arr=array(
+            'type'=>'warning',
+            'title'=>'example',
+            'name'=>'john',
+            'class'=>'normal'
+        );
+        $attrs = str_replace("=", '="', http_build_query($attrs_arr, null, '" ', PHP_QUERY_RFC3986)).'"';
+        */
+        @endphp
+
+        {{ $test }}
+        
+        {{--  
+        <x-dynamic-component :component="$test" >AAAA</x-dynamic-component>
+
+        <x-alert type="danger" title="danger">danger txt</x-alert>
+        @component('alert',$attrs_arr)
+        --}}
+            
+        @endcomponent
+        {{-- print_r($test,true) --}}
+        {{--  
+            <livewire:is :component="$componentName">
+            --}}
+    </x-col>
+    @endif
+@endsection

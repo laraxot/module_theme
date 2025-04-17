@@ -1,0 +1,15 @@
+{
+  "name": "jquery-flexselect",
+  "version": "0.9.0",
+  "main": [
+    "jquery.flexselect.js",
+    "flexselect.css"
+  ],
+  "ignore": [
+    "test",
+    "vendor"
+  ],
+  "dependencies": {
+    "jquery": ">=1.4"
+  }
+}

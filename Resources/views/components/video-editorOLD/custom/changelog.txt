@@ -1,0 +1,34 @@
+CHANGELOG
+
+1.2.5
+- Fixed the error that sometimes occurred when starting video rendering for a regular user (not an admin).
+
+1.2.4
+- Bootstrap updated to version 4.5.3.
+- The video clip selection slider now supports mobile devices.
+- Improved display of the selected frame.
+
+1.2.3
+- Loading animation when selecting a video clip.
+- Fixed a problem with playing a video clip that sometimes appeared in the Chrome browser.
+- Added fields for entering the exact time for cutting a video episode.
+
+1.2.2
+- Fixed converting video that does not have a audio track.
+
+1.2.1
+- Multiple file uploads.
+- Upload video by URL.
+- Ability to upload images and audio.
+- Ability to add overlay text.
+- Ability to translate interface. Ready translation files for English and Russian.
+- Support Ffmpeg 4.0+
+
+1.2.0
+- Added registration, authorization, password recovery.
+- Added function "Cut fast".
+
+1.1.0
+- Added Google authentication.
+- Improved pagination in Users list (Admin area).
+- Get frame image improvements.

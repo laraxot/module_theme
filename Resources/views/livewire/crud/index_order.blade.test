@@ -1,0 +1,49 @@
+@php
+    Theme::add('https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js');
+    
+@endphp
+<div>
+
+    
+
+    <ul wire:sortable="updateGroupOrder" wire:sortable-group="updateOrder">
+        @foreach ($tree_nodes as $node_key=>$node_type)
+            @foreach ($node_type as $row)
+                <li wire:key="{{ $parent }}-{{ $row->id }}" wire:sortable.item="{{ $parent }}-{{ $row->id }}">
+                    <div style="display: flex">
+                        <h4 wire:sortable.handle>{{ $row->treeLabel() }} - {{ $row->posizione }}</h4>
+                    </div>
+                    
+                    <ul wire:sortable-group.item-group="{{ $node_key }}-{{ $row->id }}">
+                        @foreach ($row->treeSons()  as $son_key=>$son_type)
+                            @foreach ($son_type as $son)
+                                <li wire:key="{{ $son_key }}-{{ $son->id }}" wire:sortable-group.item="{{ $son_key }}-{{ $son->id }}">
+                                    {{-- $son->treeLabel() --}} 
+                                    <h4 wire:sortable.handle>{{ $son->treeLabel() }}  - {{ $son->posizione }}</h4>
+
+                                    <ul wire:sortable-group.item-group="{{ $son_key }}-{{ $son->id }}">
+                                        @foreach ($son->treeSons()  as $son_son_key=>$son_son_type)
+                                            @foreach ($son_son_type as $son_son)
+                                                <li wire:key="{{ $son_son_key }}-{{ $son_son->id }}" wire:sortable-group.item="{{ $son_son_key }}-{{ $son_son->id }}">
+                                                    {{ $son_son->treeLabel() }} 
+                                                </li>
+                                            @endforeach
+                                        @endforeach
+                                    </ul>
+
+
+
+
+                                </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                    
+
+                </li>
+            @endforeach
+        @endforeach
+
+    </ul>
+
+</div>

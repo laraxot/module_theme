@@ -1,0 +1,10 @@
+questo va bene anche per il menu builder 
+https://github.com/RamonSmit/Nestable2
+
+----------
+
+https://stackoverflow.com/questions/72096422/livewire-nestable-is-resetting-order-on-drop
+
+
+----------
+

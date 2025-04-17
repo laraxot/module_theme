@@ -1,0 +1,22 @@
+come si vede in questo file
+https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/package.json
+
+"description": "A free admin dashboard template based on Bootstrap 4, created by Start Bootstrap.",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template",
+        "admin",
+        "app",
+        "dashboard"
+    ],
+"homepage": "https://startbootstrap.com/template/sb-admin",
+    "bugs": {
+        "url": "https://github.com/StartBootstrap/startbootstrap-sb-admin/issues",
+        "email": "feedback@startbootstrap.com"
+    },
+
+

@@ -1,0 +1,53 @@
+
+---------------------------------------------------------
+https://github.com/tomsix/laravel-components-library
+on 15 Sep 2021
+Git stats
+
+---------------------------------------------------------
+
+https://github.com/cagilo/cagilo
+25 days ago
+Git stats
+
+---------------------------------------------------------
+https://dcblog.dev/laravel-blade-components-package
+https://reposhub.com/javascript/css/dcblogdev-laravel-blade-components.html
+https://github.com/dcblogdev/laravel-blade-components
+
+---------------------------------------------------------
+https://opensourcelibs.com/lib/laravel-form-components
+https://github.com/protonemedia/laravel-form-components
+
+---------------------------------------------------------
+https://bestofphp.com/repo/asantibanez-laravel-blade-sortable
+https://github.com/asantibanez/laravel-blade-sortable
+
+---------------------------------------------------------
+
+https://beyondco.de/blog/blade-components-for-your-layout
+
+---------------------------------------------------------
+
+https://blade-ui-kit.com/
+
+---------------------------------------------------------
+https://awesomeopensource.com/project/dgvai/laravel-adminlte-components#input-slider
+https://github.com/dgvai/laravel-adminlte-components    !!!!!!!!!!
+
+---------------------------------------------------------
+
+jeroennoten/Laravel-AdminLTE
+
+---------------------------------------------------------
+
+https://meritocracy.is/blog/2020/04/17/laravel-using-pagination-sorting-and-filtering-with-your-tables/
+
+---------------------------------------------------------
+breeze in bootstrap
+https://github.com/khadegd/laravel-breeze-bootstrap/
+
+---------------------------------------------------------
+
+
+

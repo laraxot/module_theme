@@ -1,0 +1,76 @@
+https://www.jqueryscript.net/menu/jQuery-Accordion-Menu-Plugin-For-Bootstrap-3-metisMenu.html
+
+https://www.jqueryscript.net/demo/Bootstrap-4-Multi-Select-BsMultiSelect/
+
+
+laravel ha links
+https://www.jqueryscript.net/other/Simple-Customizable-Pagination-Plugin-with-jQuery-Bootstrap-Twbs-Pagination.html
+
+
+//--- bsDualListbox
+https://www.jqueryscript.net/demo/Responsive-jQuery-Dual-Select-Boxes-For-Bootstrap-Bootstrap-Dual-Listbox/
+
+//  bsSelectFilterable
+https://www.jqueryscript.net/demo/jQuery-Plugin-For-Filterable-Bootstrap-Dropdown-Select-Bootstrap-Select/
+
+//--- bsUpload
+https://www.jqueryscript.net/demo/Nice-Clean-File-Input-Plugin-With-jQuery-Bootstrap-3-Bootstrap-Fileinput/?
+
+//---- bsPassword
+https://www.jqueryscript.net/demo/Show-Hide-Password-Field-Text-with-jQuery-Bootstrap/
+
+
+//---- cookie law
+https://www.cssscript.com/eu-cookie-law-notice-plugin-bootstrap-4/
+
+//--- da leggere
+https://www.cookiesandyou.com/disable-cookies/windows/chrome/
+
+//-- dark mode per incrementare leggibilità
+https://www.cssscript.com/dark-mode-switcher-bootstrap/
+
+
+//-- bsCheckbox
+https://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/
+
+//-- bsSwitch
+https://www.cssscript.com/demo/ios-style-switches-bootstrap-4/
+
+//--  Modal  verificare se mobile si vede bene
+https://www.cssscript.com/mobile-friendly-bootstrap-4-modals-with-jquery-bootstrap4-fs-modal/
+
+//--- extra color sui button
+https://www.cssscript.com/extra-styles-colors-bootstrap-4-buttons/
+
+//--- mega menu, headernav.blade.php
+https://www.jqueryscript.net/menu/Lightweight-Pure-CSS-Mega-Menu-For-Bootstrap-Yamm.html
+
+// bsIconPicker
+https://www.jqueryscript.net/other/jQuery-Based-Icon-Picker-For-Bootstrap-3-iconpicker.html
+https://codeb.it/fonticonpicker/
+
+
+// bsAutocomplete
+https://www.jqueryscript.net/demo/Autocomplete-Dropdown-Bootstrap-jQuery/
+
+//--- bsChips
+https://www.jqueryscript.net/demo/Multiple-Select-Plugin-jQuery-Bootstrap-4/
+
+//-- bsTimeClock
+https://www.jqueryscript.net/time-clock/jQuery-Clock-Style-Time-Picker-Plugin-For-Bootstrap-3-clockpicker.html
+
+//-- data table
+https://datatables.net/examples/styling/bootstrap
+
+//--- dropdown
+https://thompsonsj.com/bootstrap-select-dropdown/
+
+//--- contact form
+https://graygrids.com/php-and-ajax-based-contact-form-for-bootstrap-and-html5/
+
+//--- molti pezzi
+https://getfuelux.com/extensions.html   // Latest commit on 14 Aug 2019
+https://github.com/Semantic-Org/Semantic-UI   2018 ;(
+https://github.com/jasny/bootstrap/  Latest commit on 13 Jan 2020
+
+

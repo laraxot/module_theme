@@ -1,0 +1,38 @@
+se passi una collection ($rows) al componente (es.card) dobbiamo fare la classe /Card/Rows.php
+e sennò sarà /Card.php
+
+
+esempio, se passi una collection
+
+<x-breadcrumb.rows type="v2" :rows="$panel->getBreads()"></x-breadcrumb.rows>
+
+getBreads() è una collection
+
+quindi dentro il componente sarà, ad esempio:
+
+@foreach($rows as $row)
+    <li>$row<li>
+@endforeach
+
+-------------------------------------------------------------------------------------
+
+se invece non la passi ed è un singolo elemento:
+
+<x-card type="contact">
+    <x-slot name="title">Titolo</x-slot>
+</x-card>
+
+quindi dentro il componente sarà {{ $title }}
+
+-------------------------------------------------------------------------------------
+
+ALTRA CONSIDERAZIONE
+
+se il componente prende i dati da un modello che è in un modulo specifico
+allora il componente andrà in quello stesso modulo
+
+esempio:
+
+<x-card.article> andrà in /Module/Blog/View/Components/Card/Article.php
+
+o se gli passassimo una collection: Modules/Blog/Views/Components/Card/Articles.php

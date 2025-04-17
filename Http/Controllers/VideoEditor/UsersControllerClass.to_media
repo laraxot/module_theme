@@ -1,0 +1,274 @@
+<?php
+
+namespace Modules\Theme\Http\Controllers\VideoEditor;
+
+/**
+ * UsersControllerClasss
+ *
+ * @author Andchir <andycoderw@gmail.com>
+ */
+class UsersControllerClass extends BaseControllerClass
+{
+
+    /**
+     * UsersControllerClass constructor.
+     * @param array $config
+     * @param array $lang
+     */
+    public function __construct($config = array(), $lang = array())
+    {
+
+        parent::__construct($config, $lang);
+
+    }
+
+    /**
+     * @return array
+     */
+    public function getUsers()
+    {
+        $output = array(
+            'success' => false,
+            'data' => array()
+        );
+        $currentUser = $this->getUser(true);
+        if ($currentUser === false || $currentUser['role'] != 'admin') {
+            return $output;
+        }
+
+        $userStore = $this->dbGetStore('users');
+        $keys = $userStore->getKeys();
+
+        $total = count($keys);
+        $pages = $this->getPagesData($total);
+
+        $index = 0;
+        foreach ($keys as $userId) {
+            if ($index < $pages['offset']) {
+                $index++;
+                continue;
+            }
+            if ($index + 1 > $pages['offset'] + $pages['perPage']) {
+                break;
+            }
+
+            $user = $userStore->get($userId);
+            $user['id'] = $userId;
+            if (!isset($user['confirmed'])) {
+                $user['confirmed'] = true;
+            }
+            if (!isset($user['type'])) {
+                $user['type'] = 'basic';
+            }
+            $output['data'][] = $user;
+            $index++;
+        }
+
+
+        $output['pages'] = $pages;
+
+        return $output;
+    }
+
+    /**
+     * Get pages data
+     * @param $totalItems
+     * @return array
+     */
+    public function getPagesData($totalItems)
+    {
+        $pages = array(
+            'current' => 1,
+            'total' => 0,
+            'perPage' => 12,
+            'offset' => 0
+        );
+        $pages['current'] = !empty($_GET['page']) && is_numeric($_GET['page'])
+            ? $_GET['page']
+            : 1;
+        $pages['total'] = ceil($totalItems / $pages['perPage']);
+        $pages['offset'] = $pages['perPage'] * ($pages['current'] - 1);
+
+        return $pages;
+    }
+
+    /**
+     * Edit user page
+     * @return array
+     */
+    public function editUserPage()
+    {
+        $output = array();
+
+        $userId = !empty($_GET['user_id']) && !is_array($_GET['user_id'])
+            ? trim(urldecode($_GET['user_id']))
+            : 0;
+
+        $currentUser = $this->getUser();
+        if ($currentUser === false || $currentUser['role'] != 'admin') {
+            return $output;
+        }
+
+        $user = $this->getUser(false, $userId, false);
+        if ($user === false) {
+            return $output;
+        }
+
+        if (!empty($_POST['name'])) {
+
+            $currentConfirmed = !empty($user['confirmed']);
+
+            $data = array();
+            if (!empty($_POST['name'])) {
+                $data['name'] = trim($_POST['name']);
+            }
+            if (!empty($_POST['email'])) {
+                $data['email'] = trim($_POST['email']);
+            }
+            if (!empty($_POST['role'])) {
+                $data['role'] = trim($_POST['role']);
+            }
+            if ($currentUser['id'] != $user['id']) {
+                $data['blocked'] = !empty($_POST['blocked']);
+                $data['confirmed'] = !empty($_POST['confirmed']);
+            }
+            if (!empty($_POST['type'])) {
+                $data['type'] = trim($_POST['type']);
+            }
+            self::setFlash('messages', $this->lang['data_successfully_saved']);
+
+            $this->updateUser($user['id'], $data);
+            $user = $this->getUser(false, $userId, false);
+
+            if (!$currentConfirmed && $user['confirmed'] && !$user['blocked']) {
+                $emailBody = $this->getTemplate('email_confirm');
+                $this->sendEmail($user['email'], $this->lang['your_account_activated'], $emailBody);
+            }
+        }
+
+        $contentController = new ContentControllerClass($this->config);
+        $user['input_data'] = $contentController->getMediaList('input', $user['id']);
+        $user['output_data'] = $contentController->getMediaList('output', $user['id']);
+
+        $template = $this->getTemplate('user_edit', $user);
+
+        $output['content'] = $template;
+
+        return $output;
+    }
+
+    /**
+     * Delete user page
+     * @param int $userId
+     * @return array
+     */
+    public function deleteUserPage($userId = 0)
+    {
+        $output = array();
+        if (!$userId) {
+            $userId = !empty($_GET['user_id']) && !is_array($_GET['user_id'])
+                ? trim(urldecode($_GET['user_id']))
+                : 0;
+        }
+        $currentUser = $this->getUser();
+        if ($currentUser === false
+            || ($currentUser['role'] != 'admin' && $currentUser['id'] != $userId)
+        ) {
+            return $output;
+        }
+
+        $submited = false;
+        if (!empty($_POST['accept'])) {
+            $submited = true;
+
+            if ($currentUser['role'] == 'admin') {
+                $this->deleteUser($userId);
+            } else {
+                $this->updateUser($userId, array('blocked' => true));
+            }
+
+        }
+        if (!empty($_POST['cancel'])) {
+            $submited = true;
+        }
+        if ($submited) {
+            $redirectUrl = $currentUser['role'] == 'admin'
+                ? $this->config['base_url'] . $this->config['home_url'] . '?action=users'
+                : $this->config['base_url'] . $this->config['home_url'];
+            self::redirectTo($redirectUrl);
+        }
+
+        $output['content'] = '<form action="' . $this->config['base_url'] . $this->config['home_url'] . '?action=delete_user&user_id=' . $userId . '" method="post">';
+
+        if ($currentUser['id'] == $userId) {
+            $output['content'] .= '<p>' . $this->lang['you_sure_you_want_delete_your_account'] . '</p>';
+        } else {
+            $output['content'] .= '<p>' . $this->lang['you_sure_you_want_remove_user'] . '</p>';
+        }
+
+        $output['content'] .= '<div>';
+        $output['content'] .= ' <button type="submit" class="btn btn-primary" name="accept" value="1">' . $this->lang['yes'] . '</button>';
+        $output['content'] .= ' <button type="submit" class="btn btn-secondary" name="cancel" value="1">' . $this->lang['cancel'] . '</button>';
+        $output['content'] .= '</div>';
+        $output['content'] .= '</form>';
+
+        return $output;
+    }
+
+    /**
+     * @param $userId
+     * @param $data
+     * @return bool
+     */
+    public function updateUser($userId, $data)
+    {
+        $userStore = $this->dbGetStore('users');
+        $user = $userStore->get($userId);
+        if (empty($user)) {
+            return false;
+        }
+
+        $user = array_merge($user, $data);
+        $userStore->set($userId, $user);
+
+        return true;
+    }
+
+    /**
+     * @param $userId
+     * @return bool
+     */
+    public function deleteUser($userId)
+    {
+        $userStore = $this->dbGetStore('users');
+        $user = $userStore->get($userId);
+        if (empty($user)) {
+            return false;
+        }
+
+        $storeDirPath = $this->config['root_path'] . $this->config['database_dir'];
+        $tmpDirPath = $this->getPublicPath('tmp_dir', $userId);
+        $inputDirPath = $this->getPublicPath('input_dir', $userId);
+        $outputDirPath = $this->getPublicPath('output_dir', $userId);
+
+        $filesStoreDirPath = $storeDirPath . $userId;
+
+        if (is_dir($filesStoreDirPath)) {
+            self::deleteDir($filesStoreDirPath);
+        }
+        if (is_dir($tmpDirPath)) {
+            self::deleteDir($tmpDirPath);
+        }
+        if (is_dir($inputDirPath)) {
+            self::deleteDir($inputDirPath);
+        }
+        if (is_dir($outputDirPath)) {
+            self::deleteDir($outputDirPath);
+        }
+
+        $userStore->delete($userId);
+
+        return true;
+    }
+
+}

@@ -1,0 +1,13 @@
+{
+  "name": "multiselect",
+  "_cacheHeaders": {
+    "ETag": "W/\"8526d0f9bd32c2bc1305c7602f10a54e\"",
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "_release": "e-tag:W/\"8526d0f",
+  "main": "index",
+  "_source": "https://github.com/crlcu/multiselect",
+  "_target": "*",
+  "_originalSource": "https://github.com/crlcu/multiselect",
+  "_direct": true
+}
