@@ -29,7 +29,7 @@ class Mapbox extends XotBaseComponent
         string $id = 'map',
         string $theme = 'streets-v11',
         array $options = [],
-        array $markers = []
+        array $markers = [],
     ) {
         $this->id = $id;
         $this->theme = $theme;

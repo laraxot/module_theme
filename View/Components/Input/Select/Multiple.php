@@ -34,7 +34,7 @@ class Multiple extends Component
      *
      * @return void
      */
-    public function __construct(array $options, string $name, string $class = null)
+    public function __construct(array $options, string $name, ?string $class = null)
     {
         $this->options = $options;
         $this->attrs['name'] = $name;

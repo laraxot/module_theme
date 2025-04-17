@@ -42,8 +42,8 @@ class Head extends XotBaseComponent
     public array $form_data = [];
 
     /**
-     * @param \Illuminate\Database\Eloquent\Model|null $row
-     * @param string                                   $index
+     * @param Model|null $row
+     * @param string     $index
      */
     public function mount($row, $index): void
     {
@@ -89,14 +89,14 @@ class Head extends XotBaseComponent
     public function getPanelProperty()
     {
         /**
-         * @var \Illuminate\Database\Eloquent\Model
+         * @var Model
          */
         $row = $this->row;
 
         return PanelService::make()->get($row);
     }
 
-    public function setFormProperties(Model $model = null): void
+    public function setFormProperties(?Model $model = null): void
     {
         // $this->model = $model;
         if ($model) {

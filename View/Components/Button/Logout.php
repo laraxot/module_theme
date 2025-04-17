@@ -15,7 +15,7 @@ class Logout extends XotBaseComponent
     public string $action;
     public array $attrs = ['aa' => 'bb'];
 
-    public function __construct(string $action = null)
+    public function __construct(?string $action = null)
     {
         $this->action = $action ?? route('logout');
     }

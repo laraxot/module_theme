@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://github.com/dgvai/laravel-adminlte-components#datatable.
  */
@@ -32,7 +33,7 @@ class Datatable extends Component
         bool $condensed,
         array $heads,
         bool $footer = false,
-        bool $buttons = false
+        bool $buttons = false,
     ) {
         $this->id = $id;
         $this->beautify = $beautify;

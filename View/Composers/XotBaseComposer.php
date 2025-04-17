@@ -32,6 +32,7 @@ abstract class XotBaseComposer
             return collect([]);
         }
         $rows = $menu->items;
+
         // $sql = Str::replaceArray('?', $rows->getBindings(), $rows->toSql());
         // $test = MenuItem::where('menu', 2)->get();
         // dddx(

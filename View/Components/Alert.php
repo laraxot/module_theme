@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://github.com/cagilo/cagilo.
  */
@@ -23,11 +24,11 @@ class Alert extends Component
     public bool $dismissable;
 
     /**
-     * @var \Illuminate\Contracts\Session\Session
+     * @var Session
      */
     protected $session;
 
-    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, string $title = null)
+    public function __construct(Session $session, string $type = 'info', bool $dismissable = true, ?string $title = null)
     {
         $this->session = $session;
         $this->type = $type;

@@ -93,6 +93,7 @@ class ThemeViewService
         if (! $this->filters) {
             $this->filters = (array) config('bootstrap-italia.filters');
         }
+
         /*
         return array_map([$this->container, 'make'], $this->filters);
         */

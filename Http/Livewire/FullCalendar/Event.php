@@ -34,9 +34,6 @@ class Event extends XotBaseComponent
 {
     // private $model; //Customer::class;
     public string $model;
-    /**
-     * @var string
-     */
     public ?string $name = 'Barry';
 
     public array $events = []; // non sono gli eventi in calendario ma le azioni
@@ -92,6 +89,7 @@ class Event extends XotBaseComponent
                     ];
                 }
             )->all();
+
         /*
         if (is_array($events)) {
             $this->events = $events;

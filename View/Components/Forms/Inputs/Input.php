@@ -12,21 +12,15 @@ use Modules\Xot\View\Components\XotBaseComponent;
  */
 class Input extends XotBaseComponent
 {
-    /**
-     * @var string
-     */
     public ?string $name;
 
     public string $id;
 
     public string $type;
 
-    /**
-     * @var string
-     */
     public ?string $value;
 
-    public function __construct(string $name, string $id = null, string $type = 'text', ?string $value = '')
+    public function __construct(string $name, ?string $id = null, string $type = 'text', ?string $value = '')
     {
         $this->name = $name;
         $this->id = $id ?? $name;

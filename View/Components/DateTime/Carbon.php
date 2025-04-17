@@ -31,7 +31,7 @@ class Carbon extends XotBaseComponent
         \DateTimeInterface $date,
         string $format = 'Y-m-d H:i:s',
         bool $human = false,
-        string $local = ''
+        string $local = '',
     ) {
         $this->date = CarbonAlias::instance($date);
         $this->format = $format;

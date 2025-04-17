@@ -56,7 +56,7 @@ class FieldService extends BaseFieldService
     public function setVars(array $vars): self
     {
         foreach ($vars as $k => $v) {
-            $func = 'set'.str::Studly($k);
+            $func = 'set'.Str::Studly($k);
             $this->{$func}($k);
         }
 
@@ -186,7 +186,7 @@ class FieldService extends BaseFieldService
         return view()->make($view, $view_params);
     }
 
-    public function html(array $form_data = [], Model $row = null): Renderable
+    public function html(array $form_data = [], ?Model $row = null): Renderable
     {
         /**
          * @XOT //$form_data non dovrebbe servire

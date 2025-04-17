@@ -84,22 +84,22 @@ class V2 extends Component
      * Undocumented function.
      */
     public function mount(
-        int $initialYear = null,
-        int $initialMonth = null,
-        int $weekStartsAt = null,
-        string $calendarView = null,
-        string $dayView = null,
-        string $eventView = null,
-        string $dayOfWeekView = null,
-        string $dragAndDropClasses = null,
-        string $beforeCalendarView = null,
-        string $afterCalendarView = null,
-        string $pollMillis = null,
-        string $pollAction = null,
+        ?int $initialYear = null,
+        ?int $initialMonth = null,
+        ?int $weekStartsAt = null,
+        ?string $calendarView = null,
+        ?string $dayView = null,
+        ?string $eventView = null,
+        ?string $dayOfWeekView = null,
+        ?string $dragAndDropClasses = null,
+        ?string $beforeCalendarView = null,
+        ?string $afterCalendarView = null,
+        ?string $pollMillis = null,
+        ?string $pollAction = null,
         bool $dragAndDropEnabled = true,
         bool $dayClickEnabled = true,
         bool $eventClickEnabled = true,
-        array $extras = []
+        array $extras = [],
     ): void {
         $this->weekStartsAt = $weekStartsAt ?? Carbon::SUNDAY;
         $this->weekEndsAt = Carbon::SUNDAY === $this->weekStartsAt
@@ -144,12 +144,12 @@ class V2 extends Component
      * -----.
      */
     public function setupViews(
-        string $calendarView = null,
-        string $dayView = null,
-        string $eventView = null,
-        string $dayOfWeekView = null,
-        string $beforeCalendarView = null,
-        string $afterCalendarView = null
+        ?string $calendarView = null,
+        ?string $dayView = null,
+        ?string $eventView = null,
+        ?string $dayOfWeekView = null,
+        ?string $beforeCalendarView = null,
+        ?string $afterCalendarView = null,
     ): void {
         $this->calendarView = $calendarView ?? 'theme::livewire.calendar.v2.calendar';
         $this->dayView = $dayView ?? 'theme::livewire.calendar.v2.day';

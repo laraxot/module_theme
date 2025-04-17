@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://thecodelearners.com/laravel-livewire-login-dynamic-registration-form-for-multiple-roles/
  * https://itwebtuts.blogspot.com/2021/06/laravel-livewire-login-register-example.html

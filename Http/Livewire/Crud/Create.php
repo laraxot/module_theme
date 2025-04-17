@@ -18,7 +18,7 @@ use Modules\Cms\Services\PanelService;
 class Create extends Component
 {
     public Model $model;
-    public Collection  $fields;
+    public Collection $fields;
     public array $form_data = [];
     public array $rules = [];
 

@@ -22,7 +22,7 @@ class Container extends Component
     public function __construct(
         ?string $containerClass = '',
         ?string $wrapperClass = '',
-        ?string $wrapperStyle = ''
+        ?string $wrapperStyle = '',
     ) {
         $this->attrs['container_class'] = $containerClass;
         $this->attrs['wrapper_class'] = $wrapperClass;

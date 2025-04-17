@@ -13,7 +13,7 @@ class Checkbox extends Input
 {
     public bool $checked;
 
-    public function __construct(string $name, string $id = null, bool $checked = false)
+    public function __construct(string $name, ?string $id = null, bool $checked = false)
     {
         parent::__construct($name, $id, 'checkbox');
 

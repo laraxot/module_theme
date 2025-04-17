@@ -22,7 +22,7 @@ class Submit extends Component
      */
     public string $formId;
 
-    public function __construct(string $action, string $formId = null)
+    public function __construct(string $action, ?string $formId = null)
     {
         $this->action = Route::has($action) ? route($action) : $action;
         $this->formId = $formId ?? (string) Str::uuid();

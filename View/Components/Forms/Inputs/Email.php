@@ -11,7 +11,7 @@ use Illuminate\Contracts\Support\Renderable;
  */
 class Email extends Input
 {
-    public function __construct(string $name = 'email', string $id = null, ?string $value = '')
+    public function __construct(string $name = 'email', ?string $id = null, ?string $value = '')
     {
         parent::__construct($name, $id, 'email', $value);
     }

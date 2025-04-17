@@ -12,16 +12,13 @@ use Modules\Xot\View\Components\XotBaseComponent;
  */
 class Textarea extends XotBaseComponent
 {
-    /**
-     * @var string
-     */
     public ?string $name;
 
     public string $id;
 
     public int $rows;
 
-    public function __construct(string $name, string $id = null, int $rows = 3)
+    public function __construct(string $name, ?string $id = null, int $rows = 3)
     {
         $this->name = $name;
         $this->id = $id ?? $name;

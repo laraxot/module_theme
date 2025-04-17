@@ -118,7 +118,7 @@ class ThemeService
         return $locale['regional'];
     }
 
-    public static function add(string $file, int $position = null): void
+    public static function add(string $file, ?int $position = null): void
     {
         $path_parts = pathinfo($file);
 
@@ -149,7 +149,7 @@ class ThemeService
         // return;
     }
 
-    public static function addStyle(string $style, int $position = null): void
+    public static function addStyle(string $style, ?int $position = null): void
     {
         if (null === $position) {
             /**
@@ -162,7 +162,7 @@ class ThemeService
         $styles = self::__merge('styles', [$style]);
     }
 
-    public static function addScript(string $script, int $position = null): void
+    public static function addScript(string $script, ?int $position = null): void
     {
         if (null === $position) {
             /**
@@ -508,6 +508,7 @@ class ThemeService
         if (isset($params['module'])) {
             return $params['module'];
         }
+
         /*
         $tmp = explode('/', optional(\Route::current())->getCompiled()->getStaticPrefix());
         $tmp = \array_slice($tmp, 2, 1);
@@ -825,7 +826,7 @@ class ThemeService
      * view.
      * Illuminate\Contracts\View\View perche' poi posso appicciare parametri con with.
      */
-    public static function view(string $view = null): \Illuminate\Contracts\View\View
+    public static function view(?string $view = null): \Illuminate\Contracts\View\View
     {
         $view_work = self::getViewWork(['view' => $view]);
         if (null === $view) {
@@ -1168,7 +1169,7 @@ class ThemeService
     /**
      * Undocumented function.
      *
-     * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Support\HtmlString
+     * @return Renderable|\Illuminate\Support\HtmlString
      */
     public static function inputHtml(array $params)
     {

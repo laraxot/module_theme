@@ -120,7 +120,7 @@ abstract class BaseV2 extends Component
         $dragAndDropEnabled = true,
         $dayClickEnabled = true,
         $eventClickEnabled = true,
-        $extras = []
+        $extras = [],
     ): void {
         $this->weekStartsAt = $weekStartsAt ?? Carbon::SUNDAY;
         $this->weekEndsAt = Carbon::SUNDAY === $this->weekStartsAt
@@ -169,7 +169,7 @@ abstract class BaseV2 extends Component
         $eventView = null,
         $dayOfWeekView = null,
         $beforeCalendarView = null,
-        $afterCalendarView = null
+        $afterCalendarView = null,
     ): void {
         /**
          * @phpstan-var view-string

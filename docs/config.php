@@ -29,7 +29,7 @@ return [
     'docsearchIndexName' => env('DOCSEARCH_INDEX'),
 
     // navigation menu
-    'navigation' => require_once('navigation.php'),
+    'navigation' => require_once ('navigation.php'),
 
     // helpers
     'isActive' => function ($page, $path) {
@@ -49,6 +49,7 @@ return [
         if (Str::startsWith($path, 'http')) {
             return $path;
         }
+
         // return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
         return url('/'.$page->lang.'/'.trimPath($path));
     },

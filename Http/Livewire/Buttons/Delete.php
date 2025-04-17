@@ -32,6 +32,6 @@ class Delete extends Component
      * @return \Illuminate\Http\Response
      */
     // public function destroy($contactId) {
-        // Contact::find($contactId)->delete();
+    // Contact::find($contactId)->delete();
     // }
 }

@@ -48,8 +48,8 @@ class Row extends XotBaseComponent
     public array $rows = [];
 
     /**
-     * @param \Illuminate\Database\Eloquent\Model|null $row
-     * @param string                                   $index
+     * @param Model|null $row
+     * @param string     $index
      */
     public function mount($row, $index): void
     {
@@ -116,7 +116,7 @@ class Row extends XotBaseComponent
 
     // *
 
-    public function setFormProperties(Model $model = null): void
+    public function setFormProperties(?Model $model = null): void
     {
         // $this->model = $model;
         if ($model) {

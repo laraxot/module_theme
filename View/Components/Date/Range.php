@@ -24,7 +24,7 @@ class Range extends Component
         string $icon,
         int $init,
         \Closure $callback,
-        string $inputclass = ''
+        string $inputclass = '',
     ) {
         $this->id = $id;
         $this->topclass = $topclass;

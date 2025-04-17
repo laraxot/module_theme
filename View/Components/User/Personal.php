@@ -25,7 +25,7 @@ class Personal extends XotBaseComponent
         string $city,
         string $state,
         string $zip,
-        string $apt
+        string $apt,
     ) {
         $this->attrs['id'] = $id;
         $this->attrs['fullname'] = $fullname;

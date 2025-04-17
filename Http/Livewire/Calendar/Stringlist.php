@@ -38,7 +38,7 @@ class Stringlist extends Component
 
     public string $input_name;
 
-    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null, string $date_list = null, string $input_name): void
+    public function mount(SessionManager $session, ?string $minDate = null, ?string $maxDate = null, ?string $date_list = null, string $input_name): void
     {
         // dddx($date_list);
         if (null !== $date_list) {
@@ -144,7 +144,7 @@ class Stringlist extends Component
         return array_chunk($daysArray, 7);
     }
 
-    private function isCurrentDay(int $day = null): bool
+    private function isCurrentDay(?int $day = null): bool
     {
         if ($day !== session('calendar.now')->day) {
             return false;
@@ -162,7 +162,7 @@ class Stringlist extends Component
     }
 
     // mi evidenzia i giorni
-    private function isDaySelected(int $day = null): bool
+    private function isDaySelected(?int $day = null): bool
     {
         $date_selected = $day.'/'.$this->currentMonth.'/'.$this->currentYear;
 
@@ -184,7 +184,7 @@ class Stringlist extends Component
         */
     }
 
-    private function isDayDisabled(int $day = null): bool
+    private function isDayDisabled(?int $day = null): bool
     {
         if (null === $day) {
             return true;
@@ -228,7 +228,7 @@ class Stringlist extends Component
         $this->currentMonth = $month;
     }
 
-    public function setByDay(int $day = null): void
+    public function setByDay(?int $day = null): void
     {
         if (null === $day) {
             return;

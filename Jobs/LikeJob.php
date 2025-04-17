@@ -15,7 +15,7 @@ final class LikeJob
 
     public function __construct(
         HasLikeContract $model,
-        ?User $user
+        ?User $user,
     ) {
         $this->model = $model;
         $this->user = $user;

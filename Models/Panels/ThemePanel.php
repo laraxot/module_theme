@@ -108,7 +108,7 @@ class ThemePanel extends XotBasePanel
         ];
     }
 
-    public function actions(Request $request = null): array
+    public function actions(?Request $request = null): array
     {
         return [
             new Actions\DemoImageGalleryAction(),

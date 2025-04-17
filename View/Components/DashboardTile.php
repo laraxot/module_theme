@@ -20,10 +20,10 @@ class DashboardTile extends Component
 
     public function __construct(
         string $position,
-        int $refreshInterval = null,
-        string $title = null,
+        ?int $refreshInterval = null,
+        ?string $title = null,
         bool $fade = true,
-        bool $show = true
+        bool $show = true,
     ) {
         $this->gridArea = $this->convertToGridArea($position);
 

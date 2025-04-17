@@ -33,7 +33,7 @@ class Markdown extends XotBaseComponent
         string $htmlInput = 'allow',
         bool $allowUnsafeLinks = true,
         array $options = [],
-        bool $anchors = false
+        bool $anchors = false,
     ) {
         $this->flavor = $flavor;
         $this->htmlInput = $htmlInput;

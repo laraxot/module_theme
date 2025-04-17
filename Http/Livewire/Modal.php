@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://marcocaggiano.medium.com/creating-a-popup-modal-with-laravel-livewire-and-no-jquery-1806736acd82.
  */
@@ -54,7 +55,7 @@ class Modal extends Component
         // dddx($this->form_data); // qui controllo cosa arriva al modal
     }
 
-    public function sendData(string $event = null): void
+    public function sendData(?string $event = null): void
     {
         // dddx($this);
         // dddx($this->form_data);

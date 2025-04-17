@@ -38,6 +38,7 @@ class Item extends Component
         $view = 'theme::components.carousel.Item';
 
         $view_params = [];
+
         // *
         // view()->exists($view);
         return view($view, $view_params);

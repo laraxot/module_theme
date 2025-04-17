@@ -30,7 +30,7 @@ class Slider extends Component
      *
      * @return void
      */
-    public function __construct(string $driver = null)
+    public function __construct(?string $driver = null)
     {
         if (null === $driver) {
             $driver = 'noui';
@@ -93,6 +93,7 @@ class Slider extends Component
         // Cannot call method get() on mixed.
         // $errors = session()->get('errors');
         $errors = Session::get('errors');
+
         // Check if exists any error related to the configured error key.
         return ! empty($errors);
         // Cannot call method first() on mixed.

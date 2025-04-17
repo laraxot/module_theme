@@ -22,7 +22,7 @@ class Container extends XotBaseComponent
         string $location = '1st Street, NY',
         string $reviewsnumber = '0',
         string $verificationstatus = 'Unverified',
-        string $name = 'Name'
+        string $name = 'Name',
     ) {
         /*string $img = 'img.png',string $img_alt = 'Image',
         string $full_name = 'Full Name',string $location = '1st Street, NY',string $reviews_number = '0',

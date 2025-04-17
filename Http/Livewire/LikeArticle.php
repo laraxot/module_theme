@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://github.com/laravelio/laravel.io/blob/main/app/Http/Livewire/LikeArticle.php
  */
@@ -68,7 +69,7 @@ final class LikeArticle extends Component
     }
 
     /**
-     * @return \Modules\Theme\Contracts\HasLikeContract
+     * @return HasLikeContract
      */
     public function likeToggled()
     {

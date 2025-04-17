@@ -16,7 +16,7 @@ class ToC extends XotBaseComponent
 {
     public string $url;
 
-    public function __construct(string $url = null)
+    public function __construct(?string $url = null)
     {
         $this->url = $url ?? '';
     }

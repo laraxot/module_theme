@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://marcocaggiano.medium.com/creating-a-popup-modal-with-laravel-livewire-and-no-jquery-1806736acd82.
  */
@@ -36,7 +37,7 @@ class BodyView extends Component
     /**
      * Undocumented function.
      */
-    public function mount(string $id, string $title, string $subtitle = null, string $bodyView): void
+    public function mount(string $id, string $title, ?string $subtitle = null, string $bodyView): void
     {
         $this->modal_id = $id;
         $this->title = $title;
@@ -66,7 +67,7 @@ class BodyView extends Component
         // dddx($this->form_data); // qui controllo cosa arriva al modal
     }
 
-    public function sendData(string $event = null): void
+    public function sendData(?string $event = null): void
     {
         // dddx($this);
         // dddx($this->form_data);

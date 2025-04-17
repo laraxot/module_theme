@@ -20,7 +20,7 @@ class Container extends XotBaseComponent
         string $title = '',
         string $price = '$ 0.00',
         string $period = 'month',
-        string $highlight = 'false'
+        string $highlight = 'false',
     ) {
         $this->attrs['id'] = $id;
         $this->attrs['title'] = $title;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://cagilo.github.io/docs/meta/.
  */
@@ -37,7 +38,7 @@ class Meta extends Component
         string $type = 'website',
         string $card = 'summary_large_image',
         string $image = '',
-        string $url = ''
+        string $url = '',
     ) {
         $this->title = $title;
         $this->description = $description;

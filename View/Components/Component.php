@@ -61,6 +61,7 @@ class Component extends ViewComponent
         if (! \is_string($view)) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
+
         // return view()->make($view);
         return View::make($view, $view_params);
     }

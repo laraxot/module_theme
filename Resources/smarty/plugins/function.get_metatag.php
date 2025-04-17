@@ -16,7 +16,7 @@ use Modules\Theme\Services\ThemeService;
 /**
  * @param array $params
  *
- * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+ * @return Illuminate\Config\Repository|Illuminate\Contracts\Foundation\Application|mixed
  */
 function smarty_function_get_metatag($params, $smarty)
 {

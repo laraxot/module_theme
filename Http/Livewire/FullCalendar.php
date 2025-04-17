@@ -18,9 +18,6 @@ use Livewire\Component;
  */
 class FullCalendar extends Component
 {
-    /**
-     * @var string
-     */
     public ?string $name = 'Barry';
 
     public array $events = []; // non sono gli eventi in calendario ma le azioni
@@ -77,6 +74,7 @@ class FullCalendar extends Component
                 'start' => now()->addDays(random_int(-10, 10))->toDateString(),
             ];
         }
+
         // $this->events = $events;
         return $events;
     }

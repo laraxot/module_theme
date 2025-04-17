@@ -12,9 +12,6 @@ use Modules\Xot\View\Components\XotBaseComponent;
  */
 class EasyMDE extends XotBaseComponent
 {
-    /**
-     * @var string
-     */
     public ?string $name;
 
     public string $id;
@@ -26,7 +23,7 @@ class EasyMDE extends XotBaseComponent
      */
     protected static array $assets = ['alpine', 'easy-mde'];
 
-    public function __construct(string $name, string $id = null, array $options = [])
+    public function __construct(string $name, ?string $id = null, array $options = [])
     {
         $this->name = $name;
         $this->id = $id ?? $name;

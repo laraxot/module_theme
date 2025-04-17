@@ -19,7 +19,7 @@ class Container extends Component
      *
      * @return void
      */
-    public function __construct(string $ul_class = null)
+    public function __construct(?string $ul_class = null)
     {
         $this->ul_class = $ul_class;
     }

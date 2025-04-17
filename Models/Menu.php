@@ -13,10 +13,10 @@ use Sushi\Sushi;
 /**
  * Modules\Theme\Models\Menu.
  *
- * @property int                                                                       $id
- * @property string|null                                                               $name
- * @property \Illuminate\Database\Eloquent\Collection|\Modules\Theme\Models\MenuItem[] $items
- * @property int|null                                                                  $items_count
+ * @property int                                                 $id
+ * @property string|null                                         $name
+ * @property \Illuminate\Database\Eloquent\Collection|MenuItem[] $items
+ * @property int|null                                            $items_count
  *
  * @method static Builder|Menu newModelQuery()
  * @method static Builder|Menu newQuery()

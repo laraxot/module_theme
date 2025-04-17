@@ -48,7 +48,7 @@ class Calendar extends Component
 
     public mixed $opening_hours;
 
-    public function mount(SessionManager $session, string $minDate = null, string $maxDate = null): void
+    public function mount(SessionManager $session, ?string $minDate = null, ?string $maxDate = null): void
     {
         $session->put('calendar.now', now());
 
@@ -122,7 +122,7 @@ class Calendar extends Component
         return array_chunk($daysArray, 7);
     }
 
-    private function isCurrentDay(int $day = null): bool
+    private function isCurrentDay(?int $day = null): bool
     {
         if ($day !== session('calendar.now')->day) {
             return false;
@@ -139,7 +139,7 @@ class Calendar extends Component
         return true;
     }
 
-    private function isDaySelected(int $day = null): bool
+    private function isDaySelected(?int $day = null): bool
     {
         if ($day !== $this->selectedDay) {
             return false;
@@ -156,7 +156,7 @@ class Calendar extends Component
         return true;
     }
 
-    private function isDayDisabled(int $day = null): bool
+    private function isDayDisabled(?int $day = null): bool
     {
         if (null === $day) {
             return true;
@@ -200,7 +200,7 @@ class Calendar extends Component
         $this->currentMonth = $month;
     }
 
-    public function setByDay(int $day = null): void
+    public function setByDay(?int $day = null): void
     {
         if (null === $day) {
             return;

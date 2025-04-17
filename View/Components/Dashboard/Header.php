@@ -20,7 +20,7 @@ class Header extends Component
     public function __construct(
         string $view, // example 'adm_theme::components.dashboard.header'
         string $title,
-        string $subtitle = ''
+        string $subtitle = '',
     ) {
         $this->view = $view;
         $this->title = $title;

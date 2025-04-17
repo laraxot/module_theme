@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @see https://github.com/italia/design-comuni-pagine-statiche/blob/main/src/components/related-services/related-services.hbs
  */

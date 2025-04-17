@@ -17,9 +17,6 @@ class SyncInputs extends XotBasePanelAction
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sync"></i>';
-    /**
-     * @var string
-     */
     public ?string $name = 'sync_inputs';
 
     public function handle()

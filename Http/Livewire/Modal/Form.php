@@ -1,4 +1,5 @@
 <?php
+
 /**
  * https://marcocaggiano.medium.com/creating-a-popup-modal-with-laravel-livewire-and-no-jquery-1806736acd82.
  */

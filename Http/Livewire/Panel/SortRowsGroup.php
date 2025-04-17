@@ -46,7 +46,7 @@ class SortRowsGroup extends Component
     }
 
     /**
-     * @return \Illuminate\Support\Collection|string
+     * @return Collection|string
      */
     public function getGroupsProperty()
     {

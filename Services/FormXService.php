@@ -327,7 +327,7 @@ class FormXService
     /**
      * Undocumented function.
      *
-     * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Support\HtmlString
+     * @return Renderable|\Illuminate\Support\HtmlString
      */
     public static function inputHtml(array $params)
     {

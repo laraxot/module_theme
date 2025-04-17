@@ -12,9 +12,6 @@ use Modules\Xot\View\Components\XotBaseComponent;
  */
 class Trix extends XotBaseComponent
 {
-    /**
-     * @var string
-     */
     public ?string $name;
 
     public string $id;
@@ -26,7 +23,7 @@ class Trix extends XotBaseComponent
      */
     protected static array $assets = ['trix'];
 
-    public function __construct(string $name, string $id = null, string $styling = 'trix-content')
+    public function __construct(string $name, ?string $id = null, string $styling = 'trix-content')
     {
         $this->name = $name;
         $this->id = $id ?? $name;
